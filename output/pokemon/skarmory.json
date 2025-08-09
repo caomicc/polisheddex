@@ -704,6 +704,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "keen-eye",
+          "name": "Keen Eye",
+          "description": "\tPrevents foes from \tlowering accuracy.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "keen-eye",
+          "name": "Keen Eye",
+          "description": "\tPrevents foes from \tlowering accuracy.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 65,
+        "attack": 80,
+        "defense": 140,
+        "speed": 70,
+        "specialAttack": 40,
+        "specialDefense": 70,
+        "total": 465
+      },
+      "faithfulBaseStats": {
+        "hp": 65,
+        "attack": 80,
+        "defense": 140,
+        "speed": 70,
+        "specialAttack": 40,
+        "specialDefense": 70,
+        "total": 465
+      },
+      "polishedBaseStats": {
+        "hp": 85,
+        "attack": 80,
+        "defense": 140,
+        "speed": 70,
+        "specialAttack": 40,
+        "specialDefense": 70,
+        "total": 485
+      },
+      "catchRate": 25,
+      "baseExp": 168,
+      "heldItems": [
+        "SHARP_BEAK"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Slow (6,400 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Flying",
+        "Flying"
+      ],
+      "evYield": "2 Def",
       "eggMoves": [
         "Drill Peck",
         "Pursuit",
@@ -1176,72 +1266,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "keen-eye",
-          "name": "Keen Eye",
-          "description": "\tPrevents foes from \tlowering accuracy.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sturdy",
-          "name": "Sturdy",
-          "description": "\tCannot be knocked \tout with one hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "weak-armor",
-          "name": "Weak Armor",
-          "description": "\tPhysical attacks \ttrade Def for Spe.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "keen-eye",
-          "name": "Keen Eye",
-          "description": "\tPrevents foes from \tlowering accuracy.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sturdy",
-          "name": "Sturdy",
-          "description": "\tCannot be knocked \tout with one hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "weak-armor",
-          "name": "Weak Armor",
-          "description": "\tPhysical attacks \ttrade Def for Spe.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 65,
-        "attack": 80,
-        "defense": 140,
-        "speed": 70,
-        "specialAttack": 40,
-        "specialDefense": 70,
-        "total": 465
-      },
-      "faithfulBaseStats": {
-        "hp": 65,
-        "attack": 80,
-        "defense": 140,
-        "speed": 70,
-        "specialAttack": 40,
-        "specialDefense": 70,
-        "total": 465
-      }
+      ]
     }
   },
   "locations": [

@@ -723,6 +723,93 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "water-absorb",
+          "name": "Water Absorb",
+          "description": "\tRestores HP if hit \tby Water moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "water-veil",
+          "name": "Water Veil",
+          "description": "\tPrevents it from \tgetting a burn.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "water-absorb",
+          "name": "Water Absorb",
+          "description": "\tRestores HP if hit \tby Water moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "water-veil",
+          "name": "Water Veil",
+          "description": "\tPrevents it from \tgetting a burn.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 85,
+        "attack": 40,
+        "defense": 70,
+        "speed": 70,
+        "specialAttack": 80,
+        "specialDefense": 140,
+        "total": 485
+      },
+      "faithfulBaseStats": {
+        "hp": 85,
+        "attack": 40,
+        "defense": 70,
+        "speed": 70,
+        "specialAttack": 80,
+        "specialDefense": 140,
+        "total": 485
+      },
+      "polishedBaseStats": {
+        "hp": 85,
+        "attack": 40,
+        "defense": 70,
+        "speed": 70,
+        "specialAttack": 80,
+        "specialDefense": 140,
+        "total": 485
+      },
+      "catchRate": 25,
+      "baseExp": 168,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Slow (6,400 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "2 SDf",
       "eggMoves": [
         "Haze",
         "Mirror Coat",
@@ -1265,72 +1352,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "swift-swim",
-          "name": "Swift Swim",
-          "description": "\tBoosts its Speed \tin rain.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "water-absorb",
-          "name": "Water Absorb",
-          "description": "\tRestores HP if hit \tby Water moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "water-veil",
-          "name": "Water Veil",
-          "description": "\tPrevents it from \tgetting a burn.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "swift-swim",
-          "name": "Swift Swim",
-          "description": "\tBoosts its Speed \tin rain.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "water-absorb",
-          "name": "Water Absorb",
-          "description": "\tRestores HP if hit \tby Water moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "water-veil",
-          "name": "Water Veil",
-          "description": "\tPrevents it from \tgetting a burn.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 85,
-        "attack": 40,
-        "defense": 70,
-        "speed": 70,
-        "specialAttack": 80,
-        "specialDefense": 140,
-        "total": 485
-      },
-      "faithfulBaseStats": {
-        "hp": 85,
-        "attack": 40,
-        "defense": 70,
-        "speed": 70,
-        "specialAttack": 80,
-        "specialDefense": 140,
-        "total": 485
-      }
+      ]
     }
   },
   "locations": [

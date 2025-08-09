@@ -722,6 +722,95 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "volt-absorb",
+          "name": "Volt Absorb",
+          "description": "\tRestores HP if hit \tby Electric moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "illuminate",
+          "name": "Illuminate",
+          "description": "\tRaises the rate \tof wild #mon.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "water-absorb",
+          "name": "Water Absorb",
+          "description": "\tRestores HP if hit \tby Water moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "volt-absorb",
+          "name": "Volt Absorb",
+          "description": "\tRestores HP if hit \tby Electric moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "illuminate",
+          "name": "Illuminate",
+          "description": "\tRaises the rate \tof wild #mon.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "water-absorb",
+          "name": "Water Absorb",
+          "description": "\tRestores HP if hit \tby Water moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 125,
+        "attack": 58,
+        "defense": 58,
+        "speed": 67,
+        "specialAttack": 76,
+        "specialDefense": 76,
+        "total": 460
+      },
+      "faithfulBaseStats": {
+        "hp": 125,
+        "attack": 58,
+        "defense": 58,
+        "speed": 67,
+        "specialAttack": 76,
+        "specialDefense": 76,
+        "total": 460
+      },
+      "polishedBaseStats": {
+        "hp": 125,
+        "attack": 58,
+        "defense": 58,
+        "speed": 67,
+        "specialAttack": 86,
+        "specialDefense": 86,
+        "total": 480
+      },
+      "catchRate": 75,
+      "baseExp": 156,
+      "heldItems": [
+        "BRIGHTPOWDER"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "2 HP",
       "eggMoves": [
         "Agility",
         "Haze",
@@ -1240,72 +1329,7 @@
             "area": "Power Plant"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "volt-absorb",
-          "name": "Volt Absorb",
-          "description": "\tRestores HP if hit \tby Electric moves.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "illuminate",
-          "name": "Illuminate",
-          "description": "\tRaises the rate \tof wild #mon.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "water-absorb",
-          "name": "Water Absorb",
-          "description": "\tRestores HP if hit \tby Water moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "volt-absorb",
-          "name": "Volt Absorb",
-          "description": "\tRestores HP if hit \tby Electric moves.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "illuminate",
-          "name": "Illuminate",
-          "description": "\tRaises the rate \tof wild #mon.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "water-absorb",
-          "name": "Water Absorb",
-          "description": "\tRestores HP if hit \tby Water moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 125,
-        "attack": 58,
-        "defense": 58,
-        "speed": 67,
-        "specialAttack": 76,
-        "specialDefense": 76,
-        "total": 460
-      },
-      "faithfulBaseStats": {
-        "hp": 125,
-        "attack": 58,
-        "defense": 58,
-        "speed": 67,
-        "specialAttack": 76,
-        "specialDefense": 76,
-        "total": 460
-      }
+      ]
     }
   },
   "locations": [

@@ -827,7 +827,95 @@
           }
         }
       ],
-      "eggMoves": [],
+      "abilities": [
+        {
+          "id": "poison-point",
+          "name": "Poison Point",
+          "description": "\tContact may poison \tthe foe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "poison-point",
+          "name": "Poison Point",
+          "description": "\tContact may poison \tthe foe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 85,
+        "attack": 115,
+        "defense": 95,
+        "speed": 85,
+        "specialAttack": 65,
+        "specialDefense": 65,
+        "total": 510
+      },
+      "faithfulBaseStats": {
+        "hp": 85,
+        "attack": 115,
+        "defense": 95,
+        "speed": 85,
+        "specialAttack": 65,
+        "specialDefense": 65,
+        "total": 510
+      },
+      "polishedBaseStats": {
+        "hp": 85,
+        "attack": 115,
+        "defense": 95,
+        "speed": 85,
+        "specialAttack": 65,
+        "specialDefense": 65,
+        "total": 510
+      },
+      "catchRate": 30,
+      "baseExp": 179,
+      "heldItems": [
+        "POISON_BARB"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "2 Atk",
       "tmHmMoves": [
         {
           "name": "Curse",
@@ -1349,72 +1437,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "poison-point",
-          "name": "Poison Point",
-          "description": "\tContact may poison \tthe foe.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "swift-swim",
-          "name": "Swift Swim",
-          "description": "\tBoosts its Speed \tin rain.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "intimidate",
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "poison-point",
-          "name": "Poison Point",
-          "description": "\tContact may poison \tthe foe.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "swift-swim",
-          "name": "Swift Swim",
-          "description": "\tBoosts its Speed \tin rain.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "intimidate",
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 85,
-        "attack": 115,
-        "defense": 95,
-        "speed": 85,
-        "specialAttack": 65,
-        "specialDefense": 65,
-        "total": 510
-      },
-      "faithfulBaseStats": {
-        "hp": 85,
-        "attack": 115,
-        "defense": 95,
-        "speed": 85,
-        "specialAttack": 65,
-        "specialDefense": 65,
-        "total": 510
-      }
+      ]
     }
   },
   "locations": [

@@ -705,6 +705,93 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shell-armor",
+          "name": "Shell Armor",
+          "description": "\tProtects from \tcritical hits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shell-armor",
+          "name": "Shell Armor",
+          "description": "\tProtects from \tcritical hits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 35,
+        "attack": 40,
+        "defense": 100,
+        "speed": 35,
+        "specialAttack": 90,
+        "specialDefense": 55,
+        "total": 355
+      },
+      "faithfulBaseStats": {
+        "hp": 35,
+        "attack": 40,
+        "defense": 100,
+        "speed": 35,
+        "specialAttack": 90,
+        "specialDefense": 55,
+        "total": 355
+      },
+      "polishedBaseStats": {
+        "hp": 35,
+        "attack": 40,
+        "defense": 100,
+        "speed": 35,
+        "specialAttack": 90,
+        "specialDefense": 55,
+        "total": 355
+      },
+      "catchRate": 45,
+      "baseExp": 120,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Slow (8,960 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Def",
       "eggMoves": [
         "Aurora Beam",
         "Bubble Beam",
@@ -1170,72 +1257,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "swift-swim",
-          "name": "Swift Swim",
-          "description": "\tBoosts its Speed \tin rain.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "shell-armor",
-          "name": "Shell Armor",
-          "description": "\tProtects from \tcritical hits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "weak-armor",
-          "name": "Weak Armor",
-          "description": "\tPhysical attacks \ttrade Def for Spe.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "swift-swim",
-          "name": "Swift Swim",
-          "description": "\tBoosts its Speed \tin rain.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "shell-armor",
-          "name": "Shell Armor",
-          "description": "\tProtects from \tcritical hits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "weak-armor",
-          "name": "Weak Armor",
-          "description": "\tPhysical attacks \ttrade Def for Spe.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 35,
-        "attack": 40,
-        "defense": 100,
-        "speed": 35,
-        "specialAttack": 90,
-        "specialDefense": 55,
-        "total": 355
-      },
-      "faithfulBaseStats": {
-        "hp": 35,
-        "attack": 40,
-        "defense": 100,
-        "speed": 35,
-        "specialAttack": 90,
-        "specialDefense": 55,
-        "total": 355
-      }
+      ]
     }
   }
 }

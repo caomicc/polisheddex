@@ -351,9 +351,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Dark",
-      "faithfulTypes": "Dark",
-      "updatedTypes": "Dark",
+      "types": [
+        "Dark"
+      ],
+      "faithfulTypes": [
+        "Dark"
+      ],
+      "updatedTypes": [
+        "Dark"
+      ],
       "moves": [
         {
           "name": "Growl",
@@ -879,6 +885,116 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "synchronize",
+          "name": "Synchronize",
+          "description": "\tPasses Psn, Par, \tor Brn to foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "synchronize",
+          "name": "Synchronize",
+          "description": "\tPasses Psn, Par, \tor Brn to foes.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "synchronize",
+          "name": "Synchronize",
+          "description": "\tPasses Psn, Par, \tor Brn to foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "synchronize",
+          "name": "Synchronize",
+          "description": "\tPasses Psn, Par, \tor Brn to foes.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "synchronize",
+          "name": "Synchronize",
+          "description": "\tPasses Psn, Par, \tor Brn to foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "magic-guard",
+          "name": "Magic Guard",
+          "description": "\tOnly takes damage \tfrom attacks.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 95,
+        "attack": 65,
+        "defense": 110,
+        "speed": 65,
+        "specialAttack": 60,
+        "specialDefense": 130,
+        "total": 525
+      },
+      "faithfulBaseStats": {
+        "hp": 95,
+        "attack": 65,
+        "defense": 110,
+        "speed": 65,
+        "specialAttack": 60,
+        "specialDefense": 130,
+        "total": 525
+      },
+      "polishedBaseStats": {
+        "hp": 95,
+        "attack": 65,
+        "defense": 110,
+        "speed": 65,
+        "specialAttack": 60,
+        "specialDefense": 130,
+        "total": 525
+      },
+      "catchRate": 45,
+      "baseExp": 197,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Very Slow (10,240 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "2 SDf",
       "eggMoves": [
         "Charm"
       ],
@@ -1365,94 +1481,7 @@
             "area": "Power Plant"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "synchronize",
-          "name": "Synchronize",
-          "description": "\tPasses Psn, Par, \tor Brn to foes.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "synchronize",
-          "name": "Synchronize",
-          "description": "\tPasses Psn, Par, \tor Brn to foes.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "synchronize",
-          "name": "Synchronize",
-          "description": "\tPasses Psn, Par, \tor Brn to foes.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "synchronize",
-          "name": "Synchronize",
-          "description": "\tPasses Psn, Par, \tor Brn to foes.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "synchronize",
-          "name": "Synchronize",
-          "description": "\tPasses Psn, Par, \tor Brn to foes.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "magic-guard",
-          "name": "Magic Guard",
-          "description": "\tOnly takes damage \tfrom attacks.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 95,
-        "attack": 65,
-        "defense": 110,
-        "speed": 65,
-        "specialAttack": 60,
-        "specialDefense": 130,
-        "total": 525
-      },
-      "faithfulBaseStats": {
-        "hp": 95,
-        "attack": 65,
-        "defense": 110,
-        "speed": 65,
-        "specialAttack": 60,
-        "specialDefense": 130,
-        "total": 525
-      }
+      ]
     }
   }
 }

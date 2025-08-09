@@ -868,6 +868,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "soundproof",
+          "name": "Soundproof",
+          "description": "\tGives immunity to \tsound-based moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "filter",
+          "name": "Filter",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "soundproof",
+          "name": "Soundproof",
+          "description": "\tGives immunity to \tsound-based moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "filter",
+          "name": "Filter",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 25,
+        "defense": 45,
+        "speed": 60,
+        "specialAttack": 70,
+        "specialDefense": 90,
+        "total": 310
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 25,
+        "defense": 45,
+        "speed": 60,
+        "specialAttack": 70,
+        "specialDefense": 90,
+        "total": 310
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 25,
+        "defense": 45,
+        "speed": 60,
+        "specialAttack": 70,
+        "specialDefense": 90,
+        "total": 310
+      },
+      "catchRate": 145,
+      "baseExp": 78,
+      "heldItems": [
+        "LEPPA_BERRY"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Slow (6,400 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 SDf",
       "eggMoves": [
         "Confuse Ray",
         "Future Sight",
@@ -1373,72 +1463,7 @@
             "area": "Route 16 South Gate"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "soundproof",
-          "name": "Soundproof",
-          "description": "\tGives immunity to \tsound-based moves.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "filter",
-          "name": "Filter",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "technician",
-          "name": "Technician",
-          "description": "\tPowers up its \tweaker moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "soundproof",
-          "name": "Soundproof",
-          "description": "\tGives immunity to \tsound-based moves.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "filter",
-          "name": "Filter",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "technician",
-          "name": "Technician",
-          "description": "\tPowers up its \tweaker moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 20,
-        "attack": 25,
-        "defense": 45,
-        "speed": 60,
-        "specialAttack": 70,
-        "specialDefense": 90,
-        "total": 310
-      },
-      "faithfulBaseStats": {
-        "hp": 20,
-        "attack": 25,
-        "defense": 45,
-        "speed": 60,
-        "specialAttack": 70,
-        "specialDefense": 90,
-        "total": 310
-      }
+      ]
     }
   }
 }

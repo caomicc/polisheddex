@@ -974,7 +974,118 @@
           }
         }
       ],
-      "eggMoves": [],
+      "abilities": [
+        {
+          "id": "magnet-pull",
+          "name": "Magnet Pull",
+          "description": "\tPrevents escape by \tSteel-type foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "analytic",
+          "name": "Analytic",
+          "description": "\tBoosts move power \twhen moving last.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "magnet-pull",
+          "name": "Magnet Pull",
+          "description": "\tPrevents escape by \tSteel-type foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "analytic",
+          "name": "Analytic",
+          "description": "\tBoosts move power \twhen moving last.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "magnet-pull",
+          "name": "Magnet Pull",
+          "description": "\tPrevents escape by \tSteel-type foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "analytic",
+          "name": "Analytic",
+          "description": "\tBoosts move power \twhen moving last.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 70,
+        "attack": 70,
+        "defense": 115,
+        "speed": 60,
+        "specialAttack": 130,
+        "specialDefense": 90,
+        "total": 535
+      },
+      "faithfulBaseStats": {
+        "hp": 70,
+        "attack": 70,
+        "defense": 115,
+        "speed": 60,
+        "specialAttack": 130,
+        "specialDefense": 90,
+        "total": 535
+      },
+      "polishedBaseStats": {
+        "hp": 70,
+        "attack": 70,
+        "defense": 115,
+        "speed": 60,
+        "specialAttack": 130,
+        "specialDefense": 90,
+        "total": 535
+      },
+      "catchRate": 30,
+      "baseExp": 211,
+      "heldItems": [
+        "METAL_COAT"
+      ],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Mineral",
+        "Mineral"
+      ],
+      "evYield": "3 SAt",
       "tmHmMoves": [
         {
           "name": "Curse",
@@ -1418,94 +1529,7 @@
             "area": "Power Plant"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "magnet-pull",
-          "name": "Magnet Pull",
-          "description": "\tPrevents escape by \tSteel-type foes.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sturdy",
-          "name": "Sturdy",
-          "description": "\tCannot be knocked \tout with one hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "analytic",
-          "name": "Analytic",
-          "description": "\tBoosts move power \twhen moving last.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "magnet-pull",
-          "name": "Magnet Pull",
-          "description": "\tPrevents escape by \tSteel-type foes.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sturdy",
-          "name": "Sturdy",
-          "description": "\tCannot be knocked \tout with one hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "analytic",
-          "name": "Analytic",
-          "description": "\tBoosts move power \twhen moving last.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "magnet-pull",
-          "name": "Magnet Pull",
-          "description": "\tPrevents escape by \tSteel-type foes.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "levitate",
-          "name": "Levitate",
-          "description": "\tGives immunity to \tGround-type moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "analytic",
-          "name": "Analytic",
-          "description": "\tBoosts move power \twhen moving last.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 70,
-        "attack": 70,
-        "defense": 115,
-        "speed": 60,
-        "specialAttack": 130,
-        "specialDefense": 90,
-        "total": 535
-      },
-      "faithfulBaseStats": {
-        "hp": 70,
-        "attack": 70,
-        "defense": 115,
-        "speed": 60,
-        "specialAttack": 130,
-        "specialDefense": 90,
-        "total": 535
-      }
+      ]
     }
   },
   "locations": [

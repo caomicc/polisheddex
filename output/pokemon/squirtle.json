@@ -176,9 +176,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Water",
-      "faithfulTypes": "Water",
-      "updatedTypes": "Water",
+      "types": [
+        "Water"
+      ],
+      "faithfulTypes": [
+        "Water"
+      ],
+      "updatedTypes": [
+        "Water"
+      ],
       "moves": [
         {
           "name": "Tackle",
@@ -710,6 +716,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "torrent",
+          "name": "Torrent",
+          "description": "\tBoosts Water moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "rain-dish",
+          "name": "Rain Dish",
+          "description": "\tGradually regains \tHP in rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "shell-armor",
+          "name": "Shell Armor",
+          "description": "\tProtects from \tcritical hits.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "torrent",
+          "name": "Torrent",
+          "description": "\tBoosts Water moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "rain-dish",
+          "name": "Rain Dish",
+          "description": "\tGradually regains \tHP in rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "shell-armor",
+          "name": "Shell Armor",
+          "description": "\tProtects from \tcritical hits.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 44,
+        "attack": 48,
+        "defense": 65,
+        "speed": 43,
+        "specialAttack": 50,
+        "specialDefense": 64,
+        "total": 314
+      },
+      "faithfulBaseStats": {
+        "hp": 44,
+        "attack": 48,
+        "defense": 65,
+        "speed": 43,
+        "specialAttack": 50,
+        "specialDefense": 64,
+        "total": 314
+      },
+      "polishedBaseStats": {
+        "hp": 44,
+        "attack": 48,
+        "defense": 65,
+        "speed": 43,
+        "specialAttack": 50,
+        "specialDefense": 64,
+        "total": 314
+      },
+      "catchRate": 45,
+      "baseExp": 66,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Monster",
+        "Undiscovered"
+      ],
+      "evYield": "1 Def",
       "eggMoves": [
         "Confusion",
         "Crunch",
@@ -1253,72 +1347,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "torrent",
-          "name": "Torrent",
-          "description": "\tBoosts Water moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "rain-dish",
-          "name": "Rain Dish",
-          "description": "\tGradually regains \tHP in rain.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "shell-armor",
-          "name": "Shell Armor",
-          "description": "\tProtects from \tcritical hits.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "torrent",
-          "name": "Torrent",
-          "description": "\tBoosts Water moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "rain-dish",
-          "name": "Rain Dish",
-          "description": "\tGradually regains \tHP in rain.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "shell-armor",
-          "name": "Shell Armor",
-          "description": "\tProtects from \tcritical hits.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 44,
-        "attack": 48,
-        "defense": 65,
-        "speed": 43,
-        "specialAttack": 50,
-        "specialDefense": 64,
-        "total": 314
-      },
-      "faithfulBaseStats": {
-        "hp": 44,
-        "attack": 48,
-        "defense": 65,
-        "speed": 43,
-        "specialAttack": 50,
-        "specialDefense": 64,
-        "total": 314
-      }
+      ]
     }
   }
 }

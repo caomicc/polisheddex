@@ -351,9 +351,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Grass",
-      "faithfulTypes": "Grass",
-      "updatedTypes": "Grass",
+      "types": [
+        "Grass"
+      ],
+      "faithfulTypes": [
+        "Grass"
+      ],
+      "updatedTypes": [
+        "Grass"
+      ],
       "moves": [
         {
           "name": "Growl",
@@ -885,6 +891,116 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "leaf-guard",
+          "name": "Leaf Guard",
+          "description": "\tPrevents status \tproblems in sun.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "leaf-guard",
+          "name": "Leaf Guard",
+          "description": "\tPrevents status \tproblems in sun.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "leaf-guard",
+          "name": "Leaf Guard",
+          "description": "\tPrevents status \tproblems in sun.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "leaf-guard",
+          "name": "Leaf Guard",
+          "description": "\tPrevents status \tproblems in sun.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "leaf-guard",
+          "name": "Leaf Guard",
+          "description": "\tPrevents status \tproblems in sun.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 110,
+        "defense": 130,
+        "speed": 95,
+        "specialAttack": 60,
+        "specialDefense": 65,
+        "total": 525
+      },
+      "faithfulBaseStats": {
+        "hp": 65,
+        "attack": 110,
+        "defense": 130,
+        "speed": 95,
+        "specialAttack": 60,
+        "specialDefense": 65,
+        "total": 525
+      },
+      "polishedBaseStats": {
+        "hp": 65,
+        "attack": 110,
+        "defense": 130,
+        "speed": 95,
+        "specialAttack": 60,
+        "specialDefense": 65,
+        "total": 525
+      },
+      "catchRate": 45,
+      "baseExp": 196,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Very Slow (10,240 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "2 Def",
       "eggMoves": [
         "Charm"
       ],
@@ -1438,94 +1554,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "leaf-guard",
-          "name": "Leaf Guard",
-          "description": "\tPrevents status \tproblems in sun.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "leaf-guard",
-          "name": "Leaf Guard",
-          "description": "\tPrevents status \tproblems in sun.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "leaf-guard",
-          "name": "Leaf Guard",
-          "description": "\tPrevents status \tproblems in sun.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "leaf-guard",
-          "name": "Leaf Guard",
-          "description": "\tPrevents status \tproblems in sun.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "leaf-guard",
-          "name": "Leaf Guard",
-          "description": "\tPrevents status \tproblems in sun.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "natural-cure",
-          "name": "Natural Cure",
-          "description": "\tSwitch-outs heal \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 65,
-        "attack": 110,
-        "defense": 130,
-        "speed": 95,
-        "specialAttack": 60,
-        "specialDefense": 65,
-        "total": 525
-      },
-      "faithfulBaseStats": {
-        "hp": 65,
-        "attack": 110,
-        "defense": 130,
-        "speed": 95,
-        "specialAttack": 60,
-        "specialDefense": 65,
-        "total": 525
-      }
+      ]
     }
   }
 }

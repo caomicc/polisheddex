@@ -138,9 +138,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Normal",
-      "faithfulTypes": "Normal",
-      "updatedTypes": "Normal",
+      "types": [
+        "Normal"
+      ],
+      "faithfulTypes": [
+        "Normal"
+      ],
+      "updatedTypes": [
+        "Normal"
+      ],
       "moves": [
         {
           "name": "Lick",
@@ -702,6 +708,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "own-tempo",
+          "name": "Own Tempo",
+          "description": "\tPrevents it from \tbecoming confused.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "oblivious",
+          "name": "Oblivious",
+          "description": "\tPrevents it from \tbeing infatuated.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "cloud-nine",
+          "name": "Cloud Nine",
+          "description": "\tEliminates effects \tof weather.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "own-tempo",
+          "name": "Own Tempo",
+          "description": "\tPrevents it from \tbecoming confused.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "oblivious",
+          "name": "Oblivious",
+          "description": "\tPrevents it from \tbeing infatuated.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "cloud-nine",
+          "name": "Cloud Nine",
+          "description": "\tEliminates effects \tof weather.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 110,
+        "attack": 85,
+        "defense": 95,
+        "speed": 50,
+        "specialAttack": 80,
+        "specialDefense": 95,
+        "total": 515
+      },
+      "faithfulBaseStats": {
+        "hp": 110,
+        "attack": 85,
+        "defense": 95,
+        "speed": 50,
+        "specialAttack": 80,
+        "specialDefense": 95,
+        "total": 515
+      },
+      "polishedBaseStats": {
+        "hp": 110,
+        "attack": 85,
+        "defense": 95,
+        "speed": 50,
+        "specialAttack": 80,
+        "specialDefense": 95,
+        "total": 515
+      },
+      "catchRate": 30,
+      "baseExp": 193,
+      "heldItems": [
+        "LAGGING_TAIL"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Monster",
+        "Monster"
+      ],
+      "evYield": "3 HP",
       "eggMoves": [
         "Thrash"
       ],
@@ -1484,72 +1580,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "own-tempo",
-          "name": "Own Tempo",
-          "description": "\tPrevents it from \tbecoming confused.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "oblivious",
-          "name": "Oblivious",
-          "description": "\tPrevents it from \tbeing infatuated.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "cloud-nine",
-          "name": "Cloud Nine",
-          "description": "\tEliminates effects \tof weather.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "own-tempo",
-          "name": "Own Tempo",
-          "description": "\tPrevents it from \tbecoming confused.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "oblivious",
-          "name": "Oblivious",
-          "description": "\tPrevents it from \tbeing infatuated.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "cloud-nine",
-          "name": "Cloud Nine",
-          "description": "\tEliminates effects \tof weather.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 110,
-        "attack": 85,
-        "defense": 95,
-        "speed": 50,
-        "specialAttack": 80,
-        "specialDefense": 95,
-        "total": 515
-      },
-      "faithfulBaseStats": {
-        "hp": 110,
-        "attack": 85,
-        "defense": 95,
-        "speed": 50,
-        "specialAttack": 80,
-        "specialDefense": 95,
-        "total": 515
-      }
+      ]
     }
   }
 }

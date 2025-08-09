@@ -912,6 +912,116 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "sand-stream",
+          "name": "Sand Stream",
+          "description": "\tSummons sandstorm \twhen switched in.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sand-stream",
+          "name": "Sand Stream",
+          "description": "\tSummons sandstorm \twhen switched in.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "unnerve",
+          "name": "Unnerve",
+          "description": "\tPrevents foes from \teating Berries.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "sand-stream",
+          "name": "Sand Stream",
+          "description": "\tSummons sandstorm \twhen switched in.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sand-stream",
+          "name": "Sand Stream",
+          "description": "\tSummons sandstorm \twhen switched in.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "unnerve",
+          "name": "Unnerve",
+          "description": "\tPrevents foes from \teating Berries.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "sand-stream",
+          "name": "Sand Stream",
+          "description": "\tSummons sandstorm \twhen switched in.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "battle-armor",
+          "name": "Battle Armor",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "unnerve",
+          "name": "Unnerve",
+          "description": "\tPrevents foes from \teating Berries.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 100,
+        "attack": 134,
+        "defense": 110,
+        "speed": 61,
+        "specialAttack": 95,
+        "specialDefense": 100,
+        "total": 600
+      },
+      "faithfulBaseStats": {
+        "hp": 100,
+        "attack": 134,
+        "defense": 110,
+        "speed": 61,
+        "specialAttack": 95,
+        "specialDefense": 100,
+        "total": 600
+      },
+      "polishedBaseStats": {
+        "hp": 100,
+        "attack": 134,
+        "defense": 110,
+        "speed": 61,
+        "specialAttack": 95,
+        "specialDefense": 100,
+        "total": 600
+      },
+      "catchRate": 45,
+      "baseExp": 218,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Monster",
+        "Monster"
+      ],
+      "evYield": "3 Atk",
       "eggMoves": [
         "Dragon Dance",
         "Focus Energy",
@@ -1700,94 +1810,7 @@
             "area": "Goldenrod City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "sand-stream",
-          "name": "Sand Stream",
-          "description": "\tSummons sandstorm \twhen switched in.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sand-stream",
-          "name": "Sand Stream",
-          "description": "\tSummons sandstorm \twhen switched in.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "unnerve",
-          "name": "Unnerve",
-          "description": "\tPrevents foes from \teating Berries.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "sand-stream",
-          "name": "Sand Stream",
-          "description": "\tSummons sandstorm \twhen switched in.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sand-stream",
-          "name": "Sand Stream",
-          "description": "\tSummons sandstorm \twhen switched in.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "unnerve",
-          "name": "Unnerve",
-          "description": "\tPrevents foes from \teating Berries.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "sand-stream",
-          "name": "Sand Stream",
-          "description": "\tSummons sandstorm \twhen switched in.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "battle-armor",
-          "name": "Battle Armor",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "unnerve",
-          "name": "Unnerve",
-          "description": "\tPrevents foes from \teating Berries.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 100,
-        "attack": 134,
-        "defense": 110,
-        "speed": 61,
-        "specialAttack": 95,
-        "specialDefense": 100,
-        "total": 600
-      },
-      "faithfulBaseStats": {
-        "hp": 100,
-        "attack": 134,
-        "defense": 110,
-        "speed": 61,
-        "specialAttack": 95,
-        "specialDefense": 100,
-        "total": 600
-      }
+      ]
     }
   },
   "locations": [

@@ -765,6 +765,119 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "pickpocket",
+          "name": "Pickpocket",
+          "description": "\tSteals foe's item \twhen contacted.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "pickpocket",
+          "name": "Pickpocket",
+          "description": "\tSteals foe's item \twhen contacted.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "pickpocket",
+          "name": "Pickpocket",
+          "description": "\tSteals foe's item \twhen contacted.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 70,
+        "attack": 120,
+        "defense": 65,
+        "speed": 125,
+        "specialAttack": 45,
+        "specialDefense": 85,
+        "total": 510
+      },
+      "faithfulBaseStats": {
+        "hp": 70,
+        "attack": 120,
+        "defense": 65,
+        "speed": 125,
+        "specialAttack": 45,
+        "specialDefense": 85,
+        "total": 510
+      },
+      "polishedBaseStats": {
+        "hp": 70,
+        "attack": 120,
+        "defense": 65,
+        "speed": 125,
+        "specialAttack": 45,
+        "specialDefense": 85,
+        "total": 510
+      },
+      "catchRate": 45,
+      "baseExp": 199,
+      "heldItems": [
+        "GRIP_CLAW",
+        "QUICK_CLAW"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Atk",
       "eggMoves": [
         "Bite",
         "Foresight",
@@ -1458,94 +1571,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "pressure",
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "pressure",
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "pickpocket",
-          "name": "Pickpocket",
-          "description": "\tSteals foe's item \twhen contacted.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "pressure",
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "pressure",
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "pickpocket",
-          "name": "Pickpocket",
-          "description": "\tSteals foe's item \twhen contacted.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "pressure",
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "technician",
-          "name": "Technician",
-          "description": "\tPowers up its \tweaker moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "pickpocket",
-          "name": "Pickpocket",
-          "description": "\tSteals foe's item \twhen contacted.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 70,
-        "attack": 120,
-        "defense": 65,
-        "speed": 125,
-        "specialAttack": 45,
-        "specialDefense": 85,
-        "total": 510
-      },
-      "faithfulBaseStats": {
-        "hp": 70,
-        "attack": 120,
-        "defense": 65,
-        "speed": 125,
-        "specialAttack": 45,
-        "specialDefense": 85,
-        "total": 510
-      }
+      ]
     }
   },
   "locations": [

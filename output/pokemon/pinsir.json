@@ -114,9 +114,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Bug",
-      "faithfulTypes": "Bug",
-      "updatedTypes": "Bug",
+      "types": [
+        "Bug"
+      ],
+      "faithfulTypes": [
+        "Bug"
+      ],
+      "updatedTypes": [
+        "Bug"
+      ],
       "moves": [
         {
           "name": "Fury Strikes",
@@ -654,6 +660,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "hyper-cutter",
+          "name": "Hyper Cutter",
+          "description": "\tPrevents foes from \tlowering Attack.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "mold-breaker",
+          "name": "Mold Breaker",
+          "description": "\tMoves disregard \tthe foe's ability.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "moxie",
+          "name": "Moxie",
+          "description": "\tBoosts Attack when \tknocking out foes.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "hyper-cutter",
+          "name": "Hyper Cutter",
+          "description": "\tPrevents foes from \tlowering Attack.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "mold-breaker",
+          "name": "Mold Breaker",
+          "description": "\tMoves disregard \tthe foe's ability.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "moxie",
+          "name": "Moxie",
+          "description": "\tBoosts Attack when \tknocking out foes.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 65,
+        "attack": 125,
+        "defense": 100,
+        "speed": 85,
+        "specialAttack": 55,
+        "specialDefense": 70,
+        "total": 500
+      },
+      "faithfulBaseStats": {
+        "hp": 65,
+        "attack": 125,
+        "defense": 100,
+        "speed": 85,
+        "specialAttack": 55,
+        "specialDefense": 70,
+        "total": 500
+      },
+      "polishedBaseStats": {
+        "hp": 65,
+        "attack": 125,
+        "defense": 100,
+        "speed": 85,
+        "specialAttack": 55,
+        "specialDefense": 70,
+        "total": 500
+      },
+      "catchRate": 45,
+      "baseExp": 200,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Slow (6,400 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Bug",
+        "Bug"
+      ],
+      "evYield": "2 Atk",
       "eggMoves": [
         "Feint Attack",
         "Fury Strikes",
@@ -1155,72 +1249,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "hyper-cutter",
-          "name": "Hyper Cutter",
-          "description": "\tPrevents foes from \tlowering Attack.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "mold-breaker",
-          "name": "Mold Breaker",
-          "description": "\tMoves disregard \tthe foe's ability.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "moxie",
-          "name": "Moxie",
-          "description": "\tBoosts Attack when \tknocking out foes.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "hyper-cutter",
-          "name": "Hyper Cutter",
-          "description": "\tPrevents foes from \tlowering Attack.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "mold-breaker",
-          "name": "Mold Breaker",
-          "description": "\tMoves disregard \tthe foe's ability.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "moxie",
-          "name": "Moxie",
-          "description": "\tBoosts Attack when \tknocking out foes.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 65,
-        "attack": 125,
-        "defense": 100,
-        "speed": 85,
-        "specialAttack": 55,
-        "specialDefense": 70,
-        "total": 500
-      },
-      "faithfulBaseStats": {
-        "hp": 65,
-        "attack": 125,
-        "defense": 100,
-        "speed": 85,
-        "specialAttack": 55,
-        "specialDefense": 70,
-        "total": 500
-      }
+      ]
     }
   },
   "locations": [

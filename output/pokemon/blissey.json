@@ -161,9 +161,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Normal",
-      "faithfulTypes": "Normal",
-      "updatedTypes": "Normal",
+      "types": [
+        "Normal"
+      ],
+      "faithfulTypes": [
+        "Normal"
+      ],
+      "updatedTypes": [
+        "Normal"
+      ],
       "moves": [
         {
           "name": "Defense Curl",
@@ -746,6 +752,97 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "serene-grace",
+          "name": "Serene Grace",
+          "description": "\tBoosts the rate of \tadded effects.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "serene-grace",
+          "name": "Serene Grace",
+          "description": "\tBoosts the rate of \tadded effects.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 255,
+        "attack": 10,
+        "defense": 10,
+        "speed": 55,
+        "specialAttack": 75,
+        "specialDefense": 135,
+        "total": 540
+      },
+      "faithfulBaseStats": {
+        "hp": 255,
+        "attack": 10,
+        "defense": 10,
+        "speed": 55,
+        "specialAttack": 75,
+        "specialDefense": 135,
+        "total": 540
+      },
+      "polishedBaseStats": {
+        "hp": 255,
+        "attack": 10,
+        "defense": 10,
+        "speed": 55,
+        "specialAttack": 75,
+        "specialDefense": 135,
+        "total": 540
+      },
+      "catchRate": 30,
+      "baseExp": 255,
+      "heldItems": [
+        "OVAL_STONE",
+        "LUCKY_EGG"
+      ],
+      "genderRatio": {
+        "male": 0,
+        "female": 100
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Fast",
+      "eggGroups": [
+        "Fairy",
+        "Fairy"
+      ],
+      "evYield": "3 HP",
       "eggMoves": [
         "Heal Bell"
       ],
@@ -1599,72 +1696,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "natural-cure",
-          "name": "Natural Cure",
-          "description": "\tSwitch-outs heal \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "serene-grace",
-          "name": "Serene Grace",
-          "description": "\tBoosts the rate of \tadded effects.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "natural-cure",
-          "name": "Natural Cure",
-          "description": "\tSwitch-outs heal \tstatus problems.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "natural-cure",
-          "name": "Natural Cure",
-          "description": "\tSwitch-outs heal \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "serene-grace",
-          "name": "Serene Grace",
-          "description": "\tBoosts the rate of \tadded effects.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "natural-cure",
-          "name": "Natural Cure",
-          "description": "\tSwitch-outs heal \tstatus problems.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 255,
-        "attack": 10,
-        "defense": 10,
-        "speed": 55,
-        "specialAttack": 75,
-        "specialDefense": 135,
-        "total": 540
-      },
-      "faithfulBaseStats": {
-        "hp": 255,
-        "attack": 10,
-        "defense": 10,
-        "speed": 55,
-        "specialAttack": 75,
-        "specialDefense": 135,
-        "total": 540
-      }
+      ]
     }
   },
   "locations": [

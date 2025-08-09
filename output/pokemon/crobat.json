@@ -837,6 +837,116 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "infiltrator",
+          "name": "Infiltrator",
+          "description": "\tAttacks bypass the \tfoe's barriers.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "infiltrator",
+          "name": "Infiltrator",
+          "description": "\tAttacks bypass the \tfoe's barriers.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "anticipation",
+          "name": "Anticipation",
+          "description": "\tSenses the foe's \tdangerous moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "infiltrator",
+          "name": "Infiltrator",
+          "description": "\tAttacks bypass the \tfoe's barriers.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 85,
+        "attack": 90,
+        "defense": 80,
+        "speed": 130,
+        "specialAttack": 70,
+        "specialDefense": 80,
+        "total": 535
+      },
+      "faithfulBaseStats": {
+        "hp": 85,
+        "attack": 90,
+        "defense": 80,
+        "speed": 130,
+        "specialAttack": 70,
+        "specialDefense": 80,
+        "total": 535
+      },
+      "polishedBaseStats": {
+        "hp": 85,
+        "attack": 90,
+        "defense": 80,
+        "speed": 130,
+        "specialAttack": 70,
+        "specialDefense": 80,
+        "total": 535
+      },
+      "catchRate": 90,
+      "baseExp": 204,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Flying",
+        "Flying"
+      ],
+      "evYield": "3 Spe",
       "eggMoves": [
         "Feint Attack",
         "Gust",
@@ -1330,94 +1440,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "infiltrator",
-          "name": "Infiltrator",
-          "description": "\tAttacks bypass the \tfoe's barriers.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "infiltrator",
-          "name": "Infiltrator",
-          "description": "\tAttacks bypass the \tfoe's barriers.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "anticipation",
-          "name": "Anticipation",
-          "description": "\tSenses the foe's \tdangerous moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "infiltrator",
-          "name": "Infiltrator",
-          "description": "\tAttacks bypass the \tfoe's barriers.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 85,
-        "attack": 90,
-        "defense": 80,
-        "speed": 130,
-        "specialAttack": 70,
-        "specialDefense": 80,
-        "total": 535
-      },
-      "faithfulBaseStats": {
-        "hp": 85,
-        "attack": 90,
-        "defense": 80,
-        "speed": 130,
-        "specialAttack": 70,
-        "specialDefense": 80,
-        "total": 535
-      }
+      ]
     }
   },
   "locations": [

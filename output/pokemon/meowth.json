@@ -181,9 +181,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Normal",
-      "faithfulTypes": "Normal",
-      "updatedTypes": "Normal",
+      "types": [
+        "Normal"
+      ],
+      "faithfulTypes": [
+        "Normal"
+      ],
+      "updatedTypes": [
+        "Normal"
+      ],
       "moves": [
         {
           "name": "Scratch",
@@ -1371,15 +1377,12 @@
     "alolan": {
       "name": "alolan",
       "types": [
-        "Dark",
         "Dark"
       ],
       "faithfulTypes": [
-        "Dark",
         "Dark"
       ],
       "updatedTypes": [
-        "Dark",
         "Dark"
       ],
       "moves": [
@@ -2520,16 +2523,16 @@
           "abilityType": "primary"
         },
         {
-          "id": "tough-claws",
-          "name": "Tough Claws",
-          "description": "\tBoosts moves that \tmakes contact.",
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "rattled",
-          "name": "Rattled",
-          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "id": "unnerve",
+          "name": "Unnerve",
+          "description": "\tPrevents foes from \teating Berries.",
           "isHidden": true,
           "abilityType": "hidden"
         }
@@ -2543,16 +2546,16 @@
           "abilityType": "primary"
         },
         {
-          "id": "tough-claws",
-          "name": "Tough Claws",
-          "description": "\tBoosts moves that \tmakes contact.",
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "rattled",
-          "name": "Rattled",
-          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "id": "unnerve",
+          "name": "Unnerve",
+          "description": "\tPrevents foes from \teating Berries.",
           "isHidden": true,
           "abilityType": "hidden"
         }
@@ -2605,15 +2608,12 @@
     "galarian": {
       "name": "galarian",
       "types": [
-        "Steel",
         "Steel"
       ],
       "faithfulTypes": [
-        "Steel",
         "Steel"
       ],
       "updatedTypes": [
-        "Steel",
         "Steel"
       ],
       "moves": [
@@ -3675,46 +3675,46 @@
       ],
       "abilities": [
         {
-          "id": "battle-armor",
-          "name": "Battle Armor",
-          "description": "",
+          "id": "pickup",
+          "name": "Pickup",
+          "description": "\tThe #mon may \tpick up items.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "tough-claws",
-          "name": "Tough Claws",
-          "description": "\tBoosts moves that \tmakes contact.",
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "steely-spirit",
-          "name": "Steely Spirit",
-          "description": "\tBoosts Steel-type \tmoves.",
+          "id": "unnerve",
+          "name": "Unnerve",
+          "description": "\tPrevents foes from \teating Berries.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
       "faithfulAbilities": [
         {
-          "id": "battle-armor",
-          "name": "Battle Armor",
-          "description": "",
+          "id": "pickup",
+          "name": "Pickup",
+          "description": "\tThe #mon may \tpick up items.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "tough-claws",
-          "name": "Tough Claws",
-          "description": "\tBoosts moves that \tmakes contact.",
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "steely-spirit",
-          "name": "Steely Spirit",
-          "description": "\tBoosts Steel-type \tmoves.",
+          "id": "unnerve",
+          "name": "Unnerve",
+          "description": "\tPrevents foes from \teating Berries.",
           "isHidden": true,
           "abilityType": "hidden"
         }
@@ -3727,7 +3727,7 @@
         "speed": 40,
         "specialAttack": 40,
         "specialDefense": 40,
-        "total": 290
+        "total": 300
       },
       "faithfulBaseStats": {
         "hp": 50,
@@ -3736,7 +3736,7 @@
         "speed": 40,
         "specialAttack": 40,
         "specialDefense": 40,
-        "total": 290
+        "total": 300
       },
       "polishedBaseStats": {
         "hp": 50,
@@ -3745,11 +3745,13 @@
         "speed": 40,
         "specialAttack": 40,
         "specialDefense": 40,
-        "total": 290
+        "total": 300
       },
       "catchRate": 255,
       "baseExp": 69,
-      "heldItems": [],
+      "heldItems": [
+        "AMULET_COIN"
+      ],
       "genderRatio": {
         "male": 50,
         "female": 50
@@ -3760,7 +3762,7 @@
         "Field",
         "Field"
       ],
-      "evYield": "1 Atk"
+      "evYield": "1 Spe"
     }
   },
   "locations": [

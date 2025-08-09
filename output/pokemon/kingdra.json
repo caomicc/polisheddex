@@ -636,6 +636,95 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sniper",
+          "name": "Sniper",
+          "description": "\tPowers up critical \thits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "damp",
+          "name": "Damp",
+          "description": "\tPrevents self- \tdestructing moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sniper",
+          "name": "Sniper",
+          "description": "\tPowers up critical \thits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "damp",
+          "name": "Damp",
+          "description": "\tPrevents self- \tdestructing moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 75,
+        "attack": 95,
+        "defense": 95,
+        "speed": 85,
+        "specialAttack": 95,
+        "specialDefense": 95,
+        "total": 540
+      },
+      "faithfulBaseStats": {
+        "hp": 75,
+        "attack": 95,
+        "defense": 95,
+        "speed": 85,
+        "specialAttack": 95,
+        "specialDefense": 95,
+        "total": 540
+      },
+      "polishedBaseStats": {
+        "hp": 75,
+        "attack": 95,
+        "defense": 95,
+        "speed": 85,
+        "specialAttack": 95,
+        "specialDefense": 95,
+        "total": 540
+      },
+      "catchRate": 45,
+      "baseExp": 207,
+      "heldItems": [
+        "DRAGON_SCALE"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk",
       "eggMoves": [
         "Aurora Beam",
         "Disable",
@@ -1089,72 +1178,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "swift-swim",
-          "name": "Swift Swim",
-          "description": "\tBoosts its Speed \tin rain.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sniper",
-          "name": "Sniper",
-          "description": "\tPowers up critical \thits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "damp",
-          "name": "Damp",
-          "description": "\tPrevents self- \tdestructing moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "swift-swim",
-          "name": "Swift Swim",
-          "description": "\tBoosts its Speed \tin rain.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sniper",
-          "name": "Sniper",
-          "description": "\tPowers up critical \thits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "damp",
-          "name": "Damp",
-          "description": "\tPrevents self- \tdestructing moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 75,
-        "attack": 95,
-        "defense": 95,
-        "speed": 85,
-        "specialAttack": 95,
-        "specialDefense": 95,
-        "total": 540
-      },
-      "faithfulBaseStats": {
-        "hp": 75,
-        "attack": 95,
-        "defense": 95,
-        "speed": 85,
-        "specialAttack": 95,
-        "specialDefense": 95,
-        "total": 540
-      }
+      ]
     }
   },
   "locations": [

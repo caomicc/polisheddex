@@ -200,9 +200,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Fighting",
-      "faithfulTypes": "Fighting",
-      "updatedTypes": "Fighting",
+      "types": [
+        "Fighting"
+      ],
+      "faithfulTypes": [
+        "Fighting"
+      ],
+      "updatedTypes": [
+        "Fighting"
+      ],
       "moves": [
         {
           "name": "Outrage",
@@ -881,6 +887,118 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "vital-spirit",
+          "name": "Vital Spirit",
+          "description": "\tPrevents it from \tfalling asleep.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "anger-point",
+          "name": "Anger Point",
+          "description": "\tMaxes Attack after \ta critical hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "defiant",
+          "name": "Defiant",
+          "description": "\tBoosts Attack when \tstats are lowered.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "vital-spirit",
+          "name": "Vital Spirit",
+          "description": "\tPrevents it from \tfalling asleep.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "anger-point",
+          "name": "Anger Point",
+          "description": "\tMaxes Attack after \ta critical hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "defiant",
+          "name": "Defiant",
+          "description": "\tBoosts Attack when \tstats are lowered.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "gorilla-tactics",
+          "name": "Gorilla Tactics",
+          "description": "\tBoosts Attack, but \tallows one move.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "anger-point",
+          "name": "Anger Point",
+          "description": "\tMaxes Attack after \ta critical hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "defiant",
+          "name": "Defiant",
+          "description": "\tBoosts Attack when \tstats are lowered.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 105,
+        "defense": 60,
+        "speed": 95,
+        "specialAttack": 60,
+        "specialDefense": 70,
+        "total": 455
+      },
+      "faithfulBaseStats": {
+        "hp": 65,
+        "attack": 105,
+        "defense": 60,
+        "speed": 95,
+        "specialAttack": 60,
+        "specialDefense": 70,
+        "total": 455
+      },
+      "polishedBaseStats": {
+        "hp": 65,
+        "attack": 105,
+        "defense": 60,
+        "speed": 95,
+        "specialAttack": 60,
+        "specialDefense": 70,
+        "total": 455
+      },
+      "catchRate": 75,
+      "baseExp": 149,
+      "heldItems": [
+        "KEE_BERRY"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "2 Atk",
       "eggMoves": [
         "Encore",
         "Foresight",
@@ -1537,94 +1655,7 @@
             "area": "Goldenrod City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "vital-spirit",
-          "name": "Vital Spirit",
-          "description": "\tPrevents it from \tfalling asleep.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "anger-point",
-          "name": "Anger Point",
-          "description": "\tMaxes Attack after \ta critical hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "defiant",
-          "name": "Defiant",
-          "description": "\tBoosts Attack when \tstats are lowered.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "vital-spirit",
-          "name": "Vital Spirit",
-          "description": "\tPrevents it from \tfalling asleep.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "anger-point",
-          "name": "Anger Point",
-          "description": "\tMaxes Attack after \ta critical hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "defiant",
-          "name": "Defiant",
-          "description": "\tBoosts Attack when \tstats are lowered.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "gorilla-tactics",
-          "name": "Gorilla Tactics",
-          "description": "\tBoosts Attack, but \tallows one move.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "anger-point",
-          "name": "Anger Point",
-          "description": "\tMaxes Attack after \ta critical hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "defiant",
-          "name": "Defiant",
-          "description": "\tBoosts Attack when \tstats are lowered.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 65,
-        "attack": 105,
-        "defense": 60,
-        "speed": 95,
-        "specialAttack": 60,
-        "specialDefense": 70,
-        "total": 455
-      },
-      "faithfulBaseStats": {
-        "hp": 65,
-        "attack": 105,
-        "defense": 60,
-        "speed": 95,
-        "specialAttack": 60,
-        "specialDefense": 70,
-        "total": 455
-      }
+      ]
     }
   },
   "locations": [

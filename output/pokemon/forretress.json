@@ -820,6 +820,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "overcoat",
+          "name": "Overcoat",
+          "description": "\tProtects it from \tweather damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "overcoat",
+          "name": "Overcoat",
+          "description": "\tProtects it from \tweather damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 75,
+        "attack": 90,
+        "defense": 140,
+        "speed": 40,
+        "specialAttack": 60,
+        "specialDefense": 60,
+        "total": 465
+      },
+      "faithfulBaseStats": {
+        "hp": 75,
+        "attack": 90,
+        "defense": 140,
+        "speed": 40,
+        "specialAttack": 60,
+        "specialDefense": 60,
+        "total": 465
+      },
+      "polishedBaseStats": {
+        "hp": 75,
+        "attack": 90,
+        "defense": 140,
+        "speed": 40,
+        "specialAttack": 60,
+        "specialDefense": 60,
+        "total": 465
+      },
+      "catchRate": 75,
+      "baseExp": 118,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Bug",
+        "Bug"
+      ],
+      "evYield": "2 Def",
       "eggMoves": [
         "Pin Missile",
         "Swift",
@@ -1375,72 +1463,7 @@
             "area": "Power Plant"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "sturdy",
-          "name": "Sturdy",
-          "description": "\tCannot be knocked \tout with one hit.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sturdy",
-          "name": "Sturdy",
-          "description": "\tCannot be knocked \tout with one hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "overcoat",
-          "name": "Overcoat",
-          "description": "\tProtects it from \tweather damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "sturdy",
-          "name": "Sturdy",
-          "description": "\tCannot be knocked \tout with one hit.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sturdy",
-          "name": "Sturdy",
-          "description": "\tCannot be knocked \tout with one hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "overcoat",
-          "name": "Overcoat",
-          "description": "\tProtects it from \tweather damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 75,
-        "attack": 90,
-        "defense": 140,
-        "speed": 40,
-        "specialAttack": 60,
-        "specialDefense": 60,
-        "total": 465
-      },
-      "faithfulBaseStats": {
-        "hp": 75,
-        "attack": 90,
-        "defense": 140,
-        "speed": 40,
-        "specialAttack": 60,
-        "specialDefense": 60,
-        "total": 465
-      }
+      ]
     }
   }
 }

@@ -68,12 +68,16 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Normal",
-      "faithfulTypes": "Normal",
-      "updatedTypes": "Normal",
+      "types": [
+        "Normal"
+      ],
+      "faithfulTypes": [
+        "Normal"
+      ],
+      "updatedTypes": [
+        "Normal"
+      ],
       "moves": [],
-      "eggMoves": [],
-      "tmHmMoves": [],
       "abilities": [],
       "faithfulAbilities": [],
       "updatedAbilities": [],
@@ -94,7 +98,30 @@
         "specialAttack": 10,
         "specialDefense": 10,
         "total": 60
-      }
+      },
+      "polishedBaseStats": {
+        "hp": 10,
+        "attack": 10,
+        "defense": 10,
+        "speed": 10,
+        "specialAttack": 10,
+        "specialDefense": 10,
+        "total": 60
+      },
+      "catchRate": 255,
+      "baseExp": 10,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Fast (2,560 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "None"
     }
   }
 }

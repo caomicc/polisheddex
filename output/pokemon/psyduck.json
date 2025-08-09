@@ -153,9 +153,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Water",
-      "faithfulTypes": "Water",
-      "updatedTypes": "Water",
+      "types": [
+        "Water"
+      ],
+      "faithfulTypes": [
+        "Water"
+      ],
+      "updatedTypes": [
+        "Water"
+      ],
       "moves": [
         {
           "name": "Scratch",
@@ -720,6 +726,93 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "damp",
+          "name": "Damp",
+          "description": "\tPrevents self- \tdestructing moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "cloud-nine",
+          "name": "Cloud Nine",
+          "description": "\tEliminates effects \tof weather.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "damp",
+          "name": "Damp",
+          "description": "\tPrevents self- \tdestructing moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "cloud-nine",
+          "name": "Cloud Nine",
+          "description": "\tEliminates effects \tof weather.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 50,
+        "attack": 52,
+        "defense": 48,
+        "speed": 55,
+        "specialAttack": 65,
+        "specialDefense": 50,
+        "total": 320
+      },
+      "faithfulBaseStats": {
+        "hp": 50,
+        "attack": 52,
+        "defense": 48,
+        "speed": 55,
+        "specialAttack": 65,
+        "specialDefense": 50,
+        "total": 320
+      },
+      "polishedBaseStats": {
+        "hp": 50,
+        "attack": 52,
+        "defense": 48,
+        "speed": 55,
+        "specialAttack": 65,
+        "specialDefense": 50,
+        "total": 320
+      },
+      "catchRate": 190,
+      "baseExp": 80,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 SAt",
       "eggMoves": [
         "Confuse Ray",
         "Cross Chop",
@@ -1335,72 +1428,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "damp",
-          "name": "Damp",
-          "description": "\tPrevents self- \tdestructing moves.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "cloud-nine",
-          "name": "Cloud Nine",
-          "description": "\tEliminates effects \tof weather.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "swift-swim",
-          "name": "Swift Swim",
-          "description": "\tBoosts its Speed \tin rain.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "damp",
-          "name": "Damp",
-          "description": "\tPrevents self- \tdestructing moves.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "cloud-nine",
-          "name": "Cloud Nine",
-          "description": "\tEliminates effects \tof weather.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "swift-swim",
-          "name": "Swift Swim",
-          "description": "\tBoosts its Speed \tin rain.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 50,
-        "attack": 52,
-        "defense": 48,
-        "speed": 55,
-        "specialAttack": 65,
-        "specialDefense": 50,
-        "total": 320
-      },
-      "faithfulBaseStats": {
-        "hp": 50,
-        "attack": 52,
-        "defense": 48,
-        "speed": 55,
-        "specialAttack": 65,
-        "specialDefense": 50,
-        "total": 320
-      }
+      ]
     }
   },
   "locations": [

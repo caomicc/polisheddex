@@ -178,9 +178,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Fighting",
-      "faithfulTypes": "Fighting",
-      "updatedTypes": "Fighting",
+      "types": [
+        "Fighting"
+      ],
+      "faithfulTypes": [
+        "Fighting"
+      ],
+      "updatedTypes": [
+        "Fighting"
+      ],
       "moves": [
         {
           "name": "Low Kick",
@@ -784,6 +790,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "guts",
+          "name": "Guts",
+          "description": "\tBoosts Attack on \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "no-guard",
+          "name": "No Guard",
+          "description": "\tEnsures attacks by \tor against it hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "steadfast",
+          "name": "Steadfast",
+          "description": "\tBoosts Speed when \tit flinches.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "guts",
+          "name": "Guts",
+          "description": "\tBoosts Attack on \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "no-guard",
+          "name": "No Guard",
+          "description": "\tEnsures attacks by \tor against it hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "steadfast",
+          "name": "Steadfast",
+          "description": "\tBoosts Speed when \tit flinches.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 80,
+        "attack": 100,
+        "defense": 70,
+        "speed": 45,
+        "specialAttack": 50,
+        "specialDefense": 60,
+        "total": 405
+      },
+      "faithfulBaseStats": {
+        "hp": 80,
+        "attack": 100,
+        "defense": 70,
+        "speed": 45,
+        "specialAttack": 50,
+        "specialDefense": 60,
+        "total": 405
+      },
+      "polishedBaseStats": {
+        "hp": 80,
+        "attack": 100,
+        "defense": 70,
+        "speed": 45,
+        "specialAttack": 50,
+        "specialDefense": 60,
+        "total": 405
+      },
+      "catchRate": 90,
+      "baseExp": 146,
+      "heldItems": [
+        "FOCUS_BAND"
+      ],
+      "genderRatio": {
+        "male": 75,
+        "female": 25
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Human-Like",
+        "Human-Like"
+      ],
+      "evYield": "2 Atk",
       "eggMoves": [
         "Bullet Punch",
         "Encore",
@@ -1316,72 +1412,7 @@
             "area": "Goldenrod City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "guts",
-          "name": "Guts",
-          "description": "\tBoosts Attack on \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "no-guard",
-          "name": "No Guard",
-          "description": "\tEnsures attacks by \tor against it hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "steadfast",
-          "name": "Steadfast",
-          "description": "\tBoosts Speed when \tit flinches.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "guts",
-          "name": "Guts",
-          "description": "\tBoosts Attack on \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "no-guard",
-          "name": "No Guard",
-          "description": "\tEnsures attacks by \tor against it hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "steadfast",
-          "name": "Steadfast",
-          "description": "\tBoosts Speed when \tit flinches.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 80,
-        "attack": 100,
-        "defense": 70,
-        "speed": 45,
-        "specialAttack": 50,
-        "specialDefense": 60,
-        "total": 405
-      },
-      "faithfulBaseStats": {
-        "hp": 80,
-        "attack": 100,
-        "defense": 70,
-        "speed": 45,
-        "specialAttack": 50,
-        "specialDefense": 60,
-        "total": 405
-      }
+      ]
     }
   },
   "locations": [

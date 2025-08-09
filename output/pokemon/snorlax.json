@@ -138,9 +138,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Normal",
-      "faithfulTypes": "Normal",
-      "updatedTypes": "Normal",
+      "types": [
+        "Normal"
+      ],
+      "faithfulTypes": [
+        "Normal"
+      ],
+      "updatedTypes": [
+        "Normal"
+      ],
       "moves": [
         {
           "name": "Tackle",
@@ -672,6 +678,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "immunity",
+          "name": "Immunity",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "immunity",
+          "name": "Immunity",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 160,
+        "attack": 110,
+        "defense": 65,
+        "speed": 30,
+        "specialAttack": 65,
+        "specialDefense": 110,
+        "total": 540
+      },
+      "faithfulBaseStats": {
+        "hp": 160,
+        "attack": 110,
+        "defense": 65,
+        "speed": 30,
+        "specialAttack": 65,
+        "specialDefense": 110,
+        "total": 540
+      },
+      "polishedBaseStats": {
+        "hp": 160,
+        "attack": 110,
+        "defense": 65,
+        "speed": 30,
+        "specialAttack": 65,
+        "specialDefense": 110,
+        "total": 540
+      },
+      "catchRate": 25,
+      "baseExp": 154,
+      "heldItems": [
+        "ALWAYS_ITEM_"
+      ],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Monster",
+        "Monster"
+      ],
+      "evYield": "2 HP",
       "eggMoves": [
         "Charm",
         "Counter",
@@ -1448,72 +1544,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "immunity",
-          "name": "Immunity",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "thick-fat",
-          "name": "Thick Fat",
-          "description": "\tUps resistance to \tFire and Ice.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "gluttony",
-          "name": "Gluttony",
-          "description": "\tEncourages early \tBerry use.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "immunity",
-          "name": "Immunity",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "thick-fat",
-          "name": "Thick Fat",
-          "description": "\tUps resistance to \tFire and Ice.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "gluttony",
-          "name": "Gluttony",
-          "description": "\tEncourages early \tBerry use.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 160,
-        "attack": 110,
-        "defense": 65,
-        "speed": 30,
-        "specialAttack": 65,
-        "specialDefense": 110,
-        "total": 540
-      },
-      "faithfulBaseStats": {
-        "hp": 160,
-        "attack": 110,
-        "defense": 65,
-        "speed": 30,
-        "specialAttack": 65,
-        "specialDefense": 110,
-        "total": 540
-      }
+      ]
     }
   }
 }

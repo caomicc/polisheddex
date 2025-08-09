@@ -351,9 +351,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Ice",
-      "faithfulTypes": "Ice",
-      "updatedTypes": "Ice",
+      "types": [
+        "Ice"
+      ],
+      "faithfulTypes": [
+        "Ice"
+      ],
+      "updatedTypes": [
+        "Ice"
+      ],
       "moves": [
         {
           "name": "Growl",
@@ -888,6 +894,116 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "ice-body",
+          "name": "Ice Body",
+          "description": "\tGradually regains \tHP in hail.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "ice-body",
+          "name": "Ice Body",
+          "description": "\tGradually regains \tHP in hail.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "snow-warning",
+          "name": "Snow Warning",
+          "description": "\tSummons hailstorm \twhen switched in.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "ice-body",
+          "name": "Ice Body",
+          "description": "\tGradually regains \tHP in hail.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 60,
+        "defense": 110,
+        "speed": 65,
+        "specialAttack": 130,
+        "specialDefense": 95,
+        "total": 525
+      },
+      "faithfulBaseStats": {
+        "hp": 65,
+        "attack": 60,
+        "defense": 110,
+        "speed": 65,
+        "specialAttack": 130,
+        "specialDefense": 95,
+        "total": 525
+      },
+      "polishedBaseStats": {
+        "hp": 65,
+        "attack": 60,
+        "defense": 110,
+        "speed": 65,
+        "specialAttack": 130,
+        "specialDefense": 95,
+        "total": 525
+      },
+      "catchRate": 45,
+      "baseExp": 196,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Very Slow (10,240 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "2 SAt",
       "eggMoves": [
         "Charm"
       ],
@@ -1404,94 +1520,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "snow-cloak",
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "snow-cloak",
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "ice-body",
-          "name": "Ice Body",
-          "description": "\tGradually regains \tHP in hail.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "snow-cloak",
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "snow-cloak",
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "ice-body",
-          "name": "Ice Body",
-          "description": "\tGradually regains \tHP in hail.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "snow-cloak",
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "snow-warning",
-          "name": "Snow Warning",
-          "description": "\tSummons hailstorm \twhen switched in.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "ice-body",
-          "name": "Ice Body",
-          "description": "\tGradually regains \tHP in hail.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 65,
-        "attack": 60,
-        "defense": 110,
-        "speed": 65,
-        "specialAttack": 130,
-        "specialDefense": 95,
-        "total": 525
-      },
-      "faithfulBaseStats": {
-        "hp": 65,
-        "attack": 60,
-        "defense": 110,
-        "speed": 65,
-        "specialAttack": 130,
-        "specialDefense": 95,
-        "total": 525
-      }
+      ]
     }
   }
 }

@@ -176,9 +176,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Fire",
-      "faithfulTypes": "Fire",
-      "updatedTypes": "Fire",
+      "types": [
+        "Fire"
+      ],
+      "faithfulTypes": [
+        "Fire"
+      ],
+      "updatedTypes": [
+        "Fire"
+      ],
       "moves": [
         {
           "name": "Scratch",
@@ -644,6 +650,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "blaze",
+          "name": "Blaze",
+          "description": "\tBoosts Fire moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "solar-power",
+          "name": "Solar Power",
+          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "flame-body",
+          "name": "Flame Body",
+          "description": "\tContact may burn \tthe foe.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "blaze",
+          "name": "Blaze",
+          "description": "\tBoosts Fire moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "solar-power",
+          "name": "Solar Power",
+          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "flame-body",
+          "name": "Flame Body",
+          "description": "\tContact may burn \tthe foe.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 58,
+        "attack": 64,
+        "defense": 58,
+        "speed": 80,
+        "specialAttack": 80,
+        "specialDefense": 65,
+        "total": 405
+      },
+      "faithfulBaseStats": {
+        "hp": 58,
+        "attack": 64,
+        "defense": 58,
+        "speed": 80,
+        "specialAttack": 80,
+        "specialDefense": 65,
+        "total": 405
+      },
+      "polishedBaseStats": {
+        "hp": 58,
+        "attack": 64,
+        "defense": 58,
+        "speed": 80,
+        "specialAttack": 80,
+        "specialDefense": 65,
+        "total": 405
+      },
+      "catchRate": 45,
+      "baseExp": 142,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Monster",
+        "Dragon"
+      ],
+      "evYield": "1 Spe",
       "eggMoves": [
         "Ancientpower",
         "Belly Drum",
@@ -1190,72 +1284,7 @@
             "area": "Goldenrod City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "blaze",
-          "name": "Blaze",
-          "description": "\tBoosts Fire moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "solar-power",
-          "name": "Solar Power",
-          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "flame-body",
-          "name": "Flame Body",
-          "description": "\tContact may burn \tthe foe.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "blaze",
-          "name": "Blaze",
-          "description": "\tBoosts Fire moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "solar-power",
-          "name": "Solar Power",
-          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "flame-body",
-          "name": "Flame Body",
-          "description": "\tContact may burn \tthe foe.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 58,
-        "attack": 64,
-        "defense": 58,
-        "speed": 80,
-        "specialAttack": 80,
-        "specialDefense": 65,
-        "total": 405
-      },
-      "faithfulBaseStats": {
-        "hp": 58,
-        "attack": 64,
-        "defense": 58,
-        "speed": 80,
-        "specialAttack": 80,
-        "specialDefense": 65,
-        "total": 405
-      }
+      ]
     }
   }
 }

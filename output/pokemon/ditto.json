@@ -117,9 +117,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Normal",
-      "faithfulTypes": "Normal",
-      "updatedTypes": "Normal",
+      "types": [
+        "Normal"
+      ],
+      "faithfulTypes": [
+        "Normal"
+      ],
+      "updatedTypes": [
+        "Normal"
+      ],
       "moves": [
         {
           "name": "Transform",
@@ -159,8 +165,6 @@
           }
         }
       ],
-      "eggMoves": [],
-      "tmHmMoves": [],
       "abilities": [
         {
           "id": "limber",
@@ -225,7 +229,33 @@
         "specialAttack": 48,
         "specialDefense": 48,
         "total": 288
-      }
+      },
+      "polishedBaseStats": {
+        "hp": 78,
+        "attack": 28,
+        "defense": 48,
+        "speed": 108,
+        "specialAttack": 28,
+        "specialDefense": 48,
+        "total": 338
+      },
+      "catchRate": 35,
+      "baseExp": 61,
+      "heldItems": [
+        "QUICK_POWDER",
+        "METAL_POWDER"
+      ],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Ditto",
+        "Ditto"
+      ],
+      "evYield": "1 HP"
     }
   },
   "locations": [

@@ -222,9 +222,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Fighting",
-      "faithfulTypes": "Fighting",
-      "updatedTypes": "Fighting",
+      "types": [
+        "Fighting"
+      ],
+      "faithfulTypes": [
+        "Fighting"
+      ],
+      "updatedTypes": [
+        "Fighting"
+      ],
       "moves": [
         {
           "name": "Tackle",
@@ -336,6 +342,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "guts",
+          "name": "Guts",
+          "description": "\tBoosts Attack on \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "steadfast",
+          "name": "Steadfast",
+          "description": "\tBoosts Speed when \tit flinches.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "vital-spirit",
+          "name": "Vital Spirit",
+          "description": "\tPrevents it from \tfalling asleep.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "guts",
+          "name": "Guts",
+          "description": "\tBoosts Attack on \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "steadfast",
+          "name": "Steadfast",
+          "description": "\tBoosts Speed when \tit flinches.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "vital-spirit",
+          "name": "Vital Spirit",
+          "description": "\tPrevents it from \tfalling asleep.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 35,
+        "attack": 35,
+        "defense": 35,
+        "speed": 35,
+        "specialAttack": 35,
+        "specialDefense": 35,
+        "total": 210
+      },
+      "faithfulBaseStats": {
+        "hp": 35,
+        "attack": 35,
+        "defense": 35,
+        "speed": 35,
+        "specialAttack": 35,
+        "specialDefense": 35,
+        "total": 210
+      },
+      "polishedBaseStats": {
+        "hp": 35,
+        "attack": 35,
+        "defense": 35,
+        "speed": 35,
+        "specialAttack": 35,
+        "specialDefense": 35,
+        "total": 210
+      },
+      "catchRate": 75,
+      "baseExp": 91,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 100,
+        "female": 0
+      },
+      "hatchRate": "Medium-Slow (6,400 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk",
       "eggMoves": [
         "Bullet Punch",
         "Hi Jump Kick",
@@ -718,72 +812,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "guts",
-          "name": "Guts",
-          "description": "\tBoosts Attack on \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "steadfast",
-          "name": "Steadfast",
-          "description": "\tBoosts Speed when \tit flinches.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "vital-spirit",
-          "name": "Vital Spirit",
-          "description": "\tPrevents it from \tfalling asleep.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "guts",
-          "name": "Guts",
-          "description": "\tBoosts Attack on \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "steadfast",
-          "name": "Steadfast",
-          "description": "\tBoosts Speed when \tit flinches.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "vital-spirit",
-          "name": "Vital Spirit",
-          "description": "\tPrevents it from \tfalling asleep.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 35,
-        "attack": 35,
-        "defense": 35,
-        "speed": 35,
-        "specialAttack": 35,
-        "specialDefense": 35,
-        "total": 210
-      },
-      "faithfulBaseStats": {
-        "hp": 35,
-        "attack": 35,
-        "defense": 35,
-        "speed": 35,
-        "specialAttack": 35,
-        "specialDefense": 35,
-        "total": 210
-      }
+      ]
     }
   }
 }

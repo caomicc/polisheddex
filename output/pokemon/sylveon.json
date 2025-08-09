@@ -353,9 +353,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Fairy",
-      "faithfulTypes": "Fairy",
-      "updatedTypes": "Fairy",
+      "types": [
+        "Fairy"
+      ],
+      "faithfulTypes": [
+        "Fairy"
+      ],
+      "updatedTypes": [
+        "Fairy"
+      ],
       "moves": [
         {
           "name": "Growl",
@@ -887,6 +893,118 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "cute-charm",
+          "name": "Cute Charm",
+          "description": "\tContact may cause \tinfatuation.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "cute-charm",
+          "name": "Cute Charm",
+          "description": "\tContact may cause \tinfatuation.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "pixilate",
+          "name": "Pixilate",
+          "description": "\tNormal-type moves \tbecome Fairy-type.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "cute-charm",
+          "name": "Cute Charm",
+          "description": "\tContact may cause \tinfatuation.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "cute-charm",
+          "name": "Cute Charm",
+          "description": "\tContact may cause \tinfatuation.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "pixilate",
+          "name": "Pixilate",
+          "description": "\tNormal-type moves \tbecome Fairy-type.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "cute-charm",
+          "name": "Cute Charm",
+          "description": "\tContact may cause \tinfatuation.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "serene-grace",
+          "name": "Serene Grace",
+          "description": "\tBoosts the rate of \tadded effects.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "pixilate",
+          "name": "Pixilate",
+          "description": "\tNormal-type moves \tbecome Fairy-type.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 95,
+        "attack": 65,
+        "defense": 65,
+        "speed": 60,
+        "specialAttack": 110,
+        "specialDefense": 130,
+        "total": 525
+      },
+      "faithfulBaseStats": {
+        "hp": 95,
+        "attack": 65,
+        "defense": 65,
+        "speed": 60,
+        "specialAttack": 110,
+        "specialDefense": 130,
+        "total": 525
+      },
+      "polishedBaseStats": {
+        "hp": 95,
+        "attack": 65,
+        "defense": 65,
+        "speed": 60,
+        "specialAttack": 110,
+        "specialDefense": 130,
+        "total": 525
+      },
+      "catchRate": 45,
+      "baseExp": 196,
+      "heldItems": [
+        "PINK_BOW"
+      ],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Very Slow (10,240 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "2 SDf",
       "eggMoves": [
         "Charm"
       ],
@@ -1309,94 +1427,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "cute-charm",
-          "name": "Cute Charm",
-          "description": "\tContact may cause \tinfatuation.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "cute-charm",
-          "name": "Cute Charm",
-          "description": "\tContact may cause \tinfatuation.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "pixilate",
-          "name": "Pixilate",
-          "description": "\tNormal-type moves \tbecome Fairy-type.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "cute-charm",
-          "name": "Cute Charm",
-          "description": "\tContact may cause \tinfatuation.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "cute-charm",
-          "name": "Cute Charm",
-          "description": "\tContact may cause \tinfatuation.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "pixilate",
-          "name": "Pixilate",
-          "description": "\tNormal-type moves \tbecome Fairy-type.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "cute-charm",
-          "name": "Cute Charm",
-          "description": "\tContact may cause \tinfatuation.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "serene-grace",
-          "name": "Serene Grace",
-          "description": "\tBoosts the rate of \tadded effects.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "pixilate",
-          "name": "Pixilate",
-          "description": "\tNormal-type moves \tbecome Fairy-type.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 95,
-        "attack": 65,
-        "defense": 65,
-        "speed": 60,
-        "specialAttack": 110,
-        "specialDefense": 130,
-        "total": 525
-      },
-      "faithfulBaseStats": {
-        "hp": 95,
-        "attack": 65,
-        "defense": 65,
-        "speed": 60,
-        "specialAttack": 110,
-        "specialDefense": 130,
-        "total": 525
-      }
+      ]
     }
   }
 }

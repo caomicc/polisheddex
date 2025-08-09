@@ -198,9 +198,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Water",
-      "faithfulTypes": "Water",
-      "updatedTypes": "Water",
+      "types": [
+        "Water"
+      ],
+      "faithfulTypes": [
+        "Water"
+      ],
+      "updatedTypes": [
+        "Water"
+      ],
       "moves": [
         {
           "name": "Scratch",
@@ -807,6 +813,116 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "torrent",
+          "name": "Torrent",
+          "description": "\tBoosts Water moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "torrent",
+          "name": "Torrent",
+          "description": "\tBoosts Water moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sheer-force",
+          "name": "Sheer Force",
+          "description": "\tRemoves effects to \tincrease damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "torrent",
+          "name": "Torrent",
+          "description": "\tBoosts Water moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "torrent",
+          "name": "Torrent",
+          "description": "\tBoosts Water moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sheer-force",
+          "name": "Sheer Force",
+          "description": "\tRemoves effects to \tincrease damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "torrent",
+          "name": "Torrent",
+          "description": "\tBoosts Water moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "guts",
+          "name": "Guts",
+          "description": "\tBoosts Attack on \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sheer-force",
+          "name": "Sheer Force",
+          "description": "\tRemoves effects to \tincrease damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 80,
+        "defense": 80,
+        "speed": 58,
+        "specialAttack": 59,
+        "specialDefense": 63,
+        "total": 405
+      },
+      "faithfulBaseStats": {
+        "hp": 65,
+        "attack": 80,
+        "defense": 80,
+        "speed": 58,
+        "specialAttack": 59,
+        "specialDefense": 63,
+        "total": 405
+      },
+      "polishedBaseStats": {
+        "hp": 65,
+        "attack": 80,
+        "defense": 80,
+        "speed": 58,
+        "specialAttack": 59,
+        "specialDefense": 63,
+        "total": 405
+      },
+      "catchRate": 45,
+      "baseExp": 143,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Monster",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk",
       "eggMoves": [
         "Dragon Dance",
         "Metal Claw",
@@ -1393,94 +1509,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "torrent",
-          "name": "Torrent",
-          "description": "\tBoosts Water moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "torrent",
-          "name": "Torrent",
-          "description": "\tBoosts Water moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sheer-force",
-          "name": "Sheer Force",
-          "description": "\tRemoves effects to \tincrease damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "torrent",
-          "name": "Torrent",
-          "description": "\tBoosts Water moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "torrent",
-          "name": "Torrent",
-          "description": "\tBoosts Water moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sheer-force",
-          "name": "Sheer Force",
-          "description": "\tRemoves effects to \tincrease damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "torrent",
-          "name": "Torrent",
-          "description": "\tBoosts Water moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "guts",
-          "name": "Guts",
-          "description": "\tBoosts Attack on \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sheer-force",
-          "name": "Sheer Force",
-          "description": "\tRemoves effects to \tincrease damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 65,
-        "attack": 80,
-        "defense": 80,
-        "speed": 58,
-        "specialAttack": 59,
-        "specialDefense": 63,
-        "total": 405
-      },
-      "faithfulBaseStats": {
-        "hp": 65,
-        "attack": 80,
-        "defense": 80,
-        "speed": 58,
-        "specialAttack": 59,
-        "specialDefense": 63,
-        "total": 405
-      }
+      ]
     }
   }
 }

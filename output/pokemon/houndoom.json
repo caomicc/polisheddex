@@ -715,6 +715,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "early-bird",
+          "name": "Early Bird",
+          "description": "\tAwakens quickly \tfrom sleep.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "solar-power",
+          "name": "Solar Power",
+          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "early-bird",
+          "name": "Early Bird",
+          "description": "\tAwakens quickly \tfrom sleep.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "solar-power",
+          "name": "Solar Power",
+          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 75,
+        "attack": 90,
+        "defense": 50,
+        "speed": 95,
+        "specialAttack": 110,
+        "specialDefense": 80,
+        "total": 500
+      },
+      "faithfulBaseStats": {
+        "hp": 75,
+        "attack": 90,
+        "defense": 50,
+        "speed": 95,
+        "specialAttack": 110,
+        "specialDefense": 80,
+        "total": 500
+      },
+      "polishedBaseStats": {
+        "hp": 75,
+        "attack": 90,
+        "defense": 50,
+        "speed": 95,
+        "specialAttack": 110,
+        "specialDefense": 80,
+        "total": 500
+      },
+      "catchRate": 45,
+      "baseExp": 204,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "2 SAt",
       "eggMoves": [
         "Destiny Bond",
         "Fire Spin",
@@ -1234,72 +1322,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "early-bird",
-          "name": "Early Bird",
-          "description": "\tAwakens quickly \tfrom sleep.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "flash-fire",
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "solar-power",
-          "name": "Solar Power",
-          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "early-bird",
-          "name": "Early Bird",
-          "description": "\tAwakens quickly \tfrom sleep.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "flash-fire",
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "solar-power",
-          "name": "Solar Power",
-          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 75,
-        "attack": 90,
-        "defense": 50,
-        "speed": 95,
-        "specialAttack": 110,
-        "specialDefense": 80,
-        "total": 500
-      },
-      "faithfulBaseStats": {
-        "hp": 75,
-        "attack": 90,
-        "defense": 50,
-        "speed": 95,
-        "specialAttack": 110,
-        "specialDefense": 80,
-        "total": 500
-      }
+      ]
     }
   },
   "locations": [

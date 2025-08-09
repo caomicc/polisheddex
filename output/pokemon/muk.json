@@ -160,9 +160,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Poison",
-      "faithfulTypes": "Poison",
-      "updatedTypes": "Poison",
+      "types": [
+        "Poison"
+      ],
+      "faithfulTypes": [
+        "Poison"
+      ],
+      "updatedTypes": [
+        "Poison"
+      ],
       "moves": [
         {
           "name": "Moonblast",
@@ -2484,46 +2490,46 @@
       ],
       "abilities": [
         {
-          "id": "poison-touch",
-          "name": "Poison Touch",
-          "description": "\tMay poison the foe \ton contact.",
+          "id": "stench",
+          "name": "Stench",
+          "description": "\tMay cause the foe \tto flinch.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "gluttony",
-          "name": "Gluttony",
-          "description": "\tEncourages early \tBerry use.",
+          "id": "sticky-hold",
+          "name": "Sticky Hold",
+          "description": "\tProtects it from \titem theft.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "corrosion",
-          "name": "Corrosion",
-          "description": "\tFoes of any type \tcan be poisoned.",
+          "id": "poison-touch",
+          "name": "Poison Touch",
+          "description": "\tMay poison the foe \ton contact.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
       "faithfulAbilities": [
         {
-          "id": "poison-touch",
-          "name": "Poison Touch",
-          "description": "\tMay poison the foe \ton contact.",
+          "id": "stench",
+          "name": "Stench",
+          "description": "\tMay cause the foe \tto flinch.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "gluttony",
-          "name": "Gluttony",
-          "description": "\tEncourages early \tBerry use.",
+          "id": "sticky-hold",
+          "name": "Sticky Hold",
+          "description": "\tProtects it from \titem theft.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "corrosion",
-          "name": "Corrosion",
-          "description": "\tFoes of any type \tcan be poisoned.",
+          "id": "poison-touch",
+          "name": "Poison Touch",
+          "description": "\tMay poison the foe \ton contact.",
           "isHidden": true,
           "abilityType": "hidden"
         }

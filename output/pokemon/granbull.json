@@ -136,9 +136,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Fairy",
-      "faithfulTypes": "Fairy",
-      "updatedTypes": "Fairy",
+      "types": [
+        "Fairy"
+      ],
+      "faithfulTypes": [
+        "Fairy"
+      ],
+      "updatedTypes": [
+        "Fairy"
+      ],
       "moves": [
         {
           "name": "Tackle",
@@ -601,6 +607,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "quick-feet",
+          "name": "Quick Feet",
+          "description": "\tBoosts Speed with \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "quick-feet",
+          "name": "Quick Feet",
+          "description": "\tBoosts Speed with \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 90,
+        "attack": 120,
+        "defense": 75,
+        "speed": 45,
+        "specialAttack": 60,
+        "specialDefense": 60,
+        "total": 450
+      },
+      "faithfulBaseStats": {
+        "hp": 90,
+        "attack": 120,
+        "defense": 75,
+        "speed": 45,
+        "specialAttack": 60,
+        "specialDefense": 60,
+        "total": 450
+      },
+      "polishedBaseStats": {
+        "hp": 90,
+        "attack": 120,
+        "defense": 75,
+        "speed": 45,
+        "specialAttack": 60,
+        "specialDefense": 60,
+        "total": 450
+      },
+      "catchRate": 75,
+      "baseExp": 178,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 25,
+        "female": 75
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Fast",
+      "eggGroups": [
+        "Field",
+        "Fairy"
+      ],
+      "evYield": "2 Atk",
       "eggMoves": [
         "Feint Attack",
         "Leer",
@@ -1338,72 +1432,7 @@
             "area": "Power Plant"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "intimidate",
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "quick-feet",
-          "name": "Quick Feet",
-          "description": "\tBoosts Speed with \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "rattled",
-          "name": "Rattled",
-          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "intimidate",
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "quick-feet",
-          "name": "Quick Feet",
-          "description": "\tBoosts Speed with \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "rattled",
-          "name": "Rattled",
-          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 90,
-        "attack": 120,
-        "defense": 75,
-        "speed": 45,
-        "specialAttack": 60,
-        "specialDefense": 60,
-        "total": 450
-      },
-      "faithfulBaseStats": {
-        "hp": 90,
-        "attack": 120,
-        "defense": 75,
-        "speed": 45,
-        "specialAttack": 60,
-        "specialDefense": 60,
-        "total": 450
-      }
+      ]
     }
   },
   "locations": [

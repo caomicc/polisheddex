@@ -138,9 +138,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Fire",
-      "faithfulTypes": "Fire",
-      "updatedTypes": "Fire",
+      "types": [
+        "Fire"
+      ],
+      "faithfulTypes": [
+        "Fire"
+      ],
+      "updatedTypes": [
+        "Fire"
+      ],
       "moves": [
         {
           "name": "Bite",
@@ -711,7 +717,118 @@
           }
         }
       ],
-      "eggMoves": [],
+      "abilities": [
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 115,
+        "attack": 115,
+        "defense": 85,
+        "speed": 100,
+        "specialAttack": 90,
+        "specialDefense": 75,
+        "total": 580
+      },
+      "faithfulBaseStats": {
+        "hp": 115,
+        "attack": 115,
+        "defense": 85,
+        "speed": 100,
+        "specialAttack": 90,
+        "specialDefense": 75,
+        "total": 580
+      },
+      "polishedBaseStats": {
+        "hp": 115,
+        "attack": 115,
+        "defense": 85,
+        "speed": 100,
+        "specialAttack": 90,
+        "specialDefense": 75,
+        "total": 580
+      },
+      "catchRate": 3,
+      "baseExp": 217,
+      "heldItems": [
+        "ALWAYS_ITEM_"
+      ],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 HP",
       "tmHmMoves": [
         {
           "name": "Curse",
@@ -1264,94 +1381,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "pressure",
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "pressure",
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "pressure",
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "pressure",
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "pressure",
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "flash-fire",
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 115,
-        "attack": 115,
-        "defense": 85,
-        "speed": 100,
-        "specialAttack": 90,
-        "specialDefense": 75,
-        "total": 580
-      },
-      "faithfulBaseStats": {
-        "hp": 115,
-        "attack": 115,
-        "defense": 85,
-        "speed": 100,
-        "specialAttack": 90,
-        "specialDefense": 75,
-        "total": 580
-      }
+      ]
     }
   }
 }

@@ -183,8 +183,13 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Fire",
-      "faithfulTypes": "Fire",
+      "types": [
+        "Fire",
+        "Ground"
+      ],
+      "faithfulTypes": [
+        "Fire"
+      ],
       "updatedTypes": [
         "Fire",
         "Ground"
@@ -2863,9 +2868,9 @@
           "abilityType": "secondary"
         },
         {
-          "id": "frisk",
-          "name": "Frisk",
-          "description": "\tChecks the foe's \theld item.",
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
           "isHidden": true,
           "abilityType": "hidden"
         }
@@ -2886,9 +2891,9 @@
           "abilityType": "secondary"
         },
         {
-          "id": "frisk",
-          "name": "Frisk",
-          "description": "\tChecks the foe's \theld item.",
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
           "isHidden": true,
           "abilityType": "hidden"
         }
@@ -2909,9 +2914,9 @@
           "abilityType": "secondary"
         },
         {
-          "id": "frisk",
-          "name": "Frisk",
-          "description": "\tChecks the foe's \theld item.",
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
           "isHidden": true,
           "abilityType": "hidden"
         }
@@ -2953,8 +2958,8 @@
       "hatchRate": "Medium-Fast (5,120 steps)",
       "growthRate": "Medium Slow",
       "eggGroups": [
-        "Undiscovered",
-        "Undiscovered"
+        "Field",
+        "Field"
       ],
       "evYield": "3 SAt"
     }

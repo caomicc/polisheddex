@@ -814,6 +814,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "swarm",
+          "name": "Swarm",
+          "description": "\tBoosts Bug moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "light-metal",
+          "name": "Light Metal",
+          "description": "\tHalves the Poké- \tmon's weight.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swarm",
+          "name": "Swarm",
+          "description": "\tBoosts Bug moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "light-metal",
+          "name": "Light Metal",
+          "description": "\tHalves the Poké- \tmon's weight.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 70,
+        "attack": 130,
+        "defense": 100,
+        "speed": 65,
+        "specialAttack": 55,
+        "specialDefense": 80,
+        "total": 500
+      },
+      "faithfulBaseStats": {
+        "hp": 70,
+        "attack": 130,
+        "defense": 100,
+        "speed": 65,
+        "specialAttack": 55,
+        "specialDefense": 80,
+        "total": 500
+      },
+      "polishedBaseStats": {
+        "hp": 70,
+        "attack": 130,
+        "defense": 100,
+        "speed": 65,
+        "specialAttack": 55,
+        "specialDefense": 80,
+        "total": 500
+      },
+      "catchRate": 25,
+      "baseExp": 200,
+      "heldItems": [
+        "METAL_COAT"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Slow (6,400 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Bug",
+        "Bug"
+      ],
+      "evYield": "2 Atk",
       "eggMoves": [
         "Baton Pass",
         "Bug Buzz",
@@ -1438,72 +1528,7 @@
             "area": "Goldenrod City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "swarm",
-          "name": "Swarm",
-          "description": "\tBoosts Bug moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "technician",
-          "name": "Technician",
-          "description": "\tPowers up its \tweaker moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "light-metal",
-          "name": "Light Metal",
-          "description": "\tHalves the Poké- \tmon's weight.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "swarm",
-          "name": "Swarm",
-          "description": "\tBoosts Bug moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "technician",
-          "name": "Technician",
-          "description": "\tPowers up its \tweaker moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "light-metal",
-          "name": "Light Metal",
-          "description": "\tHalves the Poké- \tmon's weight.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 70,
-        "attack": 130,
-        "defense": 100,
-        "speed": 65,
-        "specialAttack": 55,
-        "specialDefense": 80,
-        "total": 500
-      },
-      "faithfulBaseStats": {
-        "hp": 70,
-        "attack": 130,
-        "defense": 100,
-        "speed": 65,
-        "specialAttack": 55,
-        "specialDefense": 80,
-        "total": 500
-      }
+      ]
     }
   }
 }

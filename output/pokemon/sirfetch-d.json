@@ -141,9 +141,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Fighting",
-      "faithfulTypes": "Fighting",
-      "updatedTypes": "Fighting",
+      "types": [
+        "Fighting"
+      ],
+      "faithfulTypes": [
+        "Fighting"
+      ],
+      "updatedTypes": [
+        "Fighting"
+      ],
       "moves": [
         {
           "name": "Cut",
@@ -765,6 +771,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "steadfast",
+          "name": "Steadfast",
+          "description": "\tBoosts Speed when \tit flinches.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "steadfast",
+          "name": "Steadfast",
+          "description": "\tBoosts Speed when \tit flinches.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "scrappy",
+          "name": "Scrappy",
+          "description": "\tEnables moves to \thit Ghost-types.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "steadfast",
+          "name": "Steadfast",
+          "description": "\tBoosts Speed when \tit flinches.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "steadfast",
+          "name": "Steadfast",
+          "description": "\tBoosts Speed when \tit flinches.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "scrappy",
+          "name": "Scrappy",
+          "description": "\tEnables moves to \thit Ghost-types.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 62,
+        "attack": 135,
+        "defense": 95,
+        "speed": 65,
+        "specialAttack": 68,
+        "specialDefense": 82,
+        "total": 507
+      },
+      "faithfulBaseStats": {
+        "hp": 62,
+        "attack": 135,
+        "defense": 95,
+        "speed": 65,
+        "specialAttack": 68,
+        "specialDefense": 82,
+        "total": 507
+      },
+      "polishedBaseStats": {
+        "hp": 62,
+        "attack": 135,
+        "defense": 95,
+        "speed": 65,
+        "specialAttack": 68,
+        "specialDefense": 82,
+        "total": 507
+      },
+      "catchRate": 45,
+      "baseExp": 178,
+      "heldItems": [
+        "LEEK"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Flying",
+        "Field"
+      ],
+      "evYield": "2 Atk",
       "eggMoves": [
         "Counter",
         "Foresight",
@@ -1110,72 +1206,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "steadfast",
-          "name": "Steadfast",
-          "description": "\tBoosts Speed when \tit flinches.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "steadfast",
-          "name": "Steadfast",
-          "description": "\tBoosts Speed when \tit flinches.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "scrappy",
-          "name": "Scrappy",
-          "description": "\tEnables moves to \thit Ghost-types.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "steadfast",
-          "name": "Steadfast",
-          "description": "\tBoosts Speed when \tit flinches.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "steadfast",
-          "name": "Steadfast",
-          "description": "\tBoosts Speed when \tit flinches.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "scrappy",
-          "name": "Scrappy",
-          "description": "\tEnables moves to \thit Ghost-types.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 62,
-        "attack": 135,
-        "defense": 95,
-        "speed": 65,
-        "specialAttack": 68,
-        "specialDefense": 82,
-        "total": 507
-      },
-      "faithfulBaseStats": {
-        "hp": 62,
-        "attack": 135,
-        "defense": 95,
-        "speed": 65,
-        "specialAttack": 68,
-        "specialDefense": 82,
-        "total": 507
-      }
+      ]
     }
   }
 }

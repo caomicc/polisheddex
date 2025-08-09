@@ -160,9 +160,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Poison",
-      "faithfulTypes": "Poison",
-      "updatedTypes": "Poison",
+      "types": [
+        "Poison"
+      ],
+      "faithfulTypes": [
+        "Poison"
+      ],
+      "updatedTypes": [
+        "Poison"
+      ],
       "moves": [
         {
           "name": "Wrap",
@@ -691,6 +697,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "unnerve",
+          "name": "Unnerve",
+          "description": "\tPrevents foes from \teating Berries.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "unnerve",
+          "name": "Unnerve",
+          "description": "\tPrevents foes from \teating Berries.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 35,
+        "attack": 60,
+        "defense": 44,
+        "speed": 55,
+        "specialAttack": 40,
+        "specialDefense": 54,
+        "total": 288
+      },
+      "faithfulBaseStats": {
+        "hp": 35,
+        "attack": 60,
+        "defense": 44,
+        "speed": 55,
+        "specialAttack": 40,
+        "specialDefense": 54,
+        "total": 288
+      },
+      "polishedBaseStats": {
+        "hp": 35,
+        "attack": 60,
+        "defense": 44,
+        "speed": 55,
+        "specialAttack": 40,
+        "specialDefense": 54,
+        "total": 288
+      },
+      "catchRate": 255,
+      "baseExp": 62,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Dragon"
+      ],
+      "evYield": "1 Atk",
       "eggMoves": [
         "Crunch",
         "Disable",
@@ -1152,72 +1246,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "intimidate",
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "shed-skin",
-          "name": "Shed Skin",
-          "description": "\tMay heal its own \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "unnerve",
-          "name": "Unnerve",
-          "description": "\tPrevents foes from \teating Berries.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "intimidate",
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "shed-skin",
-          "name": "Shed Skin",
-          "description": "\tMay heal its own \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "unnerve",
-          "name": "Unnerve",
-          "description": "\tPrevents foes from \teating Berries.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 35,
-        "attack": 60,
-        "defense": 44,
-        "speed": 55,
-        "specialAttack": 40,
-        "specialDefense": 54,
-        "total": 288
-      },
-      "faithfulBaseStats": {
-        "hp": 35,
-        "attack": 60,
-        "defense": 44,
-        "speed": 55,
-        "specialAttack": 40,
-        "specialDefense": 54,
-        "total": 288
-      }
+      ]
     }
   },
   "locations": [

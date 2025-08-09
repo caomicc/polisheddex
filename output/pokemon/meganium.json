@@ -183,8 +183,12 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Grass",
-      "faithfulTypes": "Grass",
+      "types": [
+        "Grass"
+      ],
+      "faithfulTypes": [
+        "Grass"
+      ],
       "updatedTypes": [
         "Grass",
         "Fairy"
@@ -858,6 +862,116 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "overgrow",
+          "name": "Overgrow",
+          "description": "\tBoosts Grass moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "overgrow",
+          "name": "Overgrow",
+          "description": "\tBoosts Grass moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "leaf-guard",
+          "name": "Leaf Guard",
+          "description": "\tPrevents status \tproblems in sun.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "overgrow",
+          "name": "Overgrow",
+          "description": "\tBoosts Grass moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "overgrow",
+          "name": "Overgrow",
+          "description": "\tBoosts Grass moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "leaf-guard",
+          "name": "Leaf Guard",
+          "description": "\tPrevents status \tproblems in sun.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "overgrow",
+          "name": "Overgrow",
+          "description": "\tBoosts Grass moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "leaf-guard",
+          "name": "Leaf Guard",
+          "description": "\tPrevents status \tproblems in sun.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 80,
+        "attack": 82,
+        "defense": 100,
+        "speed": 80,
+        "specialAttack": 83,
+        "specialDefense": 100,
+        "total": 525
+      },
+      "faithfulBaseStats": {
+        "hp": 80,
+        "attack": 82,
+        "defense": 100,
+        "speed": 80,
+        "specialAttack": 83,
+        "specialDefense": 100,
+        "total": 525
+      },
+      "polishedBaseStats": {
+        "hp": 80,
+        "attack": 82,
+        "defense": 100,
+        "speed": 80,
+        "specialAttack": 83,
+        "specialDefense": 100,
+        "total": 525
+      },
+      "catchRate": 45,
+      "baseExp": 208,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Monster",
+        "Grass"
+      ],
+      "evYield": "1 Def",
       "eggMoves": [
         "Leech Seed",
         "Vine Whip",
@@ -1379,94 +1493,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "overgrow",
-          "name": "Overgrow",
-          "description": "\tBoosts Grass moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "overgrow",
-          "name": "Overgrow",
-          "description": "\tBoosts Grass moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "leaf-guard",
-          "name": "Leaf Guard",
-          "description": "\tPrevents status \tproblems in sun.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "overgrow",
-          "name": "Overgrow",
-          "description": "\tBoosts Grass moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "overgrow",
-          "name": "Overgrow",
-          "description": "\tBoosts Grass moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "leaf-guard",
-          "name": "Leaf Guard",
-          "description": "\tPrevents status \tproblems in sun.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "overgrow",
-          "name": "Overgrow",
-          "description": "\tBoosts Grass moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "natural-cure",
-          "name": "Natural Cure",
-          "description": "\tSwitch-outs heal \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "leaf-guard",
-          "name": "Leaf Guard",
-          "description": "\tPrevents status \tproblems in sun.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 80,
-        "attack": 82,
-        "defense": 100,
-        "speed": 80,
-        "specialAttack": 83,
-        "specialDefense": 100,
-        "total": 525
-      },
-      "faithfulBaseStats": {
-        "hp": 80,
-        "attack": 82,
-        "defense": 100,
-        "speed": 80,
-        "specialAttack": 83,
-        "specialDefense": 100,
-        "total": 525
-      }
+      ]
     }
   }
 }

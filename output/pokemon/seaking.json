@@ -135,9 +135,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Water",
-      "faithfulTypes": "Water",
-      "updatedTypes": "Water",
+      "types": [
+        "Water"
+      ],
+      "faithfulTypes": [
+        "Water"
+      ],
+      "updatedTypes": [
+        "Water"
+      ],
       "moves": [
         {
           "name": "Poison Jab",
@@ -672,6 +678,93 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "water-veil",
+          "name": "Water Veil",
+          "description": "\tPrevents it from \tgetting a burn.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "lightning-rod",
+          "name": "Lightning Rod",
+          "description": "\tElectric moves \tboost Sp.Atk.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "water-veil",
+          "name": "Water Veil",
+          "description": "\tPrevents it from \tgetting a burn.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "lightning-rod",
+          "name": "Lightning Rod",
+          "description": "\tElectric moves \tboost Sp.Atk.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 80,
+        "attack": 92,
+        "defense": 65,
+        "speed": 68,
+        "specialAttack": 65,
+        "specialDefense": 80,
+        "total": 450
+      },
+      "faithfulBaseStats": {
+        "hp": 80,
+        "attack": 92,
+        "defense": 65,
+        "speed": 68,
+        "specialAttack": 65,
+        "specialDefense": 80,
+        "total": 450
+      },
+      "polishedBaseStats": {
+        "hp": 80,
+        "attack": 102,
+        "defense": 65,
+        "speed": 88,
+        "specialAttack": 65,
+        "specialDefense": 80,
+        "total": 480
+      },
+      "catchRate": 60,
+      "baseExp": 170,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "2 Atk",
       "eggMoves": [
         "Aqua Tail",
         "Hydro Pump",
@@ -1135,72 +1228,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "swift-swim",
-          "name": "Swift Swim",
-          "description": "\tBoosts its Speed \tin rain.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "water-veil",
-          "name": "Water Veil",
-          "description": "\tPrevents it from \tgetting a burn.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "lightning-rod",
-          "name": "Lightning Rod",
-          "description": "\tElectric moves \tboost Sp.Atk.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "swift-swim",
-          "name": "Swift Swim",
-          "description": "\tBoosts its Speed \tin rain.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "water-veil",
-          "name": "Water Veil",
-          "description": "\tPrevents it from \tgetting a burn.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "lightning-rod",
-          "name": "Lightning Rod",
-          "description": "\tElectric moves \tboost Sp.Atk.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 80,
-        "attack": 92,
-        "defense": 65,
-        "speed": 68,
-        "specialAttack": 65,
-        "specialDefense": 80,
-        "total": 450
-      },
-      "faithfulBaseStats": {
-        "hp": 80,
-        "attack": 92,
-        "defense": 65,
-        "speed": 68,
-        "specialAttack": 65,
-        "specialDefense": 80,
-        "total": 450
-      }
+      ]
     }
   },
   "locations": [

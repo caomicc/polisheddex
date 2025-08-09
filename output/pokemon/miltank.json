@@ -116,9 +116,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Normal",
-      "faithfulTypes": "Normal",
-      "updatedTypes": "Normal",
+      "types": [
+        "Normal"
+      ],
+      "faithfulTypes": [
+        "Normal"
+      ],
+      "updatedTypes": [
+        "Normal"
+      ],
       "moves": [
         {
           "name": "Tackle",
@@ -581,6 +587,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "scrappy",
+          "name": "Scrappy",
+          "description": "\tEnables moves to \thit Ghost-types.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sap-sipper",
+          "name": "Sap Sipper",
+          "description": "\tBoosts Attack when \thit by Grass.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "scrappy",
+          "name": "Scrappy",
+          "description": "\tEnables moves to \thit Ghost-types.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sap-sipper",
+          "name": "Sap Sipper",
+          "description": "\tBoosts Attack when \thit by Grass.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 95,
+        "attack": 80,
+        "defense": 105,
+        "speed": 100,
+        "specialAttack": 40,
+        "specialDefense": 70,
+        "total": 490
+      },
+      "faithfulBaseStats": {
+        "hp": 95,
+        "attack": 80,
+        "defense": 105,
+        "speed": 100,
+        "specialAttack": 40,
+        "specialDefense": 70,
+        "total": 490
+      },
+      "polishedBaseStats": {
+        "hp": 95,
+        "attack": 80,
+        "defense": 105,
+        "speed": 100,
+        "specialAttack": 40,
+        "specialDefense": 70,
+        "total": 490
+      },
+      "catchRate": 45,
+      "baseExp": 200,
+      "heldItems": [
+        "MOOMOO_MILK"
+      ],
+      "genderRatio": {
+        "male": 0,
+        "female": 100
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "2 Def",
       "eggMoves": [
         "Dizzy Punch",
         "Reversal",
@@ -1284,72 +1380,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "thick-fat",
-          "name": "Thick Fat",
-          "description": "\tUps resistance to \tFire and Ice.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "scrappy",
-          "name": "Scrappy",
-          "description": "\tEnables moves to \thit Ghost-types.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sap-sipper",
-          "name": "Sap Sipper",
-          "description": "\tBoosts Attack when \thit by Grass.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "thick-fat",
-          "name": "Thick Fat",
-          "description": "\tUps resistance to \tFire and Ice.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "scrappy",
-          "name": "Scrappy",
-          "description": "\tEnables moves to \thit Ghost-types.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sap-sipper",
-          "name": "Sap Sipper",
-          "description": "\tBoosts Attack when \thit by Grass.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 95,
-        "attack": 80,
-        "defense": 105,
-        "speed": 100,
-        "specialAttack": 40,
-        "specialDefense": 70,
-        "total": 490
-      },
-      "faithfulBaseStats": {
-        "hp": 95,
-        "attack": 80,
-        "defense": 105,
-        "speed": 100,
-        "specialAttack": 40,
-        "specialDefense": 70,
-        "total": 490
-      }
+      ]
     }
   },
   "locations": [

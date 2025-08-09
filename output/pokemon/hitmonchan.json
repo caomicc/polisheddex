@@ -174,9 +174,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Fighting",
-      "faithfulTypes": "Fighting",
-      "updatedTypes": "Fighting",
+      "types": [
+        "Fighting"
+      ],
+      "faithfulTypes": [
+        "Fighting"
+      ],
+      "updatedTypes": [
+        "Fighting"
+      ],
       "moves": [
         {
           "name": "Dizzy Punch",
@@ -816,6 +822,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "keen-eye",
+          "name": "Keen Eye",
+          "description": "\tPrevents foes from \tlowering accuracy.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "iron-fist",
+          "name": "Iron Fist",
+          "description": "\tBoosts power of \tpunching moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "keen-eye",
+          "name": "Keen Eye",
+          "description": "\tPrevents foes from \tlowering accuracy.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "iron-fist",
+          "name": "Iron Fist",
+          "description": "\tBoosts power of \tpunching moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 50,
+        "attack": 105,
+        "defense": 79,
+        "speed": 76,
+        "specialAttack": 35,
+        "specialDefense": 110,
+        "total": 455
+      },
+      "faithfulBaseStats": {
+        "hp": 50,
+        "attack": 105,
+        "defense": 79,
+        "speed": 76,
+        "specialAttack": 35,
+        "specialDefense": 110,
+        "total": 455
+      },
+      "polishedBaseStats": {
+        "hp": 50,
+        "attack": 105,
+        "defense": 79,
+        "speed": 76,
+        "specialAttack": 35,
+        "specialDefense": 110,
+        "total": 455
+      },
+      "catchRate": 45,
+      "baseExp": 140,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 100,
+        "female": 0
+      },
+      "hatchRate": "Medium-Slow (6,400 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Human-Like",
+        "Human-Like"
+      ],
+      "evYield": "2 SDf",
       "eggMoves": [
         "Bullet Punch",
         "Hi Jump Kick",
@@ -1331,72 +1425,7 @@
             "area": "Goldenrod City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "keen-eye",
-          "name": "Keen Eye",
-          "description": "\tPrevents foes from \tlowering accuracy.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "iron-fist",
-          "name": "Iron Fist",
-          "description": "\tBoosts power of \tpunching moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "keen-eye",
-          "name": "Keen Eye",
-          "description": "\tPrevents foes from \tlowering accuracy.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "iron-fist",
-          "name": "Iron Fist",
-          "description": "\tBoosts power of \tpunching moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 50,
-        "attack": 105,
-        "defense": 79,
-        "speed": 76,
-        "specialAttack": 35,
-        "specialDefense": 110,
-        "total": 455
-      },
-      "faithfulBaseStats": {
-        "hp": 50,
-        "attack": 105,
-        "defense": 79,
-        "speed": 76,
-        "specialAttack": 35,
-        "specialDefense": 110,
-        "total": 455
-      }
+      ]
     }
   }
 }

@@ -710,7 +710,97 @@
           }
         }
       ],
-      "eggMoves": [],
+      "abilities": [
+        {
+          "id": "swarm",
+          "name": "Swarm",
+          "description": "\tBoosts Bug moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sniper",
+          "name": "Sniper",
+          "description": "\tPowers up critical \thits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "adaptability",
+          "name": "Adaptability",
+          "description": "\tPowers up same- \ttype moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swarm",
+          "name": "Swarm",
+          "description": "\tBoosts Bug moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sniper",
+          "name": "Sniper",
+          "description": "\tPowers up critical \thits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "adaptability",
+          "name": "Adaptability",
+          "description": "\tPowers up same- \ttype moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 65,
+        "attack": 90,
+        "defense": 40,
+        "speed": 75,
+        "specialAttack": 45,
+        "specialDefense": 80,
+        "total": 395
+      },
+      "faithfulBaseStats": {
+        "hp": 65,
+        "attack": 90,
+        "defense": 40,
+        "speed": 75,
+        "specialAttack": 45,
+        "specialDefense": 80,
+        "total": 395
+      },
+      "polishedBaseStats": {
+        "hp": 65,
+        "attack": 100,
+        "defense": 40,
+        "speed": 115,
+        "specialAttack": 45,
+        "specialDefense": 90,
+        "total": 455
+      },
+      "catchRate": 45,
+      "baseExp": 159,
+      "heldItems": [
+        "SHED_SHELL",
+        "POISON_BARB"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Bug",
+        "Bug"
+      ],
+      "evYield": "2 Atk",
       "tmHmMoves": [
         {
           "name": "Curse",
@@ -1220,72 +1310,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "swarm",
-          "name": "Swarm",
-          "description": "\tBoosts Bug moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sniper",
-          "name": "Sniper",
-          "description": "\tPowers up critical \thits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "adaptability",
-          "name": "Adaptability",
-          "description": "\tPowers up same- \ttype moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "swarm",
-          "name": "Swarm",
-          "description": "\tBoosts Bug moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sniper",
-          "name": "Sniper",
-          "description": "\tPowers up critical \thits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "adaptability",
-          "name": "Adaptability",
-          "description": "\tPowers up same- \ttype moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 65,
-        "attack": 90,
-        "defense": 40,
-        "speed": 75,
-        "specialAttack": 45,
-        "specialDefense": 80,
-        "total": 395
-      },
-      "faithfulBaseStats": {
-        "hp": 65,
-        "attack": 90,
-        "defense": 40,
-        "speed": 75,
-        "specialAttack": 45,
-        "specialDefense": 80,
-        "total": 395
-      }
+      ]
     }
   },
   "locations": [

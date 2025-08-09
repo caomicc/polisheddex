@@ -154,9 +154,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Psychic",
-      "faithfulTypes": "Psychic",
-      "updatedTypes": "Psychic",
+      "types": [
+        "Psychic"
+      ],
+      "faithfulTypes": [
+        "Psychic"
+      ],
+      "updatedTypes": [
+        "Psychic"
+      ],
       "moves": [
         {
           "name": "Tackle",
@@ -751,6 +757,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "insomnia",
+          "name": "Insomnia",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "forewarn",
+          "name": "Forewarn",
+          "description": "\tDetermines the \tfoe's moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "insomnia",
+          "name": "Insomnia",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "forewarn",
+          "name": "Forewarn",
+          "description": "\tDetermines the \tfoe's moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 60,
+        "attack": 48,
+        "defense": 45,
+        "speed": 42,
+        "specialAttack": 43,
+        "specialDefense": 90,
+        "total": 328
+      },
+      "faithfulBaseStats": {
+        "hp": 60,
+        "attack": 48,
+        "defense": 45,
+        "speed": 42,
+        "specialAttack": 43,
+        "specialDefense": 90,
+        "total": 328
+      },
+      "polishedBaseStats": {
+        "hp": 60,
+        "attack": 48,
+        "defense": 45,
+        "speed": 42,
+        "specialAttack": 43,
+        "specialDefense": 90,
+        "total": 328
+      },
+      "catchRate": 190,
+      "baseExp": 102,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Human-Like",
+        "Human-Like"
+      ],
+      "evYield": "1 SDf",
       "eggMoves": [
         "Barrier",
         "Light Screen",
@@ -1318,72 +1412,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "insomnia",
-          "name": "Insomnia",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "forewarn",
-          "name": "Forewarn",
-          "description": "\tDetermines the \tfoe's moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "insomnia",
-          "name": "Insomnia",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "forewarn",
-          "name": "Forewarn",
-          "description": "\tDetermines the \tfoe's moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 60,
-        "attack": 48,
-        "defense": 45,
-        "speed": 42,
-        "specialAttack": 43,
-        "specialDefense": 90,
-        "total": 328
-      },
-      "faithfulBaseStats": {
-        "hp": 60,
-        "attack": 48,
-        "defense": 45,
-        "speed": 42,
-        "specialAttack": 43,
-        "specialDefense": 90,
-        "total": 328
-      }
+      ]
     }
   },
   "locations": [

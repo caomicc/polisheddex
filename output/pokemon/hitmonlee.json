@@ -174,9 +174,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Fighting",
-      "faithfulTypes": "Fighting",
-      "updatedTypes": "Fighting",
+      "types": [
+        "Fighting"
+      ],
+      "faithfulTypes": [
+        "Fighting"
+      ],
+      "updatedTypes": [
+        "Fighting"
+      ],
       "moves": [
         {
           "name": "Double Kick",
@@ -764,6 +770,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "limber",
+          "name": "Limber",
+          "description": "\tProtects from \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "reckless",
+          "name": "Reckless",
+          "description": "\tPowers up moves \tthat recoil.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "unburden",
+          "name": "Unburden",
+          "description": "\tBoosts Speed when \theld item is lost.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "limber",
+          "name": "Limber",
+          "description": "\tProtects from \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "reckless",
+          "name": "Reckless",
+          "description": "\tPowers up moves \tthat recoil.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "unburden",
+          "name": "Unburden",
+          "description": "\tBoosts Speed when \theld item is lost.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 50,
+        "attack": 120,
+        "defense": 53,
+        "speed": 87,
+        "specialAttack": 35,
+        "specialDefense": 110,
+        "total": 455
+      },
+      "faithfulBaseStats": {
+        "hp": 50,
+        "attack": 120,
+        "defense": 53,
+        "speed": 87,
+        "specialAttack": 35,
+        "specialDefense": 110,
+        "total": 455
+      },
+      "polishedBaseStats": {
+        "hp": 50,
+        "attack": 120,
+        "defense": 53,
+        "speed": 87,
+        "specialAttack": 35,
+        "specialDefense": 110,
+        "total": 455
+      },
+      "catchRate": 45,
+      "baseExp": 139,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 100,
+        "female": 0
+      },
+      "hatchRate": "Medium-Slow (6,400 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Human-Like",
+        "Human-Like"
+      ],
+      "evYield": "2 Atk",
       "eggMoves": [
         "Bullet Punch",
         "Hi Jump Kick",
@@ -1240,72 +1334,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "limber",
-          "name": "Limber",
-          "description": "\tProtects from \tparalysis.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "reckless",
-          "name": "Reckless",
-          "description": "\tPowers up moves \tthat recoil.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "unburden",
-          "name": "Unburden",
-          "description": "\tBoosts Speed when \theld item is lost.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "limber",
-          "name": "Limber",
-          "description": "\tProtects from \tparalysis.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "reckless",
-          "name": "Reckless",
-          "description": "\tPowers up moves \tthat recoil.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "unburden",
-          "name": "Unburden",
-          "description": "\tBoosts Speed when \theld item is lost.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 50,
-        "attack": 120,
-        "defense": 53,
-        "speed": 87,
-        "specialAttack": 35,
-        "specialDefense": 110,
-        "total": 455
-      },
-      "faithfulBaseStats": {
-        "hp": 50,
-        "attack": 120,
-        "defense": 53,
-        "speed": 87,
-        "specialAttack": 35,
-        "specialDefense": 110,
-        "total": 455
-      }
+      ]
     }
   }
 }

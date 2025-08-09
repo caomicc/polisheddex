@@ -722,6 +722,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "overgrow",
+          "name": "Overgrow",
+          "description": "\tBoosts Grass moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "effect-spore",
+          "name": "Effect Spore",
+          "description": "\tContact may cause \tPar, Psn, or Slp.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "overgrow",
+          "name": "Overgrow",
+          "description": "\tBoosts Grass moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "effect-spore",
+          "name": "Effect Spore",
+          "description": "\tContact may cause \tPar, Psn, or Slp.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 60,
+        "attack": 62,
+        "defense": 63,
+        "speed": 60,
+        "specialAttack": 80,
+        "specialDefense": 80,
+        "total": 405
+      },
+      "faithfulBaseStats": {
+        "hp": 60,
+        "attack": 62,
+        "defense": 63,
+        "speed": 60,
+        "specialAttack": 80,
+        "specialDefense": 80,
+        "total": 405
+      },
+      "polishedBaseStats": {
+        "hp": 60,
+        "attack": 62,
+        "defense": 63,
+        "speed": 60,
+        "specialAttack": 80,
+        "specialDefense": 80,
+        "total": 405
+      },
+      "catchRate": 45,
+      "baseExp": 141,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Monster",
+        "Grass"
+      ],
+      "evYield": "1 SAt",
       "eggMoves": [
         "Charm",
         "Petal Dance",
@@ -1170,72 +1258,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "overgrow",
-          "name": "Overgrow",
-          "description": "\tBoosts Grass moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "effect-spore",
-          "name": "Effect Spore",
-          "description": "\tContact may cause \tPar, Psn, or Slp.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "overgrow",
-          "name": "Overgrow",
-          "description": "\tBoosts Grass moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "effect-spore",
-          "name": "Effect Spore",
-          "description": "\tContact may cause \tPar, Psn, or Slp.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 60,
-        "attack": 62,
-        "defense": 63,
-        "speed": 60,
-        "specialAttack": 80,
-        "specialDefense": 80,
-        "total": 405
-      },
-      "faithfulBaseStats": {
-        "hp": 60,
-        "attack": 62,
-        "defense": 63,
-        "speed": 60,
-        "specialAttack": 80,
-        "specialDefense": 80,
-        "total": 405
-      }
+      ]
     }
   }
 }

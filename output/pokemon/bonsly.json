@@ -154,9 +154,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Rock",
-      "faithfulTypes": "Rock",
-      "updatedTypes": "Rock",
+      "types": [
+        "Rock"
+      ],
+      "faithfulTypes": [
+        "Rock"
+      ],
+      "updatedTypes": [
+        "Rock"
+      ],
       "moves": [
         {
           "name": "Charm",
@@ -619,6 +625,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 50,
+        "attack": 80,
+        "defense": 95,
+        "speed": 10,
+        "specialAttack": 10,
+        "specialDefense": 45,
+        "total": 290
+      },
+      "faithfulBaseStats": {
+        "hp": 50,
+        "attack": 80,
+        "defense": 95,
+        "speed": 10,
+        "specialAttack": 10,
+        "specialDefense": 45,
+        "total": 290
+      },
+      "polishedBaseStats": {
+        "hp": 50,
+        "attack": 80,
+        "defense": 95,
+        "speed": 10,
+        "specialAttack": 10,
+        "specialDefense": 45,
+        "total": 290
+      },
+      "catchRate": 255,
+      "baseExp": 68,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Def",
       "eggMoves": [
         "Defense Curl",
         "Explosion"
@@ -998,72 +1092,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "sturdy",
-          "name": "Sturdy",
-          "description": "\tCannot be knocked \tout with one hit.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "rock-head",
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "rattled",
-          "name": "Rattled",
-          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "sturdy",
-          "name": "Sturdy",
-          "description": "\tCannot be knocked \tout with one hit.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "rock-head",
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "rattled",
-          "name": "Rattled",
-          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 50,
-        "attack": 80,
-        "defense": 95,
-        "speed": 10,
-        "specialAttack": 10,
-        "specialDefense": 45,
-        "total": 290
-      },
-      "faithfulBaseStats": {
-        "hp": 50,
-        "attack": 80,
-        "defense": 95,
-        "speed": 10,
-        "specialAttack": 10,
-        "specialDefense": 45,
-        "total": 290
-      }
+      ]
     }
   }
 }

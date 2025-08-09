@@ -158,9 +158,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Electric",
-      "faithfulTypes": "Electric",
-      "updatedTypes": "Electric",
+      "types": [
+        "Electric"
+      ],
+      "faithfulTypes": [
+        "Electric"
+      ],
+      "updatedTypes": [
+        "Electric"
+      ],
       "moves": [
         {
           "name": "Thunderpunch",
@@ -869,6 +875,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "mold-breaker",
+          "name": "Mold Breaker",
+          "description": "\tMoves disregard \tthe foe's ability.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "mold-breaker",
+          "name": "Mold Breaker",
+          "description": "\tMoves disregard \tthe foe's ability.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 90,
+        "attack": 75,
+        "defense": 85,
+        "speed": 55,
+        "specialAttack": 115,
+        "specialDefense": 90,
+        "total": 510
+      },
+      "faithfulBaseStats": {
+        "hp": 90,
+        "attack": 75,
+        "defense": 85,
+        "speed": 55,
+        "specialAttack": 115,
+        "specialDefense": 90,
+        "total": 510
+      },
+      "polishedBaseStats": {
+        "hp": 95,
+        "attack": 75,
+        "defense": 90,
+        "speed": 65,
+        "specialAttack": 125,
+        "specialDefense": 95,
+        "total": 545
+      },
+      "catchRate": 45,
+      "baseExp": 194,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Monster",
+        "Field"
+      ],
+      "evYield": "3 SAt",
       "eggMoves": [
         "Agility",
         "Reflect",
@@ -1469,72 +1563,7 @@
             "area": "Power Plant"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "mold-breaker",
-          "name": "Mold Breaker",
-          "description": "\tMoves disregard \tthe foe's ability.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "mold-breaker",
-          "name": "Mold Breaker",
-          "description": "\tMoves disregard \tthe foe's ability.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 90,
-        "attack": 75,
-        "defense": 85,
-        "speed": 55,
-        "specialAttack": 115,
-        "specialDefense": 90,
-        "total": 510
-      },
-      "faithfulBaseStats": {
-        "hp": 90,
-        "attack": 75,
-        "defense": 85,
-        "speed": 55,
-        "specialAttack": 115,
-        "specialDefense": 90,
-        "total": 510
-      }
+      ]
     }
   }
 }

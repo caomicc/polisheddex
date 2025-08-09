@@ -676,6 +676,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "swarm",
+          "name": "Swarm",
+          "description": "\tBoosts Bug moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "early-bird",
+          "name": "Early Bird",
+          "description": "\tAwakens quickly \tfrom sleep.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "iron-fist",
+          "name": "Iron Fist",
+          "description": "\tBoosts power of \tpunching moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swarm",
+          "name": "Swarm",
+          "description": "\tBoosts Bug moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "early-bird",
+          "name": "Early Bird",
+          "description": "\tAwakens quickly \tfrom sleep.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "iron-fist",
+          "name": "Iron Fist",
+          "description": "\tBoosts power of \tpunching moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 55,
+        "attack": 35,
+        "defense": 50,
+        "speed": 85,
+        "specialAttack": 55,
+        "specialDefense": 110,
+        "total": 390
+      },
+      "faithfulBaseStats": {
+        "hp": 55,
+        "attack": 35,
+        "defense": 50,
+        "speed": 85,
+        "specialAttack": 55,
+        "specialDefense": 110,
+        "total": 390
+      },
+      "polishedBaseStats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 50,
+        "speed": 85,
+        "specialAttack": 35,
+        "specialDefense": 110,
+        "total": 430
+      },
+      "catchRate": 90,
+      "baseExp": 134,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Fast",
+      "eggGroups": [
+        "Bug",
+        "Bug"
+      ],
+      "evYield": "2 SDf",
       "eggMoves": [
         "Dizzy Punch",
         "Encore",
@@ -1262,72 +1350,7 @@
             "area": "Goldenrod City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "swarm",
-          "name": "Swarm",
-          "description": "\tBoosts Bug moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "early-bird",
-          "name": "Early Bird",
-          "description": "\tAwakens quickly \tfrom sleep.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "iron-fist",
-          "name": "Iron Fist",
-          "description": "\tBoosts power of \tpunching moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "swarm",
-          "name": "Swarm",
-          "description": "\tBoosts Bug moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "early-bird",
-          "name": "Early Bird",
-          "description": "\tAwakens quickly \tfrom sleep.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "iron-fist",
-          "name": "Iron Fist",
-          "description": "\tBoosts power of \tpunching moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 55,
-        "attack": 35,
-        "defense": 50,
-        "speed": 85,
-        "specialAttack": 55,
-        "specialDefense": 110,
-        "total": 390
-      },
-      "faithfulBaseStats": {
-        "hp": 55,
-        "attack": 35,
-        "defense": 50,
-        "speed": 85,
-        "specialAttack": 55,
-        "specialDefense": 110,
-        "total": 390
-      }
+      ]
     }
   },
   "locations": [

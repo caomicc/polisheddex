@@ -154,9 +154,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Normal",
-      "faithfulTypes": "Normal",
-      "updatedTypes": "Normal",
+      "types": [
+        "Normal"
+      ],
+      "faithfulTypes": [
+        "Normal"
+      ],
+      "updatedTypes": [
+        "Normal"
+      ],
       "moves": [
         {
           "name": "Scratch",
@@ -652,6 +658,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "pickup",
+          "name": "Pickup",
+          "description": "\tThe #mon may \tpick up items.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "skill-link",
+          "name": "Skill Link",
+          "description": "\tIncreases multi- \tstrike move hits.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "pickup",
+          "name": "Pickup",
+          "description": "\tThe #mon may \tpick up items.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "skill-link",
+          "name": "Skill Link",
+          "description": "\tIncreases multi- \tstrike move hits.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 55,
+        "attack": 70,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 40,
+        "specialDefense": 55,
+        "total": 355
+      },
+      "faithfulBaseStats": {
+        "hp": 55,
+        "attack": 70,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 40,
+        "specialDefense": 55,
+        "total": 355
+      },
+      "polishedBaseStats": {
+        "hp": 55,
+        "attack": 70,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 40,
+        "specialDefense": 55,
+        "total": 355
+      },
+      "catchRate": 45,
+      "baseExp": 94,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Spe",
       "eggMoves": [
         "Counter",
         "Pursuit"
@@ -1310,72 +1404,7 @@
             "area": "Power Plant"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "run-away",
-          "name": "Run Away",
-          "description": "\tSure getaway from \twild #mon.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "pickup",
-          "name": "Pickup",
-          "description": "\tThe #mon may \tpick up items.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "skill-link",
-          "name": "Skill Link",
-          "description": "\tIncreases multi- \tstrike move hits.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "run-away",
-          "name": "Run Away",
-          "description": "\tSure getaway from \twild #mon.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "pickup",
-          "name": "Pickup",
-          "description": "\tThe #mon may \tpick up items.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "skill-link",
-          "name": "Skill Link",
-          "description": "\tIncreases multi- \tstrike move hits.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 55,
-        "attack": 70,
-        "defense": 55,
-        "speed": 80,
-        "specialAttack": 40,
-        "specialDefense": 55,
-        "total": 355
-      },
-      "faithfulBaseStats": {
-        "hp": 55,
-        "attack": 70,
-        "defense": 55,
-        "speed": 80,
-        "specialAttack": 40,
-        "specialDefense": 55,
-        "total": 355
-      }
+      ]
     }
   },
   "locations": [

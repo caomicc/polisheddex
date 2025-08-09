@@ -711,6 +711,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "hyper-cutter",
+          "name": "Hyper Cutter",
+          "description": "\tPrevents foes from \tlowering Attack.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "immunity",
+          "name": "Immunity",
+          "description": "",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "hyper-cutter",
+          "name": "Hyper Cutter",
+          "description": "\tPrevents foes from \tlowering Attack.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "immunity",
+          "name": "Immunity",
+          "description": "",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 65,
+        "attack": 75,
+        "defense": 105,
+        "speed": 85,
+        "specialAttack": 35,
+        "specialDefense": 65,
+        "total": 430
+      },
+      "faithfulBaseStats": {
+        "hp": 65,
+        "attack": 75,
+        "defense": 105,
+        "speed": 85,
+        "specialAttack": 35,
+        "specialDefense": 65,
+        "total": 430
+      },
+      "polishedBaseStats": {
+        "hp": 65,
+        "attack": 75,
+        "defense": 105,
+        "speed": 85,
+        "specialAttack": 35,
+        "specialDefense": 65,
+        "total": 430
+      },
+      "catchRate": 60,
+      "baseExp": 108,
+      "heldItems": [
+        "RAZOR_FANG"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Bug",
+        "Bug"
+      ],
+      "evYield": "1 Def",
       "eggMoves": [
         "Agility",
         "Baton Pass",
@@ -1373,72 +1463,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "hyper-cutter",
-          "name": "Hyper Cutter",
-          "description": "\tPrevents foes from \tlowering Attack.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sand-veil",
-          "name": "Sand Veil",
-          "description": "\tBoosts evasion in \ta sandstorm.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "immunity",
-          "name": "Immunity",
-          "description": "",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "hyper-cutter",
-          "name": "Hyper Cutter",
-          "description": "\tPrevents foes from \tlowering Attack.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sand-veil",
-          "name": "Sand Veil",
-          "description": "\tBoosts evasion in \ta sandstorm.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "immunity",
-          "name": "Immunity",
-          "description": "",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 65,
-        "attack": 75,
-        "defense": 105,
-        "speed": 85,
-        "specialAttack": 35,
-        "specialDefense": 65,
-        "total": 430
-      },
-      "faithfulBaseStats": {
-        "hp": 65,
-        "attack": 75,
-        "defense": 105,
-        "speed": 85,
-        "specialAttack": 35,
-        "specialDefense": 65,
-        "total": 430
-      }
+      ]
     }
   },
   "locations": [

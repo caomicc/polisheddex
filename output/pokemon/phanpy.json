@@ -156,9 +156,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Ground",
-      "faithfulTypes": "Ground",
-      "updatedTypes": "Ground",
+      "types": [
+        "Ground"
+      ],
+      "faithfulTypes": [
+        "Ground"
+      ],
+      "updatedTypes": [
+        "Ground"
+      ],
       "moves": [
         {
           "name": "Foresight",
@@ -618,6 +624,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "pickup",
+          "name": "Pickup",
+          "description": "\tThe #mon may \tpick up items.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "pickup",
+          "name": "Pickup",
+          "description": "\tThe #mon may \tpick up items.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "pickup",
+          "name": "Pickup",
+          "description": "\tThe #mon may \tpick up items.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "pickup",
+          "name": "Pickup",
+          "description": "\tThe #mon may \tpick up items.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 90,
+        "attack": 60,
+        "defense": 60,
+        "speed": 40,
+        "specialAttack": 40,
+        "specialDefense": 40,
+        "total": 330
+      },
+      "faithfulBaseStats": {
+        "hp": 90,
+        "attack": 60,
+        "defense": 60,
+        "speed": 40,
+        "specialAttack": 40,
+        "specialDefense": 40,
+        "total": 330
+      },
+      "polishedBaseStats": {
+        "hp": 90,
+        "attack": 60,
+        "defense": 60,
+        "speed": 40,
+        "specialAttack": 40,
+        "specialDefense": 40,
+        "total": 330
+      },
+      "catchRate": 120,
+      "baseExp": 124,
+      "heldItems": [
+        "KEE_BERRY"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 HP",
       "eggMoves": [
         "Focus Energy",
         "Play Rough",
@@ -1068,72 +1164,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "pickup",
-          "name": "Pickup",
-          "description": "\tThe #mon may \tpick up items.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "pickup",
-          "name": "Pickup",
-          "description": "\tThe #mon may \tpick up items.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sand-veil",
-          "name": "Sand Veil",
-          "description": "\tBoosts evasion in \ta sandstorm.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "pickup",
-          "name": "Pickup",
-          "description": "\tThe #mon may \tpick up items.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "pickup",
-          "name": "Pickup",
-          "description": "\tThe #mon may \tpick up items.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sand-veil",
-          "name": "Sand Veil",
-          "description": "\tBoosts evasion in \ta sandstorm.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 90,
-        "attack": 60,
-        "defense": 60,
-        "speed": 40,
-        "specialAttack": 40,
-        "specialDefense": 40,
-        "total": 330
-      },
-      "faithfulBaseStats": {
-        "hp": 90,
-        "attack": 60,
-        "defense": 60,
-        "speed": 40,
-        "specialAttack": 40,
-        "specialDefense": 40,
-        "total": 330
-      }
+      ]
     }
   },
   "locations": [

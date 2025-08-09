@@ -177,9 +177,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Dragon",
-      "faithfulTypes": "Dragon",
-      "updatedTypes": "Dragon",
+      "types": [
+        "Dragon"
+      ],
+      "faithfulTypes": [
+        "Dragon"
+      ],
+      "updatedTypes": [
+        "Dragon"
+      ],
       "moves": [
         {
           "name": "Wrap",
@@ -672,6 +678,95 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "marvel-scale",
+          "name": "Marvel Scale",
+          "description": "\tBoosts Defense on \tstatus problems.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "marvel-scale",
+          "name": "Marvel Scale",
+          "description": "\tBoosts Defense on \tstatus problems.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 61,
+        "attack": 84,
+        "defense": 65,
+        "speed": 70,
+        "specialAttack": 70,
+        "specialDefense": 70,
+        "total": 420
+      },
+      "faithfulBaseStats": {
+        "hp": 61,
+        "attack": 84,
+        "defense": 65,
+        "speed": 70,
+        "specialAttack": 70,
+        "specialDefense": 70,
+        "total": 420
+      },
+      "polishedBaseStats": {
+        "hp": 61,
+        "attack": 84,
+        "defense": 65,
+        "speed": 70,
+        "specialAttack": 70,
+        "specialDefense": 70,
+        "total": 420
+      },
+      "catchRate": 45,
+      "baseExp": 144,
+      "heldItems": [
+        "DRAGON_SCALE"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "2 Atk",
       "eggMoves": [
         "Extremespeed",
         "Haze",
@@ -1233,72 +1328,7 @@
             "area": "Power Plant"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "shed-skin",
-          "name": "Shed Skin",
-          "description": "\tMay heal its own \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "shed-skin",
-          "name": "Shed Skin",
-          "description": "\tMay heal its own \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "marvel-scale",
-          "name": "Marvel Scale",
-          "description": "\tBoosts Defense on \tstatus problems.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "shed-skin",
-          "name": "Shed Skin",
-          "description": "\tMay heal its own \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "shed-skin",
-          "name": "Shed Skin",
-          "description": "\tMay heal its own \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "marvel-scale",
-          "name": "Marvel Scale",
-          "description": "\tBoosts Defense on \tstatus problems.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 61,
-        "attack": 84,
-        "defense": 65,
-        "speed": 70,
-        "specialAttack": 70,
-        "specialDefense": 70,
-        "total": 420
-      },
-      "faithfulBaseStats": {
-        "hp": 61,
-        "attack": 84,
-        "defense": 65,
-        "speed": 70,
-        "specialAttack": 70,
-        "specialDefense": 70,
-        "total": 420
-      }
+      ]
     }
   },
   "locations": [

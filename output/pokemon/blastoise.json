@@ -161,8 +161,12 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Water",
-      "faithfulTypes": "Water",
+      "types": [
+        "Water"
+      ],
+      "faithfulTypes": [
+        "Water"
+      ],
       "updatedTypes": [
         "Water",
         "Steel"
@@ -854,6 +858,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "torrent",
+          "name": "Torrent",
+          "description": "\tBoosts Water moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "rain-dish",
+          "name": "Rain Dish",
+          "description": "\tGradually regains \tHP in rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "mega-launcher",
+          "name": "Mega Launcher",
+          "description": "\tPowers up aura \tand pulse moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "torrent",
+          "name": "Torrent",
+          "description": "\tBoosts Water moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "rain-dish",
+          "name": "Rain Dish",
+          "description": "\tGradually regains \tHP in rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "mega-launcher",
+          "name": "Mega Launcher",
+          "description": "\tPowers up aura \tand pulse moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 79,
+        "attack": 83,
+        "defense": 100,
+        "speed": 78,
+        "specialAttack": 85,
+        "specialDefense": 105,
+        "total": 530
+      },
+      "faithfulBaseStats": {
+        "hp": 79,
+        "attack": 83,
+        "defense": 100,
+        "speed": 78,
+        "specialAttack": 85,
+        "specialDefense": 105,
+        "total": 530
+      },
+      "polishedBaseStats": {
+        "hp": 79,
+        "attack": 83,
+        "defense": 100,
+        "speed": 78,
+        "specialAttack": 85,
+        "specialDefense": 105,
+        "total": 530
+      },
+      "catchRate": 45,
+      "baseExp": 210,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Monster",
+        "Undiscovered"
+      ],
+      "evYield": "3 SDf",
       "eggMoves": [
         "Confusion",
         "Crunch",
@@ -1557,72 +1649,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "torrent",
-          "name": "Torrent",
-          "description": "\tBoosts Water moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "rain-dish",
-          "name": "Rain Dish",
-          "description": "\tGradually regains \tHP in rain.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "mega-launcher",
-          "name": "Mega Launcher",
-          "description": "\tPowers up aura \tand pulse moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "torrent",
-          "name": "Torrent",
-          "description": "\tBoosts Water moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "rain-dish",
-          "name": "Rain Dish",
-          "description": "\tGradually regains \tHP in rain.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "mega-launcher",
-          "name": "Mega Launcher",
-          "description": "\tPowers up aura \tand pulse moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 79,
-        "attack": 83,
-        "defense": 100,
-        "speed": 78,
-        "specialAttack": 85,
-        "specialDefense": 105,
-        "total": 530
-      },
-      "faithfulBaseStats": {
-        "hp": 79,
-        "attack": 83,
-        "defense": 100,
-        "speed": 78,
-        "specialAttack": 85,
-        "specialDefense": 105,
-        "total": 530
-      }
+      ]
     }
   }
 }

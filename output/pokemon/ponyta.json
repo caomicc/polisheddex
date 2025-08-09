@@ -159,9 +159,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Fire",
-      "faithfulTypes": "Fire",
-      "updatedTypes": "Fire",
+      "types": [
+        "Fire"
+      ],
+      "faithfulTypes": [
+        "Fire"
+      ],
+      "updatedTypes": [
+        "Fire"
+      ],
       "moves": [
         {
           "name": "Growl",
@@ -1175,15 +1181,12 @@
     "galarian": {
       "name": "galarian",
       "types": [
-        "Psychic",
         "Psychic"
       ],
       "faithfulTypes": [
-        "Psychic",
         "Psychic"
       ],
       "updatedTypes": [
-        "Psychic",
         "Psychic"
       ],
       "moves": [
@@ -2111,16 +2114,16 @@
           "abilityType": "primary"
         },
         {
-          "id": "pastel-veil",
-          "name": "Pastel Veil",
-          "description": "\tPrevents it from \tgetting poisoned.",
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "anticipation",
-          "name": "Anticipation",
-          "description": "\tSenses the foe's \tdangerous moves.",
+          "id": "flame-body",
+          "name": "Flame Body",
+          "description": "\tContact may burn \tthe foe.",
           "isHidden": true,
           "abilityType": "hidden"
         }
@@ -2134,16 +2137,16 @@
           "abilityType": "primary"
         },
         {
-          "id": "pastel-veil",
-          "name": "Pastel Veil",
-          "description": "\tPrevents it from \tgetting poisoned.",
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "anticipation",
-          "name": "Anticipation",
-          "description": "\tSenses the foe's \tdangerous moves.",
+          "id": "flame-body",
+          "name": "Flame Body",
+          "description": "\tContact may burn \tthe foe.",
           "isHidden": true,
           "abilityType": "hidden"
         }

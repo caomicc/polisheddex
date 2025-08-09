@@ -154,9 +154,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Fairy",
-      "faithfulTypes": "Fairy",
-      "updatedTypes": "Fairy",
+      "types": [
+        "Fairy"
+      ],
+      "faithfulTypes": [
+        "Fairy"
+      ],
+      "updatedTypes": [
+        "Fairy"
+      ],
       "moves": [
         {
           "name": "Tackle",
@@ -583,6 +589,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 60,
+        "attack": 80,
+        "defense": 50,
+        "speed": 30,
+        "specialAttack": 40,
+        "specialDefense": 40,
+        "total": 300
+      },
+      "faithfulBaseStats": {
+        "hp": 60,
+        "attack": 80,
+        "defense": 50,
+        "speed": 30,
+        "specialAttack": 40,
+        "specialDefense": 40,
+        "total": 300
+      },
+      "polishedBaseStats": {
+        "hp": 60,
+        "attack": 80,
+        "defense": 50,
+        "speed": 30,
+        "specialAttack": 40,
+        "specialDefense": 40,
+        "total": 300
+      },
+      "catchRate": 190,
+      "baseExp": 63,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 25,
+        "female": 75
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Fast",
+      "eggGroups": [
+        "Field",
+        "Fairy"
+      ],
+      "evYield": "1 Atk",
       "eggMoves": [
         "Feint Attack",
         "Leer",
@@ -1237,72 +1331,7 @@
             "area": "Power Plant"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "intimidate",
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "run-away",
-          "name": "Run Away",
-          "description": "\tSure getaway from \twild #mon.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "rattled",
-          "name": "Rattled",
-          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "intimidate",
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "run-away",
-          "name": "Run Away",
-          "description": "\tSure getaway from \twild #mon.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "rattled",
-          "name": "Rattled",
-          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 60,
-        "attack": 80,
-        "defense": 50,
-        "speed": 30,
-        "specialAttack": 40,
-        "specialDefense": 40,
-        "total": 300
-      },
-      "faithfulBaseStats": {
-        "hp": 60,
-        "attack": 80,
-        "defense": 50,
-        "speed": 30,
-        "specialAttack": 40,
-        "specialDefense": 40,
-        "total": 300
-      }
+      ]
     }
   },
   "locations": [

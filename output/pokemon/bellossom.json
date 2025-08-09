@@ -201,9 +201,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Grass",
-      "faithfulTypes": "Grass",
-      "updatedTypes": "Grass",
+      "types": [
+        "Grass"
+      ],
+      "faithfulTypes": [
+        "Grass"
+      ],
+      "updatedTypes": [
+        "Grass"
+      ],
       "moves": [
         {
           "name": "Mega Drain",
@@ -486,6 +492,118 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "own-tempo",
+          "name": "Own Tempo",
+          "description": "\tPrevents it from \tbecoming confused.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 75,
+        "attack": 80,
+        "defense": 95,
+        "speed": 50,
+        "specialAttack": 90,
+        "specialDefense": 100,
+        "total": 490
+      },
+      "faithfulBaseStats": {
+        "hp": 75,
+        "attack": 80,
+        "defense": 95,
+        "speed": 50,
+        "specialAttack": 90,
+        "specialDefense": 100,
+        "total": 490
+      },
+      "polishedBaseStats": {
+        "hp": 75,
+        "attack": 80,
+        "defense": 95,
+        "speed": 50,
+        "specialAttack": 100,
+        "specialDefense": 110,
+        "total": 510
+      },
+      "catchRate": 45,
+      "baseExp": 184,
+      "heldItems": [
+        "MIRACLE_SEED"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Grass",
+        "Grass"
+      ],
+      "evYield": "3 SDf",
       "eggMoves": [
         "Charm",
         "Razor Leaf",
@@ -934,94 +1052,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "own-tempo",
-          "name": "Own Tempo",
-          "description": "\tPrevents it from \tbecoming confused.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 75,
-        "attack": 80,
-        "defense": 95,
-        "speed": 50,
-        "specialAttack": 90,
-        "specialDefense": 100,
-        "total": 490
-      },
-      "faithfulBaseStats": {
-        "hp": 75,
-        "attack": 80,
-        "defense": 95,
-        "speed": 50,
-        "specialAttack": 90,
-        "specialDefense": 100,
-        "total": 490
-      }
+      ]
     }
   }
 }

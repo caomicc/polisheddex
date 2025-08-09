@@ -740,6 +740,95 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "clear-body",
+          "name": "Clear Body",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "liquid-ooze",
+          "name": "Liquid Ooze",
+          "description": "\tDamages foes using \tdraining moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rain-dish",
+          "name": "Rain Dish",
+          "description": "\tGradually regains \tHP in rain.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "clear-body",
+          "name": "Clear Body",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "liquid-ooze",
+          "name": "Liquid Ooze",
+          "description": "\tDamages foes using \tdraining moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rain-dish",
+          "name": "Rain Dish",
+          "description": "\tGradually regains \tHP in rain.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 40,
+        "attack": 40,
+        "defense": 35,
+        "speed": 70,
+        "specialAttack": 50,
+        "specialDefense": 100,
+        "total": 335
+      },
+      "faithfulBaseStats": {
+        "hp": 40,
+        "attack": 40,
+        "defense": 35,
+        "speed": 70,
+        "specialAttack": 50,
+        "specialDefense": 100,
+        "total": 335
+      },
+      "polishedBaseStats": {
+        "hp": 40,
+        "attack": 40,
+        "defense": 35,
+        "speed": 70,
+        "specialAttack": 50,
+        "specialDefense": 100,
+        "total": 335
+      },
+      "catchRate": 190,
+      "baseExp": 105,
+      "heldItems": [
+        "POISON_BARB"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 SDf",
       "eggMoves": [
         "Aurora Beam",
         "Confuse Ray",
@@ -1219,72 +1308,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "clear-body",
-          "name": "Clear Body",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "liquid-ooze",
-          "name": "Liquid Ooze",
-          "description": "\tDamages foes using \tdraining moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "rain-dish",
-          "name": "Rain Dish",
-          "description": "\tGradually regains \tHP in rain.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "clear-body",
-          "name": "Clear Body",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "liquid-ooze",
-          "name": "Liquid Ooze",
-          "description": "\tDamages foes using \tdraining moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "rain-dish",
-          "name": "Rain Dish",
-          "description": "\tGradually regains \tHP in rain.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 40,
-        "attack": 40,
-        "defense": 35,
-        "speed": 70,
-        "specialAttack": 50,
-        "specialDefense": 100,
-        "total": 335
-      },
-      "faithfulBaseStats": {
-        "hp": 40,
-        "attack": 40,
-        "defense": 35,
-        "speed": 70,
-        "specialAttack": 50,
-        "specialDefense": 100,
-        "total": 335
-      }
+      ]
     }
   },
   "locations": [

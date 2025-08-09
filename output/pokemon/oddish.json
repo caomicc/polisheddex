@@ -770,6 +770,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 45,
+        "attack": 50,
+        "defense": 55,
+        "speed": 30,
+        "specialAttack": 75,
+        "specialDefense": 65,
+        "total": 320
+      },
+      "faithfulBaseStats": {
+        "hp": 45,
+        "attack": 50,
+        "defense": 55,
+        "speed": 30,
+        "specialAttack": 75,
+        "specialDefense": 65,
+        "total": 320
+      },
+      "polishedBaseStats": {
+        "hp": 45,
+        "attack": 50,
+        "defense": 55,
+        "speed": 30,
+        "specialAttack": 75,
+        "specialDefense": 65,
+        "total": 320
+      },
+      "catchRate": 255,
+      "baseExp": 78,
+      "heldItems": [
+        "SILVER_LEAF"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Grass",
+        "Grass"
+      ],
+      "evYield": "1 SAt",
       "eggMoves": [
         "Charm",
         "Razor Leaf",
@@ -1137,72 +1227,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "run-away",
-          "name": "Run Away",
-          "description": "\tSure getaway from \twild #mon.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "run-away",
-          "name": "Run Away",
-          "description": "\tSure getaway from \twild #mon.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 45,
-        "attack": 50,
-        "defense": 55,
-        "speed": 30,
-        "specialAttack": 75,
-        "specialDefense": 65,
-        "total": 320
-      },
-      "faithfulBaseStats": {
-        "hp": 45,
-        "attack": 50,
-        "defense": 55,
-        "speed": 30,
-        "specialAttack": 75,
-        "specialDefense": 65,
-        "total": 320
-      }
+      ]
     }
   },
   "locations": [

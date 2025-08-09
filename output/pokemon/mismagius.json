@@ -138,9 +138,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Ghost",
-      "faithfulTypes": "Ghost",
-      "updatedTypes": "Ghost",
+      "types": [
+        "Ghost"
+      ],
+      "faithfulTypes": [
+        "Ghost"
+      ],
+      "updatedTypes": [
+        "Ghost"
+      ],
       "moves": [
         {
           "name": "Power Gem",
@@ -465,6 +471,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 60,
+        "attack": 60,
+        "defense": 60,
+        "speed": 105,
+        "specialAttack": 105,
+        "specialDefense": 105,
+        "total": 495
+      },
+      "faithfulBaseStats": {
+        "hp": 60,
+        "attack": 60,
+        "defense": 60,
+        "speed": 105,
+        "specialAttack": 105,
+        "specialDefense": 105,
+        "total": 495
+      },
+      "polishedBaseStats": {
+        "hp": 60,
+        "attack": 60,
+        "defense": 60,
+        "speed": 110,
+        "specialAttack": 110,
+        "specialDefense": 110,
+        "total": 510
+      },
+      "catchRate": 45,
+      "baseExp": 187,
+      "heldItems": [
+        "SPELL_TAG"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Slow (6,400 steps)",
+      "growthRate": "Fast",
+      "eggGroups": [
+        "Amorphous",
+        "Amorphous"
+      ],
+      "evYield": "1 SAt",
       "eggMoves": [
         "Destiny Bond",
         "Nasty Plot",
@@ -1033,72 +1129,7 @@
             "area": "Battle Tower"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "levitate",
-          "name": "Levitate",
-          "description": "\tGives immunity to \tGround-type moves.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "levitate",
-          "name": "Levitate",
-          "description": "\tGives immunity to \tGround-type moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "levitate",
-          "name": "Levitate",
-          "description": "\tGives immunity to \tGround-type moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "levitate",
-          "name": "Levitate",
-          "description": "\tGives immunity to \tGround-type moves.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "levitate",
-          "name": "Levitate",
-          "description": "\tGives immunity to \tGround-type moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "levitate",
-          "name": "Levitate",
-          "description": "\tGives immunity to \tGround-type moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 60,
-        "attack": 60,
-        "defense": 60,
-        "speed": 105,
-        "specialAttack": 105,
-        "specialDefense": 105,
-        "total": 495
-      },
-      "faithfulBaseStats": {
-        "hp": 60,
-        "attack": 60,
-        "defense": 60,
-        "speed": 105,
-        "specialAttack": 105,
-        "specialDefense": 105,
-        "total": 495
-      }
+      ]
     }
   },
   "locations": [

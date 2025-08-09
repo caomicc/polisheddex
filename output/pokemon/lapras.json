@@ -806,6 +806,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "water-absorb",
+          "name": "Water Absorb",
+          "description": "\tRestores HP if hit \tby Water moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shell-armor",
+          "name": "Shell Armor",
+          "description": "\tProtects from \tcritical hits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "hydration",
+          "name": "Hydration",
+          "description": "\tHeals status \tproblems in rain.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "water-absorb",
+          "name": "Water Absorb",
+          "description": "\tRestores HP if hit \tby Water moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shell-armor",
+          "name": "Shell Armor",
+          "description": "\tProtects from \tcritical hits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "hydration",
+          "name": "Hydration",
+          "description": "\tHeals status \tproblems in rain.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 130,
+        "attack": 85,
+        "defense": 80,
+        "speed": 60,
+        "specialAttack": 85,
+        "specialDefense": 95,
+        "total": 535
+      },
+      "faithfulBaseStats": {
+        "hp": 130,
+        "attack": 85,
+        "defense": 80,
+        "speed": 60,
+        "specialAttack": 85,
+        "specialDefense": 95,
+        "total": 535
+      },
+      "polishedBaseStats": {
+        "hp": 130,
+        "attack": 85,
+        "defense": 80,
+        "speed": 60,
+        "specialAttack": 85,
+        "specialDefense": 95,
+        "total": 535
+      },
+      "catchRate": 45,
+      "baseExp": 219,
+      "heldItems": [
+        "ALWAYS_ITEM_"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Monster",
+        "Undiscovered"
+      ],
+      "evYield": "2 HP",
       "eggMoves": [
         "Aurora Beam",
         "Dragon Dance",
@@ -1432,72 +1522,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "water-absorb",
-          "name": "Water Absorb",
-          "description": "\tRestores HP if hit \tby Water moves.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "shell-armor",
-          "name": "Shell Armor",
-          "description": "\tProtects from \tcritical hits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "hydration",
-          "name": "Hydration",
-          "description": "\tHeals status \tproblems in rain.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "water-absorb",
-          "name": "Water Absorb",
-          "description": "\tRestores HP if hit \tby Water moves.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "shell-armor",
-          "name": "Shell Armor",
-          "description": "\tProtects from \tcritical hits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "hydration",
-          "name": "Hydration",
-          "description": "\tHeals status \tproblems in rain.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 130,
-        "attack": 85,
-        "defense": 80,
-        "speed": 60,
-        "specialAttack": 85,
-        "specialDefense": 95,
-        "total": 535
-      },
-      "faithfulBaseStats": {
-        "hp": 130,
-        "attack": 85,
-        "defense": 80,
-        "speed": 60,
-        "specialAttack": 85,
-        "specialDefense": 95,
-        "total": 535
-      }
+      ]
     }
   }
 }

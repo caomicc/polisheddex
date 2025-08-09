@@ -872,6 +872,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "leaf-guard",
+          "name": "Leaf Guard",
+          "description": "\tPrevents status \tproblems in sun.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "infiltrator",
+          "name": "Infiltrator",
+          "description": "\tAttacks bypass the \tfoe's barriers.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "leaf-guard",
+          "name": "Leaf Guard",
+          "description": "\tPrevents status \tproblems in sun.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "infiltrator",
+          "name": "Infiltrator",
+          "description": "\tAttacks bypass the \tfoe's barriers.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 75,
+        "attack": 55,
+        "defense": 70,
+        "speed": 110,
+        "specialAttack": 55,
+        "specialDefense": 95,
+        "total": 460
+      },
+      "faithfulBaseStats": {
+        "hp": 75,
+        "attack": 55,
+        "defense": 70,
+        "speed": 110,
+        "specialAttack": 55,
+        "specialDefense": 95,
+        "total": 460
+      },
+      "polishedBaseStats": {
+        "hp": 95,
+        "attack": 55,
+        "defense": 70,
+        "speed": 110,
+        "specialAttack": 55,
+        "specialDefense": 95,
+        "total": 480
+      },
+      "catchRate": 45,
+      "baseExp": 176,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Fairy",
+        "Grass"
+      ],
+      "evYield": "3 Spe",
       "eggMoves": [
         "Encore",
         "Seed Bomb"
@@ -1346,72 +1434,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "leaf-guard",
-          "name": "Leaf Guard",
-          "description": "\tPrevents status \tproblems in sun.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "infiltrator",
-          "name": "Infiltrator",
-          "description": "\tAttacks bypass the \tfoe's barriers.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "leaf-guard",
-          "name": "Leaf Guard",
-          "description": "\tPrevents status \tproblems in sun.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "infiltrator",
-          "name": "Infiltrator",
-          "description": "\tAttacks bypass the \tfoe's barriers.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 75,
-        "attack": 55,
-        "defense": 70,
-        "speed": 110,
-        "specialAttack": 55,
-        "specialDefense": 95,
-        "total": 460
-      },
-      "faithfulBaseStats": {
-        "hp": 75,
-        "attack": 55,
-        "defense": 70,
-        "speed": 110,
-        "specialAttack": 55,
-        "specialDefense": 95,
-        "total": 460
-      }
+      ]
     }
   },
   "locations": [

@@ -178,9 +178,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Normal",
-      "faithfulTypes": "Normal",
-      "updatedTypes": "Normal",
+      "types": [
+        "Normal"
+      ],
+      "faithfulTypes": [
+        "Normal"
+      ],
+      "updatedTypes": [
+        "Normal"
+      ],
       "moves": [
         {
           "name": "Tackle",
@@ -670,7 +676,96 @@
           }
         }
       ],
-      "eggMoves": [],
+      "abilities": [
+        {
+          "id": "trace",
+          "name": "Trace",
+          "description": "\tCopies the foe's \tAbility.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "download",
+          "name": "Download",
+          "description": "\tAdjusts stats based \ton foe's defenses.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "analytic",
+          "name": "Analytic",
+          "description": "\tBoosts move power \twhen moving last.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "trace",
+          "name": "Trace",
+          "description": "\tCopies the foe's \tAbility.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "download",
+          "name": "Download",
+          "description": "\tAdjusts stats based \ton foe's defenses.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "analytic",
+          "name": "Analytic",
+          "description": "\tBoosts move power \twhen moving last.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 65,
+        "attack": 60,
+        "defense": 70,
+        "speed": 40,
+        "specialAttack": 85,
+        "specialDefense": 75,
+        "total": 395
+      },
+      "faithfulBaseStats": {
+        "hp": 65,
+        "attack": 60,
+        "defense": 70,
+        "speed": 40,
+        "specialAttack": 85,
+        "specialDefense": 75,
+        "total": 395
+      },
+      "polishedBaseStats": {
+        "hp": 65,
+        "attack": 60,
+        "defense": 70,
+        "speed": 40,
+        "specialAttack": 85,
+        "specialDefense": 75,
+        "total": 395
+      },
+      "catchRate": 45,
+      "baseExp": 130,
+      "heldItems": [
+        "UPGRADE"
+      ],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Mineral",
+        "Mineral"
+      ],
+      "evYield": "1 SAt",
       "tmHmMoves": [
         {
           "name": "Curse",
@@ -1169,72 +1264,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "trace",
-          "name": "Trace",
-          "description": "\tCopies the foe's \tAbility.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "download",
-          "name": "Download",
-          "description": "\tAdjusts stats based \ton foe's defenses.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "analytic",
-          "name": "Analytic",
-          "description": "\tBoosts move power \twhen moving last.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "trace",
-          "name": "Trace",
-          "description": "\tCopies the foe's \tAbility.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "download",
-          "name": "Download",
-          "description": "\tAdjusts stats based \ton foe's defenses.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "analytic",
-          "name": "Analytic",
-          "description": "\tBoosts move power \twhen moving last.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 65,
-        "attack": 60,
-        "defense": 70,
-        "speed": 40,
-        "specialAttack": 85,
-        "specialDefense": 75,
-        "total": 395
-      },
-      "faithfulBaseStats": {
-        "hp": 65,
-        "attack": 60,
-        "defense": 70,
-        "speed": 40,
-        "specialAttack": 85,
-        "specialDefense": 75,
-        "total": 395
-      }
+      ]
     }
   }
 }

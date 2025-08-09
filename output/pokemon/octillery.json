@@ -138,8 +138,12 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Water",
-      "faithfulTypes": "Water",
+      "types": [
+        "Water"
+      ],
+      "faithfulTypes": [
+        "Water"
+      ],
       "updatedTypes": [
         "Water",
         "Fire"
@@ -804,6 +808,93 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "suction-cups",
+          "name": "Suction Cups",
+          "description": "\tNegates forced \tswitch-outs.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sniper",
+          "name": "Sniper",
+          "description": "\tPowers up critical \thits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "moody",
+          "name": "Moody",
+          "description": "\tRaises a stat and \tlowers another.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "suction-cups",
+          "name": "Suction Cups",
+          "description": "\tNegates forced \tswitch-outs.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sniper",
+          "name": "Sniper",
+          "description": "\tPowers up critical \thits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "moody",
+          "name": "Moody",
+          "description": "\tRaises a stat and \tlowers another.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 75,
+        "attack": 105,
+        "defense": 75,
+        "speed": 45,
+        "specialAttack": 105,
+        "specialDefense": 75,
+        "total": 480
+      },
+      "faithfulBaseStats": {
+        "hp": 75,
+        "attack": 105,
+        "defense": 75,
+        "speed": 45,
+        "specialAttack": 105,
+        "specialDefense": 75,
+        "total": 480
+      },
+      "polishedBaseStats": {
+        "hp": 75,
+        "attack": 105,
+        "defense": 75,
+        "speed": 45,
+        "specialAttack": 105,
+        "specialDefense": 75,
+        "total": 480
+      },
+      "catchRate": 75,
+      "baseExp": 164,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk",
       "eggMoves": [
         "Splash",
         "Haze",
@@ -1325,72 +1416,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "suction-cups",
-          "name": "Suction Cups",
-          "description": "\tNegates forced \tswitch-outs.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sniper",
-          "name": "Sniper",
-          "description": "\tPowers up critical \thits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "moody",
-          "name": "Moody",
-          "description": "\tRaises a stat and \tlowers another.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "suction-cups",
-          "name": "Suction Cups",
-          "description": "\tNegates forced \tswitch-outs.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sniper",
-          "name": "Sniper",
-          "description": "\tPowers up critical \thits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "moody",
-          "name": "Moody",
-          "description": "\tRaises a stat and \tlowers another.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 75,
-        "attack": 105,
-        "defense": 75,
-        "speed": 45,
-        "specialAttack": 105,
-        "specialDefense": 75,
-        "total": 480
-      },
-      "faithfulBaseStats": {
-        "hp": 75,
-        "attack": 105,
-        "defense": 75,
-        "speed": 45,
-        "specialAttack": 105,
-        "specialDefense": 75,
-        "total": 480
-      }
+      ]
     }
   },
   "locations": [

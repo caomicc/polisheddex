@@ -677,6 +677,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "keen-eye",
+          "name": "Keen Eye",
+          "description": "\tPrevents foes from \tlowering accuracy.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "tangled-feet",
+          "name": "Tangled Feet",
+          "description": "\tBoosts evasion if \tit is confused.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "no-guard",
+          "name": "No Guard",
+          "description": "\tEnsures attacks by \tor against it hit.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "keen-eye",
+          "name": "Keen Eye",
+          "description": "\tPrevents foes from \tlowering accuracy.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "tangled-feet",
+          "name": "Tangled Feet",
+          "description": "\tBoosts evasion if \tit is confused.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "no-guard",
+          "name": "No Guard",
+          "description": "\tEnsures attacks by \tor against it hit.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 83,
+        "attack": 80,
+        "defense": 75,
+        "speed": 101,
+        "specialAttack": 70,
+        "specialDefense": 70,
+        "total": 479
+      },
+      "faithfulBaseStats": {
+        "hp": 83,
+        "attack": 80,
+        "defense": 75,
+        "speed": 101,
+        "specialAttack": 70,
+        "specialDefense": 70,
+        "total": 479
+      },
+      "polishedBaseStats": {
+        "hp": 93,
+        "attack": 80,
+        "defense": 75,
+        "speed": 102,
+        "specialAttack": 90,
+        "specialDefense": 70,
+        "total": 510
+      },
+      "catchRate": 45,
+      "baseExp": 172,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Flying",
+        "Flying"
+      ],
+      "evYield": "3 Spe",
       "eggMoves": [
         "Peck",
         "Feint Attack",
@@ -1051,72 +1139,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "keen-eye",
-          "name": "Keen Eye",
-          "description": "\tPrevents foes from \tlowering accuracy.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "tangled-feet",
-          "name": "Tangled Feet",
-          "description": "\tBoosts evasion if \tit is confused.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "no-guard",
-          "name": "No Guard",
-          "description": "\tEnsures attacks by \tor against it hit.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "keen-eye",
-          "name": "Keen Eye",
-          "description": "\tPrevents foes from \tlowering accuracy.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "tangled-feet",
-          "name": "Tangled Feet",
-          "description": "\tBoosts evasion if \tit is confused.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "no-guard",
-          "name": "No Guard",
-          "description": "\tEnsures attacks by \tor against it hit.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 83,
-        "attack": 80,
-        "defense": 75,
-        "speed": 101,
-        "specialAttack": 70,
-        "specialDefense": 70,
-        "total": 479
-      },
-      "faithfulBaseStats": {
-        "hp": 83,
-        "attack": 80,
-        "defense": 75,
-        "speed": 101,
-        "specialAttack": 70,
-        "specialDefense": 70,
-        "total": 479
-      }
+      ]
     }
   },
   "locations": [

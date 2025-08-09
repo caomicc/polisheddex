@@ -738,6 +738,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "unnerve",
+          "name": "Unnerve",
+          "description": "\tPrevents foes from \teating Berries.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "tough-claws",
+          "name": "Tough Claws",
+          "description": "\tBoosts moves that \tmakes contact.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "unnerve",
+          "name": "Unnerve",
+          "description": "\tPrevents foes from \teating Berries.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "tough-claws",
+          "name": "Tough Claws",
+          "description": "\tBoosts moves that \tmakes contact.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 80,
+        "attack": 105,
+        "defense": 65,
+        "speed": 130,
+        "specialAttack": 60,
+        "specialDefense": 75,
+        "total": 515
+      },
+      "faithfulBaseStats": {
+        "hp": 80,
+        "attack": 105,
+        "defense": 65,
+        "speed": 130,
+        "specialAttack": 60,
+        "specialDefense": 75,
+        "total": 515
+      },
+      "polishedBaseStats": {
+        "hp": 80,
+        "attack": 105,
+        "defense": 65,
+        "speed": 130,
+        "specialAttack": 60,
+        "specialDefense": 75,
+        "total": 515
+      },
+      "catchRate": 45,
+      "baseExp": 202,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Very Slow (10,240 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Flying",
+        "Flying"
+      ],
+      "evYield": "2 Spe",
       "eggMoves": [
         "Foresight",
         "Pursuit",
@@ -1321,72 +1409,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "rock-head",
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "unnerve",
-          "name": "Unnerve",
-          "description": "\tPrevents foes from \teating Berries.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "tough-claws",
-          "name": "Tough Claws",
-          "description": "\tBoosts moves that \tmakes contact.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "rock-head",
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "unnerve",
-          "name": "Unnerve",
-          "description": "\tPrevents foes from \teating Berries.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "tough-claws",
-          "name": "Tough Claws",
-          "description": "\tBoosts moves that \tmakes contact.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 80,
-        "attack": 105,
-        "defense": 65,
-        "speed": 130,
-        "specialAttack": 60,
-        "specialDefense": 75,
-        "total": 515
-      },
-      "faithfulBaseStats": {
-        "hp": 80,
-        "attack": 105,
-        "defense": 65,
-        "speed": 130,
-        "specialAttack": 60,
-        "specialDefense": 75,
-        "total": 515
-      }
+      ]
     }
   }
 }

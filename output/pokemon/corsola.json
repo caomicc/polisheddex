@@ -1507,10 +1507,9 @@
       "name": "galarian",
       "types": [
         "Ghost",
-        "Ghost"
+        "Rock"
       ],
       "faithfulTypes": [
-        "Ghost",
         "Ghost"
       ],
       "updatedTypes": [
@@ -2600,46 +2599,46 @@
       ],
       "abilities": [
         {
-          "id": "weak-armor",
-          "name": "Weak Armor",
-          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "id": "hustle",
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "weak-armor",
-          "name": "Weak Armor",
-          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "cursed-body",
-          "name": "Cursed Body",
-          "description": "\tMay disable a move \tused on it.",
+          "id": "regenerator",
+          "name": "Regenerator",
+          "description": "\tRestores HP when \twithdrawn.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
       "faithfulAbilities": [
         {
-          "id": "weak-armor",
-          "name": "Weak Armor",
-          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "id": "hustle",
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "weak-armor",
-          "name": "Weak Armor",
-          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "cursed-body",
-          "name": "Cursed Body",
-          "description": "\tMay disable a move \tused on it.",
+          "id": "regenerator",
+          "name": "Regenerator",
+          "description": "\tRestores HP when \twithdrawn.",
           "isHidden": true,
           "abilityType": "hidden"
         }
@@ -2674,7 +2673,9 @@
       },
       "catchRate": 60,
       "baseExp": 113,
-      "heldItems": [],
+      "heldItems": [
+        "HARD_STONE"
+      ],
       "genderRatio": {
         "male": 25,
         "female": 75

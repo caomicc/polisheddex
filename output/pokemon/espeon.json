@@ -351,9 +351,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Psychic",
-      "faithfulTypes": "Psychic",
-      "updatedTypes": "Psychic",
+      "types": [
+        "Psychic"
+      ],
+      "faithfulTypes": [
+        "Psychic"
+      ],
+      "updatedTypes": [
+        "Psychic"
+      ],
       "moves": [
         {
           "name": "Growl",
@@ -888,6 +894,116 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "synchronize",
+          "name": "Synchronize",
+          "description": "\tPasses Psn, Par, \tor Brn to foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "synchronize",
+          "name": "Synchronize",
+          "description": "\tPasses Psn, Par, \tor Brn to foes.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "magic-bounce",
+          "name": "Magic Bounce",
+          "description": "\tReflects status- \tchanging moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "synchronize",
+          "name": "Synchronize",
+          "description": "\tPasses Psn, Par, \tor Brn to foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "synchronize",
+          "name": "Synchronize",
+          "description": "\tPasses Psn, Par, \tor Brn to foes.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "magic-bounce",
+          "name": "Magic Bounce",
+          "description": "\tReflects status- \tchanging moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "synchronize",
+          "name": "Synchronize",
+          "description": "\tPasses Psn, Par, \tor Brn to foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "magic-guard",
+          "name": "Magic Guard",
+          "description": "\tOnly takes damage \tfrom attacks.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "magic-bounce",
+          "name": "Magic Bounce",
+          "description": "\tReflects status- \tchanging moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 65,
+        "defense": 60,
+        "speed": 110,
+        "specialAttack": 130,
+        "specialDefense": 95,
+        "total": 525
+      },
+      "faithfulBaseStats": {
+        "hp": 65,
+        "attack": 65,
+        "defense": 60,
+        "speed": 110,
+        "specialAttack": 130,
+        "specialDefense": 95,
+        "total": 525
+      },
+      "polishedBaseStats": {
+        "hp": 65,
+        "attack": 65,
+        "defense": 60,
+        "speed": 110,
+        "specialAttack": 130,
+        "specialDefense": 95,
+        "total": 525
+      },
+      "catchRate": 45,
+      "baseExp": 197,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Very Slow (10,240 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "2 SAt",
       "eggMoves": [
         "Charm"
       ],
@@ -1441,94 +1557,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "synchronize",
-          "name": "Synchronize",
-          "description": "\tPasses Psn, Par, \tor Brn to foes.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "synchronize",
-          "name": "Synchronize",
-          "description": "\tPasses Psn, Par, \tor Brn to foes.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "magic-bounce",
-          "name": "Magic Bounce",
-          "description": "\tReflects status- \tchanging moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "synchronize",
-          "name": "Synchronize",
-          "description": "\tPasses Psn, Par, \tor Brn to foes.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "synchronize",
-          "name": "Synchronize",
-          "description": "\tPasses Psn, Par, \tor Brn to foes.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "magic-bounce",
-          "name": "Magic Bounce",
-          "description": "\tReflects status- \tchanging moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "synchronize",
-          "name": "Synchronize",
-          "description": "\tPasses Psn, Par, \tor Brn to foes.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "magic-guard",
-          "name": "Magic Guard",
-          "description": "\tOnly takes damage \tfrom attacks.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "magic-bounce",
-          "name": "Magic Bounce",
-          "description": "\tReflects status- \tchanging moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 65,
-        "attack": 65,
-        "defense": 60,
-        "speed": 110,
-        "specialAttack": 130,
-        "specialDefense": 95,
-        "total": 525
-      },
-      "faithfulBaseStats": {
-        "hp": 65,
-        "attack": 65,
-        "defense": 60,
-        "speed": 110,
-        "specialAttack": 130,
-        "specialDefense": 95,
-        "total": 525
-      }
+      ]
     }
   }
 }

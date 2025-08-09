@@ -753,7 +753,6 @@
           }
         }
       ],
-      "eggMoves": [],
       "tmHmMoves": [
         {
           "name": "Curse",
@@ -1966,7 +1965,6 @@
           }
         }
       ],
-      "eggMoves": [],
       "tmHmMoves": [
         {
           "name": "Curse",
@@ -2454,51 +2452,73 @@
       ],
       "abilities": [
         {
-          "id": "defiant",
-          "name": "Defiant",
-          "description": "\tBoosts Attack when \tstats are lowered.",
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "defiant",
-          "name": "Defiant",
-          "description": "\tBoosts Attack when \tstats are lowered.",
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "defiant",
-          "name": "Defiant",
-          "description": "\tBoosts Attack when \tstats are lowered.",
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
       "faithfulAbilities": [
         {
-          "id": "defiant",
-          "name": "Defiant",
-          "description": "\tBoosts Attack when \tstats are lowered.",
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "defiant",
-          "name": "Defiant",
-          "description": "\tBoosts Attack when \tstats are lowered.",
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "defiant",
-          "name": "Defiant",
-          "description": "\tBoosts Attack when \tstats are lowered.",
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "drizzle",
+          "name": "Drizzle",
+          "description": "\tSummons rain when \tswitched in.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 90,
         "attack": 125,
@@ -2541,7 +2561,7 @@
         "Undiscovered",
         "Undiscovered"
       ],
-      "evYield": "3 Atk"
+      "evYield": "3 SAt"
     }
   }
 }

@@ -138,9 +138,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Water",
-      "faithfulTypes": "Water",
-      "updatedTypes": "Water",
+      "types": [
+        "Water"
+      ],
+      "faithfulTypes": [
+        "Water"
+      ],
+      "updatedTypes": [
+        "Water"
+      ],
       "moves": [
         {
           "name": "Bite",
@@ -711,7 +717,118 @@
           }
         }
       ],
-      "eggMoves": [],
+      "abilities": [
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "water-absorb",
+          "name": "Water Absorb",
+          "description": "\tRestores HP if hit \tby Water moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 100,
+        "attack": 75,
+        "defense": 115,
+        "speed": 85,
+        "specialAttack": 90,
+        "specialDefense": 115,
+        "total": 580
+      },
+      "faithfulBaseStats": {
+        "hp": 100,
+        "attack": 75,
+        "defense": 115,
+        "speed": 85,
+        "specialAttack": 90,
+        "specialDefense": 115,
+        "total": 580
+      },
+      "polishedBaseStats": {
+        "hp": 100,
+        "attack": 75,
+        "defense": 115,
+        "speed": 85,
+        "specialAttack": 90,
+        "specialDefense": 115,
+        "total": 580
+      },
+      "catchRate": 3,
+      "baseExp": 215,
+      "heldItems": [
+        "ALWAYS_ITEM_"
+      ],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Def",
       "tmHmMoves": [
         {
           "name": "Curse",
@@ -1291,94 +1408,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "pressure",
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "pressure",
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "pressure",
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "pressure",
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "pressure",
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "water-absorb",
-          "name": "Water Absorb",
-          "description": "\tRestores HP if hit \tby Water moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 100,
-        "attack": 75,
-        "defense": 115,
-        "speed": 85,
-        "specialAttack": 90,
-        "specialDefense": 115,
-        "total": 580
-      },
-      "faithfulBaseStats": {
-        "hp": 100,
-        "attack": 75,
-        "defense": 115,
-        "speed": 85,
-        "specialAttack": 90,
-        "specialDefense": 115,
-        "total": 580
-      }
+      ]
     }
   }
 }

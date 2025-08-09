@@ -479,6 +479,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "effect-spore",
+          "name": "Effect Spore",
+          "description": "\tContact may cause \tPar, Psn, or Slp.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "effect-spore",
+          "name": "Effect Spore",
+          "description": "\tContact may cause \tPar, Psn, or Slp.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 75,
+        "attack": 80,
+        "defense": 85,
+        "speed": 50,
+        "specialAttack": 110,
+        "specialDefense": 90,
+        "total": 490
+      },
+      "faithfulBaseStats": {
+        "hp": 75,
+        "attack": 80,
+        "defense": 85,
+        "speed": 50,
+        "specialAttack": 110,
+        "specialDefense": 90,
+        "total": 490
+      },
+      "polishedBaseStats": {
+        "hp": 75,
+        "attack": 80,
+        "defense": 85,
+        "speed": 50,
+        "specialAttack": 120,
+        "specialDefense": 100,
+        "total": 510
+      },
+      "catchRate": 45,
+      "baseExp": 184,
+      "heldItems": [
+        "ALWAYS_ITEM_"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Grass",
+        "Grass"
+      ],
+      "evYield": "3 SAt",
       "eggMoves": [
         "Charm",
         "Razor Leaf",
@@ -927,72 +1017,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "effect-spore",
-          "name": "Effect Spore",
-          "description": "\tContact may cause \tPar, Psn, or Slp.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "effect-spore",
-          "name": "Effect Spore",
-          "description": "\tContact may cause \tPar, Psn, or Slp.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 75,
-        "attack": 80,
-        "defense": 85,
-        "speed": 50,
-        "specialAttack": 110,
-        "specialDefense": 90,
-        "total": 490
-      },
-      "faithfulBaseStats": {
-        "hp": 75,
-        "attack": 80,
-        "defense": 85,
-        "speed": 50,
-        "specialAttack": 110,
-        "specialDefense": 90,
-        "total": 490
-      }
+      ]
     }
   }
 }

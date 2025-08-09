@@ -675,7 +675,118 @@
           }
         }
       ],
-      "eggMoves": [],
+      "abilities": [
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "magic-guard",
+          "name": "Magic Guard",
+          "description": "\tOnly takes damage \tfrom attacks.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 100,
+        "attack": 100,
+        "defense": 100,
+        "speed": 100,
+        "specialAttack": 100,
+        "specialDefense": 100,
+        "total": 600
+      },
+      "faithfulBaseStats": {
+        "hp": 100,
+        "attack": 100,
+        "defense": 100,
+        "speed": 100,
+        "specialAttack": 100,
+        "specialDefense": 100,
+        "total": 600
+      },
+      "polishedBaseStats": {
+        "hp": 100,
+        "attack": 100,
+        "defense": 100,
+        "speed": 100,
+        "specialAttack": 100,
+        "specialDefense": 100,
+        "total": 600
+      },
+      "catchRate": 45,
+      "baseExp": 64,
+      "heldItems": [
+        "ALWAYS_ITEM_"
+      ],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "3 HP",
       "tmHmMoves": [
         {
           "name": "Curse",
@@ -1295,94 +1406,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "natural-cure",
-          "name": "Natural Cure",
-          "description": "\tSwitch-outs heal \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "natural-cure",
-          "name": "Natural Cure",
-          "description": "\tSwitch-outs heal \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "natural-cure",
-          "name": "Natural Cure",
-          "description": "\tSwitch-outs heal \tstatus problems.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "natural-cure",
-          "name": "Natural Cure",
-          "description": "\tSwitch-outs heal \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "natural-cure",
-          "name": "Natural Cure",
-          "description": "\tSwitch-outs heal \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "natural-cure",
-          "name": "Natural Cure",
-          "description": "\tSwitch-outs heal \tstatus problems.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "natural-cure",
-          "name": "Natural Cure",
-          "description": "\tSwitch-outs heal \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "natural-cure",
-          "name": "Natural Cure",
-          "description": "\tSwitch-outs heal \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "magic-guard",
-          "name": "Magic Guard",
-          "description": "\tOnly takes damage \tfrom attacks.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 100,
-        "attack": 100,
-        "defense": 100,
-        "speed": 100,
-        "specialAttack": 100,
-        "specialDefense": 100,
-        "total": 600
-      },
-      "faithfulBaseStats": {
-        "hp": 100,
-        "attack": 100,
-        "defense": 100,
-        "speed": 100,
-        "specialAttack": 100,
-        "specialDefense": 100,
-        "total": 600
-      }
+      ]
     }
   }
 }

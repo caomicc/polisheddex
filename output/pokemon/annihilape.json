@@ -912,6 +912,116 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "vital-spirit",
+          "name": "Vital Spirit",
+          "description": "\tPrevents it from \tfalling asleep.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "defiant",
+          "name": "Defiant",
+          "description": "\tBoosts Attack when \tstats are lowered.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "vital-spirit",
+          "name": "Vital Spirit",
+          "description": "\tPrevents it from \tfalling asleep.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "defiant",
+          "name": "Defiant",
+          "description": "\tBoosts Attack when \tstats are lowered.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "gorilla-tactics",
+          "name": "Gorilla Tactics",
+          "description": "\tBoosts Attack, but \tallows one move.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "defiant",
+          "name": "Defiant",
+          "description": "\tBoosts Attack when \tstats are lowered.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 110,
+        "attack": 115,
+        "defense": 80,
+        "speed": 90,
+        "specialAttack": 50,
+        "specialDefense": 90,
+        "total": 535
+      },
+      "faithfulBaseStats": {
+        "hp": 110,
+        "attack": 115,
+        "defense": 80,
+        "speed": 90,
+        "specialAttack": 50,
+        "specialDefense": 90,
+        "total": 535
+      },
+      "polishedBaseStats": {
+        "hp": 110,
+        "attack": 115,
+        "defense": 80,
+        "speed": 90,
+        "specialAttack": 50,
+        "specialDefense": 90,
+        "total": 535
+      },
+      "catchRate": 45,
+      "baseExp": 189,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "3 Atk",
       "eggMoves": [
         "Encore",
         "Foresight",
@@ -1594,94 +1704,7 @@
             "area": "Goldenrod City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "vital-spirit",
-          "name": "Vital Spirit",
-          "description": "\tPrevents it from \tfalling asleep.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "defiant",
-          "name": "Defiant",
-          "description": "\tBoosts Attack when \tstats are lowered.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "vital-spirit",
-          "name": "Vital Spirit",
-          "description": "\tPrevents it from \tfalling asleep.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "defiant",
-          "name": "Defiant",
-          "description": "\tBoosts Attack when \tstats are lowered.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "gorilla-tactics",
-          "name": "Gorilla Tactics",
-          "description": "\tBoosts Attack, but \tallows one move.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "defiant",
-          "name": "Defiant",
-          "description": "\tBoosts Attack when \tstats are lowered.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 110,
-        "attack": 115,
-        "defense": 80,
-        "speed": 90,
-        "specialAttack": 50,
-        "specialDefense": 90,
-        "total": 535
-      },
-      "faithfulBaseStats": {
-        "hp": 110,
-        "attack": 115,
-        "defense": 80,
-        "speed": 90,
-        "specialAttack": 50,
-        "specialDefense": 90,
-        "total": 535
-      }
+      ]
     }
   }
 }

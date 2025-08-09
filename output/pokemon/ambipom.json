@@ -138,9 +138,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Normal",
-      "faithfulTypes": "Normal",
-      "updatedTypes": "Normal",
+      "types": [
+        "Normal"
+      ],
+      "faithfulTypes": [
+        "Normal"
+      ],
+      "updatedTypes": [
+        "Normal"
+      ],
       "moves": [
         {
           "name": "Headbutt",
@@ -672,6 +678,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "pickup",
+          "name": "Pickup",
+          "description": "\tThe #mon may \tpick up items.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "skill-link",
+          "name": "Skill Link",
+          "description": "\tIncreases multi- \tstrike move hits.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "pickup",
+          "name": "Pickup",
+          "description": "\tThe #mon may \tpick up items.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "skill-link",
+          "name": "Skill Link",
+          "description": "\tIncreases multi- \tstrike move hits.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 75,
+        "attack": 100,
+        "defense": 66,
+        "speed": 115,
+        "specialAttack": 60,
+        "specialDefense": 66,
+        "total": 482
+      },
+      "faithfulBaseStats": {
+        "hp": 75,
+        "attack": 100,
+        "defense": 66,
+        "speed": 115,
+        "specialAttack": 60,
+        "specialDefense": 66,
+        "total": 482
+      },
+      "polishedBaseStats": {
+        "hp": 75,
+        "attack": 100,
+        "defense": 66,
+        "speed": 115,
+        "specialAttack": 60,
+        "specialDefense": 66,
+        "total": 482
+      },
+      "catchRate": 45,
+      "baseExp": 186,
+      "heldItems": [
+        "ALWAYS_ITEM_"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "2 Spe",
       "eggMoves": [
         "Counter",
         "Pursuit"
@@ -1358,72 +1454,7 @@
             "area": "Power Plant"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "technician",
-          "name": "Technician",
-          "description": "\tPowers up its \tweaker moves.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "pickup",
-          "name": "Pickup",
-          "description": "\tThe #mon may \tpick up items.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "skill-link",
-          "name": "Skill Link",
-          "description": "\tIncreases multi- \tstrike move hits.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "technician",
-          "name": "Technician",
-          "description": "\tPowers up its \tweaker moves.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "pickup",
-          "name": "Pickup",
-          "description": "\tThe #mon may \tpick up items.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "skill-link",
-          "name": "Skill Link",
-          "description": "\tIncreases multi- \tstrike move hits.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 75,
-        "attack": 100,
-        "defense": 66,
-        "speed": 115,
-        "specialAttack": 60,
-        "specialDefense": 66,
-        "total": 482
-      },
-      "faithfulBaseStats": {
-        "hp": 75,
-        "attack": 100,
-        "defense": 66,
-        "speed": 115,
-        "specialAttack": 60,
-        "specialDefense": 66,
-        "total": 482
-      }
+      ]
     }
   }
 }

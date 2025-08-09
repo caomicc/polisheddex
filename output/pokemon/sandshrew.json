@@ -159,9 +159,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Ground",
-      "faithfulTypes": "Ground",
-      "updatedTypes": "Ground",
+      "types": [
+        "Ground"
+      ],
+      "faithfulTypes": [
+        "Ground"
+      ],
+      "updatedTypes": [
+        "Ground"
+      ],
       "moves": [
         {
           "name": "Scratch",
@@ -2675,46 +2681,46 @@
       ],
       "abilities": [
         {
-          "id": "snow-cloak",
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "snow-cloak",
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "slush-rush",
-          "name": "Slush Rush",
-          "description": "\tBoosts Speed in \ta hailstorm.",
+          "id": "sand-rush",
+          "name": "Sand Rush",
+          "description": "\tBoosts Speed in \ta sandstorm.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
       "faithfulAbilities": [
         {
-          "id": "snow-cloak",
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "snow-cloak",
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "slush-rush",
-          "name": "Slush Rush",
-          "description": "\tBoosts Speed in \ta hailstorm.",
+          "id": "sand-rush",
+          "name": "Sand Rush",
+          "description": "\tBoosts Speed in \ta sandstorm.",
           "isHidden": true,
           "abilityType": "hidden"
         }
@@ -2750,7 +2756,7 @@
       "catchRate": 255,
       "baseExp": 93,
       "heldItems": [
-        "GRIP_CLAW"
+        "QUICK_CLAW"
       ],
       "genderRatio": {
         "male": 50,

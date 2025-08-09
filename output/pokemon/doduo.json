@@ -741,6 +741,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "early-bird",
+          "name": "Early Bird",
+          "description": "\tAwakens quickly \tfrom sleep.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "tangled-feet",
+          "name": "Tangled Feet",
+          "description": "\tBoosts evasion if \tit is confused.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "early-bird",
+          "name": "Early Bird",
+          "description": "\tAwakens quickly \tfrom sleep.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "tangled-feet",
+          "name": "Tangled Feet",
+          "description": "\tBoosts evasion if \tit is confused.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 35,
+        "attack": 85,
+        "defense": 45,
+        "speed": 75,
+        "specialAttack": 35,
+        "specialDefense": 35,
+        "total": 310
+      },
+      "faithfulBaseStats": {
+        "hp": 35,
+        "attack": 85,
+        "defense": 45,
+        "speed": 75,
+        "specialAttack": 35,
+        "specialDefense": 35,
+        "total": 310
+      },
+      "polishedBaseStats": {
+        "hp": 35,
+        "attack": 85,
+        "defense": 45,
+        "speed": 75,
+        "specialAttack": 35,
+        "specialDefense": 35,
+        "total": 310
+      },
+      "catchRate": 190,
+      "baseExp": 96,
+      "heldItems": [
+        "SHARP_BEAK"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Flying",
+        "Flying"
+      ],
+      "evYield": "1 Atk",
       "eggMoves": [
         "Feint Attack",
         "Haze",
@@ -1095,72 +1185,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "run-away",
-          "name": "Run Away",
-          "description": "\tSure getaway from \twild #mon.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "early-bird",
-          "name": "Early Bird",
-          "description": "\tAwakens quickly \tfrom sleep.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "tangled-feet",
-          "name": "Tangled Feet",
-          "description": "\tBoosts evasion if \tit is confused.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "run-away",
-          "name": "Run Away",
-          "description": "\tSure getaway from \twild #mon.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "early-bird",
-          "name": "Early Bird",
-          "description": "\tAwakens quickly \tfrom sleep.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "tangled-feet",
-          "name": "Tangled Feet",
-          "description": "\tBoosts evasion if \tit is confused.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 35,
-        "attack": 85,
-        "defense": 45,
-        "speed": 75,
-        "specialAttack": 35,
-        "specialDefense": 35,
-        "total": 310
-      },
-      "faithfulBaseStats": {
-        "hp": 35,
-        "attack": 85,
-        "defense": 45,
-        "speed": 75,
-        "specialAttack": 35,
-        "specialDefense": 35,
-        "total": 310
-      }
+      ]
     }
   },
   "locations": [

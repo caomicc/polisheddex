@@ -155,9 +155,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Water",
-      "faithfulTypes": "Water",
-      "updatedTypes": "Water",
+      "types": [
+        "Water"
+      ],
+      "faithfulTypes": [
+        "Water"
+      ],
+      "updatedTypes": [
+        "Water"
+      ],
       "moves": [
         {
           "name": "Headbutt",
@@ -755,6 +761,95 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "hydration",
+          "name": "Hydration",
+          "description": "\tHeals status \tproblems in rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "ice-body",
+          "name": "Ice Body",
+          "description": "\tGradually regains \tHP in hail.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "hydration",
+          "name": "Hydration",
+          "description": "\tHeals status \tproblems in rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "ice-body",
+          "name": "Ice Body",
+          "description": "\tGradually regains \tHP in hail.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 65,
+        "attack": 45,
+        "defense": 55,
+        "speed": 45,
+        "specialAttack": 45,
+        "specialDefense": 70,
+        "total": 325
+      },
+      "faithfulBaseStats": {
+        "hp": 65,
+        "attack": 45,
+        "defense": 55,
+        "speed": 45,
+        "specialAttack": 45,
+        "specialDefense": 70,
+        "total": 325
+      },
+      "polishedBaseStats": {
+        "hp": 65,
+        "attack": 45,
+        "defense": 55,
+        "speed": 45,
+        "specialAttack": 45,
+        "specialDefense": 70,
+        "total": 325
+      },
+      "catchRate": 190,
+      "baseExp": 100,
+      "heldItems": [
+        "RAWST_BERRY"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 SDf",
       "eggMoves": [
         "Disable",
         "Lick",
@@ -1168,72 +1263,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "thick-fat",
-          "name": "Thick Fat",
-          "description": "\tUps resistance to \tFire and Ice.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "hydration",
-          "name": "Hydration",
-          "description": "\tHeals status \tproblems in rain.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "ice-body",
-          "name": "Ice Body",
-          "description": "\tGradually regains \tHP in hail.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "thick-fat",
-          "name": "Thick Fat",
-          "description": "\tUps resistance to \tFire and Ice.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "hydration",
-          "name": "Hydration",
-          "description": "\tHeals status \tproblems in rain.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "ice-body",
-          "name": "Ice Body",
-          "description": "\tGradually regains \tHP in hail.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 65,
-        "attack": 45,
-        "defense": 55,
-        "speed": 45,
-        "specialAttack": 45,
-        "specialDefense": 70,
-        "total": 325
-      },
-      "faithfulBaseStats": {
-        "hp": 65,
-        "attack": 45,
-        "defense": 55,
-        "speed": 45,
-        "specialAttack": 45,
-        "specialDefense": 70,
-        "total": 325
-      }
+      ]
     }
   },
   "locations": [

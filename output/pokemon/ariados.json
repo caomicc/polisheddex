@@ -823,6 +823,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "swarm",
+          "name": "Swarm",
+          "description": "\tBoosts Bug moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "insomnia",
+          "name": "Insomnia",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sniper",
+          "name": "Sniper",
+          "description": "\tPowers up critical \thits.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swarm",
+          "name": "Swarm",
+          "description": "\tBoosts Bug moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "insomnia",
+          "name": "Insomnia",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sniper",
+          "name": "Sniper",
+          "description": "\tPowers up critical \thits.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 70,
+        "attack": 90,
+        "defense": 70,
+        "speed": 40,
+        "specialAttack": 60,
+        "specialDefense": 70,
+        "total": 400
+      },
+      "faithfulBaseStats": {
+        "hp": 70,
+        "attack": 90,
+        "defense": 70,
+        "speed": 40,
+        "specialAttack": 60,
+        "specialDefense": 70,
+        "total": 400
+      },
+      "polishedBaseStats": {
+        "hp": 70,
+        "attack": 90,
+        "defense": 70,
+        "speed": 80,
+        "specialAttack": 60,
+        "specialDefense": 70,
+        "total": 440
+      },
+      "catchRate": 90,
+      "baseExp": 134,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Fast",
+      "eggGroups": [
+        "Bug",
+        "Bug"
+      ],
+      "evYield": "2 Atk",
       "eggMoves": [
         "Baton Pass",
         "Disable",
@@ -1303,72 +1391,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "swarm",
-          "name": "Swarm",
-          "description": "\tBoosts Bug moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "insomnia",
-          "name": "Insomnia",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sniper",
-          "name": "Sniper",
-          "description": "\tPowers up critical \thits.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "swarm",
-          "name": "Swarm",
-          "description": "\tBoosts Bug moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "insomnia",
-          "name": "Insomnia",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sniper",
-          "name": "Sniper",
-          "description": "\tPowers up critical \thits.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 70,
-        "attack": 90,
-        "defense": 70,
-        "speed": 40,
-        "specialAttack": 60,
-        "specialDefense": 70,
-        "total": 400
-      },
-      "faithfulBaseStats": {
-        "hp": 70,
-        "attack": 90,
-        "defense": 70,
-        "speed": 40,
-        "specialAttack": 60,
-        "specialDefense": 70,
-        "total": 400
-      }
+      ]
     }
   },
   "locations": [

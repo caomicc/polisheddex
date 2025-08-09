@@ -825,6 +825,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "hydration",
+          "name": "Hydration",
+          "description": "\tHeals status \tproblems in rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "ice-body",
+          "name": "Ice Body",
+          "description": "\tGradually regains \tHP in hail.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "hydration",
+          "name": "Hydration",
+          "description": "\tHeals status \tproblems in rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "ice-body",
+          "name": "Ice Body",
+          "description": "\tGradually regains \tHP in hail.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 90,
+        "attack": 70,
+        "defense": 80,
+        "speed": 70,
+        "specialAttack": 70,
+        "specialDefense": 95,
+        "total": 475
+      },
+      "faithfulBaseStats": {
+        "hp": 90,
+        "attack": 70,
+        "defense": 80,
+        "speed": 70,
+        "specialAttack": 70,
+        "specialDefense": 95,
+        "total": 475
+      },
+      "polishedBaseStats": {
+        "hp": 90,
+        "attack": 70,
+        "defense": 80,
+        "speed": 70,
+        "specialAttack": 80,
+        "specialDefense": 95,
+        "total": 485
+      },
+      "catchRate": 75,
+      "baseExp": 176,
+      "heldItems": [
+        "RAWST_BERRY",
+        "NEVERMELTICE"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "2 SDf",
       "eggMoves": [
         "Disable",
         "Lick",
@@ -1280,72 +1370,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "thick-fat",
-          "name": "Thick Fat",
-          "description": "\tUps resistance to \tFire and Ice.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "hydration",
-          "name": "Hydration",
-          "description": "\tHeals status \tproblems in rain.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "ice-body",
-          "name": "Ice Body",
-          "description": "\tGradually regains \tHP in hail.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "thick-fat",
-          "name": "Thick Fat",
-          "description": "\tUps resistance to \tFire and Ice.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "hydration",
-          "name": "Hydration",
-          "description": "\tHeals status \tproblems in rain.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "ice-body",
-          "name": "Ice Body",
-          "description": "\tGradually regains \tHP in hail.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 90,
-        "attack": 70,
-        "defense": 80,
-        "speed": 70,
-        "specialAttack": 70,
-        "specialDefense": 95,
-        "total": 475
-      },
-      "faithfulBaseStats": {
-        "hp": 90,
-        "attack": 70,
-        "defense": 80,
-        "speed": 70,
-        "specialAttack": 70,
-        "specialDefense": 95,
-        "total": 475
-      }
+      ]
     }
   },
   "locations": [

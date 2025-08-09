@@ -691,6 +691,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "hyper-cutter",
+          "name": "Hyper Cutter",
+          "description": "\tPrevents foes from \tlowering Attack.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "poison-heal",
+          "name": "Poison Heal",
+          "description": "\tRestores HP if \tit is poisoned.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "hyper-cutter",
+          "name": "Hyper Cutter",
+          "description": "\tPrevents foes from \tlowering Attack.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "poison-heal",
+          "name": "Poison Heal",
+          "description": "\tRestores HP if \tit is poisoned.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 75,
+        "attack": 95,
+        "defense": 125,
+        "speed": 95,
+        "specialAttack": 45,
+        "specialDefense": 75,
+        "total": 510
+      },
+      "faithfulBaseStats": {
+        "hp": 75,
+        "attack": 95,
+        "defense": 125,
+        "speed": 95,
+        "specialAttack": 45,
+        "specialDefense": 75,
+        "total": 510
+      },
+      "polishedBaseStats": {
+        "hp": 75,
+        "attack": 95,
+        "defense": 125,
+        "speed": 95,
+        "specialAttack": 45,
+        "specialDefense": 75,
+        "total": 510
+      },
+      "catchRate": 30,
+      "baseExp": 192,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Bug",
+        "Bug"
+      ],
+      "evYield": "2 Def",
       "eggMoves": [
         "Agility",
         "Baton Pass",
@@ -1394,72 +1482,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "hyper-cutter",
-          "name": "Hyper Cutter",
-          "description": "\tPrevents foes from \tlowering Attack.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sand-veil",
-          "name": "Sand Veil",
-          "description": "\tBoosts evasion in \ta sandstorm.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "poison-heal",
-          "name": "Poison Heal",
-          "description": "\tRestores HP if \tit is poisoned.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "hyper-cutter",
-          "name": "Hyper Cutter",
-          "description": "\tPrevents foes from \tlowering Attack.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sand-veil",
-          "name": "Sand Veil",
-          "description": "\tBoosts evasion in \ta sandstorm.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "poison-heal",
-          "name": "Poison Heal",
-          "description": "\tRestores HP if \tit is poisoned.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 75,
-        "attack": 95,
-        "defense": 125,
-        "speed": 95,
-        "specialAttack": 45,
-        "specialDefense": 75,
-        "total": 510
-      },
-      "faithfulBaseStats": {
-        "hp": 75,
-        "attack": 95,
-        "defense": 125,
-        "speed": 95,
-        "specialAttack": 45,
-        "specialDefense": 75,
-        "total": 510
-      }
+      ]
     }
   }
 }

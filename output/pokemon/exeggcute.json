@@ -741,6 +741,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "harvest",
+          "name": "Harvest",
+          "description": "\tMay recreate a \tBerry after use.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "harvest",
+          "name": "Harvest",
+          "description": "\tMay recreate a \tBerry after use.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 60,
+        "attack": 40,
+        "defense": 80,
+        "speed": 40,
+        "specialAttack": 60,
+        "specialDefense": 45,
+        "total": 325
+      },
+      "faithfulBaseStats": {
+        "hp": 60,
+        "attack": 40,
+        "defense": 80,
+        "speed": 40,
+        "specialAttack": 60,
+        "specialDefense": 45,
+        "total": 325
+      },
+      "polishedBaseStats": {
+        "hp": 60,
+        "attack": 40,
+        "defense": 80,
+        "speed": 40,
+        "specialAttack": 60,
+        "specialDefense": 45,
+        "total": 325
+      },
+      "catchRate": 90,
+      "baseExp": 98,
+      "heldItems": [
+        "MARANGABERRY"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Grass",
+        "Grass"
+      ],
+      "evYield": "1 Def",
       "eggMoves": [
         "Mega Drain",
         "Healinglight",
@@ -1176,72 +1266,7 @@
             "area": "Route 16 South Gate"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "harvest",
-          "name": "Harvest",
-          "description": "\tMay recreate a \tBerry after use.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "harvest",
-          "name": "Harvest",
-          "description": "\tMay recreate a \tBerry after use.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 60,
-        "attack": 40,
-        "defense": 80,
-        "speed": 40,
-        "specialAttack": 60,
-        "specialDefense": 45,
-        "total": 325
-      },
-      "faithfulBaseStats": {
-        "hp": 60,
-        "attack": 40,
-        "defense": 80,
-        "speed": 40,
-        "specialAttack": 60,
-        "specialDefense": 45,
-        "total": 325
-      }
+      ]
     }
   },
   "locations": [

@@ -811,6 +811,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "insomnia",
+          "name": "Insomnia",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "keen-eye",
+          "name": "Keen Eye",
+          "description": "\tPrevents foes from \tlowering accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "tinted-lens",
+          "name": "Tinted Lens",
+          "description": "\tPowers up not very \teffective moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "insomnia",
+          "name": "Insomnia",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "keen-eye",
+          "name": "Keen Eye",
+          "description": "\tPrevents foes from \tlowering accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "tinted-lens",
+          "name": "Tinted Lens",
+          "description": "\tPowers up not very \teffective moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 60,
+        "attack": 30,
+        "defense": 30,
+        "speed": 50,
+        "specialAttack": 36,
+        "specialDefense": 56,
+        "total": 262
+      },
+      "faithfulBaseStats": {
+        "hp": 60,
+        "attack": 30,
+        "defense": 30,
+        "speed": 50,
+        "specialAttack": 36,
+        "specialDefense": 56,
+        "total": 262
+      },
+      "polishedBaseStats": {
+        "hp": 60,
+        "attack": 30,
+        "defense": 30,
+        "speed": 50,
+        "specialAttack": 36,
+        "specialDefense": 56,
+        "total": 262
+      },
+      "catchRate": 255,
+      "baseExp": 58,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Flying",
+        "Flying"
+      ],
+      "evYield": "1 HP",
       "eggMoves": [
         "Agility",
         "Feint Attack",
@@ -1236,72 +1324,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "insomnia",
-          "name": "Insomnia",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "keen-eye",
-          "name": "Keen Eye",
-          "description": "\tPrevents foes from \tlowering accuracy.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "tinted-lens",
-          "name": "Tinted Lens",
-          "description": "\tPowers up not very \teffective moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "insomnia",
-          "name": "Insomnia",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "keen-eye",
-          "name": "Keen Eye",
-          "description": "\tPrevents foes from \tlowering accuracy.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "tinted-lens",
-          "name": "Tinted Lens",
-          "description": "\tPowers up not very \teffective moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 60,
-        "attack": 30,
-        "defense": 30,
-        "speed": 50,
-        "specialAttack": 36,
-        "specialDefense": 56,
-        "total": 262
-      },
-      "faithfulBaseStats": {
-        "hp": 60,
-        "attack": 30,
-        "defense": 30,
-        "speed": 50,
-        "specialAttack": 36,
-        "specialDefense": 56,
-        "total": 262
-      }
+      ]
     }
   },
   "locations": [

@@ -180,9 +180,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Electric",
-      "faithfulTypes": "Electric",
-      "updatedTypes": "Electric",
+      "types": [
+        "Electric"
+      ],
+      "faithfulTypes": [
+        "Electric"
+      ],
+      "updatedTypes": [
+        "Electric"
+      ],
       "moves": [
         {
           "name": "Tackle",
@@ -711,6 +717,116 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "motor-drive",
+          "name": "Motor Drive",
+          "description": "\tElectric moves \tboost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 70,
+        "attack": 55,
+        "defense": 55,
+        "speed": 45,
+        "specialAttack": 80,
+        "specialDefense": 60,
+        "total": 365
+      },
+      "faithfulBaseStats": {
+        "hp": 70,
+        "attack": 55,
+        "defense": 55,
+        "speed": 45,
+        "specialAttack": 80,
+        "specialDefense": 60,
+        "total": 365
+      },
+      "polishedBaseStats": {
+        "hp": 70,
+        "attack": 60,
+        "defense": 60,
+        "speed": 50,
+        "specialAttack": 85,
+        "specialDefense": 65,
+        "total": 390
+      },
+      "catchRate": 120,
+      "baseExp": 117,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Monster",
+        "Field"
+      ],
+      "evYield": "2 SAt",
       "eggMoves": [
         "Agility",
         "Reflect",
@@ -1230,94 +1346,7 @@
             "area": "Power Plant"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "motor-drive",
-          "name": "Motor Drive",
-          "description": "\tElectric moves \tboost Speed.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 70,
-        "attack": 55,
-        "defense": 55,
-        "speed": 45,
-        "specialAttack": 80,
-        "specialDefense": 60,
-        "total": 365
-      },
-      "faithfulBaseStats": {
-        "hp": 70,
-        "attack": 55,
-        "defense": 55,
-        "speed": 45,
-        "specialAttack": 80,
-        "specialDefense": 60,
-        "total": 365
-      }
+      ]
     }
   },
   "locations": [

@@ -176,9 +176,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Poison",
-      "faithfulTypes": "Poison",
-      "updatedTypes": "Poison",
+      "types": [
+        "Poison"
+      ],
+      "faithfulTypes": [
+        "Poison"
+      ],
+      "updatedTypes": [
+        "Poison"
+      ],
       "moves": [
         {
           "name": "Leer",
@@ -635,6 +641,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "poison-point",
+          "name": "Poison Point",
+          "description": "\tContact may poison \tthe foe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "rivalry",
+          "name": "Rivalry",
+          "description": "\tBoosts damage to \tsame-gender foes.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "hustle",
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "poison-point",
+          "name": "Poison Point",
+          "description": "\tContact may poison \tthe foe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "rivalry",
+          "name": "Rivalry",
+          "description": "\tBoosts damage to \tsame-gender foes.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "hustle",
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 61,
+        "attack": 72,
+        "defense": 57,
+        "speed": 65,
+        "specialAttack": 55,
+        "specialDefense": 55,
+        "total": 365
+      },
+      "faithfulBaseStats": {
+        "hp": 61,
+        "attack": 72,
+        "defense": 57,
+        "speed": 65,
+        "specialAttack": 55,
+        "specialDefense": 55,
+        "total": 365
+      },
+      "polishedBaseStats": {
+        "hp": 61,
+        "attack": 72,
+        "defense": 57,
+        "speed": 65,
+        "specialAttack": 55,
+        "specialDefense": 55,
+        "total": 365
+      },
+      "catchRate": 120,
+      "baseExp": 118,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 100,
+        "female": 0
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Monster",
+        "Field"
+      ],
+      "evYield": "2 Atk",
       "eggMoves": [
         "Amnesia",
         "Confusion",
@@ -1141,72 +1235,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "poison-point",
-          "name": "Poison Point",
-          "description": "\tContact may poison \tthe foe.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "rivalry",
-          "name": "Rivalry",
-          "description": "\tBoosts damage to \tsame-gender foes.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "hustle",
-          "name": "Hustle",
-          "description": "\tBoosts Attack, but \tlowers accuracy.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "poison-point",
-          "name": "Poison Point",
-          "description": "\tContact may poison \tthe foe.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "rivalry",
-          "name": "Rivalry",
-          "description": "\tBoosts damage to \tsame-gender foes.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "hustle",
-          "name": "Hustle",
-          "description": "\tBoosts Attack, but \tlowers accuracy.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 61,
-        "attack": 72,
-        "defense": 57,
-        "speed": 65,
-        "specialAttack": 55,
-        "specialDefense": 55,
-        "total": 365
-      },
-      "faithfulBaseStats": {
-        "hp": 61,
-        "attack": 72,
-        "defense": 57,
-        "speed": 65,
-        "specialAttack": 55,
-        "specialDefense": 55,
-        "total": 365
-      }
+      ]
     }
   },
   "locations": [

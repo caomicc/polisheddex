@@ -631,6 +631,97 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "effect-spore",
+          "name": "Effect Spore",
+          "description": "\tContact may cause \tPar, Psn, or Slp.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "dry-skin",
+          "name": "Dry Skin",
+          "description": "\tReduces HP in sun. \tWater restores HP.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "damp",
+          "name": "Damp",
+          "description": "\tPrevents self- \tdestructing moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "effect-spore",
+          "name": "Effect Spore",
+          "description": "\tContact may cause \tPar, Psn, or Slp.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "dry-skin",
+          "name": "Dry Skin",
+          "description": "\tReduces HP in sun. \tWater restores HP.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "damp",
+          "name": "Damp",
+          "description": "\tPrevents self- \tdestructing moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 35,
+        "attack": 70,
+        "defense": 55,
+        "speed": 25,
+        "specialAttack": 45,
+        "specialDefense": 55,
+        "total": 285
+      },
+      "faithfulBaseStats": {
+        "hp": 35,
+        "attack": 70,
+        "defense": 55,
+        "speed": 25,
+        "specialAttack": 45,
+        "specialDefense": 55,
+        "total": 285
+      },
+      "polishedBaseStats": {
+        "hp": 35,
+        "attack": 70,
+        "defense": 55,
+        "speed": 25,
+        "specialAttack": 45,
+        "specialDefense": 55,
+        "total": 285
+      },
+      "catchRate": 190,
+      "baseExp": 70,
+      "heldItems": [
+        "TINYMUSHROOM",
+        "BIG_MUSHROOM"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Bug",
+        "Grass"
+      ],
+      "evYield": "1 Atk",
       "eggMoves": [
         "Agility",
         "Leech Seed",
@@ -1120,72 +1211,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "effect-spore",
-          "name": "Effect Spore",
-          "description": "\tContact may cause \tPar, Psn, or Slp.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "dry-skin",
-          "name": "Dry Skin",
-          "description": "\tReduces HP in sun. \tWater restores HP.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "damp",
-          "name": "Damp",
-          "description": "\tPrevents self- \tdestructing moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "effect-spore",
-          "name": "Effect Spore",
-          "description": "\tContact may cause \tPar, Psn, or Slp.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "dry-skin",
-          "name": "Dry Skin",
-          "description": "\tReduces HP in sun. \tWater restores HP.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "damp",
-          "name": "Damp",
-          "description": "\tPrevents self- \tdestructing moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 35,
-        "attack": 70,
-        "defense": 55,
-        "speed": 25,
-        "specialAttack": 45,
-        "specialDefense": 55,
-        "total": 285
-      },
-      "faithfulBaseStats": {
-        "hp": 35,
-        "attack": 70,
-        "defense": 55,
-        "speed": 25,
-        "specialAttack": 45,
-        "specialDefense": 55,
-        "total": 285
-      }
+      ]
     }
   },
   "locations": [

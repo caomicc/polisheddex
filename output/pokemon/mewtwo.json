@@ -116,9 +116,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Psychic",
-      "faithfulTypes": "Psychic",
-      "updatedTypes": "Psychic",
+      "types": [
+        "Psychic"
+      ],
+      "faithfulTypes": [
+        "Psychic"
+      ],
+      "updatedTypes": [
+        "Psychic"
+      ],
       "moves": [
         {
           "name": "Teleport",
@@ -674,7 +680,6 @@
           }
         }
       ],
-      "eggMoves": [],
       "tmHmMoves": [
         {
           "name": "Dynamicpunch",
@@ -1716,10 +1721,9 @@
       "name": "armored",
       "types": [
         "Psychic",
-        "Psychic"
+        "Steel"
       ],
       "faithfulTypes": [
-        "Psychic",
         "Psychic"
       ],
       "updatedTypes": [
@@ -2281,7 +2285,6 @@
           }
         }
       ],
-      "eggMoves": [],
       "tmHmMoves": [
         {
           "name": "Dynamicpunch",
@@ -3278,19 +3281,19 @@
       "baseStats": {
         "hp": 106,
         "attack": 110,
-        "defense": 90,
+        "defense": 100,
         "speed": 130,
-        "specialAttack": 154,
-        "specialDefense": 90,
+        "specialAttack": 134,
+        "specialDefense": 100,
         "total": 680
       },
       "faithfulBaseStats": {
         "hp": 106,
         "attack": 110,
-        "defense": 90,
+        "defense": 100,
         "speed": 130,
-        "specialAttack": 154,
-        "specialDefense": 90,
+        "specialAttack": 134,
+        "specialDefense": 100,
         "total": 680
       },
       "polishedBaseStats": {

@@ -973,6 +973,117 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "multiscale",
+          "name": "Multiscale",
+          "description": "\tReduces damage \twhen HP is full.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "multiscale",
+          "name": "Multiscale",
+          "description": "\tReduces damage \twhen HP is full.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "marvel-scale",
+          "name": "Marvel Scale",
+          "description": "\tBoosts Defense on \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "multiscale",
+          "name": "Multiscale",
+          "description": "\tReduces damage \twhen HP is full.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 91,
+        "attack": 134,
+        "defense": 95,
+        "speed": 80,
+        "specialAttack": 100,
+        "specialDefense": 100,
+        "total": 600
+      },
+      "faithfulBaseStats": {
+        "hp": 91,
+        "attack": 134,
+        "defense": 95,
+        "speed": 80,
+        "specialAttack": 100,
+        "specialDefense": 100,
+        "total": 600
+      },
+      "polishedBaseStats": {
+        "hp": 91,
+        "attack": 134,
+        "defense": 95,
+        "speed": 80,
+        "specialAttack": 100,
+        "specialDefense": 100,
+        "total": 600
+      },
+      "catchRate": 45,
+      "baseExp": 218,
+      "heldItems": [
+        "DRAGON_SCALE"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "3 Atk",
       "eggMoves": [
         "Extremespeed",
         "Haze",
@@ -1813,94 +1924,7 @@
             "area": "Power Plant"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "multiscale",
-          "name": "Multiscale",
-          "description": "\tReduces damage \twhen HP is full.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "multiscale",
-          "name": "Multiscale",
-          "description": "\tReduces damage \twhen HP is full.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "inner-focus",
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "marvel-scale",
-          "name": "Marvel Scale",
-          "description": "\tBoosts Defense on \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "multiscale",
-          "name": "Multiscale",
-          "description": "\tReduces damage \twhen HP is full.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 91,
-        "attack": 134,
-        "defense": 95,
-        "speed": 80,
-        "specialAttack": 100,
-        "specialDefense": 100,
-        "total": 600
-      },
-      "faithfulBaseStats": {
-        "hp": 91,
-        "attack": 134,
-        "defense": 95,
-        "speed": 80,
-        "specialAttack": 100,
-        "specialDefense": 100,
-        "total": 600
-      }
+      ]
     }
   },
   "locations": [

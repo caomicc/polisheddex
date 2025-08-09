@@ -503,6 +503,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "poison-point",
+          "name": "Poison Point",
+          "description": "\tContact may poison \tthe foe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "rivalry",
+          "name": "Rivalry",
+          "description": "\tBoosts damage to \tsame-gender foes.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sheer-force",
+          "name": "Sheer Force",
+          "description": "\tRemoves effects to \tincrease damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "poison-point",
+          "name": "Poison Point",
+          "description": "\tContact may poison \tthe foe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "rivalry",
+          "name": "Rivalry",
+          "description": "\tBoosts damage to \tsame-gender foes.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sheer-force",
+          "name": "Sheer Force",
+          "description": "\tRemoves effects to \tincrease damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 90,
+        "attack": 92,
+        "defense": 87,
+        "speed": 76,
+        "specialAttack": 75,
+        "specialDefense": 85,
+        "total": 505
+      },
+      "faithfulBaseStats": {
+        "hp": 90,
+        "attack": 92,
+        "defense": 87,
+        "speed": 76,
+        "specialAttack": 75,
+        "specialDefense": 85,
+        "total": 505
+      },
+      "polishedBaseStats": {
+        "hp": 90,
+        "attack": 92,
+        "defense": 87,
+        "speed": 76,
+        "specialAttack": 75,
+        "specialDefense": 85,
+        "total": 505
+      },
+      "catchRate": 45,
+      "baseExp": 194,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 100
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Monster",
+        "Field"
+      ],
+      "evYield": "3 HP",
       "eggMoves": [
         "Charm",
         "Disable",
@@ -1357,72 +1445,7 @@
             "area": "Goldenrod City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "poison-point",
-          "name": "Poison Point",
-          "description": "\tContact may poison \tthe foe.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "rivalry",
-          "name": "Rivalry",
-          "description": "\tBoosts damage to \tsame-gender foes.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sheer-force",
-          "name": "Sheer Force",
-          "description": "\tRemoves effects to \tincrease damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "poison-point",
-          "name": "Poison Point",
-          "description": "\tContact may poison \tthe foe.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "rivalry",
-          "name": "Rivalry",
-          "description": "\tBoosts damage to \tsame-gender foes.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sheer-force",
-          "name": "Sheer Force",
-          "description": "\tRemoves effects to \tincrease damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 90,
-        "attack": 92,
-        "defense": 87,
-        "speed": 76,
-        "specialAttack": 75,
-        "specialDefense": 85,
-        "total": 505
-      },
-      "faithfulBaseStats": {
-        "hp": 90,
-        "attack": 92,
-        "defense": 87,
-        "speed": 76,
-        "specialAttack": 75,
-        "specialDefense": 85,
-        "total": 505
-      }
+      ]
     }
   },
   "locations": [

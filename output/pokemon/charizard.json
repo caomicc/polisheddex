@@ -951,6 +951,116 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "blaze",
+          "name": "Blaze",
+          "description": "\tBoosts Fire moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "solar-power",
+          "name": "Solar Power",
+          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "drought",
+          "name": "Drought",
+          "description": "\tSummons sunlight \twhen switched in.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "blaze",
+          "name": "Blaze",
+          "description": "\tBoosts Fire moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "solar-power",
+          "name": "Solar Power",
+          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "drought",
+          "name": "Drought",
+          "description": "\tSummons sunlight \twhen switched in.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "blaze",
+          "name": "Blaze",
+          "description": "\tBoosts Fire moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "solar-power",
+          "name": "Solar Power",
+          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "tough-claws",
+          "name": "Tough Claws",
+          "description": "\tBoosts moves that \tmakes contact.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 78,
+        "attack": 84,
+        "defense": 78,
+        "speed": 100,
+        "specialAttack": 109,
+        "specialDefense": 85,
+        "total": 534
+      },
+      "faithfulBaseStats": {
+        "hp": 78,
+        "attack": 84,
+        "defense": 78,
+        "speed": 100,
+        "specialAttack": 109,
+        "specialDefense": 85,
+        "total": 534
+      },
+      "polishedBaseStats": {
+        "hp": 78,
+        "attack": 94,
+        "defense": 78,
+        "speed": 100,
+        "specialAttack": 99,
+        "specialDefense": 85,
+        "total": 534
+      },
+      "catchRate": 45,
+      "baseExp": 209,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Monster",
+        "Dragon"
+      ],
+      "evYield": "3 SAt",
       "eggMoves": [
         "Ancientpower",
         "Belly Drum",
@@ -1645,94 +1755,7 @@
             "area": "Goldenrod City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "blaze",
-          "name": "Blaze",
-          "description": "\tBoosts Fire moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "solar-power",
-          "name": "Solar Power",
-          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "drought",
-          "name": "Drought",
-          "description": "\tSummons sunlight \twhen switched in.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "blaze",
-          "name": "Blaze",
-          "description": "\tBoosts Fire moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "solar-power",
-          "name": "Solar Power",
-          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "drought",
-          "name": "Drought",
-          "description": "\tSummons sunlight \twhen switched in.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "blaze",
-          "name": "Blaze",
-          "description": "\tBoosts Fire moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "solar-power",
-          "name": "Solar Power",
-          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "tough-claws",
-          "name": "Tough Claws",
-          "description": "\tBoosts moves that \tmakes contact.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 78,
-        "attack": 84,
-        "defense": 78,
-        "speed": 100,
-        "specialAttack": 109,
-        "specialDefense": 85,
-        "total": 534
-      },
-      "faithfulBaseStats": {
-        "hp": 78,
-        "attack": 84,
-        "defense": 78,
-        "speed": 100,
-        "specialAttack": 109,
-        "specialDefense": 85,
-        "total": 534
-      }
+      ]
     }
   }
 }

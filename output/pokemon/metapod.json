@@ -176,9 +176,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Bug",
-      "faithfulTypes": "Bug",
-      "updatedTypes": "Bug",
+      "types": [
+        "Bug"
+      ],
+      "faithfulTypes": [
+        "Bug"
+      ],
+      "updatedTypes": [
+        "Bug"
+      ],
       "moves": [
         {
           "name": "Tackle",
@@ -287,8 +293,6 @@
           }
         }
       ],
-      "eggMoves": [],
-      "tmHmMoves": [],
       "abilities": [
         {
           "id": "shed-skin",
@@ -353,7 +357,30 @@
         "specialAttack": 25,
         "specialDefense": 25,
         "total": 205
-      }
+      },
+      "polishedBaseStats": {
+        "hp": 50,
+        "attack": 20,
+        "defense": 55,
+        "speed": 30,
+        "specialAttack": 25,
+        "specialDefense": 25,
+        "total": 205
+      },
+      "catchRate": 120,
+      "baseExp": 72,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Bug",
+        "Bug"
+      ],
+      "evYield": "2 Def"
     }
   },
   "locations": [

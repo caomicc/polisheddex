@@ -709,6 +709,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "synchronize",
+          "name": "Synchronize",
+          "description": "\tPasses Psn, Par, \tor Brn to foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "early-bird",
+          "name": "Early Bird",
+          "description": "\tAwakens quickly \tfrom sleep.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "magic-bounce",
+          "name": "Magic Bounce",
+          "description": "\tReflects status- \tchanging moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "synchronize",
+          "name": "Synchronize",
+          "description": "\tPasses Psn, Par, \tor Brn to foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "early-bird",
+          "name": "Early Bird",
+          "description": "\tAwakens quickly \tfrom sleep.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "magic-bounce",
+          "name": "Magic Bounce",
+          "description": "\tReflects status- \tchanging moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 65,
+        "attack": 75,
+        "defense": 70,
+        "speed": 95,
+        "specialAttack": 95,
+        "specialDefense": 70,
+        "total": 470
+      },
+      "faithfulBaseStats": {
+        "hp": 65,
+        "attack": 75,
+        "defense": 70,
+        "speed": 95,
+        "specialAttack": 95,
+        "specialDefense": 70,
+        "total": 470
+      },
+      "polishedBaseStats": {
+        "hp": 65,
+        "attack": 75,
+        "defense": 70,
+        "speed": 100,
+        "specialAttack": 100,
+        "specialDefense": 70,
+        "total": 480
+      },
+      "catchRate": 75,
+      "baseExp": 171,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Flying",
+        "Flying"
+      ],
+      "evYield": "1 Spe",
       "eggMoves": [
         "Drill Peck",
         "Feint Attack",
@@ -1283,72 +1371,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "synchronize",
-          "name": "Synchronize",
-          "description": "\tPasses Psn, Par, \tor Brn to foes.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "early-bird",
-          "name": "Early Bird",
-          "description": "\tAwakens quickly \tfrom sleep.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "magic-bounce",
-          "name": "Magic Bounce",
-          "description": "\tReflects status- \tchanging moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "synchronize",
-          "name": "Synchronize",
-          "description": "\tPasses Psn, Par, \tor Brn to foes.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "early-bird",
-          "name": "Early Bird",
-          "description": "\tAwakens quickly \tfrom sleep.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "magic-bounce",
-          "name": "Magic Bounce",
-          "description": "\tReflects status- \tchanging moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 65,
-        "attack": 75,
-        "defense": 70,
-        "speed": 95,
-        "specialAttack": 95,
-        "specialDefense": 70,
-        "total": 470
-      },
-      "faithfulBaseStats": {
-        "hp": 65,
-        "attack": 75,
-        "defense": 70,
-        "speed": 95,
-        "specialAttack": 95,
-        "specialDefense": 70,
-        "total": 470
-      }
+      ]
     }
   },
   "locations": [

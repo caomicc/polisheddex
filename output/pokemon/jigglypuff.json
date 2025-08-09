@@ -813,6 +813,119 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "cute-charm",
+          "name": "Cute Charm",
+          "description": "\tContact may cause \tinfatuation.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "competitive",
+          "name": "Competitive",
+          "description": "\tBoosts Sp.Atk on \tstat reduction.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "frisk",
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "cute-charm",
+          "name": "Cute Charm",
+          "description": "\tContact may cause \tinfatuation.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "competitive",
+          "name": "Competitive",
+          "description": "\tBoosts Sp.Atk on \tstat reduction.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "frisk",
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "cute-charm",
+          "name": "Cute Charm",
+          "description": "\tContact may cause \tinfatuation.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "competitive",
+          "name": "Competitive",
+          "description": "\tBoosts Sp.Atk on \tstat reduction.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "soundproof",
+          "name": "Soundproof",
+          "description": "\tGives immunity to \tsound-based moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 115,
+        "attack": 45,
+        "defense": 20,
+        "speed": 20,
+        "specialAttack": 45,
+        "specialDefense": 25,
+        "total": 270
+      },
+      "faithfulBaseStats": {
+        "hp": 115,
+        "attack": 45,
+        "defense": 20,
+        "speed": 20,
+        "specialAttack": 45,
+        "specialDefense": 25,
+        "total": 270
+      },
+      "polishedBaseStats": {
+        "hp": 115,
+        "attack": 45,
+        "defense": 20,
+        "speed": 20,
+        "specialAttack": 45,
+        "specialDefense": 25,
+        "total": 270
+      },
+      "catchRate": 170,
+      "baseExp": 76,
+      "heldItems": [
+        "ORAN_BERRY",
+        "ORAN_BERRY"
+      ],
+      "genderRatio": {
+        "male": 25,
+        "female": 75
+      },
+      "hatchRate": "Fast (2,560 steps)",
+      "growthRate": "Fast",
+      "eggGroups": [
+        "Fairy",
+        "Fairy"
+      ],
+      "evYield": "2 HP",
       "eggMoves": [
         "Feint Attack",
         "Perish Song",
@@ -1557,94 +1670,7 @@
             "area": "Power Plant"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "cute-charm",
-          "name": "Cute Charm",
-          "description": "\tContact may cause \tinfatuation.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "competitive",
-          "name": "Competitive",
-          "description": "\tBoosts Sp.Atk on \tstat reduction.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "frisk",
-          "name": "Frisk",
-          "description": "\tChecks the foe's \theld item.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "cute-charm",
-          "name": "Cute Charm",
-          "description": "\tContact may cause \tinfatuation.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "competitive",
-          "name": "Competitive",
-          "description": "\tBoosts Sp.Atk on \tstat reduction.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "frisk",
-          "name": "Frisk",
-          "description": "\tChecks the foe's \theld item.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "cute-charm",
-          "name": "Cute Charm",
-          "description": "\tContact may cause \tinfatuation.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "competitive",
-          "name": "Competitive",
-          "description": "\tBoosts Sp.Atk on \tstat reduction.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "soundproof",
-          "name": "Soundproof",
-          "description": "\tGives immunity to \tsound-based moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 115,
-        "attack": 45,
-        "defense": 20,
-        "speed": 20,
-        "specialAttack": 45,
-        "specialDefense": 25,
-        "total": 270
-      },
-      "faithfulBaseStats": {
-        "hp": 115,
-        "attack": 45,
-        "defense": 20,
-        "speed": 20,
-        "specialAttack": 45,
-        "specialDefense": 25,
-        "total": 270
-      }
+      ]
     }
   },
   "locations": [

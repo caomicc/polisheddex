@@ -161,9 +161,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Electric",
-      "faithfulTypes": "Electric",
-      "updatedTypes": "Electric",
+      "types": [
+        "Electric"
+      ],
+      "faithfulTypes": [
+        "Electric"
+      ],
+      "updatedTypes": [
+        "Electric"
+      ],
       "moves": [
         {
           "name": "Close Combat",
@@ -767,6 +773,97 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "motor-drive",
+          "name": "Motor Drive",
+          "description": "\tElectric moves \tboost Speed.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "motor-drive",
+          "name": "Motor Drive",
+          "description": "\tElectric moves \tboost Speed.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "vital-spirit",
+          "name": "Vital Spirit",
+          "description": "\tPrevents it from \tfalling asleep.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "motor-drive",
+          "name": "Motor Drive",
+          "description": "\tElectric moves \tboost Speed.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "motor-drive",
+          "name": "Motor Drive",
+          "description": "\tElectric moves \tboost Speed.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "vital-spirit",
+          "name": "Vital Spirit",
+          "description": "\tPrevents it from \tfalling asleep.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 75,
+        "attack": 123,
+        "defense": 67,
+        "speed": 95,
+        "specialAttack": 95,
+        "specialDefense": 85,
+        "total": 540
+      },
+      "faithfulBaseStats": {
+        "hp": 75,
+        "attack": 123,
+        "defense": 67,
+        "speed": 95,
+        "specialAttack": 95,
+        "specialDefense": 85,
+        "total": 540
+      },
+      "polishedBaseStats": {
+        "hp": 75,
+        "attack": 123,
+        "defense": 67,
+        "speed": 105,
+        "specialAttack": 95,
+        "specialDefense": 85,
+        "total": 550
+      },
+      "catchRate": 30,
+      "baseExp": 199,
+      "heldItems": [
+        "PERSIM_BERRY",
+        "ELECTIRIZER"
+      ],
+      "genderRatio": {
+        "male": 75,
+        "female": 25
+      },
+      "hatchRate": "Medium-Slow (6,400 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Human-Like",
+        "Human-Like"
+      ],
+      "evYield": "3 Atk",
       "eggMoves": [
         "Barrier",
         "Cross Chop",
@@ -1391,72 +1488,7 @@
             "area": "Power Plant"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "motor-drive",
-          "name": "Motor Drive",
-          "description": "\tElectric moves \tboost Speed.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "motor-drive",
-          "name": "Motor Drive",
-          "description": "\tElectric moves \tboost Speed.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "vital-spirit",
-          "name": "Vital Spirit",
-          "description": "\tPrevents it from \tfalling asleep.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "motor-drive",
-          "name": "Motor Drive",
-          "description": "\tElectric moves \tboost Speed.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "motor-drive",
-          "name": "Motor Drive",
-          "description": "\tElectric moves \tboost Speed.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "vital-spirit",
-          "name": "Vital Spirit",
-          "description": "\tPrevents it from \tfalling asleep.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 75,
-        "attack": 123,
-        "defense": 67,
-        "speed": 95,
-        "specialAttack": 95,
-        "specialDefense": 85,
-        "total": 540
-      },
-      "faithfulBaseStats": {
-        "hp": 75,
-        "attack": 123,
-        "defense": 67,
-        "speed": 95,
-        "specialAttack": 95,
-        "specialDefense": 85,
-        "total": 540
-      }
+      ]
     }
   }
 }

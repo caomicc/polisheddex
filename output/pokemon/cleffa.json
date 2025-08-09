@@ -178,9 +178,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Fairy",
-      "faithfulTypes": "Fairy",
-      "updatedTypes": "Fairy",
+      "types": [
+        "Fairy"
+      ],
+      "faithfulTypes": [
+        "Fairy"
+      ],
+      "updatedTypes": [
+        "Fairy"
+      ],
       "moves": [
         {
           "name": "Splash",
@@ -457,6 +463,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "cute-charm",
+          "name": "Cute Charm",
+          "description": "\tContact may cause \tinfatuation.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "magic-guard",
+          "name": "Magic Guard",
+          "description": "\tOnly takes damage \tfrom attacks.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "cute-charm",
+          "name": "Cute Charm",
+          "description": "\tContact may cause \tinfatuation.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "cute-charm",
+          "name": "Cute Charm",
+          "description": "\tContact may cause \tinfatuation.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "magic-guard",
+          "name": "Magic Guard",
+          "description": "\tOnly takes damage \tfrom attacks.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "cute-charm",
+          "name": "Cute Charm",
+          "description": "\tContact may cause \tinfatuation.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 50,
+        "attack": 25,
+        "defense": 28,
+        "speed": 15,
+        "specialAttack": 45,
+        "specialDefense": 55,
+        "total": 218
+      },
+      "faithfulBaseStats": {
+        "hp": 50,
+        "attack": 25,
+        "defense": 28,
+        "speed": 15,
+        "specialAttack": 45,
+        "specialDefense": 55,
+        "total": 218
+      },
+      "polishedBaseStats": {
+        "hp": 50,
+        "attack": 25,
+        "defense": 28,
+        "speed": 15,
+        "specialAttack": 45,
+        "specialDefense": 55,
+        "total": 218
+      },
+      "catchRate": 150,
+      "baseExp": 37,
+      "heldItems": [
+        "MOON_STONE"
+      ],
+      "genderRatio": {
+        "male": 25,
+        "female": 75
+      },
+      "hatchRate": "Fast (2,560 steps)",
+      "growthRate": "Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 SDf",
       "eggMoves": [
         "Calm Mind",
         "Belly Drum",
@@ -1029,72 +1125,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "cute-charm",
-          "name": "Cute Charm",
-          "description": "\tContact may cause \tinfatuation.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "magic-guard",
-          "name": "Magic Guard",
-          "description": "\tOnly takes damage \tfrom attacks.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "cute-charm",
-          "name": "Cute Charm",
-          "description": "\tContact may cause \tinfatuation.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "cute-charm",
-          "name": "Cute Charm",
-          "description": "\tContact may cause \tinfatuation.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "magic-guard",
-          "name": "Magic Guard",
-          "description": "\tOnly takes damage \tfrom attacks.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "cute-charm",
-          "name": "Cute Charm",
-          "description": "\tContact may cause \tinfatuation.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 50,
-        "attack": 25,
-        "defense": 28,
-        "speed": 15,
-        "specialAttack": 45,
-        "specialDefense": 55,
-        "total": 218
-      },
-      "faithfulBaseStats": {
-        "hp": 50,
-        "attack": 25,
-        "defense": 28,
-        "speed": 15,
-        "specialAttack": 45,
-        "specialDefense": 55,
-        "total": 218
-      }
+      ]
     }
   }
 }

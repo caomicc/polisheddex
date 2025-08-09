@@ -756,7 +756,6 @@
           }
         }
       ],
-      "eggMoves": [],
       "tmHmMoves": [
         {
           "name": "Curse",
@@ -1934,7 +1933,6 @@
           }
         }
       ],
-      "eggMoves": [],
       "tmHmMoves": [
         {
           "name": "Curse",
@@ -2384,51 +2382,73 @@
       ],
       "abilities": [
         {
-          "id": "berserk",
-          "name": "Berserk",
-          "description": "\tBoosts Sp.Atk when \tdamaged over half.",
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "berserk",
-          "name": "Berserk",
-          "description": "\tBoosts Sp.Atk when \tdamaged over half.",
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "berserk",
-          "name": "Berserk",
-          "description": "\tBoosts Sp.Atk when \tdamaged over half.",
+          "id": "flame-body",
+          "name": "Flame Body",
+          "description": "\tContact may burn \tthe foe.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
       "faithfulAbilities": [
         {
-          "id": "berserk",
-          "name": "Berserk",
-          "description": "\tBoosts Sp.Atk when \tdamaged over half.",
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "berserk",
-          "name": "Berserk",
-          "description": "\tBoosts Sp.Atk when \tdamaged over half.",
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "berserk",
-          "name": "Berserk",
-          "description": "\tBoosts Sp.Atk when \tdamaged over half.",
+          "id": "flame-body",
+          "name": "Flame Body",
+          "description": "\tContact may burn \tthe foe.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "drought",
+          "name": "Drought",
+          "description": "\tSummons sunlight \twhen switched in.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "flame-body",
+          "name": "Flame Body",
+          "description": "\tContact may burn \tthe foe.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 90,
         "attack": 85,
@@ -2471,7 +2491,7 @@
         "Undiscovered",
         "Undiscovered"
       ],
-      "evYield": "3 SDf"
+      "evYield": "3 SAt"
     }
   }
 }

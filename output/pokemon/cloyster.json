@@ -612,6 +612,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "shell-armor",
+          "name": "Shell Armor",
+          "description": "\tProtects from \tcritical hits.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "skill-link",
+          "name": "Skill Link",
+          "description": "\tIncreases multi- \tstrike move hits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "overcoat",
+          "name": "Overcoat",
+          "description": "\tProtects it from \tweather damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "shell-armor",
+          "name": "Shell Armor",
+          "description": "\tProtects from \tcritical hits.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "skill-link",
+          "name": "Skill Link",
+          "description": "\tIncreases multi- \tstrike move hits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "overcoat",
+          "name": "Overcoat",
+          "description": "\tProtects it from \tweather damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 50,
+        "attack": 95,
+        "defense": 180,
+        "speed": 70,
+        "specialAttack": 85,
+        "specialDefense": 45,
+        "total": 525
+      },
+      "faithfulBaseStats": {
+        "hp": 50,
+        "attack": 95,
+        "defense": 180,
+        "speed": 70,
+        "specialAttack": 85,
+        "specialDefense": 45,
+        "total": 525
+      },
+      "polishedBaseStats": {
+        "hp": 50,
+        "attack": 95,
+        "defense": 180,
+        "speed": 70,
+        "specialAttack": 85,
+        "specialDefense": 45,
+        "total": 525
+      },
+      "catchRate": 60,
+      "baseExp": 203,
+      "heldItems": [
+        "PEARL",
+        "BIG_PEARL"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "2 Def",
       "eggMoves": [
         "Barrier",
         "Bubble Beam",
@@ -1041,72 +1131,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "shell-armor",
-          "name": "Shell Armor",
-          "description": "\tProtects from \tcritical hits.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "skill-link",
-          "name": "Skill Link",
-          "description": "\tIncreases multi- \tstrike move hits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "overcoat",
-          "name": "Overcoat",
-          "description": "\tProtects it from \tweather damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "shell-armor",
-          "name": "Shell Armor",
-          "description": "\tProtects from \tcritical hits.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "skill-link",
-          "name": "Skill Link",
-          "description": "\tIncreases multi- \tstrike move hits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "overcoat",
-          "name": "Overcoat",
-          "description": "\tProtects it from \tweather damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 50,
-        "attack": 95,
-        "defense": 180,
-        "speed": 70,
-        "specialAttack": 85,
-        "specialDefense": 45,
-        "total": 525
-      },
-      "faithfulBaseStats": {
-        "hp": 50,
-        "attack": 95,
-        "defense": 180,
-        "speed": 70,
-        "specialAttack": 85,
-        "specialDefense": 45,
-        "total": 525
-      }
+      ]
     }
   }
 }

@@ -198,9 +198,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Fire",
-      "faithfulTypes": "Fire",
-      "updatedTypes": "Fire",
+      "types": [
+        "Fire"
+      ],
+      "faithfulTypes": [
+        "Fire"
+      ],
+      "updatedTypes": [
+        "Fire"
+      ],
       "moves": [
         {
           "name": "Tackle",
@@ -774,6 +780,116 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "blaze",
+          "name": "Blaze",
+          "description": "\tBoosts Fire moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "blaze",
+          "name": "Blaze",
+          "description": "\tBoosts Fire moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "blaze",
+          "name": "Blaze",
+          "description": "\tBoosts Fire moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "blaze",
+          "name": "Blaze",
+          "description": "\tBoosts Fire moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "blaze",
+          "name": "Blaze",
+          "description": "\tBoosts Fire moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "flame-body",
+          "name": "Flame Body",
+          "description": "\tContact may burn \tthe foe.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 39,
+        "attack": 52,
+        "defense": 43,
+        "speed": 65,
+        "specialAttack": 60,
+        "specialDefense": 50,
+        "total": 309
+      },
+      "faithfulBaseStats": {
+        "hp": 39,
+        "attack": 52,
+        "defense": 43,
+        "speed": 65,
+        "specialAttack": 60,
+        "specialDefense": 50,
+        "total": 309
+      },
+      "polishedBaseStats": {
+        "hp": 39,
+        "attack": 52,
+        "defense": 43,
+        "speed": 65,
+        "specialAttack": 60,
+        "specialDefense": 50,
+        "total": 309
+      },
+      "catchRate": 45,
+      "baseExp": 65,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Spe",
       "eggMoves": [
         "Double Kick",
         "Extrasensory",
@@ -1187,94 +1303,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "blaze",
-          "name": "Blaze",
-          "description": "\tBoosts Fire moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "blaze",
-          "name": "Blaze",
-          "description": "\tBoosts Fire moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "flash-fire",
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "blaze",
-          "name": "Blaze",
-          "description": "\tBoosts Fire moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "blaze",
-          "name": "Blaze",
-          "description": "\tBoosts Fire moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "flash-fire",
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "blaze",
-          "name": "Blaze",
-          "description": "\tBoosts Fire moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "flame-body",
-          "name": "Flame Body",
-          "description": "\tContact may burn \tthe foe.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "flash-fire",
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 39,
-        "attack": 52,
-        "defense": 43,
-        "speed": 65,
-        "specialAttack": 60,
-        "specialDefense": 50,
-        "total": 309
-      },
-      "faithfulBaseStats": {
-        "hp": 39,
-        "attack": 52,
-        "defense": 43,
-        "speed": 65,
-        "specialAttack": 60,
-        "specialDefense": 50,
-        "total": 309
-      }
+      ]
     }
   }
 }

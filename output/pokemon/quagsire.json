@@ -627,6 +627,95 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "damp",
+          "name": "Damp",
+          "description": "\tPrevents self- \tdestructing moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "water-absorb",
+          "name": "Water Absorb",
+          "description": "\tRestores HP if hit \tby Water moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "unaware",
+          "name": "Unaware",
+          "description": "\tIgnores the foe's \tstat changes.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "damp",
+          "name": "Damp",
+          "description": "\tPrevents self- \tdestructing moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "water-absorb",
+          "name": "Water Absorb",
+          "description": "\tRestores HP if hit \tby Water moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "unaware",
+          "name": "Unaware",
+          "description": "\tIgnores the foe's \tstat changes.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 95,
+        "attack": 85,
+        "defense": 85,
+        "speed": 35,
+        "specialAttack": 65,
+        "specialDefense": 65,
+        "total": 430
+      },
+      "faithfulBaseStats": {
+        "hp": 95,
+        "attack": 85,
+        "defense": 85,
+        "speed": 35,
+        "specialAttack": 65,
+        "specialDefense": 65,
+        "total": 430
+      },
+      "polishedBaseStats": {
+        "hp": 95,
+        "attack": 95,
+        "defense": 95,
+        "speed": 35,
+        "specialAttack": 65,
+        "specialDefense": 65,
+        "total": 450
+      },
+      "catchRate": 90,
+      "baseExp": 137,
+      "heldItems": [
+        "CHESTO_BERRY"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "2 HP",
       "eggMoves": [
         "Counter",
         "Double Kick",
@@ -1306,72 +1395,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "damp",
-          "name": "Damp",
-          "description": "\tPrevents self- \tdestructing moves.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "water-absorb",
-          "name": "Water Absorb",
-          "description": "\tRestores HP if hit \tby Water moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "unaware",
-          "name": "Unaware",
-          "description": "\tIgnores the foe's \tstat changes.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "damp",
-          "name": "Damp",
-          "description": "\tPrevents self- \tdestructing moves.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "water-absorb",
-          "name": "Water Absorb",
-          "description": "\tRestores HP if hit \tby Water moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "unaware",
-          "name": "Unaware",
-          "description": "\tIgnores the foe's \tstat changes.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 95,
-        "attack": 85,
-        "defense": 85,
-        "speed": 35,
-        "specialAttack": 65,
-        "specialDefense": 65,
-        "total": 430
-      },
-      "faithfulBaseStats": {
-        "hp": 95,
-        "attack": 85,
-        "defense": 85,
-        "speed": 35,
-        "specialAttack": 65,
-        "specialDefense": 65,
-        "total": 430
-      }
+      ]
     }
   },
   "locations": [

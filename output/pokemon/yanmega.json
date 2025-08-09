@@ -877,6 +877,118 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "speed-boost",
+          "name": "Speed Boost",
+          "description": "\tIts Speed stat is \tgradually boosted.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "tinted-lens",
+          "name": "Tinted Lens",
+          "description": "\tPowers up not very \teffective moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "frisk",
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "speed-boost",
+          "name": "Speed Boost",
+          "description": "\tIts Speed stat is \tgradually boosted.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "tinted-lens",
+          "name": "Tinted Lens",
+          "description": "\tPowers up not very \teffective moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "frisk",
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "speed-boost",
+          "name": "Speed Boost",
+          "description": "\tIts Speed stat is \tgradually boosted.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "tinted-lens",
+          "name": "Tinted Lens",
+          "description": "\tPowers up not very \teffective moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 86,
+        "attack": 76,
+        "defense": 86,
+        "speed": 95,
+        "specialAttack": 116,
+        "specialDefense": 56,
+        "total": 515
+      },
+      "faithfulBaseStats": {
+        "hp": 86,
+        "attack": 76,
+        "defense": 86,
+        "speed": 95,
+        "specialAttack": 116,
+        "specialDefense": 56,
+        "total": 515
+      },
+      "polishedBaseStats": {
+        "hp": 86,
+        "attack": 76,
+        "defense": 86,
+        "speed": 95,
+        "specialAttack": 116,
+        "specialDefense": 56,
+        "total": 515
+      },
+      "catchRate": 30,
+      "baseExp": 198,
+      "heldItems": [
+        "WIDE_LENS"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Bug",
+        "Bug"
+      ],
+      "evYield": "2 Atk",
       "eggMoves": [
         "Feint Attack",
         "Leech Life",
@@ -1340,94 +1452,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "speed-boost",
-          "name": "Speed Boost",
-          "description": "\tIts Speed stat is \tgradually boosted.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "tinted-lens",
-          "name": "Tinted Lens",
-          "description": "\tPowers up not very \teffective moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "frisk",
-          "name": "Frisk",
-          "description": "\tChecks the foe's \theld item.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "speed-boost",
-          "name": "Speed Boost",
-          "description": "\tIts Speed stat is \tgradually boosted.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "tinted-lens",
-          "name": "Tinted Lens",
-          "description": "\tPowers up not very \teffective moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "frisk",
-          "name": "Frisk",
-          "description": "\tChecks the foe's \theld item.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "speed-boost",
-          "name": "Speed Boost",
-          "description": "\tIts Speed stat is \tgradually boosted.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "tinted-lens",
-          "name": "Tinted Lens",
-          "description": "\tPowers up not very \teffective moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "levitate",
-          "name": "Levitate",
-          "description": "\tGives immunity to \tGround-type moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 86,
-        "attack": 76,
-        "defense": 86,
-        "speed": 95,
-        "specialAttack": 116,
-        "specialDefense": 56,
-        "total": 515
-      },
-      "faithfulBaseStats": {
-        "hp": 86,
-        "attack": 76,
-        "defense": 86,
-        "speed": 95,
-        "specialAttack": 116,
-        "specialDefense": 56,
-        "total": 515
-      }
+      ]
     }
   },
   "locations": [

@@ -181,9 +181,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Fire",
-      "faithfulTypes": "Fire",
-      "updatedTypes": "Fire",
+      "types": [
+        "Fire"
+      ],
+      "faithfulTypes": [
+        "Fire"
+      ],
+      "updatedTypes": [
+        "Fire"
+      ],
       "moves": [
         {
           "name": "Ember",
@@ -1501,15 +1507,12 @@
     "alolan": {
       "name": "alolan",
       "types": [
-        "Ice",
         "Ice"
       ],
       "faithfulTypes": [
-        "Ice",
         "Ice"
       ],
       "updatedTypes": [
-        "Ice",
         "Ice"
       ],
       "moves": [
@@ -2715,51 +2718,73 @@
       ],
       "abilities": [
         {
-          "id": "snow-cloak",
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "snow-cloak",
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "snow-warning",
-          "name": "Snow Warning",
-          "description": "\tSummons hailstorm \twhen switched in.",
+          "id": "drought",
+          "name": "Drought",
+          "description": "\tSummons sunlight \twhen switched in.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
       "faithfulAbilities": [
         {
-          "id": "snow-cloak",
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "snow-cloak",
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "snow-warning",
-          "name": "Snow Warning",
-          "description": "\tSummons hailstorm \twhen switched in.",
+          "id": "drought",
+          "name": "Drought",
+          "description": "\tSummons sunlight \twhen switched in.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "forewarn",
+          "name": "Forewarn",
+          "description": "\tDetermines the \tfoe's moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "drought",
+          "name": "Drought",
+          "description": "\tSummons sunlight \twhen switched in.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 38,
         "attack": 41,

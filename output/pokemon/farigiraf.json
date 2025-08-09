@@ -699,6 +699,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "cud-chew",
+          "name": "Cud Chew",
+          "description": "\tEats a Berry again \tafter first use.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "armor-tail",
+          "name": "Armor Tail",
+          "description": "\tStops foes using \tpriority moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sap-sipper",
+          "name": "Sap Sipper",
+          "description": "\tBoosts Attack when \thit by Grass.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "cud-chew",
+          "name": "Cud Chew",
+          "description": "\tEats a Berry again \tafter first use.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "armor-tail",
+          "name": "Armor Tail",
+          "description": "\tStops foes using \tpriority moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sap-sipper",
+          "name": "Sap Sipper",
+          "description": "\tBoosts Attack when \thit by Grass.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 120,
+        "attack": 90,
+        "defense": 70,
+        "speed": 60,
+        "specialAttack": 110,
+        "specialDefense": 70,
+        "total": 520
+      },
+      "faithfulBaseStats": {
+        "hp": 120,
+        "attack": 90,
+        "defense": 70,
+        "speed": 60,
+        "specialAttack": 110,
+        "specialDefense": 70,
+        "total": 520
+      },
+      "polishedBaseStats": {
+        "hp": 120,
+        "attack": 90,
+        "defense": 70,
+        "speed": 70,
+        "specialAttack": 120,
+        "specialDefense": 70,
+        "total": 540
+      },
+      "catchRate": 45,
+      "baseExp": 189,
+      "heldItems": [
+        "PERSIM_BERRY"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "3 HP",
       "eggMoves": [
         "Double Kick",
         "Foresight",
@@ -1336,72 +1426,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "cud-chew",
-          "name": "Cud Chew",
-          "description": "\tEats a Berry again \tafter first use.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "armor-tail",
-          "name": "Armor Tail",
-          "description": "\tStops foes using \tpriority moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sap-sipper",
-          "name": "Sap Sipper",
-          "description": "\tBoosts Attack when \thit by Grass.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "cud-chew",
-          "name": "Cud Chew",
-          "description": "\tEats a Berry again \tafter first use.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "armor-tail",
-          "name": "Armor Tail",
-          "description": "\tStops foes using \tpriority moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sap-sipper",
-          "name": "Sap Sipper",
-          "description": "\tBoosts Attack when \thit by Grass.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 120,
-        "attack": 90,
-        "defense": 70,
-        "speed": 60,
-        "specialAttack": 110,
-        "specialDefense": 70,
-        "total": 520
-      },
-      "faithfulBaseStats": {
-        "hp": 120,
-        "attack": 90,
-        "defense": 70,
-        "speed": 60,
-        "specialAttack": 110,
-        "specialDefense": 70,
-        "total": 520
-      }
+      ]
     }
   }
 }

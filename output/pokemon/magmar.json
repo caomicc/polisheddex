@@ -179,9 +179,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Fire",
-      "faithfulTypes": "Fire",
-      "updatedTypes": "Fire",
+      "types": [
+        "Fire"
+      ],
+      "faithfulTypes": [
+        "Fire"
+      ],
+      "updatedTypes": [
+        "Fire"
+      ],
       "moves": [
         {
           "name": "Haze",
@@ -677,6 +683,97 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "flame-body",
+          "name": "Flame Body",
+          "description": "\tContact may burn \tthe foe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "flame-body",
+          "name": "Flame Body",
+          "description": "\tContact may burn \tthe foe.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "vital-spirit",
+          "name": "Vital Spirit",
+          "description": "\tPrevents it from \tfalling asleep.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "flame-body",
+          "name": "Flame Body",
+          "description": "\tContact may burn \tthe foe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "flame-body",
+          "name": "Flame Body",
+          "description": "\tContact may burn \tthe foe.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "vital-spirit",
+          "name": "Vital Spirit",
+          "description": "\tPrevents it from \tfalling asleep.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 65,
+        "attack": 95,
+        "defense": 57,
+        "speed": 93,
+        "specialAttack": 100,
+        "specialDefense": 85,
+        "total": 495
+      },
+      "faithfulBaseStats": {
+        "hp": 65,
+        "attack": 95,
+        "defense": 57,
+        "speed": 93,
+        "specialAttack": 100,
+        "specialDefense": 85,
+        "total": 495
+      },
+      "polishedBaseStats": {
+        "hp": 65,
+        "attack": 95,
+        "defense": 57,
+        "speed": 93,
+        "specialAttack": 100,
+        "specialDefense": 85,
+        "total": 495
+      },
+      "catchRate": 45,
+      "baseExp": 167,
+      "heldItems": [
+        "ASPEAR_BERRY",
+        "MAGMARIZER"
+      ],
+      "genderRatio": {
+        "male": 75,
+        "female": 25
+      },
+      "hatchRate": "Medium-Slow (6,400 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Human-Like",
+        "Human-Like"
+      ],
+      "evYield": "2 SAt",
       "eggMoves": [
         "Barrier",
         "Belly Drum",
@@ -1145,72 +1242,7 @@
             "area": "Goldenrod City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "flame-body",
-          "name": "Flame Body",
-          "description": "\tContact may burn \tthe foe.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "flame-body",
-          "name": "Flame Body",
-          "description": "\tContact may burn \tthe foe.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "vital-spirit",
-          "name": "Vital Spirit",
-          "description": "\tPrevents it from \tfalling asleep.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "flame-body",
-          "name": "Flame Body",
-          "description": "\tContact may burn \tthe foe.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "flame-body",
-          "name": "Flame Body",
-          "description": "\tContact may burn \tthe foe.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "vital-spirit",
-          "name": "Vital Spirit",
-          "description": "\tPrevents it from \tfalling asleep.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 65,
-        "attack": 95,
-        "defense": 57,
-        "speed": 93,
-        "specialAttack": 100,
-        "specialDefense": 85,
-        "total": 495
-      },
-      "faithfulBaseStats": {
-        "hp": 65,
-        "attack": 95,
-        "defense": 57,
-        "speed": 93,
-        "specialAttack": 100,
-        "specialDefense": 85,
-        "total": 495
-      }
+      ]
     }
   },
   "locations": [

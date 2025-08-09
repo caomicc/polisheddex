@@ -754,6 +754,97 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "shield-dust",
+          "name": "Shield Dust",
+          "description": "\tBlocks additional \tattack effects.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "tinted-lens",
+          "name": "Tinted Lens",
+          "description": "\tPowers up not very \teffective moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "wonder-skin",
+          "name": "Wonder Skin",
+          "description": "\tMakes status moves \tmiss more often.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "shield-dust",
+          "name": "Shield Dust",
+          "description": "\tBlocks additional \tattack effects.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "tinted-lens",
+          "name": "Tinted Lens",
+          "description": "\tPowers up not very \teffective moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "wonder-skin",
+          "name": "Wonder Skin",
+          "description": "\tMakes status moves \tmiss more often.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 70,
+        "attack": 65,
+        "defense": 60,
+        "speed": 90,
+        "specialAttack": 90,
+        "specialDefense": 75,
+        "total": 450
+      },
+      "faithfulBaseStats": {
+        "hp": 70,
+        "attack": 65,
+        "defense": 60,
+        "speed": 90,
+        "specialAttack": 90,
+        "specialDefense": 75,
+        "total": 450
+      },
+      "polishedBaseStats": {
+        "hp": 70,
+        "attack": 65,
+        "defense": 60,
+        "speed": 90,
+        "specialAttack": 115,
+        "specialDefense": 75,
+        "total": 475
+      },
+      "catchRate": 75,
+      "baseExp": 138,
+      "heldItems": [
+        "SHED_SHELL",
+        "SILVERPOWDER"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Bug",
+        "Bug"
+      ],
+      "evYield": "1 Spe",
       "eggMoves": [
         "Agility",
         "Baton Pass",
@@ -1243,72 +1334,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "shield-dust",
-          "name": "Shield Dust",
-          "description": "\tBlocks additional \tattack effects.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "tinted-lens",
-          "name": "Tinted Lens",
-          "description": "\tPowers up not very \teffective moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "wonder-skin",
-          "name": "Wonder Skin",
-          "description": "\tMakes status moves \tmiss more often.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "shield-dust",
-          "name": "Shield Dust",
-          "description": "\tBlocks additional \tattack effects.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "tinted-lens",
-          "name": "Tinted Lens",
-          "description": "\tPowers up not very \teffective moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "wonder-skin",
-          "name": "Wonder Skin",
-          "description": "\tMakes status moves \tmiss more often.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 70,
-        "attack": 65,
-        "defense": 60,
-        "speed": 90,
-        "specialAttack": 90,
-        "specialDefense": 75,
-        "total": 450
-      },
-      "faithfulBaseStats": {
-        "hp": 70,
-        "attack": 65,
-        "defense": 60,
-        "speed": 90,
-        "specialAttack": 90,
-        "specialDefense": 75,
-        "total": 450
-      }
+      ]
     }
   },
   "locations": [

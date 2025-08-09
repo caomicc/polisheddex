@@ -666,6 +666,93 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "battle-armor",
+          "name": "Battle Armor",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "battle-armor",
+          "name": "Battle Armor",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 30,
+        "attack": 80,
+        "defense": 90,
+        "speed": 55,
+        "specialAttack": 55,
+        "specialDefense": 45,
+        "total": 355
+      },
+      "faithfulBaseStats": {
+        "hp": 30,
+        "attack": 80,
+        "defense": 90,
+        "speed": 55,
+        "specialAttack": 55,
+        "specialDefense": 45,
+        "total": 355
+      },
+      "polishedBaseStats": {
+        "hp": 30,
+        "attack": 80,
+        "defense": 90,
+        "speed": 55,
+        "specialAttack": 55,
+        "specialDefense": 45,
+        "total": 355
+      },
+      "catchRate": 45,
+      "baseExp": 119,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Slow (8,960 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Def",
       "eggMoves": [
         "Aurora Beam",
         "Bubble Beam",
@@ -1185,72 +1272,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "swift-swim",
-          "name": "Swift Swim",
-          "description": "\tBoosts its Speed \tin rain.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "battle-armor",
-          "name": "Battle Armor",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "weak-armor",
-          "name": "Weak Armor",
-          "description": "\tPhysical attacks \ttrade Def for Spe.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "swift-swim",
-          "name": "Swift Swim",
-          "description": "\tBoosts its Speed \tin rain.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "battle-armor",
-          "name": "Battle Armor",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "weak-armor",
-          "name": "Weak Armor",
-          "description": "\tPhysical attacks \ttrade Def for Spe.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 30,
-        "attack": 80,
-        "defense": 90,
-        "speed": 55,
-        "specialAttack": 55,
-        "specialDefense": 45,
-        "total": 355
-      },
-      "faithfulBaseStats": {
-        "hp": 30,
-        "attack": 80,
-        "defense": 90,
-        "speed": 55,
-        "specialAttack": 55,
-        "specialDefense": 45,
-        "total": 355
-      }
+      ]
     }
   }
 }

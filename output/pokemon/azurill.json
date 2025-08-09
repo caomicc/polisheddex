@@ -545,6 +545,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "huge-power",
+          "name": "Huge Power",
+          "description": "\tBoosts its Attack \tstat.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sap-sipper",
+          "name": "Sap Sipper",
+          "description": "\tBoosts Attack when \thit by Grass.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "huge-power",
+          "name": "Huge Power",
+          "description": "\tBoosts its Attack \tstat.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sap-sipper",
+          "name": "Sap Sipper",
+          "description": "\tBoosts Attack when \thit by Grass.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 50,
+        "attack": 20,
+        "defense": 40,
+        "speed": 20,
+        "specialAttack": 20,
+        "specialDefense": 40,
+        "total": 190
+      },
+      "faithfulBaseStats": {
+        "hp": 50,
+        "attack": 20,
+        "defense": 40,
+        "speed": 20,
+        "specialAttack": 20,
+        "specialDefense": 40,
+        "total": 190
+      },
+      "polishedBaseStats": {
+        "hp": 50,
+        "attack": 20,
+        "defense": 40,
+        "speed": 20,
+        "specialAttack": 20,
+        "specialDefense": 40,
+        "total": 190
+      },
+      "catchRate": 150,
+      "baseExp": 33,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 25,
+        "female": 75
+      },
+      "hatchRate": "Fast (2,560 steps)",
+      "growthRate": "Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 HP",
       "eggMoves": [
         "Belly Drum",
         "Foresight",
@@ -1010,72 +1098,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "thick-fat",
-          "name": "Thick Fat",
-          "description": "\tUps resistance to \tFire and Ice.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "huge-power",
-          "name": "Huge Power",
-          "description": "\tBoosts its Attack \tstat.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sap-sipper",
-          "name": "Sap Sipper",
-          "description": "\tBoosts Attack when \thit by Grass.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "thick-fat",
-          "name": "Thick Fat",
-          "description": "\tUps resistance to \tFire and Ice.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "huge-power",
-          "name": "Huge Power",
-          "description": "\tBoosts its Attack \tstat.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sap-sipper",
-          "name": "Sap Sipper",
-          "description": "\tBoosts Attack when \thit by Grass.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 50,
-        "attack": 20,
-        "defense": 40,
-        "speed": 20,
-        "specialAttack": 20,
-        "specialDefense": 40,
-        "total": 190
-      },
-      "faithfulBaseStats": {
-        "hp": 50,
-        "attack": 20,
-        "defense": 40,
-        "speed": 20,
-        "specialAttack": 20,
-        "specialDefense": 40,
-        "total": 190
-      }
+      ]
     }
   }
 }

@@ -176,9 +176,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Bug",
-      "faithfulTypes": "Bug",
-      "updatedTypes": "Bug",
+      "types": [
+        "Bug"
+      ],
+      "faithfulTypes": [
+        "Bug"
+      ],
+      "updatedTypes": [
+        "Bug"
+      ],
       "moves": [
         {
           "name": "Tackle",
@@ -290,8 +296,6 @@
           }
         }
       ],
-      "eggMoves": [],
-      "tmHmMoves": [],
       "abilities": [
         {
           "id": "shield-dust",
@@ -356,7 +360,30 @@
         "specialAttack": 20,
         "specialDefense": 20,
         "total": 195
-      }
+      },
+      "polishedBaseStats": {
+        "hp": 45,
+        "attack": 30,
+        "defense": 35,
+        "speed": 45,
+        "specialAttack": 20,
+        "specialDefense": 20,
+        "total": 195
+      },
+      "catchRate": 255,
+      "baseExp": 53,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Bug",
+        "Bug"
+      ],
+      "evYield": "1 HP"
     }
   },
   "locations": [

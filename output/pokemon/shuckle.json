@@ -753,6 +753,118 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "contrary",
+          "name": "Contrary",
+          "description": "\tInverts the effect \tof stat changes.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "contrary",
+          "name": "Contrary",
+          "description": "\tInverts the effect \tof stat changes.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "solid-rock",
+          "name": "Solid Rock",
+          "description": "\tReduces super \teffective damage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "contrary",
+          "name": "Contrary",
+          "description": "\tInverts the effect \tof stat changes.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 230,
+        "speed": 5,
+        "specialAttack": 10,
+        "specialDefense": 230,
+        "total": 505
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 230,
+        "speed": 5,
+        "specialAttack": 10,
+        "specialDefense": 230,
+        "total": 505
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 230,
+        "speed": 5,
+        "specialAttack": 10,
+        "specialDefense": 230,
+        "total": 505
+      },
+      "catchRate": 190,
+      "baseExp": 80,
+      "heldItems": [
+        "ALWAYS_ITEM_"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Bug",
+        "Bug"
+      ],
+      "evYield": "1 Def",
       "eggMoves": [
         "Rollout",
         "Acid",
@@ -1213,94 +1325,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "sturdy",
-          "name": "Sturdy",
-          "description": "\tCannot be knocked \tout with one hit.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "gluttony",
-          "name": "Gluttony",
-          "description": "\tEncourages early \tBerry use.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "contrary",
-          "name": "Contrary",
-          "description": "\tInverts the effect \tof stat changes.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "sturdy",
-          "name": "Sturdy",
-          "description": "\tCannot be knocked \tout with one hit.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "gluttony",
-          "name": "Gluttony",
-          "description": "\tEncourages early \tBerry use.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "contrary",
-          "name": "Contrary",
-          "description": "\tInverts the effect \tof stat changes.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "solid-rock",
-          "name": "Solid Rock",
-          "description": "\tReduces super \teffective damage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "gluttony",
-          "name": "Gluttony",
-          "description": "\tEncourages early \tBerry use.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "contrary",
-          "name": "Contrary",
-          "description": "\tInverts the effect \tof stat changes.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 20,
-        "attack": 10,
-        "defense": 230,
-        "speed": 5,
-        "specialAttack": 10,
-        "specialDefense": 230,
-        "total": 505
-      },
-      "faithfulBaseStats": {
-        "hp": 20,
-        "attack": 10,
-        "defense": 230,
-        "speed": 5,
-        "specialAttack": 10,
-        "specialDefense": 230,
-        "total": 505
-      }
+      ]
     }
   },
   "locations": [

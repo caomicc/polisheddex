@@ -154,9 +154,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Psychic",
-      "faithfulTypes": "Psychic",
-      "updatedTypes": "Psychic",
+      "types": [
+        "Psychic"
+      ],
+      "faithfulTypes": [
+        "Psychic"
+      ],
+      "updatedTypes": [
+        "Psychic"
+      ],
       "moves": [
         {
           "name": "Splash",
@@ -433,53 +439,6 @@
           }
         }
       ],
-      "eggMoves": [
-        "Charm",
-        "Encore"
-      ],
-      "tmHmMoves": [
-        {
-          "name": "Safeguard",
-          "description": "Prevents all status problems.",
-          "type": "Normal",
-          "pp": 25,
-          "power": 0,
-          "category": "Status",
-          "accuracy": "--",
-          "tmNumber": "TM20",
-          "location": {
-            "area": "Celadon",
-            "details": "Department Store"
-          }
-        },
-        {
-          "name": "Charm",
-          "description": "Sharply lowers the foe's Attack.",
-          "type": "Fairy",
-          "pp": 20,
-          "power": 0,
-          "category": "Status",
-          "accuracy": 100,
-          "tmNumber": "MT05",
-          "location": {
-            "area": "Route 35-Natioal Park Gate"
-          }
-        },
-        {
-          "name": "Counter",
-          "description": "Returns a physical attack double.",
-          "type": "Fighting",
-          "pp": 20,
-          "power": 1,
-          "category": "Physical",
-          "accuracy": "--",
-          "tmNumber": "MT06",
-          "location": {
-            "area": "Celadon",
-            "details": "Department Store"
-          }
-        }
-      ],
       "abilities": [
         {
           "id": "shadow-tag",
@@ -544,7 +503,77 @@
         "specialAttack": 23,
         "specialDefense": 48,
         "total": 260
-      }
+      },
+      "polishedBaseStats": {
+        "hp": 95,
+        "attack": 23,
+        "defense": 48,
+        "speed": 23,
+        "specialAttack": 23,
+        "specialDefense": 48,
+        "total": 260
+      },
+      "catchRate": 125,
+      "baseExp": 44,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 HP",
+      "eggMoves": [
+        "Charm",
+        "Encore"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Safeguard",
+          "description": "Prevents all status problems.",
+          "type": "Normal",
+          "pp": 25,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM20",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Charm",
+          "description": "Sharply lowers the foe's Attack.",
+          "type": "Fairy",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT05",
+          "location": {
+            "area": "Route 35-Natioal Park Gate"
+          }
+        },
+        {
+          "name": "Counter",
+          "description": "Returns a physical attack double.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "MT06",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        }
+      ]
     }
   }
 }

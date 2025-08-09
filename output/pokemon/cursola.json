@@ -141,8 +141,12 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Ghost",
-      "faithfulTypes": "Ghost",
+      "types": [
+        "Ghost"
+      ],
+      "faithfulTypes": [
+        "Ghost"
+      ],
       "updatedTypes": [
         "Ghost",
         "Rock"
@@ -642,6 +646,93 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "perish-body",
+          "name": "Perish Body",
+          "description": "\tContact causes Pe- \trish Song status.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "perish-body",
+          "name": "Perish Body",
+          "description": "\tContact causes Pe- \trish Song status.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 60,
+        "attack": 95,
+        "defense": 50,
+        "speed": 30,
+        "specialAttack": 145,
+        "specialDefense": 130,
+        "total": 510
+      },
+      "faithfulBaseStats": {
+        "hp": 60,
+        "attack": 95,
+        "defense": 50,
+        "speed": 30,
+        "specialAttack": 145,
+        "specialDefense": 130,
+        "total": 510
+      },
+      "polishedBaseStats": {
+        "hp": 60,
+        "attack": 95,
+        "defense": 50,
+        "speed": 30,
+        "specialAttack": 145,
+        "specialDefense": 130,
+        "total": 510
+      },
+      "catchRate": 30,
+      "baseExp": 196,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 25,
+        "female": 75
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Fast",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "2 SAt",
       "eggMoves": [
         "Barrier",
         "Confuse Ray",
@@ -1303,72 +1394,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "weak-armor",
-          "name": "Weak Armor",
-          "description": "\tPhysical attacks \ttrade Def for Spe.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "weak-armor",
-          "name": "Weak Armor",
-          "description": "\tPhysical attacks \ttrade Def for Spe.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "perish-body",
-          "name": "Perish Body",
-          "description": "\tContact causes Pe- \trish Song status.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "weak-armor",
-          "name": "Weak Armor",
-          "description": "\tPhysical attacks \ttrade Def for Spe.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "weak-armor",
-          "name": "Weak Armor",
-          "description": "\tPhysical attacks \ttrade Def for Spe.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "perish-body",
-          "name": "Perish Body",
-          "description": "\tContact causes Pe- \trish Song status.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 60,
-        "attack": 95,
-        "defense": 50,
-        "speed": 30,
-        "specialAttack": 145,
-        "specialDefense": 130,
-        "total": 510
-      },
-      "faithfulBaseStats": {
-        "hp": 60,
-        "attack": 95,
-        "defense": 50,
-        "speed": 30,
-        "specialAttack": 145,
-        "specialDefense": 130,
-        "total": 510
-      }
+      ]
     }
   },
   "locations": [

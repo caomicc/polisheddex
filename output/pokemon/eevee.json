@@ -512,9 +512,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Normal",
-      "faithfulTypes": "Normal",
-      "updatedTypes": "Normal",
+      "types": [
+        "Normal"
+      ],
+      "faithfulTypes": [
+        "Normal"
+      ],
+      "updatedTypes": [
+        "Normal"
+      ],
       "moves": [
         {
           "name": "Growl",
@@ -1079,6 +1085,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "adaptability",
+          "name": "Adaptability",
+          "description": "\tPowers up same- \ttype moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "anticipation",
+          "name": "Anticipation",
+          "description": "\tSenses the foe's \tdangerous moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "adaptability",
+          "name": "Adaptability",
+          "description": "\tPowers up same- \ttype moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "anticipation",
+          "name": "Anticipation",
+          "description": "\tSenses the foe's \tdangerous moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 55,
+        "attack": 55,
+        "defense": 50,
+        "speed": 55,
+        "specialAttack": 45,
+        "specialDefense": 65,
+        "total": 325
+      },
+      "faithfulBaseStats": {
+        "hp": 55,
+        "attack": 55,
+        "defense": 50,
+        "speed": 55,
+        "specialAttack": 45,
+        "specialDefense": 65,
+        "total": 325
+      },
+      "polishedBaseStats": {
+        "hp": 55,
+        "attack": 55,
+        "defense": 50,
+        "speed": 55,
+        "specialAttack": 45,
+        "specialDefense": 65,
+        "total": 325
+      },
+      "catchRate": 45,
+      "baseExp": 92,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Very Slow (10,240 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 SDf",
       "eggMoves": [
         "Charm"
       ],
@@ -1471,72 +1565,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "run-away",
-          "name": "Run Away",
-          "description": "\tSure getaway from \twild #mon.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "adaptability",
-          "name": "Adaptability",
-          "description": "\tPowers up same- \ttype moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "anticipation",
-          "name": "Anticipation",
-          "description": "\tSenses the foe's \tdangerous moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "run-away",
-          "name": "Run Away",
-          "description": "\tSure getaway from \twild #mon.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "adaptability",
-          "name": "Adaptability",
-          "description": "\tPowers up same- \ttype moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "anticipation",
-          "name": "Anticipation",
-          "description": "\tSenses the foe's \tdangerous moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 55,
-        "attack": 55,
-        "defense": 50,
-        "speed": 55,
-        "specialAttack": 45,
-        "specialDefense": 65,
-        "total": 325
-      },
-      "faithfulBaseStats": {
-        "hp": 55,
-        "attack": 55,
-        "defense": 50,
-        "speed": 55,
-        "specialAttack": 45,
-        "specialDefense": 65,
-        "total": 325
-      }
+      ]
     }
   }
 }

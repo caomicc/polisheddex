@@ -220,9 +220,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Ground",
-      "faithfulTypes": "Ground",
-      "updatedTypes": "Ground",
+      "types": [
+        "Ground"
+      ],
+      "faithfulTypes": [
+        "Ground"
+      ],
+      "updatedTypes": [
+        "Ground"
+      ],
       "moves": [
         {
           "name": "Growl",
@@ -796,6 +802,118 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "lightning-rod",
+          "name": "Lightning Rod",
+          "description": "\tElectric moves \tboost Sp.Atk.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "battle-armor",
+          "name": "Battle Armor",
+          "description": "",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "lightning-rod",
+          "name": "Lightning Rod",
+          "description": "\tElectric moves \tboost Sp.Atk.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "battle-armor",
+          "name": "Battle Armor",
+          "description": "",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "cursed-body",
+          "name": "Cursed Body",
+          "description": "\tMay disable a move \tused on it.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "battle-armor",
+          "name": "Battle Armor",
+          "description": "",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 50,
+        "attack": 50,
+        "defense": 95,
+        "speed": 35,
+        "specialAttack": 40,
+        "specialDefense": 50,
+        "total": 320
+      },
+      "faithfulBaseStats": {
+        "hp": 50,
+        "attack": 50,
+        "defense": 95,
+        "speed": 35,
+        "specialAttack": 40,
+        "specialDefense": 50,
+        "total": 320
+      },
+      "polishedBaseStats": {
+        "hp": 50,
+        "attack": 50,
+        "defense": 95,
+        "speed": 35,
+        "specialAttack": 40,
+        "specialDefense": 50,
+        "total": 320
+      },
+      "catchRate": 190,
+      "baseExp": 87,
+      "heldItems": [
+        "THICK_CLUB"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Monster",
+        "Monster"
+      ],
+      "evYield": "1 Def",
       "eggMoves": [
         "Ancientpower",
         "Belly Drum",
@@ -1395,94 +1513,7 @@
             "area": "Goldenrod City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "rock-head",
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "lightning-rod",
-          "name": "Lightning Rod",
-          "description": "\tElectric moves \tboost Sp.Atk.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "battle-armor",
-          "name": "Battle Armor",
-          "description": "",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "rock-head",
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "lightning-rod",
-          "name": "Lightning Rod",
-          "description": "\tElectric moves \tboost Sp.Atk.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "battle-armor",
-          "name": "Battle Armor",
-          "description": "",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "rock-head",
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "cursed-body",
-          "name": "Cursed Body",
-          "description": "\tMay disable a move \tused on it.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "battle-armor",
-          "name": "Battle Armor",
-          "description": "",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 50,
-        "attack": 50,
-        "defense": 95,
-        "speed": 35,
-        "specialAttack": 40,
-        "specialDefense": 50,
-        "total": 320
-      },
-      "faithfulBaseStats": {
-        "hp": 50,
-        "attack": 50,
-        "defense": 95,
-        "speed": 35,
-        "specialAttack": 40,
-        "specialDefense": 50,
-        "total": 320
-      }
+      ]
     }
   },
   "locations": [

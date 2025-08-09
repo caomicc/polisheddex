@@ -244,9 +244,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Normal",
-      "faithfulTypes": "Normal",
-      "updatedTypes": "Normal",
+      "types": [
+        "Normal"
+      ],
+      "faithfulTypes": [
+        "Normal"
+      ],
+      "updatedTypes": [
+        "Normal"
+      ],
       "moves": [
         {
           "name": "Tackle",
@@ -814,6 +820,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "frisk",
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sap-sipper",
+          "name": "Sap Sipper",
+          "description": "\tBoosts Attack when \thit by Grass.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "frisk",
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sap-sipper",
+          "name": "Sap Sipper",
+          "description": "\tBoosts Attack when \thit by Grass.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 73,
+        "attack": 95,
+        "defense": 62,
+        "speed": 85,
+        "specialAttack": 85,
+        "specialDefense": 65,
+        "total": 465
+      },
+      "faithfulBaseStats": {
+        "hp": 73,
+        "attack": 95,
+        "defense": 62,
+        "speed": 85,
+        "specialAttack": 85,
+        "specialDefense": 65,
+        "total": 465
+      },
+      "polishedBaseStats": {
+        "hp": 73,
+        "attack": 100,
+        "defense": 62,
+        "speed": 85,
+        "specialAttack": 85,
+        "specialDefense": 65,
+        "total": 470
+      },
+      "catchRate": 45,
+      "baseExp": 165,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Atk",
       "eggMoves": [
         "Bite",
         "Double Kick",
@@ -1425,72 +1519,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "intimidate",
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "frisk",
-          "name": "Frisk",
-          "description": "\tChecks the foe's \theld item.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sap-sipper",
-          "name": "Sap Sipper",
-          "description": "\tBoosts Attack when \thit by Grass.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "intimidate",
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "frisk",
-          "name": "Frisk",
-          "description": "\tChecks the foe's \theld item.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sap-sipper",
-          "name": "Sap Sipper",
-          "description": "\tBoosts Attack when \thit by Grass.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 73,
-        "attack": 95,
-        "defense": 62,
-        "speed": 85,
-        "specialAttack": 85,
-        "specialDefense": 65,
-        "total": 465
-      },
-      "faithfulBaseStats": {
-        "hp": 73,
-        "attack": 95,
-        "defense": 62,
-        "speed": 85,
-        "specialAttack": 85,
-        "specialDefense": 65,
-        "total": 465
-      }
+      ]
     }
   },
   "locations": [

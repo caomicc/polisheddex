@@ -156,9 +156,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Water",
-      "faithfulTypes": "Water",
-      "updatedTypes": "Water",
+      "types": [
+        "Water"
+      ],
+      "faithfulTypes": [
+        "Water"
+      ],
+      "updatedTypes": [
+        "Water"
+      ],
       "moves": [
         {
           "name": "Tackle",
@@ -723,6 +729,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "shell-armor",
+          "name": "Shell Armor",
+          "description": "\tProtects from \tcritical hits.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "skill-link",
+          "name": "Skill Link",
+          "description": "\tIncreases multi- \tstrike move hits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "overcoat",
+          "name": "Overcoat",
+          "description": "\tProtects it from \tweather damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "shell-armor",
+          "name": "Shell Armor",
+          "description": "\tProtects from \tcritical hits.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "skill-link",
+          "name": "Skill Link",
+          "description": "\tIncreases multi- \tstrike move hits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "overcoat",
+          "name": "Overcoat",
+          "description": "\tProtects it from \tweather damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 30,
+        "attack": 65,
+        "defense": 100,
+        "speed": 40,
+        "specialAttack": 45,
+        "specialDefense": 25,
+        "total": 305
+      },
+      "faithfulBaseStats": {
+        "hp": 30,
+        "attack": 65,
+        "defense": 100,
+        "speed": 40,
+        "specialAttack": 45,
+        "specialDefense": 25,
+        "total": 305
+      },
+      "polishedBaseStats": {
+        "hp": 30,
+        "attack": 65,
+        "defense": 100,
+        "speed": 40,
+        "specialAttack": 45,
+        "specialDefense": 25,
+        "total": 305
+      },
+      "catchRate": 190,
+      "baseExp": 97,
+      "heldItems": [
+        "PEARL",
+        "BIG_PEARL"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Def",
       "eggMoves": [
         "Barrier",
         "Bubble Beam",
@@ -1096,72 +1192,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "shell-armor",
-          "name": "Shell Armor",
-          "description": "\tProtects from \tcritical hits.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "skill-link",
-          "name": "Skill Link",
-          "description": "\tIncreases multi- \tstrike move hits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "overcoat",
-          "name": "Overcoat",
-          "description": "\tProtects it from \tweather damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "shell-armor",
-          "name": "Shell Armor",
-          "description": "\tProtects from \tcritical hits.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "skill-link",
-          "name": "Skill Link",
-          "description": "\tIncreases multi- \tstrike move hits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "overcoat",
-          "name": "Overcoat",
-          "description": "\tProtects it from \tweather damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 30,
-        "attack": 65,
-        "defense": 100,
-        "speed": 40,
-        "specialAttack": 45,
-        "specialDefense": 25,
-        "total": 305
-      },
-      "faithfulBaseStats": {
-        "hp": 30,
-        "attack": 65,
-        "defense": 100,
-        "speed": 40,
-        "specialAttack": 45,
-        "specialDefense": 25,
-        "total": 305
-      }
+      ]
     }
   },
   "locations": [

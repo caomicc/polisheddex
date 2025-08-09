@@ -801,7 +801,119 @@
           }
         }
       ],
-      "eggMoves": [],
+      "abilities": [
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "unburden",
+          "name": "Unburden",
+          "description": "\tBoosts Speed when \theld item is lost.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "poison-touch",
+          "name": "Poison Touch",
+          "description": "\tMay poison the foe \ton contact.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "unburden",
+          "name": "Unburden",
+          "description": "\tBoosts Speed when \theld item is lost.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "poison-touch",
+          "name": "Poison Touch",
+          "description": "\tMay poison the foe \ton contact.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "unburden",
+          "name": "Unburden",
+          "description": "\tBoosts Speed when \theld item is lost.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "poison-touch",
+          "name": "Poison Touch",
+          "description": "\tMay poison the foe \ton contact.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 80,
+        "attack": 130,
+        "defense": 60,
+        "speed": 120,
+        "specialAttack": 40,
+        "specialDefense": 80,
+        "total": 510
+      },
+      "faithfulBaseStats": {
+        "hp": 80,
+        "attack": 130,
+        "defense": 60,
+        "speed": 120,
+        "specialAttack": 40,
+        "specialDefense": 80,
+        "total": 510
+      },
+      "polishedBaseStats": {
+        "hp": 80,
+        "attack": 130,
+        "defense": 60,
+        "speed": 120,
+        "specialAttack": 40,
+        "specialDefense": 80,
+        "total": 510
+      },
+      "catchRate": 45,
+      "baseExp": 199,
+      "heldItems": [
+        "GRIP_CLAW",
+        "QUICK_CLAW"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Atk",
       "tmHmMoves": [
         {
           "name": "Dynamicpunch",
@@ -1471,94 +1583,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "pressure",
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "unburden",
-          "name": "Unburden",
-          "description": "\tBoosts Speed when \theld item is lost.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "poison-touch",
-          "name": "Poison Touch",
-          "description": "\tMay poison the foe \ton contact.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "pressure",
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "unburden",
-          "name": "Unburden",
-          "description": "\tBoosts Speed when \theld item is lost.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "poison-touch",
-          "name": "Poison Touch",
-          "description": "\tMay poison the foe \ton contact.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "technician",
-          "name": "Technician",
-          "description": "\tPowers up its \tweaker moves.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "unburden",
-          "name": "Unburden",
-          "description": "\tBoosts Speed when \theld item is lost.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "poison-touch",
-          "name": "Poison Touch",
-          "description": "\tMay poison the foe \ton contact.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 80,
-        "attack": 130,
-        "defense": 60,
-        "speed": 120,
-        "specialAttack": 40,
-        "specialDefense": 80,
-        "total": 510
-      },
-      "faithfulBaseStats": {
-        "hp": 80,
-        "attack": 130,
-        "defense": 60,
-        "speed": 120,
-        "specialAttack": 40,
-        "specialDefense": 80,
-        "total": 510
-      }
+      ]
     }
   }
 }

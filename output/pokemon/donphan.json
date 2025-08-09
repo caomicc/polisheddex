@@ -138,9 +138,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Ground",
-      "faithfulTypes": "Ground",
-      "updatedTypes": "Ground",
+      "types": [
+        "Ground"
+      ],
+      "faithfulTypes": [
+        "Ground"
+      ],
+      "updatedTypes": [
+        "Ground"
+      ],
       "moves": [
         {
           "name": "Fury Strikes",
@@ -678,6 +684,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 90,
+        "attack": 120,
+        "defense": 120,
+        "speed": 50,
+        "specialAttack": 60,
+        "specialDefense": 60,
+        "total": 500
+      },
+      "faithfulBaseStats": {
+        "hp": 90,
+        "attack": 120,
+        "defense": 120,
+        "speed": 50,
+        "specialAttack": 60,
+        "specialDefense": 60,
+        "total": 500
+      },
+      "polishedBaseStats": {
+        "hp": 90,
+        "attack": 120,
+        "defense": 120,
+        "speed": 50,
+        "specialAttack": 60,
+        "specialDefense": 60,
+        "total": 500
+      },
+      "catchRate": 60,
+      "baseExp": 189,
+      "heldItems": [
+        "KEE_BERRY"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Atk",
       "eggMoves": [
         "Focus Energy",
         "Play Rough",
@@ -1197,72 +1293,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "sturdy",
-          "name": "Sturdy",
-          "description": "\tCannot be knocked \tout with one hit.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sturdy",
-          "name": "Sturdy",
-          "description": "\tCannot be knocked \tout with one hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sand-veil",
-          "name": "Sand Veil",
-          "description": "\tBoosts evasion in \ta sandstorm.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "sturdy",
-          "name": "Sturdy",
-          "description": "\tCannot be knocked \tout with one hit.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sturdy",
-          "name": "Sturdy",
-          "description": "\tCannot be knocked \tout with one hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sand-veil",
-          "name": "Sand Veil",
-          "description": "\tBoosts evasion in \ta sandstorm.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 90,
-        "attack": 120,
-        "defense": 120,
-        "speed": 50,
-        "specialAttack": 60,
-        "specialDefense": 60,
-        "total": 500
-      },
-      "faithfulBaseStats": {
-        "hp": 90,
-        "attack": 120,
-        "defense": 120,
-        "speed": 50,
-        "specialAttack": 60,
-        "specialDefense": 60,
-        "total": 500
-      }
+      ]
     }
   },
   "locations": [

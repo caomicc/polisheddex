@@ -785,6 +785,97 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "oblivious",
+          "name": "Oblivious",
+          "description": "\tPrevents it from \tbeing infatuated.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "oblivious",
+          "name": "Oblivious",
+          "description": "\tPrevents it from \tbeing infatuated.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 110,
+        "attack": 130,
+        "defense": 80,
+        "speed": 80,
+        "specialAttack": 70,
+        "specialDefense": 60,
+        "total": 530
+      },
+      "faithfulBaseStats": {
+        "hp": 110,
+        "attack": 130,
+        "defense": 80,
+        "speed": 80,
+        "specialAttack": 70,
+        "specialDefense": 60,
+        "total": 530
+      },
+      "polishedBaseStats": {
+        "hp": 110,
+        "attack": 130,
+        "defense": 80,
+        "speed": 80,
+        "specialAttack": 70,
+        "specialDefense": 60,
+        "total": 530
+      },
+      "catchRate": 50,
+      "baseExp": 207,
+      "heldItems": [
+        "RAWST_BERRY",
+        "NEVERMELTICE"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "3 Atk",
       "eggMoves": [
         "Avalanche",
         "Bite",
@@ -1347,72 +1438,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "oblivious",
-          "name": "Oblivious",
-          "description": "\tPrevents it from \tbeing infatuated.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "snow-cloak",
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "thick-fat",
-          "name": "Thick Fat",
-          "description": "\tUps resistance to \tFire and Ice.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "oblivious",
-          "name": "Oblivious",
-          "description": "\tPrevents it from \tbeing infatuated.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "snow-cloak",
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "thick-fat",
-          "name": "Thick Fat",
-          "description": "\tUps resistance to \tFire and Ice.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 110,
-        "attack": 130,
-        "defense": 80,
-        "speed": 80,
-        "specialAttack": 70,
-        "specialDefense": 60,
-        "total": 530
-      },
-      "faithfulBaseStats": {
-        "hp": 110,
-        "attack": 130,
-        "defense": 80,
-        "speed": 80,
-        "specialAttack": 70,
-        "specialDefense": 60,
-        "total": 530
-      }
+      ]
     }
   }
 }

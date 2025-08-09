@@ -746,6 +746,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "hustle",
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "serene-grace",
+          "name": "Serene Grace",
+          "description": "\tBoosts the rate of \tadded effects.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "super-luck",
+          "name": "Super Luck",
+          "description": "\tBoosts the rate \tof critical hits.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "hustle",
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "serene-grace",
+          "name": "Serene Grace",
+          "description": "\tBoosts the rate of \tadded effects.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "super-luck",
+          "name": "Super Luck",
+          "description": "\tBoosts the rate \tof critical hits.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 55,
+        "attack": 40,
+        "defense": 85,
+        "speed": 40,
+        "specialAttack": 80,
+        "specialDefense": 105,
+        "total": 405
+      },
+      "faithfulBaseStats": {
+        "hp": 55,
+        "attack": 40,
+        "defense": 85,
+        "speed": 40,
+        "specialAttack": 80,
+        "specialDefense": 105,
+        "total": 405
+      },
+      "polishedBaseStats": {
+        "hp": 55,
+        "attack": 40,
+        "defense": 85,
+        "speed": 40,
+        "specialAttack": 80,
+        "specialDefense": 105,
+        "total": 405
+      },
+      "catchRate": 75,
+      "baseExp": 114,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Fast (2,560 steps)",
+      "growthRate": "Fast",
+      "eggGroups": [
+        "Flying",
+        "Fairy"
+      ],
+      "evYield": "2 SDf",
       "eggMoves": [
         "Extrasensory",
         "Foresight",
@@ -1425,72 +1513,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "hustle",
-          "name": "Hustle",
-          "description": "\tBoosts Attack, but \tlowers accuracy.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "serene-grace",
-          "name": "Serene Grace",
-          "description": "\tBoosts the rate of \tadded effects.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "super-luck",
-          "name": "Super Luck",
-          "description": "\tBoosts the rate \tof critical hits.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "hustle",
-          "name": "Hustle",
-          "description": "\tBoosts Attack, but \tlowers accuracy.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "serene-grace",
-          "name": "Serene Grace",
-          "description": "\tBoosts the rate of \tadded effects.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "super-luck",
-          "name": "Super Luck",
-          "description": "\tBoosts the rate \tof critical hits.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 55,
-        "attack": 40,
-        "defense": 85,
-        "speed": 40,
-        "specialAttack": 80,
-        "specialDefense": 105,
-        "total": 405
-      },
-      "faithfulBaseStats": {
-        "hp": 55,
-        "attack": 40,
-        "defense": 85,
-        "speed": 40,
-        "specialAttack": 80,
-        "specialDefense": 105,
-        "total": 405
-      }
+      ]
     }
   },
   "locations": [

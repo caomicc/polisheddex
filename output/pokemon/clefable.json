@@ -161,9 +161,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Fairy",
-      "faithfulTypes": "Fairy",
-      "updatedTypes": "Fairy",
+      "types": [
+        "Fairy"
+      ],
+      "faithfulTypes": [
+        "Fairy"
+      ],
+      "updatedTypes": [
+        "Fairy"
+      ],
       "moves": [
         {
           "name": "Healinglight",
@@ -410,6 +416,97 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "cute-charm",
+          "name": "Cute Charm",
+          "description": "\tContact may cause \tinfatuation.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "magic-guard",
+          "name": "Magic Guard",
+          "description": "\tOnly takes damage \tfrom attacks.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "unaware",
+          "name": "Unaware",
+          "description": "\tIgnores the foe's \tstat changes.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "cute-charm",
+          "name": "Cute Charm",
+          "description": "\tContact may cause \tinfatuation.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "magic-guard",
+          "name": "Magic Guard",
+          "description": "\tOnly takes damage \tfrom attacks.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "unaware",
+          "name": "Unaware",
+          "description": "\tIgnores the foe's \tstat changes.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 95,
+        "attack": 70,
+        "defense": 73,
+        "speed": 60,
+        "specialAttack": 95,
+        "specialDefense": 90,
+        "total": 483
+      },
+      "faithfulBaseStats": {
+        "hp": 95,
+        "attack": 70,
+        "defense": 73,
+        "speed": 60,
+        "specialAttack": 95,
+        "specialDefense": 90,
+        "total": 483
+      },
+      "polishedBaseStats": {
+        "hp": 95,
+        "attack": 70,
+        "defense": 73,
+        "speed": 60,
+        "specialAttack": 95,
+        "specialDefense": 90,
+        "total": 483
+      },
+      "catchRate": 25,
+      "baseExp": 129,
+      "heldItems": [
+        "LEPPA_BERRY",
+        "MOON_STONE"
+      ],
+      "genderRatio": {
+        "male": 25,
+        "female": 75
+      },
+      "hatchRate": "Fast (2,560 steps)",
+      "growthRate": "Fast",
+      "eggGroups": [
+        "Fairy",
+        "Fairy"
+      ],
+      "evYield": "3 HP",
       "eggMoves": [
         "Calm Mind",
         "Belly Drum",
@@ -1224,72 +1321,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "cute-charm",
-          "name": "Cute Charm",
-          "description": "\tContact may cause \tinfatuation.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "magic-guard",
-          "name": "Magic Guard",
-          "description": "\tOnly takes damage \tfrom attacks.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "unaware",
-          "name": "Unaware",
-          "description": "\tIgnores the foe's \tstat changes.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "cute-charm",
-          "name": "Cute Charm",
-          "description": "\tContact may cause \tinfatuation.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "magic-guard",
-          "name": "Magic Guard",
-          "description": "\tOnly takes damage \tfrom attacks.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "unaware",
-          "name": "Unaware",
-          "description": "\tIgnores the foe's \tstat changes.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 95,
-        "attack": 70,
-        "defense": 73,
-        "speed": 60,
-        "specialAttack": 95,
-        "specialDefense": 90,
-        "total": 483
-      },
-      "faithfulBaseStats": {
-        "hp": 95,
-        "attack": 70,
-        "defense": 73,
-        "speed": 60,
-        "specialAttack": 95,
-        "specialDefense": 90,
-        "total": 483
-      }
+      ]
     }
   },
   "locations": [

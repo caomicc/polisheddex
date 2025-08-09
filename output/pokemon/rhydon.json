@@ -866,6 +866,118 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "lightning-rod",
+          "name": "Lightning Rod",
+          "description": "\tElectric moves \tboost Sp.Atk.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "reckless",
+          "name": "Reckless",
+          "description": "\tPowers up moves \tthat recoil.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "lightning-rod",
+          "name": "Lightning Rod",
+          "description": "\tElectric moves \tboost Sp.Atk.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "reckless",
+          "name": "Reckless",
+          "description": "\tPowers up moves \tthat recoil.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "solid-rock",
+          "name": "Solid Rock",
+          "description": "\tReduces super \teffective damage.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "reckless",
+          "name": "Reckless",
+          "description": "\tPowers up moves \tthat recoil.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 105,
+        "attack": 130,
+        "defense": 120,
+        "speed": 40,
+        "specialAttack": 45,
+        "specialDefense": 45,
+        "total": 485
+      },
+      "faithfulBaseStats": {
+        "hp": 105,
+        "attack": 130,
+        "defense": 120,
+        "speed": 40,
+        "specialAttack": 45,
+        "specialDefense": 45,
+        "total": 485
+      },
+      "polishedBaseStats": {
+        "hp": 110,
+        "attack": 130,
+        "defense": 120,
+        "speed": 40,
+        "specialAttack": 45,
+        "specialDefense": 50,
+        "total": 495
+      },
+      "catchRate": 60,
+      "baseExp": 204,
+      "heldItems": [
+        "PROTECTOR"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Monster",
+        "Field"
+      ],
+      "evYield": "2 Atk",
       "eggMoves": [
         "Crunch",
         "Magnitude",
@@ -1656,94 +1768,7 @@
             "area": "Power Plant"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "lightning-rod",
-          "name": "Lightning Rod",
-          "description": "\tElectric moves \tboost Sp.Atk.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "rock-head",
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "reckless",
-          "name": "Reckless",
-          "description": "\tPowers up moves \tthat recoil.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "lightning-rod",
-          "name": "Lightning Rod",
-          "description": "\tElectric moves \tboost Sp.Atk.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "rock-head",
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "reckless",
-          "name": "Reckless",
-          "description": "\tPowers up moves \tthat recoil.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "id": "rock-head",
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "solid-rock",
-          "name": "Solid Rock",
-          "description": "\tReduces super \teffective damage.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "reckless",
-          "name": "Reckless",
-          "description": "\tPowers up moves \tthat recoil.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "baseStats": {
-        "hp": 105,
-        "attack": 130,
-        "defense": 120,
-        "speed": 40,
-        "specialAttack": 45,
-        "specialDefense": 45,
-        "total": 485
-      },
-      "faithfulBaseStats": {
-        "hp": 105,
-        "attack": 130,
-        "defense": 120,
-        "speed": 40,
-        "specialAttack": 45,
-        "specialDefense": 45,
-        "total": 485
-      }
+      ]
     }
   },
   "locations": [

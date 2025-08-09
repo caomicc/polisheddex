@@ -156,9 +156,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Normal",
-      "faithfulTypes": "Normal",
-      "updatedTypes": "Normal",
+      "types": [
+        "Normal"
+      ],
+      "faithfulTypes": [
+        "Normal"
+      ],
+      "updatedTypes": [
+        "Normal"
+      ],
       "moves": [
         {
           "name": "Sweet Kiss",
@@ -756,6 +762,96 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "pickup",
+          "name": "Pickup",
+          "description": "\tThe #mon may \tpick up items.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "pickup",
+          "name": "Pickup",
+          "description": "\tThe #mon may \tpick up items.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 135,
+        "attack": 85,
+        "defense": 45,
+        "speed": 5,
+        "specialAttack": 40,
+        "specialDefense": 85,
+        "total": 395
+      },
+      "faithfulBaseStats": {
+        "hp": 135,
+        "attack": 85,
+        "defense": 45,
+        "speed": 5,
+        "specialAttack": 40,
+        "specialDefense": 85,
+        "total": 395
+      },
+      "polishedBaseStats": {
+        "hp": 135,
+        "attack": 85,
+        "defense": 45,
+        "speed": 5,
+        "specialAttack": 40,
+        "specialDefense": 85,
+        "total": 395
+      },
+      "catchRate": 50,
+      "baseExp": 94,
+      "heldItems": [
+        "LEFTOVERS"
+      ],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 HP",
       "eggMoves": [
         "Charm",
         "Counter",
@@ -1410,72 +1506,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "pickup",
-          "name": "Pickup",
-          "description": "\tThe #mon may \tpick up items.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "thick-fat",
-          "name": "Thick Fat",
-          "description": "\tUps resistance to \tFire and Ice.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "gluttony",
-          "name": "Gluttony",
-          "description": "\tEncourages early \tBerry use.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "pickup",
-          "name": "Pickup",
-          "description": "\tThe #mon may \tpick up items.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "thick-fat",
-          "name": "Thick Fat",
-          "description": "\tUps resistance to \tFire and Ice.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "gluttony",
-          "name": "Gluttony",
-          "description": "\tEncourages early \tBerry use.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 135,
-        "attack": 85,
-        "defense": 45,
-        "speed": 5,
-        "specialAttack": 40,
-        "specialDefense": 85,
-        "total": 395
-      },
-      "faithfulBaseStats": {
-        "hp": 135,
-        "attack": 85,
-        "defense": 45,
-        "speed": 5,
-        "specialAttack": 40,
-        "specialDefense": 85,
-        "total": 395
-      }
+      ]
     }
   },
   "locations": [

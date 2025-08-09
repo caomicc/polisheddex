@@ -408,7 +408,96 @@
           }
         }
       ],
-      "eggMoves": [],
+      "abilities": [
+        {
+          "id": "illuminate",
+          "name": "Illuminate",
+          "description": "\tRaises the rate \tof wild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "analytic",
+          "name": "Analytic",
+          "description": "\tBoosts move power \twhen moving last.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "illuminate",
+          "name": "Illuminate",
+          "description": "\tRaises the rate \tof wild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "analytic",
+          "name": "Analytic",
+          "description": "\tBoosts move power \twhen moving last.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 60,
+        "attack": 75,
+        "defense": 85,
+        "speed": 115,
+        "specialAttack": 100,
+        "specialDefense": 85,
+        "total": 520
+      },
+      "faithfulBaseStats": {
+        "hp": 60,
+        "attack": 75,
+        "defense": 85,
+        "speed": 115,
+        "specialAttack": 100,
+        "specialDefense": 85,
+        "total": 520
+      },
+      "polishedBaseStats": {
+        "hp": 60,
+        "attack": 75,
+        "defense": 85,
+        "speed": 115,
+        "specialAttack": 100,
+        "specialDefense": 85,
+        "total": 520
+      },
+      "catchRate": 60,
+      "baseExp": 207,
+      "heldItems": [
+        "STARDUST",
+        "STAR_PIECE"
+      ],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "2 Spe",
       "tmHmMoves": [
         {
           "name": "Curse",
@@ -1121,72 +1210,7 @@
             "area": "Power Plant"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "illuminate",
-          "name": "Illuminate",
-          "description": "\tRaises the rate \tof wild #mon.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "natural-cure",
-          "name": "Natural Cure",
-          "description": "\tSwitch-outs heal \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "analytic",
-          "name": "Analytic",
-          "description": "\tBoosts move power \twhen moving last.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "illuminate",
-          "name": "Illuminate",
-          "description": "\tRaises the rate \tof wild #mon.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "natural-cure",
-          "name": "Natural Cure",
-          "description": "\tSwitch-outs heal \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "analytic",
-          "name": "Analytic",
-          "description": "\tBoosts move power \twhen moving last.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 60,
-        "attack": 75,
-        "defense": 85,
-        "speed": 115,
-        "specialAttack": 100,
-        "specialDefense": 85,
-        "total": 520
-      },
-      "faithfulBaseStats": {
-        "hp": 60,
-        "attack": 75,
-        "defense": 85,
-        "speed": 115,
-        "specialAttack": 100,
-        "specialDefense": 85,
-        "total": 520
-      }
+      ]
     }
   },
   "locations": [

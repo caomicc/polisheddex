@@ -154,9 +154,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Grass",
-      "faithfulTypes": "Grass",
-      "updatedTypes": "Grass",
+      "types": [
+        "Grass"
+      ],
+      "faithfulTypes": [
+        "Grass"
+      ],
+      "updatedTypes": [
+        "Grass"
+      ],
       "moves": [
         {
           "name": "Wrap",
@@ -784,6 +790,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "leaf-guard",
+          "name": "Leaf Guard",
+          "description": "\tPrevents status \tproblems in sun.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "regenerator",
+          "name": "Regenerator",
+          "description": "\tRestores HP when \twithdrawn.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "leaf-guard",
+          "name": "Leaf Guard",
+          "description": "\tPrevents status \tproblems in sun.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "regenerator",
+          "name": "Regenerator",
+          "description": "\tRestores HP when \twithdrawn.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 65,
+        "attack": 55,
+        "defense": 115,
+        "speed": 60,
+        "specialAttack": 100,
+        "specialDefense": 40,
+        "total": 435
+      },
+      "faithfulBaseStats": {
+        "hp": 65,
+        "attack": 55,
+        "defense": 115,
+        "speed": 60,
+        "specialAttack": 100,
+        "specialDefense": 40,
+        "total": 435
+      },
+      "polishedBaseStats": {
+        "hp": 65,
+        "attack": 55,
+        "defense": 115,
+        "speed": 60,
+        "specialAttack": 100,
+        "specialDefense": 40,
+        "total": 435
+      },
+      "catchRate": 45,
+      "baseExp": 166,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Grass",
+        "Grass"
+      ],
+      "evYield": "1 Def",
       "eggMoves": [
         "Confusion",
         "Amnesia",
@@ -1244,72 +1338,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "leaf-guard",
-          "name": "Leaf Guard",
-          "description": "\tPrevents status \tproblems in sun.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "regenerator",
-          "name": "Regenerator",
-          "description": "\tRestores HP when \twithdrawn.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "leaf-guard",
-          "name": "Leaf Guard",
-          "description": "\tPrevents status \tproblems in sun.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "regenerator",
-          "name": "Regenerator",
-          "description": "\tRestores HP when \twithdrawn.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 65,
-        "attack": 55,
-        "defense": 115,
-        "speed": 60,
-        "specialAttack": 100,
-        "specialDefense": 40,
-        "total": 435
-      },
-      "faithfulBaseStats": {
-        "hp": 65,
-        "attack": 55,
-        "defense": 115,
-        "speed": 60,
-        "specialAttack": 100,
-        "specialDefense": 40,
-        "total": 435
-      }
+      ]
     }
   },
   "locations": [

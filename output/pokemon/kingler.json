@@ -135,9 +135,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Water",
-      "faithfulTypes": "Water",
-      "updatedTypes": "Water",
+      "types": [
+        "Water"
+      ],
+      "faithfulTypes": [
+        "Water"
+      ],
+      "updatedTypes": [
+        "Water"
+      ],
       "moves": [
         {
           "name": "Aqua Jet",
@@ -639,6 +645,93 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "hyper-cutter",
+          "name": "Hyper Cutter",
+          "description": "\tPrevents foes from \tlowering Attack.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shell-armor",
+          "name": "Shell Armor",
+          "description": "\tProtects from \tcritical hits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sheer-force",
+          "name": "Sheer Force",
+          "description": "\tRemoves effects to \tincrease damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "hyper-cutter",
+          "name": "Hyper Cutter",
+          "description": "\tPrevents foes from \tlowering Attack.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shell-armor",
+          "name": "Shell Armor",
+          "description": "\tProtects from \tcritical hits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sheer-force",
+          "name": "Sheer Force",
+          "description": "\tRemoves effects to \tincrease damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 55,
+        "attack": 130,
+        "defense": 115,
+        "speed": 75,
+        "specialAttack": 50,
+        "specialDefense": 50,
+        "total": 475
+      },
+      "faithfulBaseStats": {
+        "hp": 55,
+        "attack": 130,
+        "defense": 115,
+        "speed": 75,
+        "specialAttack": 50,
+        "specialDefense": 50,
+        "total": 475
+      },
+      "polishedBaseStats": {
+        "hp": 55,
+        "attack": 130,
+        "defense": 115,
+        "speed": 75,
+        "specialAttack": 50,
+        "specialDefense": 50,
+        "total": 475
+      },
+      "catchRate": 60,
+      "baseExp": 206,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "2 Atk",
       "eggMoves": [
         "Agility",
         "Haze",
@@ -1169,72 +1262,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "hyper-cutter",
-          "name": "Hyper Cutter",
-          "description": "\tPrevents foes from \tlowering Attack.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "shell-armor",
-          "name": "Shell Armor",
-          "description": "\tProtects from \tcritical hits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sheer-force",
-          "name": "Sheer Force",
-          "description": "\tRemoves effects to \tincrease damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "hyper-cutter",
-          "name": "Hyper Cutter",
-          "description": "\tPrevents foes from \tlowering Attack.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "shell-armor",
-          "name": "Shell Armor",
-          "description": "\tProtects from \tcritical hits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "sheer-force",
-          "name": "Sheer Force",
-          "description": "\tRemoves effects to \tincrease damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 55,
-        "attack": 130,
-        "defense": 115,
-        "speed": 75,
-        "specialAttack": 50,
-        "specialDefense": 50,
-        "total": 475
-      },
-      "faithfulBaseStats": {
-        "hp": 55,
-        "attack": 130,
-        "defense": 115,
-        "speed": 75,
-        "specialAttack": 50,
-        "specialDefense": 50,
-        "total": 475
-      }
+      ]
     }
   },
   "locations": [

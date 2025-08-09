@@ -661,6 +661,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "compound-eyes",
+          "name": "Compound Eyes",
+          "description": "\tBoosts the Poké- \tmon's accuracy.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "tinted-lens",
+          "name": "Tinted Lens",
+          "description": "\tPowers up not very \teffective moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "compound-eyes",
+          "name": "Compound Eyes",
+          "description": "\tBoosts the Poké- \tmon's accuracy.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "tinted-lens",
+          "name": "Tinted Lens",
+          "description": "\tPowers up not very \teffective moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 60,
+        "attack": 55,
+        "defense": 50,
+        "speed": 45,
+        "specialAttack": 40,
+        "specialDefense": 55,
+        "total": 305
+      },
+      "faithfulBaseStats": {
+        "hp": 60,
+        "attack": 55,
+        "defense": 50,
+        "speed": 45,
+        "specialAttack": 40,
+        "specialDefense": 55,
+        "total": 305
+      },
+      "polishedBaseStats": {
+        "hp": 60,
+        "attack": 55,
+        "defense": 50,
+        "speed": 45,
+        "specialAttack": 40,
+        "specialDefense": 55,
+        "total": 305
+      },
+      "catchRate": 190,
+      "baseExp": 75,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Bug",
+        "Bug"
+      ],
+      "evYield": "1 SDf",
       "eggMoves": [
         "Agility",
         "Baton Pass",
@@ -1042,72 +1130,7 @@
             "area": "Saffron City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "compound-eyes",
-          "name": "Compound Eyes",
-          "description": "\tBoosts the Poké- \tmon's accuracy.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "tinted-lens",
-          "name": "Tinted Lens",
-          "description": "\tPowers up not very \teffective moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "run-away",
-          "name": "Run Away",
-          "description": "\tSure getaway from \twild #mon.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "compound-eyes",
-          "name": "Compound Eyes",
-          "description": "\tBoosts the Poké- \tmon's accuracy.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "tinted-lens",
-          "name": "Tinted Lens",
-          "description": "\tPowers up not very \teffective moves.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "run-away",
-          "name": "Run Away",
-          "description": "\tSure getaway from \twild #mon.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 60,
-        "attack": 55,
-        "defense": 50,
-        "speed": 45,
-        "specialAttack": 40,
-        "specialDefense": 55,
-        "total": 305
-      },
-      "faithfulBaseStats": {
-        "hp": 60,
-        "attack": 55,
-        "defense": 50,
-        "speed": 45,
-        "specialAttack": 40,
-        "specialDefense": 55,
-        "total": 305
-      }
+      ]
     }
   },
   "locations": [

@@ -177,9 +177,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Water",
-      "faithfulTypes": "Water",
-      "updatedTypes": "Water",
+      "types": [
+        "Water"
+      ],
+      "faithfulTypes": [
+        "Water"
+      ],
+      "updatedTypes": [
+        "Water"
+      ],
       "moves": [
         {
           "name": "Water Gun",
@@ -603,6 +609,95 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sniper",
+          "name": "Sniper",
+          "description": "\tPowers up critical \thits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "damp",
+          "name": "Damp",
+          "description": "\tPrevents self- \tdestructing moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sniper",
+          "name": "Sniper",
+          "description": "\tPowers up critical \thits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "damp",
+          "name": "Damp",
+          "description": "\tPrevents self- \tdestructing moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 30,
+        "attack": 40,
+        "defense": 70,
+        "speed": 60,
+        "specialAttack": 70,
+        "specialDefense": 25,
+        "total": 295
+      },
+      "faithfulBaseStats": {
+        "hp": 30,
+        "attack": 40,
+        "defense": 70,
+        "speed": 60,
+        "specialAttack": 70,
+        "specialDefense": 25,
+        "total": 295
+      },
+      "polishedBaseStats": {
+        "hp": 30,
+        "attack": 40,
+        "defense": 70,
+        "speed": 60,
+        "specialAttack": 70,
+        "specialDefense": 25,
+        "total": 295
+      },
+      "catchRate": 225,
+      "baseExp": 83,
+      "heldItems": [
+        "DRAGON_SCALE"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 SAt",
       "eggMoves": [
         "Aurora Beam",
         "Disable",
@@ -1002,72 +1097,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "swift-swim",
-          "name": "Swift Swim",
-          "description": "\tBoosts its Speed \tin rain.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sniper",
-          "name": "Sniper",
-          "description": "\tPowers up critical \thits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "damp",
-          "name": "Damp",
-          "description": "\tPrevents self- \tdestructing moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "swift-swim",
-          "name": "Swift Swim",
-          "description": "\tBoosts its Speed \tin rain.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "sniper",
-          "name": "Sniper",
-          "description": "\tPowers up critical \thits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "damp",
-          "name": "Damp",
-          "description": "\tPrevents self- \tdestructing moves.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 30,
-        "attack": 40,
-        "defense": 70,
-        "speed": 60,
-        "specialAttack": 70,
-        "specialDefense": 25,
-        "total": 295
-      },
-      "faithfulBaseStats": {
-        "hp": 30,
-        "attack": 40,
-        "defense": 70,
-        "speed": 60,
-        "specialAttack": 70,
-        "specialDefense": 25,
-        "total": 295
-      }
+      ]
     }
   },
   "locations": [

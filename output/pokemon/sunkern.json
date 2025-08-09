@@ -156,9 +156,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Grass",
-      "faithfulTypes": "Grass",
-      "updatedTypes": "Grass",
+      "types": [
+        "Grass"
+      ],
+      "faithfulTypes": [
+        "Grass"
+      ],
+      "updatedTypes": [
+        "Grass"
+      ],
       "moves": [
         {
           "name": "Splash",
@@ -717,7 +723,96 @@
           }
         }
       ],
-      "eggMoves": [],
+      "abilities": [
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "solar-power",
+          "name": "Solar Power",
+          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "early-bird",
+          "name": "Early Bird",
+          "description": "\tAwakens quickly \tfrom sleep.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "chlorophyll",
+          "name": "Chlorophyll",
+          "description": "\tBoosts its Speed \tin sunshine.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "solar-power",
+          "name": "Solar Power",
+          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "early-bird",
+          "name": "Early Bird",
+          "description": "\tAwakens quickly \tfrom sleep.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 30,
+        "attack": 30,
+        "defense": 30,
+        "speed": 30,
+        "specialAttack": 30,
+        "specialDefense": 30,
+        "total": 180
+      },
+      "faithfulBaseStats": {
+        "hp": 30,
+        "attack": 30,
+        "defense": 30,
+        "speed": 30,
+        "specialAttack": 30,
+        "specialDefense": 30,
+        "total": 180
+      },
+      "polishedBaseStats": {
+        "hp": 30,
+        "attack": 30,
+        "defense": 30,
+        "speed": 30,
+        "specialAttack": 30,
+        "specialDefense": 30,
+        "total": 180
+      },
+      "catchRate": 235,
+      "baseExp": 52,
+      "heldItems": [
+        "STARF_BERRY"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Grass",
+        "Grass"
+      ],
+      "evYield": "1 SAt",
       "tmHmMoves": [
         {
           "name": "Curse",
@@ -1094,72 +1189,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "solar-power",
-          "name": "Solar Power",
-          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "early-bird",
-          "name": "Early Bird",
-          "description": "\tAwakens quickly \tfrom sleep.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "solar-power",
-          "name": "Solar Power",
-          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "early-bird",
-          "name": "Early Bird",
-          "description": "\tAwakens quickly \tfrom sleep.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 30,
-        "attack": 30,
-        "defense": 30,
-        "speed": 30,
-        "specialAttack": 30,
-        "specialDefense": 30,
-        "total": 180
-      },
-      "faithfulBaseStats": {
-        "hp": 30,
-        "attack": 30,
-        "defense": 30,
-        "speed": 30,
-        "specialAttack": 30,
-        "specialDefense": 30,
-        "total": 180
-      }
+      ]
     }
   },
   "locations": [

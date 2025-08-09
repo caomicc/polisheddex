@@ -114,9 +114,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Normal",
-      "faithfulTypes": "Normal",
-      "updatedTypes": "Normal",
+      "types": [
+        "Normal"
+      ],
+      "faithfulTypes": [
+        "Normal"
+      ],
+      "updatedTypes": [
+        "Normal"
+      ],
       "moves": [
         {
           "name": "Sketch",
@@ -453,8 +459,6 @@
           }
         }
       ],
-      "eggMoves": [],
-      "tmHmMoves": [],
       "abilities": [
         {
           "id": "own-tempo",
@@ -519,7 +523,30 @@
         "specialAttack": 20,
         "specialDefense": 45,
         "total": 250
-      }
+      },
+      "polishedBaseStats": {
+        "hp": 55,
+        "attack": 20,
+        "defense": 35,
+        "speed": 100,
+        "specialAttack": 20,
+        "specialDefense": 45,
+        "total": 275
+      },
+      "catchRate": 45,
+      "baseExp": 106,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Spe"
     }
   },
   "locations": [

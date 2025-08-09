@@ -179,9 +179,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": "Electric",
-      "faithfulTypes": "Electric",
-      "updatedTypes": "Electric",
+      "types": [
+        "Electric"
+      ],
+      "faithfulTypes": [
+        "Electric"
+      ],
+      "updatedTypes": [
+        "Electric"
+      ],
       "moves": [
         {
           "name": "Quick Attack",
@@ -677,6 +683,97 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "vital-spirit",
+          "name": "Vital Spirit",
+          "description": "\tPrevents it from \tfalling asleep.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "vital-spirit",
+          "name": "Vital Spirit",
+          "description": "\tPrevents it from \tfalling asleep.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 45,
+        "attack": 63,
+        "defense": 37,
+        "speed": 95,
+        "specialAttack": 65,
+        "specialDefense": 55,
+        "total": 360
+      },
+      "faithfulBaseStats": {
+        "hp": 45,
+        "attack": 63,
+        "defense": 37,
+        "speed": 95,
+        "specialAttack": 65,
+        "specialDefense": 55,
+        "total": 360
+      },
+      "polishedBaseStats": {
+        "hp": 50,
+        "attack": 63,
+        "defense": 37,
+        "speed": 100,
+        "specialAttack": 65,
+        "specialDefense": 55,
+        "total": 370
+      },
+      "catchRate": 45,
+      "baseExp": 106,
+      "heldItems": [
+        "PERSIM_BERRY",
+        "ELECTIRIZER"
+      ],
+      "genderRatio": {
+        "male": 75,
+        "female": 25
+      },
+      "hatchRate": "Medium-Slow (6,400 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe",
       "eggMoves": [
         "Barrier",
         "Cross Chop",
@@ -1166,72 +1263,7 @@
             "area": "Power Plant"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "vital-spirit",
-          "name": "Vital Spirit",
-          "description": "\tPrevents it from \tfalling asleep.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "vital-spirit",
-          "name": "Vital Spirit",
-          "description": "\tPrevents it from \tfalling asleep.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 45,
-        "attack": 63,
-        "defense": 37,
-        "speed": 95,
-        "specialAttack": 65,
-        "specialDefense": 55,
-        "total": 360
-      },
-      "faithfulBaseStats": {
-        "hp": 45,
-        "attack": 63,
-        "defense": 37,
-        "speed": 95,
-        "specialAttack": 65,
-        "specialDefense": 55,
-        "total": 360
-      }
+      ]
     }
   },
   "locations": [

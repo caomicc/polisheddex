@@ -703,6 +703,94 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "insomnia",
+          "name": "Insomnia",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "super-luck",
+          "name": "Super Luck",
+          "description": "\tBoosts the rate \tof critical hits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "prankster",
+          "name": "Prankster",
+          "description": "\tGives priority to \ta status move.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "insomnia",
+          "name": "Insomnia",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "super-luck",
+          "name": "Super Luck",
+          "description": "\tBoosts the rate \tof critical hits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "prankster",
+          "name": "Prankster",
+          "description": "\tGives priority to \ta status move.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 60,
+        "attack": 85,
+        "defense": 42,
+        "speed": 91,
+        "specialAttack": 85,
+        "specialDefense": 42,
+        "total": 405
+      },
+      "faithfulBaseStats": {
+        "hp": 60,
+        "attack": 85,
+        "defense": 42,
+        "speed": 91,
+        "specialAttack": 85,
+        "specialDefense": 42,
+        "total": 405
+      },
+      "polishedBaseStats": {
+        "hp": 60,
+        "attack": 85,
+        "defense": 42,
+        "speed": 91,
+        "specialAttack": 85,
+        "specialDefense": 42,
+        "total": 405
+      },
+      "catchRate": 30,
+      "baseExp": 107,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Flying",
+        "Flying"
+      ],
+      "evYield": "1 Spe",
       "eggMoves": [
         "Confuse Ray",
         "Drill Peck",
@@ -1115,72 +1203,7 @@
             "area": "Celadon City"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "insomnia",
-          "name": "Insomnia",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "super-luck",
-          "name": "Super Luck",
-          "description": "\tBoosts the rate \tof critical hits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "prankster",
-          "name": "Prankster",
-          "description": "\tGives priority to \ta status move.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "insomnia",
-          "name": "Insomnia",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "super-luck",
-          "name": "Super Luck",
-          "description": "\tBoosts the rate \tof critical hits.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "prankster",
-          "name": "Prankster",
-          "description": "\tGives priority to \ta status move.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 60,
-        "attack": 85,
-        "defense": 42,
-        "speed": 91,
-        "specialAttack": 85,
-        "specialDefense": 42,
-        "total": 405
-      },
-      "faithfulBaseStats": {
-        "hp": 60,
-        "attack": 85,
-        "defense": 42,
-        "speed": 91,
-        "specialAttack": 85,
-        "specialDefense": 42,
-        "total": 405
-      }
+      ]
     }
   },
   "locations": [
