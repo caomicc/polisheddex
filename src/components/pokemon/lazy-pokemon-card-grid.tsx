@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { BaseData } from '@/types/types';
 import PokemonCard from './pokemon-card';
 import { PokemonCardSkeleton } from './pokemon-card-skeleton';
+import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
 
 interface LazyPokemonCardGridProps {
   pokemonData: BaseData[];
@@ -74,7 +75,7 @@ function LazyPokemonCardGrid({ pokemonData, itemsPerPage = 24 }: LazyPokemonCard
           return (
             <Link
               key={`${pokemon.name}-${pokemon.form || 'base'}-${idx}`}
-              href={`/pokemon/${pokemon.name}${pokemon.form ? `?form=${pokemon.form}` : ''}`}
+              href={`${createPokemonUrl(pokemon.name)}${pokemon.form ? `?form=${pokemon.form}` : ''}`}
             >
               <div ref={isLastItem && hasMore ? lastElementRef : null}>
                 <MemoizedPokemonCard pokemon={pokemon} />

@@ -10,6 +10,7 @@ import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonSprite } from '../pokemon/pokemon-sprite';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
 import { TrainerSprite } from './trainer-sprite';
+import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
 
 interface TrainerCardProps {
   trainer: GymLeader | LocationTrainer;
@@ -142,7 +143,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                         <CardContent className="p-4 flex flex-col gap-2">
                           <div className="flex items-center gap-3">
                             <Link
-                              href={`/pokemon/${encodeURIComponent(poke.species).toLowerCase()}${poke.form ? `?form=${poke.form?.toLowerCase().replace(/ form/g, '')}` : ''}`}
+                              href={`${createPokemonUrl(poke.species)}${poke.form ? `?form=${poke.form?.toLowerCase().replace(/ form/g, '')}` : ''}`}
                             >
                               <PokemonSprite
                                 pokemonName={poke.species.toLowerCase().replace(/-/g, '_')}
@@ -153,7 +154,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                             <div className="flex-1 min-w-0">
                               <h3>
                                 <Link
-                                  href={`/pokemon/${encodeURIComponent(poke.species).toLowerCase()}${poke.form ? `?form=${poke.form?.toLowerCase().replace(/ form/g, '')}` : ''}`}
+                                  href={`${createPokemonUrl(poke.species)}${poke.form ? `?form=${poke.form?.toLowerCase().replace(/ form/g, '')}` : ''}`}
                                 >
                                   {poke.species}{' '}
                                   {poke.gender?.toLowerCase() === 'female' && (

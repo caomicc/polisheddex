@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Badge } from '../ui/badge';
 import { BaseData, PokemonType } from '@/types/types';
 import { PokemonSprite } from './pokemon-sprite';
+import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
 
 // Helper function to format Pokemon names
 function formatPokemonName(name: string): string {
@@ -36,7 +37,7 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
       return (
         <div className="">
           <Link
-            href={`/pokemon/${pokemon.normalizedUrl || pokemon.name.toLowerCase()}${pokemon.form ? `?form=${pokemon.form}` : ''}`}
+            href={`${createPokemonUrl(pokemon.name)}${pokemon.form ? `?form=${pokemon.form}` : ''}`}
           >
             <PokemonSprite
               pokemonName={pokemon.name}
@@ -139,7 +140,7 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
       return (
         <div className="min-w-0">
           <Link
-            href={`/pokemon/${pokemon.normalizedUrl || pokemon.name.toLowerCase()}`}
+            href={createPokemonUrl(pokemon.name)}
             className="font-semibold"
           >
             {displayName}

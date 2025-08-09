@@ -8,6 +8,7 @@ import { PokemonSprite } from './pokemon-sprite';
 import { usePokemonType } from '@/contexts/PokemonTypeContext';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonType } from '@/types/types';
+import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
 
 interface EvolutionMethod {
   method: string;
@@ -154,7 +155,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
             className="grid grid-cols-3 gap-6 items-center"
           >
             <Link
-              href={`/pokemon/${sourceName.includes('(') ? sourceName.split(' (')[0] : sourceName}${
+              href={`${createPokemonUrl(sourceName.includes('(') ? sourceName.split(' (')[0] : sourceName)}${
                 path.sourceForm && path.sourceForm.toLowerCase() !== 'plain form'
                   ? `?form=${encodeURIComponent(path.sourceForm.replace(/ form$/i, '').toLowerCase())}`
                   : ''
@@ -266,7 +267,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
               );
             })()}
             <Link
-              href={`/pokemon/${targetName.includes('(') ? targetName.split(' (')[0] : targetName}${
+              href={`${createPokemonUrl(targetName.includes('(') ? targetName.split(' (')[0] : targetName)}${
                 path.targetForm && path.targetForm.toLowerCase() !== 'plain form'
                   ? `?form=${encodeURIComponent(path.targetForm.replace(/ form$/i, '').toLowerCase())}`
                   : ''

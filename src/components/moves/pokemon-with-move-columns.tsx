@@ -6,8 +6,9 @@ import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
 import { PokemonWithMove } from '@/utils/loaders/move-data-loader';
-import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
+// import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
 import { cn } from '@/lib/utils';
+import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
 
 export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
   {
@@ -29,11 +30,9 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
     },
     cell: ({ row }) => {
       const { pokemon } = row.original;
-      const normalizedName =
-        pokemon.normalizedUrl || normalizePokemonUrlKey(pokemon.name).toLowerCase();
       const pokemonUrl = pokemon.formName
-        ? `/pokemon/${normalizedName}?form=${encodeURIComponent(pokemon.formName)}`
-        : `/pokemon/${normalizedName}`;
+        ? `${createPokemonUrl(pokemon.name)}?form=${encodeURIComponent(pokemon.formName)}`
+        : createPokemonUrl(pokemon.name);
 
       return (
         <div className="flex items-center space-x-2 min-w-0">

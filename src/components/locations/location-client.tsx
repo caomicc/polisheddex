@@ -18,6 +18,7 @@ import { pokemonColumns } from '../pokemon/pokemon-columns';
 import TrainerCard from '../trainer/trainer-card';
 import { Badge } from '../ui/badge';
 import TableWrapper from '../ui/table-wrapper';
+import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
 
 export default function LocationClient({
   comprehensiveInfo,
@@ -289,7 +290,7 @@ export default function LocationClient({
                     <div className="text-center">
                       <div className="text-sm text-gray-500">You give</div>
                       <Link
-                        href={`/pokemon/${trade.wantsPokemon.toLowerCase()}`}
+                        href={createPokemonUrl(trade.wantsPokemon)}
                         className="font-semibold text-blue-600 dark:text-blue-400 hover:underline"
                       >
                         {trade.wantsPokemon}
@@ -299,7 +300,7 @@ export default function LocationClient({
                     <div className="text-center">
                       <div className="text-sm text-gray-500">You get</div>
                       <Link
-                        href={`/pokemon/${trade.givesPokemon.toLowerCase()}`}
+                        href={createPokemonUrl(trade.givesPokemon)}
                         className="font-semibold text-green-600 dark:text-green-400 hover:underline"
                       >
                         {trade.givesPokemon}

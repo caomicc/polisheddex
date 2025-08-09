@@ -7,7 +7,7 @@ import PokemonFormClient from '@/components/pokemon/pokemon-form-client';
 import PokemonNavigation from '@/components/pokemon/pokemon-navigation';
 import PokemonKeyboardNavigation from '@/components/pokemon/pokemon-keyboard-navigation';
 import { FormData } from '@/types/types';
-import { urlKeyToStandardKey, getPokemonFileName } from '@/utils/pokemonUrlNormalizer';
+import { urlKeyToStandardKey, getPokemonFileName, normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
 import { loadDexOrders, getDexOrderToUse, getPokemonNavigation } from '@/utils/pokemonNavigation';
 import { loadJsonData } from '@/utils/fileLoader';
 import { loadPokemonData } from '@/utils/loaders/pokemon-data-loader';
@@ -283,15 +283,16 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   );
 }
 
-// Generate static params for all Pokemon
+// Generate static params for all Pokemon - only lowercase normalized names
 export async function generateStaticParams() {
   const baseDataFile = path.join(process.cwd(), 'output/pokemon_base_data.json');
   const data = await loadJsonData<Record<string, unknown>>(baseDataFile);
 
   if (!data) return [];
 
+  // Only generate lowercase normalized URLs to prevent uppercase static generation
   return Object.keys(data).map((pokemonKey) => ({
-    name: pokemonKey.toLowerCase(),
+    name: normalizePokemonUrlKey(pokemonKey),
   }));
 }
 
