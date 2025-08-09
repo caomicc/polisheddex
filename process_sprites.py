@@ -155,9 +155,11 @@ class GBCSpriteProcessor:
         self.variant_to_base_mapping = {
             # Pikachu variants - use pikachu_plain as base (most common form)
             'pikachu_plain': 'pikachu_plain',
-            'pikachu_chuchu': 'pikachu_chuchu',
+            'pikachu_chuchu': 'pikachu_yellow',
+            'pikachu_yellow': 'pikachu_yellow',
             'pikachu_fly': 'pikachu_fly',
-            'pikachu_pika': 'pikachu_pika',
+            'pikachu_pika': 'pikachu_red',
+            'pikachu_red': 'pikachu_red',
             'pikachu_spark': 'pikachu_spark',
             'pikachu_surf': 'pikachu_surf',
 
@@ -208,6 +210,8 @@ class GBCSpriteProcessor:
             'pikachu_pika': 'pikachu',
             'pikachu_spark': 'pikachu',
             'pikachu_surf': 'pikachu',
+            'pikachu_yellow': 'pikachu',
+            'pikachu_red': 'pikachu',
 
             'pichu_plain': 'pichu',
             'pichu_spiky': 'pichu',
@@ -283,6 +287,12 @@ class GBCSpriteProcessor:
         # Map arbok_johto to the default arbok folder
         if pokemon_name == 'unown':
             return 'unown_z'
+        # Map pikachu_chuchu to pikachu_yellow (chuchu = yellow)
+        if pokemon_name == 'pikachu_chuchu':
+            return 'pikachu_yellow'
+        # Map pikachu_pika to pikachu_red (pika = red)
+        if pokemon_name == 'pikachu_pika':
+            return 'pikachu_red'
         return pokemon_name
 
     def extract_sprite_frames(self, sprite_path: str) -> List[Image.Image]:
