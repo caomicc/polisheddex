@@ -102,12 +102,17 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
             species: pokemonData.pokedexEntries?.[formKey]?.species || '',
             description: pokemonData.pokedexEntries?.[formKey]?.description || '',
             baseStats:
-              formValue.detailedStats?.baseStats || pokemonData.detailedStats?.baseStats || {},
+              formValue.baseStats ||
+              formValue.detailedStats?.baseStats ||
+              pokemonData.detailedStats?.baseStats ||
+              {},
             faithfulBaseStats:
+              formValue.faithfulBaseStats ||
               formValue.detailedStats?.faithfulBaseStats ||
               pokemonData.detailedStats?.faithfulBaseStats ||
               undefined,
             polishedBaseStats:
+              formValue.polishedBaseStats ||
               formValue.detailedStats?.polishedBaseStats ||
               pokemonData.detailedStats?.polishedBaseStats ||
               undefined,
