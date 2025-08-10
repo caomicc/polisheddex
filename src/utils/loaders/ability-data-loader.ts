@@ -110,16 +110,19 @@ export async function getPokemonThatHaveAbility(abilityId: string): Promise<Poke
       const fs = await import('fs');
       const path = await import('path');
 
-      // Try to load the individual Pokemon file
-      const pokemonFileName = pokemonKey.toLowerCase();
-      const pokemonFilePath = path.join(process.cwd(), `output/pokemon/${pokemonFileName}.json`);
+      // The pokemonKey is already normalized (lowercase), so use it directly
+      const pokemonFilePath = path.join(process.cwd(), `output/pokemon/${pokemonKey}.json`);
 
       if (!fs.existsSync(pokemonFilePath)) {
         continue; // Skip if individual file doesn't exist
       }
 
       const pokemonData = JSON.parse(fs.readFileSync(pokemonFilePath, 'utf8'));
-      const pokemon = { ...basePokemon, ...pokemonData };
+      const pokemon = {
+        ...basePokemon,
+        ...pokemonData,
+        normalizedUrl: pokemonKey, // Use the pokemonKey as it's already normalized
+      };
 
       // Determine which abilities to use for each version with fallback logic
       const faithfulAbilities =
@@ -145,6 +148,10 @@ export async function getPokemonThatHaveAbility(abilityId: string): Promise<Poke
                 existing.abilityTypes.push(ability.abilityType);
               }
               existing.faithful = true;
+              // If no specific updated abilities, use faithful abilities for both versions
+              if (!updatedAbilities || updatedAbilities.length === 0) {
+                existing.updated = true;
+              }
               if (ability.isHidden) existing.isHidden = true;
             } else {
               pokemonWithAbility.push({
@@ -152,6 +159,8 @@ export async function getPokemonThatHaveAbility(abilityId: string): Promise<Poke
                 abilityTypes: [ability.abilityType],
                 isHidden: ability.isHidden,
                 faithful: true,
+                // If no specific updated abilities, use faithful abilities for both versions
+                updated: !updatedAbilities || updatedAbilities.length === 0,
               });
             }
           }
@@ -205,7 +214,7 @@ export async function getPokemonThatHaveAbility(abilityId: string): Promise<Poke
           if (effectiveFormFaithfulAbilities) {
             effectiveFormFaithfulAbilities.forEach((ability: any) => {
               if (ability.id && ability.id.toLowerCase() === normalizedAbilityId) {
-                const formPokemonName = `${pokemon.name} (${formName})`;
+                const formPokemonName = `${pokemon.name}`;
                 const existingIndex = pokemonWithAbility.findIndex(
                   (item) => item.pokemon.name === formPokemonName,
                 );
@@ -221,12 +230,15 @@ export async function getPokemonThatHaveAbility(abilityId: string): Promise<Poke
                   pokemonWithAbility.push({
                     pokemon: {
                       ...pokemon,
-                      name: formPokemonName,
+                      // name: formPokemonName,
                       formName,
+                      // normalizedUrl: pokemonKey, // Use pokemonKey for consistent URL generation
                     },
                     abilityTypes: [ability.abilityType],
                     isHidden: ability.isHidden,
                     faithful: true,
+                    // If no specific updated abilities for form, use faithful for both versions
+                    updated: !formUpdatedAbilities || formUpdatedAbilities.length === 0,
                   });
                 }
               }
@@ -253,8 +265,9 @@ export async function getPokemonThatHaveAbility(abilityId: string): Promise<Poke
                   pokemonWithAbility.push({
                     pokemon: {
                       ...pokemon,
-                      name: formPokemonName,
+                      // name: formPokemonName,
                       formName,
+                      // normalizedUrl: pokemonKey, // Use pokemonKey for consistent URL generation
                     },
                     abilityTypes: [ability.abilityType],
                     isHidden: ability.isHidden,

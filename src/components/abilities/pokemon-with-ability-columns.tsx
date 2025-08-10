@@ -8,7 +8,11 @@ import { Badge } from '../ui/badge';
 import { PokemonWithAbility } from '@/utils/loaders/ability-data-loader';
 // import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
 import { cn } from '@/lib/utils';
-import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
+import {
+  formatPokemonDisplayWithForm,
+  formatPokemonUrlWithForm,
+  getFormTypeClass,
+} from '@/utils/pokemonFormUtils';
 
 export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
   {
@@ -28,23 +32,43 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
         </Button>
       );
     },
+    // cell: ({ row }) => {
+    //   const { pokemon } = row.original;
+    //   const pokemonUrl = pokemon.formName
+    //     ? `${createPokemonUrl(pokemon.name)}?form=${encodeURIComponent(pokemon.formName)}`
+    //     : createPokemonUrl(pokemon.name);
+
+    //   return (
+    //     <div className="flex items-center space-x-2 min-w-0">
+    //       <Link
+    //         href={pokemonUrl}
+    //         className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-black capitalize"
+    //       >
+    //         {pokemon.name}
+    //       </Link>
+    //     </div>
+    //   );
+    // },
     cell: ({ row }) => {
       const { pokemon } = row.original;
-      const pokemonUrl = pokemon.formName
-        ? `${createPokemonUrl(pokemon.name)}?form=${encodeURIComponent(pokemon.formName)}`
-        : createPokemonUrl(pokemon.name);
-
       return (
-        <div className="flex items-center space-x-2 min-w-0">
-          <Link
-            href={pokemonUrl}
-            className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-black capitalize"
-          >
-            {pokemon.name}
-          </Link>
-        </div>
+        <Link
+          href={formatPokemonUrlWithForm(pokemon.name, pokemon.formName || '')}
+          className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-black"
+        >
+          {formatPokemonDisplayWithForm(pokemon.name)}
+          {pokemon.formName && (
+            <span
+              className={`text-xs text-muted-foreground block capitalize ${getFormTypeClass(pokemon.formName)}`}
+            >
+              {formatPokemonDisplayWithForm(pokemon.formName.replace(/_form$/, '')) ||
+                pokemon.formName}
+            </span>
+          )}
+        </Link>
       );
     },
+
     filterFn: (row, id, value) => {
       const { pokemon } = row.original;
       const searchText = value.toLowerCase();
