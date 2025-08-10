@@ -71,11 +71,13 @@ export default function MoveDetailClient({
           <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
             <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
               {showFaithful ? (
-                <Badge>
+                <Badge variant={moveData.faithful?.type?.toLowerCase()}>
                   {String(moveData.faithful?.type || moveData.updated?.type || 'Unknown Type')}
                 </Badge>
               ) : (
-                <Badge>{String(moveData.updated?.type || 'Unknown Type')}</Badge>
+                <Badge variant={moveData.updated?.type?.toLowerCase()}>
+                  {String(moveData.updated?.type || 'Unknown Type')}
+                </Badge>
               )}
             </div>
           </div>
