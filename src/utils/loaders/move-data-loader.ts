@@ -166,11 +166,11 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
       const fs = await import('fs');
       const path = await import('path');
 
-      // Try to load the individual Pokemon file
-      const pokemonFileName = pokemonKey.toLowerCase();
-      const pokemonFilePath = path.join(process.cwd(), `output/pokemon/${pokemonFileName}.json`);
+      // The pokemonKey is already normalized (lowercase), so use it directly
+      const pokemonFilePath = path.join(process.cwd(), `output/pokemon/${pokemonKey}.json`);
 
       if (!fs.existsSync(pokemonFilePath)) {
+        console.warn(`Pokemon file not found: ${pokemonFilePath}`);
         continue; // Skip if individual file doesn't exist
       }
 
@@ -178,7 +178,7 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
       const pokemon = {
         ...basePokemon,
         ...pokemonData,
-        normalizedUrl: normalizePokemonUrlKey(basePokemon.name).toLowerCase(),
+        normalizedUrl: pokemonKey, // Use the pokemonKey as it's already normalized
       };
 
       // Check level moves (faithful and updated)
@@ -210,18 +210,18 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
       };
 
       // Check main level moves (for backward compatibility)
-      if (pokemon.levelMoves) {
-        checkLevelMoves(pokemon.levelMoves, 'updated');
+      if (pokemon.moves) {
+        checkLevelMoves(pokemon.moves, 'updated');
       }
 
       // Check faithful level moves
-      if (pokemon.faithfulLevelMoves) {
-        checkLevelMoves(pokemon.faithfulLevelMoves, 'faithful');
+      if (pokemon.faithfulMoves) {
+        checkLevelMoves(pokemon.faithfulMoves, 'faithful');
       }
 
       // Check updated level moves
-      if (pokemon.updatedLevelMoves) {
-        checkLevelMoves(pokemon.updatedLevelMoves, 'updated');
+      if (pokemon.updatedMoves) {
+        checkLevelMoves(pokemon.updatedMoves, 'updated');
       }
 
       // Check TM/HM moves (try both property names)
@@ -287,16 +287,16 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
           };
 
           // Check main level moves for form (for backward compatibility)
-          if ((formData as any).levelMoves) {
-            checkFormLevelMoves((formData as any).levelMoves, 'updated');
+          if ((formData as any).moves) {
+            checkFormLevelMoves((formData as any).moves, 'updated');
           }
 
-          if ((formData as any).faithfulLevelMoves) {
-            checkFormLevelMoves((formData as any).faithfulLevelMoves, 'faithful');
+          if ((formData as any).faithfulMoves) {
+            checkFormLevelMoves((formData as any).faithfulMoves, 'faithful');
           }
 
-          if ((formData as any).updatedLevelMoves) {
-            checkFormLevelMoves((formData as any).updatedLevelMoves, 'updated');
+          if ((formData as any).updatedMoves) {
+            checkFormLevelMoves((formData as any).updatedMoves, 'updated');
           }
         });
       }
