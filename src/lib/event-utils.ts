@@ -137,8 +137,8 @@ export function getIconForType(t: EventType) {
 
 export function eventSearchText(e: AnyEvent): string {
   const base = [e.name, e.location, e.description].join(' | ');
-  if ('npcName' in e) return [base, e.npcName, (e as any).reward ?? ''].join(' | ');
-  if ('pokemon' in e) return [base, e.pokemon ?? '', (e as any).conditions ?? ''].join(' | ');
+  if ('npcName' in e) return [base, e.npcName, e.reward ?? ''].join(' | ');
+  if ('pokemon' in e) return [base, e.pokemon ?? '', e.conditions ?? ''].join(' | ');
   return base;
 }
 
@@ -171,7 +171,7 @@ export function matchesFilter({
   if (filterTOD !== 'any') {
     // If event has a timeOfDay, it must match; if not specified, we treat it as available anytime
     if ('timeOfDay' in event) {
-      const tod = (event as any).timeOfDay as TimeOfDay | undefined;
+      const tod = event.timeOfDay as TimeOfDay | undefined;
       if (tod && tod !== filterTOD) return false;
     }
   }

@@ -56,28 +56,28 @@ const defaultDaily: DailyEvent = {
   reward: 'Sample Reward',
 };
 
-const defaultWeekly: WeeklyEvent = {
-  id: 'sample_weekly',
-  name: 'Sample Weekly Event',
-  days: ['Tuesday', 'Thursday'],
-  location: 'Sample Location',
-  description: 'An example weekly event.',
-  type: 'contest',
-};
+// const defaultWeekly: WeeklyEvent = {
+//   id: 'sample_weekly',
+//   name: 'Sample Weekly Event',
+//   days: ['Tuesday', 'Thursday'],
+//   location: 'Sample Location',
+//   description: 'An example weekly event.',
+//   type: 'contest',
+// };
 
-const defaultSpecial: SpecialEvent = {
-  id: 'sample_special',
-  name: 'Sample Special',
-  location: 'Secret Place',
-  description: 'An example special event.',
-  type: 'gift',
-  conditions: 'None',
-};
+// const defaultSpecial: SpecialEvent = {
+//   id: 'sample_special',
+//   name: 'Sample Special',
+//   location: 'Secret Place',
+//   description: 'An example special event.',
+//   type: 'gift',
+//   conditions: 'None',
+// };
 
 export function EventCard(
   props: EventCardProps = { variant: 'daily', event: defaultDaily, icon: Gift, accent: 'amber' },
 ) {
-  const { variant, event, icon: Icon, accent = 'slate' } = props as any;
+  const { variant, event, icon: Icon, accent = 'slate' } = props;
 
   const accentRing =
     accent === 'amber'
@@ -158,7 +158,7 @@ export function EventCard(
 
           {'type' in event ? (
             <Badge variant="secondary" className="bg-transparent">
-              {(event as any).type}
+              {event.type}
             </Badge>
           ) : (
             <Badge variant="secondary" className="bg-transparent">
@@ -169,7 +169,7 @@ export function EventCard(
           {'timeOfDay' in event && event.timeOfDay ? (
             <Badge variant="outline" className="bg-transparent">
               <Clock className="mr-1 h-3.5 w-3.5" />
-              {(event as any).timeOfDay}
+              {event.timeOfDay}
             </Badge>
           ) : null}
         </div>

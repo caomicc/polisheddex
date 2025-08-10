@@ -4,15 +4,13 @@ import { useMemo, useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { CalendarDays, Sun, Moon, Sunrise, RefreshCw } from 'lucide-react';
 
 import {
   allEventTypes,
   dayNames,
   getIconForType,
   getTodayName,
-  daylightOptions,
+  // daylightOptions,
   matchesFilter,
   type AnyEvent,
   deriveDailyType,
@@ -44,7 +42,7 @@ export default function Page() {
     day: todayName,
   });
 
-  const resetFilters = () => setFilters({ ...defaultFilters, day: todayName });
+  // const resetFilters = () => setFilters({ ...defaultFilters, day: todayName });
 
   // Derived collections
   const todayDaily = useMemo(() => {
