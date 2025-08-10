@@ -21,6 +21,15 @@ import { EventCard } from '@/components/ui/event-card';
 import eventsData from '../../../output/events.json';
 import type { DailyEvent, WeeklyEvent, SpecialEvent } from '@/lib/event-utils';
 import { Hero } from '@/components/ui';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
+import Link from 'next/link';
 
 const {
   dailyEvents: rawDailyEvents,
@@ -116,7 +125,24 @@ export default function Page() {
     <>
       <Hero
         headline="Events"
-        description="What's happening across Johto. Clean display, easy to scan."
+        description="What's happening right now! Possible spoiler information."
+        breadcrumbs={
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/" className="hover:underline">
+                    Home
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="">Events</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        }
       />
       <div className="max-w-xl md:max-w-4xl mx-auto space-y-8">
         <EventFilters
