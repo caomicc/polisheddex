@@ -191,63 +191,9 @@
   ],
   "specialEvents": [
     {
-      "id": "celebi_event",
-      "name": "Celebi Time Travel Event",
-      "location": "Ilex Forest Shrine",
-      "description": "Celebi can be encountered after obtaining the GS Ball and visiting the Ilex Forest shrine.",
-      "type": "legendary",
-      "pokemon": "Celebi",
-      "conditions": "Requires GS Ball"
-    },
-    {
-      "id": "lugia_whirl_islands",
-      "name": "Lugia at Whirl Islands",
-      "location": "Whirl Islands Lugia Chamber",
-      "description": "Lugia can be encountered in the deepest chamber of the Whirl Islands.",
-      "type": "legendary",
-      "pokemon": "Lugia",
-      "conditions": "Requires Silver Wing"
-    },
-    {
-      "id": "ho_oh_tin_tower",
-      "name": "Ho-Oh at Tin Tower",
-      "location": "Tin Tower Summit",
-      "description": "Ho-Oh can be encountered at the top of Tin Tower.",
-      "type": "legendary",
-      "pokemon": "Ho-Oh",
-      "conditions": "Requires Rainbow Wing"
-    },
-    {
-      "id": "legendary_beasts",
-      "name": "Legendary Beasts (Roaming)",
-      "location": "Johto (Roaming)",
-      "description": "Raikou, Entei, and Suicune roam throughout Johto after being awakened in Brass Tower.",
-      "type": "legendary",
-      "pokemon": "Raikou, Entei, Suicune",
-      "conditions": "Activated after Brass Tower event"
-    },
-    {
-      "id": "mewtwo_cerulean_cave",
-      "name": "Mewtwo in Cerulean Cave",
-      "location": "Cerulean Cave B1F",
-      "description": "Mewtwo can be encountered in the deepest part of Cerulean Cave.",
-      "type": "legendary",
-      "pokemon": "Mewtwo",
-      "conditions": "Post-Elite Four"
-    },
-    {
-      "id": "mew_faraway_island",
-      "name": "Mew at Faraway Island",
-      "location": "Faraway Island",
-      "description": "Mew can be encountered at Faraway Island.",
-      "type": "legendary",
-      "pokemon": "Mew",
-      "conditions": "Special access required"
-    },
-    {
       "id": "mystery_egg_mr_pokemon",
       "name": "Mystery Egg from Mr. Pokemon",
-      "location": "Route 30 (Mr. Pokemon's House)",
+      "area": "Route 30 (Mr. Pokemon's House)",
       "description": "Mr. Pokemon gives the player a Mystery Egg early in the game, which hatches into Togepi.",
       "type": "egg",
       "pokemon": "Togepi",
@@ -256,7 +202,7 @@
     {
       "id": "odd_egg_day_care",
       "name": "Odd Egg from Day Care",
-      "location": "Day Care",
+      "area": "Day Care",
       "description": "The Day Care Man gives an Odd Egg that always hatches into a shiny Pokemon.",
       "type": "egg",
       "conditions": "Always shiny"
@@ -264,7 +210,7 @@
     {
       "id": "lyras_egg",
       "name": "Lyra's Egg",
-      "location": "Day Care",
+      "area": "Day Care",
       "description": "Lyra gives the player an egg containing a rare Pokemon.",
       "type": "egg",
       "conditions": "After certain story progression"
@@ -272,33 +218,15 @@
     {
       "id": "rivals_egg",
       "name": "Rival's Egg",
-      "location": "Dragon's Den B1F",
+      "area": "Dragon's Den B1F",
       "description": "The rival gives the player an egg on certain days of the week.",
       "type": "egg",
       "conditions": "Tuesday, Thursday, or Saturday"
     },
     {
-      "id": "professor_ivy_gift",
-      "name": "Pokémon from Professor Ivy",
-      "location": "Valencia Island (Ivy's Lab)",
-      "description": "Professor Ivy gives the player a special Pokémon after completing research tasks.",
-      "type": "gift",
-      "pokemon": "Various",
-      "conditions": "Complete Professor Ivy's research"
-    },
-    {
-      "id": "professor_oak_gift",
-      "name": "Pokémon from Professor Oak",
-      "location": "Pallet Town (Oak's Lab)",
-      "description": "Professor Oak gives the player a special Pokémon for completing the Pokédex or other achievements.",
-      "type": "gift",
-      "pokemon": "Various",
-      "conditions": "Complete specific achievements"
-    },
-    {
       "id": "celadongamecornerprizeroom_mr__mime_gift",
       "name": "MR__MIME from Game Corner",
-      "location": "Celadon Game Corner",
+      "area": "Celadon Game Corner",
       "description": "A MR__MIME can be obtained as a prize from the Game Corner.",
       "type": "gift",
       "pokemon": "Mr__mime",
@@ -307,7 +235,7 @@
     {
       "id": "celadongamecornerprizeroom_eevee_gift",
       "name": "EEVEE from Game Corner",
-      "location": "Celadon Game Corner",
+      "area": "Celadon Game Corner",
       "description": "A EEVEE can be obtained as a prize from the Game Corner.",
       "type": "gift",
       "pokemon": "Eevee",
@@ -316,7 +244,7 @@
     {
       "id": "celadongamecornerprizeroom_porygon_gift",
       "name": "PORYGON from Game Corner",
-      "location": "Celadon Game Corner",
+      "area": "Celadon Game Corner",
       "description": "A PORYGON can be obtained as a prize from the Game Corner.",
       "type": "gift",
       "pokemon": "Porygon",
@@ -325,7 +253,7 @@
     {
       "id": "celadonuniversityhypertestroom_magikarp_gift",
       "name": "MAGIKARP from Celadon University",
-      "location": "Celadon University",
+      "area": "Celadon University",
       "description": "A MAGIKARP can be obtained at Celadon University.",
       "type": "gift",
       "pokemon": "Magikarp",
@@ -334,7 +262,7 @@
     {
       "id": "dragonshrine_dratini_gift",
       "name": "DRATINI from Dragon Elder",
-      "location": "Dragon's Den Shrine",
+      "area": "Dragon's Den Shrine",
       "description": "The Dragon Elder gives a DRATINI with special moves to worthy trainers.",
       "type": "gift",
       "pokemon": "Dratini",
@@ -343,7 +271,7 @@
     {
       "id": "ecruteakpokecenter1f_eevee_gift",
       "name": "EEVEE from Bill",
-      "location": "Ecruteak Pokemon Center",
+      "area": "Ecruteak Pokemon Center",
       "description": "Bill gives an EEVEE to trainers at the Ecruteak Pokemon Center.",
       "type": "gift",
       "pokemon": "Eevee",
@@ -352,7 +280,7 @@
     {
       "id": "goldenrodgamecorner_abra_gift",
       "name": "ABRA from Game Corner",
-      "location": "Goldenrod Game Corner",
+      "area": "Goldenrod Game Corner",
       "description": "A ABRA can be obtained as a prize from the Game Corner.",
       "type": "gift",
       "pokemon": "Abra",
@@ -361,7 +289,7 @@
     {
       "id": "goldenrodgamecorner_cubone_gift",
       "name": "CUBONE from Game Corner",
-      "location": "Goldenrod Game Corner",
+      "area": "Goldenrod Game Corner",
       "description": "A CUBONE can be obtained as a prize from the Game Corner.",
       "type": "gift",
       "pokemon": "Cubone",
@@ -370,7 +298,7 @@
     {
       "id": "goldenrodgamecorner_clefairy_gift",
       "name": "CLEFAIRY from Game Corner",
-      "location": "Goldenrod Game Corner",
+      "area": "Goldenrod Game Corner",
       "description": "A CLEFAIRY can be obtained as a prize from the Game Corner.",
       "type": "gift",
       "pokemon": "Clefairy",
@@ -379,7 +307,7 @@
     {
       "id": "maniashouse_shuckle_gift",
       "name": "SHUCKLE from Mania's House",
-      "location": "Mania's House",
+      "area": "Mania's House",
       "description": "A SHUCKLE can be obtained at Mania's House.",
       "type": "gift",
       "pokemon": "Shuckle",
@@ -388,7 +316,7 @@
     {
       "id": "mountmortarb1f_tyrogue_gift",
       "name": "TYROGUE from Karate Master",
-      "location": "Mount Mortar B1F",
+      "area": "Mount Mortar B1F",
       "description": "The Karate Master gives a TYROGUE after being defeated in battle.",
       "type": "gift",
       "pokemon": "Tyrogue",
@@ -397,7 +325,7 @@
     {
       "id": "pewtermuseumofscience1f_omanyte_gift",
       "name": "OMANYTE from Pewter Museum of Science",
-      "location": "Pewter Museum of Science",
+      "area": "Pewter Museum of Science",
       "description": "A OMANYTE can be obtained at Pewter Museum of Science.",
       "type": "gift",
       "pokemon": "Omanyte",
@@ -406,7 +334,7 @@
     {
       "id": "pewtermuseumofscience1f_kabuto_gift",
       "name": "KABUTO from Pewter Museum of Science",
-      "location": "Pewter Museum of Science",
+      "area": "Pewter Museum of Science",
       "description": "A KABUTO can be obtained at Pewter Museum of Science.",
       "type": "gift",
       "pokemon": "Kabuto",
@@ -415,7 +343,7 @@
     {
       "id": "pewtermuseumofscience1f_aerodactyl_gift",
       "name": "AERODACTYL from Pewter Museum of Science",
-      "location": "Pewter Museum of Science",
+      "area": "Pewter Museum of Science",
       "description": "A AERODACTYL can be obtained at Pewter Museum of Science.",
       "type": "gift",
       "pokemon": "Aerodactyl",
@@ -424,7 +352,7 @@
     {
       "id": "route35goldenrodgate_spearow_gift",
       "name": "SPEAROW from Route 35 Goldenrod Gate",
-      "location": "Route 35 Goldenrod Gate",
+      "area": "Route 35 Goldenrod Gate",
       "description": "A SPEAROW can be obtained at Route 35 Goldenrod Gate.",
       "type": "gift",
       "pokemon": "Spearow",

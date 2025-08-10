@@ -749,21 +749,38 @@ export default function PokemonFormClient({
           >
             <SectionCard headline={'Locations'}>
               {(() => {
-                if (!formData.locations || !Array.isArray(formData.locations) || formData.locations.length === 0) {
+                if (
+                  !formData.locations ||
+                  !Array.isArray(formData.locations) ||
+                  formData.locations.length === 0
+                ) {
                   return <div className="text-gray-400 text-sm mb-6">No location data</div>;
                 }
 
                 // Categorize locations by type
-                const wildLocations = formData.locations.filter((loc: LocationEntry) => 
-                  loc.method && ['grass', 'water', 'fish_good', 'fish_super', 'fish_old', 'surf', 'rock_smash', 'headbutt', 'wild'].includes(loc.method)
+                const wildLocations = formData.locations.filter(
+                  (loc: LocationEntry) =>
+                    loc.method &&
+                    [
+                      'grass',
+                      'water',
+                      'fish_good',
+                      'fish_super',
+                      'fish_old',
+                      'surf',
+                      'rock_smash',
+                      'headbutt',
+                      'wild',
+                    ].includes(loc.method),
                 );
-                
-                const giftLocations = formData.locations.filter((loc: LocationEntry) => 
-                  loc.method === 'gift'
+
+                const giftLocations = formData.locations.filter(
+                  (loc: LocationEntry) => loc.method === 'gift',
                 );
-                
-                const eventLocations = formData.locations.filter((loc: LocationEntry) => 
-                  loc.method && ['event', 'static', 'roaming'].includes(loc.method)
+
+                const eventLocations = formData.locations.filter(
+                  (loc: LocationEntry) =>
+                    loc.method && ['event', 'static', 'roaming'].includes(loc.method),
                 );
 
                 return (
@@ -775,7 +792,7 @@ export default function PokemonFormClient({
                           <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                           Wild Encounters
                         </h3>
-                        <div className="border rounded-lg overflow-hidden">
+                        <div className="border-border border rounded-lg overflow-hidden">
                           <Table>
                             <TableHeader>
                               <TableRow>
@@ -803,7 +820,7 @@ export default function PokemonFormClient({
                           <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                           Gift Pokémon
                         </h3>
-                        <div className="border rounded-lg overflow-hidden">
+                        <div className="border-border border rounded-lg overflow-hidden">
                           <Table>
                             <TableHeader>
                               <TableRow>
@@ -837,7 +854,7 @@ export default function PokemonFormClient({
                           <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
                           Special Events
                         </h3>
-                        <div className="border rounded-lg overflow-hidden">
+                        <div className="border-border border rounded-lg overflow-hidden">
                           <Table>
                             <TableHeader>
                               <TableRow>
@@ -854,9 +871,13 @@ export default function PokemonFormClient({
                                   </TableCell>
                                   <TableCell>
                                     <Badge variant="outline" className="capitalize">
-                                      {loc.method === 'static' ? 'Static Encounter' :
-                                       loc.method === 'roaming' ? 'Roaming' :
-                                       loc.method === 'event' ? 'Event' : loc.method}
+                                      {loc.method === 'static'
+                                        ? 'Static Encounter'
+                                        : loc.method === 'roaming'
+                                          ? 'Roaming'
+                                          : loc.method === 'event'
+                                            ? 'Event'
+                                            : loc.method}
                                     </Badge>
                                   </TableCell>
                                   <TableCell className="text-sm text-muted-foreground">

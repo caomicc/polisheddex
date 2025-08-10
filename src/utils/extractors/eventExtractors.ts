@@ -45,53 +45,194 @@ export interface EventData {
   specialEvents: SpecialEvent[];
 }
 
-// --- Legendary Event Locations Extraction ---
+// --- Legendary Event Locations Extraction from ROM ---
 export function extractLegendaryEventLocations(): Record<string, any[]> {
-  console.log('🏛️ Extracting legendary event locations...');
+  console.log('🏛️ Extracting legendary event locations from ROM data...');
 
-  const eventDataPath = path.join(__dirname, '../../../output/events.json');
-  if (!fs.existsSync(eventDataPath)) {
-    console.warn('⚠️ Events data file not found:', eventDataPath);
+  const mapsDir = path.join(__dirname, '../../../polishedcrystal/maps');
+  if (!fs.existsSync(mapsDir)) {
+    console.warn('⚠️ Maps directory not found:', mapsDir);
     return {};
   }
 
-  const eventData: EventData = JSON.parse(fs.readFileSync(eventDataPath, 'utf8'));
   const legendaryLocations: Record<string, any[]> = {};
+  const mapFiles = fs.readdirSync(mapsDir).filter((file) => file.endsWith('.asm'));
 
-  // Extract legendary encounters from special events
-  for (const event of eventData.specialEvents) {
-    if (event.type === 'legendary' && event.pokemon) {
-      // Handle multiple Pokémon in one event (like legendary beasts)
-      const pokemonNames = event.pokemon.split(', ').map((name) => name.trim().toLowerCase());
+  for (const mapFile of mapFiles) {
+    const locationName = path.basename(mapFile, '.asm');
+    const mapPath = path.join(mapsDir, mapFile);
+    const mapContent = fs.readFileSync(mapPath, 'utf8');
+    const lines = mapContent.split(/\r?\n/);
 
-      for (const pokemonName of pokemonNames) {
-        if (!legendaryLocations[pokemonName]) {
-          legendaryLocations[pokemonName] = [];
+    // Look for loadwildmon commands indicating legendary encounters
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+
+      // Match loadwildmon patterns: loadwildmon POKEMON, [FORM], LEVEL
+      const loadwildMatch = line.match(/loadwildmon\s+(\w+)(?:,\s*(\w+))?,\s*(\d+)/i);
+      if (loadwildMatch) {
+        const pokemon = loadwildMatch[1].toLowerCase();
+        const form = loadwildMatch[2];
+        const level = parseInt(loadwildMatch[3]);
+
+        // Look for battle type to determine if this is a legendary encounter
+        let battleType = 'normal';
+        let isLegendary = false;
+
+        // Look for battle type indicators in surrounding lines
+        for (let j = Math.max(0, i - 10); j <= Math.min(lines.length - 1, i + 10); j++) {
+          const contextLine = lines[j].trim();
+          if (contextLine.includes('BATTLETYPE_LEGENDARY') || contextLine.includes('BATTLETYPE_GHOST')) {
+            isLegendary = true;
+            battleType = contextLine.includes('BATTLETYPE_GHOST') ? 'ghost' : 'legendary';
+            break;
+          }
         }
 
-        // Determine encounter method based on event
-        let method = 'wild';
-        if (event.id.includes('roaming') || event.area.includes('Roaming')) {
-          method = 'roaming';
-        } else if (event.area.includes('Cave') || event.area.includes('Chamber')) {
-          method = 'static';
-        } else if (event.area.includes('Shrine') || event.area.includes('Summit')) {
-          method = 'event';
-        }
+        // Only include if it's a legendary encounter or specific known locations
+        const knownLegendaryMaps = [
+          'IlexForest', 'FarawayJungle', 'TinTowerRoof', 'WhirlIslandLugiaChamber',
+          'CinnabarVolcanoB2F', 'SeafoamIslandsB4F', 'Route10North', 'VioletOutskirtsHouse',
+          'ShamoutiIsland', 'MurkySwamp', 'CherrygroveBay'
+        ];
 
-        legendaryLocations[pokemonName].push({
-          area: event.area,
-          method: method,
-          conditions: event.conditions || '',
-          eventType: 'legendary',
-          description: event.description,
-        });
+        if (isLegendary || knownLegendaryMaps.some(map => locationName.includes(map))) {
+          if (!legendaryLocations[pokemon]) {
+            legendaryLocations[pokemon] = [];
+          }
+
+          // Extract conditions and descriptions directly from ROM assembly
+          const romConditions = extractRomConditions(mapContent, pokemon);
+          
+          // Determine method based on battle type
+          const method = battleType === 'ghost' ? 'event' : (isLegendary ? 'static' : 'event');
+          
+          const encounterData: any = {
+            area: formatLocationName(locationName),
+            method: method,
+            conditions: romConditions.conditions || 'Special encounter',
+            eventType: 'legendary',
+            description: romConditions.description || generateDefaultDescription(pokemon, locationName),
+            level: level
+          };
+
+          // Add form information if present
+          if (form && form !== 'NO_FORM') {
+            encounterData.form = form.toLowerCase().replace('_form', '');
+          }
+
+          legendaryLocations[pokemon].push(encounterData);
+        }
       }
     }
   }
 
-  console.log(`🏛️ Found legendary locations for ${Object.keys(legendaryLocations).length} Pokémon`);
+  console.log(`🏛️ Found ROM-based legendary locations for ${Object.keys(legendaryLocations).length} Pokémon`);
   return legendaryLocations;
+}
+
+// --- Extract conditions and descriptions from ROM assembly ---
+function extractRomConditions(mapContent: string, pokemon: string): { conditions: string; description: string } {
+  const lines = mapContent.split(/\r?\n/);
+  let conditions = '';
+  let description = '';
+  
+  // Look for key item checks
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    
+    // Check for key item requirements
+    const keyItemMatch = line.match(/checkkeyitem\s+([A-Z_0-9]+)/);
+    if (keyItemMatch) {
+      const keyItem = keyItemMatch[1];
+      conditions = formatKeyItemCondition(keyItem);
+      description = generateDescriptionFromKeyItem(pokemon, keyItem);
+      break;
+    }
+    
+    // Check for event flags that might indicate conditions
+    const eventMatch = line.match(/checkevent\s+([A-Z_0-9]+)/);
+    if (eventMatch) {
+      const eventFlag = eventMatch[1];
+      const eventCondition = formatEventCondition(eventFlag);
+      if (eventCondition) {
+        conditions = eventCondition;
+        description = generateDescriptionFromEvent(pokemon, eventFlag);
+      }
+    }
+  }
+  
+  return { conditions, description };
+}
+
+// --- Format key item conditions ---
+function formatKeyItemCondition(keyItem: string): string {
+  const keyItemMap: Record<string, string> = {
+    'GS_BALL': 'Requires GS Ball',
+    'SILPHSCOPE2': 'Requires Silph Scope 2', 
+    'RAINBOW_WING': 'Requires Rainbow Wing',
+    'SILVER_WING': 'Requires Silver Wing',
+    'CLEAR_BELL': 'Requires Clear Bell',
+    'TIDAL_BELL': 'Requires Tidal Bell'
+  };
+  
+  return keyItemMap[keyItem] || `Requires ${keyItem.toLowerCase().replace(/_/g, ' ')}`;
+}
+
+// --- Generate descriptions based on key items ---
+function generateDescriptionFromKeyItem(pokemon: string, keyItem: string): string {
+  const pokemonName = pokemon.charAt(0).toUpperCase() + pokemon.slice(1);
+  
+  const descriptionMap: Record<string, string> = {
+    'GS_BALL': `${pokemonName} can be encountered after obtaining the GS Ball and visiting the shrine.`,
+    'SILPHSCOPE2': `A ghostly ${pokemonName} spirit can be encountered using the Silph Scope 2.`,
+    'RAINBOW_WING': `${pokemonName} appears when the Rainbow Wing is presented.`,
+    'SILVER_WING': `${pokemonName} emerges when the Silver Wing calls to it.`,
+    'CLEAR_BELL': `${pokemonName} awakens when the Clear Bell chimes.`,
+    'TIDAL_BELL': `${pokemonName} rises when the Tidal Bell tolls.`
+  };
+  
+  return descriptionMap[keyItem] || `${pokemonName} can be encountered with the ${keyItem.toLowerCase().replace(/_/g, ' ')}.`;
+}
+
+// --- Format event conditions ---
+function formatEventCondition(eventFlag: string): string {
+  // Map specific event flags to readable conditions
+  if (eventFlag.includes('ELITE_FOUR') || eventFlag.includes('CHAMPION')) {
+    return 'After becoming Champion';
+  }
+  if (eventFlag.includes('POSTGAME')) {
+    return 'Post-game content';
+  }
+  if (eventFlag.includes('KANTO')) {
+    return 'Kanto region access';
+  }
+  
+  return ''; // Return empty string if no specific mapping
+}
+
+// --- Generate descriptions from events ---
+function generateDescriptionFromEvent(pokemon: string, eventFlag: string): string {
+  const pokemonName = pokemon.charAt(0).toUpperCase() + pokemon.slice(1);
+  
+  if (eventFlag.includes('ELITE_FOUR') || eventFlag.includes('CHAMPION')) {
+    return `${pokemonName} can be encountered after becoming the Champion.`;
+  }
+  if (eventFlag.includes('POSTGAME')) {
+    return `${pokemonName} appears during post-game content.`;
+  }
+  if (eventFlag.includes('KANTO')) {
+    return `${pokemonName} can be found after gaining access to Kanto.`;
+  }
+  
+  return `${pokemonName} can be encountered under special conditions.`;
+}
+
+// --- Generate default description ---
+function generateDefaultDescription(pokemon: string, locationName: string): string {
+  const pokemonName = pokemon.charAt(0).toUpperCase() + pokemon.slice(1);
+  const locationFormatted = formatLocationName(locationName);
+  return `${pokemonName} can be encountered at ${locationFormatted}.`;
 }
 
 // --- NPC Trades Extraction ---
@@ -548,64 +689,8 @@ export function extractEventData(): EventData {
 
   eventData.weeklyEvents = weeklyEvents;
 
-  // Extract special one-time events and legendary Pokemon
+  // Extract special non-legendary events (eggs and some gifts)
   const specialEvents: SpecialEvent[] = [
-    {
-      id: 'celebi_event',
-      name: 'Celebi Time Travel Event',
-      area: 'Ilex Forest Shrine',
-      description:
-        'Celebi can be encountered after obtaining the GS Ball and visiting the Ilex Forest shrine.',
-      type: 'legendary',
-      pokemon: 'Celebi',
-      conditions: 'Requires GS Ball',
-    },
-    {
-      id: 'lugia_whirl_islands',
-      name: 'Lugia at Whirl Islands',
-      area: 'Whirl Islands Lugia Chamber',
-      description: 'Lugia can be encountered in the deepest chamber of the Whirl Islands.',
-      type: 'legendary',
-      pokemon: 'Lugia',
-      conditions: 'Requires Silver Wing',
-    },
-    {
-      id: 'ho_oh_tin_tower',
-      name: 'Ho-Oh at Tin Tower',
-      area: 'Tin Tower Summit',
-      description: 'Ho-Oh can be encountered at the top of Tin Tower.',
-      type: 'legendary',
-      pokemon: 'Ho-Oh',
-      conditions: 'Requires Rainbow Wing',
-    },
-    {
-      id: 'legendary_beasts',
-      name: 'Legendary Beasts (Roaming)',
-      area: 'Johto (Roaming)',
-      description:
-        'Raikou, Entei, and Suicune roam throughout Johto after being awakened in Brass Tower.',
-      type: 'legendary',
-      pokemon: 'Raikou, Entei, Suicune',
-      conditions: 'Activated after Brass Tower event',
-    },
-    {
-      id: 'mewtwo_cerulean_cave',
-      name: 'Mewtwo in Cerulean Cave',
-      area: 'Cerulean Cave B1F',
-      description: 'Mewtwo can be encountered in the deepest part of Cerulean Cave.',
-      type: 'legendary',
-      pokemon: 'Mewtwo',
-      conditions: 'Post-Elite Four',
-    },
-    {
-      id: 'mew_faraway_island',
-      name: 'Mew at Faraway Island',
-      area: 'Faraway Island',
-      description: 'Mew can be encountered at Faraway Island.',
-      type: 'legendary',
-      pokemon: 'Mew',
-      conditions: 'Special access required',
-    },
     {
       id: 'mystery_egg_mr_pokemon',
       name: 'Mystery Egg from Mr. Pokemon',
@@ -649,44 +734,6 @@ export function extractEventData(): EventData {
       type: 'gift',
       pokemon: 'Chikorita, Cyndaquil, or Totodile',
       conditions: 'Beginning of game',
-    },
-    {
-      id: 'eevee_bill',
-      name: 'Eevee from Bill',
-      area: "Ecruteak City (Bill's House)",
-      description: 'Bill gives the player an Eevee after completing certain tasks.',
-      type: 'gift',
-      pokemon: 'Eevee',
-      conditions: 'After helping Bill',
-    },
-    {
-      id: 'tyrogue_karate_master',
-      name: 'Tyrogue from Karate Master',
-      area: 'Mount Mortar',
-      description: 'The Karate Master gives a Tyrogue after being defeated.',
-      type: 'gift',
-      pokemon: 'Tyrogue',
-      conditions: 'Defeat Karate Master Kiyo',
-    },
-    {
-      id: 'professor_ivy_gift',
-      name: 'Pokémon from Professor Ivy',
-      area: "Valencia Island (Ivy's Lab)",
-      description:
-        'Professor Ivy gives the player a special Pokémon after completing research tasks.',
-      type: 'gift',
-      pokemon: 'Various',
-      conditions: "Complete Professor Ivy's research",
-    },
-    {
-      id: 'professor_oak_gift',
-      name: 'Pokémon from Professor Oak',
-      area: "Pallet Town (Oak's Lab)",
-      description:
-        'Professor Oak gives the player a special Pokémon for completing the Pokédex or other achievements.',
-      type: 'gift',
-      pokemon: 'Various',
-      conditions: 'Complete specific achievements',
     },
   ];
 
