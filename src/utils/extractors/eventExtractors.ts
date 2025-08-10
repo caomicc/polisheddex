@@ -45,6 +45,55 @@ export interface EventData {
   specialEvents: SpecialEvent[];
 }
 
+// --- Legendary Event Locations Extraction ---
+export function extractLegendaryEventLocations(): Record<string, any[]> {
+  console.log('🏛️ Extracting legendary event locations...');
+  
+  const eventDataPath = path.join(__dirname, '../../../output/events.json');
+  if (!fs.existsSync(eventDataPath)) {
+    console.warn('⚠️ Events data file not found:', eventDataPath);
+    return {};
+  }
+
+  const eventData: EventData = JSON.parse(fs.readFileSync(eventDataPath, 'utf8'));
+  const legendaryLocations: Record<string, any[]> = {};
+
+  // Extract legendary encounters from special events
+  for (const event of eventData.specialEvents) {
+    if (event.type === 'legendary' && event.pokemon) {
+      // Handle multiple Pokémon in one event (like legendary beasts)
+      const pokemonNames = event.pokemon.split(', ').map(name => name.trim().toLowerCase());
+      
+      for (const pokemonName of pokemonNames) {
+        if (!legendaryLocations[pokemonName]) {
+          legendaryLocations[pokemonName] = [];
+        }
+
+        // Determine encounter method based on event
+        let method = 'wild';
+        if (event.id.includes('roaming') || event.location.includes('Roaming')) {
+          method = 'roaming';
+        } else if (event.location.includes('Cave') || event.location.includes('Chamber')) {
+          method = 'static';
+        } else if (event.location.includes('Shrine') || event.location.includes('Summit')) {
+          method = 'event';
+        }
+
+        legendaryLocations[pokemonName].push({
+          method: method,
+          location: event.location,
+          conditions: event.conditions || '',
+          eventType: 'legendary',
+          description: event.description
+        });
+      }
+    }
+  }
+
+  console.log(`🏛️ Found legendary locations for ${Object.keys(legendaryLocations).length} Pokémon`);
+  return legendaryLocations;
+}
+
 // --- NPC Trades Extraction ---
 export function extractNPCTrades(): Record<string, NPCTrade[]> {
   console.log('💱 Extracting NPC trades...');

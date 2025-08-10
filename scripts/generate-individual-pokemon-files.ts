@@ -16,8 +16,8 @@ import { toTitleCase } from '../src/utils/stringUtils.ts';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Helper to merge wild encounters with gift locations
-function mergeLocationData(wildLocations: any[] | undefined, giftLocations: any[] | undefined): any[] {
+// Helper to merge wild encounters with gift and legendary locations
+function mergeLocationData(wildLocations: any[] | undefined, giftLocations: any[] | undefined, legendaryLocations: any[] | undefined): any[] {
   const merged: any[] = [];
   
   // Add existing wild encounter locations
@@ -36,6 +36,11 @@ function mergeLocationData(wildLocations: any[] | undefined, giftLocations: any[
         ...(gift.level && { level: gift.level })
       });
     }
+  }
+  
+  // Add legendary locations
+  if (legendaryLocations) {
+    merged.push(...legendaryLocations);
   }
   
   return merged;
@@ -166,6 +171,7 @@ function generateFormObjects(
   pokemonData: PokemonData,
   pokemonLocations: Record<string, { locations: any[] }>,
   giftLocations: Record<string, any[]>,
+  legendaryLocations: Record<string, any[]>,
   levelMovesData: Record<string, any>,
   eggMovesData: Record<string, string[]>,
   tmHmLearnsetData: Record<string, any[]>,
@@ -199,6 +205,7 @@ function generateFormObjects(
           pokemonData,
           pokemonLocations,
           giftLocations,
+          legendaryLocations,
           levelMovesData,
           eggMovesData,
           tmHmLearnsetData,
@@ -213,6 +220,7 @@ function generateFormObjects(
           pokemonData,
           pokemonLocations,
           giftLocations,
+          legendaryLocations,
           levelMovesData,
           eggMovesData,
           tmHmLearnsetData,
@@ -460,6 +468,7 @@ function createFormDataFromParent(
   pokemonData: PokemonData,
   pokemonLocations: Record<string, { locations: any[] }>,
   giftLocations: Record<string, any[]>,
+  legendaryLocations: Record<string, any[]>,
   levelMovesData?: Record<string, any>,
   eggMovesData?: Record<string, string[]>,
   tmHmLearnsetData?: Record<string, any[]>,
@@ -540,9 +549,10 @@ function createFormDataFromParent(
   const formLocationKey = `${pokemonKey.toLowerCase()}_${formKey}`;
   const formLocationData = pokemonLocations[formLocationKey];
   const formGiftData = giftLocations[formLocationKey.toLowerCase()] || giftLocations[pokemonKey.toLowerCase()];
+  const formLegendaryData = legendaryLocations[formLocationKey.toLowerCase()] || legendaryLocations[pokemonKey.toLowerCase()];
   
-  if (formLocationData?.locations || formGiftData) {
-    formData.locations = mergeLocationData(formLocationData?.locations, formGiftData);
+  if (formLocationData?.locations || formGiftData || formLegendaryData) {
+    formData.locations = mergeLocationData(formLocationData?.locations, formGiftData, formLegendaryData);
   }
 
   // Add abilities and base stats if available in detailedStats
@@ -650,6 +660,14 @@ async function generateIndividualPokemonFiles(): Promise<void> {
     console.log(`🎁 Loaded gift location data for ${Object.keys(giftLocations).length} Pokemon`);
   }
 
+  // Read legendary locations if available
+  const legendaryLocationPath = path.join(__dirname, '../output/pokemon_legendary_locations.json');
+  let legendaryLocations: Record<string, any[]> = {};
+  if (fs.existsSync(legendaryLocationPath)) {
+    legendaryLocations = JSON.parse(fs.readFileSync(legendaryLocationPath, 'utf8'));
+    console.log(`🏛️ Loaded legendary location data for ${Object.keys(legendaryLocations).length} Pokemon`);
+  }
+
   // Read level moves for form-specific movesets
   let levelMovesData: Record<string, any> = {};
   if (fs.existsSync(levelMovesPath)) {
@@ -709,6 +727,7 @@ async function generateIndividualPokemonFiles(): Promise<void> {
         pokemonData,
         pokemonLocations,
         giftLocations,
+        legendaryLocations,
         levelMovesData,
         eggMovesData,
         tmHmLearnsetData,
@@ -766,8 +785,8 @@ async function generateIndividualPokemonFiles(): Promise<void> {
         evolution: pokemonData.evolution || null,
         ...(processedDetailedStats ? { detailedStats: processedDetailedStats } : {}),
         forms: formsObject,
-        ...(locationData?.locations || giftLocations[pokemonKey.toLowerCase()] ? { 
-          locations: mergeLocationData(locationData?.locations, giftLocations[pokemonKey.toLowerCase()])
+        ...(locationData?.locations || giftLocations[pokemonKey.toLowerCase()] || legendaryLocations[pokemonKey.toLowerCase()] ? { 
+          locations: mergeLocationData(locationData?.locations, giftLocations[pokemonKey.toLowerCase()], legendaryLocations[pokemonKey.toLowerCase()])
         } : {}),
       };
 
