@@ -4,18 +4,18 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
-import { 
-  CalendarDays, 
-  MapPin, 
-  Gift, 
-  Clock, 
-  Phone, 
-  Star, 
-  Trophy, 
-  Egg, 
+import {
+  CalendarDays,
+  MapPin,
+  Gift,
+  Clock,
+  Phone,
+  Star,
+  Trophy,
+  Egg,
   Users,
   Calendar,
-  Filter
+  Filter,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
@@ -56,15 +56,7 @@ interface EventData {
   specialEvents: SpecialEvent[];
 }
 
-const DAYS_OF_WEEK = [
-  'Monday',
-  'Tuesday', 
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-  'Sunday',
-];
+const DAYS_OF_WEEK = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 const EVENT_TYPE_ICONS = {
   contest: Trophy,
@@ -161,22 +153,19 @@ export default function EventsPageClient() {
     );
   }
 
-  const filteredDailyEvents = selectedDay === 'all' 
-    ? eventData.dailyEvents 
-    : eventData.dailyEvents.filter(event => event.day === selectedDay);
+  const filteredDailyEvents =
+    selectedDay === 'all'
+      ? eventData.dailyEvents
+      : eventData.dailyEvents.filter((event) => event.day === selectedDay);
 
-  const filteredWeeklyEvents = selectedDay === 'all'
-    ? eventData.weeklyEvents
-    : eventData.weeklyEvents.filter(event => event.days.includes(selectedDay));
+  const filteredWeeklyEvents =
+    selectedDay === 'all'
+      ? eventData.weeklyEvents
+      : eventData.weeklyEvents.filter((event) => event.days.includes(selectedDay));
 
   return (
-    <div className="max-w-6xl mx-auto p-4">
+    <div className="">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-3 text-center">Events Guide</h1>
-        <p className="text-gray-600 text-center text-lg">
-          Discover all the special events, contests, and encounters in Pokémon Polished Crystal
-        </p>
-        
         {/* Day Filter */}
         <div className="flex flex-wrap justify-center gap-2 mt-6">
           <Button
@@ -194,9 +183,7 @@ export default function EventsPageClient() {
               variant={selectedDay === day ? 'default' : 'outline'}
               size="sm"
               onClick={() => setSelectedDay(day)}
-              className={`${
-                day === currentDay ? 'ring-2 ring-blue-300' : ''
-              }`}
+              className={`${day === currentDay ? 'ring-2 ring-blue-300' : ''}`}
             >
               {day === currentDay && '⭐ '}
               {day}
@@ -229,12 +216,18 @@ export default function EventsPageClient() {
                   <CardTitle className="flex items-start justify-between text-base">
                     <div className="flex-1">
                       <h3 className="font-semibold text-green-800">{event.name}</h3>
-                      <Badge variant="outline" className="mt-1 bg-green-50 text-green-700 border-green-200">
+                      <Badge
+                        variant="outline"
+                        className="mt-1 bg-green-50 text-green-700 border-green-200"
+                      >
                         {event.day}
                       </Badge>
                     </div>
                     {event.reward && (
-                      <Badge variant="outline" className="flex items-center gap-1 text-xs bg-emerald-50 text-emerald-700 border-emerald-200 shrink-0 ml-2">
+                      <Badge
+                        variant="outline"
+                        className="flex items-center gap-1 text-xs bg-emerald-50 text-emerald-700 border-emerald-200 shrink-0 ml-2"
+                      >
                         <Gift className="h-3 w-3" />
                         {event.reward}
                       </Badge>
@@ -261,9 +254,7 @@ export default function EventsPageClient() {
                         </div>
                       )}
                     </div>
-                    <p className="text-sm text-gray-700 leading-relaxed">
-                      {event.description}
-                    </p>
+                    <p className="text-sm text-gray-700 leading-relaxed">{event.description}</p>
                     {event.npcName && (
                       <div className="flex items-center gap-1 text-xs text-gray-500">
                         <Users className="h-3 w-3" />
@@ -291,10 +282,10 @@ export default function EventsPageClient() {
                           {event.days.map((day) => (
                             <Badge
                               key={day}
-                              variant={day === currentDay ? "default" : "outline"}
+                              variant={day === currentDay ? 'default' : 'outline'}
                               className={`text-xs ${
-                                day === currentDay 
-                                  ? 'bg-blue-600 text-white border-blue-600' 
+                                day === currentDay
+                                  ? 'bg-blue-600 text-white border-blue-600'
                                   : 'bg-blue-50 text-blue-700 border-blue-200'
                               }`}
                             >
@@ -303,7 +294,10 @@ export default function EventsPageClient() {
                           ))}
                         </div>
                       </div>
-                      <Badge variant="outline" className={`text-xs shrink-0 ml-2 ${getEventTypeColor(event.type)}`}>
+                      <Badge
+                        variant="outline"
+                        className={`text-xs shrink-0 ml-2 ${getEventTypeColor(event.type)}`}
+                      >
                         <IconComponent className="h-3 w-3 mr-1" />
                         {event.type}
                       </Badge>
@@ -323,9 +317,7 @@ export default function EventsPageClient() {
                           </div>
                         )}
                       </div>
-                      <p className="text-sm text-gray-700 leading-relaxed">
-                        {event.description}
-                      </p>
+                      <p className="text-sm text-gray-700 leading-relaxed">{event.description}</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -344,8 +336,8 @@ export default function EventsPageClient() {
                     <CardTitle className="flex items-start justify-between text-base">
                       <div className="flex-1">
                         <h3 className="font-semibold text-purple-800">{event.name}</h3>
-                        <Badge 
-                          variant="outline" 
+                        <Badge
+                          variant="outline"
                           className={`mt-1 text-xs ${getEventTypeColor(event.type)}`}
                         >
                           <IconComponent className="h-3 w-3 mr-1" />
@@ -360,9 +352,7 @@ export default function EventsPageClient() {
                         <MapPin className="h-4 w-4" />
                         <span className="text-sm">{event.location}</span>
                       </div>
-                      <p className="text-sm text-gray-700 leading-relaxed">
-                        {event.description}
-                      </p>
+                      <p className="text-sm text-gray-700 leading-relaxed">{event.description}</p>
                       {event.pokemon && (
                         <div className="flex items-center gap-1 text-sm text-blue-600 bg-blue-50 p-2 rounded">
                           <Star className="h-4 w-4" />
