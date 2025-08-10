@@ -685,7 +685,9 @@ export default function PokemonFormClient({
                       </TableBody>
                     </Table>
                   ) : (
-                    <div className="text-gray-400 text-sm mb-6">No egg moves</div>
+                    <div className="text-gray-400 text-sm mb-6 mx-auto text-center py-8">
+                      No egg moves
+                    </div>
                   )}
                 </TabsContent>
                 <TabsContent value="tm-hm">
@@ -746,50 +748,130 @@ export default function PokemonFormClient({
             className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
           >
             <SectionCard headline={'Locations'}>
-              {formData.locations &&
-              Array.isArray(formData.locations) &&
-              formData.locations.length > 0 ? (
-                <Table>
-                  <TableHeader className={'hidden md:table-header-group'}>
-                    <TableRow>
-                      <TableHead className="attheader cen align-middle text-left w-[60px]">
-                        Area
-                      </TableHead>
-                      <TableHead className="attheader cen align-middle text-left w-[180px]">
-                        Method
-                      </TableHead>
-                      <TableHead className="attheader cen align-middle text-left w-[80px]">
-                        Time
-                      </TableHead>
-                      <TableHead className="attheader cen align-middle text-left w-[80px]">
-                        Level
-                      </TableHead>
-                      <TableHead className="attheader cen align-middle text-left w-[80px]">
-                        Encounter Rate
-                      </TableHead>
-                      <TableHead className="attheader cen align-middle text-left w-[80px]">
-                        Held Item
-                      </TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {/* Show all slots for this Pokémon, not just one per area/method/time */}
-                    {formData.locations.map((loc: LocationEntry, idx: number) => (
-                      <LocationListItem
-                        key={idx}
-                        area={loc.area}
-                        method={loc.method}
-                        time={loc.time}
-                        level={loc.level}
-                        chance={loc.chance}
-                        rareItem={loc.rareItem}
-                      />
-                    ))}
-                  </TableBody>
-                </Table>
-              ) : (
-                <div className="text-gray-400 text-sm mb-6">No location data</div>
-              )}
+              {(() => {
+                if (!formData.locations || !Array.isArray(formData.locations) || formData.locations.length === 0) {
+                  return <div className="text-gray-400 text-sm mb-6">No location data</div>;
+                }
+
+                // Categorize locations by type
+                const wildLocations = formData.locations.filter((loc: LocationEntry) => 
+                  loc.method && ['grass', 'water', 'fish_good', 'fish_super', 'fish_old', 'surf', 'rock_smash', 'headbutt', 'wild'].includes(loc.method)
+                );
+                
+                const giftLocations = formData.locations.filter((loc: LocationEntry) => 
+                  loc.method === 'gift'
+                );
+                
+                const eventLocations = formData.locations.filter((loc: LocationEntry) => 
+                  loc.method && ['event', 'static', 'roaming'].includes(loc.method)
+                );
+
+                return (
+                  <div className="space-y-6">
+                    {/* Wild Encounters */}
+                    {wildLocations.length > 0 && (
+                      <div>
+                        <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                          <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                          Wild Encounters
+                        </h3>
+                        <div className="border rounded-lg overflow-hidden">
+                          <Table>
+                            <TableHeader>
+                              <TableRow>
+                                <TableHead className="text-left">Area</TableHead>
+                                <TableHead className="text-left">Method</TableHead>
+                                <TableHead className="text-left">Time</TableHead>
+                                <TableHead className="text-left">Level</TableHead>
+                                <TableHead className="text-left">Rate</TableHead>
+                              </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                              {wildLocations.map((loc: LocationEntry, idx: number) => (
+                                <LocationListItem key={`wild-${idx}`} {...loc} />
+                              ))}
+                            </TableBody>
+                          </Table>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Gift Pokemon */}
+                    {giftLocations.length > 0 && (
+                      <div>
+                        <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                          <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                          Gift Pokémon
+                        </h3>
+                        <div className="border rounded-lg overflow-hidden">
+                          <Table>
+                            <TableHeader>
+                              <TableRow>
+                                <TableHead className="text-left">Location</TableHead>
+                                <TableHead className="text-left">NPC</TableHead>
+                                <TableHead className="text-left">Requirements</TableHead>
+                              </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                              {giftLocations.map((loc: LocationEntry, idx: number) => (
+                                <TableRow key={`gift-${idx}`} className="hover:bg-muted/50">
+                                  <TableCell className="font-medium">
+                                    {loc.area || loc.location || 'Unknown'}
+                                  </TableCell>
+                                  <TableCell>{loc.npc || 'NPC'}</TableCell>
+                                  <TableCell className="text-sm text-muted-foreground">
+                                    {loc.conditions || 'Various requirements'}
+                                  </TableCell>
+                                </TableRow>
+                              ))}
+                            </TableBody>
+                          </Table>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Event/Legendary Pokemon */}
+                    {eventLocations.length > 0 && (
+                      <div>
+                        <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                          <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                          Special Events
+                        </h3>
+                        <div className="border rounded-lg overflow-hidden">
+                          <Table>
+                            <TableHeader>
+                              <TableRow>
+                                <TableHead className="text-left">Location</TableHead>
+                                <TableHead className="text-left">Method</TableHead>
+                                <TableHead className="text-left">Requirements</TableHead>
+                              </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                              {eventLocations.map((loc: LocationEntry, idx: number) => (
+                                <TableRow key={`event-${idx}`} className="hover:bg-muted/50">
+                                  <TableCell className="font-medium">
+                                    {loc.area || loc.location || 'Unknown'}
+                                  </TableCell>
+                                  <TableCell>
+                                    <Badge variant="outline" className="capitalize">
+                                      {loc.method === 'static' ? 'Static Encounter' :
+                                       loc.method === 'roaming' ? 'Roaming' :
+                                       loc.method === 'event' ? 'Event' : loc.method}
+                                    </Badge>
+                                  </TableCell>
+                                  <TableCell className="text-sm text-muted-foreground">
+                                    {loc.conditions || 'Special requirements'}
+                                  </TableCell>
+                                </TableRow>
+                              ))}
+                            </TableBody>
+                          </Table>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
             </SectionCard>
           </TabsContent>
         </Tabs>

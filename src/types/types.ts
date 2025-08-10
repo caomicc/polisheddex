@@ -8,13 +8,20 @@ export interface EvoRaw {
 }
 
 export interface LocationEntry {
-  area: string | null;
+  area?: string | null;
+  location?: string | null; // For events/legendaries
   method: string | null;
-  time: string | null;
-  level: string;
-  chance: number;
+  time?: string | null;
+  level?: string;
+  chance?: number;
   rareItem?: string; // Optional property for hidden grottoes
   formName?: string | null; // Form name if applicable
+  // For gift Pokemon
+  npc?: string;
+  conditions?: string;
+  // For event/legendary Pokemon
+  eventType?: string;
+  description?: string;
 }
 
 // Define location data structure types

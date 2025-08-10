@@ -3,10 +3,9 @@ import Link from 'next/link';
 import { TableRow, TableCell } from '@/components/ui/table';
 import { cn } from '@/lib/utils';
 import TimeIcon from '../pokemon/time-icon';
-import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 import { normalizeLocationKey, getLocationDisplayName } from '@/utils/locationUtils';
 
-export function LocationListItem({ area, method, time, level, chance, rareItem }: LocationEntry) {
+export function LocationListItem({ area, method, time, level, chance }: LocationEntry) {
   const formattedArea = area || 'N/A';
   // Use the normalized area name for URL routing to match the detail page expectations
   const areaUrl = area ? `/locations/${encodeURIComponent(normalizeLocationKey(area))}` : '#';
@@ -27,17 +26,21 @@ export function LocationListItem({ area, method, time, level, chance, rareItem }
           getLocationDisplayName(formattedArea)
         )}
       </TableCell>
-      <TableCell className="text-gray-600">{method ? formatMethod(method) : '-'}</TableCell>
-      <TableCell className="text-sm text-gray-600">
-        <TimeIcon
-          time={time}
-          className={'w-7 h-7 p-[6px]'}
-          showTooltip={time === null ? false : true}
-        />
+      <TableCell className="">{method ? formatMethod(method) : '--'}</TableCell>
+      <TableCell className="text-sm">
+        {time ? (
+          <TimeIcon
+            time={time}
+            className={'w-7 h-7 p-[6px]'}
+            showTooltip={time === null ? false : true}
+          />
+        ) : (
+          '--'
+        )}
       </TableCell>
-      <TableCell className="text-sm">Lv. {level}</TableCell>
-      <TableCell className="text-sm text-gray-500">{chance}%</TableCell>
-      <TableCell className="text-amber-600 font-medium">
+      <TableCell className="text-sm">{level ? <span>Lv. {level}</span> : '--'}</TableCell>
+      <TableCell className="text-sm">{chance ? <span>{chance}%</span> : '--'}</TableCell>
+      {/* <TableCell className="text-amber-600 font-medium">
         {rareItem
           ? (() => {
               const itemId = getItemIdFromDisplayName(rareItem);
@@ -53,7 +56,7 @@ export function LocationListItem({ area, method, time, level, chance, rareItem }
               );
             })()
           : '-'}
-      </TableCell>
+      </TableCell> */}
     </TableRow>,
   ];
 

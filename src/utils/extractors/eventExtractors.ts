@@ -32,7 +32,7 @@ export interface WeeklyEvent {
 export interface SpecialEvent {
   id: string;
   name: string;
-  location: string;
+  area: string;
   description: string;
   type: 'legendary' | 'gift' | 'egg' | 'other';
   pokemon?: string;
@@ -48,7 +48,7 @@ export interface EventData {
 // --- Legendary Event Locations Extraction ---
 export function extractLegendaryEventLocations(): Record<string, any[]> {
   console.log('🏛️ Extracting legendary event locations...');
-  
+
   const eventDataPath = path.join(__dirname, '../../../output/events.json');
   if (!fs.existsSync(eventDataPath)) {
     console.warn('⚠️ Events data file not found:', eventDataPath);
@@ -62,8 +62,8 @@ export function extractLegendaryEventLocations(): Record<string, any[]> {
   for (const event of eventData.specialEvents) {
     if (event.type === 'legendary' && event.pokemon) {
       // Handle multiple Pokémon in one event (like legendary beasts)
-      const pokemonNames = event.pokemon.split(', ').map(name => name.trim().toLowerCase());
-      
+      const pokemonNames = event.pokemon.split(', ').map((name) => name.trim().toLowerCase());
+
       for (const pokemonName of pokemonNames) {
         if (!legendaryLocations[pokemonName]) {
           legendaryLocations[pokemonName] = [];
@@ -71,20 +71,20 @@ export function extractLegendaryEventLocations(): Record<string, any[]> {
 
         // Determine encounter method based on event
         let method = 'wild';
-        if (event.id.includes('roaming') || event.location.includes('Roaming')) {
+        if (event.id.includes('roaming') || event.area.includes('Roaming')) {
           method = 'roaming';
-        } else if (event.location.includes('Cave') || event.location.includes('Chamber')) {
+        } else if (event.area.includes('Cave') || event.area.includes('Chamber')) {
           method = 'static';
-        } else if (event.location.includes('Shrine') || event.location.includes('Summit')) {
+        } else if (event.area.includes('Shrine') || event.area.includes('Summit')) {
           method = 'event';
         }
 
         legendaryLocations[pokemonName].push({
+          area: event.area,
           method: method,
-          location: event.location,
           conditions: event.conditions || '',
           eventType: 'legendary',
-          description: event.description
+          description: event.description,
         });
       }
     }
@@ -280,15 +280,19 @@ export function extractMapGiftEvents(): SpecialEvent[] {
     // Look for givepoke commands
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i].trim();
-      
+
       // Match givepoke commands: givepoke POKEMON, [FORM], LEVEL, [ITEM], [BALL], [MOVE]
       const givepokeMatch = line.match(/givepoke\s+(\w+)(?:,\s*(\w+))?,?\s*(\d+)?/i);
       if (givepokeMatch) {
         const pokemon = givepokeMatch[1];
         const level = givepokeMatch[3] || '5'; // Default level if not specified
-        
+
         // Skip if this is a starter Pokemon (already handled)
-        if (['CHIKORITA', 'CYNDAQUIL', 'TOTODILE', 'BULBASAUR', 'CHARMANDER', 'SQUIRTLE'].includes(pokemon)) {
+        if (
+          ['CHIKORITA', 'CYNDAQUIL', 'TOTODILE', 'BULBASAUR', 'CHARMANDER', 'SQUIRTLE'].includes(
+            pokemon,
+          )
+        ) {
           continue;
         }
 
@@ -301,11 +305,11 @@ export function extractMapGiftEvents(): SpecialEvent[] {
         let context = '';
         let npcName = '';
         let conditions = '';
-        
+
         // Look for context in nearby lines
         for (let j = Math.max(0, i - 10); j < i; j++) {
           const contextLine = lines[j].trim();
-          
+
           // Look for common NPC names or event descriptions
           if (contextLine.includes('Text') && contextLine.includes(':')) {
             const textMatch = contextLine.match(/(\w+)Text:/);
@@ -313,7 +317,7 @@ export function extractMapGiftEvents(): SpecialEvent[] {
               context = textMatch[1];
             }
           }
-          
+
           // Look for event checks that give us conditions
           if (contextLine.includes('checkevent') || contextLine.includes('checkflag')) {
             const eventMatch = contextLine.match(/check(?:event|flag)\s+(\w+)/);
@@ -326,7 +330,7 @@ export function extractMapGiftEvents(): SpecialEvent[] {
         // Determine NPC/location based on map name and context
         let giftName = `${pokemon} from ${formatLocationName(locationName)}`;
         let description = `A ${pokemon} can be obtained at ${formatLocationName(locationName)}.`;
-        
+
         // Special cases for known locations
         if (locationName === 'OaksLab') {
           npcName = 'Professor Oak';
@@ -366,15 +370,15 @@ export function extractMapGiftEvents(): SpecialEvent[] {
         const giftEvent: SpecialEvent = {
           id: eventId,
           name: giftName,
-          location: formatLocationName(locationName),
+          area: formatLocationName(locationName),
           description: description,
           type: 'gift',
           pokemon: pokemon.charAt(0).toUpperCase() + pokemon.slice(1).toLowerCase(),
-          conditions: conditions.trim() || 'Various requirements'
+          conditions: conditions.trim() || 'Various requirements',
         };
 
         // Avoid duplicates
-        if (!giftEvents.find(e => e.id === eventId)) {
+        if (!giftEvents.find((e) => e.id === eventId)) {
           giftEvents.push(giftEvent);
         }
       }
@@ -388,20 +392,20 @@ export function extractMapGiftEvents(): SpecialEvent[] {
 function formatLocationName(mapName: string): string {
   // Convert map names to readable location names
   const locationMap: Record<string, string> = {
-    'OaksLab': 'Oak\'s Lab (Pallet Town)',
-    'ElmsLab': 'Elm\'s Lab (New Bark Town)',
-    'EcruteakPokeCenter1F': 'Ecruteak Pokemon Center',
-    'MountMortarB1F': 'Mount Mortar B1F',
-    'DragonShrine': 'Dragon\'s Den Shrine',
-    'GoldenrodGameCorner': 'Goldenrod Game Corner',
-    'CeladonGameCornerPrizeRoom': 'Celadon Game Corner',
-    'ShamoutiPokeCenter1F': 'Shamouti Pokemon Center',
-    'PewterMuseumOfScience1F': 'Pewter Museum of Science',
-    'Route35GoldenrodGate': 'Route 35 Goldenrod Gate',
-    'PlayersHouse2F': 'Player\'s House',
-    'ManiasHouse': 'Mania\'s House',
-    'IndigoPlateauPokecenter1F': 'Indigo Plateau Pokemon Center',
-    'CeladonUniversityHyperTestRoom': 'Celadon University'
+    OaksLab: "Oak's Lab (Pallet Town)",
+    ElmsLab: "Elm's Lab (New Bark Town)",
+    EcruteakPokeCenter1F: 'Ecruteak Pokemon Center',
+    MountMortarB1F: 'Mount Mortar B1F',
+    DragonShrine: "Dragon's Den Shrine",
+    GoldenrodGameCorner: 'Goldenrod Game Corner',
+    CeladonGameCornerPrizeRoom: 'Celadon Game Corner',
+    ShamoutiPokeCenter1F: 'Shamouti Pokemon Center',
+    PewterMuseumOfScience1F: 'Pewter Museum of Science',
+    Route35GoldenrodGate: 'Route 35 Goldenrod Gate',
+    PlayersHouse2F: "Player's House",
+    ManiasHouse: "Mania's House",
+    IndigoPlateauPokecenter1F: 'Indigo Plateau Pokemon Center',
+    CeladonUniversityHyperTestRoom: 'Celadon University',
   };
 
   return locationMap[mapName] || mapName.replace(/([A-Z])/g, ' $1').trim();
@@ -413,7 +417,7 @@ export function extractEventData(): EventData {
   const eventData: EventData = {
     dailyEvents: [],
     weeklyEvents: [],
-    specialEvents: []
+    specialEvents: [],
   };
 
   // Extract daily day-of-week siblings events
@@ -425,7 +429,7 @@ export function extractEventData(): EventData {
       location: 'Route 40',
       description: 'Monica appears on Route 40 and gives away Sharp Beaks to trainers.',
       npcName: 'Monica',
-      reward: 'Sharp Beak'
+      reward: 'Sharp Beak',
     },
     {
       id: 'tuscany_tuesday',
@@ -434,7 +438,7 @@ export function extractEventData(): EventData {
       location: 'Route 29',
       description: 'Tuscany appears on Route 29 and gives away Silk Scarfs to trainers.',
       npcName: 'Tuscany',
-      reward: 'Silk Scarf'
+      reward: 'Silk Scarf',
     },
     {
       id: 'wesley_wednesday',
@@ -443,7 +447,7 @@ export function extractEventData(): EventData {
       location: 'Lake of Rage',
       description: 'Wesley appears at Lake of Rage and gives away Black Belts to trainers.',
       npcName: 'Wesley',
-      reward: 'Black Belt'
+      reward: 'Black Belt',
     },
     {
       id: 'arthur_thursday',
@@ -452,7 +456,7 @@ export function extractEventData(): EventData {
       location: 'Route 36',
       description: 'Arthur appears on Route 36 and gives away Hard Stones to trainers.',
       npcName: 'Arthur',
-      reward: 'Hard Stone'
+      reward: 'Hard Stone',
     },
     {
       id: 'frieda_friday',
@@ -461,7 +465,7 @@ export function extractEventData(): EventData {
       location: 'Route 32',
       description: 'Frieda appears on Route 32 and gives away Poison Barbs to trainers.',
       npcName: 'Frieda',
-      reward: 'Poison Barb'
+      reward: 'Poison Barb',
     },
     {
       id: 'santos_saturday',
@@ -470,7 +474,7 @@ export function extractEventData(): EventData {
       location: 'Blackthorn City',
       description: 'Santos appears in Blackthorn City and gives away Spell Tags to trainers.',
       npcName: 'Santos',
-      reward: 'Spell Tag'
+      reward: 'Spell Tag',
     },
     {
       id: 'sunny_sunday',
@@ -479,8 +483,8 @@ export function extractEventData(): EventData {
       location: 'Route 37',
       description: 'Sunny appears on Route 37 and gives away Magnets to trainers.',
       npcName: 'Sunny',
-      reward: 'Magnet'
-    }
+      reward: 'Magnet',
+    },
   ];
 
   eventData.dailyEvents = dailyEvents;
@@ -492,8 +496,9 @@ export function extractEventData(): EventData {
       name: 'Bug Catching Contest',
       days: ['Tuesday', 'Thursday', 'Saturday'],
       location: 'National Park',
-      description: 'A contest where trainers compete to catch the best Bug-type Pokémon. Winners receive prizes and keep their caught Pokémon.',
-      type: 'contest'
+      description:
+        'A contest where trainers compete to catch the best Bug-type Pokémon. Winners receive prizes and keep their caught Pokémon.',
+      type: 'contest',
     },
     {
       id: 'goldenrod_underground_bitter_merchant',
@@ -501,7 +506,7 @@ export function extractEventData(): EventData {
       days: ['Saturday', 'Sunday'],
       location: 'Goldenrod Underground (Warehouse Entrance)',
       description: 'A merchant selling bitter healing items only opens on weekends.',
-      type: 'shop'
+      type: 'shop',
     },
     {
       id: 'goldenrod_underground_fresh_merchant',
@@ -510,23 +515,25 @@ export function extractEventData(): EventData {
       location: 'Goldenrod Underground (Warehouse Entrance)',
       description: 'A merchant selling fresh items only opens on Monday mornings.',
       type: 'shop',
-      timeOfDay: 'morning'
+      timeOfDay: 'morning',
     },
     {
       id: 'older_haircut_brother',
       name: 'Older Haircut Brother',
       days: ['Tuesday', 'Thursday', 'Saturday'],
       location: 'Goldenrod Underground (Warehouse Entrance)',
-      description: 'The older haircut brother provides Pokemon grooming services to increase friendship.',
-      type: 'service'
+      description:
+        'The older haircut brother provides Pokemon grooming services to increase friendship.',
+      type: 'service',
     },
     {
       id: 'younger_haircut_brother',
       name: 'Younger Haircut Brother',
       days: ['Sunday', 'Wednesday', 'Friday'],
       location: 'Goldenrod Underground (Warehouse Entrance)',
-      description: 'The younger haircut brother provides Pokemon grooming services to increase friendship.',
-      type: 'service'
+      description:
+        'The younger haircut brother provides Pokemon grooming services to increase friendship.',
+      type: 'service',
     },
     {
       id: 'mount_moon_clefairy_dance',
@@ -535,8 +542,8 @@ export function extractEventData(): EventData {
       location: 'Mount Moon Square',
       description: 'Clefairy appear to dance at Mount Moon Square on Monday nights.',
       type: 'special',
-      timeOfDay: 'night'
-    }
+      timeOfDay: 'night',
+    },
   ];
 
   eventData.weeklyEvents = weeklyEvents;
@@ -546,145 +553,151 @@ export function extractEventData(): EventData {
     {
       id: 'celebi_event',
       name: 'Celebi Time Travel Event',
-      location: 'Ilex Forest Shrine',
-      description: 'Celebi can be encountered after obtaining the GS Ball and visiting the Ilex Forest shrine.',
+      area: 'Ilex Forest Shrine',
+      description:
+        'Celebi can be encountered after obtaining the GS Ball and visiting the Ilex Forest shrine.',
       type: 'legendary',
       pokemon: 'Celebi',
-      conditions: 'Requires GS Ball'
+      conditions: 'Requires GS Ball',
     },
     {
       id: 'lugia_whirl_islands',
       name: 'Lugia at Whirl Islands',
-      location: 'Whirl Islands Lugia Chamber',
+      area: 'Whirl Islands Lugia Chamber',
       description: 'Lugia can be encountered in the deepest chamber of the Whirl Islands.',
       type: 'legendary',
       pokemon: 'Lugia',
-      conditions: 'Requires Silver Wing'
+      conditions: 'Requires Silver Wing',
     },
     {
       id: 'ho_oh_tin_tower',
       name: 'Ho-Oh at Tin Tower',
-      location: 'Tin Tower Summit',
+      area: 'Tin Tower Summit',
       description: 'Ho-Oh can be encountered at the top of Tin Tower.',
       type: 'legendary',
       pokemon: 'Ho-Oh',
-      conditions: 'Requires Rainbow Wing'
+      conditions: 'Requires Rainbow Wing',
     },
     {
       id: 'legendary_beasts',
       name: 'Legendary Beasts (Roaming)',
-      location: 'Johto (Roaming)',
-      description: 'Raikou, Entei, and Suicune roam throughout Johto after being awakened in Brass Tower.',
+      area: 'Johto (Roaming)',
+      description:
+        'Raikou, Entei, and Suicune roam throughout Johto after being awakened in Brass Tower.',
       type: 'legendary',
       pokemon: 'Raikou, Entei, Suicune',
-      conditions: 'Activated after Brass Tower event'
+      conditions: 'Activated after Brass Tower event',
     },
     {
       id: 'mewtwo_cerulean_cave',
       name: 'Mewtwo in Cerulean Cave',
-      location: 'Cerulean Cave B1F',
+      area: 'Cerulean Cave B1F',
       description: 'Mewtwo can be encountered in the deepest part of Cerulean Cave.',
       type: 'legendary',
       pokemon: 'Mewtwo',
-      conditions: 'Post-Elite Four'
+      conditions: 'Post-Elite Four',
     },
     {
       id: 'mew_faraway_island',
       name: 'Mew at Faraway Island',
-      location: 'Faraway Island',
+      area: 'Faraway Island',
       description: 'Mew can be encountered at Faraway Island.',
       type: 'legendary',
       pokemon: 'Mew',
-      conditions: 'Special access required'
+      conditions: 'Special access required',
     },
     {
       id: 'mystery_egg_mr_pokemon',
       name: 'Mystery Egg from Mr. Pokemon',
-      location: 'Route 30 (Mr. Pokemon\'s House)',
-      description: 'Mr. Pokemon gives the player a Mystery Egg early in the game, which hatches into Togepi.',
+      area: "Route 30 (Mr. Pokemon's House)",
+      description:
+        'Mr. Pokemon gives the player a Mystery Egg early in the game, which hatches into Togepi.',
       type: 'egg',
       pokemon: 'Togepi',
-      conditions: 'Story progression'
+      conditions: 'Story progression',
     },
     {
       id: 'odd_egg_day_care',
       name: 'Odd Egg from Day Care',
-      location: 'Day Care',
+      area: 'Day Care',
       description: 'The Day Care Man gives an Odd Egg that always hatches into a shiny Pokemon.',
       type: 'egg',
-      conditions: 'Always shiny'
+      conditions: 'Always shiny',
     },
     {
       id: 'lyras_egg',
-      name: 'Lyra\'s Egg',
-      location: 'Day Care',
+      name: "Lyra's Egg",
+      area: 'Day Care',
       description: 'Lyra gives the player an egg containing a rare Pokemon.',
       type: 'egg',
-      conditions: 'After certain story progression'
+      conditions: 'After certain story progression',
     },
     {
       id: 'rivals_egg',
-      name: 'Rival\'s Egg',
-      location: 'Dragon\'s Den B1F',
+      name: "Rival's Egg",
+      area: "Dragon's Den B1F",
       description: 'The rival gives the player an egg on certain days of the week.',
       type: 'egg',
-      conditions: 'Tuesday, Thursday, or Saturday'
+      conditions: 'Tuesday, Thursday, or Saturday',
     },
     {
       id: 'starter_pokemon_elm',
       name: 'Starter Pokemon from Professor Elm',
-      location: 'New Bark Town (Elm\'s Lab)',
-      description: 'Professor Elm allows the player to choose their first Pokemon: Chikorita, Cyndaquil, or Totodile.',
+      area: "New Bark Town (Elm's Lab)",
+      description:
+        'Professor Elm allows the player to choose their first Pokemon: Chikorita, Cyndaquil, or Totodile.',
       type: 'gift',
       pokemon: 'Chikorita, Cyndaquil, or Totodile',
-      conditions: 'Beginning of game'
+      conditions: 'Beginning of game',
     },
     {
       id: 'eevee_bill',
       name: 'Eevee from Bill',
-      location: 'Ecruteak City (Bill\'s House)',
+      area: "Ecruteak City (Bill's House)",
       description: 'Bill gives the player an Eevee after completing certain tasks.',
       type: 'gift',
       pokemon: 'Eevee',
-      conditions: 'After helping Bill'
+      conditions: 'After helping Bill',
     },
     {
       id: 'tyrogue_karate_master',
       name: 'Tyrogue from Karate Master',
-      location: 'Mount Mortar',
+      area: 'Mount Mortar',
       description: 'The Karate Master gives a Tyrogue after being defeated.',
       type: 'gift',
       pokemon: 'Tyrogue',
-      conditions: 'Defeat Karate Master Kiyo'
+      conditions: 'Defeat Karate Master Kiyo',
     },
     {
       id: 'professor_ivy_gift',
       name: 'Pokémon from Professor Ivy',
-      location: 'Valencia Island (Ivy\'s Lab)',
-      description: 'Professor Ivy gives the player a special Pokémon after completing research tasks.',
+      area: "Valencia Island (Ivy's Lab)",
+      description:
+        'Professor Ivy gives the player a special Pokémon after completing research tasks.',
       type: 'gift',
       pokemon: 'Various',
-      conditions: 'Complete Professor Ivy\'s research'
+      conditions: "Complete Professor Ivy's research",
     },
     {
       id: 'professor_oak_gift',
       name: 'Pokémon from Professor Oak',
-      location: 'Pallet Town (Oak\'s Lab)',
-      description: 'Professor Oak gives the player a special Pokémon for completing the Pokédex or other achievements.',
+      area: "Pallet Town (Oak's Lab)",
+      description:
+        'Professor Oak gives the player a special Pokémon for completing the Pokédex or other achievements.',
       type: 'gift',
       pokemon: 'Various',
-      conditions: 'Complete specific achievements'
-    }
+      conditions: 'Complete specific achievements',
+    },
   ];
 
   // Extract map-based gift events and merge them
   const mapGiftEvents = extractMapGiftEvents();
-  
+
   // Remove duplicates from manual events that are now automatically detected
-  const filteredSpecialEvents = specialEvents.filter(event => 
-    !['eevee_bill', 'tyrogue_karate_master', 'starter_pokemon_elm'].includes(event.id)
+  const filteredSpecialEvents = specialEvents.filter(
+    (event) => !['eevee_bill', 'tyrogue_karate_master', 'starter_pokemon_elm'].includes(event.id),
   );
-  
+
   // Combine manual and map-extracted events
   eventData.specialEvents = [...filteredSpecialEvents, ...mapGiftEvents];
 
@@ -692,63 +705,65 @@ export function extractEventData(): EventData {
   const phoneEvents: DailyEvent[] = [
     {
       id: 'jack_monday_morning',
-      name: 'Jack\'s Monday Morning Call',
+      name: "Jack's Monday Morning Call",
       day: 'Monday',
       location: 'Phone Call',
       description: 'Jack calls on Monday mornings with special information.',
       npcName: 'Jack',
-      timeOfDay: 'morning'
+      timeOfDay: 'morning',
     },
     {
       id: 'huey_wednesday_night',
-      name: 'Huey\'s Wednesday Night Call',
+      name: "Huey's Wednesday Night Call",
       day: 'Wednesday',
       location: 'Phone Call',
       description: 'Huey calls on Wednesday nights with special information.',
       npcName: 'Huey',
-      timeOfDay: 'night'
+      timeOfDay: 'night',
     },
     {
       id: 'gaven_thursday_morning',
-      name: 'Gaven\'s Thursday Morning Call',
+      name: "Gaven's Thursday Morning Call",
       day: 'Thursday',
       location: 'Phone Call',
       description: 'Gaven calls on Thursday mornings with special information.',
       npcName: 'Gaven',
-      timeOfDay: 'morning'
+      timeOfDay: 'morning',
     },
     {
       id: 'beth_friday_afternoon',
-      name: 'Beth\'s Friday Afternoon Call',
+      name: "Beth's Friday Afternoon Call",
       day: 'Friday',
       location: 'Phone Call',
       description: 'Beth calls on Friday afternoons with special information.',
       npcName: 'Beth',
-      timeOfDay: 'afternoon'
+      timeOfDay: 'afternoon',
     },
     {
       id: 'jose_saturday_night',
-      name: 'Jose\'s Saturday Night Call',
+      name: "Jose's Saturday Night Call",
       day: 'Saturday',
       location: 'Phone Call',
       description: 'Jose calls on Saturday nights with special information.',
       npcName: 'Jose',
-      timeOfDay: 'night'
+      timeOfDay: 'night',
     },
     {
       id: 'reena_sunday_morning',
-      name: 'Reena\'s Sunday Morning Call',
+      name: "Reena's Sunday Morning Call",
       day: 'Sunday',
       location: 'Phone Call',
       description: 'Reena calls on Sunday mornings with special information.',
       npcName: 'Reena',
-      timeOfDay: 'morning'
-    }
+      timeOfDay: 'morning',
+    },
   ];
 
   eventData.dailyEvents.push(...phoneEvents);
 
-  console.log(`📅 Extracted ${eventData.dailyEvents.length} daily events, ${eventData.weeklyEvents.length} weekly events, ${eventData.specialEvents.length} special events`);
+  console.log(
+    `📅 Extracted ${eventData.dailyEvents.length} daily events, ${eventData.weeklyEvents.length} weekly events, ${eventData.specialEvents.length} special events`,
+  );
 
   return eventData;
 }
@@ -764,7 +779,7 @@ export interface GiftLocationData {
 
 export function extractGiftEventsForPokemon(): Record<string, GiftLocationData[]> {
   console.log('🎁 Extracting gift events for Pokémon location data...');
-  
+
   // Get the map-based gift events
   const giftEvents = extractMapGiftEvents();
   const giftsByPokemon: Record<string, GiftLocationData[]> = {};
@@ -772,7 +787,7 @@ export function extractGiftEventsForPokemon(): Record<string, GiftLocationData[]
   for (const event of giftEvents) {
     if (event.pokemon && event.pokemon !== 'Various') {
       const pokemonName = event.pokemon.toLowerCase().replace(/[^a-z0-9]/g, '');
-      
+
       if (!giftsByPokemon[pokemonName]) {
         giftsByPokemon[pokemonName] = [];
       }
@@ -786,10 +801,10 @@ export function extractGiftEventsForPokemon(): Record<string, GiftLocationData[]
 
       const giftLocation: GiftLocationData = {
         method: 'gift',
-        location: event.location,
+        location: event.area,
         npc: event.name.split(' from ')[1] || 'NPC',
         conditions: event.conditions || 'Various requirements',
-        ...(level && { level })
+        ...(level && { level }),
       };
 
       giftsByPokemon[pokemonName].push(giftLocation);
@@ -800,7 +815,10 @@ export function extractGiftEventsForPokemon(): Record<string, GiftLocationData[]
   return giftsByPokemon;
 }
 
-export function writeGiftLocationDataToFile(giftData: Record<string, GiftLocationData[]>, outputPath: string): void {
+export function writeGiftLocationDataToFile(
+  giftData: Record<string, GiftLocationData[]>,
+  outputPath: string,
+): void {
   const outputDir = path.dirname(outputPath);
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });

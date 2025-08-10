@@ -17,32 +17,36 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Helper to merge wild encounters with gift and legendary locations
-function mergeLocationData(wildLocations: any[] | undefined, giftLocations: any[] | undefined, legendaryLocations: any[] | undefined): any[] {
+function mergeLocationData(
+  wildLocations: any[] | undefined,
+  giftLocations: any[] | undefined,
+  legendaryLocations: any[] | undefined,
+): any[] {
   const merged: any[] = [];
-  
+
   // Add existing wild encounter locations
   if (wildLocations) {
     merged.push(...wildLocations);
   }
-  
+
   // Add gift locations with proper structure
   if (giftLocations) {
     for (const gift of giftLocations) {
       merged.push({
+        area: gift.location,
         method: 'gift',
-        location: gift.location,
         npc: gift.npc,
         conditions: gift.conditions,
-        ...(gift.level && { level: gift.level })
+        ...(gift.level && { level: gift.level }),
       });
     }
   }
-  
+
   // Add legendary locations
   if (legendaryLocations) {
     merged.push(...legendaryLocations);
   }
-  
+
   return merged;
 }
 
@@ -548,11 +552,18 @@ function createFormDataFromParent(
   // Add form-specific location data if available
   const formLocationKey = `${pokemonKey.toLowerCase()}_${formKey}`;
   const formLocationData = pokemonLocations[formLocationKey];
-  const formGiftData = giftLocations[formLocationKey.toLowerCase()] || giftLocations[pokemonKey.toLowerCase()];
-  const formLegendaryData = legendaryLocations[formLocationKey.toLowerCase()] || legendaryLocations[pokemonKey.toLowerCase()];
-  
+  const formGiftData =
+    giftLocations[formLocationKey.toLowerCase()] || giftLocations[pokemonKey.toLowerCase()];
+  const formLegendaryData =
+    legendaryLocations[formLocationKey.toLowerCase()] ||
+    legendaryLocations[pokemonKey.toLowerCase()];
+
   if (formLocationData?.locations || formGiftData || formLegendaryData) {
-    formData.locations = mergeLocationData(formLocationData?.locations, formGiftData, formLegendaryData);
+    formData.locations = mergeLocationData(
+      formLocationData?.locations,
+      formGiftData,
+      formLegendaryData,
+    );
   }
 
   // Add abilities and base stats if available in detailedStats
@@ -665,7 +676,9 @@ async function generateIndividualPokemonFiles(): Promise<void> {
   let legendaryLocations: Record<string, any[]> = {};
   if (fs.existsSync(legendaryLocationPath)) {
     legendaryLocations = JSON.parse(fs.readFileSync(legendaryLocationPath, 'utf8'));
-    console.log(`🏛️ Loaded legendary location data for ${Object.keys(legendaryLocations).length} Pokemon`);
+    console.log(
+      `🏛️ Loaded legendary location data for ${Object.keys(legendaryLocations).length} Pokemon`,
+    );
   }
 
   // Read level moves for form-specific movesets
@@ -719,7 +732,6 @@ async function generateIndividualPokemonFiles(): Promise<void> {
       const pokemonName = pokemonKey.toLowerCase();
       const locationData =
         pokemonLocations[pokemonName] || pokemonLocations[pokemonKey] || pokemonLocations[fileName];
-
 
       // Generate proper form objects
       const formsObject = generateFormObjects(
@@ -785,9 +797,17 @@ async function generateIndividualPokemonFiles(): Promise<void> {
         evolution: pokemonData.evolution || null,
         ...(processedDetailedStats ? { detailedStats: processedDetailedStats } : {}),
         forms: formsObject,
-        ...(locationData?.locations || giftLocations[pokemonKey.toLowerCase()] || legendaryLocations[pokemonKey.toLowerCase()] ? { 
-          locations: mergeLocationData(locationData?.locations, giftLocations[pokemonKey.toLowerCase()], legendaryLocations[pokemonKey.toLowerCase()])
-        } : {}),
+        ...(locationData?.locations ||
+        giftLocations[pokemonKey.toLowerCase()] ||
+        legendaryLocations[pokemonKey.toLowerCase()]
+          ? {
+              locations: mergeLocationData(
+                locationData?.locations,
+                giftLocations[pokemonKey.toLowerCase()],
+                legendaryLocations[pokemonKey.toLowerCase()],
+              ),
+            }
+          : {}),
       };
 
       // Write the individual file

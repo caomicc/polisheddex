@@ -264,8 +264,8 @@ export function processLocations(
 
     // Add encounter details
     const encounterDetail: EncounterDetail = {
-      level: location.level,
-      chance: location.chance,
+      level: location.level || '?',
+      chance: location.chance || 0,
     };
 
     // Add rareItem if present (for hidden grottoes)
