@@ -23,6 +23,8 @@ import {
   extractTreemonLocations,
   extractSwarmLocations,
   extractDetailedStats,
+  extractEventData,
+  writeEventDataToFile,
 } from './src/utils/extractors/index.ts';
 import { normalizeMoveString } from './src/utils/stringNormalizer/stringNormalizer.ts';
 import {
@@ -1358,6 +1360,12 @@ for (const mon of Object.keys(movesetData)) {
 // --- Extract Detailed Stats ---
 console.log('🔍 Extracting detailed stats (base stats, abilities, etc.)...');
 const detailedStatsData = extractDetailedStats();
+
+// --- Extract Event Data ---
+console.log('📅 Extracting event data...');
+const eventData = extractEventData();
+const EVENTS_OUTPUT = path.join(__dirname, 'output/events.json');
+writeEventDataToFile(eventData, EVENTS_OUTPUT);
 
 // Helper function to find matching Pokemon key
 function findMatchingPokemonKey(pokemonName: string, finalResultKeys: string[]): string | null {
