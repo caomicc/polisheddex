@@ -39,7 +39,12 @@ const {
 
 const dailyEvents = rawDailyEvents as DailyEvent[];
 const weeklyEvents = rawWeeklyEvents as WeeklyEvent[];
-const specialEvents = rawSpecialEvents as SpecialEvent[];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const specialEvents = (rawSpecialEvents as Array<any>).map((e) => ({
+  ...e,
+  location: e.area,
+  area: undefined,
+})) as SpecialEvent[];
 
 export default function Page() {
   const now = new Date();
@@ -171,9 +176,7 @@ export default function Page() {
                 <h2 id="today-daily" className="text-lg font-medium">
                   Daily NPCs & Calls
                 </h2>
-                <Badge variant="outline" className="bg-amber-50">
-                  {todayCounts.daily} today
-                </Badge>
+                <Badge variant="default">{todayCounts.daily} today</Badge>
               </div>
               {todayDailyFiltered.length === 0 ? (
                 <EmptyState message="No daily events match your filters for today." />
@@ -199,9 +202,7 @@ export default function Page() {
                 <h2 id="today-weekly" className="text-lg font-medium">
                   Weekly happenings today
                 </h2>
-                <Badge variant="outline" className="bg-emerald-50">
-                  {todayCounts.weekly} today
-                </Badge>
+                <Badge variant="default">{todayCounts.weekly} today</Badge>
               </div>
               {todayWeeklyFiltered.length === 0 ? (
                 <EmptyState message="No weekly events match your filters for today." />

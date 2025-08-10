@@ -1,5 +1,5 @@
-import type React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import React from 'react';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
   MapPin,
@@ -12,7 +12,6 @@ import {
   ShoppingBag,
   Trophy,
   Clock,
-  Heart,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import {
@@ -46,169 +45,147 @@ export type EventCardProps =
       accent?: Accent;
     };
 
-const defaultDaily: DailyEvent = {
-  id: 'sample_daily',
-  name: 'Sample Daily NPC',
-  day: 'Monday',
-  location: 'Route 1',
-  description: 'An example daily event.',
-  npcName: 'NPC',
-  reward: 'Sample Reward',
-};
-
-// const defaultWeekly: WeeklyEvent = {
-//   id: 'sample_weekly',
-//   name: 'Sample Weekly Event',
-//   days: ['Tuesday', 'Thursday'],
-//   location: 'Sample Location',
-//   description: 'An example weekly event.',
-//   type: 'contest',
-// };
-
-// const defaultSpecial: SpecialEvent = {
-//   id: 'sample_special',
-//   name: 'Sample Special',
-//   location: 'Secret Place',
-//   description: 'An example special event.',
-//   type: 'gift',
-//   conditions: 'None',
-// };
-
-export function EventCard(
-  props: EventCardProps = { variant: 'daily', event: defaultDaily, icon: Gift, accent: 'amber' },
-) {
+export function EventCard(props: EventCardProps) {
   const { variant, event, icon: Icon, accent = 'slate' } = props;
+  const accentRing = (() => {
+    switch (accent) {
+      case 'amber':
+        return 'ring-amber-200';
+      case 'emerald':
+        return 'ring-emerald-200';
+      case 'violet':
+        return 'ring-violet-200';
+      default:
+        return 'ring-slate-200';
+    }
+  })();
 
-  const accentRing =
-    accent === 'amber'
-      ? 'ring-amber-200'
-      : accent === 'emerald'
-        ? 'ring-emerald-200'
-        : accent === 'violet'
-          ? 'ring-violet-200'
-          : 'ring-slate-200';
+  const pillBg = (() => {
+    switch (accent) {
+      case 'amber':
+        return 'bg-amber-100 text-amber-900';
+      case 'emerald':
+        return 'bg-emerald-100 text-emerald-900';
+      case 'violet':
+        return 'bg-violet-100 text-violet-900';
+      default:
+        return 'bg-slate-100 text-slate-900';
+    }
+  })();
 
-  const pillBg =
-    accent === 'amber'
-      ? 'bg-amber-100 text-amber-900'
-      : accent === 'emerald'
-        ? 'bg-emerald-100 text-emerald-900'
-        : accent === 'violet'
-          ? 'bg-violet-100 text-violet-900'
-          : 'bg-slate-100 text-slate-900';
+  const headerIcon = (() => {
+    if (Icon) return Icon;
+    switch (variant) {
+      case 'daily':
+        return deriveDailyType(event as DailyEvent) === 'call' ? Phone : Gift;
+      case 'weekly':
+        switch (event.type) {
+          case 'contest':
+            return Trophy;
+          case 'shop':
+            return ShoppingBag;
+          case 'service':
+            return Scissors;
+          default:
+            return Stars;
+        }
+      case 'special':
+        switch ((event as SpecialEvent).type) {
+          case 'legendary':
+            return Sparkles;
+          case 'egg':
+            return Egg;
+          default:
+            return Gift;
+        }
+      default:
+        return Gift;
+    }
+  })();
 
-  const headerIcon =
-    Icon ??
-    (variant === 'daily'
-      ? deriveDailyType(event as DailyEvent) === 'call'
-        ? Phone
-        : Gift
-      : variant === 'weekly'
-        ? event.type === 'contest'
-          ? Trophy
-          : event.type === 'shop'
-            ? ShoppingBag
-            : event.type === 'service'
-              ? Scissors
-              : Stars
-        : // special
-          (event as SpecialEvent).type === 'legendary'
-          ? Sparkles
-          : (event as SpecialEvent).type === 'egg'
-            ? Egg
-            : Gift);
+  const timeOfDay = (() => {
+    if ('timeOfDay' in event && event.timeOfDay) {
+      switch (event.timeOfDay) {
+        case 'morning':
+          return 'morn';
+        case 'afternoon':
+          return 'day';
+        case 'night':
+          return 'nite';
+        default:
+          return event.timeOfDay;
+      }
+    }
+  })();
 
   return (
     <Card
       className={cn(
-        'group relative overflow-hidden transition-shadow hover:shadow-md',
+        'group relative overflow-hidden transition-shadow hover:shadow-md gap-4',
         'border-border/60',
       )}
     >
-      <CardHeader className="pb-3">
-        <div className="mb-2 flex items-center gap-2">
-          <span
+      <CardHeader className="">
+        <div className="flex gap-4">
+          <div
             className={cn(
-              'flex h-8 w-8 items-center justify-center rounded-md ring-4',
+              'flex w-10 h-10 square items-center justify-center rounded-md ring-4',
               pillBg,
               accentRing,
             )}
           >
-            {headerIcon ? <Heart className="h-4 w-4" /> : null}
-          </span>
-          <CardTitle className="text-base">{event.name}</CardTitle>
+            {headerIcon ? React.createElement(headerIcon) : null}
+          </div>
+          <p className="inline-flex text-sm w-auto items-center flex-1">{event.name}</p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2">
-          {'day' in event ? (
-            <Badge variant="outline" className={pillBg}>
-              {event.day}
-            </Badge>
-          ) : null}
+        {(('day' in event && event.day) ||
+          ('days' in event && event.days && (event.days as DayName[]).length > 0) ||
+          ('timeOfDay' in event && event.timeOfDay)) && (
+          <div className="flex flex-wrap items-center gap-2">
+            {'day' in event ? <Badge variant="secondary">{event.day}</Badge> : null}
 
-          {'days' in event ? (
-            <div className="flex flex-wrap gap-1">
-              {(event.days as DayName[]).map((d) => (
-                <Badge key={d} variant="outline" className="bg-transparent text-muted-foreground">
-                  {dayAbbrev(d)}
-                </Badge>
-              ))}
-            </div>
-          ) : null}
+            {'days' in event ? (
+              <div className="flex flex-wrap gap-1">
+                {(event.days as DayName[]).map((d) => (
+                  <Badge key={d} variant="secondary">
+                    {dayAbbrev(d)}
+                  </Badge>
+                ))}
+              </div>
+            ) : null}
 
-          {'type' in event ? (
-            <Badge variant="secondary" className="bg-transparent">
-              {event.type}
-            </Badge>
-          ) : (
-            <Badge variant="secondary" className="bg-transparent">
-              {deriveDailyType(event as DailyEvent) === 'call' ? 'call' : 'npc'}
-            </Badge>
-          )}
-
-          {'timeOfDay' in event && event.timeOfDay ? (
-            <Badge variant="outline" className="bg-transparent">
-              <Clock className="mr-1 h-3.5 w-3.5" />
-              {event.timeOfDay}
-            </Badge>
-          ) : null}
-        </div>
+            {'timeOfDay' in event && event.timeOfDay ? (
+              <Badge variant={timeOfDay}>
+                <Clock className="h-3.5 w-3.5" />
+                {event.timeOfDay}
+              </Badge>
+            ) : null}
+          </div>
+        )}
       </CardHeader>
 
       <CardContent className="space-y-3">
+        {(event.location && event.location !== 'Phone Call') || (
+          <div className="flex gap-4">
+            <span className="flex gap-2 items-center w-full">
+              <MapPin className="flex w-4 h-4" />
+              <p className="inline-flex text-xs w-auto leading-none flex-1">{event.location}</p>
+            </span>
+          </div>
+        )}
         <p className="text-sm text-muted-foreground">{event.description}</p>
-
-        <div className="flex flex-wrap items-center gap-2 text-sm">
-          <span className="inline-flex items-center text-foreground/80">
-            <MapPin className="mr-1.5 h-4 w-4 text-foreground/70" />
-            {event.location}
+        {'reward' in event && (event as DailyEvent).reward ? (
+          <Badge variant="any">
+            <Gift className="h-3.5 w-3.5" />
+            Reward: {(event as DailyEvent).reward}
+          </Badge>
+        ) : null}
+        {'conditions' in event && (event as SpecialEvent).conditions ? (
+          <span className="inline-flex text-xs w-full flex-1 wrap-anywhere">
+            {((event as SpecialEvent).conditions as string).replace(/_/g, ' ')}
           </span>
-
-          {'npcName' in event && (event as DailyEvent).npcName ? (
-            <Badge variant="outline" className="bg-transparent">
-              NPC: {(event as DailyEvent).npcName}
-            </Badge>
-          ) : null}
-
-          {'reward' in event && (event as DailyEvent).reward ? (
-            <Badge variant="outline" className="bg-transparent">
-              <Gift className="mr-1 h-3.5 w-3.5" />
-              Reward: {(event as DailyEvent).reward}
-            </Badge>
-          ) : null}
-
-          {'pokemon' in event && (event as SpecialEvent).pokemon ? (
-            <Badge variant="outline" className="bg-transparent">
-              Pokémon: {(event as SpecialEvent).pokemon}
-            </Badge>
-          ) : null}
-
-          {'conditions' in event && (event as SpecialEvent).conditions ? (
-            <Badge variant="outline" className="bg-transparent">
-              {(event as SpecialEvent).conditions}
-            </Badge>
-          ) : null}
-        </div>
+        ) : null}
       </CardContent>
     </Card>
   );
