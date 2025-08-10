@@ -22,6 +22,7 @@ export function extractPokemonForm(pokemonName: string): {
     'ho-oh',
     'porygon-z',
     'farfetch-d',
+    'farfetch-d',
     'sirfetch-d',
     'type-null',
     'mr-rime',
@@ -120,8 +121,8 @@ export function formatPokemonDisplayWithForm(pokemonName: string): string {
 export function formatPokemonUrlWithForm(pokemonName: string, formString: string): string {
   const { baseName, formName } = extractPokemonForm(pokemonName);
   // console.log('formatPokemonUrlWithForm', { baseName, formName });
-  const base = `/pokemon/${encodeURIComponent(formatPokemonBaseName(baseName).toLowerCase())}`;
-  if (formName || formString) {
+  const base = `/pokemon/${encodeURIComponent(formatPokemonBaseName(baseName).toLowerCase().replace(/'/g, '-'))}`;
+  if ((formName || formString) && formName !== 'plain' && formString !== 'plain') {
     // Remove _form suffix if present
     const formParam = encodeURIComponent(
       (formName || formString).toLowerCase().replace(/_form$/, ''),

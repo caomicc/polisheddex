@@ -256,7 +256,7 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
           const checkFormLevelMoves = (moves: any[], version: 'faithful' | 'updated') => {
             moves?.forEach((move) => {
               if (move.name && move.name.toLowerCase() === normalizedMoveName) {
-                const formPokemonName = `${pokemon.name} (${formName})`;
+                const formPokemonName = `${pokemon.name}`;
                 // Check if this move already exists for this form
                 const existingIndex = pokemonWithMove.findIndex(
                   (item) =>
@@ -273,9 +273,9 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
                   pokemonWithMove.push({
                     pokemon: {
                       ...pokemon,
-                      name: formPokemonName,
+                      // name: formPokemonName,
                       formName,
-                      normalizedUrl: normalizePokemonUrlKey(pokemon.name).toLowerCase(),
+                      // normalizedUrl: normalizePokemonUrlKey(pokemon.name).toLowerCase(),
                     },
                     learnMethod: 'level',
                     level: move.level,

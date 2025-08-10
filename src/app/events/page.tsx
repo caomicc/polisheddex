@@ -51,10 +51,7 @@ export default function Page() {
   const todayName = getTodayName(now);
 
   // Global filter state
-  const [filters, setFilters] = useState<FiltersState>({
-    ...defaultFilters,
-    day: todayName,
-  });
+  const [filters, setFilters] = useState<FiltersState>(defaultFilters);
 
   // const resetFilters = () => setFilters({ ...defaultFilters, day: todayName });
 
