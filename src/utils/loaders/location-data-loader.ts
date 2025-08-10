@@ -3,6 +3,7 @@
 import { loadJsonFile } from '../fileLoader';
 import { normalizeLocationKey } from '../locationUtils';
 import { groupLocationsHierarchically, filterLocationsWithData } from '../locationGrouping';
+import { getUniqueTrainerCount } from '../trainerGrouping';
 
 // Import LocationData and GroupedLocation from types
 import {
@@ -372,10 +373,10 @@ export async function loadEnhancedLocations(): Promise<EnhancedLocation[]> {
             }
           }
 
-          // Add trainer data
+          // Add trainer data using grouped count
           if (subLocation.trainers && subLocation.trainers.length > 0) {
             hasTrainers = true;
-            totalTrainerCount += subLocation.trainers.length;
+            totalTrainerCount += getUniqueTrainerCount(subLocation.trainers);
           }
 
           // Add items from comprehensive location data

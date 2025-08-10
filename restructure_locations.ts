@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { LocationData } from './src/types/types.ts';
+import { getUniqueTrainerCount } from './src/utils/trainerGrouping.ts';
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -34,14 +35,14 @@ interface LocationManifest {
 }
 
 /**
- * Calculate trainer count for a location (including gym leaders)
+ * Calculate trainer count for a location (including gym leaders, using grouped count for rematches)
  */
 function calculateTrainerCount(locationData: LocationData): number {
   let count = 0;
 
-  // Count regular trainers
+  // Count regular trainers using grouped logic (rematches count as 1)
   if (locationData.trainers) {
-    count += locationData.trainers.length;
+    count += getUniqueTrainerCount(locationData.trainers);
   }
 
   // Count gym leader (always counts as 1 trainer if present)

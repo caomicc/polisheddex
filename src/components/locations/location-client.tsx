@@ -7,7 +7,6 @@ import {
   LocationConnection,
   LocationEvent,
   LocationItem,
-  LocationTrainer,
   NPCTrade,
   PokemonEncounter,
 } from '@/types/types';
@@ -16,6 +15,8 @@ import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 import { PokemonDataTable } from '../pokemon/pokemon-data-table';
 import { pokemonColumns } from '../pokemon/pokemon-columns';
 import TrainerCard from '../trainer/trainer-card';
+import GroupedTrainerCard from '../trainer/grouped-trainer-card';
+import { groupRematchTrainers } from '@/utils/trainerGrouping';
 import { Badge } from '../ui/badge';
 import TableWrapper from '../ui/table-wrapper';
 import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
@@ -111,8 +112,8 @@ export default function LocationClient({
       {comprehensiveInfo?.trainers && comprehensiveInfo?.trainers.length > 0 && (
         <div className="trainers-list flex flex-col gap-4 mt-6">
           <h3>Trainers:</h3>
-          {comprehensiveInfo?.trainers?.map((trainer: LocationTrainer, index: number) => (
-            <TrainerCard key={index} trainer={trainer} />
+          {groupRematchTrainers(comprehensiveInfo.trainers).map((groupedTrainer, index) => (
+            <GroupedTrainerCard key={index} groupedTrainer={groupedTrainer} />
           ))}
         </div>
       )}

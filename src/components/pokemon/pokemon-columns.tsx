@@ -11,7 +11,9 @@ import {
 } from '@/utils/pokemonFormUtils';
 // import TimeIcon from './TimeIcon';
 import { Badge } from '../ui/badge';
-import { PokemonEncounter } from '@/types/types';
+import { PokemonEncounter, PokemonType } from '@/types/types';
+import { PokemonSprite } from './pokemon-sprite';
+import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
 // import { P } from 'vitest/dist/reporters-5f784f42.js';
 
 // Helper function to format method names (matching LocationListItem)
@@ -28,6 +30,37 @@ function formatMethod(method: string): string {
   return method.charAt(0).toUpperCase() + method.slice(1);
 }
 export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
+  {
+    accessorKey: 'sprite',
+    id: 'sprite',
+    header: '',
+    cell: ({ row }) => {
+      const { name, form } = row.original;
+      // const primaryType =
+      //   Array.isArray(pokemon.types) && pokemon.types.length > 0
+      //     ? pokemon.types[0].toLowerCase()
+      //     : 'unknown';
+
+      return (
+        <div className="">
+          <Link href={`${createPokemonUrl(name)}${form ? `?form=${form}` : ''}`}>
+            <PokemonSprite
+              pokemonName={name}
+              alt={`${name} sprite`}
+              primaryType={'ghost'}
+              variant="normal"
+              type="static"
+              form={typeof form === 'string' ? form : 'plain'}
+              // src={pokemon.frontSpriteUrl}
+              className="w-10! h-10! p-1! rounded-md!"
+            />
+          </Link>
+        </div>
+      );
+    },
+    enableSorting: false,
+    size: 60,
+  },
   {
     accessorKey: 'pokemon',
     id: 'pokemon',
