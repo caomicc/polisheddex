@@ -16,6 +16,31 @@ import { toTitleCase } from '../src/utils/stringUtils.ts';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Helper to merge wild encounters with gift locations
+function mergeLocationData(wildLocations: any[] | undefined, giftLocations: any[] | undefined): any[] {
+  const merged: any[] = [];
+  
+  // Add existing wild encounter locations
+  if (wildLocations) {
+    merged.push(...wildLocations);
+  }
+  
+  // Add gift locations with proper structure
+  if (giftLocations) {
+    for (const gift of giftLocations) {
+      merged.push({
+        method: 'gift',
+        location: gift.location,
+        npc: gift.npc,
+        conditions: gift.conditions,
+        ...(gift.level && { level: gift.level })
+      });
+    }
+  }
+  
+  return merged;
+}
+
 // fix types
 interface PokemonData {
   name?: string;
@@ -140,6 +165,7 @@ function generateFormObjects(
   pokemonKey: string,
   pokemonData: PokemonData,
   pokemonLocations: Record<string, { locations: any[] }>,
+  giftLocations: Record<string, any[]>,
   levelMovesData: Record<string, any>,
   eggMovesData: Record<string, string[]>,
   tmHmLearnsetData: Record<string, any[]>,
@@ -172,6 +198,7 @@ function generateFormObjects(
           variant,
           pokemonData,
           pokemonLocations,
+          giftLocations,
           levelMovesData,
           eggMovesData,
           tmHmLearnsetData,
@@ -185,6 +212,7 @@ function generateFormObjects(
           variant,
           pokemonData,
           pokemonLocations,
+          giftLocations,
           levelMovesData,
           eggMovesData,
           tmHmLearnsetData,
@@ -431,6 +459,7 @@ function createFormDataFromParent(
   variant: string,
   pokemonData: PokemonData,
   pokemonLocations: Record<string, { locations: any[] }>,
+  giftLocations: Record<string, any[]>,
   levelMovesData?: Record<string, any>,
   eggMovesData?: Record<string, string[]>,
   tmHmLearnsetData?: Record<string, any[]>,
@@ -510,8 +539,10 @@ function createFormDataFromParent(
   // Add form-specific location data if available
   const formLocationKey = `${pokemonKey.toLowerCase()}_${formKey}`;
   const formLocationData = pokemonLocations[formLocationKey];
-  if (formLocationData?.locations) {
-    formData.locations = formLocationData.locations;
+  const formGiftData = giftLocations[formLocationKey.toLowerCase()] || giftLocations[pokemonKey.toLowerCase()];
+  
+  if (formLocationData?.locations || formGiftData) {
+    formData.locations = mergeLocationData(formLocationData?.locations, formGiftData);
   }
 
   // Add abilities and base stats if available in detailedStats
@@ -611,6 +642,14 @@ async function generateIndividualPokemonFiles(): Promise<void> {
     console.log(`📍 Loaded location data for ${Object.keys(pokemonLocations).length} Pokemon`);
   }
 
+  // Read gift locations if available
+  const giftLocationPath = path.join(__dirname, '../output/pokemon_gift_locations.json');
+  let giftLocations: Record<string, any[]> = {};
+  if (fs.existsSync(giftLocationPath)) {
+    giftLocations = JSON.parse(fs.readFileSync(giftLocationPath, 'utf8'));
+    console.log(`🎁 Loaded gift location data for ${Object.keys(giftLocations).length} Pokemon`);
+  }
+
   // Read level moves for form-specific movesets
   let levelMovesData: Record<string, any> = {};
   if (fs.existsSync(levelMovesPath)) {
@@ -663,11 +702,13 @@ async function generateIndividualPokemonFiles(): Promise<void> {
       const locationData =
         pokemonLocations[pokemonName] || pokemonLocations[pokemonKey] || pokemonLocations[fileName];
 
+
       // Generate proper form objects
       const formsObject = generateFormObjects(
         pokemonKey,
         pokemonData,
         pokemonLocations,
+        giftLocations,
         levelMovesData,
         eggMovesData,
         tmHmLearnsetData,
@@ -725,7 +766,9 @@ async function generateIndividualPokemonFiles(): Promise<void> {
         evolution: pokemonData.evolution || null,
         ...(processedDetailedStats ? { detailedStats: processedDetailedStats } : {}),
         forms: formsObject,
-        ...(locationData?.locations ? { locations: locationData.locations } : {}),
+        ...(locationData?.locations || giftLocations[pokemonKey.toLowerCase()] ? { 
+          locations: mergeLocationData(locationData?.locations, giftLocations[pokemonKey.toLowerCase()])
+        } : {}),
       };
 
       // Write the individual file

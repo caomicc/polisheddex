@@ -243,6 +243,11 @@ export function extractMapGiftEvents(): SpecialEvent[] {
           continue;
         }
 
+        // Skip debug events at Player's House
+        if (locationName === 'PlayersHouse2F') {
+          continue;
+        }
+
         // Look backwards for context (NPC name, event conditions, etc.)
         let context = '';
         let npcName = '';
@@ -697,6 +702,63 @@ export function extractEventData(): EventData {
   console.log(`📅 Extracted ${eventData.dailyEvents.length} daily events, ${eventData.weeklyEvents.length} weekly events, ${eventData.specialEvents.length} special events`);
 
   return eventData;
+}
+
+// --- Gift Events to Pokemon Location Data ---
+export interface GiftLocationData {
+  method: 'gift';
+  location: string;
+  npc?: string;
+  conditions: string;
+  level?: number;
+}
+
+export function extractGiftEventsForPokemon(): Record<string, GiftLocationData[]> {
+  console.log('🎁 Extracting gift events for Pokémon location data...');
+  
+  // Get the map-based gift events
+  const giftEvents = extractMapGiftEvents();
+  const giftsByPokemon: Record<string, GiftLocationData[]> = {};
+
+  for (const event of giftEvents) {
+    if (event.pokemon && event.pokemon !== 'Various') {
+      const pokemonName = event.pokemon.toLowerCase().replace(/[^a-z0-9]/g, '');
+      
+      if (!giftsByPokemon[pokemonName]) {
+        giftsByPokemon[pokemonName] = [];
+      }
+
+      // Extract level from description if available
+      let level: number | undefined;
+      const levelMatch = event.description.match(/level (\d+)/i);
+      if (levelMatch) {
+        level = parseInt(levelMatch[1]);
+      }
+
+      const giftLocation: GiftLocationData = {
+        method: 'gift',
+        location: event.location,
+        npc: event.name.split(' from ')[1] || 'NPC',
+        conditions: event.conditions || 'Various requirements',
+        ...(level && { level })
+      };
+
+      giftsByPokemon[pokemonName].push(giftLocation);
+    }
+  }
+
+  console.log(`🎁 Mapped gift events for ${Object.keys(giftsByPokemon).length} Pokémon species`);
+  return giftsByPokemon;
+}
+
+export function writeGiftLocationDataToFile(giftData: Record<string, GiftLocationData[]>, outputPath: string): void {
+  const outputDir = path.dirname(outputPath);
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+
+  fs.writeFileSync(outputPath, JSON.stringify(giftData, null, 2), 'utf8');
+  console.log(`🎁 Gift location data written to ${outputPath}`);
 }
 
 export function writeEventDataToFile(eventData: EventData, outputPath: string): void {
