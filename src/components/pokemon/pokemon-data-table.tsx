@@ -61,7 +61,14 @@ export function PokemonDataTable<TData, TValue>({
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
                 return (
-                  <TableHead key={header.id}>
+                  <TableHead
+                    key={header.id}
+                    className={
+                      header.column.columnDef.size === 60
+                        ? 'w-11 md:w-[60px]! max-w-16 text-center'
+                        : ''
+                    }
+                  >
                     {header.isPlaceholder
                       ? null
                       : flexRender(header.column.columnDef.header, header.getContext())}

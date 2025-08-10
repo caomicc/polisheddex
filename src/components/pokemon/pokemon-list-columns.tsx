@@ -139,10 +139,7 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
 
       return (
         <div className="min-w-0">
-          <Link
-            href={createPokemonUrl(pokemon.name)}
-            className="font-semibold"
-          >
+          <Link href={createPokemonUrl(pokemon.name)} className="font-semibold">
             {displayName}
           </Link>
           {typeof pokemon.form === 'string' && (

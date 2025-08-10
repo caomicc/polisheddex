@@ -249,7 +249,7 @@ export async function getPokemonThatHaveAbility(abilityId: string): Promise<Poke
           if (effectiveFormUpdatedAbilities) {
             effectiveFormUpdatedAbilities.forEach((ability: any) => {
               if (ability.id && ability.id.toLowerCase() === normalizedAbilityId) {
-                const formPokemonName = `${pokemon.name} (${formName})`;
+                const formPokemonName = pokemon.name;
                 const existingIndex = pokemonWithAbility.findIndex(
                   (item) => item.pokemon.name === formPokemonName,
                 );

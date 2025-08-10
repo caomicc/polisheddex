@@ -135,15 +135,16 @@ export async function getMovesByCategory(category: string): Promise<any[]> {
 // Additional functionality for finding Pokemon that can learn moves
 import { loadPokemonBaseDataFromManifest } from './pokemon-data-loader';
 import { normalizePokemonUrlKey } from '../pokemonUrlNormalizer';
+import { BaseData } from '@/types/types';
 
-export interface BaseData {
-  name: string;
-  nationalDex: number;
-  johtoDex: number;
-  types: string[];
-  normalizedUrl?: string;
-  formName?: string;
-}
+// export interface BaseData {
+//   name: string;
+//   nationalDex: number;
+//   johtoDex: number;
+//   types: string[];
+//   normalizedUrl?: string;
+//   formName?: string;
+// }
 
 export interface PokemonWithMove {
   pokemon: BaseData;

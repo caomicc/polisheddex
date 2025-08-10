@@ -13,15 +13,55 @@ import {
   formatPokemonUrlWithForm,
   getFormTypeClass,
 } from '@/utils/pokemonFormUtils';
+import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
+import { PokemonSprite } from '../pokemon/pokemon-sprite';
+import { PokemonType } from '@/types/types';
 
 export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
+  {
+    accessorKey: 'sprite',
+    id: 'sprite',
+    header: '',
+    cell: ({ row }) => {
+      const { pokemon } = row.original;
+      const primaryType =
+        Array.isArray(pokemon.types) && pokemon.types.length > 0
+          ? pokemon.types[0].toLowerCase()
+          : 'unknown';
+
+      return (
+        <div className="">
+          <Link
+            href={`${createPokemonUrl(pokemon.name)}${pokemon.form ? `?form=${pokemon.form}` : ''}`}
+          >
+            <PokemonSprite
+              pokemonName={pokemon.name}
+              alt={`${pokemon.name} sprite`}
+              primaryType={primaryType as PokemonType['name']}
+              variant="normal"
+              type="static"
+              form={typeof pokemon.form === 'string' ? pokemon.form : 'plain'}
+              src={pokemon.frontSpriteUrl}
+              className="w-10! h-10! p-1! rounded-md!"
+            />
+          </Link>
+        </div>
+      );
+    },
+    enableSorting: false,
+    size: 60,
+  },
   {
     accessorKey: 'pokemon',
     id: 'pokemon',
     header: ({ column }) => {
       return (
-        <Button className="-ml-3" variant="ghost" onClick={() => column.toggleSorting()}>
-          <>Pokémon</>
+        <Button
+          className="-ml-3"
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
+          Name
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
           ) : column.getIsSorted() === 'asc' ? (
@@ -40,7 +80,7 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
           className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-black"
         >
           {formatPokemonDisplayWithForm(pokemon.name)}
-          {pokemon.formName && (
+          {pokemon.formName && pokemon.formName !== 'plain' && (
             <span
               className={`text-xs text-muted-foreground block capitalize ${getFormTypeClass(pokemon.formName)}`}
             >

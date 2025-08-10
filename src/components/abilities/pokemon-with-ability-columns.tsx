@@ -13,8 +13,44 @@ import {
   formatPokemonUrlWithForm,
   getFormTypeClass,
 } from '@/utils/pokemonFormUtils';
+import { PokemonSprite } from '../pokemon/pokemon-sprite';
+import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
+import { PokemonType } from '@/types/types';
 
 export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
+  {
+    accessorKey: 'sprite',
+    id: 'sprite',
+    header: '',
+    cell: ({ row }) => {
+      const { pokemon } = row.original;
+      const primaryType =
+        Array.isArray(pokemon.types) && pokemon.types.length > 0
+          ? pokemon.types[0].toLowerCase()
+          : 'unknown';
+
+      return (
+        <div className="">
+          <Link
+            href={`${createPokemonUrl(pokemon.name)}${pokemon.form ? `?form=${pokemon.form}` : ''}`}
+          >
+            <PokemonSprite
+              pokemonName={pokemon.name}
+              alt={`${pokemon.name} sprite`}
+              primaryType={primaryType as PokemonType['name']}
+              variant="normal"
+              type="static"
+              form={typeof pokemon.form === 'string' ? pokemon.form : 'plain'}
+              src={pokemon.frontSpriteUrl}
+              className="w-10! h-10! p-1! rounded-md!"
+            />
+          </Link>
+        </div>
+      );
+    },
+    enableSorting: false,
+    size: 60,
+  },
   {
     accessorKey: 'pokemon',
     id: 'pokemon',
