@@ -142,7 +142,7 @@ export function EventCard(props: EventCardProps) {
         {(('day' in event && event.day) ||
           ('days' in event && event.days && (event.days as DayName[]).length > 0) ||
           ('timeOfDay' in event && event.timeOfDay)) && (
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2 mt-4">
             {'day' in event ? <Badge variant="secondary">{event.day}</Badge> : null}
 
             {'days' in event ? (
