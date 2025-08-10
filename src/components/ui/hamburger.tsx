@@ -17,12 +17,12 @@ const menuItems: MenuItem[] = [
   { title: 'Home', href: '/' },
   { title: 'Pokemon', href: '/pokemon' },
   { title: 'Locations', href: '/locations' },
+  { title: 'Map', href: '/map' },
   { title: 'Items', href: '/items' },
   { title: 'Attackdex', href: '/moves' },
   { title: 'Abilities', href: '/abilities' },
   { title: 'Team Builder', href: '/team-builder' },
-  { title: 'Wiki', href: '/wiki' },
-  { title: 'FAQ', href: '/wiki/faq' },
+  { title: 'FAQ', href: '/faq' },
 ];
 
 const MenuItemComponent: React.FC<{ item: MenuItem; depth?: number }> = ({ item, depth = 0 }) => {
