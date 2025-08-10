@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import EmulatorRecommendations from '@/components/ui/emulator-recomendations';
+import EventsOfTheDay from '@/components/ui/events-of-the-day';
 import { Hero } from '@/components/ui/Hero';
 import { ExternalLink } from 'lucide-react';
 import Link from 'next/link';
@@ -24,6 +25,7 @@ export default function Home() {
       </Hero>
       <div className="max-w-4xl mx-auto min-h-screen flex flex-col gap-6">
         <EmulatorRecommendations />
+        <EventsOfTheDay />
 
         <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
           <Link href="/pokemon" className="group">

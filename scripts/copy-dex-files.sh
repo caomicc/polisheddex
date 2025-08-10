@@ -13,6 +13,7 @@ cp output/johto_dex_order.json public/output/ 2>/dev/null || echo "Warning: Coul
 # Copy essential data files
 cp output/pokemon_detailed_stats.json public/output/ 2>/dev/null || echo "Warning: Could not copy pokemon_detailed_stats.json"
 cp output/type_chart.json public/output/ 2>/dev/null || echo "Warning: Could not copy type_chart.json"
+cp output/events.json public/output/ 2>/dev/null || echo "Warning: Could not copy events.json"
 
 # Copy manifest files for client-side data resolution
 cp output/manifests/abilities.json public/output/manifests/ 2>/dev/null || echo "Warning: Could not copy abilities.json"
