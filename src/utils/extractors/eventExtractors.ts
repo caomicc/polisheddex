@@ -209,6 +209,150 @@ export function extractLocationEvents(): Record<string, LocationEvent[]> {
   return eventsByLocation;
 }
 
+// --- Map-based Pokemon Gift Events Extraction ---
+export function extractMapGiftEvents(): SpecialEvent[] {
+  console.log('🎁 Extracting map-based gift Pokemon events...');
+  const mapsDir = path.join(__dirname, '../../../polishedcrystal/maps');
+  const giftEvents: SpecialEvent[] = [];
+
+  if (!fs.existsSync(mapsDir)) {
+    console.warn('Maps directory not found');
+    return [];
+  }
+
+  const mapFiles = fs.readdirSync(mapsDir).filter((file) => file.endsWith('.asm'));
+
+  for (const mapFile of mapFiles) {
+    const locationName = path.basename(mapFile, '.asm');
+    const mapPath = path.join(mapsDir, mapFile);
+    const mapContent = fs.readFileSync(mapPath, 'utf8');
+    const lines = mapContent.split(/\r?\n/);
+
+    // Look for givepoke commands
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+      
+      // Match givepoke commands: givepoke POKEMON, [FORM], LEVEL, [ITEM], [BALL], [MOVE]
+      const givepokeMatch = line.match(/givepoke\s+(\w+)(?:,\s*(\w+))?,?\s*(\d+)?/i);
+      if (givepokeMatch) {
+        const pokemon = givepokeMatch[1];
+        const level = givepokeMatch[3] || '5'; // Default level if not specified
+        
+        // Skip if this is a starter Pokemon (already handled)
+        if (['CHIKORITA', 'CYNDAQUIL', 'TOTODILE', 'BULBASAUR', 'CHARMANDER', 'SQUIRTLE'].includes(pokemon)) {
+          continue;
+        }
+
+        // Look backwards for context (NPC name, event conditions, etc.)
+        let context = '';
+        let npcName = '';
+        let conditions = '';
+        
+        // Look for context in nearby lines
+        for (let j = Math.max(0, i - 10); j < i; j++) {
+          const contextLine = lines[j].trim();
+          
+          // Look for common NPC names or event descriptions
+          if (contextLine.includes('Text') && contextLine.includes(':')) {
+            const textMatch = contextLine.match(/(\w+)Text:/);
+            if (textMatch) {
+              context = textMatch[1];
+            }
+          }
+          
+          // Look for event checks that give us conditions
+          if (contextLine.includes('checkevent') || contextLine.includes('checkflag')) {
+            const eventMatch = contextLine.match(/check(?:event|flag)\s+(\w+)/);
+            if (eventMatch) {
+              conditions += eventMatch[1] + ' ';
+            }
+          }
+        }
+
+        // Determine NPC/location based on map name and context
+        let giftName = `${pokemon} from ${formatLocationName(locationName)}`;
+        let description = `A ${pokemon} can be obtained at ${formatLocationName(locationName)}.`;
+        
+        // Special cases for known locations
+        if (locationName === 'OaksLab') {
+          npcName = 'Professor Oak';
+          giftName = `${pokemon} from Professor Oak`;
+          description = `Professor Oak gives a ${pokemon} to trainers who have completed certain requirements.`;
+          conditions = 'After getting Kanto starter from Ivy';
+        } else if (locationName === 'ElmsLab') {
+          npcName = 'Professor Elm';
+          giftName = `${pokemon} from Professor Elm`;
+          description = `Professor Elm gives a ${pokemon} as a starter Pokemon.`;
+          conditions = 'Beginning of game';
+        } else if (locationName === 'EcruteakPokeCenter1F') {
+          npcName = 'Bill';
+          giftName = `${pokemon} from Bill`;
+          description = `Bill gives an ${pokemon} to trainers at the Ecruteak Pokemon Center.`;
+          conditions = 'After helping Bill with his research';
+        } else if (locationName === 'MountMortarB1F') {
+          npcName = 'Karate Master Kiyo';
+          giftName = `${pokemon} from Karate Master`;
+          description = `The Karate Master gives a ${pokemon} after being defeated in battle.`;
+          conditions = 'Defeat Karate Master Kiyo';
+        } else if (locationName === 'DragonShrine') {
+          npcName = 'Dragon Master Elder';
+          giftName = `${pokemon} from Dragon Elder`;
+          description = `The Dragon Elder gives a ${pokemon} with special moves to worthy trainers.`;
+          conditions = 'Complete Dragon Den challenge';
+        } else if (locationName.includes('GameCorner')) {
+          npcName = 'Game Corner Prize Vendor';
+          giftName = `${pokemon} from Game Corner`;
+          description = `A ${pokemon} can be obtained as a prize from the Game Corner.`;
+          conditions = 'Exchange coins';
+        }
+
+        // Generate unique ID
+        const eventId = `${locationName.toLowerCase()}_${pokemon.toLowerCase()}_gift`;
+
+        const giftEvent: SpecialEvent = {
+          id: eventId,
+          name: giftName,
+          location: formatLocationName(locationName),
+          description: description,
+          type: 'gift',
+          pokemon: pokemon.charAt(0).toUpperCase() + pokemon.slice(1).toLowerCase(),
+          conditions: conditions.trim() || 'Various requirements'
+        };
+
+        // Avoid duplicates
+        if (!giftEvents.find(e => e.id === eventId)) {
+          giftEvents.push(giftEvent);
+        }
+      }
+    }
+  }
+
+  console.log(`🎁 Found ${giftEvents.length} map-based gift Pokemon events`);
+  return giftEvents;
+}
+
+function formatLocationName(mapName: string): string {
+  // Convert map names to readable location names
+  const locationMap: Record<string, string> = {
+    'OaksLab': 'Oak\'s Lab (Pallet Town)',
+    'ElmsLab': 'Elm\'s Lab (New Bark Town)',
+    'EcruteakPokeCenter1F': 'Ecruteak Pokemon Center',
+    'MountMortarB1F': 'Mount Mortar B1F',
+    'DragonShrine': 'Dragon\'s Den Shrine',
+    'GoldenrodGameCorner': 'Goldenrod Game Corner',
+    'CeladonGameCornerPrizeRoom': 'Celadon Game Corner',
+    'ShamoutiPokeCenter1F': 'Shamouti Pokemon Center',
+    'PewterMuseumOfScience1F': 'Pewter Museum of Science',
+    'Route35GoldenrodGate': 'Route 35 Goldenrod Gate',
+    'PlayersHouse2F': 'Player\'s House',
+    'ManiasHouse': 'Mania\'s House',
+    'IndigoPlateauPokecenter1F': 'Indigo Plateau Pokemon Center',
+    'CeladonUniversityHyperTestRoom': 'Celadon University'
+  };
+
+  return locationMap[mapName] || mapName.replace(/([A-Z])/g, ' $1').trim();
+}
+
 // --- Event Data Extraction ---
 export function extractEventData(): EventData {
   console.log('📅 Extracting event data...');
@@ -458,10 +602,37 @@ export function extractEventData(): EventData {
       type: 'gift',
       pokemon: 'Tyrogue',
       conditions: 'Defeat Karate Master Kiyo'
+    },
+    {
+      id: 'professor_ivy_gift',
+      name: 'Pokémon from Professor Ivy',
+      location: 'Valencia Island (Ivy\'s Lab)',
+      description: 'Professor Ivy gives the player a special Pokémon after completing research tasks.',
+      type: 'gift',
+      pokemon: 'Various',
+      conditions: 'Complete Professor Ivy\'s research'
+    },
+    {
+      id: 'professor_oak_gift',
+      name: 'Pokémon from Professor Oak',
+      location: 'Pallet Town (Oak\'s Lab)',
+      description: 'Professor Oak gives the player a special Pokémon for completing the Pokédex or other achievements.',
+      type: 'gift',
+      pokemon: 'Various',
+      conditions: 'Complete specific achievements'
     }
   ];
 
-  eventData.specialEvents = specialEvents;
+  // Extract map-based gift events and merge them
+  const mapGiftEvents = extractMapGiftEvents();
+  
+  // Remove duplicates from manual events that are now automatically detected
+  const filteredSpecialEvents = specialEvents.filter(event => 
+    !['eevee_bill', 'tyrogue_karate_master', 'starter_pokemon_elm'].includes(event.id)
+  );
+  
+  // Combine manual and map-extracted events
+  eventData.specialEvents = [...filteredSpecialEvents, ...mapGiftEvents];
 
   // Extract phone call events (daily/time-based)
   const phoneEvents: DailyEvent[] = [

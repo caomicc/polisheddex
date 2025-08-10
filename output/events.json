@@ -278,31 +278,211 @@
       "conditions": "Tuesday, Thursday, or Saturday"
     },
     {
-      "id": "starter_pokemon_elm",
-      "name": "Starter Pokemon from Professor Elm",
-      "location": "New Bark Town (Elm's Lab)",
-      "description": "Professor Elm allows the player to choose their first Pokemon: Chikorita, Cyndaquil, or Totodile.",
+      "id": "professor_ivy_gift",
+      "name": "Pokémon from Professor Ivy",
+      "location": "Valencia Island (Ivy's Lab)",
+      "description": "Professor Ivy gives the player a special Pokémon after completing research tasks.",
       "type": "gift",
-      "pokemon": "Chikorita, Cyndaquil, or Totodile",
-      "conditions": "Beginning of game"
+      "pokemon": "Various",
+      "conditions": "Complete Professor Ivy's research"
     },
     {
-      "id": "eevee_bill",
-      "name": "Eevee from Bill",
-      "location": "Ecruteak City (Bill's House)",
-      "description": "Bill gives the player an Eevee after completing certain tasks.",
+      "id": "professor_oak_gift",
+      "name": "Pokémon from Professor Oak",
+      "location": "Pallet Town (Oak's Lab)",
+      "description": "Professor Oak gives the player a special Pokémon for completing the Pokédex or other achievements.",
+      "type": "gift",
+      "pokemon": "Various",
+      "conditions": "Complete specific achievements"
+    },
+    {
+      "id": "celadongamecornerprizeroom_mr__mime_gift",
+      "name": "MR__MIME from Game Corner",
+      "location": "Celadon Game Corner",
+      "description": "A MR__MIME can be obtained as a prize from the Game Corner.",
+      "type": "gift",
+      "pokemon": "Mr__mime",
+      "conditions": "Exchange coins"
+    },
+    {
+      "id": "celadongamecornerprizeroom_eevee_gift",
+      "name": "EEVEE from Game Corner",
+      "location": "Celadon Game Corner",
+      "description": "A EEVEE can be obtained as a prize from the Game Corner.",
       "type": "gift",
       "pokemon": "Eevee",
-      "conditions": "After helping Bill"
+      "conditions": "Exchange coins"
     },
     {
-      "id": "tyrogue_karate_master",
-      "name": "Tyrogue from Karate Master",
-      "location": "Mount Mortar",
-      "description": "The Karate Master gives a Tyrogue after being defeated.",
+      "id": "celadongamecornerprizeroom_porygon_gift",
+      "name": "PORYGON from Game Corner",
+      "location": "Celadon Game Corner",
+      "description": "A PORYGON can be obtained as a prize from the Game Corner.",
+      "type": "gift",
+      "pokemon": "Porygon",
+      "conditions": "Exchange coins"
+    },
+    {
+      "id": "celadonuniversityhypertestroom_magikarp_gift",
+      "name": "MAGIKARP from Celadon University",
+      "location": "Celadon University",
+      "description": "A MAGIKARP can be obtained at Celadon University.",
+      "type": "gift",
+      "pokemon": "Magikarp",
+      "conditions": "Various requirements"
+    },
+    {
+      "id": "dragonshrine_dratini_gift",
+      "name": "DRATINI from Dragon Elder",
+      "location": "Dragon's Den Shrine",
+      "description": "The Dragon Elder gives a DRATINI with special moves to worthy trainers.",
+      "type": "gift",
+      "pokemon": "Dratini",
+      "conditions": "Complete Dragon Den challenge"
+    },
+    {
+      "id": "ecruteakpokecenter1f_eevee_gift",
+      "name": "EEVEE from Bill",
+      "location": "Ecruteak Pokemon Center",
+      "description": "Bill gives an EEVEE to trainers at the Ecruteak Pokemon Center.",
+      "type": "gift",
+      "pokemon": "Eevee",
+      "conditions": "After helping Bill with his research"
+    },
+    {
+      "id": "goldenrodgamecorner_abra_gift",
+      "name": "ABRA from Game Corner",
+      "location": "Goldenrod Game Corner",
+      "description": "A ABRA can be obtained as a prize from the Game Corner.",
+      "type": "gift",
+      "pokemon": "Abra",
+      "conditions": "Exchange coins"
+    },
+    {
+      "id": "goldenrodgamecorner_cubone_gift",
+      "name": "CUBONE from Game Corner",
+      "location": "Goldenrod Game Corner",
+      "description": "A CUBONE can be obtained as a prize from the Game Corner.",
+      "type": "gift",
+      "pokemon": "Cubone",
+      "conditions": "Exchange coins"
+    },
+    {
+      "id": "goldenrodgamecorner_clefairy_gift",
+      "name": "CLEFAIRY from Game Corner",
+      "location": "Goldenrod Game Corner",
+      "description": "A CLEFAIRY can be obtained as a prize from the Game Corner.",
+      "type": "gift",
+      "pokemon": "Clefairy",
+      "conditions": "Exchange coins"
+    },
+    {
+      "id": "maniashouse_shuckle_gift",
+      "name": "SHUCKLE from Mania's House",
+      "location": "Mania's House",
+      "description": "A SHUCKLE can be obtained at Mania's House.",
+      "type": "gift",
+      "pokemon": "Shuckle",
+      "conditions": "EVENT_MANIA_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM EVENT_GOT_SHUCKIE"
+    },
+    {
+      "id": "mountmortarb1f_tyrogue_gift",
+      "name": "TYROGUE from Karate Master",
+      "location": "Mount Mortar B1F",
+      "description": "The Karate Master gives a TYROGUE after being defeated in battle.",
       "type": "gift",
       "pokemon": "Tyrogue",
       "conditions": "Defeat Karate Master Kiyo"
+    },
+    {
+      "id": "pewtermuseumofscience1f_omanyte_gift",
+      "name": "OMANYTE from Pewter Museum of Science",
+      "location": "Pewter Museum of Science",
+      "description": "A OMANYTE can be obtained at Pewter Museum of Science.",
+      "type": "gift",
+      "pokemon": "Omanyte",
+      "conditions": "Various requirements"
+    },
+    {
+      "id": "pewtermuseumofscience1f_kabuto_gift",
+      "name": "KABUTO from Pewter Museum of Science",
+      "location": "Pewter Museum of Science",
+      "description": "A KABUTO can be obtained at Pewter Museum of Science.",
+      "type": "gift",
+      "pokemon": "Kabuto",
+      "conditions": "Various requirements"
+    },
+    {
+      "id": "pewtermuseumofscience1f_aerodactyl_gift",
+      "name": "AERODACTYL from Pewter Museum of Science",
+      "location": "Pewter Museum of Science",
+      "description": "A AERODACTYL can be obtained at Pewter Museum of Science.",
+      "type": "gift",
+      "pokemon": "Aerodactyl",
+      "conditions": "Various requirements"
+    },
+    {
+      "id": "playershouse2f_mewtwo_gift",
+      "name": "MEWTWO from Player's House",
+      "location": "Player's House",
+      "description": "A MEWTWO can be obtained at Player's House.",
+      "type": "gift",
+      "pokemon": "Mewtwo",
+      "conditions": "Various requirements"
+    },
+    {
+      "id": "playershouse2f_mew_gift",
+      "name": "MEW from Player's House",
+      "location": "Player's House",
+      "description": "A MEW can be obtained at Player's House.",
+      "type": "gift",
+      "pokemon": "Mew",
+      "conditions": "Various requirements"
+    },
+    {
+      "id": "playershouse2f_typhlosion_gift",
+      "name": "TYPHLOSION from Player's House",
+      "location": "Player's House",
+      "description": "A TYPHLOSION can be obtained at Player's House.",
+      "type": "gift",
+      "pokemon": "Typhlosion",
+      "conditions": "Various requirements"
+    },
+    {
+      "id": "playershouse2f_ursaluna_gift",
+      "name": "URSALUNA from Player's House",
+      "location": "Player's House",
+      "description": "A URSALUNA can be obtained at Player's House.",
+      "type": "gift",
+      "pokemon": "Ursaluna",
+      "conditions": "Various requirements"
+    },
+    {
+      "id": "playershouse2f_dudunsparce_gift",
+      "name": "DUDUNSPARCE from Player's House",
+      "location": "Player's House",
+      "description": "A DUDUNSPARCE can be obtained at Player's House.",
+      "type": "gift",
+      "pokemon": "Dudunsparce",
+      "conditions": "Various requirements"
+    },
+    {
+      "id": "playershouse2f_pupitar_gift",
+      "name": "PUPITAR from Player's House",
+      "location": "Player's House",
+      "description": "A PUPITAR can be obtained at Player's House.",
+      "type": "gift",
+      "pokemon": "Pupitar",
+      "conditions": "Various requirements"
+    },
+    {
+      "id": "route35goldenrodgate_spearow_gift",
+      "name": "SPEAROW from Route 35 Goldenrod Gate",
+      "location": "Route 35 Goldenrod Gate",
+      "description": "A SPEAROW can be obtained at Route 35 Goldenrod Gate.",
+      "type": "gift",
+      "pokemon": "Spearow",
+      "conditions": "Various requirements"
     }
   ]
 }
