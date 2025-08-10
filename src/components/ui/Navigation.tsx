@@ -180,6 +180,15 @@ export default function Navigation() {
                 <Link href="/items">Items</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
+            
+            <NavigationMenuItem>
+              <NavigationMenuLink
+                asChild
+                className={cn(navigationMenuTriggerStyle(), isActive('/events') && 'active-link')}
+              >
+                <Link href="/events">Events</Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
 
             {/* <NavigationMenuItem>
               <NavigationMenuLink

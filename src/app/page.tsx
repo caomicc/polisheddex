@@ -27,7 +27,7 @@ export default function Home() {
         <EmulatorRecommendations />
         <EventsOfTheDay />
 
-        <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Link href="/pokemon" className="group">
             <Card>
               <CardHeader>
@@ -68,6 +68,7 @@ export default function Home() {
               </CardFooter>
             </Card>
           </Link>
+          
           <Link href="/items" className="group">
             <Card>
               <CardHeader>
@@ -83,6 +84,26 @@ export default function Home() {
               <CardFooter>
                 <Button variant={'default'} size={'sm'}>
                   View Items
+                </Button>
+              </CardFooter>
+            </Card>
+          </Link>
+
+          <Link href="/events" className="group">
+            <Card>
+              <CardHeader>
+                <CardTitle>
+                  <h3>Events Guide</h3>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm">
+                  Discover daily and weekly events, Bug Contests, Day-of-Week siblings, and special encounters.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button variant={'default'} size={'sm'}>
+                  View Events
                 </Button>
               </CardFooter>
             </Card>

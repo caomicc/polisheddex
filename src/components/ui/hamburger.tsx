@@ -19,6 +19,7 @@ const menuItems: MenuItem[] = [
   { title: 'Locations', href: '/locations' },
   { title: 'Map', href: '/map' },
   { title: 'Items', href: '/items' },
+  { title: 'Events', href: '/events' },
   { title: 'Attackdex', href: '/moves' },
   { title: 'Abilities', href: '/abilities' },
   { title: 'Team Builder', href: '/team-builder' },
