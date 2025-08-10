@@ -41,5 +41,5 @@ export default function MapViewerInner() {
     mapRef.current.setMaxBounds(bounds);
   }, []);
 
-  return <div id="map" className="h-[600px] w-[600px] container mx-auto" />;
+  return <div id="map" className="h-[600px] max-w-4xl rounded-lg container mx-auto" />;
 }

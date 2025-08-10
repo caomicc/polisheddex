@@ -26,7 +26,7 @@ export default function MapPage() {
     <>
       <Hero
         headline="Map Viewer"
-        description="Explore the map of Pokémon Polished Crystal and analyze type weaknesses and resistances"
+        description="Explore the map!"
         breadcrumbs={
           <Breadcrumb>
             <BreadcrumbList>

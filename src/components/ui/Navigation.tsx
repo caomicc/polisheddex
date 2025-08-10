@@ -139,6 +139,39 @@ export default function Navigation() {
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuTrigger
+                className={cn(
+                  hasPokemonTheme && 'pokemon-themed-link',
+                  isActive('/locations') && 'active-link',
+                  isActive('/map') && 'active-link',
+                )}
+              >
+                Pokéarth
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[300px] gap-4">
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link
+                        href="/locations"
+                        className={cn(isActive('/locations') && 'active-link')}
+                      >
+                        <div className="font-medium">Locations Table</div>
+                        <div className="text-muted-foreground">Browse all locations.</div>
+                      </Link>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild>
+                      <Link href="/map" className={cn(isActive('/map') && 'active-link')}>
+                        <div className="font-medium">Map Viewer</div>
+                        <div className="text-muted-foreground">View map for Polished Crystal</div>
+                      </Link>
+                    </NavigationMenuLink>
+                  </li>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuLink
                 asChild
@@ -147,17 +180,7 @@ export default function Navigation() {
                 <Link href="/items">Items</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                asChild
-                className={cn(
-                  navigationMenuTriggerStyle(),
-                  isActive('/locations') && 'active-link',
-                )}
-              >
-                <Link href="/locations">Locations</Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
+
             {/* <NavigationMenuItem>
               <NavigationMenuLink
                 asChild
