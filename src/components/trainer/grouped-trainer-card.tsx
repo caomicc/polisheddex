@@ -20,7 +20,7 @@ interface GroupedTrainerCardProps {
 
 function TrainerTeamDisplay({ trainer }: { trainer: LocationTrainer | GymLeader }) {
   const { showFaithful } = useFaithfulPreference();
-  
+
   if (!trainer.pokemon || trainer.pokemon.length === 0) {
     return null;
   }
@@ -44,10 +44,7 @@ function TrainerTeamDisplay({ trainer }: { trainer: LocationTrainer | GymLeader 
             : [];
 
         return (
-          <Card
-            key={idx}
-            className="bg-white dark:bg-black/5 border border-border p-0 shadow-none"
-          >
+          <Card key={idx} className="bg-white dark:bg-black/5 border border-border p-0 shadow-none">
             <CardContent className="p-4 flex flex-col gap-2">
               <div className="flex items-center gap-3">
                 <Link
@@ -101,9 +98,7 @@ function TrainerTeamDisplay({ trainer }: { trainer: LocationTrainer | GymLeader 
                       </a>
                     </p>
                   )}
-                  {poke.nature && (
-                    <span className="text-xs">Nature: {poke.nature}</span>
-                  )}
+                  {poke.nature && <span className="text-xs">Nature: {poke.nature}</span>}
                 </div>
               </div>
 
@@ -139,9 +134,7 @@ function TrainerTeamDisplay({ trainer }: { trainer: LocationTrainer | GymLeader 
                     (k) => k.toLowerCase() === move.toLowerCase().replace(/\s+/g, '-'),
                   ) as MoveKey | undefined;
 
-                  const moveData = moveKey
-                    ? pokemonMoveDescriptions[moveKey]
-                    : undefined;
+                  const moveData = moveKey ? pokemonMoveDescriptions[moveKey] : undefined;
                   const moveType = showFaithful
                     ? moveData && (moveData as Move['info'])?.faithful?.type
                       ? (moveData as Move['info'])?.faithful?.type
@@ -177,9 +170,12 @@ function TrainerTeamDisplay({ trainer }: { trainer: LocationTrainer | GymLeader 
   );
 }
 
-export default function GroupedTrainerCard({ groupedTrainer, isGymLeader }: GroupedTrainerCardProps) {
+export default function GroupedTrainerCard({
+  groupedTrainer,
+  isGymLeader,
+}: GroupedTrainerCardProps) {
   const { baseTrainer, rematches, isGrouped } = groupedTrainer;
-  
+
   let displayTrainerClass = baseTrainer.trainerClass;
   switch (displayTrainerClass?.toLowerCase()) {
     case 'lyra2':
@@ -263,12 +259,12 @@ export default function GroupedTrainerCard({ groupedTrainer, isGymLeader }: Grou
                     </Badge>
                   )}
                 </h3>
-                {isGymLeader && 'badge' in baseTrainer && <p>Badge: {String((baseTrainer as any).badge)}</p>}
-                {isGrouped && (
+                {isGymLeader && 'badge' in baseTrainer && <p>Badge: {String(baseTrainer.badge)}</p>}
+                {/* {isGrouped && (
                   <p className="text-sm text-gray-600 dark:text-gray-400">
                     Can be rematched for stronger teams
                   </p>
-                )}
+                )} */}
               </div>
             </div>
           </AccordionTrigger>
@@ -291,9 +287,7 @@ export default function GroupedTrainerCard({ groupedTrainer, isGymLeader }: Grou
                 {/* Rematches */}
                 {rematches.map((rematchTrainer, index) => (
                   <div key={rematchTrainer.id}>
-                    <h4 className="font-semibold mb-3 text-lg">
-                      Rematch {index + 1}
-                    </h4>
+                    <h4 className="font-semibold mb-3 text-lg">Rematch {index + 1}</h4>
                     <TrainerTeamDisplay trainer={rematchTrainer} />
                   </div>
                 ))}

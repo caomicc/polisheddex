@@ -62,14 +62,42 @@ export function groupRematchTrainers(trainers: LocationTrainer[]): GroupedTraine
           isGrouped: true,
         });
       } else {
-        // Different trainers (like starter-dependent rivals) - keep separate
-        group.forEach((trainer) => {
-          groupedTrainers.push({
-            baseTrainer: trainer,
-            rematches: [],
-            isGrouped: false,
+        // Check if they're likely rematches even if rematchable flag is wrong
+        // (same name, class, and sequential IDs with numbers)
+        const allHaveNumbers = group.every(trainer => /\d+$/.test(trainer.id));
+        
+        let hasSequentialIds = false;
+        if (allHaveNumbers) {
+          const numbers = group.map(trainer => parseInt(trainer.id.match(/\d+$/)?.[0] || '0')).sort((a, b) => a - b);
+          hasSequentialIds = numbers.every((num, index) => {
+            if (index === 0) return true; // First number can be anything
+            return num === numbers[index - 1] + 1; // Each subsequent number should be previous + 1
           });
-        });
+        }
+        
+        if (hasSequentialIds && allHaveNumbers && group.length > 1) {
+          // These are likely rematches despite the rematchable flag being false
+          const sortedRematches = group.sort((a, b) => {
+            const aNum = parseInt(a.id.match(/\d+$/)?.[0] || '1');
+            const bNum = parseInt(b.id.match(/\d+$/)?.[0] || '1');
+            return aNum - bNum;
+          });
+
+          groupedTrainers.push({
+            baseTrainer: sortedRematches[0], // First encounter
+            rematches: sortedRematches.slice(1), // Subsequent rematches
+            isGrouped: true,
+          });
+        } else {
+          // Different trainers (like starter-dependent rivals) - keep separate
+          group.forEach((trainer) => {
+            groupedTrainers.push({
+              baseTrainer: trainer,
+              rematches: [],
+              isGrouped: false,
+            });
+          });
+        }
       }
     }
   });
