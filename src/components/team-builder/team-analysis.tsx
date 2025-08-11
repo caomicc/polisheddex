@@ -5,6 +5,7 @@ import { TeamPokemon } from '@/hooks/use-team-search-params';
 import { Badge } from '@/components/ui/badge';
 import { PokemonType } from '@/types/types';
 import typeChartData from '../../../output/type_chart.json';
+import movesData from '../../../output/manifests/moves.json';
 
 const TYPE_CHART: Record<string, Record<string, number>> = typeChartData as Record<
   string,
@@ -23,13 +24,14 @@ interface TypeCoverage {
   weaknesses: { type: string; count: number; severity: number }[];
   resistances: { type: string; count: number; strength: number }[];
   immunities: { type: string; count: number }[];
+  moveTypes: { type: string; count: number; coverage: number }[];
 }
 
 function calculateTeamTypeCoverage(team: (TeamPokemon | null)[]): TypeCoverage {
   const activePokemon = team.filter(Boolean) as TeamPokemon[];
 
   if (activePokemon.length === 0) {
-    return { weaknesses: [], resistances: [], immunities: [] };
+    return { weaknesses: [], resistances: [], immunities: [], moveTypes: [] };
   }
 
   const typeCounts: Record<
@@ -91,7 +93,42 @@ function calculateTeamTypeCoverage(team: (TeamPokemon | null)[]): TypeCoverage {
     }))
     .sort((a, b) => b.count - a.count);
 
-  return { weaknesses, resistances, immunities };
+  // Calculate move type coverage
+  const moveTypeCounts: Record<string, number> = {};
+  
+  activePokemon.forEach((pokemon) => {
+    if (pokemon.moves && pokemon.moves.length > 0) {
+      pokemon.moves.forEach((moveName) => {
+        const moveKey = moveName.toLowerCase().replace(/\s+/g, '-');
+        const moveInfo = (movesData as any)[moveKey];
+        if (moveInfo) {
+          // Try to get move type from faithful or updated data
+          const typeInfo = moveInfo.faithful || moveInfo.updated;
+          if (typeInfo?.type) {
+            const moveType = typeInfo.type.toLowerCase();
+            moveTypeCounts[moveType] = (moveTypeCounts[moveType] || 0) + 1;
+          }
+        }
+      });
+    }
+  });
+
+  // Calculate coverage for each move type
+  const moveTypes = Object.entries(moveTypeCounts)
+    .map(([type, count]) => {
+      // Calculate how many types this move type is super effective against
+      const typeChart = TYPE_CHART[type.toLowerCase()] || {};
+      const superEffectiveCount = Object.values(typeChart).filter(multiplier => multiplier > 1).length;
+      
+      return {
+        type: type.charAt(0).toUpperCase() + type.slice(1),
+        count,
+        coverage: superEffectiveCount
+      };
+    })
+    .sort((a, b) => b.coverage - a.coverage);
+
+  return { weaknesses, resistances, immunities, moveTypes };
 }
 
 export function TeamAnalysis({ team }: TeamAnalysisProps) {
@@ -118,7 +155,7 @@ export function TeamAnalysis({ team }: TeamAnalysisProps) {
     <div className="p-2">
       <h2 className="text-2xl font-semibold mb-6">Team Analysis</h2>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Weaknesses */}
         <div>
           <h3 className="mb-3 text-red-700">Team Weaknesses</h3>
@@ -199,12 +236,41 @@ export function TeamAnalysis({ team }: TeamAnalysisProps) {
             )}
           </div>
         </div>
+
+        {/* Move Coverage */}
+        <div>
+          <h3 className="mb-3 text-purple-700">Move Coverage</h3>
+          <div className="space-y-2">
+            {coverage.moveTypes.length === 0 ? (
+              <p className="text-gray-500 text-sm">No moves selected.</p>
+            ) : (
+              coverage.moveTypes.map(({ type, count, coverage: typeCoverage }) => (
+                <div
+                  key={type}
+                  className="flex items-center justify-between p-2 rounded bg-purple-100 text-purple-800 border border-purple-200"
+                >
+                  <div className="flex items-center space-x-2">
+                    <Badge variant={type.toLowerCase() as PokemonType['name']} className="text-xs">
+                      {type}
+                    </Badge>
+                    <span className="text-sm">
+                      {count} move{count !== 1 ? 's' : ''}
+                    </span>
+                  </div>
+                  <span className="text-sm font-medium">
+                    SE vs {typeCoverage}
+                  </span>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
       </div>
 
       {/* Team Summary */}
       <div className="mt-6 pt-6 border-t">
         <h3 className="mb-3">Team Summary</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
           <div className="bg-gray-50 p-3 rounded">
             <div className="text-2xl font-bold text-gray-800">{activePokemon.length}</div>
             <div className="text-sm text-gray-600">Pokémon</div>
@@ -220,6 +286,10 @@ export function TeamAnalysis({ team }: TeamAnalysisProps) {
           <div className="bg-blue-50 p-3 rounded">
             <div className="text-2xl font-bold text-blue-800">{coverage.immunities.length}</div>
             <div className="text-sm text-blue-600">Immunities</div>
+          </div>
+          <div className="bg-purple-50 p-3 rounded">
+            <div className="text-2xl font-bold text-purple-800">{coverage.moveTypes.length}</div>
+            <div className="text-sm text-purple-600">Move Types</div>
           </div>
         </div>
       </div>

@@ -1,20 +1,22 @@
 'use client';
 
 import { TeamPokemon } from '@/hooks/use-team-search-params';
-import { X, Plus } from 'lucide-react';
+import { X, Plus, Settings } from 'lucide-react';
 import PokemonCard from '../pokemon/pokemon-card';
 import { BaseData } from '@/types/types';
 import Link from 'next/link';
 import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
+import { Button } from '../ui/button';
 
 interface TeamSlotProps {
   pokemon: TeamPokemon | null;
   slotNumber: number;
   onSlotClick: () => void;
   onRemove: () => void;
+  onMovesClick?: () => void;
 }
 
-export function TeamSlot({ pokemon, slotNumber, onSlotClick, onRemove }: TeamSlotProps) {
+export function TeamSlot({ pokemon, slotNumber, onSlotClick, onRemove, onMovesClick }: TeamSlotProps) {
   if (!pokemon) {
     return (
       <div
@@ -32,15 +34,34 @@ export function TeamSlot({ pokemon, slotNumber, onSlotClick, onRemove }: TeamSlo
     onRemove();
   };
 
+  const handleMovesClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    if (onMovesClick) {
+      onMovesClick();
+    }
+  };
+
   return (
     <div className="relative cursor-pointer group">
-      {/* <div onClick={onSlotClick} className="relative  cursor-pointer group"> */}
+      {/* Remove button */}
       <button
         onClick={handleRemoveClick}
-        className="absolute top-2 md:top-0 right-2 md:right-0 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center md:opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-red-600 cursor-pointer z-20"
+        className="absolute top-2 md:top-0 right-2 md:right-0 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center md:opacity-0 group-hover:opacity-100 transition-opacity z-20 hover:bg-red-600"
       >
-        <X className="w-3 h-3 pointer-none" />
+        <X className="w-3 h-3" />
       </button>
+
+      {/* Moves button */}
+      {onMovesClick && (
+        <button
+          onClick={handleMovesClick}
+          className="absolute bottom-2 right-2 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center md:opacity-0 group-hover:opacity-100 transition-opacity z-20 hover:bg-blue-600"
+          title="Edit moves"
+        >
+          <Settings className="w-3 h-3" />
+        </button>
+      )}
 
       <Link
         href={
@@ -66,6 +87,13 @@ export function TeamSlot({ pokemon, slotNumber, onSlotClick, onRemove }: TeamSlo
           }
         />
       </Link>
+
+      {/* Show selected moves count */}
+      {pokemon.moves && pokemon.moves.length > 0 && (
+        <div className="absolute bottom-2 left-2 bg-black bg-opacity-75 text-white text-xs px-2 py-1 rounded">
+          {pokemon.moves.length}/4 moves
+        </div>
+      )}
     </div>
   );
 }

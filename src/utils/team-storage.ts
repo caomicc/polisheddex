@@ -4,6 +4,7 @@
 export interface SavedTeamPokemon {
   name: string;
   formName?: string;
+  moves?: string[];
 }
 
 export interface SavedTeam {
@@ -63,6 +64,7 @@ export function saveTeam(
       return {
         name: p.name,
         formName: p.formName || undefined,
+        moves: p.moves && p.moves.length > 0 ? p.moves : undefined,
       };
     });
 
@@ -148,11 +150,17 @@ export function parseTeamFromUrl(teamParam: string): (SavedTeamPokemon | null)[]
 
   pokemonEntries.forEach((entry, index) => {
     if (index < 6) {
-      const [name, formName] = entry.split(':');
+      const parts = entry.split(':');
+      const name = parts[0];
+      const formName = parts[1] || undefined;
+      const movesStr = parts[2] || '';
+      const moves = movesStr ? movesStr.split('|').filter(m => m.trim()) : [];
+      
       if (name) {
         teamArray[index] = {
           name,
-          formName: formName || undefined,
+          formName,
+          moves: moves.length > 0 ? moves : undefined,
         };
       }
     }
@@ -175,7 +183,16 @@ export function formatTeamForUrl(pokemon: (SavedTeamPokemon | null)[]): string {
     .slice(0, lastIndex + 1)
     .map((p) => {
       if (!p) return '';
-      return p.formName ? `${p.name}:${p.formName}` : p.name;
+      let pokemonStr = p.name;
+      if (p.formName) {
+        pokemonStr += `:${p.formName}`;
+      } else if (p.moves && p.moves.length > 0) {
+        pokemonStr += ':'; // Empty form part
+      }
+      if (p.moves && p.moves.length > 0) {
+        pokemonStr += `:${p.moves.join('|')}`;
+      }
+      return pokemonStr;
     })
     .join(',');
 }

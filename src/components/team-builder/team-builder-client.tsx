@@ -7,6 +7,7 @@ import { TeamAnalysis } from './team-analysis';
 import { PokemonSearchModal } from './pokemon-search-modal';
 import { SaveTeamModal } from './save-team-modal';
 import { LoadTeamModal } from './load-team-modal';
+import { MoveSelector } from './move-selector';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { useTeamSearchParams } from '@/hooks/use-team-search-params';
 import { Button } from '../ui/button';
@@ -18,13 +19,14 @@ interface TeamBuilderClientProps {
 
 export function TeamBuilderClient({ pokemonData }: TeamBuilderClientProps) {
   const { showFaithful } = useFaithfulPreference();
-  const { team, setPokemonInSlot, removePokemonFromSlot, setTeamFromUrl } = useTeamSearchParams(
+  const { team, setPokemonInSlot, removePokemonFromSlot, updatePokemonMoves, setTeamFromUrl } = useTeamSearchParams(
     pokemonData,
     showFaithful,
   );
   const [selectedSlot, setSelectedSlot] = useState<number | null>(null);
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [showLoadModal, setShowLoadModal] = useState(false);
+  const [moveSelectionSlot, setMoveSelectionSlot] = useState<number | null>(null);
 
   const handleSlotClick = (index: number) => {
     setSelectedSlot(index);
@@ -41,8 +43,22 @@ export function TeamBuilderClient({ pokemonData }: TeamBuilderClientProps) {
     removePokemonFromSlot(index);
   };
 
+  const handleMovesClick = (index: number) => {
+    setMoveSelectionSlot(index);
+  };
+
+  const handleMovesUpdate = (moves: string[]) => {
+    if (moveSelectionSlot !== null) {
+      updatePokemonMoves(moveSelectionSlot, moves);
+    }
+  };
+
   const closeModal = () => {
     setSelectedSlot(null);
+  };
+
+  const closeMoveSelector = () => {
+    setMoveSelectionSlot(null);
   };
 
   const handleSaveTeam = () => {
@@ -94,6 +110,7 @@ export function TeamBuilderClient({ pokemonData }: TeamBuilderClientProps) {
               slotNumber={index + 1}
               onSlotClick={() => handleSlotClick(index)}
               onRemove={() => handleRemovePokemon(index)}
+              onMovesClick={pokemon ? () => handleMovesClick(index) : undefined}
             />
           ))}
         </div>
@@ -118,7 +135,11 @@ export function TeamBuilderClient({ pokemonData }: TeamBuilderClientProps) {
         isOpen={showSaveModal}
         onClose={() => setShowSaveModal(false)}
         teamPokemon={team.map((pokemon) =>
-          pokemon ? { name: pokemon.name, formName: pokemon.formName } : null,
+          pokemon ? { 
+            name: pokemon.name, 
+            formName: pokemon.formName,
+            moves: pokemon.moves 
+          } : null,
         )}
         onSave={handleSaveComplete}
       />
@@ -129,6 +150,17 @@ export function TeamBuilderClient({ pokemonData }: TeamBuilderClientProps) {
         onClose={() => setShowLoadModal(false)}
         onLoadTeam={handleLoadTeam}
       />
+
+      {/* Move Selection Modal */}
+      {moveSelectionSlot !== null && team[moveSelectionSlot] && (
+        <MoveSelector
+          isOpen={true}
+          onClose={closeMoveSelector}
+          pokemon={team[moveSelectionSlot]!}
+          currentMoves={team[moveSelectionSlot]?.moves || []}
+          onMovesUpdate={handleMovesUpdate}
+        />
+      )}
     </div>
   );
 }

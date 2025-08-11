@@ -33,6 +33,7 @@ export interface TeamPokemon {
   data: DetailedStats;
   types: string[];
   normalizedUrl?: string; // Optional normalized URL for the Pokemon
+  moves?: string[]; // Selected moves for this Pokemon (up to 4)
 }
 
 export function useTeamSearchParams(
@@ -53,14 +54,20 @@ export function useTeamSearchParams(
 
     pokemonEntries.forEach((entry, index) => {
       if (index < 6) {
-        // Parse name:form format
-        const [name, formName] = entry.split(':');
+        // Parse name:form:moves format (moves separated by |)
+        const parts = entry.split(':');
+        const name = parts[0];
+        const formName = parts[1] || undefined;
+        const movesStr = parts[2] || '';
+        const moves = movesStr ? movesStr.split('|').filter(m => m.trim()) : [];
+        
         if (pokemonData[name]) {
           teamArray[index] = {
             name,
             formName,
             data: pokemonData[name],
             types: getTypesForMode(pokemonData[name], showFaithful, formName),
+            moves: moves.length > 0 ? moves : undefined,
           };
         }
       }
@@ -82,7 +89,16 @@ export function useTeamSearchParams(
         .slice(0, lastIndex + 1)
         .map((pokemon) => {
           if (!pokemon) return '';
-          return pokemon.formName ? `${pokemon.name}:${pokemon.formName}` : pokemon.name;
+          let pokemonStr = pokemon.name;
+          if (pokemon.formName) {
+            pokemonStr += `:${pokemon.formName}`;
+          } else if (pokemon.moves && pokemon.moves.length > 0) {
+            pokemonStr += ':'; // Empty form part
+          }
+          if (pokemon.moves && pokemon.moves.length > 0) {
+            pokemonStr += `:${pokemon.moves.join('|')}`;
+          }
+          return pokemonStr;
         })
         .join(',');
 
@@ -116,6 +132,21 @@ export function useTeamSearchParams(
     [team, setTeam],
   );
 
+  // Update moves for a specific Pokemon
+  const updatePokemonMoves = useCallback(
+    (index: number, moves: string[]) => {
+      const newTeam = [...team];
+      if (newTeam[index]) {
+        newTeam[index] = {
+          ...newTeam[index]!,
+          moves: moves.length > 0 ? moves : undefined,
+        };
+        setTeam(newTeam);
+      }
+    },
+    [team, setTeam],
+  );
+
   // Load team from URL parameter string
   const setTeamFromUrl = useCallback(
     (teamParam: string) => {
@@ -129,6 +160,7 @@ export function useTeamSearchParams(
     setTeam,
     setPokemonInSlot,
     removePokemonFromSlot,
+    updatePokemonMoves,
     setTeamFromUrl,
   };
 }
