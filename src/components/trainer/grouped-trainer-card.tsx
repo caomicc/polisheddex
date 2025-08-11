@@ -255,7 +255,9 @@ export default function GroupedTrainerCard({
                   )}
                   {isGrouped && (
                     <Badge variant="secondary" className="ml-2 text-xs">
-                      {rematches.length + 1} battles
+                      {rematches.length === 0 
+                        ? 'Double battle' 
+                        : `${rematches.length + 1} battles`}
                     </Badge>
                   )}
                 </h3>

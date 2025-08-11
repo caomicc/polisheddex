@@ -15,10 +15,10 @@ export function groupRematchTrainers(trainers: LocationTrainer[]): GroupedTraine
     const baseId = trainer.id.replace(/\d+$/, '');
     const baseName = trainer.name;
     const baseClass = trainer.trainerClass;
-    
+
     // Create a unique key for grouping
     const groupKey = `${baseClass}_${baseName}_${baseId}`;
-    
+
     if (!trainerGroups.has(groupKey)) {
       trainerGroups.set(groupKey, []);
     }
@@ -40,13 +40,37 @@ export function groupRematchTrainers(trainers: LocationTrainer[]): GroupedTraine
       // Multiple trainers with similar identity
       // Check if they're actually rematches (same name, class, coordinates, and rematchable)
       const firstTrainer = group[0];
-      const areRematches = group.every((trainer) => 
-        trainer.name === firstTrainer.name &&
-        trainer.trainerClass === firstTrainer.trainerClass &&
-        trainer.coordinates.x === firstTrainer.coordinates.x &&
-        trainer.coordinates.y === firstTrainer.coordinates.y &&
-        trainer.rematchable === true
+      const areRematches = group.every(
+        (trainer) =>
+          trainer.name === firstTrainer.name &&
+          trainer.trainerClass === firstTrainer.trainerClass &&
+          trainer.coordinates.x === firstTrainer.coordinates.x &&
+          trainer.coordinates.y === firstTrainer.coordinates.y &&
+          trainer.rematchable === true,
       );
+
+      console.log('Trainer group:', group, 'firstTrainer.trainerClass', firstTrainer.trainerClass);
+
+      // Check if they're trainer pairs/twins (same name, class, adjacent coordinates)
+      const areTrainerPairs =
+        group.length === 2 &&
+        group.every(
+          (trainer) =>
+            trainer.name === firstTrainer.name &&
+            trainer.trainerClass === firstTrainer.trainerClass &&
+            (trainer.trainerClass === 'TWINS' ||
+              trainer.trainerClass === 'SR_AND_JR' ||
+              trainer.trainerClass === 'ACE_DUO' ||
+              trainer.name.includes('&')) && // Names with "&" are usually pairs
+            // Check if coordinates are adjacent (within 1-2 tiles of each other)
+            Math.abs(trainer.coordinates.x - firstTrainer.coordinates.x) <= 2 &&
+            Math.abs(trainer.coordinates.y - firstTrainer.coordinates.y) <= 2 &&
+            // But not exactly the same coordinates (that would be rematches)
+            !(
+              trainer.coordinates.x === firstTrainer.coordinates.x &&
+              trainer.coordinates.y === firstTrainer.coordinates.y
+            ),
+        );
 
       if (areRematches) {
         // Group as rematches - sort by ID to get proper order
@@ -61,20 +85,41 @@ export function groupRematchTrainers(trainers: LocationTrainer[]): GroupedTraine
           rematches: sortedRematches.slice(1), // Subsequent rematches
           isGrouped: true,
         });
+      } else if (areTrainerPairs) {
+        // Group as trainer pairs/twins - combine their Pokémon into one encounter
+        const sortedPair = group.sort((a, b) => {
+          const aNum = parseInt(a.id.match(/\d+$/)?.[0] || '1');
+          const bNum = parseInt(b.id.match(/\d+$/)?.[0] || '1');
+          return aNum - bNum;
+        });
+
+        // Create a combined trainer with both teams
+        const combinedTrainer = {
+          ...sortedPair[0],
+          pokemon: [...(sortedPair[0].pokemon || []), ...(sortedPair[1].pokemon || [])],
+        };
+
+        groupedTrainers.push({
+          baseTrainer: combinedTrainer,
+          rematches: [],
+          isGrouped: true,
+        });
       } else {
         // Check if they're likely rematches even if rematchable flag is wrong
         // (same name, class, and sequential IDs with numbers)
-        const allHaveNumbers = group.every(trainer => /\d+$/.test(trainer.id));
-        
+        const allHaveNumbers = group.every((trainer) => /\d+$/.test(trainer.id));
+
         let hasSequentialIds = false;
         if (allHaveNumbers) {
-          const numbers = group.map(trainer => parseInt(trainer.id.match(/\d+$/)?.[0] || '0')).sort((a, b) => a - b);
+          const numbers = group
+            .map((trainer) => parseInt(trainer.id.match(/\d+$/)?.[0] || '0'))
+            .sort((a, b) => a - b);
           hasSequentialIds = numbers.every((num, index) => {
             if (index === 0) return true; // First number can be anything
             return num === numbers[index - 1] + 1; // Each subsequent number should be previous + 1
           });
         }
-        
+
         if (hasSequentialIds && allHaveNumbers && group.length > 1) {
           // These are likely rematches despite the rematchable flag being false
           const sortedRematches = group.sort((a, b) => {
