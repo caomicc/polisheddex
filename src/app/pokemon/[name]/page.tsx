@@ -44,6 +44,10 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   allFormData['default'] = {
     ...pokemonData,
     ...(pokemonData.detailedStats || {}),
+    // Ensure default form has proper type data - fallback to parent types
+    types: ((defaultFormData as any).types && (defaultFormData as any).types.length > 0) ? (defaultFormData as any).types : (pokemonData.detailedStats as any)?.types || (pokemonData as any).types,
+    updatedTypes: ((defaultFormData as any).updatedTypes && (defaultFormData as any).updatedTypes.length > 0) ? (defaultFormData as any).updatedTypes : (pokemonData.detailedStats as any)?.updatedTypes || (pokemonData as any).updatedTypes,
+    faithfulTypes: ((defaultFormData as any).faithfulTypes && (defaultFormData as any).faithfulTypes.length > 0) ? (defaultFormData as any).faithfulTypes : (pokemonData.detailedStats as any)?.faithfulTypes || (pokemonData as any).faithfulTypes,
     moves: defaultFormData.moves || [],
     faithfulMoves: defaultFormData.faithfulMoves || [],
     updatedMoves: defaultFormData.updatedMoves || [],
@@ -127,6 +131,10 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
           {
             ...formValue,
             ...(formValue.detailedStats || {}),
+            // Add type fallback logic - use parent types if form types are empty
+            types: ((formValue as any).types && (formValue as any).types.length > 0) ? (formValue as any).types : (pokemonData.detailedStats as any)?.types || (pokemonData as any).types,
+            updatedTypes: ((formValue as any).updatedTypes && (formValue as any).updatedTypes.length > 0) ? (formValue as any).updatedTypes : (pokemonData.detailedStats as any)?.updatedTypes || (pokemonData as any).updatedTypes,
+            faithfulTypes: ((formValue as any).faithfulTypes && (formValue as any).faithfulTypes.length > 0) ? (formValue as any).faithfulTypes : (pokemonData.detailedStats as any)?.faithfulTypes || (pokemonData as any).faithfulTypes,
             moves: formValue.moves || [],
             faithfulMoves: formValue.faithfulMoves || [],
             updatedMoves: formValue.updatedMoves || [],

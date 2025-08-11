@@ -50,10 +50,10 @@ export default async function PokemonTableList() {
                   parentSpecies: pokemon.name,
                   isForm: true,
                   forms: undefined, // Remove forms array from form entry
-                  // Ensure form types are properly set
-                  // types: formData.types || pokemon.types,
-                  updatedTypes: formData.updatedTypes || pokemon.updatedTypes,
-                  faithfulTypes: formData.faithfulTypes || pokemon.faithfulTypes,
+                  // Ensure form types are properly set - fallback to parent types if form types are empty
+                  types: (formData.types && formData.types.length > 0) ? formData.types : pokemon.types,
+                  updatedTypes: (formData.updatedTypes && formData.updatedTypes.length > 0) ? formData.updatedTypes : pokemon.updatedTypes,
+                  faithfulTypes: (formData.faithfulTypes && formData.faithfulTypes.length > 0) ? formData.faithfulTypes : pokemon.faithfulTypes,
                 };
               } else {
                 // Fallback to parent data if no form-specific data
