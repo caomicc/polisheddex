@@ -1,0 +1,1433 @@
+{
+  "name": "Pupitar",
+  "nationalDex": 247,
+  "johtoDex": 283,
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 55,
+        "target": "Tyranitar"
+      }
+    ],
+    "chain": [
+      "Larvitar",
+      "Pupitar",
+      "Tyranitar"
+    ],
+    "chainWithMethods": {
+      "Pupitar": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 55,
+          "target": "Tyranitar"
+        }
+      ],
+      "Tyranitar": [],
+      "Larvitar": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Pupitar"
+        }
+      ]
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 55,
+        "target": "Tyranitar"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Pupitar": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 55,
+          "target": "Tyranitar"
+        }
+      ],
+      "Tyranitar": [],
+      "Larvitar": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Pupitar"
+        }
+      ]
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 55,
+        "target": "Tyranitar"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Pupitar": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 55,
+          "target": "Tyranitar"
+        }
+      ],
+      "Tyranitar": [],
+      "Larvitar": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Pupitar"
+        }
+      ]
+    }
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 70,
+      "attack": 84,
+      "defense": 70,
+      "speed": 51,
+      "specialAttack": 65,
+      "specialDefense": 70,
+      "total": 410
+    },
+    "faithfulBaseStats": {
+      "hp": 70,
+      "attack": 84,
+      "defense": 70,
+      "speed": 51,
+      "specialAttack": 65,
+      "specialDefense": 70,
+      "total": 410
+    },
+    "polishedBaseStats": {
+      "hp": 70,
+      "attack": 84,
+      "defense": 70,
+      "speed": 51,
+      "specialAttack": 65,
+      "specialDefense": 70,
+      "total": 410
+    },
+    "catchRate": 45,
+    "baseExp": 144,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Extremely Slow (20,480 steps)",
+    "abilities": [
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "battle-armor",
+        "name": "Battle Armor",
+        "description": "",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "growthRate": "Slow",
+    "eggGroups": [
+      "Monster",
+      "Monster"
+    ],
+    "evYield": "2 Atk",
+    "types": [
+      "Rock",
+      "Ground"
+    ],
+    "updatedTypes": [
+      "Rock",
+      "Ground"
+    ]
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Rock",
+        "Ground"
+      ],
+      "faithfulTypes": [
+        "Rock",
+        "Ground"
+      ],
+      "updatedTypes": [
+        "Rock",
+        "Ground"
+      ],
+      "moves": [
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "level": 5,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Rock",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 10,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rage",
+          "level": 14,
+          "info": {
+            "description": "Raises Attack if the user is hit.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 19,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 23,
+          "info": {
+            "description": "Sharply lowers the foe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 28,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dark Pulse",
+          "level": 34,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 41,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 47,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 54,
+          "info": {
+            "description": "Tough but useless vs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "level": 60,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 67,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "level": 75,
+          "info": {
+            "description": "1st turn: Attack 2nd turn: Rest",
+            "type": "Normal",
+            "pp": 5,
+            "power": 150,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 84,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "level": 5,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Rock",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 10,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rage",
+          "level": 14,
+          "info": {
+            "description": "Raises Attack if the user is hit.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 19,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 23,
+          "info": {
+            "description": "Sharply lowers the foe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 28,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dark Pulse",
+          "level": 34,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 41,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 47,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 54,
+          "info": {
+            "description": "Tough but useless vs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "level": 60,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 67,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "level": 75,
+          "info": {
+            "description": "1st turn: Attack 2nd turn: Rest",
+            "type": "Normal",
+            "pp": 5,
+            "power": 150,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 84,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "level": 5,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Rock",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 10,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rage",
+          "level": 14,
+          "info": {
+            "description": "Raises Attack if the user is hit.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 19,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 23,
+          "info": {
+            "description": "Sharply lowers the foe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 28,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dark Pulse",
+          "level": 34,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 41,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 47,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 54,
+          "info": {
+            "description": "Tough but useless vs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "level": 60,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 67,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "level": 75,
+          "info": {
+            "description": "1st turn: Attack 2nd turn: Rest",
+            "type": "Normal",
+            "pp": 5,
+            "power": 150,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 84,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "battle-armor",
+          "name": "Battle Armor",
+          "description": "",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 70,
+        "attack": 84,
+        "defense": 70,
+        "speed": 51,
+        "specialAttack": 65,
+        "specialDefense": 70,
+        "total": 410
+      },
+      "faithfulBaseStats": {
+        "hp": 70,
+        "attack": 84,
+        "defense": 70,
+        "speed": 51,
+        "specialAttack": 65,
+        "specialDefense": 70,
+        "total": 410
+      },
+      "polishedBaseStats": {
+        "hp": 70,
+        "attack": 84,
+        "defense": 70,
+        "speed": 51,
+        "specialAttack": 65,
+        "specialDefense": 70,
+        "total": 410
+      },
+      "catchRate": 45,
+      "baseExp": 144,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Monster",
+        "Monster"
+      ],
+      "evYield": "2 Atk",
+      "eggMoves": [
+        "Dragon Dance",
+        "Focus Energy",
+        "Pursuit",
+        "Stomp",
+        "Outrage",
+        "Ancientpower",
+        "Iron Head"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "TM15",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Bulldoze",
+          "description": "A Ground attack that lowers Speed.",
+          "type": "Ground",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM21",
+          "location": {
+            "area": "Route 39"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "description": "Tough but useless vs. flying foes.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM26",
+          "location": {
+            "area": "Victory Road"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "description": "Inflicts damage every turn.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM37",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "description": "An attack that may cause flinching.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM48",
+          "location": {
+            "area": "Brock's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Dark Pulse",
+          "description": "An attack that may cause flinching.",
+          "type": "Dark",
+          "pp": 15,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM58",
+          "location": {
+            "area": "Dark Cave"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "description": "Has a high critical hit ratio.",
+          "type": "Rock",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 80,
+          "tmNumber": "TM71",
+          "location": {
+            "area": "Blue's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Earth Power",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "MT10",
+          "location": {
+            "area": "Cherrygrove Bay"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Iron Head",
+          "description": "An attack that may cause flinching.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT17",
+          "location": {
+            "area": "Route 4"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ]
+    }
+  },
+  "locations": [
+    {
+      "area": "silver_cave_room_1",
+      "method": "grass",
+      "time": "morn",
+      "level": "75",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_room_1",
+      "method": "grass",
+      "time": "day",
+      "level": "75",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_room_2",
+      "method": "grass",
+      "time": "morn",
+      "level": "77",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_room_2",
+      "method": "grass",
+      "time": "day",
+      "level": "77",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_room_3",
+      "method": "grass",
+      "time": "morn",
+      "level": "79",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_room_3",
+      "method": "grass",
+      "time": "day",
+      "level": "79",
+      "chance": 3,
+      "formName": null
+    }
+  ]
+}

@@ -1,0 +1,1469 @@
+{
+  "name": "Mime-Jr",
+  "nationalDex": 258,
+  "johtoDex": 172,
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Mime-Jr",
+      "Mr-Mime",
+      "mr-rime"
+    ],
+    "chainWithMethods": {
+      "Mime-Jr": [
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Mr-Mime",
+          "form": "Galarian Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Mr-Mime",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Mr-Mime",
+          "form": "Galarian Form"
+        }
+      ],
+      "Mr-Mime": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 42,
+          "target": "mr-rime"
+        }
+      ],
+      "mr-rime": []
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Mime-Jr": [
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Mr-Mime",
+          "form": "Galarian Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Mr-Mime",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Mr-Mime",
+          "form": "Galarian Form"
+        }
+      ],
+      "Mr-Mime": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 42,
+          "target": "mr-rime"
+        }
+      ],
+      "mr-rime": []
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Mime-Jr": [
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Mr-Mime",
+          "form": "Galarian Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Mr-Mime",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Mr-Mime",
+          "form": "Galarian Form"
+        }
+      ],
+      "Mr-Mime": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 42,
+          "target": "mr-rime"
+        }
+      ],
+      "mr-rime": []
+    }
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 20,
+      "attack": 25,
+      "defense": 45,
+      "speed": 60,
+      "specialAttack": 70,
+      "specialDefense": 90,
+      "total": 310
+    },
+    "faithfulBaseStats": {
+      "hp": 20,
+      "attack": 25,
+      "defense": 45,
+      "speed": 60,
+      "specialAttack": 70,
+      "specialDefense": 90,
+      "total": 310
+    },
+    "polishedBaseStats": {
+      "hp": 20,
+      "attack": 25,
+      "defense": 45,
+      "speed": 60,
+      "specialAttack": 70,
+      "specialDefense": 90,
+      "total": 310
+    },
+    "catchRate": 145,
+    "baseExp": 78,
+    "heldItems": [
+      "LEPPA_BERRY"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Slow (6,400 steps)",
+    "abilities": [
+      {
+        "id": "soundproof",
+        "name": "Soundproof",
+        "description": "\tGives immunity to \tsound-based moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "filter",
+        "name": "Filter",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "technician",
+        "name": "Technician",
+        "description": "\tPowers up its \tweaker moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "soundproof",
+        "name": "Soundproof",
+        "description": "\tGives immunity to \tsound-based moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "filter",
+        "name": "Filter",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "technician",
+        "name": "Technician",
+        "description": "\tPowers up its \tweaker moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Undiscovered",
+      "Undiscovered"
+    ],
+    "evYield": "1 SDf",
+    "types": [
+      "Psychic",
+      "Fairy"
+    ],
+    "updatedTypes": [
+      "Psychic",
+      "Fairy"
+    ]
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Psychic",
+        "Fairy"
+      ],
+      "faithfulTypes": [
+        "Psychic",
+        "Fairy"
+      ],
+      "updatedTypes": [
+        "Psychic",
+        "Fairy"
+      ],
+      "moves": [
+        {
+          "name": "Barrier",
+          "level": 1,
+          "info": {
+            "description": "Sharply raises the user's Defense.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Confusion",
+          "level": 1,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Psychic",
+            "pp": 25,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hypnosis",
+          "level": 4,
+          "info": {
+            "description": "May cause the foe to fall asleep.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": 60,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Calm Mind",
+          "level": 8,
+          "info": {
+            "description": "Raises the user's Sp.Atk and Sp.Def.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Double Slap",
+          "level": 11,
+          "info": {
+            "description": "Repeatedly slaps 2-5 times.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 15,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Protect",
+          "level": 13,
+          "info": {
+            "description": "Foils attack that turn. It may fail.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Metronome",
+          "level": 15,
+          "info": {
+            "description": "Randomly uses any Pokemon move.",
+            "type": "Unknown",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Encore",
+          "level": 18,
+          "info": {
+            "description": "Makes the foe repeat 2-6 times.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 22,
+          "info": {
+            "description": "Raises Sp.Def with a wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Reflect",
+          "level": 22,
+          "info": {
+            "description": "Raises Defense with a barrier.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psybeam",
+          "level": 25,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Substitute",
+          "level": 29,
+          "info": {
+            "description": "Makes a decoy with 1/4 user's max HP.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Confuse Ray",
+          "level": 32,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Ghost",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Trick",
+          "level": 36,
+          "info": {
+            "description": "Swaps held items with the foe.",
+            "type": "Psychic",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psychic",
+          "level": 39,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Psychic",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Future Sight",
+          "level": 43,
+          "info": {
+            "description": "An attack that hits on 3rd turn.",
+            "type": "Psychic",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "level": 46,
+          "info": {
+            "description": "Switches while keeping effects.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 50,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Barrier",
+          "level": 1,
+          "info": {
+            "description": "Sharply raises the user's Defense.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Confusion",
+          "level": 1,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Psychic",
+            "pp": 25,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hypnosis",
+          "level": 4,
+          "info": {
+            "description": "May cause the foe to fall asleep.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": 60,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Calm Mind",
+          "level": 8,
+          "info": {
+            "description": "Raises the user's Sp.Atk and Sp.Def.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Double Slap",
+          "level": 11,
+          "info": {
+            "description": "Repeatedly slaps 2-5 times.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 15,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Protect",
+          "level": 13,
+          "info": {
+            "description": "Foils attack that turn. It may fail.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Metronome",
+          "level": 15,
+          "info": {
+            "description": "Randomly uses any Pokemon move.",
+            "type": "Unknown",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Encore",
+          "level": 18,
+          "info": {
+            "description": "Makes the foe repeat 2-6 times.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 22,
+          "info": {
+            "description": "Raises Sp.Def with a wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Reflect",
+          "level": 22,
+          "info": {
+            "description": "Raises Defense with a barrier.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psybeam",
+          "level": 25,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Substitute",
+          "level": 29,
+          "info": {
+            "description": "Makes a decoy with 1/4 user's max HP.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Confuse Ray",
+          "level": 32,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Ghost",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Trick",
+          "level": 36,
+          "info": {
+            "description": "Swaps held items with the foe.",
+            "type": "Psychic",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psychic",
+          "level": 39,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Psychic",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Future Sight",
+          "level": 43,
+          "info": {
+            "description": "An attack that hits on 3rd turn.",
+            "type": "Psychic",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "level": 46,
+          "info": {
+            "description": "Switches while keeping effects.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 50,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Barrier",
+          "level": 1,
+          "info": {
+            "description": "Sharply raises the user's Defense.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Confusion",
+          "level": 1,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Psychic",
+            "pp": 25,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hypnosis",
+          "level": 4,
+          "info": {
+            "description": "May cause the foe to fall asleep.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": 60,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Calm Mind",
+          "level": 8,
+          "info": {
+            "description": "Raises the user's Sp.Atk and Sp.Def.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Double Slap",
+          "level": 11,
+          "info": {
+            "description": "Repeatedly slaps 2-5 times.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 15,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Protect",
+          "level": 13,
+          "info": {
+            "description": "Foils attack that turn. It may fail.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Metronome",
+          "level": 15,
+          "info": {
+            "description": "Randomly uses any Pokemon move.",
+            "type": "Unknown",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Encore",
+          "level": 18,
+          "info": {
+            "description": "Makes the foe repeat 2-6 times.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 22,
+          "info": {
+            "description": "Raises Sp.Def with a wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Reflect",
+          "level": 22,
+          "info": {
+            "description": "Raises Defense with a barrier.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psybeam",
+          "level": 25,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Substitute",
+          "level": 29,
+          "info": {
+            "description": "Makes a decoy with 1/4 user's max HP.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Confuse Ray",
+          "level": 32,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Ghost",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Trick",
+          "level": 36,
+          "info": {
+            "description": "Swaps held items with the foe.",
+            "type": "Psychic",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psychic",
+          "level": 39,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Psychic",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Future Sight",
+          "level": 43,
+          "info": {
+            "description": "An attack that hits on 3rd turn.",
+            "type": "Psychic",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "level": 46,
+          "info": {
+            "description": "Switches while keeping effects.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 50,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "soundproof",
+          "name": "Soundproof",
+          "description": "\tGives immunity to \tsound-based moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "filter",
+          "name": "Filter",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "soundproof",
+          "name": "Soundproof",
+          "description": "\tGives immunity to \tsound-based moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "filter",
+          "name": "Filter",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 25,
+        "defense": 45,
+        "speed": 60,
+        "specialAttack": 70,
+        "specialDefense": 90,
+        "total": 310
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 25,
+        "defense": 45,
+        "speed": 60,
+        "specialAttack": 70,
+        "specialDefense": 90,
+        "total": 310
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 25,
+        "defense": 45,
+        "speed": 60,
+        "specialAttack": 70,
+        "specialDefense": 90,
+        "total": 310
+      },
+      "catchRate": 145,
+      "baseExp": 78,
+      "heldItems": [
+        "LEPPA_BERRY"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Slow (6,400 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 SDf",
+      "eggMoves": [
+        "Confuse Ray",
+        "Future Sight",
+        "Hypnosis",
+        "Nasty Plot",
+        "Trick"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Calm Mind",
+          "description": "Raises the user's Sp.Atk and Sp.Def.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM04",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "description": "Raises Sp.Def with a wall of light.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM16",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "description": "Prevents all status problems.",
+          "type": "Normal",
+          "pp": 25,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM20",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Solar Beam",
+          "description": "1st turn: Prepare 2nd turn: Attack",
+          "type": "Grass",
+          "pp": 10,
+          "power": 120,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM22",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM24",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Thunder",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 10,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM25",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Psychic",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Psychic",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM29",
+          "location": {
+            "area": "Sabrina's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Shadow Ball",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM30",
+          "location": {
+            "area": "Morty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Reflect",
+          "description": "Raises Defense with a barrier.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM33",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Dazzlingleam",
+          "description": "Dazzles with a powerful flash.",
+          "type": "Fairy",
+          "pp": 10,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM49",
+          "location": {
+            "area": "Bellchime Trail"
+          }
+        },
+        {
+          "name": "Drain Punch",
+          "description": "Steals 1/2 of the damage inflicted.",
+          "type": "Fighting",
+          "pp": 10,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM60",
+          "location": {
+            "area": "Noisy Forest"
+          }
+        },
+        {
+          "name": "Flash",
+          "description": "A move that lowers the foe's accuracy.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM70",
+          "location": {
+            "area": "Sprout Tower"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "description": "paralyzes the foe.@",
+          "type": "Electric",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM73",
+          "location": {
+            "area": "Rock Tunnel"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "description": "Switches while keeping effects.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT03",
+          "location": {
+            "area": "Goldenrod Museum"
+          }
+        },
+        {
+          "name": "Charm",
+          "description": "Sharply lowers the foe's Attack.",
+          "type": "Fairy",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT05",
+          "location": {
+            "area": "Route 35-Natioal Park Gate"
+          }
+        },
+        {
+          "name": "Dream Eater",
+          "description": "Steals HP from a sleeping victim.",
+          "type": "Psychic",
+          "pp": 15,
+          "power": 100,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "MT09",
+          "location": {
+            "area": "Viridian City"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "description": "An icy attack that lowers Speed.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 55,
+          "category": "Special",
+          "accuracy": 95,
+          "tmNumber": "MT16",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Skill Swap",
+          "description": "Swaps abilities with the foe.",
+          "type": "Psychic",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT23",
+          "location": {
+            "area": "Route 27"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        },
+        {
+          "name": "Trick",
+          "description": "Swaps held items with the foe.",
+          "type": "Psychic",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT28",
+          "location": {
+            "area": "Battle Tower"
+          }
+        },
+        {
+          "name": "Trick Room",
+          "description": "Slow Pokemon move first for 5 turns.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT29",
+          "location": {
+            "area": "Route 16 South Gate"
+          }
+        }
+      ]
+    }
+  }
+}

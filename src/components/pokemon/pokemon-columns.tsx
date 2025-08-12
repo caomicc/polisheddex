@@ -11,7 +11,7 @@ import {
 } from '@/utils/pokemonFormUtils';
 // import TimeIcon from './TimeIcon';
 import { Badge } from '../ui/badge';
-import { PokemonEncounter, PokemonType } from '@/types/types';
+import { PokemonEncounter } from '@/types/types';
 import { PokemonSprite } from './pokemon-sprite';
 import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
 // import { P } from 'vitest/dist/reporters-5f784f42.js';
@@ -52,7 +52,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
               type="static"
               form={typeof form === 'string' ? form : 'plain'}
               // src={pokemon.frontSpriteUrl}
-              className="w-10! h-10! p-1! rounded-md!"
+              size={'sm'}
             />
           </Link>
         </div>

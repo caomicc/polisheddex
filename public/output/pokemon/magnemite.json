@@ -1,0 +1,1529 @@
+{
+  "name": "Magnemite",
+  "nationalDex": 81,
+  "johtoDex": 125,
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 30,
+        "target": "Magneton"
+      }
+    ],
+    "chain": [
+      "Magnemite",
+      "Magneton",
+      "Magnezone"
+    ],
+    "chainWithMethods": {
+      "Magnemite": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magneton"
+        }
+      ],
+      "Magneton": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MAGNET_TUNNEL",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "DIM_CAVE",
+          "target": "Magnezone"
+        }
+      ],
+      "Magnezone": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 30,
+        "target": "Magneton"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Magnemite": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magneton"
+        }
+      ],
+      "Magneton": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MAGNET_TUNNEL",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "DIM_CAVE",
+          "target": "Magnezone"
+        }
+      ],
+      "Magnezone": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 30,
+        "target": "Magneton"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Magnemite": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magneton"
+        }
+      ],
+      "Magneton": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MAGNET_TUNNEL",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "DIM_CAVE",
+          "target": "Magnezone"
+        }
+      ],
+      "Magnezone": []
+    }
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 25,
+      "attack": 35,
+      "defense": 70,
+      "speed": 45,
+      "specialAttack": 95,
+      "specialDefense": 55,
+      "total": 325
+    },
+    "faithfulBaseStats": {
+      "hp": 25,
+      "attack": 35,
+      "defense": 70,
+      "speed": 45,
+      "specialAttack": 95,
+      "specialDefense": 55,
+      "total": 325
+    },
+    "polishedBaseStats": {
+      "hp": 25,
+      "attack": 35,
+      "defense": 70,
+      "speed": 45,
+      "specialAttack": 95,
+      "specialDefense": 55,
+      "total": 325
+    },
+    "catchRate": 190,
+    "baseExp": 89,
+    "heldItems": [
+      "METAL_COAT"
+    ],
+    "genderRatio": {
+      "male": 0,
+      "female": 0
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "magnet-pull",
+        "name": "Magnet Pull",
+        "description": "\tPrevents escape by \tSteel-type foes.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "analytic",
+        "name": "Analytic",
+        "description": "\tBoosts move power \twhen moving last.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "magnet-pull",
+        "name": "Magnet Pull",
+        "description": "\tPrevents escape by \tSteel-type foes.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "analytic",
+        "name": "Analytic",
+        "description": "\tBoosts move power \twhen moving last.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "id": "magnet-pull",
+        "name": "Magnet Pull",
+        "description": "\tPrevents escape by \tSteel-type foes.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "analytic",
+        "name": "Analytic",
+        "description": "\tBoosts move power \twhen moving last.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Mineral",
+      "Mineral"
+    ],
+    "evYield": "1 SAt",
+    "types": [
+      "Electric",
+      "Steel"
+    ],
+    "updatedTypes": [
+      "Electric",
+      "Steel"
+    ]
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Electric",
+        "Steel"
+      ],
+      "faithfulTypes": [
+        "Electric",
+        "Steel"
+      ],
+      "updatedTypes": [
+        "Electric",
+        "Steel"
+      ],
+      "moves": [
+        {
+          "name": "Supersonic",
+          "level": 1,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": 65,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thundershock",
+          "level": 5,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "level": 7,
+          "info": {
+            "description": "paralyzes the foe.@",
+            "type": "Electric",
+            "pp": 20,
+            "accuracy": 90,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 11,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 13,
+          "info": {
+            "description": "Raises Sp.Def with a wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sonic Boom",
+          "level": 17,
+          "info": {
+            "description": "Always inflicts 20HP damage.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Spark",
+          "level": 19,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 23,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 25,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 29,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Flash Cannon",
+          "level": 31,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Steel",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 35,
+          "info": {
+            "description": "Very powerful but makes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "level": 37,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 41,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "level": 43,
+          "info": {
+            "description": "Does more damage at lower speed.",
+            "type": "Steel",
+            "pp": 5,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thunder",
+          "level": 47,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Zap Cannon",
+          "level": 49,
+          "info": {
+            "description": "An attack that always paralyzes.",
+            "type": "Electric",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 50,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Supersonic",
+          "level": 1,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": 65,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thundershock",
+          "level": 5,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "level": 7,
+          "info": {
+            "description": "paralyzes the foe.@",
+            "type": "Electric",
+            "pp": 20,
+            "accuracy": 90,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 11,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 13,
+          "info": {
+            "description": "Raises Sp.Def with a wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sonic Boom",
+          "level": 17,
+          "info": {
+            "description": "Always inflicts 20HP damage.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Spark",
+          "level": 19,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 23,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 25,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 29,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Flash Cannon",
+          "level": 31,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Steel",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 35,
+          "info": {
+            "description": "Very powerful but makes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "level": 37,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 41,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "level": 43,
+          "info": {
+            "description": "Does more damage at lower speed.",
+            "type": "Steel",
+            "pp": 5,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thunder",
+          "level": 47,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Zap Cannon",
+          "level": 49,
+          "info": {
+            "description": "An attack that always paralyzes.",
+            "type": "Electric",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 50,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Supersonic",
+          "level": 1,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": 65,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thundershock",
+          "level": 5,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "level": 7,
+          "info": {
+            "description": "paralyzes the foe.@",
+            "type": "Electric",
+            "pp": 20,
+            "accuracy": 90,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 11,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 13,
+          "info": {
+            "description": "Raises Sp.Def with a wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sonic Boom",
+          "level": 17,
+          "info": {
+            "description": "Always inflicts 20HP damage.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Spark",
+          "level": 19,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 23,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 25,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 29,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Flash Cannon",
+          "level": 31,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Steel",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 35,
+          "info": {
+            "description": "Very powerful but makes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "level": 37,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 41,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "level": 43,
+          "info": {
+            "description": "Does more damage at lower speed.",
+            "type": "Steel",
+            "pp": 5,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thunder",
+          "level": 47,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Zap Cannon",
+          "level": 49,
+          "info": {
+            "description": "An attack that always paralyzes.",
+            "type": "Electric",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 50,
+            "category": "Special"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "magnet-pull",
+          "name": "Magnet Pull",
+          "description": "\tPrevents escape by \tSteel-type foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "analytic",
+          "name": "Analytic",
+          "description": "\tBoosts move power \twhen moving last.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "magnet-pull",
+          "name": "Magnet Pull",
+          "description": "\tPrevents escape by \tSteel-type foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "analytic",
+          "name": "Analytic",
+          "description": "\tBoosts move power \twhen moving last.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "magnet-pull",
+          "name": "Magnet Pull",
+          "description": "\tPrevents escape by \tSteel-type foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "analytic",
+          "name": "Analytic",
+          "description": "\tBoosts move power \twhen moving last.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 25,
+        "attack": 35,
+        "defense": 70,
+        "speed": 45,
+        "specialAttack": 95,
+        "specialDefense": 55,
+        "total": 325
+      },
+      "faithfulBaseStats": {
+        "hp": 25,
+        "attack": 35,
+        "defense": 70,
+        "speed": 45,
+        "specialAttack": 95,
+        "specialDefense": 55,
+        "total": 325
+      },
+      "polishedBaseStats": {
+        "hp": 25,
+        "attack": 35,
+        "defense": 70,
+        "speed": 45,
+        "specialAttack": 95,
+        "specialDefense": 55,
+        "total": 325
+      },
+      "catchRate": 190,
+      "baseExp": 89,
+      "heldItems": [
+        "METAL_COAT"
+      ],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Mineral",
+        "Mineral"
+      ],
+      "evYield": "1 SAt",
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "description": "Raises Sp.Def with a wall of light.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM16",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM24",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Thunder",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 10,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM25",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Reflect",
+          "description": "Raises Defense with a barrier.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM33",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Flash Cannon",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Steel",
+          "pp": 10,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM34",
+          "location": {
+            "area": "Route 9"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Wild Charge",
+          "description": "A charge that also hurts the user.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM57",
+          "location": {
+            "area": "Lt. Surge's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Explosion",
+          "description": "Very powerful but makes user faint.",
+          "type": "Normal",
+          "pp": 5,
+          "power": 250,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM64",
+          "location": {
+            "area": "Underground"
+          }
+        },
+        {
+          "name": "Flash",
+          "description": "A move that lowers the foe's accuracy.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM70",
+          "location": {
+            "area": "Sprout Tower"
+          }
+        },
+        {
+          "name": "Volt Switch",
+          "description": "Switches out after making its attack.",
+          "type": "Electric",
+          "pp": 20,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM72",
+          "location": {
+            "area": "Route 10"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "description": "paralyzes the foe.@",
+          "type": "Electric",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM73",
+          "location": {
+            "area": "Rock Tunnel"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "description": "Does more damage at lower speed.",
+          "type": "Steel",
+          "pp": 5,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM74",
+          "location": {
+            "area": "Magnet Tunnel"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Rollout",
+          "description": "Attacks 5 turns with rising power.",
+          "type": "Rock",
+          "pp": 20,
+          "power": 30,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT20",
+          "location": {
+            "area": "Route 46"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        },
+        {
+          "name": "Zap Cannon",
+          "description": "An attack that always paralyzes.",
+          "type": "Electric",
+          "pp": 5,
+          "power": 120,
+          "category": "Special",
+          "accuracy": 50,
+          "tmNumber": "MT30",
+          "location": {
+            "area": "Power Plant"
+          }
+        }
+      ]
+    }
+  },
+  "locations": [
+    {
+      "area": "route_38",
+      "method": "grass",
+      "time": "morn",
+      "level": "16",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_38",
+      "method": "grass",
+      "time": "day",
+      "level": "16",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_38",
+      "method": "grass",
+      "time": "nite",
+      "level": "16",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_39",
+      "method": "grass",
+      "time": "morn",
+      "level": "16",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_39",
+      "method": "grass",
+      "time": "day",
+      "level": "16",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_39",
+      "method": "grass",
+      "time": "nite",
+      "level": "16",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "magnet_tunnel_inside",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 3",
+      "chance": 13,
+      "formName": null
+    },
+    {
+      "area": "magnet_tunnel_inside",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 1",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "magnet_tunnel_inside",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 3",
+      "chance": 13,
+      "formName": null
+    },
+    {
+      "area": "magnet_tunnel_inside",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 1",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "magnet_tunnel_inside",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 3",
+      "chance": 13,
+      "formName": null
+    },
+    {
+      "area": "magnet_tunnel_inside",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 1",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "route_11",
+      "method": "grass",
+      "time": "nite",
+      "level": "50",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "lightning_island",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "lightning_island",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 1",
+      "chance": 30,
+      "formName": null
+    }
+  ]
+}

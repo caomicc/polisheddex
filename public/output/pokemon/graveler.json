@@ -1,0 +1,3238 @@
+{
+  "name": "Graveler",
+  "nationalDex": 75,
+  "johtoDex": 35,
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Geodude",
+      "Graveler",
+      "Golem"
+    ],
+    "chainWithMethods": {
+      "Graveler": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Golem",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Golem",
+          "form": "Alolan Form"
+        }
+      ],
+      "Golem": [],
+      "Geodude": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Graveler",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Graveler",
+          "form": "Alolan Form"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Graveler": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Golem",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Golem",
+          "form": "Alolan Form"
+        }
+      ],
+      "Golem": [],
+      "Geodude": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Graveler",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Graveler",
+          "form": "Alolan Form"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Graveler": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Golem",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Golem",
+          "form": "Alolan Form"
+        }
+      ],
+      "Golem": [],
+      "Geodude": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Graveler",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Graveler",
+          "form": "Alolan Form"
+        }
+      ]
+    }
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 55,
+      "attack": 95,
+      "defense": 115,
+      "speed": 35,
+      "specialAttack": 45,
+      "specialDefense": 45,
+      "total": 390
+    },
+    "faithfulBaseStats": {
+      "hp": 55,
+      "attack": 95,
+      "defense": 115,
+      "speed": 35,
+      "specialAttack": 45,
+      "specialDefense": 45,
+      "total": 390
+    },
+    "polishedBaseStats": {
+      "hp": 55,
+      "attack": 95,
+      "defense": 115,
+      "speed": 35,
+      "specialAttack": 45,
+      "specialDefense": 45,
+      "total": 390
+    },
+    "catchRate": 120,
+    "baseExp": 134,
+    "heldItems": [
+      "EVERSTONE"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "rock-head",
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "rock-head",
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Slow",
+    "eggGroups": [
+      "Mineral",
+      "Mineral"
+    ],
+    "evYield": "2 Def",
+    "types": [
+      "Rock",
+      "Ground"
+    ],
+    "updatedTypes": [
+      "Rock",
+      "Ground"
+    ]
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Rock",
+        "Ground"
+      ],
+      "faithfulTypes": [
+        "Rock",
+        "Ground"
+      ],
+      "updatedTypes": [
+        "Rock",
+        "Ground"
+      ],
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 4,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rapid Spin",
+          "level": 6,
+          "info": {
+            "description": "A high-speed spinning attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 10,
+          "info": {
+            "description": "Attacks 5 turns with rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Magnitude",
+          "level": 12,
+          "info": {
+            "description": "A Ground attack with random power.",
+            "type": "Ground",
+            "pp": 30,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Throw",
+          "level": 16,
+          "info": {
+            "description": "Drops rocks on the enemy.",
+            "type": "Rock",
+            "pp": 15,
+            "power": 50,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 18,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Bulldoze",
+          "level": 22,
+          "info": {
+            "description": "A Ground attack that lowers Speed.",
+            "type": "Ground",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Blast",
+          "level": 24,
+          "info": {
+            "description": "Hurls boulders to hit 2-5 times.",
+            "type": "Rock",
+            "pp": 25,
+            "power": 25,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "level": 30,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Rock",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 34,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 40,
+          "info": {
+            "description": "Tough but useless vs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 44,
+          "info": {
+            "description": "Very powerful but makes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 50,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "level": 54,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 4,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rapid Spin",
+          "level": 6,
+          "info": {
+            "description": "A high-speed spinning attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 10,
+          "info": {
+            "description": "Attacks 5 turns with rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Magnitude",
+          "level": 12,
+          "info": {
+            "description": "A Ground attack with random power.",
+            "type": "Ground",
+            "pp": 30,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Throw",
+          "level": 16,
+          "info": {
+            "description": "Drops rocks on the enemy.",
+            "type": "Rock",
+            "pp": 15,
+            "power": 50,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 18,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Bulldoze",
+          "level": 22,
+          "info": {
+            "description": "A Ground attack that lowers Speed.",
+            "type": "Ground",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Blast",
+          "level": 24,
+          "info": {
+            "description": "Hurls boulders to hit 2-5 times.",
+            "type": "Rock",
+            "pp": 25,
+            "power": 25,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "level": 30,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Rock",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 34,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 40,
+          "info": {
+            "description": "Tough but useless vs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 44,
+          "info": {
+            "description": "Very powerful but makes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 50,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "level": 54,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 4,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rapid Spin",
+          "level": 6,
+          "info": {
+            "description": "A high-speed spinning attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 10,
+          "info": {
+            "description": "Attacks 5 turns with rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Magnitude",
+          "level": 12,
+          "info": {
+            "description": "A Ground attack with random power.",
+            "type": "Ground",
+            "pp": 30,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Throw",
+          "level": 16,
+          "info": {
+            "description": "Drops rocks on the enemy.",
+            "type": "Rock",
+            "pp": 15,
+            "power": 50,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 18,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Bulldoze",
+          "level": 22,
+          "info": {
+            "description": "A Ground attack that lowers Speed.",
+            "type": "Ground",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Blast",
+          "level": 24,
+          "info": {
+            "description": "Hurls boulders to hit 2-5 times.",
+            "type": "Rock",
+            "pp": 25,
+            "power": 25,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "level": 30,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Rock",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 34,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 40,
+          "info": {
+            "description": "Tough but useless vs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 44,
+          "info": {
+            "description": "Very powerful but makes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 50,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "level": 54,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Rock Slide"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Dynamicpunch",
+          "description": "An attack that confuses the foe.",
+          "type": "Fighting",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 50,
+          "tmNumber": "TM01",
+          "location": {
+            "area": "Chuck's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Bulldoze",
+          "description": "A Ground attack that lowers Speed.",
+          "type": "Ground",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM21",
+          "location": {
+            "area": "Route 39"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "description": "Tough but useless vs. flying foes.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM26",
+          "location": {
+            "area": "Victory Road"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM35",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "description": "Inflicts damage every turn.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM37",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Fire Blast",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 85,
+          "tmNumber": "TM38",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "description": "An attack that may cause flinching.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM48",
+          "location": {
+            "area": "Brock's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Explosion",
+          "description": "Very powerful but makes user faint.",
+          "type": "Normal",
+          "pp": 5,
+          "power": 250,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM64",
+          "location": {
+            "area": "Underground"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "description": "Has a high critical hit ratio.",
+          "type": "Rock",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 80,
+          "tmNumber": "TM71",
+          "location": {
+            "area": "Blue's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "description": "Does more damage at lower speed.",
+          "type": "Steel",
+          "pp": 5,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM74",
+          "location": {
+            "area": "Magnet Tunnel"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Counter",
+          "description": "Returns a physical attack double.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "MT06",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "description": "Raises the user's Defense.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT07",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Earth Power",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "MT10",
+          "location": {
+            "area": "Cherrygrove Bay"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Fire Punch",
+          "description": "A fiery punch. May cause a burn.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT12",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Rollout",
+          "description": "Attacks 5 turns with rising power.",
+          "type": "Rock",
+          "pp": 20,
+          "power": 30,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT20",
+          "location": {
+            "area": "Route 46"
+          }
+        },
+        {
+          "name": "Seismic Toss",
+          "description": "Damage equals the user's level.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT22",
+          "location": {
+            "area": "Pewter City"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "description": "Attacks before the foe does.",
+          "type": "Dark",
+          "pp": 5,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT25",
+          "location": {
+            "area": "Scary Cave"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        },
+        {
+          "name": "Thunderpunch",
+          "description": "An electric punch. It may paralyze.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT27",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 115,
+        "speed": 35,
+        "specialAttack": 45,
+        "specialDefense": 45,
+        "total": 390
+      },
+      "faithfulBaseStats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 115,
+        "speed": 35,
+        "specialAttack": 45,
+        "specialDefense": 45,
+        "total": 390
+      },
+      "polishedBaseStats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 115,
+        "speed": 35,
+        "specialAttack": 45,
+        "specialDefense": 45,
+        "total": 390
+      },
+      "catchRate": 120,
+      "baseExp": 134,
+      "heldItems": [
+        "EVERSTONE"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Mineral",
+        "Mineral"
+      ],
+      "evYield": "2 Def"
+    },
+    "alolan": {
+      "name": "alolan",
+      "types": [
+        "Rock",
+        "Electric"
+      ],
+      "faithfulTypes": [
+        "Rock",
+        "Electric"
+      ],
+      "updatedTypes": [
+        "Rock",
+        "Electric"
+      ],
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thundershock",
+          "level": 4,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rapid Spin",
+          "level": 6,
+          "info": {
+            "description": "A high-speed spinning attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 10,
+          "info": {
+            "description": "Attacks 5 turns with rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Spark",
+          "level": 12,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Throw",
+          "level": 16,
+          "info": {
+            "description": "Drops rocks on the enemy.",
+            "type": "Rock",
+            "pp": 15,
+            "power": 50,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 18,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunderpunch",
+          "level": 22,
+          "info": {
+            "description": "An electric punch. It may paralyze.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Blast",
+          "level": 24,
+          "info": {
+            "description": "Hurls boulders to hit 2-5 times.",
+            "type": "Rock",
+            "pp": 25,
+            "power": 25,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "level": 30,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Rock",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 34,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Wild Charge",
+          "level": 40,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 44,
+          "info": {
+            "description": "Very powerful but makes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 50,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "level": 54,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thundershock",
+          "level": 4,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rapid Spin",
+          "level": 6,
+          "info": {
+            "description": "A high-speed spinning attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 10,
+          "info": {
+            "description": "Attacks 5 turns with rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Spark",
+          "level": 12,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Throw",
+          "level": 16,
+          "info": {
+            "description": "Drops rocks on the enemy.",
+            "type": "Rock",
+            "pp": 15,
+            "power": 50,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 18,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunderpunch",
+          "level": 22,
+          "info": {
+            "description": "An electric punch. It may paralyze.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Blast",
+          "level": 24,
+          "info": {
+            "description": "Hurls boulders to hit 2-5 times.",
+            "type": "Rock",
+            "pp": 25,
+            "power": 25,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "level": 30,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Rock",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 34,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Wild Charge",
+          "level": 40,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 44,
+          "info": {
+            "description": "Very powerful but makes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 50,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "level": 54,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thundershock",
+          "level": 4,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rapid Spin",
+          "level": 6,
+          "info": {
+            "description": "A high-speed spinning attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 10,
+          "info": {
+            "description": "Attacks 5 turns with rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Spark",
+          "level": 12,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Throw",
+          "level": 16,
+          "info": {
+            "description": "Drops rocks on the enemy.",
+            "type": "Rock",
+            "pp": 15,
+            "power": 50,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 18,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunderpunch",
+          "level": 22,
+          "info": {
+            "description": "An electric punch. It may paralyze.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Blast",
+          "level": 24,
+          "info": {
+            "description": "Hurls boulders to hit 2-5 times.",
+            "type": "Rock",
+            "pp": 25,
+            "power": 25,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "level": 30,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Rock",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 34,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Wild Charge",
+          "level": 40,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 44,
+          "info": {
+            "description": "Very powerful but makes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 50,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "level": 54,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Rock Slide"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Dynamicpunch",
+          "description": "An attack that confuses the foe.",
+          "type": "Fighting",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 50,
+          "tmNumber": "TM01",
+          "location": {
+            "area": "Chuck's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Bulldoze",
+          "description": "A Ground attack that lowers Speed.",
+          "type": "Ground",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM21",
+          "location": {
+            "area": "Route 39"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "description": "Tough but useless vs. flying foes.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM26",
+          "location": {
+            "area": "Victory Road"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM35",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "description": "Inflicts damage every turn.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM37",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Fire Blast",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 85,
+          "tmNumber": "TM38",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "description": "An attack that may cause flinching.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM48",
+          "location": {
+            "area": "Brock's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Explosion",
+          "description": "Very powerful but makes user faint.",
+          "type": "Normal",
+          "pp": 5,
+          "power": 250,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM64",
+          "location": {
+            "area": "Underground"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "description": "Has a high critical hit ratio.",
+          "type": "Rock",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 80,
+          "tmNumber": "TM71",
+          "location": {
+            "area": "Blue's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "description": "Does more damage at lower speed.",
+          "type": "Steel",
+          "pp": 5,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM74",
+          "location": {
+            "area": "Magnet Tunnel"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Counter",
+          "description": "Returns a physical attack double.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "MT06",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "description": "Raises the user's Defense.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT07",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Earth Power",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "MT10",
+          "location": {
+            "area": "Cherrygrove Bay"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Fire Punch",
+          "description": "A fiery punch. May cause a burn.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT12",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Rollout",
+          "description": "Attacks 5 turns with rising power.",
+          "type": "Rock",
+          "pp": 20,
+          "power": 30,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT20",
+          "location": {
+            "area": "Route 46"
+          }
+        },
+        {
+          "name": "Seismic Toss",
+          "description": "Damage equals the user's level.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT22",
+          "location": {
+            "area": "Pewter City"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "description": "Attacks before the foe does.",
+          "type": "Dark",
+          "pp": 5,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT25",
+          "location": {
+            "area": "Scary Cave"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        },
+        {
+          "name": "Thunderpunch",
+          "description": "An electric punch. It may paralyze.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT27",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 115,
+        "speed": 35,
+        "specialAttack": 45,
+        "specialDefense": 45,
+        "total": 390
+      },
+      "faithfulBaseStats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 115,
+        "speed": 35,
+        "specialAttack": 45,
+        "specialDefense": 45,
+        "total": 390
+      },
+      "polishedBaseStats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 115,
+        "speed": 35,
+        "specialAttack": 45,
+        "specialDefense": 45,
+        "total": 390
+      },
+      "catchRate": 120,
+      "baseExp": 134,
+      "heldItems": [
+        "EVERSTONE"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Mineral",
+        "Mineral"
+      ],
+      "evYield": "2 Def"
+    }
+  },
+  "locations": [
+    {
+      "area": "mount_mortar_2f_inside",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "mount_mortar_2f_inside",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "mount_mortar_2f_inside",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_room_1",
+      "method": "grass",
+      "time": "morn",
+      "level": "72",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_room_1",
+      "method": "grass",
+      "time": "day",
+      "level": "72",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_room_1",
+      "method": "grass",
+      "time": "nite",
+      "level": "72",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_item_rooms",
+      "method": "grass",
+      "time": "morn",
+      "level": "76",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_item_rooms",
+      "method": "grass",
+      "time": "morn",
+      "level": "77",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_item_rooms",
+      "method": "grass",
+      "time": "day",
+      "level": "76",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_item_rooms",
+      "method": "grass",
+      "time": "day",
+      "level": "77",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_item_rooms",
+      "method": "grass",
+      "time": "nite",
+      "level": "76",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_item_rooms",
+      "method": "grass",
+      "time": "nite",
+      "level": "77",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_blackthorn_entrance",
+      "method": "grass",
+      "time": "morn",
+      "level": "25",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_blackthorn_entrance",
+      "method": "grass",
+      "time": "day",
+      "level": "25",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_blackthorn_entrance",
+      "method": "grass",
+      "time": "nite",
+      "level": "25",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_45",
+      "method": "grass",
+      "time": "morn",
+      "level": "35",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_45",
+      "method": "grass",
+      "time": "day",
+      "level": "35",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_45",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_45",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "route_45",
+      "method": "grass",
+      "time": "nite",
+      "level": "36",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "route_45",
+      "method": "grass",
+      "time": "nite",
+      "level": "37",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "cliff_cave",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 4",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "rugged_road_south",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 1",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "rugged_road_south",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 1",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "rugged_road_south",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "rugged_road_south",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 1",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "56",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "57",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "56",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "57",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "56",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "57",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "56",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "57",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "56",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "57",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "56",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "57",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_b_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "56",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_b_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "57",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_b_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "56",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_b_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "57",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_b_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "56",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_b_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "57",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "50",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "51",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "50",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "51",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "50",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "51",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "51",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "52",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "51",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "52",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "51",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "52",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "54",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "55",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "54",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "55",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "54",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "52",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "victory_road_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "43",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "victory_road_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "43",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "victory_road_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "42",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "victory_road_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "46",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "victory_road_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "46",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "victory_road_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "45",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "victory_road_3f",
+      "method": "grass",
+      "time": "morn",
+      "level": "48",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "victory_road_3f",
+      "method": "grass",
+      "time": "day",
+      "level": "48",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "victory_road_3f",
+      "method": "grass",
+      "time": "nite",
+      "level": "47",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "58",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "58",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "57",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "58",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "58",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "60",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "shamouti_tunnel",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 1",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "shamouti_tunnel",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 1",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "shamouti_tunnel",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 1",
+      "chance": 30,
+      "formName": null
+    }
+  ]
+}

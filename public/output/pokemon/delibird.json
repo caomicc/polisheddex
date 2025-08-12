@@ -1,0 +1,1335 @@
+{
+  "name": "Delibird",
+  "nationalDex": 225,
+  "johtoDex": 217,
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Delibird"
+    ],
+    "chainWithMethods": {
+      "Delibird": []
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Delibird": []
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Delibird": []
+    }
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 45,
+      "attack": 55,
+      "defense": 45,
+      "speed": 75,
+      "specialAttack": 65,
+      "specialDefense": 45,
+      "total": 330
+    },
+    "faithfulBaseStats": {
+      "hp": 45,
+      "attack": 55,
+      "defense": 45,
+      "speed": 75,
+      "specialAttack": 65,
+      "specialDefense": 45,
+      "total": 330
+    },
+    "polishedBaseStats": {
+      "hp": 55,
+      "attack": 85,
+      "defense": 55,
+      "speed": 105,
+      "specialAttack": 95,
+      "specialDefense": 55,
+      "total": 450
+    },
+    "catchRate": 45,
+    "baseExp": 183,
+    "heldItems": [
+      "NEVERMELTICE"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "vital-spirit",
+        "name": "Vital Spirit",
+        "description": "\tPrevents it from \tfalling asleep.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "hustle",
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "insomnia",
+        "name": "Insomnia",
+        "description": "",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "vital-spirit",
+        "name": "Vital Spirit",
+        "description": "\tPrevents it from \tfalling asleep.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "hustle",
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "insomnia",
+        "name": "Insomnia",
+        "description": "",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Fast",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "evYield": "1 Spe",
+    "types": [
+      "Ice",
+      "Flying"
+    ],
+    "updatedTypes": [
+      "Ice",
+      "Flying"
+    ]
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Ice",
+        "Flying"
+      ],
+      "faithfulTypes": [
+        "Ice",
+        "Flying"
+      ],
+      "updatedTypes": [
+        "Ice",
+        "Flying"
+      ],
+      "moves": [
+        {
+          "name": "Peck",
+          "level": 1,
+          "info": {
+            "description": "Jabs the foe with a beak, etc.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 35,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 5,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Pay Day",
+          "level": 9,
+          "info": {
+            "description": "Throws coins. Gets them back later.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sing",
+          "level": 13,
+          "info": {
+            "description": "May cause the foe to fall asleep.",
+            "type": "Normal",
+            "pp": 15,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "level": 17,
+          "info": {
+            "description": "An icy attack that lowers Speed.",
+            "type": "Ice",
+            "pp": 15,
+            "power": 55,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Wing Attack",
+          "level": 21,
+          "info": {
+            "description": "Strikes the foe with wings.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hail",
+          "level": 25,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Ice",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Drill Peck",
+          "level": 29,
+          "info": {
+            "description": "A strong, spinning-peck attack.",
+            "type": "Flying",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Aurora Beam",
+          "level": 33,
+          "info": {
+            "description": "An attack that may lower Attack.",
+            "type": "Ice",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "level": 37,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 85,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roost",
+          "level": 41,
+          "info": {
+            "description": "Lands to restore 1/2 the max HP.",
+            "type": "Flying",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fly",
+          "level": 45,
+          "info": {
+            "description": "1st turn: Fly 2nd turn: Attack",
+            "type": "Flying",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Belly Drum",
+          "level": 49,
+          "info": {
+            "description": "Sacrifices HP to maximize Attack.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 53,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "level": 57,
+          "info": {
+            "description": "An attack that may freeze the foe.",
+            "type": "Ice",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Peck",
+          "level": 1,
+          "info": {
+            "description": "Jabs the foe with a beak, etc.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 35,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 5,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Pay Day",
+          "level": 9,
+          "info": {
+            "description": "Throws coins. Gets them back later.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sing",
+          "level": 13,
+          "info": {
+            "description": "May cause the foe to fall asleep.",
+            "type": "Normal",
+            "pp": 15,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "level": 17,
+          "info": {
+            "description": "An icy attack that lowers Speed.",
+            "type": "Ice",
+            "pp": 15,
+            "power": 55,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Wing Attack",
+          "level": 21,
+          "info": {
+            "description": "Strikes the foe with wings.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hail",
+          "level": 25,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Ice",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Drill Peck",
+          "level": 29,
+          "info": {
+            "description": "A strong, spinning-peck attack.",
+            "type": "Flying",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Aurora Beam",
+          "level": 33,
+          "info": {
+            "description": "An attack that may lower Attack.",
+            "type": "Ice",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "level": 37,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 85,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roost",
+          "level": 41,
+          "info": {
+            "description": "Lands to restore 1/2 the max HP.",
+            "type": "Flying",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fly",
+          "level": 45,
+          "info": {
+            "description": "1st turn: Fly 2nd turn: Attack",
+            "type": "Flying",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Belly Drum",
+          "level": 49,
+          "info": {
+            "description": "Sacrifices HP to maximize Attack.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 53,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "level": 57,
+          "info": {
+            "description": "An attack that may freeze the foe.",
+            "type": "Ice",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Peck",
+          "level": 1,
+          "info": {
+            "description": "Jabs the foe with a beak, etc.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 35,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 5,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Pay Day",
+          "level": 9,
+          "info": {
+            "description": "Throws coins. Gets them back later.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sing",
+          "level": 13,
+          "info": {
+            "description": "May cause the foe to fall asleep.",
+            "type": "Normal",
+            "pp": 15,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "level": 17,
+          "info": {
+            "description": "An icy attack that lowers Speed.",
+            "type": "Ice",
+            "pp": 15,
+            "power": 55,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Wing Attack",
+          "level": 21,
+          "info": {
+            "description": "Strikes the foe with wings.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hail",
+          "level": 25,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Ice",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Drill Peck",
+          "level": 29,
+          "info": {
+            "description": "A strong, spinning-peck attack.",
+            "type": "Flying",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Aurora Beam",
+          "level": 33,
+          "info": {
+            "description": "An attack that may lower Attack.",
+            "type": "Ice",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "level": 37,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 85,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roost",
+          "level": 41,
+          "info": {
+            "description": "Lands to restore 1/2 the max HP.",
+            "type": "Flying",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fly",
+          "level": 45,
+          "info": {
+            "description": "1st turn: Fly 2nd turn: Attack",
+            "type": "Flying",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Belly Drum",
+          "level": 49,
+          "info": {
+            "description": "Sacrifices HP to maximize Attack.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 53,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "level": 57,
+          "info": {
+            "description": "An attack that may freeze the foe.",
+            "type": "Ice",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "vital-spirit",
+          "name": "Vital Spirit",
+          "description": "\tPrevents it from \tfalling asleep.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "hustle",
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "insomnia",
+          "name": "Insomnia",
+          "description": "",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "vital-spirit",
+          "name": "Vital Spirit",
+          "description": "\tPrevents it from \tfalling asleep.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "hustle",
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "insomnia",
+          "name": "Insomnia",
+          "description": "",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 45,
+        "attack": 55,
+        "defense": 45,
+        "speed": 75,
+        "specialAttack": 65,
+        "specialDefense": 45,
+        "total": 330
+      },
+      "faithfulBaseStats": {
+        "hp": 45,
+        "attack": 55,
+        "defense": 45,
+        "speed": 75,
+        "specialAttack": 65,
+        "specialDefense": 45,
+        "total": 330
+      },
+      "polishedBaseStats": {
+        "hp": 55,
+        "attack": 85,
+        "defense": 55,
+        "speed": 105,
+        "specialAttack": 95,
+        "specialDefense": 55,
+        "total": 450
+      },
+      "catchRate": 45,
+      "baseExp": 183,
+      "heldItems": [
+        "NEVERMELTICE"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Fast",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe",
+      "eggMoves": [
+        "Aurora Beam",
+        "Destiny Bond",
+        "Ice Punch",
+        "Icy Wind",
+        "Quick Attack",
+        "Rapid Spin",
+        "Splash"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hail",
+          "description": "Inflicts damage every turn.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM07",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM13",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM14",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "description": "An attack that never misses.",
+          "type": "Flying",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "TM40",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Steel Wing",
+          "description": "An attack that may up user's Defense.",
+          "type": "Steel",
+          "pp": 25,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM47",
+          "location": {
+            "area": "Route 28"
+          }
+        },
+        {
+          "name": "Roost",
+          "description": "Lands to restore 1/2 the max HP.",
+          "type": "Flying",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM51",
+          "location": {
+            "area": "Falkner's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "description": "An attack that may confuse the foe.",
+          "type": "Water",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM63",
+          "location": {
+            "area": "Misty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Avalanche",
+          "description": "Damage doubles if user is hit first.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM67",
+          "location": {
+            "area": "Pryce's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Fly",
+          "description": "1st turn: Fly 2nd turn: Attack",
+          "type": "Flying",
+          "pp": 15,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM02",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "description": "Switches while keeping effects.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT03",
+          "location": {
+            "area": "Goldenrod Museum"
+          }
+        },
+        {
+          "name": "Counter",
+          "description": "Returns a physical attack double.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "MT06",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Ice Punch",
+          "description": "An icy punch. May cause freezing.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT15",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "description": "An icy attack that lowers Speed.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 55,
+          "category": "Special",
+          "accuracy": 95,
+          "tmNumber": "MT16",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Rollout",
+          "description": "Attacks 5 turns with rising power.",
+          "type": "Rock",
+          "pp": 20,
+          "power": 30,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT20",
+          "location": {
+            "area": "Route 46"
+          }
+        },
+        {
+          "name": "Seed Bomb",
+          "description": "Slams a barrage of seeds at the foe.",
+          "type": "Grass",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT21",
+          "location": {
+            "area": "Yellow Forest"
+          }
+        },
+        {
+          "name": "Seismic Toss",
+          "description": "Damage equals the user's level.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT22",
+          "location": {
+            "area": "Pewter City"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ]
+    }
+  },
+  "locations": [
+    {
+      "area": "ice_path_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "30",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "33",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "32",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_2f_mahogany_side",
+      "method": "grass",
+      "time": "nite",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_2f_mahogany_side",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_2f_blackthorn_side",
+      "method": "grass",
+      "time": "nite",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_2f_blackthorn_side",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_3f",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "snowtop_mountain_inside",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 1",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "snowtop_mountain_inside",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 1",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "snowtop_mountain_inside",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 1",
+      "chance": 10,
+      "formName": null
+    }
+  ]
+}

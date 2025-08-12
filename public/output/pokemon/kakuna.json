@@ -1,0 +1,461 @@
+{
+  "name": "Kakuna",
+  "nationalDex": 14,
+  "johtoDex": 28,
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 10,
+        "target": "Beedrill"
+      }
+    ],
+    "chain": [
+      "Weedle",
+      "Kakuna",
+      "Beedrill"
+    ],
+    "chainWithMethods": {
+      "Kakuna": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Beedrill"
+        }
+      ],
+      "Beedrill": [],
+      "Weedle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Kakuna"
+        }
+      ]
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 10,
+        "target": "Beedrill"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Kakuna": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Beedrill"
+        }
+      ],
+      "Beedrill": [],
+      "Weedle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Kakuna"
+        }
+      ]
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 10,
+        "target": "Beedrill"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Kakuna": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Beedrill"
+        }
+      ],
+      "Beedrill": [],
+      "Weedle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Kakuna"
+        }
+      ]
+    }
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 45,
+      "attack": 25,
+      "defense": 50,
+      "speed": 35,
+      "specialAttack": 25,
+      "specialDefense": 25,
+      "total": 205
+    },
+    "faithfulBaseStats": {
+      "hp": 45,
+      "attack": 25,
+      "defense": 50,
+      "speed": 35,
+      "specialAttack": 25,
+      "specialDefense": 25,
+      "total": 205
+    },
+    "polishedBaseStats": {
+      "hp": 45,
+      "attack": 25,
+      "defense": 50,
+      "speed": 35,
+      "specialAttack": 25,
+      "specialDefense": 25,
+      "total": 205
+    },
+    "catchRate": 120,
+    "baseExp": 71,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Bug",
+      "Bug"
+    ],
+    "evYield": "2 Def",
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "updatedTypes": [
+      "Bug",
+      "Poison"
+    ]
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Bug",
+        "Poison"
+      ],
+      "faithfulTypes": [
+        "Bug",
+        "Poison"
+      ],
+      "updatedTypes": [
+        "Bug",
+        "Poison"
+      ],
+      "moves": [
+        {
+          "name": "Poison Sting",
+          "level": 1,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "power": 15,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "String Shot",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Speed.",
+            "type": "Bug",
+            "pp": 40,
+            "accuracy": 95,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Poison Sting",
+          "level": 1,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "power": 15,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "String Shot",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Speed.",
+            "type": "Bug",
+            "pp": 40,
+            "accuracy": 95,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Poison Sting",
+          "level": 1,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "power": 15,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "String Shot",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Speed.",
+            "type": "Bug",
+            "pp": 40,
+            "accuracy": 95,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 45,
+        "attack": 25,
+        "defense": 50,
+        "speed": 35,
+        "specialAttack": 25,
+        "specialDefense": 25,
+        "total": 205
+      },
+      "faithfulBaseStats": {
+        "hp": 45,
+        "attack": 25,
+        "defense": 50,
+        "speed": 35,
+        "specialAttack": 25,
+        "specialDefense": 25,
+        "total": 205
+      },
+      "polishedBaseStats": {
+        "hp": 45,
+        "attack": 25,
+        "defense": 50,
+        "speed": 35,
+        "specialAttack": 25,
+        "specialDefense": 25,
+        "total": 205
+      },
+      "catchRate": 120,
+      "baseExp": 71,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Bug",
+        "Bug"
+      ],
+      "evYield": "2 Def"
+    }
+  },
+  "locations": [
+    {
+      "area": "ilex_forest",
+      "method": "grass",
+      "time": "morn",
+      "level": "10",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ilex_forest",
+      "method": "grass",
+      "time": "day",
+      "level": "10",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "viridian_forest",
+      "method": "grass",
+      "time": "morn",
+      "level": "55",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "viridian_forest",
+      "method": "grass",
+      "time": "day",
+      "level": "55",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "viridian_forest",
+      "method": "grass",
+      "time": "day",
+      "level": "56",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ilex_forest",
+      "method": "headbutt_rare",
+      "time": "any",
+      "level": "10",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "murky_swamp",
+      "method": "headbutt_rare",
+      "time": "any",
+      "level": "10",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "yellow_forest",
+      "method": "headbutt_rare",
+      "time": "any",
+      "level": "10",
+      "chance": 5,
+      "formName": null
+    }
+  ]
+}

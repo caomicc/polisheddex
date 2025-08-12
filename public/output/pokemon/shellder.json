@@ -1,0 +1,1760 @@
+{
+  "name": "Shellder",
+  "nationalDex": 90,
+  "johtoDex": 189,
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "WATER_STONE",
+        "target": "Cloyster"
+      }
+    ],
+    "chain": [
+      "Shellder",
+      "Cloyster"
+    ],
+    "chainWithMethods": {
+      "Shellder": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Cloyster"
+        }
+      ],
+      "Cloyster": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "WATER_STONE",
+        "target": "Cloyster"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Shellder": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Cloyster"
+        }
+      ],
+      "Cloyster": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "WATER_STONE",
+        "target": "Cloyster"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Shellder": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Cloyster"
+        }
+      ],
+      "Cloyster": []
+    }
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 30,
+      "attack": 65,
+      "defense": 100,
+      "speed": 40,
+      "specialAttack": 45,
+      "specialDefense": 25,
+      "total": 305
+    },
+    "faithfulBaseStats": {
+      "hp": 30,
+      "attack": 65,
+      "defense": 100,
+      "speed": 40,
+      "specialAttack": 45,
+      "specialDefense": 25,
+      "total": 305
+    },
+    "polishedBaseStats": {
+      "hp": 30,
+      "attack": 65,
+      "defense": 100,
+      "speed": 40,
+      "specialAttack": 45,
+      "specialDefense": 25,
+      "total": 305
+    },
+    "catchRate": 190,
+    "baseExp": 97,
+    "heldItems": [
+      "PEARL",
+      "BIG_PEARL"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "skill-link",
+        "name": "Skill Link",
+        "description": "\tIncreases multi- \tstrike move hits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "overcoat",
+        "name": "Overcoat",
+        "description": "\tProtects it from \tweather damage.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "skill-link",
+        "name": "Skill Link",
+        "description": "\tIncreases multi- \tstrike move hits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "overcoat",
+        "name": "Overcoat",
+        "description": "\tProtects it from \tweather damage.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Slow",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "evYield": "1 Def",
+    "types": "Water",
+    "updatedTypes": "Water"
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Water"
+      ],
+      "faithfulTypes": [
+        "Water"
+      ],
+      "updatedTypes": [
+        "Water"
+      ],
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 4,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Supersonic",
+          "level": 8,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": 65,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Icicle Spear",
+          "level": 13,
+          "info": {
+            "description": "Fires icicles to hit 2-5 times.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 25,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Protect",
+          "level": 16,
+          "info": {
+            "description": "Foils attack that turn. It may fail.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 20,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 25,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ice Shard",
+          "level": 28,
+          "info": {
+            "description": "Hurls icy shards. Always goes first.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bubble Beam",
+          "level": 32,
+          "info": {
+            "description": "An attack that may lower Speed.",
+            "type": "Water",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aurora Beam",
+          "level": 37,
+          "info": {
+            "description": "An attack that may lower Attack.",
+            "type": "Ice",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Whirlpool",
+          "level": 40,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Water",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 44,
+          "info": {
+            "description": "Very powerful but makes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Barrier",
+          "level": 49,
+          "info": {
+            "description": "Sharply raises the user's Defense.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "level": 52,
+          "info": {
+            "description": "An attack that may freeze the foe.",
+            "type": "Ice",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Shell Smash",
+          "level": 56,
+          "info": {
+            "description": "Lowers defenses, raises offenses.",
+            "type": "Normal",
+            "pp": 15,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hydro Pump",
+          "level": 61,
+          "info": {
+            "description": "A powerful Watertype attack.",
+            "type": "Water",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 80,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 4,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Supersonic",
+          "level": 8,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": 65,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Icicle Spear",
+          "level": 13,
+          "info": {
+            "description": "Fires icicles to hit 2-5 times.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 25,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Protect",
+          "level": 16,
+          "info": {
+            "description": "Foils attack that turn. It may fail.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 20,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 25,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ice Shard",
+          "level": 28,
+          "info": {
+            "description": "Hurls icy shards. Always goes first.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bubble Beam",
+          "level": 32,
+          "info": {
+            "description": "An attack that may lower Speed.",
+            "type": "Water",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aurora Beam",
+          "level": 37,
+          "info": {
+            "description": "An attack that may lower Attack.",
+            "type": "Ice",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Whirlpool",
+          "level": 40,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Water",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 44,
+          "info": {
+            "description": "Very powerful but makes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Barrier",
+          "level": 49,
+          "info": {
+            "description": "Sharply raises the user's Defense.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "level": 52,
+          "info": {
+            "description": "An attack that may freeze the foe.",
+            "type": "Ice",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Shell Smash",
+          "level": 56,
+          "info": {
+            "description": "Lowers defenses, raises offenses.",
+            "type": "Normal",
+            "pp": 15,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hydro Pump",
+          "level": 61,
+          "info": {
+            "description": "A powerful Watertype attack.",
+            "type": "Water",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 80,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 4,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Supersonic",
+          "level": 8,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": 65,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Icicle Spear",
+          "level": 13,
+          "info": {
+            "description": "Fires icicles to hit 2-5 times.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 25,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Protect",
+          "level": 16,
+          "info": {
+            "description": "Foils attack that turn. It may fail.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 20,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 25,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ice Shard",
+          "level": 28,
+          "info": {
+            "description": "Hurls icy shards. Always goes first.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bubble Beam",
+          "level": 32,
+          "info": {
+            "description": "An attack that may lower Speed.",
+            "type": "Water",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aurora Beam",
+          "level": 37,
+          "info": {
+            "description": "An attack that may lower Attack.",
+            "type": "Ice",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Whirlpool",
+          "level": 40,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Water",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 44,
+          "info": {
+            "description": "Very powerful but makes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Barrier",
+          "level": 49,
+          "info": {
+            "description": "Sharply raises the user's Defense.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "level": 52,
+          "info": {
+            "description": "An attack that may freeze the foe.",
+            "type": "Ice",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Shell Smash",
+          "level": 56,
+          "info": {
+            "description": "Lowers defenses, raises offenses.",
+            "type": "Normal",
+            "pp": 15,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hydro Pump",
+          "level": 61,
+          "info": {
+            "description": "A powerful Watertype attack.",
+            "type": "Water",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 80,
+            "category": "Special"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "shell-armor",
+          "name": "Shell Armor",
+          "description": "\tProtects from \tcritical hits.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "skill-link",
+          "name": "Skill Link",
+          "description": "\tIncreases multi- \tstrike move hits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "overcoat",
+          "name": "Overcoat",
+          "description": "\tProtects it from \tweather damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "shell-armor",
+          "name": "Shell Armor",
+          "description": "\tProtects from \tcritical hits.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "skill-link",
+          "name": "Skill Link",
+          "description": "\tIncreases multi- \tstrike move hits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "overcoat",
+          "name": "Overcoat",
+          "description": "\tProtects it from \tweather damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 30,
+        "attack": 65,
+        "defense": 100,
+        "speed": 40,
+        "specialAttack": 45,
+        "specialDefense": 25,
+        "total": 305
+      },
+      "faithfulBaseStats": {
+        "hp": 30,
+        "attack": 65,
+        "defense": 100,
+        "speed": 40,
+        "specialAttack": 45,
+        "specialDefense": 25,
+        "total": 305
+      },
+      "polishedBaseStats": {
+        "hp": 30,
+        "attack": 65,
+        "defense": 100,
+        "speed": 40,
+        "specialAttack": 45,
+        "specialDefense": 25,
+        "total": 305
+      },
+      "catchRate": 190,
+      "baseExp": 97,
+      "heldItems": [
+        "PEARL",
+        "BIG_PEARL"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Def",
+      "eggMoves": [
+        "Barrier",
+        "Bubble Beam",
+        "Rapid Spin",
+        "Screech",
+        "Take Down",
+        "Water Pulse",
+        "Icicle Spear",
+        "Rock Blast"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hail",
+          "description": "Inflicts damage every turn.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM07",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM13",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM14",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "description": "An attack that may confuse the foe.",
+          "type": "Water",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM63",
+          "location": {
+            "area": "Misty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Explosion",
+          "description": "Very powerful but makes user faint.",
+          "type": "Normal",
+          "pp": 5,
+          "power": 250,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM64",
+          "location": {
+            "area": "Underground"
+          }
+        },
+        {
+          "name": "Avalanche",
+          "description": "Damage doubles if user is hit first.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM67",
+          "location": {
+            "area": "Pryce's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Surf",
+          "description": "A strong Watertype attack.",
+          "type": "Water",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "HM03",
+          "location": {
+            "area": "Ecruteak City"
+          }
+        },
+        {
+          "name": "Whirlpool",
+          "description": "Traps the foe for 2-5 turns.",
+          "type": "Water",
+          "pp": 15,
+          "power": 40,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "HM05",
+          "location": {
+            "area": "Route 42"
+          }
+        },
+        {
+          "name": "Waterfall",
+          "description": "An attack that may cause flinching.",
+          "type": "Water",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM06",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "description": "An icy attack that lowers Speed.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 55,
+          "category": "Special",
+          "accuracy": 95,
+          "tmNumber": "MT16",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Rollout",
+          "description": "Attacks 5 turns with rising power.",
+          "type": "Rock",
+          "pp": 20,
+          "power": 30,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT20",
+          "location": {
+            "area": "Route 46"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ]
+    }
+  },
+  "locations": [
+    {
+      "area": "whirl_island_nw",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_nw",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_ne",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_ne",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_sw",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_sw",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_cave",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_cave",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_se",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_se",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "36",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "36",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_lugia_chamber",
+      "method": "grass",
+      "time": "morn",
+      "level": "37",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_lugia_chamber",
+      "method": "grass",
+      "time": "day",
+      "level": "37",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "route_16_west",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "route_16_west",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_20",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "route_20",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_21",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "route_21",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_25",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "route_25",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_26",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "route_26",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_27",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "route_27",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_34_coast",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "route_34_coast",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_35_coast_south",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "route_35_coast_south",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_35_coast_north",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "route_35_coast_north",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_41",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "route_41",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "pallet_town",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "pallet_town",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "cerulean_cape",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "cerulean_cape",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "vermilion_city",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "vermilion_city",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "vermilion_port",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "vermilion_port",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "lucky_island",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "lucky_island",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_island",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_island",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "uraga_channel_east",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "uraga_channel_east",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "uraga_channel_west",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "uraga_channel_west",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "new_bark_town",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "new_bark_town",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "cherrygrove_bay",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "cherrygrove_bay",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "goldenrod_harbor",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "goldenrod_harbor",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "olivine_port",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "olivine_port",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "shamouti_coast",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "shamouti_coast",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "valencia_island",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "valencia_island",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "valencia_port",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "valencia_port",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "navel_rock_outside",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "navel_rock_outside",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_1f",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_2f",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    }
+  ]
+}

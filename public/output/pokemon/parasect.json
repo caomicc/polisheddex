@@ -1,0 +1,1555 @@
+{
+  "name": "Parasect",
+  "nationalDex": 47,
+  "johtoDex": 76,
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Paras",
+      "Parasect"
+    ],
+    "chainWithMethods": {
+      "Parasect": [],
+      "Paras": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 24,
+          "target": "Parasect"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Parasect": [],
+      "Paras": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 24,
+          "target": "Parasect"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Parasect": [],
+      "Paras": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 24,
+          "target": "Parasect"
+        }
+      ]
+    }
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 60,
+      "attack": 95,
+      "defense": 80,
+      "speed": 30,
+      "specialAttack": 60,
+      "specialDefense": 80,
+      "total": 405
+    },
+    "faithfulBaseStats": {
+      "hp": 60,
+      "attack": 95,
+      "defense": 80,
+      "speed": 30,
+      "specialAttack": 60,
+      "specialDefense": 80,
+      "total": 405
+    },
+    "polishedBaseStats": {
+      "hp": 60,
+      "attack": 115,
+      "defense": 100,
+      "speed": 30,
+      "specialAttack": 60,
+      "specialDefense": 80,
+      "total": 445
+    },
+    "catchRate": 75,
+    "baseExp": 128,
+    "heldItems": [
+      "TINYMUSHROOM",
+      "BIG_MUSHROOM"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "effect-spore",
+        "name": "Effect Spore",
+        "description": "\tContact may cause \tPar, Psn, or Slp.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "dry-skin",
+        "name": "Dry Skin",
+        "description": "\tReduces HP in sun. \tWater restores HP.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "damp",
+        "name": "Damp",
+        "description": "\tPrevents self- \tdestructing moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "effect-spore",
+        "name": "Effect Spore",
+        "description": "\tContact may cause \tPar, Psn, or Slp.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "dry-skin",
+        "name": "Dry Skin",
+        "description": "\tReduces HP in sun. \tWater restores HP.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "damp",
+        "name": "Damp",
+        "description": "\tPrevents self- \tdestructing moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Bug",
+      "Grass"
+    ],
+    "evYield": "2 Atk",
+    "types": [
+      "Bug",
+      "Grass"
+    ],
+    "updatedTypes": [
+      "Bug",
+      "Grass"
+    ]
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Bug",
+        "Grass"
+      ],
+      "faithfulTypes": [
+        "Bug",
+        "Grass"
+      ],
+      "updatedTypes": [
+        "Bug",
+        "Grass"
+      ],
+      "moves": [
+        {
+          "name": "Shadow Claw",
+          "level": 1,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sleep Powder",
+          "level": 2,
+          "info": {
+            "description": "May cause the foe to fall asleep.",
+            "type": "Grass",
+            "pp": 15,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Stun Spore",
+          "level": 4,
+          "info": {
+            "description": "A move that may paralyze the foe.",
+            "type": "Grass",
+            "pp": 30,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Poisonpowder",
+          "level": 6,
+          "info": {
+            "description": "A move that may poison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Absorb",
+          "level": 11,
+          "info": {
+            "description": "Steals 1/2 of the damage inflicted.",
+            "type": "Grass",
+            "pp": 25,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Bug Bite",
+          "level": 17,
+          "info": {
+            "description": "Bites the foe and eats a held Berry.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Spore",
+          "level": 22,
+          "info": {
+            "description": "A move that puts the foe to sleep.",
+            "type": "Grass",
+            "pp": 15,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 29,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growth",
+          "level": 37,
+          "info": {
+            "description": "Raises the user's Atk and Sp.Atk.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Giga Drain",
+          "level": 44,
+          "info": {
+            "description": "Steals 1/2 of the damage inflicted.",
+            "type": "Grass",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leech Life",
+          "level": 51,
+          "info": {
+            "description": "Steals 1/2 of the damage inflicted.",
+            "type": "Bug",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Healinglight",
+          "level": 59,
+          "info": {
+            "description": "Restores HP based on weather.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "level": 66,
+          "info": {
+            "description": "Slashes foe with scythes or claws.",
+            "type": "Bug",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Shadow Claw",
+          "level": 1,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sleep Powder",
+          "level": 2,
+          "info": {
+            "description": "May cause the foe to fall asleep.",
+            "type": "Grass",
+            "pp": 15,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Stun Spore",
+          "level": 4,
+          "info": {
+            "description": "A move that may paralyze the foe.",
+            "type": "Grass",
+            "pp": 30,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Poisonpowder",
+          "level": 6,
+          "info": {
+            "description": "A move that may poison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Absorb",
+          "level": 11,
+          "info": {
+            "description": "Steals 1/2 of the damage inflicted.",
+            "type": "Grass",
+            "pp": 25,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Bug Bite",
+          "level": 17,
+          "info": {
+            "description": "Bites the foe and eats a held Berry.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Spore",
+          "level": 22,
+          "info": {
+            "description": "A move that puts the foe to sleep.",
+            "type": "Grass",
+            "pp": 15,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 29,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growth",
+          "level": 37,
+          "info": {
+            "description": "Raises the user's Atk and Sp.Atk.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Giga Drain",
+          "level": 44,
+          "info": {
+            "description": "Steals 1/2 of the damage inflicted.",
+            "type": "Grass",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leech Life",
+          "level": 51,
+          "info": {
+            "description": "Steals 1/2 of the damage inflicted.",
+            "type": "Bug",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Healinglight",
+          "level": 59,
+          "info": {
+            "description": "Restores HP based on weather.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "level": 66,
+          "info": {
+            "description": "Slashes foe with scythes or claws.",
+            "type": "Bug",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Shadow Claw",
+          "level": 1,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sleep Powder",
+          "level": 2,
+          "info": {
+            "description": "May cause the foe to fall asleep.",
+            "type": "Grass",
+            "pp": 15,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Stun Spore",
+          "level": 4,
+          "info": {
+            "description": "A move that may paralyze the foe.",
+            "type": "Grass",
+            "pp": 30,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Poisonpowder",
+          "level": 6,
+          "info": {
+            "description": "A move that may poison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Absorb",
+          "level": 11,
+          "info": {
+            "description": "Steals 1/2 of the damage inflicted.",
+            "type": "Grass",
+            "pp": 25,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Bug Bite",
+          "level": 17,
+          "info": {
+            "description": "Bites the foe and eats a held Berry.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Spore",
+          "level": 22,
+          "info": {
+            "description": "A move that puts the foe to sleep.",
+            "type": "Grass",
+            "pp": 15,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 29,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growth",
+          "level": 37,
+          "info": {
+            "description": "Raises the user's Atk and Sp.Atk.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Giga Drain",
+          "level": 44,
+          "info": {
+            "description": "Steals 1/2 of the damage inflicted.",
+            "type": "Grass",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leech Life",
+          "level": 51,
+          "info": {
+            "description": "Steals 1/2 of the damage inflicted.",
+            "type": "Bug",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Healinglight",
+          "level": 59,
+          "info": {
+            "description": "Restores HP based on weather.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "level": 66,
+          "info": {
+            "description": "Slashes foe with scythes or claws.",
+            "type": "Bug",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "effect-spore",
+          "name": "Effect Spore",
+          "description": "\tContact may cause \tPar, Psn, or Slp.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "dry-skin",
+          "name": "Dry Skin",
+          "description": "\tReduces HP in sun. \tWater restores HP.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "damp",
+          "name": "Damp",
+          "description": "\tPrevents self- \tdestructing moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "effect-spore",
+          "name": "Effect Spore",
+          "description": "\tContact may cause \tPar, Psn, or Slp.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "dry-skin",
+          "name": "Dry Skin",
+          "description": "\tReduces HP in sun. \tWater restores HP.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "damp",
+          "name": "Damp",
+          "description": "\tPrevents self- \tdestructing moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 60,
+        "attack": 95,
+        "defense": 80,
+        "speed": 30,
+        "specialAttack": 60,
+        "specialDefense": 80,
+        "total": 405
+      },
+      "faithfulBaseStats": {
+        "hp": 60,
+        "attack": 95,
+        "defense": 80,
+        "speed": 30,
+        "specialAttack": 60,
+        "specialDefense": 80,
+        "total": 405
+      },
+      "polishedBaseStats": {
+        "hp": 60,
+        "attack": 115,
+        "defense": 100,
+        "speed": 30,
+        "specialAttack": 60,
+        "specialDefense": 80,
+        "total": 445
+      },
+      "catchRate": 75,
+      "baseExp": 128,
+      "heldItems": [
+        "TINYMUSHROOM",
+        "BIG_MUSHROOM"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Bug",
+        "Grass"
+      ],
+      "evYield": "2 Atk",
+      "eggMoves": [
+        "Agility",
+        "Leech Seed",
+        "Metal Claw",
+        "Psybeam",
+        "Pursuit",
+        "Screech",
+        "Shadow Claw"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Venoshock",
+          "description": "Damage doubles if foe is poisoned.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 65,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM09",
+          "location": {
+            "area": "Route 11"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hone Claws",
+          "description": "Raises the user's Atk and accuracy.",
+          "type": "Dark",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM12",
+          "location": {
+            "area": "Route 35"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "TM15",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "description": "Raises Sp.Def with a wall of light.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM16",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Giga Drain",
+          "description": "Steals 1/2 of the damage inflicted.",
+          "type": "Grass",
+          "pp": 10,
+          "power": 75,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM19",
+          "location": {
+            "area": "Erika's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Solar Beam",
+          "description": "1st turn: Prepare 2nd turn: Attack",
+          "type": "Grass",
+          "pp": 10,
+          "power": 120,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM22",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Sludge Bomb",
+          "description": "An attack that may poison the foe.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM36",
+          "location": {
+            "area": "Route 43"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "description": "An attack that never misses.",
+          "type": "Flying",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "TM40",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Leech Life",
+          "description": "Steals 1/2 of the damage inflicted.",
+          "type": "Bug",
+          "pp": 10,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM50",
+          "location": {
+            "area": "Yellow Forest"
+          }
+        },
+        {
+          "name": "Energy Ball",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Grass",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM53",
+          "location": {
+            "area": "Olivine Lighthouse"
+          }
+        },
+        {
+          "name": "False Swipe",
+          "description": "Leaves the foe with at least 1HP.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 40,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM54",
+          "location": {
+            "area": "Ilex Forest Gate"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "description": "Slashes foe with scythes or claws.",
+          "type": "Bug",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM56",
+          "location": {
+            "area": "Underground Warehouse"
+          }
+        },
+        {
+          "name": "Shadow Claw",
+          "description": "Has a high critical hit ratio.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM65",
+          "location": {
+            "area": "Lavender Soul House"
+          }
+        },
+        {
+          "name": "Giga Impact",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM68",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Flash",
+          "description": "A move that lowers the foe's accuracy.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM70",
+          "location": {
+            "area": "Sprout Tower"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "description": "Sharply raises the user's Attack.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM75",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Cut",
+          "description": "Cuts using claws, scythes, etc.",
+          "type": "Steel",
+          "pp": 30,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM01",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Counter",
+          "description": "Returns a physical attack double.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "MT06",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Dream Eater",
+          "description": "Steals HP from a sleeping victim.",
+          "type": "Psychic",
+          "pp": 15,
+          "power": 100,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "MT09",
+          "location": {
+            "area": "Viridian City"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Knock Off",
+          "description": "Slaps down the foe's held item.",
+          "type": "Dark",
+          "pp": 20,
+          "power": 65,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT18",
+          "location": {
+            "area": "Route 40"
+          }
+        },
+        {
+          "name": "Seed Bomb",
+          "description": "Slams a barrage of seeds at the foe.",
+          "type": "Grass",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT21",
+          "location": {
+            "area": "Yellow Forest"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ]
+    }
+  },
+  "locations": [
+    {
+      "area": "silver_cave_room_2",
+      "method": "grass",
+      "time": "morn",
+      "level": "76",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_room_2",
+      "method": "grass",
+      "time": "day",
+      "level": "76",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_room_2",
+      "method": "grass",
+      "time": "nite",
+      "level": "76",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_item_rooms",
+      "method": "grass",
+      "time": "morn",
+      "level": "76",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_item_rooms",
+      "method": "grass",
+      "time": "morn",
+      "level": "77",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_item_rooms",
+      "method": "grass",
+      "time": "day",
+      "level": "76",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_item_rooms",
+      "method": "grass",
+      "time": "day",
+      "level": "77",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_item_rooms",
+      "method": "grass",
+      "time": "nite",
+      "level": "76",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_item_rooms",
+      "method": "grass",
+      "time": "nite",
+      "level": "77",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "56",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "56",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "56",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "56",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "56",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "56",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_b_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "56",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_b_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "56",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "mount_moon_b_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "56",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "cerulean_cave_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "65",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "cerulean_cave_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "65",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "cerulean_cave_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "65",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "cerulean_cave_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "67",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "cerulean_cave_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "67",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "cerulean_cave_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "67",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "cerulean_cave_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "69",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "cerulean_cave_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "69",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "cerulean_cave_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "69",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "safari_zone_east",
+      "method": "grass",
+      "time": "morn",
+      "level": "50",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "safari_zone_east",
+      "method": "grass",
+      "time": "day",
+      "level": "50",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "safari_zone_east",
+      "method": "grass",
+      "time": "nite",
+      "level": "50",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "route_49",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_49",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 3",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "route_49",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 1",
+      "chance": 2,
+      "formName": null
+    }
+  ]
+}

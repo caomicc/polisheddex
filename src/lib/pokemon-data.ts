@@ -1,78 +1,274 @@
 import type { PokemonEntry } from '@/components/pokemon-slot';
-import { Ability, DetailedStats } from '@/types/types';
+import { Ability, PokemonType } from '@/types/types';
 
 export type PokemonBasic = {
   name: string;
-  types: (string | null)[];
+  types: (PokemonType['name'] | null)[];
   abilities?: Ability[];
+  fileName?: string; // Add fileName to help with fetching individual Pokemon data
+};
+
+// Types for the manifest structure
+type PokemonManifestEntry = {
+  name: string;
+  johtoNumber: number | null;
+  nationalNumber: number;
+  spriteUrl: string;
+  types: {
+    faithful: string[];
+    polished: string[];
+  };
+  forms: string[];
+};
+
+type PokemonBaseEntry = {
+  name: string;
+  types: string[] | string;
+  [key: string]: unknown;
+};
+
+type PokemonDetailedEntry = {
+  name: string;
+  types?: string[] | string;
+  updatedTypes?: string[] | string;
+  forms?: Record<string, unknown>;
+  [key: string]: unknown;
+};
+
+type SimplePokemonEntry = {
+  name: string;
+  nationalDex: number;
+  johtoDex: number | null;
+  types: string[];
+  frontSpriteUrl: string;
+  fileName: string;
 };
 
 // Initialize with empty array to prevent key errors
 export const POKEMON_LIST: PokemonBasic[] = [];
 
-// Function to load real Pokemon data
+// Initialize Pokemon data when module loads (only on client side)
+if (typeof window !== 'undefined') {
+  loadPokemonData().catch(console.error);
+}
+
+// Function to normalize type names to match PokemonType['name']
+function normalizeTypeName(type: string): PokemonType['name'] | null {
+  const normalizedType = type.toLowerCase() as PokemonType['name'];
+  const validTypes: PokemonType['name'][] = [
+    'normal',
+    'fire',
+    'water',
+    'electric',
+    'grass',
+    'ice',
+    'fighting',
+    'poison',
+    'ground',
+    'flying',
+    'psychic',
+    'bug',
+    'rock',
+    'ghost',
+    'dragon',
+    'dark',
+    'steel',
+    'fairy',
+  ];
+
+  return validTypes.includes(normalizedType) ? normalizedType : null;
+}
+
+// Function to format Pokemon names for display (kebab-case to Title Case)
+function formatPokemonDisplayName(name: string): string {
+  // Handle special cases and convert kebab-case to title case
+  return name
+    .split('-')
+    .map((word) => {
+      // Handle special cases
+      if (word === 'jr') return 'Jr.';
+      if (word === 'mr') return 'Mr.';
+      if (word === 'mime') return 'Mime';
+      if (word === 'f') return '♀';
+      if (word === 'm') return '♂';
+      if (word === 'ho' && name.includes('ho-oh')) return 'Ho';
+      if (word === 'oh' && name.includes('ho-oh')) return 'Oh';
+      
+      // Standard title case
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(' ');
+}
+
+// Function to load real Pokemon data using client-side fetch
 export async function loadPokemonData(): Promise<PokemonBasic[]> {
   try {
-    const response = await fetch('/output/pokemon_detailed_stats.json');
-    const pokemonData: Record<string, DetailedStats> = await response.json();
+    // First try to load from the simple pokemon.json file (fastest and most reliable)
+    const simpleResponse = await fetch('/pokemon.json');
+    if (simpleResponse.ok) {
+      const data = (await simpleResponse.json()) as { pokemon: SimplePokemonEntry[] };
+      const pokemonList: PokemonBasic[] = data.pokemon.map((pokemon) => {
+        let typeArray: (PokemonType['name'] | null)[] = [];
 
-    const pokemonList: PokemonBasic[] = Object.entries(pokemonData).map(([key, pokemon]) => {
-      // Get the default form data (usually 'plain' form)
-      const formData = pokemon.forms ? pokemon.forms[Object.keys(pokemon.forms)[0]] : pokemon;
+        if (Array.isArray(pokemon.types)) {
+          typeArray = pokemon.types.map((t: string) => normalizeTypeName(t)).slice(0, 2);
+        }
 
-      // Get types - prefer updated types, fall back to faithful/base types
-      const types =
-        formData.updatedTypes || formData.types || pokemon.updatedTypes || pokemon.types;
+        // Ensure we always have exactly 2 elements
+        while (typeArray.length < 2) {
+          typeArray.push(null);
+        }
 
-      console.log('Types:', types);
+        return {
+          name: formatPokemonDisplayName(pokemon.name),
+          types: [typeArray[0], typeArray[1]],
+          abilities: undefined, // Abilities loaded separately when needed
+          fileName: pokemon.fileName, // Include fileName for easier fetching
+        };
+      });
 
-      const typeArray = Array.isArray(types)
-        ? types.map((t) => t.charAt(0).toUpperCase() + t.slice(1).toLowerCase())
-        : typeof types === 'string'
-          ? types.split('/').map((t) => t.trim().charAt(0).toUpperCase() + t.slice(1).toLowerCase())
-          : ['Normal'];
+      // Sort alphabetically
+      pokemonList.sort((a, b) => a.name.localeCompare(b.name));
 
-      console.log('typeArray:', typeArray, typeof typeArray, [
-        typeArray[0] || null,
-        typeArray[1] || null,
-      ]);
+      // Update the exported list
+      POKEMON_LIST.splice(0, POKEMON_LIST.length, ...pokemonList);
 
-      // Get abilities - prefer updated abilities, fall back to faithful/base abilities
-      const abilities =
-        formData.updatedAbilities ||
-        formData.abilities ||
-        pokemon.updatedAbilities ||
-        pokemon.abilities;
-      // Ensure abilities is an array of Ability objects
-      const abilityObjects: Ability[] =
-        abilities?.filter(
-          (ability): ability is Ability => typeof ability === 'object' && ability !== null,
-        ) || [];
+      return pokemonList;
+    }
+    // First try to load from the Pokemon manifest (preferred method)
+    const manifestResponse = await fetch('/output/manifests/pokemon.json');
+    if (manifestResponse.ok) {
+      const pokemonManifest = (await manifestResponse.json()) as Record<
+        string,
+        PokemonManifestEntry
+      >;
 
-      return {
-        name: pokemon.name || key.charAt(0).toUpperCase() + key.slice(1),
-        types: [typeArray[0] || null, typeArray[1] || null],
-        abilities: abilityObjects.length > 0 ? abilityObjects : undefined,
-      };
-    });
+      const pokemonList: PokemonBasic[] = Object.entries(pokemonManifest).map(([key, pokemon]) => {
+        // Get types - prefer polished types for UI display, but keep faithful as fallback
+        const typesData = pokemon.types?.polished || pokemon.types?.faithful || [];
 
-    // Sort alphabetically
-    pokemonList.sort((a, b) => a.name.localeCompare(b.name));
+        let typeArray: (PokemonType['name'] | null)[] = [];
 
-    // Update the exported list
-    POKEMON_LIST.splice(0, POKEMON_LIST.length, ...pokemonList);
+        if (Array.isArray(typesData)) {
+          typeArray = typesData.map((t: string) => normalizeTypeName(t)).slice(0, 2);
+        }
 
-    return pokemonList;
+        // Ensure we always have exactly 2 elements
+        while (typeArray.length < 2) {
+          typeArray.push(null);
+        }
+
+        // For abilities, we'll rely on individual Pokemon files when needed
+        // The manifest doesn't include full ability data to keep it lightweight
+        const abilities: Ability[] = [];
+
+        return {
+          name: pokemon.name || key.charAt(0).toUpperCase() + key.slice(1),
+          types: [typeArray[0], typeArray[1]],
+          abilities: abilities.length > 0 ? abilities : undefined,
+        };
+      });
+
+      // Sort alphabetically
+      pokemonList.sort((a, b) => a.name.localeCompare(b.name));
+
+      // Update the exported list
+      POKEMON_LIST.splice(0, POKEMON_LIST.length, ...pokemonList);
+
+      return pokemonList;
+    }
+
+    // Fallback to base data if manifest fails
+    const baseResponse = await fetch('/output/pokemon_base_data.json');
+    if (baseResponse.ok) {
+      const baseData = (await baseResponse.json()) as Record<string, PokemonBaseEntry>;
+      const pokemonList: PokemonBasic[] = Object.entries(baseData).map(([key, pokemon]) => {
+        let typeArray: (PokemonType['name'] | null)[] = [];
+
+        if (Array.isArray(pokemon.types)) {
+          typeArray = pokemon.types.map((t: string) => normalizeTypeName(t)).slice(0, 2);
+        } else if (pokemon.types && typeof pokemon.types === 'string') {
+          typeArray = pokemon.types
+            .split('/')
+            .map((t: string) => normalizeTypeName(t.trim()))
+            .slice(0, 2);
+        }
+
+        // Ensure we always have exactly 2 elements
+        while (typeArray.length < 2) {
+          typeArray.push(null);
+        }
+
+        return {
+          name: pokemon.name || key.charAt(0).toUpperCase() + key.slice(1),
+          types: [typeArray[0], typeArray[1]],
+          abilities: undefined, // Abilities loaded separately when needed
+        };
+      });
+
+      pokemonList.sort((a, b) => a.name.localeCompare(b.name));
+      POKEMON_LIST.splice(0, POKEMON_LIST.length, ...pokemonList);
+      return pokemonList;
+    }
+
+    // Final fallback to detailed stats
+    const detailedResponse = await fetch('/output/pokemon_detailed_stats.json');
+    if (detailedResponse.ok) {
+      const pokemonData = (await detailedResponse.json()) as Record<string, PokemonDetailedEntry>;
+
+      const pokemonList: PokemonBasic[] = Object.entries(pokemonData).map(([key, pokemon]) => {
+        // Get the default form data (usually 'plain' form)
+        const formData =
+          pokemon.forms && typeof pokemon.forms === 'object'
+            ? (Object.values(pokemon.forms)[0] as PokemonDetailedEntry)
+            : pokemon;
+
+        // Get types - prefer updated types, fall back to faithful/base types
+        const types =
+          formData.updatedTypes || formData.types || pokemon.updatedTypes || pokemon.types;
+
+        let typeArray: (PokemonType['name'] | null)[] = [];
+
+        if (Array.isArray(types)) {
+          typeArray = types.map((t: string) => normalizeTypeName(t)).slice(0, 2);
+        } else if (types && typeof types === 'string') {
+          typeArray = types
+            .split('/')
+            .map((t: string) => normalizeTypeName(t.trim()))
+            .slice(0, 2);
+        }
+
+        // Ensure we always have exactly 2 elements
+        while (typeArray.length < 2) {
+          typeArray.push(null);
+        }
+
+        return {
+          name: pokemon.name || key.charAt(0).toUpperCase() + key.slice(1),
+          types: [typeArray[0], typeArray[1]],
+          abilities: undefined, // Abilities loaded separately when needed
+        };
+      });
+
+      // Sort alphabetically
+      pokemonList.sort((a, b) => a.name.localeCompare(b.name));
+
+      // Update the exported list
+      POKEMON_LIST.splice(0, POKEMON_LIST.length, ...pokemonList);
+
+      return pokemonList;
+    }
+
+    throw new Error('Failed to load Pokemon data from all sources');
   } catch (error) {
     console.error('Failed to load Pokemon data:', error);
-    // Return empty array as fallback
     return [];
   }
 }
 
 export const emptyPokemonEntry: PokemonEntry = {
   name: '',
-  types: [null, null],
+  types: [], // Empty array instead of nulls - the component will handle this
   ability: '',
   moves: [
     { name: '', type: null },

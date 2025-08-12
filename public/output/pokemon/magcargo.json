@@ -1,0 +1,1515 @@
+{
+  "name": "Magcargo",
+  "nationalDex": 219,
+  "johtoDex": 244,
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Slugma",
+      "Magcargo"
+    ],
+    "chainWithMethods": {
+      "Magcargo": [],
+      "Slugma": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 38,
+          "target": "Magcargo"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Magcargo": [],
+      "Slugma": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 38,
+          "target": "Magcargo"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Magcargo": [],
+      "Slugma": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 38,
+          "target": "Magcargo"
+        }
+      ]
+    }
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 60,
+      "attack": 50,
+      "defense": 120,
+      "speed": 30,
+      "specialAttack": 90,
+      "specialDefense": 80,
+      "total": 430
+    },
+    "faithfulBaseStats": {
+      "hp": 60,
+      "attack": 50,
+      "defense": 120,
+      "speed": 30,
+      "specialAttack": 90,
+      "specialDefense": 80,
+      "total": 430
+    },
+    "polishedBaseStats": {
+      "hp": 60,
+      "attack": 50,
+      "defense": 135,
+      "speed": 30,
+      "specialAttack": 115,
+      "specialDefense": 115,
+      "total": 505
+    },
+    "catchRate": 75,
+    "baseExp": 154,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "magma-armor",
+        "name": "Magma Armor",
+        "description": "\tPrevents it from \tbecoming frozen.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "weak-armor",
+        "name": "Weak Armor",
+        "description": "\tPhysical attacks \ttrade Def for Spe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "magma-armor",
+        "name": "Magma Armor",
+        "description": "\tPrevents it from \tbecoming frozen.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "weak-armor",
+        "name": "Weak Armor",
+        "description": "\tPhysical attacks \ttrade Def for Spe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Amorphous",
+      "Amorphous"
+    ],
+    "evYield": "2 Def",
+    "types": [
+      "Fire",
+      "Rock"
+    ],
+    "updatedTypes": [
+      "Fire",
+      "Rock"
+    ]
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Fire",
+        "Rock"
+      ],
+      "faithfulTypes": [
+        "Fire",
+        "Rock"
+      ],
+      "updatedTypes": [
+        "Fire",
+        "Rock"
+      ],
+      "moves": [
+        {
+          "name": "Shell Smash",
+          "level": 1,
+          "info": {
+            "description": "Lowers defenses, raises offenses.",
+            "type": "Normal",
+            "pp": 15,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 1,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Ember",
+          "level": 6,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rock Throw",
+          "level": 8,
+          "info": {
+            "description": "Drops rocks on the enemy.",
+            "type": "Rock",
+            "pp": 15,
+            "power": 50,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 13,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fire Spin",
+          "level": 15,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Smokescreen",
+          "level": 20,
+          "info": {
+            "description": "A move that lowers the foe's accuracy.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 22,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 27,
+          "info": {
+            "description": "An attack that may up user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 29,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pain Split",
+          "level": 34,
+          "info": {
+            "description": "Adds user & foe's HPs. Shares total.",
+            "type": "Ghost",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Amnesia",
+          "level": 36,
+          "info": {
+            "description": "Sharply raises the user's Sp.Def.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "level": 43,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 85,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Recover",
+          "level": 47,
+          "info": {
+            "description": "Restores HP by 1/2 the max HP.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 54,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Earth Power",
+          "level": 58,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Shell Smash",
+          "level": 1,
+          "info": {
+            "description": "Lowers defenses, raises offenses.",
+            "type": "Normal",
+            "pp": 15,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 1,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Ember",
+          "level": 6,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rock Throw",
+          "level": 8,
+          "info": {
+            "description": "Drops rocks on the enemy.",
+            "type": "Rock",
+            "pp": 15,
+            "power": 50,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 13,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fire Spin",
+          "level": 15,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Smokescreen",
+          "level": 20,
+          "info": {
+            "description": "A move that lowers the foe's accuracy.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 22,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 27,
+          "info": {
+            "description": "An attack that may up user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 29,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pain Split",
+          "level": 34,
+          "info": {
+            "description": "Adds user & foe's HPs. Shares total.",
+            "type": "Ghost",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Amnesia",
+          "level": 36,
+          "info": {
+            "description": "Sharply raises the user's Sp.Def.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "level": 43,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 85,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Recover",
+          "level": 47,
+          "info": {
+            "description": "Restores HP by 1/2 the max HP.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 54,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Earth Power",
+          "level": 58,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Shell Smash",
+          "level": 1,
+          "info": {
+            "description": "Lowers defenses, raises offenses.",
+            "type": "Normal",
+            "pp": 15,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 1,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Ember",
+          "level": 6,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rock Throw",
+          "level": 8,
+          "info": {
+            "description": "Drops rocks on the enemy.",
+            "type": "Rock",
+            "pp": 15,
+            "power": 50,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 13,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fire Spin",
+          "level": 15,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Smokescreen",
+          "level": 20,
+          "info": {
+            "description": "A move that lowers the foe's accuracy.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 22,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 27,
+          "info": {
+            "description": "An attack that may up user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 29,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pain Split",
+          "level": 34,
+          "info": {
+            "description": "Adds user & foe's HPs. Shares total.",
+            "type": "Ghost",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Amnesia",
+          "level": 36,
+          "info": {
+            "description": "Sharply raises the user's Sp.Def.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "level": 43,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 85,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Recover",
+          "level": 47,
+          "info": {
+            "description": "Restores HP by 1/2 the max HP.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 54,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Earth Power",
+          "level": 58,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "magma-armor",
+          "name": "Magma Armor",
+          "description": "\tPrevents it from \tbecoming frozen.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "flame-body",
+          "name": "Flame Body",
+          "description": "\tContact may burn \tthe foe.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "magma-armor",
+          "name": "Magma Armor",
+          "description": "\tPrevents it from \tbecoming frozen.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "flame-body",
+          "name": "Flame Body",
+          "description": "\tContact may burn \tthe foe.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 60,
+        "attack": 50,
+        "defense": 120,
+        "speed": 30,
+        "specialAttack": 90,
+        "specialDefense": 80,
+        "total": 430
+      },
+      "faithfulBaseStats": {
+        "hp": 60,
+        "attack": 50,
+        "defense": 120,
+        "speed": 30,
+        "specialAttack": 90,
+        "specialDefense": 80,
+        "total": 430
+      },
+      "polishedBaseStats": {
+        "hp": 60,
+        "attack": 50,
+        "defense": 135,
+        "speed": 30,
+        "specialAttack": 115,
+        "specialDefense": 115,
+        "total": 505
+      },
+      "catchRate": 75,
+      "baseExp": 154,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Amorphous",
+        "Amorphous"
+      ],
+      "evYield": "2 Def",
+      "eggMoves": [
+        "Smokescreen",
+        "Curse"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Calm Mind",
+          "description": "Raises the user's Sp.Atk and Sp.Def.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM04",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "TM15",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "description": "Raises Sp.Def with a wall of light.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM16",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Bulldoze",
+          "description": "A Ground attack that lowers Speed.",
+          "type": "Ground",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM21",
+          "location": {
+            "area": "Route 39"
+          }
+        },
+        {
+          "name": "Solar Beam",
+          "description": "1st turn: Prepare 2nd turn: Attack",
+          "type": "Grass",
+          "pp": 10,
+          "power": 120,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM22",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "description": "Tough but useless vs. flying foes.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM26",
+          "location": {
+            "area": "Victory Road"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Reflect",
+          "description": "Raises Defense with a barrier.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM33",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM35",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "description": "Inflicts damage every turn.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM37",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Fire Blast",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 85,
+          "tmNumber": "TM38",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "description": "An attack that may up user's Speed.",
+          "type": "Fire",
+          "pp": 20,
+          "power": 50,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM43",
+          "location": {
+            "area": "Burned Tower"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "description": "An attack that may cause flinching.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM48",
+          "location": {
+            "area": "Brock's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Will O Wisp",
+          "description": "A move that may burn the foe.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "TM61",
+          "location": {
+            "area": "Blaine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Explosion",
+          "description": "Very powerful but makes user faint.",
+          "type": "Normal",
+          "pp": 5,
+          "power": 250,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM64",
+          "location": {
+            "area": "Underground"
+          }
+        },
+        {
+          "name": "Giga Impact",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM68",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "description": "Has a high critical hit ratio.",
+          "type": "Rock",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 80,
+          "tmNumber": "TM71",
+          "location": {
+            "area": "Blue's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "description": "Does more damage at lower speed.",
+          "type": "Steel",
+          "pp": 5,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM74",
+          "location": {
+            "area": "Magnet Tunnel"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "description": "Raises the user's Defense.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT07",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Earth Power",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "MT10",
+          "location": {
+            "area": "Cherrygrove Bay"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Rollout",
+          "description": "Attacks 5 turns with rising power.",
+          "type": "Rock",
+          "pp": 20,
+          "power": 30,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT20",
+          "location": {
+            "area": "Route 46"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ]
+    }
+  },
+  "locations": [
+    {
+      "area": "route_16_west",
+      "method": "grass",
+      "time": "morn",
+      "level": "53",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "route_16_west",
+      "method": "grass",
+      "time": "day",
+      "level": "53",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "route_16_northwest",
+      "method": "grass",
+      "time": "morn",
+      "level": "53",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "route_16_northwest",
+      "method": "grass",
+      "time": "day",
+      "level": "53",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "route_17",
+      "method": "grass",
+      "time": "morn",
+      "level": "53",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "route_17",
+      "method": "grass",
+      "time": "day",
+      "level": "53",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "route_18_east",
+      "method": "grass",
+      "time": "morn",
+      "level": "54",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "route_18_east",
+      "method": "grass",
+      "time": "day",
+      "level": "54",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "route_18_west",
+      "method": "grass",
+      "time": "morn",
+      "level": "54",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "route_18_west",
+      "method": "grass",
+      "time": "day",
+      "level": "54",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "59",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "59",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "60",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "59",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "59",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "61",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "60",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "60",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "60",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "fire_island",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 0",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "fire_island",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 1",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "fire_island",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 0",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "fire_island",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 1",
+      "chance": 10,
+      "formName": null
+    }
+  ]
+}

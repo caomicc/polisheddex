@@ -1,0 +1,1856 @@
+{
+  "name": "Steelix",
+  "nationalDex": 208,
+  "johtoDex": 68,
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Onix",
+      "Steelix"
+    ],
+    "chainWithMethods": {
+      "Steelix": [],
+      "Onix": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "METAL_COAT",
+          "target": "Steelix"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Steelix": [],
+      "Onix": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "METAL_COAT",
+          "target": "Steelix"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Steelix": [],
+      "Onix": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "METAL_COAT",
+          "target": "Steelix"
+        }
+      ]
+    }
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 75,
+      "attack": 85,
+      "defense": 200,
+      "speed": 30,
+      "specialAttack": 55,
+      "specialDefense": 65,
+      "total": 510
+    },
+    "faithfulBaseStats": {
+      "hp": 75,
+      "attack": 85,
+      "defense": 200,
+      "speed": 30,
+      "specialAttack": 55,
+      "specialDefense": 65,
+      "total": 510
+    },
+    "polishedBaseStats": {
+      "hp": 75,
+      "attack": 90,
+      "defense": 200,
+      "speed": 30,
+      "specialAttack": 55,
+      "specialDefense": 65,
+      "total": 515
+    },
+    "catchRate": 25,
+    "baseExp": 196,
+    "heldItems": [
+      "METAL_COAT"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Slow (6,400 steps)",
+    "abilities": [
+      {
+        "id": "sheer-force",
+        "name": "Sheer Force",
+        "description": "\tRemoves effects to \tincrease damage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "sand-force",
+        "name": "Sand Force",
+        "description": "\tBoosts some moves \tin a sandstorm.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "sheer-force",
+        "name": "Sheer Force",
+        "description": "\tRemoves effects to \tincrease damage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "sand-force",
+        "name": "Sand Force",
+        "description": "\tBoosts some moves \tin a sandstorm.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Mineral",
+      "Mineral"
+    ],
+    "evYield": "2 Def",
+    "types": [
+      "Steel",
+      "Ground"
+    ],
+    "updatedTypes": [
+      "Steel",
+      "Ground"
+    ]
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Steel",
+        "Ground"
+      ],
+      "faithfulTypes": [
+        "Steel",
+        "Ground"
+      ],
+      "updatedTypes": [
+        "Steel",
+        "Ground"
+      ],
+      "moves": [
+        {
+          "name": "Iron Tail",
+          "level": 1,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Steel",
+            "pp": 15,
+            "power": 100,
+            "accuracy": 75,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Wrap",
+          "level": 1,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 15,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Curse",
+          "level": 4,
+          "info": {
+            "description": "Works differently for Ghost-types.",
+            "type": "Ghost",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Throw",
+          "level": 7,
+          "info": {
+            "description": "Drops rocks on the enemy.",
+            "type": "Rock",
+            "pp": 15,
+            "power": 50,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rage",
+          "level": 10,
+          "info": {
+            "description": "Raises Attack if the user is hit.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Blast",
+          "level": 13,
+          "info": {
+            "description": "Hurls boulders to hit 2-5 times.",
+            "type": "Rock",
+            "pp": 25,
+            "power": 25,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "level": 16,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 85,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "level": 19,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Rock",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 22,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dragonbreath",
+          "level": 25,
+          "info": {
+            "description": "A strong breath attack.",
+            "type": "Dragon",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "level": 28,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 31,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 34,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 37,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Iron Head",
+          "level": 40,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Steel",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dig",
+          "level": 43,
+          "info": {
+            "description": "1st turn: Burrow 2nd turn: Attack",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "level": 46,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 49,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 52,
+          "info": {
+            "description": "Tough but useless vs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Iron Tail",
+          "level": 1,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Steel",
+            "pp": 15,
+            "power": 100,
+            "accuracy": 75,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Wrap",
+          "level": 1,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 15,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Curse",
+          "level": 4,
+          "info": {
+            "description": "Works differently for Ghost-types.",
+            "type": "Ghost",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Throw",
+          "level": 7,
+          "info": {
+            "description": "Drops rocks on the enemy.",
+            "type": "Rock",
+            "pp": 15,
+            "power": 50,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rage",
+          "level": 10,
+          "info": {
+            "description": "Raises Attack if the user is hit.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Blast",
+          "level": 13,
+          "info": {
+            "description": "Hurls boulders to hit 2-5 times.",
+            "type": "Rock",
+            "pp": 25,
+            "power": 25,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "level": 16,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 85,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "level": 19,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Rock",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 22,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dragonbreath",
+          "level": 25,
+          "info": {
+            "description": "A strong breath attack.",
+            "type": "Dragon",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "level": 28,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 31,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 34,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 37,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Iron Head",
+          "level": 40,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Steel",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dig",
+          "level": 43,
+          "info": {
+            "description": "1st turn: Burrow 2nd turn: Attack",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "level": 46,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 49,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 52,
+          "info": {
+            "description": "Tough but useless vs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Iron Tail",
+          "level": 1,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Steel",
+            "pp": 15,
+            "power": 100,
+            "accuracy": 75,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Wrap",
+          "level": 1,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 15,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Curse",
+          "level": 4,
+          "info": {
+            "description": "Works differently for Ghost-types.",
+            "type": "Ghost",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Throw",
+          "level": 7,
+          "info": {
+            "description": "Drops rocks on the enemy.",
+            "type": "Rock",
+            "pp": 15,
+            "power": 50,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rage",
+          "level": 10,
+          "info": {
+            "description": "Raises Attack if the user is hit.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Blast",
+          "level": 13,
+          "info": {
+            "description": "Hurls boulders to hit 2-5 times.",
+            "type": "Rock",
+            "pp": 25,
+            "power": 25,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "level": 16,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 85,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "level": 19,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Rock",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 22,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dragonbreath",
+          "level": 25,
+          "info": {
+            "description": "A strong breath attack.",
+            "type": "Dragon",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "level": 28,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 31,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 34,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 37,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Iron Head",
+          "level": 40,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Steel",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dig",
+          "level": 43,
+          "info": {
+            "description": "1st turn: Burrow 2nd turn: Attack",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "level": 46,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 49,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 52,
+          "info": {
+            "description": "Tough but useless vs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "sheer-force",
+          "name": "Sheer Force",
+          "description": "\tRemoves effects to \tincrease damage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sand-force",
+          "name": "Sand Force",
+          "description": "\tBoosts some moves \tin a sandstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "sheer-force",
+          "name": "Sheer Force",
+          "description": "\tRemoves effects to \tincrease damage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sand-force",
+          "name": "Sand Force",
+          "description": "\tBoosts some moves \tin a sandstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 75,
+        "attack": 85,
+        "defense": 200,
+        "speed": 30,
+        "specialAttack": 55,
+        "specialDefense": 65,
+        "total": 510
+      },
+      "faithfulBaseStats": {
+        "hp": 75,
+        "attack": 85,
+        "defense": 200,
+        "speed": 30,
+        "specialAttack": 55,
+        "specialDefense": 65,
+        "total": 510
+      },
+      "polishedBaseStats": {
+        "hp": 75,
+        "attack": 90,
+        "defense": 200,
+        "speed": 30,
+        "specialAttack": 55,
+        "specialDefense": 65,
+        "total": 515
+      },
+      "catchRate": 25,
+      "baseExp": 196,
+      "heldItems": [
+        "METAL_COAT"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Slow (6,400 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Mineral",
+        "Mineral"
+      ],
+      "evYield": "2 Def",
+      "eggMoves": [
+        "Defense Curl",
+        "Rock Slide",
+        "Earthquake",
+        "Rock Blast"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Roar",
+          "description": "Scares wild foes to end battle.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM05",
+          "location": {
+            "area": "Route 32"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "TM15",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Bulldoze",
+          "description": "A Ground attack that lowers Speed.",
+          "type": "Ground",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM21",
+          "location": {
+            "area": "Route 39"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "description": "Tough but useless vs. flying foes.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM26",
+          "location": {
+            "area": "Victory Road"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Flash Cannon",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Steel",
+          "pp": 10,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM34",
+          "location": {
+            "area": "Route 9"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "description": "Inflicts damage every turn.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM37",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "description": "An attack that may cause flinching.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM48",
+          "location": {
+            "area": "Brock's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Dark Pulse",
+          "description": "An attack that may cause flinching.",
+          "type": "Dark",
+          "pp": 15,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM58",
+          "location": {
+            "area": "Dark Cave"
+          }
+        },
+        {
+          "name": "Dragon Pulse",
+          "description": "Attacks foe with a shock wave.",
+          "type": "Dragon",
+          "pp": 10,
+          "power": 85,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM59",
+          "location": {
+            "area": "Clair's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Explosion",
+          "description": "Very powerful but makes user faint.",
+          "type": "Normal",
+          "pp": 5,
+          "power": 250,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM64",
+          "location": {
+            "area": "Underground"
+          }
+        },
+        {
+          "name": "Giga Impact",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM68",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "description": "Has a high critical hit ratio.",
+          "type": "Rock",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 80,
+          "tmNumber": "TM71",
+          "location": {
+            "area": "Blue's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "description": "Does more damage at lower speed.",
+          "type": "Steel",
+          "pp": 5,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM74",
+          "location": {
+            "area": "Magnet Tunnel"
+          }
+        },
+        {
+          "name": "Cut",
+          "description": "Cuts using claws, scythes, etc.",
+          "type": "Steel",
+          "pp": 30,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM01",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Aqua Tail",
+          "description": "Swings tail like a wave in a storm.",
+          "type": "Water",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT02",
+          "location": {
+            "area": "Route 4"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "description": "Raises the user's Defense.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT07",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Earth Power",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "MT10",
+          "location": {
+            "area": "Cherrygrove Bay"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Iron Head",
+          "description": "An attack that may cause flinching.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT17",
+          "location": {
+            "area": "Route 4"
+          }
+        },
+        {
+          "name": "Rollout",
+          "description": "Attacks 5 turns with rising power.",
+          "type": "Rock",
+          "pp": 20,
+          "power": 30,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT20",
+          "location": {
+            "area": "Route 46"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ]
+    }
+  },
+  "locations": [
+    {
+      "area": "silver_cave_room_2",
+      "method": "grass",
+      "time": "morn",
+      "level": "77",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_room_2",
+      "method": "grass",
+      "time": "day",
+      "level": "77",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_room_3",
+      "method": "grass",
+      "time": "morn",
+      "level": "78",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_room_3",
+      "method": "grass",
+      "time": "day",
+      "level": "78",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_room_3",
+      "method": "grass",
+      "time": "nite",
+      "level": "78",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "cliff_cave",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 1",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "cliff_cave",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 1",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "cliff_cave",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 1",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "quiet_cave_b_3f",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 3",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "quiet_cave_b_3f",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 3",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "quiet_cave_b_3f",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 3",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "52",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "52",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "rock_tunnel_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "52",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "victory_road_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "45",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "victory_road_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "45",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "victory_road_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "46",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "victory_road_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "48",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "victory_road_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "48",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "victory_road_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "49",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "victory_road_3f",
+      "method": "grass",
+      "time": "morn",
+      "level": "50",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "victory_road_3f",
+      "method": "grass",
+      "time": "day",
+      "level": "50",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "victory_road_3f",
+      "method": "grass",
+      "time": "nite",
+      "level": "51",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "dim_cave_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "51",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "dim_cave_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "51",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "dim_cave_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "52",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "dim_cave_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "52",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "dim_cave_3f",
+      "method": "grass",
+      "time": "morn",
+      "level": "56",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "dim_cave_3f",
+      "method": "grass",
+      "time": "day",
+      "level": "56",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "63",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "64",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "63",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "64",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "64",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "65",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "66",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "65",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "66",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "cinnabar_volcano_b_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "64",
+      "chance": 5,
+      "formName": null
+    }
+  ]
+}

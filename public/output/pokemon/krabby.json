@@ -1,0 +1,2604 @@
+{
+  "name": "Krabby",
+  "nationalDex": 98,
+  "johtoDex": 184,
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 28,
+        "target": "Kingler"
+      }
+    ],
+    "chain": [
+      "Krabby",
+      "Kingler"
+    ],
+    "chainWithMethods": {
+      "Krabby": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Kingler"
+        }
+      ],
+      "Kingler": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 28,
+        "target": "Kingler"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Krabby": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Kingler"
+        }
+      ],
+      "Kingler": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 28,
+        "target": "Kingler"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Krabby": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Kingler"
+        }
+      ],
+      "Kingler": []
+    }
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 30,
+      "attack": 105,
+      "defense": 90,
+      "speed": 50,
+      "specialAttack": 25,
+      "specialDefense": 25,
+      "total": 325
+    },
+    "faithfulBaseStats": {
+      "hp": 30,
+      "attack": 105,
+      "defense": 90,
+      "speed": 50,
+      "specialAttack": 25,
+      "specialDefense": 25,
+      "total": 325
+    },
+    "polishedBaseStats": {
+      "hp": 30,
+      "attack": 105,
+      "defense": 90,
+      "speed": 50,
+      "specialAttack": 25,
+      "specialDefense": 25,
+      "total": 325
+    },
+    "catchRate": 225,
+    "baseExp": 115,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "hyper-cutter",
+        "name": "Hyper Cutter",
+        "description": "\tPrevents foes from \tlowering Attack.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "sheer-force",
+        "name": "Sheer Force",
+        "description": "\tRemoves effects to \tincrease damage.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "hyper-cutter",
+        "name": "Hyper Cutter",
+        "description": "\tPrevents foes from \tlowering Attack.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "sheer-force",
+        "name": "Sheer Force",
+        "description": "\tRemoves effects to \tincrease damage.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "evYield": "1 Atk",
+    "types": "Water",
+    "updatedTypes": "Water"
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Water"
+      ],
+      "faithfulTypes": [
+        "Water"
+      ],
+      "updatedTypes": [
+        "Water"
+      ],
+      "moves": [
+        {
+          "name": "Aqua Jet",
+          "level": 1,
+          "info": {
+            "description": "A speedy lunge. Always goes first.",
+            "type": "Water",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scratch",
+          "level": 5,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 9,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 11,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bubble Beam",
+          "level": 15,
+          "info": {
+            "description": "An attack that may lower Speed.",
+            "type": "Water",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dig",
+          "level": 19,
+          "info": {
+            "description": "1st turn: Burrow 2nd turn: Attack",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 21,
+          "info": {
+            "description": "An attack that may up user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stomp",
+          "level": 25,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Protect",
+          "level": 29,
+          "info": {
+            "description": "Foils attack that turn. It may fail.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "level": 31,
+          "info": {
+            "description": "Slashes foe with scythes or claws.",
+            "type": "Bug",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 35,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Crabhammer",
+          "level": 39,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Water",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 41,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 45,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Aqua Jet",
+          "level": 1,
+          "info": {
+            "description": "A speedy lunge. Always goes first.",
+            "type": "Water",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scratch",
+          "level": 5,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 9,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 11,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bubble Beam",
+          "level": 15,
+          "info": {
+            "description": "An attack that may lower Speed.",
+            "type": "Water",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dig",
+          "level": 19,
+          "info": {
+            "description": "1st turn: Burrow 2nd turn: Attack",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 21,
+          "info": {
+            "description": "An attack that may up user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stomp",
+          "level": 25,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Protect",
+          "level": 29,
+          "info": {
+            "description": "Foils attack that turn. It may fail.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "level": 31,
+          "info": {
+            "description": "Slashes foe with scythes or claws.",
+            "type": "Bug",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 35,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Crabhammer",
+          "level": 39,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Water",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 41,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 45,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Aqua Jet",
+          "level": 1,
+          "info": {
+            "description": "A speedy lunge. Always goes first.",
+            "type": "Water",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scratch",
+          "level": 5,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 9,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 11,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bubble Beam",
+          "level": 15,
+          "info": {
+            "description": "An attack that may lower Speed.",
+            "type": "Water",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dig",
+          "level": 19,
+          "info": {
+            "description": "1st turn: Burrow 2nd turn: Attack",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 21,
+          "info": {
+            "description": "An attack that may up user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stomp",
+          "level": 25,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Protect",
+          "level": 29,
+          "info": {
+            "description": "Foils attack that turn. It may fail.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "level": 31,
+          "info": {
+            "description": "Slashes foe with scythes or claws.",
+            "type": "Bug",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 35,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Crabhammer",
+          "level": 39,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Water",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 41,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 45,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "hyper-cutter",
+          "name": "Hyper Cutter",
+          "description": "\tPrevents foes from \tlowering Attack.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shell-armor",
+          "name": "Shell Armor",
+          "description": "\tProtects from \tcritical hits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sheer-force",
+          "name": "Sheer Force",
+          "description": "\tRemoves effects to \tincrease damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "hyper-cutter",
+          "name": "Hyper Cutter",
+          "description": "\tPrevents foes from \tlowering Attack.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shell-armor",
+          "name": "Shell Armor",
+          "description": "\tProtects from \tcritical hits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sheer-force",
+          "name": "Sheer Force",
+          "description": "\tRemoves effects to \tincrease damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 30,
+        "attack": 105,
+        "defense": 90,
+        "speed": 50,
+        "specialAttack": 25,
+        "specialDefense": 25,
+        "total": 325
+      },
+      "faithfulBaseStats": {
+        "hp": 30,
+        "attack": 105,
+        "defense": 90,
+        "speed": 50,
+        "specialAttack": 25,
+        "specialDefense": 25,
+        "total": 325
+      },
+      "polishedBaseStats": {
+        "hp": 30,
+        "attack": 105,
+        "defense": 90,
+        "speed": 50,
+        "specialAttack": 25,
+        "specialDefense": 25,
+        "total": 325
+      },
+      "catchRate": 225,
+      "baseExp": 115,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk",
+      "eggMoves": [
+        "Agility",
+        "Haze",
+        "Amnesia",
+        "Dig",
+        "Calm Mind",
+        "Knock Off"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hail",
+          "description": "Inflicts damage every turn.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM07",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Hone Claws",
+          "description": "Raises the user's Atk and accuracy.",
+          "type": "Dark",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM12",
+          "location": {
+            "area": "Route 35"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM13",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM14",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "description": "An attack that may cause flinching.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM48",
+          "location": {
+            "area": "Brock's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "False Swipe",
+          "description": "Leaves the foe with at least 1HP.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 40,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM54",
+          "location": {
+            "area": "Ilex Forest Gate"
+          }
+        },
+        {
+          "name": "Scald",
+          "description": "An attack that may inflict a burn.",
+          "type": "Water",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM55",
+          "location": {
+            "area": "Route 19"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "description": "Slashes foe with scythes or claws.",
+          "type": "Bug",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM56",
+          "location": {
+            "area": "Underground Warehouse"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "description": "An attack that may confuse the foe.",
+          "type": "Water",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM63",
+          "location": {
+            "area": "Misty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Shadow Claw",
+          "description": "Has a high critical hit ratio.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM65",
+          "location": {
+            "area": "Lavender Soul House"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "description": "Sharply raises the user's Attack.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM75",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Cut",
+          "description": "Cuts using claws, scythes, etc.",
+          "type": "Steel",
+          "pp": 30,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM01",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Surf",
+          "description": "A strong Watertype attack.",
+          "type": "Water",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "HM03",
+          "location": {
+            "area": "Ecruteak City"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Whirlpool",
+          "description": "Traps the foe for 2-5 turns.",
+          "type": "Water",
+          "pp": 15,
+          "power": 40,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "HM05",
+          "location": {
+            "area": "Route 42"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "description": "An icy attack that lowers Speed.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 55,
+          "category": "Special",
+          "accuracy": 95,
+          "tmNumber": "MT16",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Knock Off",
+          "description": "Slaps down the foe's held item.",
+          "type": "Dark",
+          "pp": 20,
+          "power": 65,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT18",
+          "location": {
+            "area": "Route 40"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ]
+    }
+  },
+  "locations": [
+    {
+      "area": "whirl_island_nw",
+      "method": "grass",
+      "time": "morn",
+      "level": "32",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_nw",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_nw",
+      "method": "grass",
+      "time": "day",
+      "level": "32",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_nw",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_nw",
+      "method": "grass",
+      "time": "nite",
+      "level": "32",
+      "chance": 50,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_nw",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_ne",
+      "method": "grass",
+      "time": "morn",
+      "level": "32",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_ne",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_ne",
+      "method": "grass",
+      "time": "day",
+      "level": "32",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_ne",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_ne",
+      "method": "grass",
+      "time": "nite",
+      "level": "32",
+      "chance": 50,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_ne",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_sw",
+      "method": "grass",
+      "time": "morn",
+      "level": "32",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_sw",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_sw",
+      "method": "grass",
+      "time": "day",
+      "level": "32",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_sw",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_sw",
+      "method": "grass",
+      "time": "nite",
+      "level": "32",
+      "chance": 50,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_sw",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_cave",
+      "method": "grass",
+      "time": "morn",
+      "level": "32",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_cave",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_cave",
+      "method": "grass",
+      "time": "day",
+      "level": "32",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_cave",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_cave",
+      "method": "grass",
+      "time": "nite",
+      "level": "32",
+      "chance": 50,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_cave",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_se",
+      "method": "grass",
+      "time": "morn",
+      "level": "32",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_se",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_se",
+      "method": "grass",
+      "time": "day",
+      "level": "32",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_se",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_se",
+      "method": "grass",
+      "time": "nite",
+      "level": "32",
+      "chance": 50,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_se",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "35",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "35",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "33",
+      "chance": 50,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "36",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "36",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 50,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "36",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_lugia_chamber",
+      "method": "grass",
+      "time": "morn",
+      "level": "35",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_lugia_chamber",
+      "method": "grass",
+      "time": "morn",
+      "level": "37",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_lugia_chamber",
+      "method": "grass",
+      "time": "day",
+      "level": "35",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_lugia_chamber",
+      "method": "grass",
+      "time": "day",
+      "level": "37",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_lugia_chamber",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 50,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_lugia_chamber",
+      "method": "grass",
+      "time": "nite",
+      "level": "37",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "cliff_cave",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 4",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "scary_cave_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "57",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "scary_cave_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "57",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "scary_cave_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "57",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "beautiful_beach",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "beautiful_beach",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "beautiful_beach",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "warm_beach",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "warm_beach",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "warm_beach",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "rocky_beach",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "rocky_beach",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "rocky_beach",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "shamouti_shrine_ruins",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "shamouti_shrine_ruins",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "shamouti_shrine_ruins",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_19",
+      "method": "fish_old",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_19",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "route_19",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_19",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_19",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_23",
+      "method": "fish_old",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_23",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "route_23",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_23",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_23",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_24",
+      "method": "fish_old",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_24",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "route_24",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_24",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_24",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_32_coast",
+      "method": "fish_old",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_32_coast",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "route_32_coast",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_32_coast",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_32_coast",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_34",
+      "method": "fish_old",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_34",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "route_34",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_34",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_34",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_40",
+      "method": "fish_old",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_40",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "route_40",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_40",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_40",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "cerulean_city",
+      "method": "fish_old",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "cerulean_city",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "cerulean_city",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "cerulean_city",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "cerulean_city",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "indigo_plateau",
+      "method": "fish_old",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "indigo_plateau",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "indigo_plateau",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "indigo_plateau",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "indigo_plateau",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "cherrygrove_city",
+      "method": "fish_old",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "cherrygrove_city",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "cherrygrove_city",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "cherrygrove_city",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "cherrygrove_city",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "olivine_city",
+      "method": "fish_old",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "olivine_city",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "olivine_city",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "olivine_city",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "olivine_city",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "cianwood_city",
+      "method": "fish_old",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "cianwood_city",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "cianwood_city",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "cianwood_city",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "cianwood_city",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "shamouti_island",
+      "method": "fish_old",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "shamouti_island",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "shamouti_island",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "shamouti_island",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "shamouti_island",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "shamouti_shrine_ruins",
+      "method": "fish_old",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "shamouti_shrine_ruins",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "shamouti_shrine_ruins",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "shamouti_shrine_ruins",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "shamouti_shrine_ruins",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "beautiful_beach",
+      "method": "fish_old",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "beautiful_beach",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "beautiful_beach",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "beautiful_beach",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "beautiful_beach",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "rocky_beach",
+      "method": "fish_old",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "rocky_beach",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "rocky_beach",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "rocky_beach",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "rocky_beach",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "warm_beach",
+      "method": "fish_old",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "warm_beach",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "warm_beach",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "warm_beach",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "warm_beach",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "stormy_beach",
+      "method": "fish_old",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "stormy_beach",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "stormy_beach",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "stormy_beach",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "stormy_beach",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "union_cave_b_2f",
+      "method": "fish_old",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "union_cave_b_2f",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "union_cave_b_2f",
+      "method": "fish_good",
+      "time": "all",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "union_cave_b_2f",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "union_cave_b_2f",
+      "method": "fish_super",
+      "time": "all",
+      "level": "40",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_40",
+      "method": "rocksmash",
+      "time": "any",
+      "level": "15",
+      "chance": 70,
+      "formName": null
+    },
+    {
+      "area": "cianwood_city",
+      "method": "rocksmash",
+      "time": "any",
+      "level": "15",
+      "chance": 70,
+      "formName": null
+    },
+    {
+      "area": "olivine_city",
+      "method": "rocksmash",
+      "time": "any",
+      "level": "15",
+      "chance": 70,
+      "formName": null
+    },
+    {
+      "area": "route_19",
+      "method": "rocksmash",
+      "time": "any",
+      "level": "15",
+      "chance": 70,
+      "formName": null
+    },
+    {
+      "area": "vermilion_city",
+      "method": "rocksmash",
+      "time": "any",
+      "level": "15",
+      "chance": 70,
+      "formName": null
+    },
+    {
+      "area": "ruins_of_alph_outside",
+      "method": "rocksmash",
+      "time": "any",
+      "level": "15",
+      "chance": 70,
+      "formName": null
+    },
+    {
+      "area": "stormy_beach",
+      "method": "rocksmash",
+      "time": "any",
+      "level": "15",
+      "chance": 70,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "rocksmash",
+      "time": "any",
+      "level": "15",
+      "chance": 70,
+      "formName": null
+    },
+    {
+      "area": "union_cave_b_1f_south",
+      "method": "rocksmash",
+      "time": "any",
+      "level": "15",
+      "chance": 70,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_1f",
+      "method": "rocksmash",
+      "time": "any",
+      "level": "15",
+      "chance": 70,
+      "formName": null
+    },
+    {
+      "area": "burned_tower_b_1f",
+      "method": "rocksmash",
+      "time": "any",
+      "level": "15",
+      "chance": 70,
+      "formName": null
+    },
+    {
+      "area": "magnet_tunnel_east",
+      "method": "rocksmash",
+      "time": "any",
+      "level": "15",
+      "chance": 70,
+      "formName": null
+    },
+    {
+      "area": "magnet_tunnel_west",
+      "method": "rocksmash",
+      "time": "any",
+      "level": "15",
+      "chance": 70,
+      "formName": null
+    },
+    {
+      "area": "giovannis_cave",
+      "method": "rocksmash",
+      "time": "any",
+      "level": "15",
+      "chance": 70,
+      "formName": null
+    }
+  ]
+}

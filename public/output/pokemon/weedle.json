@@ -1,0 +1,488 @@
+{
+  "name": "Weedle",
+  "nationalDex": 13,
+  "johtoDex": 27,
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 7,
+        "target": "Kakuna"
+      }
+    ],
+    "chain": [
+      "Weedle",
+      "Kakuna",
+      "Beedrill"
+    ],
+    "chainWithMethods": {
+      "Weedle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Kakuna"
+        }
+      ],
+      "Kakuna": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Beedrill"
+        }
+      ],
+      "Beedrill": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 7,
+        "target": "Kakuna"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Weedle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Kakuna"
+        }
+      ],
+      "Kakuna": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Beedrill"
+        }
+      ],
+      "Beedrill": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 7,
+        "target": "Kakuna"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Weedle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Kakuna"
+        }
+      ],
+      "Kakuna": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Beedrill"
+        }
+      ],
+      "Beedrill": []
+    }
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 40,
+      "attack": 35,
+      "defense": 30,
+      "speed": 50,
+      "specialAttack": 20,
+      "specialDefense": 20,
+      "total": 195
+    },
+    "faithfulBaseStats": {
+      "hp": 40,
+      "attack": 35,
+      "defense": 30,
+      "speed": 50,
+      "specialAttack": 20,
+      "specialDefense": 20,
+      "total": 195
+    },
+    "polishedBaseStats": {
+      "hp": 40,
+      "attack": 35,
+      "defense": 30,
+      "speed": 50,
+      "specialAttack": 20,
+      "specialDefense": 20,
+      "total": 195
+    },
+    "catchRate": 255,
+    "baseExp": 52,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "shield-dust",
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shield-dust",
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "shield-dust",
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shield-dust",
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Bug",
+      "Bug"
+    ],
+    "evYield": "1 Spe",
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "updatedTypes": [
+      "Bug",
+      "Poison"
+    ]
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Bug",
+        "Poison"
+      ],
+      "faithfulTypes": [
+        "Bug",
+        "Poison"
+      ],
+      "updatedTypes": [
+        "Bug",
+        "Poison"
+      ],
+      "moves": [
+        {
+          "name": "Poison Sting",
+          "level": 1,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "power": 15,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "String Shot",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Speed.",
+            "type": "Bug",
+            "pp": 40,
+            "accuracy": 95,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bug Bite",
+          "level": 9,
+          "info": {
+            "description": "Bites the foe and eats a held Berry.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Poison Sting",
+          "level": 1,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "power": 15,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "String Shot",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Speed.",
+            "type": "Bug",
+            "pp": 40,
+            "accuracy": 95,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bug Bite",
+          "level": 9,
+          "info": {
+            "description": "Bites the foe and eats a held Berry.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Poison Sting",
+          "level": 1,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "power": 15,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "String Shot",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Speed.",
+            "type": "Bug",
+            "pp": 40,
+            "accuracy": 95,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bug Bite",
+          "level": 9,
+          "info": {
+            "description": "Bites the foe and eats a held Berry.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "shield-dust",
+          "name": "Shield Dust",
+          "description": "\tBlocks additional \tattack effects.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shield-dust",
+          "name": "Shield Dust",
+          "description": "\tBlocks additional \tattack effects.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "shield-dust",
+          "name": "Shield Dust",
+          "description": "\tBlocks additional \tattack effects.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shield-dust",
+          "name": "Shield Dust",
+          "description": "\tBlocks additional \tattack effects.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 40,
+        "attack": 35,
+        "defense": 30,
+        "speed": 50,
+        "specialAttack": 20,
+        "specialDefense": 20,
+        "total": 195
+      },
+      "faithfulBaseStats": {
+        "hp": 40,
+        "attack": 35,
+        "defense": 30,
+        "speed": 50,
+        "specialAttack": 20,
+        "specialDefense": 20,
+        "total": 195
+      },
+      "polishedBaseStats": {
+        "hp": 40,
+        "attack": 35,
+        "defense": 30,
+        "speed": 50,
+        "specialAttack": 20,
+        "specialDefense": 20,
+        "total": 195
+      },
+      "catchRate": 255,
+      "baseExp": 52,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Bug",
+        "Bug"
+      ],
+      "evYield": "1 Spe"
+    }
+  },
+  "locations": [
+    {
+      "area": "national_park",
+      "method": "grass",
+      "time": "morn",
+      "level": "12",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "national_park",
+      "method": "grass",
+      "time": "day",
+      "level": "12",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ilex_forest",
+      "method": "grass",
+      "time": "morn",
+      "level": "9",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ilex_forest",
+      "method": "grass",
+      "time": "day",
+      "level": "9",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_30",
+      "method": "grass",
+      "time": "morn",
+      "level": "3",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "route_30",
+      "method": "grass",
+      "time": "day",
+      "level": "3",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "route_31",
+      "method": "grass",
+      "time": "morn",
+      "level": "4",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "route_31",
+      "method": "grass",
+      "time": "day",
+      "level": "4",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ilex_forest",
+      "method": "headbutt_rare",
+      "time": "any",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "murky_swamp",
+      "method": "headbutt_rare",
+      "time": "any",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "yellow_forest",
+      "method": "headbutt_rare",
+      "time": "any",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    }
+  ]
+}

@@ -42,7 +42,7 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
               type="static"
               form={typeof pokemon.form === 'string' ? pokemon.form : 'plain'}
               src={pokemon.frontSpriteUrl}
-              className="w-10! h-10! p-1! rounded-md!"
+              size={'sm'}
             />
           </Link>
         </div>

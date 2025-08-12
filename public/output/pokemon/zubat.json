@@ -1,0 +1,2579 @@
+{
+  "name": "Zubat",
+  "nationalDex": 41,
+  "johtoDex": 37,
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 22,
+        "target": "Golbat"
+      }
+    ],
+    "chain": [
+      "Zubat",
+      "Golbat",
+      "Crobat"
+    ],
+    "chainWithMethods": {
+      "Zubat": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Golbat"
+        }
+      ],
+      "Golbat": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Crobat"
+        }
+      ],
+      "Crobat": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 22,
+        "target": "Golbat"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Zubat": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Golbat"
+        }
+      ],
+      "Golbat": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Crobat"
+        }
+      ],
+      "Crobat": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 22,
+        "target": "Golbat"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Zubat": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Golbat"
+        }
+      ],
+      "Golbat": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Crobat"
+        }
+      ],
+      "Crobat": []
+    }
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 35,
+      "speed": 55,
+      "specialAttack": 30,
+      "specialDefense": 40,
+      "total": 245
+    },
+    "faithfulBaseStats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 35,
+      "speed": 55,
+      "specialAttack": 30,
+      "specialDefense": 40,
+      "total": 245
+    },
+    "polishedBaseStats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 35,
+      "speed": 55,
+      "specialAttack": 30,
+      "specialDefense": 40,
+      "total": 245
+    },
+    "catchRate": 255,
+    "baseExp": 54,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "infiltrator",
+        "name": "Infiltrator",
+        "description": "\tAttacks bypass the \tfoe's barriers.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "infiltrator",
+        "name": "Infiltrator",
+        "description": "\tAttacks bypass the \tfoe's barriers.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "anticipation",
+        "name": "Anticipation",
+        "description": "\tSenses the foe's \tdangerous moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "infiltrator",
+        "name": "Infiltrator",
+        "description": "\tAttacks bypass the \tfoe's barriers.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Flying",
+      "Flying"
+    ],
+    "evYield": "1 Spe",
+    "types": [
+      "Poison",
+      "Flying"
+    ],
+    "updatedTypes": [
+      "Poison",
+      "Flying"
+    ]
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Poison",
+        "Flying"
+      ],
+      "faithfulTypes": [
+        "Poison",
+        "Flying"
+      ],
+      "updatedTypes": [
+        "Poison",
+        "Flying"
+      ],
+      "moves": [
+        {
+          "name": "Absorb",
+          "level": 1,
+          "info": {
+            "description": "Steals 1/2 of the damage inflicted.",
+            "type": "Grass",
+            "pp": 25,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Supersonic",
+          "level": 5,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": 65,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Astonish",
+          "level": 7,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 11,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gust",
+          "level": 13,
+          "info": {
+            "description": "Whips up a strong gust of wind.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Confuse Ray",
+          "level": 17,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Ghost",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Wing Attack",
+          "level": 19,
+          "info": {
+            "description": "Strikes the foe with wings.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 23,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Super Fang",
+          "level": 25,
+          "info": {
+            "description": "Cuts the foe's HP by 1/2.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 1,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mean Look",
+          "level": 29,
+          "info": {
+            "description": "Prevents fleeing or switching.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Leech Life",
+          "level": 31,
+          "info": {
+            "description": "Steals 1/2 of the damage inflicted.",
+            "type": "Bug",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Haze",
+          "level": 35,
+          "info": {
+            "description": "Eliminates all stat changes.",
+            "type": "Ice",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Venoshock",
+          "level": 37,
+          "info": {
+            "description": "Damage doubles if foe is poisoned.",
+            "type": "Poison",
+            "pp": 10,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Air Slash",
+          "level": 41,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 43,
+          "info": {
+            "description": "Heavily strikes switching Pokemon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Absorb",
+          "level": 1,
+          "info": {
+            "description": "Steals 1/2 of the damage inflicted.",
+            "type": "Grass",
+            "pp": 25,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Supersonic",
+          "level": 5,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": 65,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Astonish",
+          "level": 7,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 11,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gust",
+          "level": 13,
+          "info": {
+            "description": "Whips up a strong gust of wind.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Confuse Ray",
+          "level": 17,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Ghost",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Wing Attack",
+          "level": 19,
+          "info": {
+            "description": "Strikes the foe with wings.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 23,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Super Fang",
+          "level": 25,
+          "info": {
+            "description": "Cuts the foe's HP by 1/2.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 1,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mean Look",
+          "level": 29,
+          "info": {
+            "description": "Prevents fleeing or switching.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Leech Life",
+          "level": 31,
+          "info": {
+            "description": "Steals 1/2 of the damage inflicted.",
+            "type": "Bug",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Haze",
+          "level": 35,
+          "info": {
+            "description": "Eliminates all stat changes.",
+            "type": "Ice",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Venoshock",
+          "level": 37,
+          "info": {
+            "description": "Damage doubles if foe is poisoned.",
+            "type": "Poison",
+            "pp": 10,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Air Slash",
+          "level": 41,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 43,
+          "info": {
+            "description": "Heavily strikes switching Pokemon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Absorb",
+          "level": 1,
+          "info": {
+            "description": "Steals 1/2 of the damage inflicted.",
+            "type": "Grass",
+            "pp": 25,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Supersonic",
+          "level": 5,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": 65,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Astonish",
+          "level": 7,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 11,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gust",
+          "level": 13,
+          "info": {
+            "description": "Whips up a strong gust of wind.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Confuse Ray",
+          "level": 17,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Ghost",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Wing Attack",
+          "level": 19,
+          "info": {
+            "description": "Strikes the foe with wings.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 23,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Super Fang",
+          "level": 25,
+          "info": {
+            "description": "Cuts the foe's HP by 1/2.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 1,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mean Look",
+          "level": 29,
+          "info": {
+            "description": "Prevents fleeing or switching.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Leech Life",
+          "level": 31,
+          "info": {
+            "description": "Steals 1/2 of the damage inflicted.",
+            "type": "Bug",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Haze",
+          "level": 35,
+          "info": {
+            "description": "Eliminates all stat changes.",
+            "type": "Ice",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Venoshock",
+          "level": 37,
+          "info": {
+            "description": "Damage doubles if foe is poisoned.",
+            "type": "Poison",
+            "pp": 10,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Air Slash",
+          "level": 41,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 43,
+          "info": {
+            "description": "Heavily strikes switching Pokemon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "infiltrator",
+          "name": "Infiltrator",
+          "description": "\tAttacks bypass the \tfoe's barriers.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "infiltrator",
+          "name": "Infiltrator",
+          "description": "\tAttacks bypass the \tfoe's barriers.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "anticipation",
+          "name": "Anticipation",
+          "description": "\tSenses the foe's \tdangerous moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "infiltrator",
+          "name": "Infiltrator",
+          "description": "\tAttacks bypass the \tfoe's barriers.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 40,
+        "attack": 45,
+        "defense": 35,
+        "speed": 55,
+        "specialAttack": 30,
+        "specialDefense": 40,
+        "total": 245
+      },
+      "faithfulBaseStats": {
+        "hp": 40,
+        "attack": 45,
+        "defense": 35,
+        "speed": 55,
+        "specialAttack": 30,
+        "specialDefense": 40,
+        "total": 245
+      },
+      "polishedBaseStats": {
+        "hp": 40,
+        "attack": 45,
+        "defense": 35,
+        "speed": 55,
+        "specialAttack": 30,
+        "specialDefense": 40,
+        "total": 245
+      },
+      "catchRate": 255,
+      "baseExp": 54,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Flying",
+        "Flying"
+      ],
+      "evYield": "1 Spe",
+      "eggMoves": [
+        "Feint Attack",
+        "Gust",
+        "Hypnosis",
+        "Nasty Plot",
+        "Pursuit",
+        "Quick Attack",
+        "Zen Headbutt",
+        "Brave Bird"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Venoshock",
+          "description": "Damage doubles if foe is poisoned.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 65,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM09",
+          "location": {
+            "area": "Route 11"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Giga Drain",
+          "description": "Steals 1/2 of the damage inflicted.",
+          "type": "Grass",
+          "pp": 10,
+          "power": 75,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM19",
+          "location": {
+            "area": "Erika's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Shadow Ball",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM30",
+          "location": {
+            "area": "Morty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Sludge Bomb",
+          "description": "An attack that may poison the foe.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM36",
+          "location": {
+            "area": "Route 43"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "description": "An attack that never misses.",
+          "type": "Flying",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "TM40",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Steel Wing",
+          "description": "An attack that may up user's Defense.",
+          "type": "Steel",
+          "pp": 25,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM47",
+          "location": {
+            "area": "Route 28"
+          }
+        },
+        {
+          "name": "Leech Life",
+          "description": "Steals 1/2 of the damage inflicted.",
+          "type": "Bug",
+          "pp": 10,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM50",
+          "location": {
+            "area": "Yellow Forest"
+          }
+        },
+        {
+          "name": "Roost",
+          "description": "Lands to restore 1/2 the max HP.",
+          "type": "Flying",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM51",
+          "location": {
+            "area": "Falkner's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Acrobatics",
+          "description": "Damage doubles if user has no item.",
+          "type": "Flying",
+          "pp": 15,
+          "power": 55,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM62",
+          "location": {
+            "area": "Route 39 Farmhouse"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "description": "An attack that may poison the foe.",
+          "type": "Poison",
+          "pp": 20,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM66",
+          "location": {
+            "area": "Janine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "U Turn",
+          "description": "Switches out after making its attack.",
+          "type": "Bug",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM69",
+          "location": {
+            "area": "Bugsy's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Fly",
+          "description": "1st turn: Fly 2nd turn: Attack",
+          "type": "Flying",
+          "pp": 15,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM02",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        },
+        {
+          "name": "Zen Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Psychic",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT31",
+          "location": {
+            "area": "Saffron City"
+          }
+        }
+      ]
+    }
+  },
+  "locations": [
+    {
+      "area": "burned_tower_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "14",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "burned_tower_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "14",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "burned_tower_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "14",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "burned_tower_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "15",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "burned_tower_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "15",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "burned_tower_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "15",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "union_cave_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "7",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "union_cave_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "9",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "union_cave_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "7",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "union_cave_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "9",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "union_cave_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "9",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "union_cave_b_1f_north",
+      "method": "grass",
+      "time": "morn",
+      "level": "6",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "union_cave_b_1f_north",
+      "method": "grass",
+      "time": "morn",
+      "level": "8",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "union_cave_b_1f_north",
+      "method": "grass",
+      "time": "day",
+      "level": "6",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "union_cave_b_1f_north",
+      "method": "grass",
+      "time": "day",
+      "level": "8",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "union_cave_b_1f_north",
+      "method": "grass",
+      "time": "nite",
+      "level": "6",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "union_cave_b_1f_south",
+      "method": "grass",
+      "time": "morn",
+      "level": "21",
+      "chance": 50,
+      "formName": null
+    },
+    {
+      "area": "union_cave_b_1f_south",
+      "method": "grass",
+      "time": "day",
+      "level": "21",
+      "chance": 50,
+      "formName": null
+    },
+    {
+      "area": "union_cave_b_1f_south",
+      "method": "grass",
+      "time": "nite",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "union_cave_b_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "22",
+      "chance": 50,
+      "formName": null
+    },
+    {
+      "area": "union_cave_b_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "22",
+      "chance": 50,
+      "formName": null
+    },
+    {
+      "area": "union_cave_b_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "22",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_entrance",
+      "method": "grass",
+      "time": "morn",
+      "level": "5",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_entrance",
+      "method": "grass",
+      "time": "morn",
+      "level": "6",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_entrance",
+      "method": "grass",
+      "time": "morn",
+      "level": "7",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_entrance",
+      "method": "grass",
+      "time": "morn",
+      "level": "8",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_entrance",
+      "method": "grass",
+      "time": "day",
+      "level": "5",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_entrance",
+      "method": "grass",
+      "time": "day",
+      "level": "6",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_entrance",
+      "method": "grass",
+      "time": "day",
+      "level": "7",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_entrance",
+      "method": "grass",
+      "time": "day",
+      "level": "8",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_entrance",
+      "method": "grass",
+      "time": "nite",
+      "level": "5",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_entrance",
+      "method": "grass",
+      "time": "nite",
+      "level": "6",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_entrance",
+      "method": "grass",
+      "time": "nite",
+      "level": "7",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_entrance",
+      "method": "grass",
+      "time": "nite",
+      "level": "8",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "5",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "6",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "7",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "8",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "5",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "6",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "7",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "8",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "5",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "6",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "7",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "8",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "23",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "19",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "23",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "19",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "23",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "19",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "mount_mortar_1f_outside",
+      "method": "grass",
+      "time": "morn",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "mount_mortar_1f_outside",
+      "method": "grass",
+      "time": "day",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "mount_mortar_1f_outside",
+      "method": "grass",
+      "time": "nite",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "mount_mortar_1f_inside",
+      "method": "grass",
+      "time": "morn",
+      "level": "23",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "mount_mortar_1f_inside",
+      "method": "grass",
+      "time": "day",
+      "level": "23",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "mount_mortar_1f_inside",
+      "method": "grass",
+      "time": "nite",
+      "level": "22",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "mount_mortar_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "15",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "mount_mortar_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "15",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "mount_mortar_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "15",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "32",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "32",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "31",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_2f_mahogany_side",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_2f_mahogany_side",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_2f_mahogany_side",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_2f_blackthorn_side",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_2f_blackthorn_side",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_2f_blackthorn_side",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_3f",
+      "method": "grass",
+      "time": "morn",
+      "level": "35",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_3f",
+      "method": "grass",
+      "time": "day",
+      "level": "35",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ice_path_b_3f",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_nw",
+      "method": "grass",
+      "time": "morn",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_nw",
+      "method": "grass",
+      "time": "day",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_nw",
+      "method": "grass",
+      "time": "nite",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_ne",
+      "method": "grass",
+      "time": "morn",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_ne",
+      "method": "grass",
+      "time": "day",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_ne",
+      "method": "grass",
+      "time": "nite",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_sw",
+      "method": "grass",
+      "time": "morn",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_sw",
+      "method": "grass",
+      "time": "day",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_sw",
+      "method": "grass",
+      "time": "nite",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_cave",
+      "method": "grass",
+      "time": "morn",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_cave",
+      "method": "grass",
+      "time": "day",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_cave",
+      "method": "grass",
+      "time": "nite",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_se",
+      "method": "grass",
+      "time": "morn",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_se",
+      "method": "grass",
+      "time": "day",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_se",
+      "method": "grass",
+      "time": "nite",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "35",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "35",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_b_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_lugia_chamber",
+      "method": "grass",
+      "time": "morn",
+      "level": "36",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_lugia_chamber",
+      "method": "grass",
+      "time": "day",
+      "level": "36",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "whirl_island_lugia_chamber",
+      "method": "grass",
+      "time": "nite",
+      "level": "36",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "grass",
+      "time": "morn",
+      "level": "2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "grass",
+      "time": "morn",
+      "level": "4",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "grass",
+      "time": "day",
+      "level": "2",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "grass",
+      "time": "day",
+      "level": "4",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "grass",
+      "time": "nite",
+      "level": "2",
+      "chance": 35,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "grass",
+      "time": "nite",
+      "level": "4",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_blackthorn_entrance",
+      "method": "grass",
+      "time": "morn",
+      "level": "23",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_blackthorn_entrance",
+      "method": "grass",
+      "time": "day",
+      "level": "23",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_blackthorn_entrance",
+      "method": "grass",
+      "time": "nite",
+      "level": "23",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_30",
+      "method": "grass",
+      "time": "nite",
+      "level": "3",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "route_31",
+      "method": "grass",
+      "time": "nite",
+      "level": "4",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "route_33",
+      "method": "grass",
+      "time": "nite",
+      "level": "9",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_33",
+      "method": "grass",
+      "time": "nite",
+      "level": "10",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "route_42",
+      "method": "grass",
+      "time": "nite",
+      "level": "22",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "cliff_cave",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 6",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "quiet_cave_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "quiet_cave_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "quiet_cave_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "quiet_cave_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 1",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "quiet_cave_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 1",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "quiet_cave_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 1",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "quiet_cave_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 1",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "quiet_cave_b_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 0",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "quiet_cave_b_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 0",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "quiet_cave_b_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 0",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "quiet_cave_b_3f",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 1",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "quiet_cave_b_3f",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 1",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "quiet_cave_b_3f",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 1",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "murky_swamp",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 4",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "magnet_tunnel_inside",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 0",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "magnet_tunnel_inside",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 0",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "magnet_tunnel_inside",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 0",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "tohjo_falls",
+      "method": "grass",
+      "time": "morn",
+      "level": "22",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "tohjo_falls",
+      "method": "grass",
+      "time": "day",
+      "level": "22",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "tohjo_falls",
+      "method": "grass",
+      "time": "nite",
+      "level": "22",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "scary_cave_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "56",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "scary_cave_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "56",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "scary_cave_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "56",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "seafoam_islands_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "56",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "seafoam_islands_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "56",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "seafoam_islands_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "56",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "seafoam_islands_b_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "61",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "seafoam_islands_b_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "61",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "seafoam_islands_b_1f",
+      "method": "grass",
+      "time": "nite",
+      "level": "61",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "seafoam_islands_b_2f",
+      "method": "grass",
+      "time": "morn",
+      "level": "62",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "seafoam_islands_b_2f",
+      "method": "grass",
+      "time": "day",
+      "level": "62",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "seafoam_islands_b_2f",
+      "method": "grass",
+      "time": "nite",
+      "level": "62",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "seafoam_islands_b_3f",
+      "method": "grass",
+      "time": "morn",
+      "level": "63",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "seafoam_islands_b_3f",
+      "method": "grass",
+      "time": "day",
+      "level": "63",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "seafoam_islands_b_3f",
+      "method": "grass",
+      "time": "nite",
+      "level": "63",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "grass",
+      "time": "morn",
+      "level": "2",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "grass",
+      "time": "day",
+      "level": "2",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "grass",
+      "time": "nite",
+      "level": "2",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "swarm",
+      "time": "morn",
+      "level": "2",
+      "chance": 100,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "swarm",
+      "time": "day",
+      "level": "2",
+      "chance": 100,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "swarm",
+      "time": "nite",
+      "level": "2",
+      "chance": 100,
+      "formName": null
+    }
+  ]
+}

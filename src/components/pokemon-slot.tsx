@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import {
@@ -15,18 +15,39 @@ import {
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
 import { POKEMON_LIST, emptyPokemonEntry, type PokemonBasic } from '@/lib/pokemon-data';
-import { Ability, DetailedStats } from '@/types/types';
+import { Ability, BaseData, PokemonType } from '@/types/types';
 import { Badge } from './ui/badge';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { PokemonSprite } from './pokemon/pokemon-sprite';
 
 export type MoveEntry = {
   name: string;
   type: string | null;
 };
 
+export type MoveData = {
+  name: string;
+  description?: string;
+  type?: string;
+  updated?: {
+    type: string;
+    category: string;
+    power: number;
+    accuracy: number;
+    pp: number;
+  };
+  tm?: {
+    number: string;
+    location?: {
+      area: string;
+    };
+  };
+  [key: string]: unknown;
+};
+
 export type PokemonEntry = {
   name: string;
-  types: (string | null)[]; // [type1, type2]
+  types: PokemonType['name'][]; // [type1, type2]
   ability: string;
   moves: MoveEntry[]; // 4 moves
 };
@@ -38,76 +59,126 @@ export type PokemonSlotProps = {
 };
 
 export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps) {
-  const [, setPokemonDetailData] = useState<DetailedStats | null>(null);
-  const [individualPokemonData, setIndividualPokemonData] = useState<DetailedStats | null>(null);
+  const [pokemonData, setPokemonData] = useState<BaseData | null>(null);
+  const [movesData, setMovesData] = useState<Record<string, MoveData> | null>(null);
   const { showFaithful } = useFaithfulPreference();
+  const previousTypesRef = useRef<string | null>(null);
 
   const matched: PokemonBasic | undefined = useMemo(
     () => POKEMON_LIST.find((p) => p.name.toLowerCase() === (entry.name || '').toLowerCase()),
     [entry.name],
   );
 
+  // Load moves data once for type lookups
+  useEffect(() => {
+    const loadMoves = async () => {
+      try {
+        const response = await fetch('/output/manifests/moves.json');
+        if (response.ok) {
+          const data = await response.json();
+          setMovesData(data);
+        }
+      } catch (error) {
+        console.error('Failed to load moves data:', error);
+      }
+    };
+
+    loadMoves();
+  }, []); // Load once on mount
+
   // Load detailed Pokemon data when a Pokemon is selected
   useEffect(() => {
     if (matched?.name) {
-      // Load only the detailed stats file which contains all needed data
-      fetch('/output/pokemon_detailed_stats.json')
+      // Use fileName if available, otherwise fall back to name transformation
+      const fileName = matched.fileName
+        ? matched.fileName.replace('.json', '')
+        : matched.name.toLowerCase().replace(/[ -]/g, '-');
+      console.log('Loading Pokemon data for:', fileName, 'from matched:', matched);
+
+      fetch(`/output/pokemon/${fileName}.json`)
         .then((res) => {
           if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
           return res.json();
         })
-        .then((detailedStats) => {
-          const pokemonData = detailedStats[matched.name];
-          setPokemonDetailData(pokemonData || null);
-          setIndividualPokemonData(pokemonData || null);
+        .then((data) => {
+          setPokemonData(data);
         })
         .catch((err) => {
           console.error('Failed to load Pokemon data:', err);
-          setPokemonDetailData(null);
-          setIndividualPokemonData(null);
+          setPokemonData(null);
         });
     } else {
-      setPokemonDetailData(null);
-      setIndividualPokemonData(null);
+      setPokemonData(null);
     }
-  }, [matched?.name]);
+  }, [matched, showFaithful]);
 
   // Update types when detailed data loads or faithful preference changes
   useEffect(() => {
-    if (individualPokemonData && matched?.name) {
+    if (pokemonData && matched?.name) {
+      // Get types from individual data, checking for forms structure
+      const formData = pokemonData.forms?.plain || pokemonData;
       const correctTypes = showFaithful
-        ? individualPokemonData.faithfulTypes || individualPokemonData.types || []
-        : individualPokemonData.updatedTypes || individualPokemonData.types || [];
+        ? formData.faithfulTypes || formData.types || []
+        : formData.updatedTypes || formData.types || [];
 
       // Always ensure types is [type1, type2] with nulls if missing
-      const currentTypes = Array.isArray(entry.types)
-        ? [entry.types[0] ?? null, entry.types[1] ?? null]
-        : typeof entry.types === 'string'
-          ? [entry.types, null]
-          : [null, null];
-
       const newTypes = Array.isArray(correctTypes)
         ? [correctTypes[0] ?? null, correctTypes[1] ?? null]
         : typeof correctTypes === 'string'
           ? [correctTypes, null]
           : [null, null];
 
-      // Only update if types actually changed
-      if (currentTypes[0] !== newTypes[0] || currentTypes[1] !== newTypes[1]) {
-        onChange({ types: newTypes });
+      // Create a string representation for comparison
+      const newTypesString = JSON.stringify(newTypes);
+      const currentTypesString = JSON.stringify([entry.types[0] ?? null, entry.types[1] ?? null]);
+
+      // Only update if types actually changed and we haven't just updated them
+      if (newTypesString !== currentTypesString && previousTypesRef.current !== newTypesString) {
+        previousTypesRef.current = newTypesString;
+        
+        // Filter out nulls and ensure only valid type strings are assigned
+        const validTypes = newTypes.filter(
+          (t): t is PokemonType['name'] =>
+            typeof t === 'string' &&
+            [
+              'normal',
+              'fire',
+              'water',
+              'electric',
+              'grass',
+              'ice',
+              'fighting',
+              'poison',
+              'ground',
+              'flying',
+              'psychic',
+              'bug',
+              'rock',
+              'ghost',
+              'dragon',
+              'dark',
+              'steel',
+              'fairy',
+            ].includes(t),
+        );
+        onChange({ types: validTypes });
       }
     }
-  }, [individualPokemonData, showFaithful, matched?.name, entry.types, onChange]);
+  }, [pokemonData, showFaithful, matched?.name, entry.types, onChange]);
 
   const abilityOptions = useMemo(() => {
-    // Use individual Pokemon data from detailed stats if available, fall back to matched data
-    const sourceData = individualPokemonData || matched;
+    // Use individual Pokemon data if available, fall back to matched data
+    const sourceData = pokemonData || matched;
     if (!sourceData) return [];
+
+    // Check for forms structure (individual files) or direct structure (manifest)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const formData: any = pokemonData?.forms?.plain || sourceData;
 
     // Use faithful or polished abilities based on context
     const abilities: Ability[] = showFaithful
-      ? (sourceData as DetailedStats).faithfulAbilities || sourceData.abilities || []
-      : (sourceData as DetailedStats).updatedAbilities || sourceData.abilities || [];
+      ? formData.detailedStats?.faithfulAbilities || formData.abilities || []
+      : formData.detailedStats?.updatedAbilities || formData.abilities || [];
 
     return abilities
       .map((ability) => {
@@ -122,11 +193,11 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
         return ability?.name || 'Unknown';
       })
       .filter(Boolean);
-  }, [individualPokemonData, matched, showFaithful]);
+  }, [pokemonData, matched, showFaithful]);
 
   const availableMoves = useMemo(() => {
-    // Use individual Pokemon data from detailed stats if available
-    const sourceData = individualPokemonData;
+    // Use individual Pokemon data if available
+    const sourceData = pokemonData;
     if (!sourceData && !matched) return [];
 
     if (!sourceData) {
@@ -134,27 +205,65 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
       return [];
     }
 
+    // Check for forms structure (individual files) - moves are in the forms.plain
+    const formData = sourceData.forms?.plain || sourceData;
+
+    console.log('Form data for moves:', formData);
+
     // Get moves based on faithful/polished preference
     const levelUpMoves = showFaithful
-      ? sourceData.faithfulMoves || sourceData.moves || []
-      : sourceData.updatedMoves || sourceData.moves || [];
+      ? formData.faithfulMoves || formData.moves || []
+      : formData.updatedMoves || formData.moves || [];
 
     // Get egg moves and TM/HM moves (these don't have faithful versions)
-    const eggMoves = sourceData.eggMoves || [];
-    const tmHmMoves = sourceData.tmHmLearnset || [];
+    const eggMoves = formData.eggMoves || [];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const tmHmMoves = (formData as any).tmHmMoves || [];
+
+    // Helper function to get move type from moves data
+    const getMoveType = (moveName: string): string => {
+      if (!movesData || !moveName) return 'Normal';
+
+      // Convert move name to a key format (lowercase, replace spaces/special chars with hyphens)
+      const moveKey = moveName.toLowerCase().replace(/[ '-.]/g, '-');
+
+      // Try different key variations to find the move
+      const moveInfo =
+        movesData[moveKey] ||
+        movesData[moveName.toLowerCase()] ||
+        movesData[moveName.replace(/\s+/g, '-').toLowerCase()] ||
+        movesData[moveName];
+
+      // Extract type from the updated field, fall back to base type
+      const moveType = moveInfo?.updated?.type || moveInfo?.type || 'Normal';
+
+      // Debug logging for egg moves
+      if (moveInfo) {
+        console.log(`Found move ${moveName} (key: ${moveKey}) -> type: ${moveType}`);
+      } else {
+        console.log(`Move not found: ${moveName} (tried key: ${moveKey})`);
+      }
+
+      return moveType;
+    };
 
     // Combine all moves
     const allMoves = [
       ...levelUpMoves.map((move) => ({ ...move, category: 'Level-up' })),
-      ...eggMoves.map((move) => ({ ...move, category: 'Egg Move' })),
-      ...tmHmMoves.map((move) => ({ ...move, category: 'TM/HM' })),
+      ...eggMoves.map((move) => ({
+        name: typeof move === 'string' ? move : move.name || 'Unknown Move',
+        type: getMoveType(typeof move === 'string' ? move : move.name || 'Unknown Move'),
+        category: 'Egg Move',
+      })),
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ...tmHmMoves.map((move: any) => ({ ...move, category: 'TM/HM' })),
     ];
 
     return (
       allMoves
         .map((move) => ({
           name: String(move.name || 'Unknown Move'),
-          type: String(move.info?.type || 'Normal'),
+          type: String(move.info?.type || move.type || 'Normal'),
           category: move.category || 'Level-up',
         }))
         .filter((move) => move.name && move.name !== 'Unknown Move')
@@ -169,7 +278,9 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
           return a.name.localeCompare(b.name);
         })
     );
-  }, [individualPokemonData, matched, showFaithful]);
+  }, [pokemonData, matched, showFaithful, movesData]);
+
+  console.log('Available moves:', availableMoves);
 
   const isPokemonSelected = Boolean(matched);
 
@@ -187,11 +298,34 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     }
 
     // Use basic types as default - types will be updated when detailed data loads
-    const types = [found.types[0] ?? null, found.types[1] ?? null];
+    const validTypes = [found.types[0], found.types[1]].filter(
+      (t): t is PokemonType['name'] =>
+        typeof t === 'string' &&
+        [
+          'normal',
+          'fire',
+          'water',
+          'electric',
+          'grass',
+          'ice',
+          'fighting',
+          'poison',
+          'ground',
+          'flying',
+          'psychic',
+          'bug',
+          'rock',
+          'ghost',
+          'dragon',
+          'dark',
+          'steel',
+          'fairy',
+        ].includes(t),
+    );
 
     onChange({
       name: found.name,
-      types: types,
+      types: validTypes,
     });
   };
 
@@ -201,8 +335,13 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
 
   return (
     <Card className="py-4">
-      <CardHeader className="flex flex-row items-start justify-between space-y-0 px-4 relative">
-        <CardTitle>Slot {index + 1}</CardTitle>
+      <CardHeader className="flex flex-row items-center gap-3 justify-start space-y-0 px-4 relative">
+        <PokemonSprite
+          primaryType={entry.types[0] || 'normal'}
+          pokemonName={entry.name || 'egg'}
+          size={'sm'}
+        />
+        <CardTitle>{entry.name ? entry.name : 'Add a Pokemon...'}</CardTitle>
         <Button
           variant="ghost"
           size="icon"
@@ -232,26 +371,14 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
               </SelectGroup>
             </SelectContent>
           </Select>
-          {matched && (
-            <div className="flex items-center gap-2">
-              {/* Show types from entry (which gets updated by useEffect) or fallback to matched types */}
-              {Array.isArray(entry.types) && entry.types[0] && (
-                <Badge variant={entry.types[0].toLowerCase() || 'any'}>{entry.types[0]}</Badge>
-              )}
-              {Array.isArray(entry.types) &&
-                entry.types[1] &&
-                entry.types[1] !== entry.types[0] && (
-                  <Badge variant={entry.types[1].toLowerCase() || 'any'}>{entry.types[1]}</Badge>
-                )}
-              {/* Fallback to matched types if entry.types are missing */}
-              {!entry.types[0] && matched.types[0] && (
-                <Badge variant={matched.types[0].toLowerCase() || 'any'}>{matched.types[0]}</Badge>
-              )}
-              {!entry.types[1] && matched.types[1] && matched.types[1] !== matched.types[0] && (
-                <Badge variant={matched.types[1].toLowerCase() || 'any'}>{matched.types[1]}</Badge>
-              )}
-            </div>
-          )}
+          <div className="flex items-center gap-2">
+            {Array.isArray(entry.types) && entry.types[0] && (
+              <Badge variant={entry.types[0].toLowerCase() || 'any'}>{entry.types[0]}</Badge>
+            )}
+            {Array.isArray(entry.types) && entry.types[1] && entry.types[1] !== entry.types[0] && (
+              <Badge variant={entry.types[1].toLowerCase() || 'any'}>{entry.types[1]}</Badge>
+            )}
+          </div>
         </div>
 
         <div className="grid gap-2">
@@ -306,6 +433,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                     {/* Group moves by category */}
                     {['Level-up', 'Egg Move', 'TM/HM'].map((category) => {
                       const movesInCategory = availableMoves.filter((m) => m.category === category);
+                      // console.log('Moves in category', category, movesInCategory);
                       if (movesInCategory.length === 0) return null;
 
                       return (

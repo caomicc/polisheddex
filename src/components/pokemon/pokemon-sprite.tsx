@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { PokemonType } from '@/types/types';
 import { SpriteVariant, SpriteType } from '@/types/spriteTypes';
 import { useSpriteData } from '@/hooks/useSpriteData';
+import { cva } from 'class-variance-authority';
 
 interface PokemonSpriteProps {
   className?: string;
@@ -15,7 +16,20 @@ interface PokemonSpriteProps {
   form?: string; // Optional form prop for specific Pokemon forms
   // Legacy prop for backward compatibility
   src?: string;
+  size?: 'default' | 'sm';
 }
+
+const spriteVariants = cva('relative bg-white', {
+  variants: {
+    size: {
+      default: 'p-2 w-12 md:w-20 h-12 md:h-20 rounded-lg md:rounded-xl',
+      sm: 'w-10 h-10 p-1 rounded-md',
+    },
+  },
+  defaultVariants: {
+    size: 'default',
+  },
+});
 
 export function PokemonSprite({
   className,
@@ -25,14 +39,10 @@ export function PokemonSprite({
   variant = 'normal',
   type = 'static',
   src,
+  size,
   form, // Optional form prop for specific Pokemon forms
 }: PokemonSpriteProps) {
   const { spriteInfo, isLoading } = useSpriteData(pokemonName, variant, type, form);
-
-  console.log(
-    `Rendering sprite for ${pokemonName} with variant ${variant} and type ${type}`,
-    spriteInfo,
-  );
 
   // Fallback to legacy src prop if provided and sprite data not available
   const finalSrc = spriteInfo?.url || src;
@@ -43,7 +53,7 @@ export function PokemonSprite({
     return (
       <div
         className={cn(
-          'relative bg-white p-2 w-12 md:w-20 h-12 md:h-20 rounded-lg md:rounded-xl',
+          spriteVariants({ size }),
           `shadow-lg shadow-${primaryType?.toLowerCase()}`,
           'animate-pulse',
           className,
@@ -56,7 +66,7 @@ export function PokemonSprite({
     return (
       <div
         className={cn(
-          'relative bg-white p-2 w-12 md:w-20 h-12 md:h-20 rounded-lg md:rounded-xl',
+          spriteVariants({ size }),
           `shadow-lg shadow-${primaryType?.toLowerCase()}`,
           'flex items-center justify-center text-gray-400',
           className,
@@ -70,7 +80,7 @@ export function PokemonSprite({
   return (
     <div
       className={cn(
-        'relative bg-white p-2 w-12 md:w-20 h-12 md:h-20 rounded-lg md:rounded-xl',
+        spriteVariants({ size }),
         `shadow-lg shadow-${primaryType?.toLowerCase()}`,
         className,
       )}
