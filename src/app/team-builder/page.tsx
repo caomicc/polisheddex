@@ -16,7 +16,7 @@ function TeamBuilderLoading() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-lg">Loading team builder...</div>
+        <div className="text-lg">Loading team builder... This could take a second!</div>
       </div>
     </div>
   );

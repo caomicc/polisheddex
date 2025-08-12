@@ -30,14 +30,9 @@ export default function TeamBuilder() {
         // Load only Pokemon data first to show the team builder quickly
         await loadPokemonData();
         setEssentialDataLoaded(true);
-        
+
         // Then load the rest in the background
-        await Promise.all([
-          loadMovesData(),
-          loadAbilitiesData(),
-          loadTypesData(),
-          loadTypeChart(),
-        ]);
+        await Promise.all([loadMovesData(), loadAbilitiesData(), loadTypesData(), loadTypeChart()]);
         setDataLoaded(true);
       } catch (error) {
         console.error('Failed to load data:', error);
@@ -111,7 +106,7 @@ export default function TeamBuilder() {
     try {
       const shareUrl = generateShareUrl(team);
       const success = await copyToClipboard(shareUrl);
-      
+
       if (success) {
         setShareMessage('Share URL copied to clipboard!');
         setTimeout(() => setShareMessage(null), 3000);
@@ -139,7 +134,9 @@ export default function TeamBuilder() {
       <div className="mx-auto max-w-4xl px-4 py-8">
         <div className="text-center">
           <h1 className="text-2xl font-bold tracking-tight">Pokédex Team Builder</h1>
-          <p className="text-muted-foreground mt-2">Loading Pokémon data...</p>
+          <p className="text-muted-foreground mt-2">
+            Loading Pokémon data... This could take a second!
+          </p>
           <div className="mt-4">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 mx-auto"></div>
           </div>
@@ -180,9 +177,7 @@ export default function TeamBuilder() {
       {shareMessage && (
         <Card className="my-4">
           <CardContent className="pt-6">
-            <p className="text-sm text-center text-green-600 dark:text-green-400">
-              {shareMessage}
-            </p>
+            <p className="text-sm text-center text-green-600 dark:text-green-400">{shareMessage}</p>
           </CardContent>
         </Card>
       )}
