@@ -236,7 +236,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
             <div className="flex items-center gap-2">
               {/* Show types from entry (which gets updated by useEffect) or fallback to matched types */}
               {Array.isArray(entry.types) && entry.types[0] && (
-                <Badge variant={entry.types[0].toLowerCase() || 'any'}>{entry.types}</Badge>
+                <Badge variant={entry.types[0].toLowerCase() || 'any'}>{entry.types[0]}</Badge>
               )}
               {Array.isArray(entry.types) &&
                 entry.types[1] &&
