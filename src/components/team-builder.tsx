@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Trash2, Upload, Download, Calculator } from 'lucide-react';
+import { Trash2, Upload, Download, Calculator, Share } from 'lucide-react';
 import PokemonSlot, { type PokemonEntry } from './pokemon-slot';
 import CalculationsPanel from './calculations-panel';
 import { DEFAULT_TEAM, emptyPokemonEntry, loadPokemonData } from '@/lib/pokemon-data';
@@ -13,20 +13,17 @@ import { loadAbilitiesData } from '@/lib/abilities-data';
 import { loadTypesData } from '@/lib/types-data';
 import { loadTypeChart } from '@/lib/calculations';
 import { useLocalStorage } from '@/lib/use-local-storage';
+import { generateShareUrl, getTeamFromUrl, copyToClipboard } from '@/lib/team-url-sharing';
 
 export default function TeamBuilder() {
   const [team, setTeam] = useLocalStorage<PokemonEntry[]>('pokedex-team', DEFAULT_TEAM);
   const [importing, setImporting] = useState(false);
   const [importText, setImportText] = useState('');
   const [dataLoaded, setDataLoaded] = useState(false);
+  const [shareMessage, setShareMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    // Ensure length is 6
-    if (!team || team.length !== 6) {
-      setTeam(new Array(6).fill(0).map(() => ({ ...emptyPokemonEntry })));
-    }
-
-    // Load all the real data
+    // Load all the real data first
     const loadAllData = async () => {
       try {
         await Promise.all([
@@ -44,6 +41,25 @@ export default function TeamBuilder() {
     };
 
     loadAllData();
+  }, []);
+
+  useEffect(() => {
+    // Check for shared team in URL first, only run once on mount
+    const sharedTeam = getTeamFromUrl();
+    if (sharedTeam) {
+      setTeam(sharedTeam);
+      // Clear the URL parameter after loading
+      if (typeof window !== 'undefined') {
+        const url = new URL(window.location.href);
+        url.searchParams.delete('team');
+        window.history.replaceState({}, '', url.toString());
+      }
+    } else {
+      // Ensure length is 6 for existing teams
+      if (!team || team.length !== 6) {
+        setTeam(new Array(6).fill(0).map(() => ({ ...emptyPokemonEntry })));
+      }
+    }
   }, [setTeam, team]);
 
   const handleUpdate = (index: number, data: Partial<PokemonEntry>) => {
@@ -85,6 +101,28 @@ export default function TeamBuilder() {
     }
   };
 
+  const shareTeam = async () => {
+    try {
+      const shareUrl = generateShareUrl(team);
+      const success = await copyToClipboard(shareUrl);
+      
+      if (success) {
+        setShareMessage('Share URL copied to clipboard!');
+        setTimeout(() => setShareMessage(null), 3000);
+      } else {
+        setShareMessage('Failed to copy URL. Please try again.');
+        setTimeout(() => setShareMessage(null), 3000);
+      }
+    } catch (error) {
+      if (error instanceof Error && error.message === 'Cannot share an empty team') {
+        setShareMessage('Cannot share an empty team. Add some Pokémon first!');
+      } else {
+        setShareMessage('Failed to generate share URL. Please try again.');
+      }
+      setTimeout(() => setShareMessage(null), 3000);
+    }
+  };
+
   const isEmptyTeam = useMemo(
     () => team.every((p) => !p.name && !p.types[0] && !p.moves.some((m) => m.name || m.type)),
     [team],
@@ -107,6 +145,10 @@ export default function TeamBuilder() {
   return (
     <div className="mx-auto max-w-4xl">
       <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-end">
+        <Button variant="secondary" onClick={shareTeam} disabled={isEmptyTeam}>
+          <Share className="mr-2 h-4 w-4" />
+          Share Team
+        </Button>
         <Button variant="secondary" onClick={() => setImporting((v) => !v)}>
           <Upload className="mr-2 h-4 w-4" />
           Import JSON
@@ -120,6 +162,16 @@ export default function TeamBuilder() {
           Clear Team
         </Button>
       </header>
+
+      {shareMessage && (
+        <Card className="my-4">
+          <CardContent className="pt-6">
+            <p className="text-sm text-center text-green-600 dark:text-green-400">
+              {shareMessage}
+            </p>
+          </CardContent>
+        </Card>
+      )}
 
       {importing && (
         <Card className="my-4">
