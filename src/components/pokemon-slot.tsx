@@ -83,6 +83,7 @@ export type PokemonEntry = {
   types: PokemonType['name'][]; // [type1, type2]
   ability: string;
   nature?: Nature;
+  item?: string;
   moves: MoveEntry[]; // 4 moves
 };
 
@@ -95,6 +96,7 @@ export type PokemonSlotProps = {
 export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps) {
   const [pokemonData, setPokemonData] = useState<BaseData | null>(null);
   const [movesData, setMovesData] = useState<Record<string, MoveData> | null>(null);
+  const [itemsData, setItemsData] = useState<Record<string, { name: string; description: string; attributes?: { category: string } }> | null>(null);
   const [evolutionChainMoves, setEvolutionChainMoves] = useState<MoveEntry[]>([]);
   const { showFaithful } = useFaithfulPreference();
   const previousTypesRef = useRef<string | null>(null);
@@ -119,6 +121,23 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     };
 
     loadMoves();
+  }, []); // Load once on mount
+
+  // Load items data once for item selection
+  useEffect(() => {
+    const loadItems = async () => {
+      try {
+        const response = await fetch('/output/manifests/items.json');
+        if (response.ok) {
+          const data = await response.json();
+          setItemsData(data);
+        }
+      } catch (error) {
+        console.error('Failed to load items data:', error);
+      }
+    };
+
+    loadItems();
   }, []); // Load once on mount
 
   // Load detailed Pokemon data when a Pokemon is selected
@@ -368,6 +387,51 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
 
     loadEvolutionChainMoves();
   }, [pokemonData, entry.name, showFaithful]);
+
+  const availableItems = useMemo(() => {
+    if (!itemsData) return [];
+
+    // Filter items that are commonly used as held items
+    // Exclude things like Poké Balls, Medicine, and Key Items
+    const heldItemCategories = ['Item', 'Berry'];
+    const excludePatterns = [
+      /ball$/i,
+      /potion$/i,
+      /heal$/i,
+      /revive$/i,
+      /antidote$/i,
+      /paralyze$/i,
+      /burn$/i,
+      /awakening$/i,
+      /ice$/i,
+      /repel$/i,
+      /escape$/i,
+      /card$/i,
+      /mail$/i,
+      /case$/i,
+      /rod$/i,
+      /ticket$/i,
+      /pass$/i,
+      /voucher$/i,
+      /coupon$/i,
+    ];
+
+    return Object.entries(itemsData)
+      .filter(([, item]) => {
+        // Include items in held item categories
+        if (!item.attributes?.category || !heldItemCategories.includes(item.attributes.category)) return false;
+        
+        // Exclude items that match exclude patterns
+        const itemName = item.name.toLowerCase();
+        return !excludePatterns.some(pattern => pattern.test(itemName));
+      })
+      .map(([itemKey, item]) => ({
+        id: itemKey,
+        name: item.name,
+        description: item.description,
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [itemsData]);
 
   const availableMoves = useMemo(() => {
     // Use individual Pokemon data if available
@@ -654,6 +718,34 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                 ).map((nature) => (
                   <SelectItem key={`nature-${nature}`} value={nature}>
                     {nature}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="grid gap-2">
+          <Label htmlFor={`item-${index}`}>Held Item</Label>
+          <Select
+            disabled={!isPokemonSelected}
+            value={entry.item || 'none'}
+            onValueChange={(value) => onChange({ item: value === 'none' ? undefined : value })}
+          >
+            <SelectTrigger className="w-full" id={`item-${index}`}>
+              <SelectValue
+                placeholder={isPokemonSelected ? 'Select an item' : 'Select Pokémon first'}
+              />
+            </SelectTrigger>
+            <SelectContent className="max-h-[300px]">
+              <SelectGroup>
+                <SelectLabel>Held Items</SelectLabel>
+                <SelectItem value="none">
+                  None
+                </SelectItem>
+                {availableItems.map((item) => (
+                  <SelectItem key={`item-${item.id}`} value={item.name}>
+                    {item.name}
                   </SelectItem>
                 ))}
               </SelectGroup>

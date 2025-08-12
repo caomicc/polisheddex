@@ -331,6 +331,7 @@ export const emptyPokemonEntry: PokemonEntry = {
   types: [], // Empty array instead of nulls - the component will handle this
   ability: '',
   nature: undefined,
+  item: undefined,
   moves: [
     { name: '', type: null },
     { name: '', type: null },
