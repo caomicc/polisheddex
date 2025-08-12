@@ -6,6 +6,7 @@ export type PokemonBasic = {
   types: (PokemonType['name'] | null)[];
   abilities?: Ability[];
   fileName?: string; // Add fileName to help with fetching individual Pokemon data
+  formName?: string; // Add formName to distinguish between different forms
 };
 
 // Types for the manifest structure
@@ -107,7 +108,12 @@ export async function loadPokemonData(): Promise<PokemonBasic[]> {
     const simpleResponse = await fetch('/pokemon.json');
     if (simpleResponse.ok) {
       const data = (await simpleResponse.json()) as { pokemon: SimplePokemonEntry[] };
-      const pokemonList: PokemonBasic[] = data.pokemon.map((pokemon) => {
+
+      // Create a list that will include both base Pokemon and their forms
+      const pokemonList: PokemonBasic[] = [];
+
+      for (const pokemon of data.pokemon) {
+        // Add the base Pokemon entry
         let typeArray: (PokemonType['name'] | null)[] = [];
 
         if (Array.isArray(pokemon.types)) {
@@ -119,13 +125,67 @@ export async function loadPokemonData(): Promise<PokemonBasic[]> {
           typeArray.push(null);
         }
 
-        return {
+        const basePokemon: PokemonBasic = {
           name: formatPokemonDisplayName(pokemon.name),
           types: [typeArray[0], typeArray[1]],
           abilities: undefined, // Abilities loaded separately when needed
           fileName: pokemon.fileName, // Include fileName for easier fetching
         };
-      });
+
+        pokemonList.push(basePokemon);
+
+        // Now check if this Pokemon has additional forms by loading its individual file
+        try {
+          const pokemonDetailResponse = await fetch(`/output/pokemon/${pokemon.fileName}`);
+          if (pokemonDetailResponse.ok) {
+            const pokemonDetail = await pokemonDetailResponse.json();
+
+            // Check if it has forms other than 'plain'
+            if (pokemonDetail.forms && typeof pokemonDetail.forms === 'object') {
+              const formNames = Object.keys(pokemonDetail.forms);
+
+              for (const formName of formNames) {
+                if (formName !== 'plain') {
+                  // Skip the plain form as it's the base
+                  const formData = pokemonDetail.forms[formName];
+
+                  // Get types for this form
+                  const formTypes =
+                    formData.updatedTypes || formData.types || formData.faithfulTypes || [];
+                  let formTypeArray: (PokemonType['name'] | null)[] = [];
+
+                  if (Array.isArray(formTypes)) {
+                    formTypeArray = formTypes.map((t: string) => normalizeTypeName(t)).slice(0, 2);
+                  } else if (typeof formTypes === 'string') {
+                    formTypeArray = [normalizeTypeName(formTypes), null];
+                  }
+
+                  // Ensure we always have exactly 2 elements
+                  while (formTypeArray.length < 2) {
+                    formTypeArray.push(null);
+                  }
+
+                  // Create form entry with a descriptive name
+                  const formDisplayName = `${formatPokemonDisplayName(pokemon.name)} (${formatPokemonDisplayName(formName)})`;
+
+                  const formPokemon: PokemonBasic = {
+                    name: formDisplayName,
+                    types: [formTypeArray[0], formTypeArray[1]],
+                    abilities: undefined,
+                    fileName: pokemon.fileName,
+                    formName: formName, // Add formName to distinguish forms
+                  };
+
+                  pokemonList.push(formPokemon);
+                }
+              }
+            }
+          }
+        } catch (error) {
+          // If we can't load individual Pokemon data, just continue with base entry
+          console.warn(`Could not load forms for ${pokemon.name}:`, error);
+        }
+      }
 
       // Sort alphabetically
       pokemonList.sort((a, b) => a.name.localeCompare(b.name));

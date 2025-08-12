@@ -120,31 +120,26 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
   // Update types when detailed data loads or faithful preference changes
   useEffect(() => {
     if (pokemonData && matched?.name) {
-      // Get types from individual data, checking for forms structure
-      const formData = pokemonData.forms?.plain || pokemonData;
+      // Determine which form to use - if matched has a formName, use that form, otherwise use plain
+      const formToUse = matched.formName || 'plain';
+      const formData = pokemonData.forms?.[formToUse] || pokemonData.forms?.plain || pokemonData;
+
+      console.log('Using form:', formToUse, 'for Pokemon:', matched.name);
+      console.log('Form data available:', Object.keys(pokemonData.forms || {}));
 
       // For plain forms, prefer base data if form data is empty
       let correctTypes = showFaithful
         ? formData.faithfulTypes || formData.types || []
         : formData.updatedTypes || formData.types || [];
 
-      // console.log('Initial correctTypes from form:', correctTypes);
-      // console.log(
-      //   'Is array?',
-      //   Array.isArray(correctTypes),
-      //   'Length:',
-      //   Array.isArray(correctTypes) ? correctTypes.length : 'N/A',
-      // );
-      // console.log('Has pokemonData.forms?.plain?', !!pokemonData.forms?.plain);
-
-      // If form data has empty types but base data has types, use base data
+      // If form data has empty types but base data has types, use base data (only for plain form)
       const isEmpty =
         !correctTypes ||
         (Array.isArray(correctTypes) && correctTypes.length === 0) ||
         (typeof correctTypes === 'string' && !correctTypes.trim());
 
-      if (isEmpty && pokemonData.forms?.plain) {
-        // console.log('Form data is empty, trying base data...');
+      if (isEmpty && formToUse === 'plain' && pokemonData.forms?.plain) {
+        console.log('Plain form data is empty, trying base data...');
         const detailedStats = pokemonData.detailedStats || {};
         const baseTypes = showFaithful
           ? (detailedStats as Record<string, unknown>)['faithfulTypes'] ||
@@ -155,7 +150,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
         if (baseTypes) {
           correctTypes = baseTypes as string | string[];
         }
-        // console.log('Fallback correctTypes from base:', correctTypes);
+        console.log('Fallback correctTypes from base:', correctTypes);
       }
 
       // console.log('Type update effect - Pokemon:', matched.name);
@@ -235,7 +230,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
         console.log('Skipping type update - no change or already set');
       }
     }
-  }, [pokemonData, showFaithful, matched?.name, entry.types, onChange]);
+  }, [pokemonData, showFaithful, matched?.name, matched?.formName, entry.types, onChange]);
 
   const abilityOptions = useMemo(() => {
     // Use individual Pokemon data if available, fall back to matched data
@@ -276,10 +271,11 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
       return [];
     }
 
-    // Check for forms structure (individual files) - moves are in the forms.plain
-    const formData = sourceData.forms?.plain || sourceData;
+    // Check for forms structure (individual files) - use the specific form if available
+    const formToUse = matched?.formName || 'plain';
+    const formData = sourceData.forms?.[formToUse] || sourceData.forms?.plain || sourceData;
 
-    // console.log('Form data for moves:', formData);
+    console.log('Loading moves for form:', formToUse);
 
     // Get moves based on faithful/polished preference
     const levelUpMoves = showFaithful
@@ -418,8 +414,16 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
       <CardHeader className="flex flex-row items-center gap-3 justify-start space-y-0 px-4 relative">
         <PokemonSprite
           primaryType={entry.types[0] || 'normal'}
-          pokemonName={entry.name || 'egg'}
+          pokemonName={
+            matched?.fileName
+              ? matched.fileName.replace('.json', '')
+              : (entry.name || 'egg')
+                  .toLowerCase()
+                  .replace(/\s*\([^)]*\).*/, '')
+                  .replace(/\s+/g, '-')
+          }
           size={'sm'}
+          form={matched?.formName} // Pass the form name for sprites
         />
         <CardTitle>{entry.name ? entry.name : 'Add a Pokemon...'}</CardTitle>
         <Button
