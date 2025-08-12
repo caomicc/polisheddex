@@ -28,6 +28,7 @@ import { PokemonSprite } from './pokemon/pokemon-sprite';
 export type MoveEntry = {
   name: string;
   type: string | null;
+  category?: string;
 };
 
 export type MoveData = {
@@ -50,10 +51,38 @@ export type MoveData = {
   [key: string]: unknown;
 };
 
+export type Nature =
+  | 'Hardy'
+  | 'Lonely'
+  | 'Brave'
+  | 'Adamant'
+  | 'Naughty'
+  | 'Bold'
+  | 'Docile'
+  | 'Relaxed'
+  | 'Impish'
+  | 'Lax'
+  | 'Timid'
+  | 'Hasty'
+  | 'Serious'
+  | 'Jolly'
+  | 'Naive'
+  | 'Modest'
+  | 'Mild'
+  | 'Quiet'
+  | 'Bashful'
+  | 'Rash'
+  | 'Calm'
+  | 'Gentle'
+  | 'Sassy'
+  | 'Careful'
+  | 'Quirky';
+
 export type PokemonEntry = {
   name: string;
   types: PokemonType['name'][]; // [type1, type2]
   ability: string;
+  nature?: Nature;
   moves: MoveEntry[]; // 4 moves
 };
 
@@ -66,6 +95,7 @@ export type PokemonSlotProps = {
 export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps) {
   const [pokemonData, setPokemonData] = useState<BaseData | null>(null);
   const [movesData, setMovesData] = useState<Record<string, MoveData> | null>(null);
+  const [evolutionChainMoves, setEvolutionChainMoves] = useState<MoveEntry[]>([]);
   const { showFaithful } = useFaithfulPreference();
   const previousTypesRef = useRef<string | null>(null);
 
@@ -261,6 +291,84 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
       .filter(Boolean);
   }, [pokemonData, matched, showFaithful]);
 
+  // Load evolution chain moves when Pokemon data changes
+  useEffect(() => {
+    const loadEvolutionChainMoves = async () => {
+      if (!entry.name) {
+        setEvolutionChainMoves([]);
+        return;
+      }
+
+      // Try to get evolution chain from pokemonData first, then try hardcoded chains
+      let evolutionChain: string[] | undefined;
+      
+      if (pokemonData?.evolution) {
+        const evolution = pokemonData.evolution as { chain?: string[] };
+        evolutionChain = evolution.chain;
+      }
+      
+      // Fallback: hardcoded known evolution chains for testing
+      if (!evolutionChain) {
+        const knownChains: Record<string, string[]> = {
+          'Charmeleon': ['Charmander', 'Charmeleon', 'Charizard'],
+          'Charizard': ['Charmander', 'Charmeleon', 'Charizard'],
+          'Ivysaur': ['Bulbasaur', 'Ivysaur', 'Venusaur'],
+          'Venusaur': ['Bulbasaur', 'Ivysaur', 'Venusaur'],
+          'Wartortle': ['Squirtle', 'Wartortle', 'Blastoise'],
+          'Blastoise': ['Squirtle', 'Wartortle', 'Blastoise'],
+        };
+        evolutionChain = knownChains[entry.name];
+      }
+      
+      if (!evolutionChain || evolutionChain.length === 0) {
+        setEvolutionChainMoves([]);
+        return;
+      }
+
+      const evolutionChainMoves: MoveEntry[] = [];
+      const currentPokemonIndex = evolutionChain.indexOf(entry.name);
+      
+      if (currentPokemonIndex <= 0) {
+        setEvolutionChainMoves([]);
+        return;
+      }
+
+      // Load moves from all previous evolution stages
+      for (let i = 0; i < currentPokemonIndex; i++) {
+        const prevEvolutionName = evolutionChain[i];
+        
+        try {
+          const fileName = prevEvolutionName.toLowerCase().replace(/[ -]/g, '-');
+          const response = await fetch(`/output/pokemon/${fileName}.json`);
+          if (response.ok) {
+            const prevPokemonData = await response.json();
+            const formData = prevPokemonData.forms?.plain || prevPokemonData;
+
+            const prevMoves = showFaithful
+              ? formData.faithfulMoves || formData.moves || []
+              : formData.updatedMoves || formData.moves || [];
+
+            prevMoves.forEach((move: { name: string; info?: { type: string } }) => {
+              if (!evolutionChainMoves.some((existing) => existing.name === move.name)) {
+                evolutionChainMoves.push({
+                  name: move.name,
+                  type: move.info?.type || 'Normal',
+                  category: `Previous Evolution (${prevEvolutionName})`,
+                });
+              }
+            });
+          }
+        } catch (error) {
+          console.error(`Failed to load moves for ${prevEvolutionName}:`, error);
+        }
+      }
+
+      setEvolutionChainMoves(evolutionChainMoves);
+    };
+
+    loadEvolutionChainMoves();
+  }, [pokemonData, entry.name, showFaithful]);
+
   const availableMoves = useMemo(() => {
     // Use individual Pokemon data if available
     const sourceData = pokemonData;
@@ -324,6 +432,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
       })),
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ...tmHmMoves.map((move: any) => ({ ...move, category: 'TM/HM' })),
+      ...evolutionChainMoves,
     ];
 
     return (
@@ -339,15 +448,22 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
         // Sort by category then name
         .sort((a, b) => {
           if (a.category !== b.category) {
-            const order = ['Level-up', 'Egg Move', 'TM/HM'];
-            return order.indexOf(a.category) - order.indexOf(b.category);
+            const order = ['Level-up', 'Egg Move', 'TM/HM', 'Previous Evolution'];
+            if (a.category?.startsWith('Previous Evolution')) {
+              return b.category?.startsWith('Previous Evolution')
+                ? a.category.localeCompare(b.category)
+                : 1;
+            }
+            if (b.category?.startsWith('Previous Evolution')) {
+              return -1;
+            }
+            return order.indexOf(a.category || '') - order.indexOf(b.category || '');
           }
           return a.name.localeCompare(b.name);
         })
     );
-  }, [pokemonData, matched, showFaithful, movesData]);
+  }, [pokemonData, matched, showFaithful, movesData, evolutionChainMoves]);
 
-  console.log('Available moves:', availableMoves);
 
   const isPokemonSelected = Boolean(matched);
 
@@ -422,10 +538,20 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                   .replace(/\s*\([^)]*\).*/, '')
                   .replace(/\s+/g, '-')
           }
-          size={'sm'}
+          // size={'sm'}
           form={matched?.formName} // Pass the form name for sprites
         />
-        <CardTitle>{entry.name ? entry.name : 'Add a Pokemon...'}</CardTitle>
+        <div className="flex gap-2 flex-col">
+          <CardTitle>{entry.name ? entry.name : 'Add a Pokemon...'}</CardTitle>
+          <div className="flex items-center gap-2">
+            {Array.isArray(entry.types) && entry.types[0] && (
+              <Badge variant={entry.types[0].toLowerCase() || 'any'}>{entry.types[0]}</Badge>
+            )}
+            {Array.isArray(entry.types) && entry.types[1] && entry.types[1] !== entry.types[0] && (
+              <Badge variant={entry.types[1].toLowerCase() || 'any'}>{entry.types[1]}</Badge>
+            )}
+          </div>
+        </div>
         <Button
           variant="ghost"
           size="icon"
@@ -444,7 +570,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
             <SelectTrigger className="w-full" id={`name-${index}`}>
               <SelectValue placeholder={'Select a Pokemon'} />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="max-h-[300px]">
               <SelectGroup>
                 <SelectLabel>Pokemon</SelectLabel>
                 {POKEMON_LIST.map((a, idx) => (
@@ -455,14 +581,6 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
               </SelectGroup>
             </SelectContent>
           </Select>
-          <div className="flex items-center gap-2">
-            {Array.isArray(entry.types) && entry.types[0] && (
-              <Badge variant={entry.types[0].toLowerCase() || 'any'}>{entry.types[0]}</Badge>
-            )}
-            {Array.isArray(entry.types) && entry.types[1] && entry.types[1] !== entry.types[0] && (
-              <Badge variant={entry.types[1].toLowerCase() || 'any'}>{entry.types[1]}</Badge>
-            )}
-          </div>
         </div>
 
         <div className="grid gap-2">
@@ -477,12 +595,65 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                 placeholder={isPokemonSelected ? 'Select an ability' : 'Select Pokémon first'}
               />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="max-h-[300px]">
               <SelectGroup>
                 <SelectLabel>Ability</SelectLabel>
                 {abilityOptions.map((a: string, idx: number) => (
                   <SelectItem key={`ability-${idx}-${a}`} value={a}>
                     {a}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="grid gap-2">
+          <Label htmlFor={`nature-${index}`}>Nature</Label>
+          <Select
+            disabled={!isPokemonSelected}
+            value={entry.nature || ''}
+            onValueChange={(value) => onChange({ nature: value as Nature })}
+          >
+            <SelectTrigger className="w-full" id={`nature-${index}`}>
+              <SelectValue
+                placeholder={isPokemonSelected ? 'Select a nature' : 'Select Pokémon first'}
+              />
+            </SelectTrigger>
+            <SelectContent className="max-h-[300px]">
+              <SelectGroup>
+                <SelectLabel>Nature</SelectLabel>
+                {(
+                  [
+                    'Hardy',
+                    'Lonely',
+                    'Brave',
+                    'Adamant',
+                    'Naughty',
+                    'Bold',
+                    'Docile',
+                    'Relaxed',
+                    'Impish',
+                    'Lax',
+                    'Timid',
+                    'Hasty',
+                    'Serious',
+                    'Jolly',
+                    'Naive',
+                    'Modest',
+                    'Mild',
+                    'Quiet',
+                    'Bashful',
+                    'Rash',
+                    'Calm',
+                    'Gentle',
+                    'Sassy',
+                    'Careful',
+                    'Quirky',
+                  ] as Nature[]
+                ).map((nature) => (
+                  <SelectItem key={`nature-${nature}`} value={nature}>
+                    {nature}
                   </SelectItem>
                 ))}
               </SelectGroup>
@@ -513,33 +684,48 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                       placeholder={isPokemonSelected ? `Move ${i + 1}` : 'Select Pokémon first'}
                     />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="max-h-[300px]">
                     {/* Group moves by category */}
-                    {['Level-up', 'Egg Move', 'TM/HM'].map((category) => {
-                      const movesInCategory = availableMoves.filter((m) => m.category === category);
-                      // console.log('Moves in category', category, movesInCategory);
-                      if (movesInCategory.length === 0) return null;
+                    {(() => {
+                      const categories = ['Level-up', 'Egg Move', 'TM/HM'];
+                      const evolutionCategories = [
+                        ...new Set(
+                          availableMoves
+                            .filter((m) => m.category?.startsWith('Previous Evolution'))
+                            .map((m) => m.category!),
+                        ),
+                      ];
 
-                      return (
-                        <SelectGroup key={category}>
-                          <SelectLabel>{category}</SelectLabel>
-                          {movesInCategory.map((move, idx) => (
-                            <SelectItem
-                              key={`move-${category}-${idx}-${move.name}`}
-                              value={move.name}
-                              className="flex justify-between"
-                            >
-                              <div className="flex items-center justify-between w-full">
-                                <span>{move.name}</span>
-                                <Badge variant={move.type?.toLowerCase() || 'any'} className="ml-2">
-                                  {move.type}
-                                </Badge>
-                              </div>
-                            </SelectItem>
-                          ))}
-                        </SelectGroup>
-                      );
-                    })}
+                      return [...categories, ...evolutionCategories].map((category) => {
+                        const movesInCategory = availableMoves.filter(
+                          (m) => m.category === category,
+                        );
+                        if (movesInCategory.length === 0) return null;
+
+                        return (
+                          <SelectGroup key={category}>
+                            <SelectLabel>{category}</SelectLabel>
+                            {movesInCategory.map((move, idx) => (
+                              <SelectItem
+                                key={`move-${category}-${idx}-${move.name}`}
+                                value={move.name}
+                                className="flex justify-between"
+                              >
+                                <div className="flex items-center justify-between w-full">
+                                  <span>{move.name}</span>
+                                  <Badge
+                                    variant={move.type?.toLowerCase() || 'any'}
+                                    className="ml-2"
+                                  >
+                                    {move.type}
+                                  </Badge>
+                                </div>
+                              </SelectItem>
+                            ))}
+                          </SelectGroup>
+                        );
+                      });
+                    })()}
                   </SelectContent>
                 </Select>
               </div>
