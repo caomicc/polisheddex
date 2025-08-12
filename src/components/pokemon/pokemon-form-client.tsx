@@ -78,7 +78,7 @@ export default function PokemonFormClient({
     <>
       {/* Set Pokemon type theme based on current form */}
       <PokemonTypeSetter
-        primaryType={(showFaithful ? formData.types : formData.updatedTypes) || null}
+        primaryType={(showFaithful ? formData.faithfulTypes || formData.types : formData.updatedTypes || formData.types) || null}
         secondaryType={undefined}
       />
       <div className="space-y-6">
@@ -193,13 +193,13 @@ export default function PokemonFormClient({
                     {showFaithful ? (
                       <div>
                         <WeaknessChart
-                          types={
-                            Array.isArray(formData.types)
-                              ? formData.types.map((t: string) => t.toLowerCase())
-                              : formData.types
-                                ? [formData.types.toLowerCase()]
-                                : []
-                          }
+                          types={(() => {
+                            const types = formData.faithfulTypes || formData.types;
+                            if (!types) return [];
+                            
+                            const typeArray = Array.isArray(types) ? types : [types];
+                            return typeArray.map((t: string) => t.toLowerCase());
+                          })()}
                           variant="Faithful"
                         />
                       </div>

@@ -91,45 +91,31 @@ const PokedexHeader = ({
       types={
         showFaithful ? (
           <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
-            {formData.types ? (
-              Array.isArray(formData.types) ? (
-                formData.types.map((type: string) => (
-                  <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
-                    {type}
-                  </Badge>
-                ))
-              ) : (
-                <Badge
-                  key={formData.types}
-                  variant={formData.types.toLowerCase() as PokemonType['name']}
-                >
-                  {formData.types}
+            {(() => {
+              const types = formData.faithfulTypes || formData.types;
+              if (!types) return <Badge variant="secondary">Unknown</Badge>;
+              
+              const typeArray = Array.isArray(types) ? types : [types];
+              return typeArray.map((type: string) => (
+                <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
+                  {type}
                 </Badge>
-              )
-            ) : (
-              <Badge variant="secondary">Unknown</Badge>
-            )}
+              ));
+            })()}
           </div>
         ) : (
           <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
-            {formData.updatedTypes ? (
-              Array.isArray(formData.updatedTypes) ? (
-                formData.updatedTypes.map((type: string) => (
-                  <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
-                    {type}
-                  </Badge>
-                ))
-              ) : (
-                <Badge
-                  key={formData.updatedTypes}
-                  variant={formData.updatedTypes.toLowerCase() as PokemonType['name']}
-                >
-                  {formData.types}
+            {(() => {
+              const types = formData.updatedTypes || formData.types;
+              if (!types) return <Badge variant="secondary">Unknown</Badge>;
+              
+              const typeArray = Array.isArray(types) ? types : [types];
+              return typeArray.map((type: string) => (
+                <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
+                  {type}
                 </Badge>
-              )
-            ) : (
-              <></>
-            )}
+              ));
+            })()}
           </div>
         )
       }

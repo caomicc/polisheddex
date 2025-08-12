@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
-import { TeamBuilderPageContent } from '@/components/team-builder/team-builder-page-content';
+// import { TeamBuilderPageContent } from '@/components/team-builder/team-builder-page-content';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -10,6 +10,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { Hero } from '@/components/ui/Hero';
+import TeamBuilder from '@/components/team-builder';
 
 function TeamBuilderLoading() {
   return (
@@ -25,8 +26,8 @@ export default function TeamBuilderPage() {
   return (
     <>
       <Hero
-        headline="Team Builder"
-        description="Build your perfect team and analyze type weaknesses and resistances"
+        headline="WIP Team Builder"
+        description="WIP REHAUL - Build a team of up to six Pokémon. Add moves and abilities, then review type calculations."
         breadcrumbs={
           <Breadcrumb>
             <BreadcrumbList>
@@ -39,14 +40,15 @@ export default function TeamBuilderPage() {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage className="">Team Builder</BreadcrumbPage>
+                <BreadcrumbPage className="">WIP Team Builder</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
         }
       />
       <Suspense fallback={<TeamBuilderLoading />}>
-        <TeamBuilderPageContent />
+        {/* <TeamBuilderPageContent /> */}
+        <TeamBuilder />
       </Suspense>
     </>
   );

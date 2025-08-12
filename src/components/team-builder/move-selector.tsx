@@ -40,13 +40,18 @@ export function MoveSelector({ isOpen, onClose, pokemon, currentMoves, onMovesUp
   const availableMoves = useMemo((): MoveOption[] => {
     const moves: MoveOption[] = [];
 
-    // Get form-specific moves or base moves
+    // Get form-specific moves or default to the first available form (usually 'plain')
+    // Base pokemon data doesn't contain moves - all moves are in forms
     const formData = pokemon.formName && pokemon.data.forms?.[pokemon.formName] 
       ? pokemon.data.forms[pokemon.formName] 
-      : pokemon.data;
+      : pokemon.data.forms 
+        ? pokemon.data.forms[Object.keys(pokemon.data.forms)[0]]
+        : pokemon.data;
 
-    // Level-up moves
-    const levelMoves = showFaithful ? formData.faithfulMoves || formData.moves : formData.updatedMoves || formData.moves;
+    // Level-up moves - ensure we access the right properties
+    const levelMoves = showFaithful 
+      ? (formData as any).faithfulMoves || (formData as any).moves 
+      : (formData as any).updatedMoves || (formData as any).moves;
     if (levelMoves) {
       levelMoves.forEach((move: Move) => {
         const moveKey = move.name.toLowerCase().replace(/\s+/g, '-');
