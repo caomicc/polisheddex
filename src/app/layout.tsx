@@ -7,6 +7,7 @@ import { Footer, Navigation } from '@/components/ui';
 import { PokemonTypeProvider, FaithfulPreferenceProvider } from '@/contexts';
 import { NuqsProvider } from '@/components/providers/nuqs-provider';
 import { ThemeProvider } from '@/components/providers/theme-provider';
+import ServiceWorkerRegister from '@/components/service-worker-register';
 
 const rubik = Manrope({
   variable: '--font-rubik',
@@ -120,6 +121,7 @@ export default function RootLayout({
             </FaithfulPreferenceProvider>
           </NuqsProvider>
         </ThemeProvider>
+        <ServiceWorkerRegister />
         <SpeedInsights />
         <Analytics />
       </body>

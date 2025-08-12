@@ -106,38 +106,30 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     [entry.name],
   );
 
-  // Load moves data once for type lookups
+  // Load moves and items data in parallel, only once
   useEffect(() => {
-    const loadMoves = async () => {
+    const loadData = async () => {
       try {
-        const response = await fetch('/output/manifests/moves.json');
-        if (response.ok) {
-          const data = await response.json();
-          setMovesData(data);
+        const [movesResponse, itemsResponse] = await Promise.all([
+          fetch('/output/manifests/moves.json'),
+          fetch('/output/manifests/items.json')
+        ]);
+
+        if (movesResponse.ok) {
+          const movesData = await movesResponse.json();
+          setMovesData(movesData);
+        }
+
+        if (itemsResponse.ok) {
+          const itemsData = await itemsResponse.json();
+          setItemsData(itemsData);
         }
       } catch (error) {
-        console.error('Failed to load moves data:', error);
+        console.error('Failed to load moves/items data:', error);
       }
     };
 
-    loadMoves();
-  }, []); // Load once on mount
-
-  // Load items data once for item selection
-  useEffect(() => {
-    const loadItems = async () => {
-      try {
-        const response = await fetch('/output/manifests/items.json');
-        if (response.ok) {
-          const data = await response.json();
-          setItemsData(data);
-        }
-      } catch (error) {
-        console.error('Failed to load items data:', error);
-      }
-    };
-
-    loadItems();
+    loadData();
   }, []); // Load once on mount
 
   // Load detailed Pokemon data when a Pokemon is selected

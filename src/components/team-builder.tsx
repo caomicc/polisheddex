@@ -20,14 +20,19 @@ export default function TeamBuilder() {
   const [importing, setImporting] = useState(false);
   const [importText, setImportText] = useState('');
   const [dataLoaded, setDataLoaded] = useState(false);
+  const [essentialDataLoaded, setEssentialDataLoaded] = useState(false);
   const [shareMessage, setShareMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    // Load all the real data first
-    const loadAllData = async () => {
+    // Progressive loading strategy: Load essential data first, then background data
+    const loadEssentialData = async () => {
       try {
+        // Load only Pokemon data first to show the team builder quickly
+        await loadPokemonData();
+        setEssentialDataLoaded(true);
+        
+        // Then load the rest in the background
         await Promise.all([
-          loadPokemonData(),
           loadMovesData(),
           loadAbilitiesData(),
           loadTypesData(),
@@ -36,11 +41,12 @@ export default function TeamBuilder() {
         setDataLoaded(true);
       } catch (error) {
         console.error('Failed to load data:', error);
-        setDataLoaded(true); // Still set to true to show component with fallback data
+        setEssentialDataLoaded(true);
+        setDataLoaded(true);
       }
     };
 
-    loadAllData();
+    loadEssentialData();
   }, []);
 
   useEffect(() => {
@@ -128,7 +134,7 @@ export default function TeamBuilder() {
     [team],
   );
 
-  if (!dataLoaded) {
+  if (!essentialDataLoaded) {
     return (
       <div className="mx-auto max-w-4xl px-4 py-8">
         <div className="text-center">
@@ -144,6 +150,14 @@ export default function TeamBuilder() {
 
   return (
     <div className="mx-auto max-w-4xl">
+      {!dataLoaded && (
+        <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg">
+          <div className="flex items-center gap-2 text-sm text-blue-700 dark:text-blue-300">
+            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
+            Loading additional features (moves, abilities, calculations)...
+          </div>
+        </div>
+      )}
       <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-end">
         <Button variant="secondary" onClick={shareTeam} disabled={isEmptyTeam}>
           <Share className="mr-2 h-4 w-4" />
@@ -209,13 +223,19 @@ export default function TeamBuilder() {
         <div className="flex items-center gap-2">
           <Calculator className="h-5 w-5" />
           <h2 className="text-xl font-semibold">Calculations</h2>
+          {!dataLoaded && (
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-gray-400"></div>
+              Loading...
+            </div>
+          )}
         </div>
         <p className="mt-1 text-sm text-muted-foreground">
           See your team&apos;s defensive type weaknesses/resistances and offensive coverage based on
           selected move types.
         </p>
         <div className="mt-4">
-          <CalculationsPanel team={team} disabled={isEmptyTeam} />
+          <CalculationsPanel team={team} disabled={isEmptyTeam || !dataLoaded} />
         </div>
       </section>
     </div>
