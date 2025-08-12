@@ -53,7 +53,7 @@ if (typeof window !== 'undefined') {
 }
 
 // Function to normalize type names to match PokemonType['name']
-function normalizeTypeName(type: string): PokemonType['name'] | null {
+export function normalizeTypeName(type: string): PokemonType['name'] | null {
   const normalizedType = type.toLowerCase() as PokemonType['name'];
   const validTypes: PokemonType['name'][] = [
     'normal',
@@ -93,7 +93,7 @@ function formatPokemonDisplayName(name: string): string {
       if (word === 'm') return '♂';
       if (word === 'ho' && name.includes('ho-oh')) return 'Ho';
       if (word === 'oh' && name.includes('ho-oh')) return 'Oh';
-      
+
       // Standard title case
       return word.charAt(0).toUpperCase() + word.slice(1);
     })

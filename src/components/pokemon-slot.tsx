@@ -14,7 +14,12 @@ import {
 } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
-import { POKEMON_LIST, emptyPokemonEntry, type PokemonBasic } from '@/lib/pokemon-data';
+import {
+  POKEMON_LIST,
+  emptyPokemonEntry,
+  normalizeTypeName,
+  type PokemonBasic,
+} from '@/lib/pokemon-data';
 import { Ability, BaseData, PokemonType } from '@/types/types';
 import { Badge } from './ui/badge';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
@@ -117,26 +122,82 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     if (pokemonData && matched?.name) {
       // Get types from individual data, checking for forms structure
       const formData = pokemonData.forms?.plain || pokemonData;
-      const correctTypes = showFaithful
+
+      // For plain forms, prefer base data if form data is empty
+      let correctTypes = showFaithful
         ? formData.faithfulTypes || formData.types || []
         : formData.updatedTypes || formData.types || [];
 
-      // Always ensure types is [type1, type2] with nulls if missing
+      // console.log('Initial correctTypes from form:', correctTypes);
+      // console.log(
+      //   'Is array?',
+      //   Array.isArray(correctTypes),
+      //   'Length:',
+      //   Array.isArray(correctTypes) ? correctTypes.length : 'N/A',
+      // );
+      // console.log('Has pokemonData.forms?.plain?', !!pokemonData.forms?.plain);
+
+      // If form data has empty types but base data has types, use base data
+      const isEmpty =
+        !correctTypes ||
+        (Array.isArray(correctTypes) && correctTypes.length === 0) ||
+        (typeof correctTypes === 'string' && !correctTypes.trim());
+
+      if (isEmpty && pokemonData.forms?.plain) {
+        // console.log('Form data is empty, trying base data...');
+        const detailedStats = pokemonData.detailedStats || {};
+        const baseTypes = showFaithful
+          ? (detailedStats as Record<string, unknown>)['faithfulTypes'] ||
+            (detailedStats as Record<string, unknown>)['types']
+          : (detailedStats as Record<string, unknown>)['updatedTypes'] ||
+            (detailedStats as Record<string, unknown>)['types'];
+
+        if (baseTypes) {
+          correctTypes = baseTypes as string | string[];
+        }
+        // console.log('Fallback correctTypes from base:', correctTypes);
+      }
+
+      // console.log('Type update effect - Pokemon:', matched.name);
+      // console.log('Form data:', formData);
+      // console.log(
+      //   'Base data types:',
+      //   pokemonData.types,
+      //   pokemonData.updatedTypes,
+      //   pokemonData.faithfulTypes,
+      // );
+      // console.log('Detailed stats types:', pokemonData.detailedStats);
+      // console.log('Correct types found:', correctTypes);
+      // console.log('Show faithful:', showFaithful);
+
+      // Always ensure types is [type1, type2] with nulls if missing, and normalize them
       const newTypes = Array.isArray(correctTypes)
-        ? [correctTypes[0] ?? null, correctTypes[1] ?? null]
+        ? [
+            correctTypes[0] ? normalizeTypeName(correctTypes[0]) : null,
+            correctTypes[1] ? normalizeTypeName(correctTypes[1]) : null,
+          ]
         : typeof correctTypes === 'string'
-          ? [correctTypes, null]
+          ? [normalizeTypeName(correctTypes), null]
           : [null, null];
+
+      // console.log('New types processed:', newTypes);
+
+      // Normalize current types for comparison
+      const normalizedCurrentTypes = [
+        entry.types[0] ? normalizeTypeName(entry.types[0]) : null,
+        entry.types[1] ? normalizeTypeName(entry.types[1]) : null,
+      ];
 
       // Create a string representation for comparison
       const newTypesString = JSON.stringify(newTypes);
-      const currentTypesString = JSON.stringify([entry.types[0] ?? null, entry.types[1] ?? null]);
+      const currentTypesString = JSON.stringify(normalizedCurrentTypes);
 
-      // Only update if types actually changed and we haven't just updated them
+      console.log('Types comparison - current:', currentTypesString, 'new:', newTypesString);
+      console.log('Previous ref:', previousTypesRef.current);
+
+      // Only update if we found valid types AND they're different from current
       if (newTypesString !== currentTypesString && previousTypesRef.current !== newTypesString) {
-        previousTypesRef.current = newTypesString;
-        
-        // Filter out nulls and ensure only valid type strings are assigned
+        // Only update if we actually have valid types, don't clear existing ones
         const validTypes = newTypes.filter(
           (t): t is PokemonType['name'] =>
             typeof t === 'string' &&
@@ -161,7 +222,17 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
               'fairy',
             ].includes(t),
         );
-        onChange({ types: validTypes });
+
+        // Only update if we have valid types or if current types are empty
+        if (validTypes.length > 0 || entry.types.length === 0) {
+          previousTypesRef.current = newTypesString;
+          console.log('Setting valid types:', validTypes);
+          onChange({ types: validTypes });
+        } else {
+          console.log('Skipping type update - would clear valid types with empty types');
+        }
+      } else {
+        console.log('Skipping type update - no change or already set');
       }
     }
   }, [pokemonData, showFaithful, matched?.name, entry.types, onChange]);
@@ -208,7 +279,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     // Check for forms structure (individual files) - moves are in the forms.plain
     const formData = sourceData.forms?.plain || sourceData;
 
-    console.log('Form data for moves:', formData);
+    // console.log('Form data for moves:', formData);
 
     // Get moves based on faithful/polished preference
     const levelUpMoves = showFaithful
@@ -291,11 +362,16 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
   };
 
   const autofillFromPokemon = (pokemonName: string) => {
+    console.log('autofillFromPokemon called with:', pokemonName);
     const found = POKEMON_LIST.find((p) => p.name === pokemonName);
     if (!found) {
+      console.log('Pokemon not found in POKEMON_LIST, setting name only');
       onChange({ name: pokemonName });
       return;
     }
+
+    console.log('Found Pokemon in POKEMON_LIST:', found);
+    console.log('Found types:', found.types);
 
     // Use basic types as default - types will be updated when detailed data loads
     const validTypes = [found.types[0], found.types[1]].filter(
@@ -322,6 +398,10 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
           'fairy',
         ].includes(t),
     );
+
+    console.log('Setting autofill types:', validTypes);
+    // Reset the ref when manually selecting a Pokemon
+    previousTypesRef.current = null;
 
     onChange({
       name: found.name,
