@@ -176,7 +176,7 @@ export default function TeamBuilder() {
 
       {shareMessage && (
         <Card className="my-4">
-          <CardContent className="pt-6">
+          <CardContent className="pt-0">
             <p className="text-sm text-center text-green-600 dark:text-green-400">{shareMessage}</p>
           </CardContent>
         </Card>
