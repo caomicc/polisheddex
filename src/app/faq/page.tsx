@@ -17,6 +17,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { Table, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import EmulatorRecommendations from '@/components/ui/emulator-recomendations';
 
 interface FAQData {
   content: string;
@@ -219,6 +220,8 @@ export default function FAQPage() {
             </p>
           </CardContent>
         </Card>
+
+        <EmulatorRecommendations />
 
         {/* FAQ Content */}
         <div className="prose prose-slate dark:prose-invert max-w-none space-y-4">
