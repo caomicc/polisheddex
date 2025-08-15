@@ -155,7 +155,7 @@ export default function Page() {
         />
 
         <Tabs defaultValue="today" className="w-full">
-          <TabsList className="grid w-full grid-cols-4">
+          <TabsList className="grid w-full grid-cols-4 bg-white border-neutral-200 border-1 p-1 h-12">
             <TabsTrigger value="today">
               Today
               <span className="ml-2 rounded-full bg-amber-100 px-2 py-0.5 text-xs text-amber-900">
@@ -164,7 +164,7 @@ export default function Page() {
             </TabsTrigger>
             <TabsTrigger value="daily">Daily</TabsTrigger>
             <TabsTrigger value="weekly">Weekly</TabsTrigger>
-            <TabsTrigger value="special">Special</TabsTrigger>
+            <TabsTrigger value="special">Special/Gift</TabsTrigger>
           </TabsList>
 
           <TabsContent value="today" className="mt-4 space-y-8">
@@ -178,15 +178,9 @@ export default function Page() {
               {todayDailyFiltered.length === 0 ? (
                 <EmptyState message="No daily events match your filters for today." />
               ) : (
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="flex gap-4">
                   {todayDailyFiltered.map((e) => (
-                    <EventCard
-                      key={e.id}
-                      variant="daily"
-                      event={e}
-                      accent="amber"
-                      icon={getIconForType(deriveDailyType(e))}
-                    />
+                    <EventCard key={e.id} variant="daily" event={e} className={'flex-1'} />
                   ))}
                 </div>
               )}
@@ -204,15 +198,9 @@ export default function Page() {
               {todayWeeklyFiltered.length === 0 ? (
                 <EmptyState message="No weekly events match your filters for today." />
               ) : (
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="flex gap-4">
                   {todayWeeklyFiltered.map((e) => (
-                    <EventCard
-                      key={e.id}
-                      variant="weekly"
-                      event={e}
-                      accent="emerald"
-                      icon={getIconForType(e.type)}
-                    />
+                    <EventCard key={e.id} variant="weekly" event={e} className={'flex-1'} />
                   ))}
                 </div>
               )}
@@ -225,13 +213,7 @@ export default function Page() {
             ) : (
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {filteredDaily.map((e) => (
-                  <EventCard
-                    key={e.id}
-                    variant="daily"
-                    event={e}
-                    accent="amber"
-                    icon={getIconForType(deriveDailyType(e))}
-                  />
+                  <EventCard key={e.id} variant="daily" event={e} />
                 ))}
               </div>
             )}
@@ -243,13 +225,7 @@ export default function Page() {
             ) : (
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {filteredWeekly.map((e) => (
-                  <EventCard
-                    key={e.id}
-                    variant="weekly"
-                    event={e}
-                    accent="emerald"
-                    icon={getIconForType(e.type)}
-                  />
+                  <EventCard key={e.id} variant="weekly" event={e} />
                 ))}
               </div>
             )}
@@ -261,13 +237,7 @@ export default function Page() {
             ) : (
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {filteredSpecial.map((e) => (
-                  <EventCard
-                    key={e.id}
-                    variant="special"
-                    event={e}
-                    accent="violet"
-                    icon={getIconForType(e.type)}
-                  />
+                  <EventCard key={e.id} variant="special" event={e} />
                 ))}
               </div>
             )}

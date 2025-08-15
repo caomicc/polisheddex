@@ -141,6 +141,7 @@ class GBCSpriteProcessor:
         self.output_path = Path(output_path)
         self.pokemon_dir = self.rom_path / "gfx" / "pokemon"
         self.trainer_dir = self.rom_path / "gfx" / "trainers"
+        self.items_dir = self.rom_path / "gfx" / "items"
 
         # Create output directories
         self.sprites_dir = self.output_path / "sprites" / "pokemon"
@@ -148,6 +149,9 @@ class GBCSpriteProcessor:
 
         self.trainer_sprites_dir = self.output_path / "sprites" / "trainers"
         self.trainer_sprites_dir.mkdir(parents=True, exist_ok=True)
+
+        self.item_sprites_dir = self.output_path / "sprites" / "items"
+        self.item_sprites_dir.mkdir(parents=True, exist_ok=True)
 
         # Mapping of variant directory names to base Pokemon names
         # For Pokemon with multiple visual variants, we need to know which directory
@@ -689,14 +693,174 @@ class GBCSpriteProcessor:
 
         return trainer_manifest
 
+    def get_item_list(self) -> List[str]:
+        """Get list of all item PNG files"""
+        item_pngs = []
+        if self.items_dir.exists():
+            for item in self.items_dir.iterdir():
+                if item.is_file() and item.suffix == '.png':
+                    item_name = item.stem
+                    item_pngs.append(item_name)
+        return sorted(item_pngs)
+
+    def process_item(self, item_name: str) -> bool:
+        """Process a single item's sprite with color palette"""
+        item_png = self.items_dir / f"{item_name}.png"
+        if not item_png.exists():
+            print(f"Item PNG not found: {item_name}")
+            return False
+
+        print(f"Processing item {item_name}...")
+
+        # Items save directly to the items directory, no subdirectory needed
+
+        # Items use specific palettes rather than generic 4-color palettes
+        # Create different color schemes based on item type/category
+        palette = self.get_item_palette(item_name)
+        print(f"Using {self.get_item_category(item_name)} palette for {item_name}")
+
+        # Extract frames from sprite sheet (items are typically single frame)
+        raw_frames = self.extract_sprite_frames(str(item_png))
+        if not raw_frames:
+            print(f"Could not extract frames from {item_name}")
+            return False
+
+        # Apply palette and transparency to each frame
+        processed_frames = []
+        for frame in raw_frames:
+            processed_frame = self.apply_palette_to_sprite(frame, palette)
+            processed_frames.append(processed_frame)
+
+        # Save static PNG (first frame) directly in items directory
+        if processed_frames:
+            static_path = self.item_sprites_dir / f"{item_name}.png"
+            processed_frames[0].save(static_path)
+            print(f"Saved item sprite: {static_path}")
+
+        return True
+
+    def process_all_items(self):
+        """Process all item sprites"""
+        item_list = self.get_item_list()
+        total = len(item_list)
+        processed = 0
+
+        print(f"Found {total} items to process...")
+
+        for i, item_name in enumerate(item_list, 1):
+            print(f"[{i}/{total}] Processing item {item_name}")
+            if self.process_item(item_name):
+                processed += 1
+
+        print(f"\nCompleted! Processed {processed}/{total} item sprites")
+        print(f"Output directory: {self.item_sprites_dir}")
+
+    def create_item_manifest(self):
+        """Create a JSON manifest of all processed item sprites with dimensions"""
+        item_manifest = {}
+
+        # Items are stored directly in the items directory, not in subdirectories
+        for sprite_file in self.item_sprites_dir.iterdir():
+            if sprite_file.is_file() and sprite_file.suffix == '.png':
+                item_name = sprite_file.stem
+                
+                # Get image dimensions
+                try:
+                    with Image.open(sprite_file) as img:
+                        width, height = img.size
+                        sprite_info = {
+                            "url": f"sprites/items/{sprite_file.name}",
+                            "width": width,
+                            "height": height
+                        }
+                except Exception as e:
+                    print(f"Warning: Could not read dimensions for {sprite_file}: {e}")
+                    sprite_info = {
+                        "url": f"sprites/items/{sprite_file.name}",
+                        "width": 32,  # fallback dimensions for items (typically smaller)
+                        "height": 32
+                    }
+
+                # Use simple naming scheme for items
+                item_manifest[item_name] = {
+                    "icon": sprite_info
+                }
+
+        return item_manifest
+
+    def get_item_category(self, item_name: str) -> str:
+        """Categorize items based on their name for palette selection"""
+        item_lower = item_name.lower()
+        
+        # Poké Balls
+        if 'ball' in item_lower:
+            return 'pokeball'
+        
+        # Potions and medicines
+        if any(word in item_lower for word in ['potion', 'heal', 'antidote', 'awakening', 'burn_heal', 'paralyze_heal', 'ice_heal', 'full_heal', 'revive', 'ether', 'elixir']):
+            return 'medicine'
+        
+        # Berries
+        if 'berry' in item_lower:
+            return 'berry'
+        
+        # Stones (evolution items)
+        if 'stone' in item_lower:
+            return 'stone'
+        
+        # TMs/HMs
+        if item_lower.startswith('tm') or item_lower.startswith('hm'):
+            return 'tm'
+        
+        # Battle items
+        if any(word in item_lower for word in ['x_', 'guard_spec', 'dire_hit']):
+            return 'battle'
+        
+        # Key items (special quest items)
+        if any(word in item_lower for word in ['key', 'card', 'pass', 'ticket', 'map', 'bell', 'wing', 'egg', 'scope', 'rod', 'coin_case']):
+            return 'key'
+        
+        # Held items (battle equipment)
+        if any(word in item_lower for word in ['band', 'belt', 'lens', 'claw', 'orb', 'herb', 'powder', 'coat', 'vest', 'specs', 'scarf']):
+            return 'held'
+        
+        # Valuables (sellable items)
+        if any(word in item_lower for word in ['nugget', 'pearl', 'mushroom', 'star', 'fossil', 'scale']):
+            return 'valuable'
+        
+        # Default category
+        return 'general'
+
+    def get_item_palette(self, item_name: str) -> List[Tuple[int, int, int]]:
+        """Get appropriate color palette based on item category"""
+        category = self.get_item_category(item_name)
+        
+        # Different color schemes for different item types
+        palettes = {
+            'pokeball': [(255, 255, 255), (255, 60, 60), (200, 30, 30), (120, 20, 20)],  # Red/white
+            'medicine': [(240, 255, 240), (100, 200, 100), (60, 150, 60), (30, 100, 30)],  # Green
+            'berry': [(255, 240, 255), (200, 100, 200), (150, 60, 150), (100, 30, 100)],  # Purple
+            'stone': [(255, 255, 240), (200, 200, 100), (150, 150, 60), (100, 100, 30)],  # Yellow
+            'tm': [(240, 240, 255), (100, 100, 200), (60, 60, 150), (30, 30, 100)],  # Blue
+            'battle': [(255, 240, 240), (200, 150, 100), (150, 100, 60), (100, 60, 30)],  # Orange
+            'key': [(240, 255, 255), (100, 200, 200), (60, 150, 150), (30, 100, 100)],  # Cyan
+            'held': [(255, 255, 240), (180, 180, 120), (120, 120, 80), (80, 80, 40)],  # Gold
+            'valuable': [(255, 240, 255), (200, 150, 200), (150, 100, 150), (100, 50, 100)],  # Pink
+            'general': [(240, 240, 240), (160, 160, 160), (100, 100, 100), (60, 60, 60)]  # Gray
+        }
+        
+        return palettes.get(category, palettes['general'])
+
     def create_unified_manifest(self):
-        """Create a unified JSON manifest containing both Pokemon and trainer sprites"""
+        """Create a unified JSON manifest containing Pokemon, trainer, and item sprites"""
         pokemon_data = self.create_sprite_manifest()
         trainer_data = self.create_trainer_manifest()
+        item_data = self.create_item_manifest()
 
         unified_manifest = {
             "pokemon": pokemon_data,
-            "trainers": trainer_data
+            "trainers": trainer_data,
+            "items": item_data
         }
 
         # Save unified manifest
@@ -707,6 +871,7 @@ class GBCSpriteProcessor:
         print(f"Created unified sprite manifest: {manifest_path}")
         print(f"Pokemon sprites: {len(pokemon_data)}")
         print(f"Trainer sprites: {len(trainer_data)}")
+        print(f"Item sprites: {len(item_data)}")
 
     def export_sprite(self, sprite: Image.Image, output_path: str) -> None:
         """Export the processed sprite to the specified output path."""
@@ -724,11 +889,12 @@ class GBCSpriteProcessor:
         return [{'duration': 300} for _ in range(10)]  # Example: 10 frames, each 100ms
 
 def main():
-    parser = argparse.ArgumentParser(description="Process Game Boy Color sprites (Pokemon and Trainers)")
-    parser.add_argument('target', nargs='?', help='Specific Pokemon/trainer name to process')
+    parser = argparse.ArgumentParser(description="Process Game Boy Color sprites (Pokemon, Trainers, and Items)")
+    parser.add_argument('target', nargs='?', help='Specific Pokemon/trainer/item name to process')
     parser.add_argument('--all', action='store_true', help='Process all sprites')
     parser.add_argument('--pokemon', action='store_true', help='Process Pokemon sprites only')
     parser.add_argument('--trainers', action='store_true', help='Process trainer sprites only')
+    parser.add_argument('--items', action='store_true', help='Process item sprites only')
     parser.add_argument('--rom-path', default='polishedcrystal', help='Path to ROM directory')
     parser.add_argument('--output-path', default='public', help='Output directory')
 
@@ -745,6 +911,9 @@ def main():
         print("\nProcessing all trainer sprites...")
         processor.process_all_trainers()
 
+        print("\nProcessing all item sprites...")
+        processor.process_all_items()
+
         # Create unified manifest
         print("\nCreating unified sprite manifest...")
         processor.create_unified_manifest()
@@ -752,23 +921,31 @@ def main():
     elif args.pokemon:
         # Process only Pokemon
         processor.process_all_pokemon()
-        # Create unified manifest with existing trainer data
+        # Create unified manifest with existing trainer and item data
         processor.create_unified_manifest()
 
     elif args.trainers:
         # Process only trainers
         processor.process_all_trainers()
-        # Create unified manifest with existing Pokemon data
+        # Create unified manifest with existing Pokemon and item data
+        processor.create_unified_manifest()
+
+    elif args.items:
+        # Process only items
+        processor.process_all_items()
+        # Create unified manifest with existing Pokemon and trainer data
         processor.create_unified_manifest()
 
     elif args.target:
-        # Try to process specific target (check if it's Pokemon or trainer)
+        # Try to process specific target (check if it's Pokemon, trainer, or item)
         if processor.process_pokemon(args.target):
             print(f"Processed Pokemon: {args.target}")
         elif processor.process_trainer(args.target):
             print(f"Processed trainer: {args.target}")
+        elif processor.process_item(args.target):
+            print(f"Processed item: {args.target}")
         else:
-            print(f"Target '{args.target}' not found as Pokemon or trainer")
+            print(f"Target '{args.target}' not found as Pokemon, trainer, or item")
 
     else:
         # Default: process test cases
@@ -785,7 +962,13 @@ def main():
         else:
             print("Trainer test failed")
 
-        print("Run with --all to process all sprites, --pokemon for Pokemon only, or --trainers for trainers only")
+        print("Testing item (poke_ball)...")
+        if processor.process_item('poke_ball'):
+            print("Item test successful!")
+        else:
+            print("Item test failed")
+
+        print("Run with --all to process all sprites, --pokemon for Pokemon only, --trainers for trainers only, or --items for items only")
 
 if __name__ == "__main__":
     main()
