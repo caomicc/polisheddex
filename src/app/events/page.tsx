@@ -146,7 +146,7 @@ export default function Page() {
           </Breadcrumb>
         }
       />
-      <div className="max-w-xl md:max-w-4xl mx-auto space-y-8">
+      <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
         <EventFilters
           value={filters}
           onChange={setFilters}

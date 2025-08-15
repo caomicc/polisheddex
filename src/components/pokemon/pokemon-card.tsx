@@ -76,15 +76,14 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
 
   // Generate the correct URL with form parameter if needed
 
+  const baseClassName = cn(
+    'group/bento row-span-1 flex flex-row justify-between space-y-4 rounded-xl border border-neutral-200 bg-white p-4 transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-black shadow-none relative gap-2',
+    gradientProps.className,
+    `shadow-${primaryType.toLowerCase()}`,
+  );
+
   return (
-    <Card
-      className={cn(
-        'shadow-md md:shadow-lg md:hover:shadow-xl transition-shadow duration-400 md:text-center border-0 md:mt-8 relative p-3 md:p-4 md:pb-5 md:pt-[65px] h-[110px] md:h-auto gap-1 md:gap-6',
-        gradientProps.className,
-        `shadow-${primaryType.toLowerCase()}`,
-      )}
-      style={gradientProps.style}
-    >
+    <Card className={baseClassName} style={gradientProps.style}>
       <PokemonSprite
         pokemonName={pokemon.name}
         alt={`${pokemon.name} sprite`}
@@ -93,46 +92,46 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
         type="static"
         form={typeof pokemon.form === 'string' ? pokemon.form : 'plain'}
         src={pokemon.frontSpriteUrl} // fallback for backward compatibility
-        className="absolute right-2 bottom-2 md:bottom-auto md:right-auto md:top-0 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2"
+        className="aspect-square mb-0"
       />
-      <p
-        className={cn(
-          'text-xs md:text-lg md:absolute md:top-4 md:left-4 font-medium tracking-wide',
-          pokemon.nationalDex === null && pokemon.johtoDex === null ? 'hidden' : '',
-        )}
-      >
-        #
-        {sortType === 'johtodex'
-          ? pokemon.johtoDex !== null && pokemon.johtoDex < 999
-            ? pokemon.johtoDex
-            : '—'
-          : pokemon.nationalDex !== null
-            ? pokemon.nationalDex
-            : '—'}
-      </p>
-
-      {pokemon.form ? (
-        <Badge
-          variant="form"
+      <div className="flex w-[100%] justify-center flex-col">
+        <p
           className={cn(
-            'text-xxs rounded-md md:rounded-sm absolute top-[9.5px] md:top-4 right-2 md:right-4',
+            'text-xs md:text-sm md:top-4 md:left-4 font-medium tracking-wide mb-1',
             pokemon.nationalDex === null && pokemon.johtoDex === null ? 'hidden' : '',
           )}
         >
-          {pokemon.form
-            .toString()
-            .replace(/_/g, ' ')
-            .replace(/\bsegment\b/gi, 'seg.')}
-        </Badge>
-      ) : null}
-      <div className="flex flex-col gap-0 relative z-20">
+          #
+          {sortType === 'johtodex'
+            ? pokemon.johtoDex !== null && pokemon.johtoDex < 999
+              ? pokemon.johtoDex
+              : '—'
+            : pokemon.nationalDex !== null
+              ? pokemon.nationalDex
+              : '—'}
+        </p>
+
+        {pokemon.form ? (
+          <Badge
+            variant="form"
+            className={cn(
+              'text-xxs rounded-md md:rounded-sm absolute top-4 right-4',
+              pokemon.nationalDex === null && pokemon.johtoDex === null ? 'hidden' : '',
+            )}
+          >
+            {pokemon.form
+              .toString()
+              .replace(/_/g, ' ')
+              .replace(/\bsegment\b/gi, 'seg.')}
+          </Badge>
+        ) : null}
         <h2
-          className="text-sm md:text-xl md:mb-4 font-bold leading-none mb-2 dark:text-white!"
+          className="text-sm md:text-lg md:mb-2 font-black leading-none mb-2 dark:text-white!"
           style={{ color: primaryTypeInfo?.text }}
         >
           {displayName}
         </h2>
-        <div className="flex md:justify-center gap-1 md:gap-2 flex-col md:flex-row">
+        <div className="flex md:justify-start gap-1 md:gap-2 flex-col md:flex-row">
           {(Array.isArray(displayTypes) ? displayTypes : [displayTypes]).map((type, idx) => (
             <Badge key={type + idx} variant={type.toLowerCase() as PokemonType['name']}>
               {type}

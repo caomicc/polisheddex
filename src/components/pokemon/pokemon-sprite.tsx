@@ -22,7 +22,7 @@ interface PokemonSpriteProps {
 const spriteVariants = cva('relative bg-white', {
   variants: {
     size: {
-      default: 'p-2 w-12 md:w-20 h-12 md:h-20 rounded-lg md:rounded-xl',
+      default: 'p-2 w-12 md:w-20 h-12 md:h-20 rounded-lg md:rounded-lg',
       sm: 'w-10 h-10 p-1 rounded-md',
     },
   },
@@ -55,7 +55,7 @@ export function PokemonSprite({
         className={cn(
           spriteVariants({ size }),
           `shadow-lg shadow-${primaryType?.toLowerCase()}`,
-          'animate-pulse',
+          'animate-pulse aspect-square',
           className,
         )}
       />

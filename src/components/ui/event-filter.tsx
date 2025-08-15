@@ -72,103 +72,105 @@ export function EventFilters(
   };
 
   return (
-    <div className="grid gap-4 rounded-lg border border-border bg-card p-4 sm:grid-cols-2 lg:grid-cols-4">
-      <div className="space-y-1">
-        <Label htmlFor="query">Search</Label>
-        <Input
-          id="query"
-          placeholder="Name, location, NPC, Pokémon..."
-          value={value.query}
-          onChange={(e) => onChange({ ...value, query: e.target.value })}
-        />
-      </div>
+    <div className="flex flex-col gap-4 border border-neutral-200 bg-white p-4 rounded-xl mb-4 dark:border-white/[0.2] dark:bg-black dark:shadow-none">
+      <div className="flex flex-col sm:flex-row gap-4">
+        <div className="space-y-1">
+          <Label htmlFor="query">Search</Label>
+          <Input
+            id="query"
+            placeholder="Name, location, NPC, Pokémon..."
+            value={value.query}
+            onChange={(e) => onChange({ ...value, query: e.target.value })}
+          />
+        </div>
 
-      <div className="space-y-1">
-        <Label>Day</Label>
-        <div className="flex items-center gap-2">
+        <div className="space-y-1">
+          <Label>Day</Label>
+          <div className="flex items-center gap-2">
+            <Select
+              value={value.day === '' ? 'all' : (value.day as DayName)}
+              onValueChange={(v) => onChange({ ...value, day: v === 'all' ? '' : (v as DayName) })}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="All days" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All days</SelectItem>
+                {dayNames.map((d) => (
+                  <SelectItem key={d} value={d}>
+                    {d}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Button
+              type="button"
+              variant="secondary"
+              size="icon"
+              title="Set day to today"
+              onClick={() => onChange({ ...value, day: today })}
+            >
+              <CalendarDays className="h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+
+        <div className="space-y-1 relative">
+          <Label>Types</Label>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="outline"
+                className="w-full justify-start bg-transparent border-border capitalize"
+              >
+                <Filter className="h-4 w-4" />
+                {typeSummary}
+                {activeTypeCount > 0 ? <Badge variant="secondary">{activeTypeCount}</Badge> : null}
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-[220px] border-border">
+              <DropdownMenuLabel>Event types</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              {allTypes.map((t) => (
+                <DropdownMenuCheckboxItem
+                  key={t}
+                  checked={value.types.includes(t)}
+                  onCheckedChange={() => toggleType(t)}
+                >
+                  <span className="capitalize">{t}</span>
+                </DropdownMenuCheckboxItem>
+              ))}
+              <DropdownMenuSeparator />
+              <Button
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                onClick={() => onChange({ ...value, types: [] })}
+              >
+                <Check className="mr-2 h-4 w-4" />
+                Select none
+              </Button>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+
+        <div className="space-y-1">
+          <Label>Time of day</Label>
           <Select
-            value={value.day === '' ? 'all' : (value.day as DayName)}
-            onValueChange={(v) => onChange({ ...value, day: v === 'all' ? '' : (v as DayName) })}
+            value={value.timeOfDay}
+            onValueChange={(v) => onChange({ ...value, timeOfDay: v as FiltersState['timeOfDay'] })}
           >
             <SelectTrigger>
-              <SelectValue placeholder="All days" />
+              <SelectValue placeholder="Any" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All days</SelectItem>
-              {dayNames.map((d) => (
-                <SelectItem key={d} value={d}>
-                  {d}
-                </SelectItem>
-              ))}
+              <SelectItem value="any">Any</SelectItem>
+              <SelectItem value="morning">Morning</SelectItem>
+              <SelectItem value="afternoon">Afternoon</SelectItem>
+              <SelectItem value="night">Night</SelectItem>
             </SelectContent>
           </Select>
-          <Button
-            type="button"
-            variant="outline"
-            size="icon"
-            title="Set day to today"
-            onClick={() => onChange({ ...value, day: today })}
-          >
-            <CalendarDays className="h-4 w-4" />
-          </Button>
         </div>
-      </div>
-
-      <div className="space-y-1 relative">
-        <Label>Types</Label>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              variant="outline"
-              className="w-full justify-start bg-transparent border-border capitalize"
-            >
-              <Filter className="h-4 w-4" />
-              {typeSummary}
-              {activeTypeCount > 0 ? <Badge variant="secondary">{activeTypeCount}</Badge> : null}
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="start" className="w-[220px] border-border">
-            <DropdownMenuLabel>Event types</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            {allTypes.map((t) => (
-              <DropdownMenuCheckboxItem
-                key={t}
-                checked={value.types.includes(t)}
-                onCheckedChange={() => toggleType(t)}
-              >
-                <span className="capitalize">{t}</span>
-              </DropdownMenuCheckboxItem>
-            ))}
-            <DropdownMenuSeparator />
-            <Button
-              variant="ghost"
-              size="sm"
-              className="w-full justify-start"
-              onClick={() => onChange({ ...value, types: [] })}
-            >
-              <Check className="mr-2 h-4 w-4" />
-              Select none
-            </Button>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
-
-      <div className="space-y-1">
-        <Label>Time of day</Label>
-        <Select
-          value={value.timeOfDay}
-          onValueChange={(v) => onChange({ ...value, timeOfDay: v as FiltersState['timeOfDay'] })}
-        >
-          <SelectTrigger>
-            <SelectValue placeholder="Any" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="any">Any</SelectItem>
-            <SelectItem value="morning">Morning</SelectItem>
-            <SelectItem value="afternoon">Afternoon</SelectItem>
-            <SelectItem value="night">Night</SelectItem>
-          </SelectContent>
-        </Select>
       </div>
     </div>
   );

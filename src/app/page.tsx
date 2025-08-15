@@ -7,8 +7,13 @@ import Link from 'next/link';
 import { motion } from 'motion/react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import { Badge } from '@/components/ui/badge';
+import { PokemonSprite } from '@/components/pokemon/pokemon-sprite';
+import { useFaithfulPreference } from '@/contexts';
 
 export default function Home() {
+  const { showFaithful } = useFaithfulPreference(); // This should be determined by your app logic
+
   return (
     <div className="mb-10 p-2 lg:p-4">
       <div className="relative mx-auto my-10 flex max-w-7xl flex-col items-center justify-center">
@@ -66,8 +71,10 @@ export default function Home() {
             {/* </span> */}
             <span className="relative inline-flex overflow-hidden rounded-full p-[1px] text-center">
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-              <span className="inline-flex h-full w-full items-center justify-center rounded-full bg-white dark:bg-neutral-900 px-6 py-3 text-sm font-medium dark:text-white backdrop-blur-3xl">
-                Use the toggle in the corner to switch between Polished and Faithful versions
+              <span className="inline-flex h-full w-full items-center justify-center rounded-full bg-white dark:bg-neutral-900 px-6 py-3 text-sm font-medium dark:text-white backdrop-blur-3xl gap-1">
+                Use the toggle in the corner to switch between{' '}
+                <span className="font-black uppercase tracking-wide"> Polished </span> and{' '}
+                <span className="font-black uppercase tracking-wide"> Faithful </span> versions
               </span>
             </span>
           </motion.div>
@@ -111,12 +118,13 @@ export default function Home() {
             className="relative z-10 mt-20 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900"
           >
             <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
-              {items.map((item, i) => (
+              {getItems(showFaithful).map((item, i) => (
                 <BentoGridItem
                   key={i}
                   title={item.title}
                   description={item.description}
                   header={item.header}
+                  href={item.href}
                   className={cn('[&>p:text-lg]', item.className)}
                   icon={item.icon}
                 />
@@ -129,38 +137,99 @@ export default function Home() {
   );
 }
 
-const PokemonSkeleton = () => {
+const PokemonSkeleton = ({ showFaithful }: { showFaithful: boolean }) => {
+  const variants = {
+    initial: {
+      width: 0,
+    },
+    animate: {
+      width: '100%',
+      transition: {
+        duration: 0.2,
+      },
+    },
+    hover: {
+      width: ['0%', '100%'],
+      transition: {
+        duration: 2,
+      },
+    },
+  };
+  // Use an array of objects for better structure and clarity
+  const stats = [
+    {
+      label: 'Atk',
+      fixedWidth: 55,
+      barColor: 'bg-red-400 dark:bg-red-400 border-red-200',
+    },
+    {
+      label: 'Def',
+      fixedWidth: 72,
+      barColor: 'bg-blue-400 dark:bg-blue-400 border-blue-200',
+    },
+    {
+      label: 'Sp. Atk',
+      fixedWidth: 54,
+      barColor: 'bg-emerald-400 dark:bg-emerald-400 border-emerald-200',
+    },
+    {
+      label: 'Sp. Def',
+      fixedWidth: 68,
+      barColor: 'bg-yellow-400 dark:bg-yellow-400 border-yellow-200',
+    },
+    {
+      label: 'Spe',
+      fixedWidth: 87,
+      barColor: 'bg-purple-400 dark:bg-purple-400 border-purple-200',
+    },
+    {
+      label: 'HP',
+      fixedWidth: 53,
+      barColor: 'bg-pink-400 dark:bg-pink-400 border-pink-200',
+    },
+  ];
+
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2 p-2"
+      initial="initial"
+      animate="animate"
+      whileHover="hover"
+      className="flex flex-1 w-full h-full flex-row min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2]"
     >
-      <div className="flex items-center space-x-3">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-          className="h-8 w-8 rounded-full bg-gradient-to-br from-red-400 to-red-600 border-2 border-gray-800 dark:border-gray-200 shrink-0"
+      <div className="w-1/3 grid grid-cols-2">
+        <PokemonSprite
+          className="w-14 h-14 shadow-none border-neutral-100 border-1"
+          pokemonName={showFaithful ? 'togepi' : 'togekiss'}
+          variant="normal"
         />
-        <div className="flex-1">
-          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded mb-1" />
-          <div className="h-3 bg-gray-100 dark:bg-gray-800 rounded w-2/3" />
-        </div>
+        <PokemonSprite
+          className="w-14 h-14 shadow-none border-neutral-100 border-1"
+          pokemonName="gengar"
+        />
+        <PokemonSprite
+          className="w-14 h-14 shadow-none border-neutral-100 border-1"
+          pokemonName="ho-oh"
+        />
+        <PokemonSprite
+          className="w-14 h-14 shadow-none border-neutral-100 border-1"
+          pokemonName={showFaithful ? 'dragonair' : 'dragonite'}
+        />
       </div>
-
-      <div className="grid grid-cols-3 gap-2 mt-2">
-        <div className="text-center">
-          <div className="h-2 bg-blue-200 dark:bg-blue-800 rounded mb-1" />
-          <div className="h-6 bg-blue-100 dark:bg-blue-900 rounded" />
-        </div>
-        <div className="text-center">
-          <div className="h-2 bg-red-200 dark:bg-red-800 rounded mb-1" />
-          <div className="h-6 bg-red-100 dark:bg-red-900 rounded" />
-        </div>
-        <div className="text-center">
-          <div className="h-2 bg-green-200 dark:bg-green-800 rounded mb-1" />
-          <div className="h-6 bg-green-100 dark:bg-green-900 rounded" />
-        </div>
+      <div className="w-2/3 flex-col space-y-3">
+        {stats.map((stat, i) => (
+          <div key={'skeleton-two' + i} className="w-full flex-row flex gap-2">
+            <Badge variant="secondary" className={'w-14 text-xs rounded-full h-[18px]'}>
+              {stat.label.toUpperCase()}
+            </Badge>
+            <motion.div
+              variants={variants}
+              style={{
+                maxWidth: stat.fixedWidth + '%',
+              }}
+              className={`flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 optional:bg-neutral-100 dark:bg-black w-full h-4 ${stat.barColor}`}
+            ></motion.div>
+          </div>
+        ))}
       </div>
     </motion.div>
   );
@@ -202,7 +271,7 @@ const AttackdexSkeleton = () => {
     <motion.div
       initial="initial"
       whileHover="animate"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2 p-2"
+      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
     >
       {moves.map((move, i) => (
         <motion.div
@@ -264,11 +333,11 @@ const HelpSkeleton = () => {
         className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2  items-start space-x-2 bg-white dark:bg-black"
       >
         <img
-          src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
+          src="/sprites/help-avatar.png"
           alt="avatar"
           height="100"
           width="100"
-          className="rounded-full h-10 w-10"
+          className="rounded-full h-12 w-12"
         />
         <p className="text-xs text-neutral-500">
           What files do I need? What emulator should I be using?
@@ -278,41 +347,46 @@ const HelpSkeleton = () => {
         variants={variantsSecond}
         className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center justify-end space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
       >
-        <p className="text-xs text-neutral-500">Check the FAQ.</p>
-        <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 shrink-0" />
+        <p className="text-xs text-neutral-500">Check the FAQ first!</p>
+        {/* <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 shrink-0" /> */}
+        <img
+          src="/sprites/helper-avatar.png"
+          alt="avatar"
+          height="100"
+          width="100"
+          className="rounded-full h-8 w-8 bg-white"
+        />
       </motion.div>
     </motion.div>
   );
 };
 
 const LocationsSkeleton = () => {
+  const variants = {
+    initial: {
+      backgroundPosition: '0 50%',
+    },
+    animate: {
+      backgroundPosition: ['0, 50%', '100% 50%', '0 50%'],
+    },
+  };
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2 p-2"
+      initial="initial"
+      animate="animate"
+      variants={variants}
+      transition={{
+        duration: 5,
+        repeat: Infinity,
+        repeatType: 'reverse',
+      }}
+      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2"
+      style={{
+        background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)',
+        backgroundSize: '400% 400%',
+      }}
     >
-      <div className="grid grid-cols-4 gap-1 flex-1">
-        {Array.from({ length: 12 }).map((_, i) => (
-          <motion.div
-            key={`location-${i}`}
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: i * 0.05 }}
-            className={`rounded border ${
-              i % 3 === 0
-                ? 'bg-green-200 dark:bg-green-800'
-                : i % 3 === 1
-                  ? 'bg-blue-200 dark:bg-blue-800'
-                  : 'bg-gray-200 dark:bg-gray-700'
-            }`}
-          />
-        ))}
-      </div>
-      <div className="flex items-center space-x-2">
-        <div className="h-3 w-3 rounded-full bg-red-400" />
-        <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded flex-1" />
-      </div>
+      <motion.div className="h-full w-full rounded-lg"></motion.div>
     </motion.div>
   );
 };
@@ -322,29 +396,60 @@ const ItemsSkeleton = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2 p-2"
+      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
     >
       <div className="grid grid-cols-3 gap-2 flex-1">
-        {Array.from({ length: 6 }).map((_, i) => (
+        {[
+          {
+            bg: 'bg-[#ee7752]',
+            src: '/sprites/items/poke_ball.png',
+            alt: 'Poké Ball',
+          },
+          {
+            bg: 'bg-blue-400',
+            src: '/sprites/items/great_ball.png',
+            alt: 'Great Ball',
+          },
+          {
+            bg: 'bg-purple-500',
+            src: '/sprites/items/master_ball.png',
+            alt: 'Master Ball',
+          },
+          {
+            bg: 'bg-orange-400',
+            src: '/sprites/items/potion.png',
+            alt: 'Potion',
+          },
+          {
+            bg: 'bg-teal-400',
+            src: '/sprites/items/repel.png',
+            alt: 'Repel',
+          },
+          {
+            bg: 'bg-yellow-400',
+            src: '/sprites/items/thunderstone.png',
+            alt: 'Thunderstone',
+          },
+        ].map((item, i) => (
           <motion.div
             key={`item-${i}`}
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: i * 0.1 }}
-            className="rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-black p-2 flex flex-col items-center"
+            className="rounded-lg border border-neutral-100 dark:border-neutral-700 bg-white dark:bg-black p-2 py-3 flex flex-col items-center"
           >
             <div
-              className={`h-6 w-6 rounded mb-1 ${
-                i % 4 === 0
-                  ? 'bg-purple-400'
-                  : i % 4 === 1
-                    ? 'bg-orange-400'
-                    : i % 4 === 2
-                      ? 'bg-teal-400'
-                      : 'bg-pink-400'
-              }`}
-            />
-            <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded w-full" />
+              className={cn('h-8 w-8 rounded-full mb-3 flex items-center justify-center', item.bg)}
+            >
+              <Image
+                src={item.src}
+                alt={item.alt}
+                width={64}
+                height={64}
+                className="h-8 w-8 p-1 rounded-full"
+              />
+            </div>
+            <div className="w-full bg-gray-100 h-4 rounded-full dark:bg-neutral-900" />
           </motion.div>
         ))}
       </div>
@@ -353,95 +458,132 @@ const ItemsSkeleton = () => {
 };
 
 const EventsSkeleton = () => {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2 p-2"
-    >
-      <div className="flex items-center space-x-2 mb-2">
-        <div className="h-6 w-8 bg-blue-200 dark:bg-blue-800 rounded" />
-        <div className="flex-1 space-y-1">
-          <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded w-3/4" />
-          <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded w-1/2" />
-        </div>
-      </div>
-      <div className="space-y-1">
-        {[0, 1, 2].map((i) => (
-          <motion.div
-            key={`event-${i}`}
-            initial={{ x: -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: i * 0.15 }}
-            className="flex items-center space-x-2"
-          >
-            <div className="h-2 w-2 rounded-full bg-yellow-400" />
-            <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded flex-1" />
-          </motion.div>
-        ))}
-      </div>
-    </motion.div>
-  );
-};
+  const variants = {
+    initial: {
+      x: 0,
+    },
+    animate: {
+      x: 10,
+      rotate: 5,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
 
-const AbilitiesSkeleton = () => {
+  const dailyArr = new Array(4).fill(0);
+  const weeklyArr = new Array(3).fill(0);
+  const specialArr = new Array(6).fill(0);
+  // Use fixed widths to avoid hydration mismatch
+  const dailyFixedWidths = [55, 72, 54, 68];
+
+  const weeklyFixedWidths = [87, 53, 66];
+
+  const specialFixedWidths = [65, 78, 54, 82, 90, 20, 50];
+
   return (
     <motion.div
       initial="initial"
-      animate="animate"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2 p-2"
-      style={{
-        background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)',
-        backgroundSize: '400% 400%',
-      }}
+      whileHover="animate"
+      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] space-y-2 flex-row gap-4"
     >
       <motion.div
-        animate={{
-          backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          repeatType: 'reverse',
-        }}
-        className="h-full w-full rounded-lg flex items-center justify-center"
+        variants={variants}
+        className="flex flex-col space-y-2 rounded-lg border border-neutral-100 dark:border-white/[0.2] p-2 items-start space-x-2 w-1/3 h-full ml-auto bg-white dark:bg-black text-center"
       >
-        <div className="text-white font-semibold text-lg opacity-75">✨</div>
+        <div className="w-full bg-red-200 p-1 text-red-900 font-black rounded-md h-8">Daily</div>
+        {dailyArr.map((_, i) => (
+          <div
+            key={'skeleton-two' + i}
+            style={{
+              maxWidth: dailyFixedWidths[i] + '%',
+            }}
+            className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-1 items-center space-x-2 bg-neutral-100 dark:bg-black w-full h-3"
+          ></div>
+        ))}
+      </motion.div>
+      <motion.div
+        variants={variants}
+        className="flex flex-col space-y-2 rounded-lg border border-neutral-100 dark:border-white/[0.2] p-2 items-start space-x-2 w-1/3 h-full ml-auto bg-white dark:bg-black text-center"
+      >
+        <div className="w-full bg-green-200 p-1 text-green-900 font-black rounded-md h-8">
+          Weekly
+        </div>
+        {weeklyArr.map((_, i) => (
+          <div
+            key={'skeleton-two' + i}
+            style={{
+              maxWidth: weeklyFixedWidths[i] + '%',
+            }}
+            className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-1 items-center space-x-2 bg-neutral-100 dark:bg-black w-full h-3"
+          ></div>
+        ))}
+      </motion.div>
+      <motion.div
+        variants={variants}
+        className="flex flex-col space-y-2 rounded-lg border border-neutral-100 dark:border-white/[0.2] p-2 items-start space-x-2 w-1/3 h-full ml-auto bg-white dark:bg-black text-center"
+      >
+        <div className="w-full bg-purple-200 p-1 text-purple-900 font-black rounded-md h-8">
+          Special
+        </div>
+        {specialArr.map((_, i) => (
+          <div
+            key={'skeleton-two' + i}
+            style={{
+              maxWidth: specialFixedWidths[i] + '%',
+            }}
+            className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-1 items-center space-x-2 bg-neutral-100 dark:bg-black w-full h-3"
+          ></div>
+        ))}
       </motion.div>
     </motion.div>
   );
 };
 
-// const TeamBuilderSkeleton = () => {
-//   return (
-//     <motion.div
-//       initial="initial"
-//       animate="animate"
-//       whileHover="hover"
-//       className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-row space-x-2 p-2"
-//     >
-//       {Array.from({ length: 3 }).map((_, i) => (
-//         <motion.div
-//           key={`team-${i}`}
-//           initial={{ y: 20, opacity: 0 }}
-//           animate={{ y: 0, opacity: 1 }}
-//           transition={{ delay: i * 0.1 }}
-//           className="h-full w-1/3 rounded-2xl bg-white p-2 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
-//         >
-//           <div
-//             className={`h-8 w-8 rounded-full mb-2 ${
-//               i === 0 ? 'bg-red-400' : i === 1 ? 'bg-blue-400' : 'bg-green-400'
-//             }`}
-//           />
-//           <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded w-2/3 mb-1" />
-//           <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded w-1/2" />
-//         </motion.div>
-//       ))}
-//     </motion.div>
-//   );
-// };
+const AbilitiesSkeleton = () => {
+  const variants = {
+    initial: {
+      width: 0,
+    },
+    animate: {
+      width: '100%',
+      transition: {
+        duration: 0.2,
+      },
+    },
+    hover: {
+      width: ['0%', '100%'],
+      transition: {
+        duration: 2,
+      },
+    },
+  };
+  const arr = new Array(6).fill(0);
+  // Use fixed widths to avoid hydration mismatch
+  const fixedWidths = [55, 72, 54, 68, 87, 53];
 
-const TeamBuilderSkeleton = () => {
+  return (
+    <motion.div
+      initial="initial"
+      animate="animate"
+      whileHover="hover"
+      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
+    >
+      {arr.map((_, i) => (
+        <motion.div
+          key={'skeleton-two' + i}
+          variants={variants}
+          style={{
+            maxWidth: fixedWidths[i] + '%',
+          }}
+          className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2  items-center space-x-2 bg-neutral-100 dark:bg-black w-full h-4"
+        ></motion.div>
+      ))}
+    </motion.div>
+  );
+};
+
+const TeamBuilderSkeleton = ({ isFaithful }: { isFaithful: boolean }) => {
   const first = {
     initial: {
       x: 20,
@@ -473,62 +615,75 @@ const TeamBuilderSkeleton = () => {
         variants={first}
         className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
       >
-        <img
-          src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
-          alt="avatar"
-          height="100"
-          width="100"
-          className="rounded-full h-10 w-10"
+        <PokemonSprite
+          pokemonName="Meganium"
+          variant="normal"
+          type={'animated'}
+          size="default"
+          className="shadow-none"
         />
-        <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          Just code in Vanilla Javascript
+        <p className="sm:text-sm text-xs text-center font-black text-neutral-500 mt-4 mb-2">
+          Meganium
         </p>
-        <p className="border border-red-500 bg-red-100 dark:bg-red-900/20 text-red-600 text-xs rounded-full px-2 py-0.5 mt-4">
+        {/* <p className="border border-red-500 bg-red-100 dark:bg-red-900/20 text-red-600 text-xs rounded-full px-2 py-0.5 mt-4">
           Delusional
-        </p>
+        </p> */}
+        <div className="flex flex-row gap-2">
+          {isFaithful ? (
+            <Badge variant="grass">grass</Badge>
+          ) : (
+            <>
+              <Badge variant="grass">grass</Badge>
+              <Badge variant="fairy">fairy</Badge>
+            </>
+          )}
+        </div>
       </motion.div>
       <motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center">
-        <img
-          src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
-          alt="avatar"
-          height="100"
-          width="100"
-          className="rounded-full h-10 w-10"
+        <PokemonSprite
+          pokemonName="Feraligatr"
+          variant="normal"
+          type={'animated'}
+          size="default"
+          className="shadow-none"
         />
-        <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          Tailwind CSS is cool, you know
+        <p className="sm:text-sm text-xs text-center font-black text-neutral-500 mt-4 mb-2">
+          Feraligatr
         </p>
-        <p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
-          Sensible
-        </p>
+        <div className="flex flex-row gap-2">
+          <Badge variant="water">Water</Badge>
+          <Badge variant="dark">Dark</Badge>
+        </div>
       </motion.div>
       <motion.div
         variants={second}
         className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
       >
-        <img
-          src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
-          alt="avatar"
-          height="100"
-          width="100"
-          className="rounded-full h-10 w-10"
+        <PokemonSprite
+          pokemonName="Typhlosion"
+          variant="normal"
+          type={'animated'}
+          size="default"
+          className="shadow-none"
         />
-        <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          I love angular, RSC, and Redux.
+        <p className="sm:text-sm text-xs text-center font-black text-neutral-500 mt-4 mb-2">
+          Typhlosion
         </p>
-        <p className="border border-orange-500 bg-orange-100 dark:bg-orange-900/20 text-orange-600 text-xs rounded-full px-2 py-0.5 mt-4">
-          Helpless
-        </p>
+        <div className="flex flex-row gap-2">
+          <Badge variant="fire">Fire</Badge>
+          <Badge variant="ground">Ground</Badge>
+        </div>
       </motion.div>
     </motion.div>
   );
 };
 
-const items = [
+const getItems = (showFaithful: boolean) => [
   {
     title: 'Pokémon',
     description: <span className="text-sm">Discover stats, types, and evolutions</span>,
-    header: <PokemonSkeleton />,
+    header: <PokemonSkeleton showFaithful={showFaithful} />,
+    href: '/pokemon',
     className: 'md:col-span-2',
     icon: <Image src="/sprites/poke-ball.png" width={24} height={24} alt="Icon 1" />,
   },
@@ -536,6 +691,7 @@ const items = [
     title: 'Need Help?',
     description: <span className="text-sm">Quick answers to common queries</span>,
     header: <HelpSkeleton />,
+    href: '/faq',
     className: 'md:col-span-1',
     icon: <Image src="/sprites/escape-rope.png" width={24} height={24} alt="Icon 1" />,
   },
@@ -543,6 +699,7 @@ const items = [
     title: 'Attackdex',
     description: <span className="text-sm">From Tackle to Thunder</span>,
     header: <AttackdexSkeleton />,
+    href: '/moves',
     className: 'md:col-span-1',
     icon: <Image src="/sprites/tm-case.png" width={24} height={24} alt="Icon 1" />,
   },
@@ -550,6 +707,7 @@ const items = [
     title: 'Locations',
     description: <span className="text-sm">From Kanto to the Orange Islands</span>,
     header: <LocationsSkeleton />,
+    href: '/locations',
     className: 'md:col-span-1',
     icon: <Image src="/sprites/town-map.png" width={24} height={24} alt="Icon 1" />,
   },
@@ -557,6 +715,7 @@ const items = [
     title: 'Items',
     description: <span className="text-sm">Every item, every effect</span>,
     header: <ItemsSkeleton />,
+    href: '/items',
     className: 'md:col-span-1',
     icon: <Image src="/sprites/forage-bag.png" width={24} height={24} alt="Icon 1" />,
   },
@@ -564,6 +723,7 @@ const items = [
     title: 'Special Events',
     description: <span className="text-sm">Dailies, weeklies, and more</span>,
     header: <EventsSkeleton />,
+    href: '/events',
     className: 'md:col-span-2',
     icon: <Image src="/sprites/mystery-egg.png" width={24} height={24} alt="Icon 1" />,
   },
@@ -571,6 +731,7 @@ const items = [
     title: 'Abilities',
     description: <span className="text-sm">Unlock competitive advantages</span>,
     header: <AbilitiesSkeleton />,
+    href: '/abilities',
     className: 'md:col-span-1',
     icon: <Image src="/sprites/ability-capsule.png" width={24} height={24} alt="Icon 1" />,
   },
@@ -578,7 +739,8 @@ const items = [
   {
     title: 'Build Winning Teams',
     description: <span className="text-sm">Strategy meets synergy</span>,
-    header: <TeamBuilderSkeleton />,
+    header: <TeamBuilderSkeleton showFaithful={showFaithful} />,
+    href: '/team-builder',
     className: 'md:col-span-3',
     icon: <Image src="/sprites/choice-scarf.png" width={24} height={24} alt="Icon 1" />,
   },

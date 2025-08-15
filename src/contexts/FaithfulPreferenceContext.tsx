@@ -6,7 +6,7 @@ import {
   setClientSideFaithfulPreference,
 } from '@/lib/client-faithful-preference';
 
-interface FaithfulPreferenceContextValue {
+export interface FaithfulPreferenceContextValue {
   showFaithful: boolean;
   toggleFaithful: () => void;
   setFaithful: (faithful: boolean) => void;

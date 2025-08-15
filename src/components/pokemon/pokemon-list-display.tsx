@@ -232,8 +232,8 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
   }, [view]);
 
   return (
-    <>
-      <div className="flex flex-col gap-4 py-4">
+    <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+      <div className="flex flex-col gap-4 border border-neutral-200 bg-white p-4 rounded-xl mb-4 dark:border-white/[0.2] dark:bg-black dark:shadow-none">
         {/* Primary search and filters */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex flex-col gap-2">
@@ -373,6 +373,6 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
       ) : (
         <LazyPokemonCardGrid pokemonData={sortedData} itemsPerPage={24} />
       )}
-    </>
+    </div>
   );
 }

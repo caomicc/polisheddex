@@ -23,7 +23,7 @@ export default async function MovesList() {
     <>
       <Hero
         headline="Moves"
-        description="Browse all moves available in Pokémon Polished Crystal"
+        description="Your pocket guide to Pokemon attacks"
         breadcrumbs={
           <Breadcrumb>
             <BreadcrumbList>
@@ -42,7 +42,7 @@ export default async function MovesList() {
           </Breadcrumb>
         }
       />
-      <div className="max-w-xl md:max-w-4xl mx-auto ">
+      <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
         <MovesDataTableSearch moves={allMoves} />
       </div>
     </>

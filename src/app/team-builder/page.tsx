@@ -26,8 +26,8 @@ export default function TeamBuilderPage() {
   return (
     <>
       <Hero
-        headline="WIP Team Builder"
-        description="WIP REHAUL - Build a team of up to six Pokémon. Add moves and abilities, then review type calculations."
+        headline="Team Builder"
+        description="Build a team of up to six Pokémon. Add moves and abilities, then review type calculations."
         breadcrumbs={
           <Breadcrumb>
             <BreadcrumbList>
@@ -40,7 +40,7 @@ export default function TeamBuilderPage() {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage className="">WIP Team Builder</BreadcrumbPage>
+                <BreadcrumbPage className="">Team Builder</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>

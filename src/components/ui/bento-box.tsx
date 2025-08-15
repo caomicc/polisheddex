@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 export const BentoGrid = ({
   className,
@@ -25,20 +26,17 @@ export const BentoGridItem = ({
   description,
   header,
   icon,
+  href,
 }: {
   className?: string;
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
   header?: React.ReactNode;
   icon?: React.ReactNode;
+  href?: string;
 }) => {
-  return (
-    <div
-      className={cn(
-        'group/bento shadow-input row-span-1 flex flex-col justify-between space-y-4 rounded-xl border border-neutral-200 bg-white p-4 transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-black dark:shadow-none',
-        className,
-      )}
-    >
+  const content = (
+    <>
       {header}
       <div className="transition duration-200 group-hover/bento:translate-x-2">
         {icon}
@@ -49,6 +47,26 @@ export const BentoGridItem = ({
           {description}
         </div>
       </div>
+    </>
+  );
+
+  const baseClassName = cn(
+    'group/bento shadow-input row-span-1 flex flex-col justify-between space-y-4 rounded-xl border border-neutral-200 bg-white p-4 transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-black dark:shadow-none',
+    href && 'cursor-pointer',
+    className,
+  );
+
+  if (href) {
+    return (
+      <Link href={href} className={baseClassName}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <div className={baseClassName}>
+      {content}
     </div>
   );
 };

@@ -69,11 +69,12 @@ function LazyPokemonCardGrid({ pokemonData, itemsPerPage = 24 }: LazyPokemonCard
 
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-4">
         {visiblePokemon.map((pokemon, idx) => {
           const isLastItem = idx === visibleItems - 1;
           return (
             <Link
+              className="rounded-xl"
               key={`${pokemon.name}-${pokemon.form || 'base'}-${idx}`}
               href={`${createPokemonUrl(pokemon.name)}${pokemon.form ? `?form=${pokemon.form}` : ''}`}
             >

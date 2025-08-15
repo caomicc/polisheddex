@@ -65,7 +65,8 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
     <div
       ref={heroRef}
       className={cn(
-        'relative flex flex-col text-left min-h-[220px] lg:min-h-[244px] justify-end p-4 md:p-8 pt-22! bg-linear-to-t from-sky-100 to-violet-200 dark:from-white/5 dark:to-white/10 rounded-xl mb-6 gap-1 max-w-4xl md:mx-auto shadow-lg gap-3',
+        'relative flex flex-col text-left justify-end py-4 rounded-3xl mb-0 gap-1 max-w-4xl md:mx-auto gap-3 mt-18',
+        // 'p-4 transition duration-200 dark:border-white/[0.2] dark:bg-black shadow-md dark:shadow-none',
         className,
       )}
       style={combinedStyle}
@@ -94,7 +95,14 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
         )}
         {/* Headline */}
         <div className="flex-1 flex flex-col gap-2">
-          {headline && <h1 className="text-2xl md:text-4xl font-bold capitalize">{headline}</h1>}
+          {headline && (
+            <h1
+              className="
+                text-slate-700 md:text-4xl lg:text-5xl dark:text-slate-300 text-2xl font-bold capitalize"
+            >
+              {headline}
+            </h1>
+          )}
           {types && <div>{types}</div>}
         </div>
       </div>
