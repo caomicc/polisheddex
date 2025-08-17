@@ -18,7 +18,7 @@ import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonSprite } from './pokemon-sprite';
 import { MoveRow } from '../moves';
 import { LocationListItem } from '../locations';
-import { BentoGrid, BentoGridItem, BentoGridNoLink } from '../ui/bento-box';
+import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
 
 // Helper function to deduplicate moves based on name and level
 function deduplicateMoves(moves: Move[]): Move[] {
@@ -233,99 +233,37 @@ export default function PokemonFormClient({
                 {/* </BentoGridNoLink> */}
               </BentoGrid>
             </div>
+            <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+              <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-2">
+                <BentoGridNoLink className="md:col-span-1">
+                  <h3 className={'font-bold text-neutral-600 dark:text-neutral-200 capitalize'}>
+                    Training Stats:
+                  </h3>
+                  <div className="flex flex-row gap-4 items-center">
+                    <div className="flex justify-between items-center w-[120px]">
+                      <span className="text-xs font-bold leading-none">Growth Rate</span>
+                    </div>
+                    <span className="text-xs text-left">{formData.growthRate}</span>
+                  </div>
 
-            <SectionCard headline={'Catch Rate'}>
-              <h3 className="mb-2">Base Catch Rate: {formData.catchRate}</h3>
-              <span className="flex flex-row items-start justify-between max-w-[300px] w-full mx-auto">
-                <div>
-                  <p className="flex items-center gap-1 flex-col text-center text-sm mb-2">
-                    <Image
-                      src="/sprites/items/poke_ball.png"
-                      alt="Pokeball Icon"
-                      width={32}
-                      height={32}
-                      className="block rounded-sm"
-                    />{' '}
-                    Pokeball
-                  </p>
-                  <p className="text-sm md:text-md text-muted-foreground text-center">
-                    <Badge className="bg-green-200 text-green-800 dark:bg-green-900 dark:text-green-300">
-                      {(calculateCatchChance(formData.catchRate ?? 0, 'pokeball') * 100).toFixed(1)}
-                      %
-                    </Badge>
-                  </p>
-                </div>
-                <div>
-                  <p className="flex items-center gap-1 flex-col text-center text-sm mb-2">
-                    <Image
-                      src="/sprites/items/great_ball.png"
-                      alt="Greatball Icon"
-                      width={32}
-                      height={32}
-                      className="block rounded-sm"
-                    />{' '}
-                    Greatball
-                  </p>
-                  <p className="text-sm md:text-md text-muted-foreground text-center">
-                    <Badge className="bg-blue-200 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
-                      {(calculateCatchChance(formData.catchRate ?? 0, 'greatball') * 100).toFixed(
-                        1,
-                      )}
-                      %
-                    </Badge>
-                  </p>
-                </div>
-                <div>
-                  <p className="flex items-center gap-1 flex-col text-center text-sm mb-2">
-                    <Image
-                      src="/sprites/items/ultra_ball.png"
-                      alt="Ultraball Icon"
-                      width={32}
-                      height={32}
-                      className="block rounded-sm"
-                    />{' '}
-                    Ultraball
-                  </p>
-                  <p className="text-sm md:text-md text-muted-foreground text-center">
-                    <Badge className="bg-yellow-200 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">
-                      {(calculateCatchChance(formData.catchRate ?? 0, 'ultraball') * 100).toFixed(
-                        1,
-                      )}
-                      %
-                    </Badge>
-                  </p>
-                </div>
-              </span>
-              <p className="text-xs text-muted-foreground text-center mt-4">
-                Sample rates for this pokemon when full HP, actual calculation may vary based on
-                status effects, level, and other factors.
-              </p>
-            </SectionCard>
-            <SectionCard headline={'Training'}>
-              <h3>Training Stats:</h3>
-              <Table className="max-w-full">
-                <TableHeader className="sr-only">
-                  <TableRow>
-                    <TableHead>Training Stats</TableHead>
-                    <TableHead>Value</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell className="text-left">Growth Rate</TableCell>
-                    <TableCell className="text-left">{formData.growthRate}</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="text-left">EV Yield</TableCell>
-                    <TableCell className="text-left">{formData.evYield || 'None'}</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="text-left">Base Exp.</TableCell>
-                    <TableCell className="text-left">{formData.baseExp}</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="text-left">Egg Groups</TableCell>
-                    <TableCell className="text-left">
+                  <div className="flex flex-row gap-4 items-center">
+                    <div className="flex justify-between items-center w-[120px]">
+                      <span className="text-xs font-bold leading-none">EV Yield</span>
+                    </div>
+                    <span className="text-xs text-left">{formData.evYield || 'N/A'}</span>
+                  </div>
+
+                  <div className="flex flex-row gap-4 items-center">
+                    <div className="flex justify-between items-center w-[120px]">
+                      <span className="text-xs font-bold leading-none">Base Exp.</span>
+                    </div>
+                    <span className="text-xs text-left">{formData.baseExp}</span>
+                  </div>
+                  <div className="flex flex-row gap-4 items-center">
+                    <div className="flex justify-between items-center w-[120px]">
+                      <span className="text-xs font-bold leading-none">Egg Groups</span>
+                    </div>
+                    <div className="text-xs text-left">
                       <div className="flex items-start gap-1">
                         {formData.eggGroups && formData.eggGroups.length > 0 ? (
                           formData.eggGroups.map((group, idx) => (
@@ -340,23 +278,139 @@ export default function PokemonFormClient({
                           <span className="text-gray-500">Unknown</span>
                         )}
                       </div>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="text-left">Hatch Rate</TableCell>
-                    <TableCell className="text-left">{formData.hatchRate}</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </SectionCard>
+                    </div>
+                  </div>
+                  <div className="flex flex-row gap-4 items-center">
+                    <div className="flex justify-between items-center w-[120px]">
+                      <span className="text-xs font-bold leading-none">Hatch Rate</span>
+                    </div>
+                    <span className="text-xs text-left">{formData.hatchRate}</span>
+                  </div>
+                  <div className="flex flex-row gap-4 items-center">
+                    <div className="flex justify-between items-center w-[120px]">
+                      <span className="text-xs font-bold leading-none">Gender Ratio</span>
+                    </div>
+                    <span className="text-xs text-left">
+                      {formData.genderRatio &&
+                      formData.genderRatio.male === 0 &&
+                      formData.genderRatio.female === 0 ? (
+                        <>
+                          Genderless{' '}
+                          <div className="aspect-square w-3 md:w-4 inline-block relative -mb-[3px]">
+                            <Image
+                              src={'/icons/genderless-solid.svg'}
+                              alt={''}
+                              className="inline-block fa-fw"
+                              fill
+                            />
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          {formData.genderRatio?.male}%{' '}
+                          <div className="aspect-square w-3 md:w-3 inline-block relative items-center -mb-[1px]">
+                            <Image
+                              src={'/icons/mars-solid.svg'}
+                              alt={'male icon'}
+                              className="inline-block w-full"
+                              fill
+                            />
+                          </div>
+                          , {formData.genderRatio?.female}%
+                          <div className="aspect-square w-3 md:w-3 inline-block relative items-center -mb-[1px]">
+                            <Image
+                              src={'/icons/venus-solid.svg'}
+                              alt={'female icon'}
+                              className="inline-block w-full"
+                              fill
+                            />
+                          </div>
+                        </>
+                      )}
+                    </span>
+                  </div>
+                </BentoGridNoLink>
+                <BentoGridNoLink className="md:col-span-1">
+                  <h3 className={'font-bold text-neutral-600 dark:text-neutral-200 capitalize'}>
+                    Base Catch Rate: {formData.catchRate}
+                  </h3>
+                  <span className="flex flex-row items-start justify-between max-w-[300px] w-full mx-auto">
+                    <div>
+                      <div className="flex items-center gap-1 flex-col text-center text-sm mb-2">
+                        <Image
+                          src="/sprites/items/poke_ball.png"
+                          alt="Pokeball Icon"
+                          width={32}
+                          height={32}
+                          className="block rounded-sm"
+                        />{' '}
+                        Pokeball
+                      </div>
+                      <div className="text-sm md:text-md text-muted-foreground text-center">
+                        <Badge className="bg-green-200 text-green-800 dark:bg-green-900 dark:text-green-300">
+                          {(
+                            calculateCatchChance(formData.catchRate ?? 0, 'pokeball') * 100
+                          ).toFixed(1)}
+                          %
+                        </Badge>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-1 flex-col text-center text-sm mb-2">
+                        <Image
+                          src="/sprites/items/great_ball.png"
+                          alt="Greatball Icon"
+                          width={32}
+                          height={32}
+                          className="block rounded-sm"
+                        />{' '}
+                        Greatball
+                      </div>
+                      <p className="text-sm md:text-md text-muted-foreground text-center">
+                        <Badge className="bg-blue-200 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
+                          {(
+                            calculateCatchChance(formData.catchRate ?? 0, 'greatball') * 100
+                          ).toFixed(1)}
+                          %
+                        </Badge>
+                      </p>
+                    </div>
+                    <div>
+                      <p className="flex items-center gap-1 flex-col text-center text-sm mb-2">
+                        <Image
+                          src="/sprites/items/ultra_ball.png"
+                          alt="Ultraball Icon"
+                          width={32}
+                          height={32}
+                          className="block rounded-sm"
+                        />{' '}
+                        Ultraball
+                      </p>
+                      <p className="text-sm md:text-md text-muted-foreground text-center">
+                        <Badge className="bg-yellow-200 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">
+                          {(
+                            calculateCatchChance(formData.catchRate ?? 0, 'ultraball') * 100
+                          ).toFixed(1)}
+                          %
+                        </Badge>
+                      </p>
+                    </div>
+                  </span>
+                  <p className="text-xs text-muted-foreground text-center mt-4">
+                    Sample rates for this pokemon when full HP, actual calculation may vary based on
+                    status effects, level, and other factors.
+                  </p>
+                </BentoGridNoLink>
+              </BentoGrid>
+            </div>
             <SectionCard headline={'Species Information'}>
-              <h3>Pokédex Entry:</h3>
+              {/* <h3>Pokédex Entry:</h3>
               <p className="text-sm md:text-md text-foreground text-left">
                 {formData.species} Pokémon
               </p>
               <p className="text-sm md:text-md text-muted-foreground text-left">
                 {formData.description}
-              </p>
+              </p> */}
 
               <h3 className={cn('my-4')}>Sprites:</h3>
 
