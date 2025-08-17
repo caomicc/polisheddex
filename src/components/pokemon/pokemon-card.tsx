@@ -95,7 +95,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
         className="aspect-square mb-0"
         size="default"
       />
-      <div className="flex w-[100%] justify-center flex-col">
+      <div className="flex w-[100%] justify-center flex-col ml-2">
         <p
           className={cn(
             'text-xs md:text-sm top-4 right-4 md:top-0 md:right-0 font-medium tracking-wide mb-1 absolute md:relative leading-[21px]',

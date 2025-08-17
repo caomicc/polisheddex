@@ -155,7 +155,7 @@ export default function Page() {
         />
 
         <Tabs defaultValue="today" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 bg-white border-neutral-200 border-1 p-1 h-12">
+          <TabsList className="grid w-full grid-cols-4 border-border border-1 p-1 h-12">
             <TabsTrigger value="today">
               Today
               <span className="ml-2 rounded-full bg-amber-100 px-2 py-0.5 text-xs text-amber-900">

@@ -54,7 +54,7 @@ export function PokemonSprite({
       <div
         className={cn(
           spriteVariants({ size }),
-          `shadow-lg shadow-${primaryType?.toLowerCase()}`,
+          `shadow-sm shadow-${primaryType?.toLowerCase()}`,
           'animate-pulse aspect-square',
           className,
         )}
@@ -67,7 +67,7 @@ export function PokemonSprite({
       <div
         className={cn(
           spriteVariants({ size }),
-          `shadow-lg shadow-${primaryType?.toLowerCase()}`,
+          `shadow-sm shadow-${primaryType?.toLowerCase()}`,
           'flex items-center justify-center text-gray-400',
           className,
         )}
@@ -81,7 +81,7 @@ export function PokemonSprite({
     <div
       className={cn(
         spriteVariants({ size }),
-        `shadow-lg shadow-${primaryType?.toLowerCase()}`,
+        `shadow-sm shadow-${primaryType?.toLowerCase()}`,
         className,
       )}
     >

@@ -38,7 +38,7 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
 
       <TableCell
         rowSpan={2}
-        className="align-middle font-medium p-2 text-center md:text-left text-xs md:text-md"
+        className="align-middle font-medium p-2 text-center md:text-left text-xs md:text-md md:w-[238px]"
       >
         <Link
           href={`/moves/${name.toLowerCase().replace(/\s+/g, '-')}`}

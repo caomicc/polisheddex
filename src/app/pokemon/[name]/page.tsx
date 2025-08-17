@@ -7,7 +7,11 @@ import PokemonFormClient from '@/components/pokemon/pokemon-form-client';
 import PokemonNavigation from '@/components/pokemon/pokemon-navigation';
 import PokemonKeyboardNavigation from '@/components/pokemon/pokemon-keyboard-navigation';
 import { FormData } from '@/types/types';
-import { urlKeyToStandardKey, getPokemonFileName, normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
+import {
+  urlKeyToStandardKey,
+  getPokemonFileName,
+  normalizePokemonUrlKey,
+} from '@/utils/pokemonUrlNormalizer';
 import { loadDexOrders, getDexOrderToUse, getPokemonNavigation } from '@/utils/pokemonNavigation';
 import { loadJsonData } from '@/utils/fileLoader';
 import { loadPokemonData } from '@/utils/loaders/pokemon-data-loader';
@@ -45,9 +49,18 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     ...pokemonData,
     ...(pokemonData.detailedStats || {}),
     // Ensure default form has proper type data - fallback to parent types
-    types: ((defaultFormData as any).types && (defaultFormData as any).types.length > 0) ? (defaultFormData as any).types : (pokemonData.detailedStats as any)?.types || (pokemonData as any).types,
-    updatedTypes: ((defaultFormData as any).updatedTypes && (defaultFormData as any).updatedTypes.length > 0) ? (defaultFormData as any).updatedTypes : (pokemonData.detailedStats as any)?.updatedTypes || (pokemonData as any).updatedTypes,
-    faithfulTypes: ((defaultFormData as any).faithfulTypes && (defaultFormData as any).faithfulTypes.length > 0) ? (defaultFormData as any).faithfulTypes : (pokemonData.detailedStats as any)?.faithfulTypes || (pokemonData as any).faithfulTypes,
+    types:
+      defaultFormData.types && defaultFormData.types.length > 0
+        ? defaultFormData.types
+        : (pokemonData.detailedStats as any)?.types || pokemonData.types,
+    updatedTypes:
+      defaultFormData.updatedTypes && defaultFormData.updatedTypes.length > 0
+        ? defaultFormData.updatedTypes
+        : (pokemonData.detailedStats as any)?.updatedTypes || pokemonData.updatedTypes,
+    faithfulTypes:
+      defaultFormData.faithfulTypes && defaultFormData.faithfulTypes.length > 0
+        ? defaultFormData.faithfulTypes
+        : (pokemonData.detailedStats as any)?.faithfulTypes || (pokemonData as any).faithfulTypes,
     moves: defaultFormData.moves || [],
     faithfulMoves: defaultFormData.faithfulMoves || [],
     updatedMoves: defaultFormData.updatedMoves || [],
@@ -58,17 +71,14 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     nationalDex: pokemonData.nationalDex || null,
     frontSpriteUrl: pokemonData.frontSpriteUrl,
     johtoDex: pokemonData.johtoDex || null,
-    baseStats: 
-      defaultFormData.baseStats ||
-      pokemonData.detailedStats?.baseStats || 
-      {},
-    faithfulBaseStats: 
+    baseStats: defaultFormData.baseStats || pokemonData.detailedStats?.baseStats || {},
+    faithfulBaseStats:
       defaultFormData.faithfulBaseStats ||
-      pokemonData.detailedStats?.faithfulBaseStats || 
+      pokemonData.detailedStats?.faithfulBaseStats ||
       undefined,
-    polishedBaseStats: 
+    polishedBaseStats:
       defaultFormData.polishedBaseStats ||
-      pokemonData.detailedStats?.polishedBaseStats || 
+      pokemonData.detailedStats?.polishedBaseStats ||
       undefined,
     species: pokemonData.pokedexEntries?.default?.species || '',
     description: pokemonData.pokedexEntries?.default?.description || '',
@@ -77,46 +87,20 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     weight: pokemonData.detailedStats?.weight ?? 0,
     bodyColor: pokemonData.detailedStats?.bodyColor ?? 'Unknown',
     bodyShape: pokemonData.detailedStats?.bodyShape ?? 'Unknown',
-    genderRatio: 
-      defaultFormData.genderRatio ??
-      pokemonData.detailedStats?.genderRatio ?? 
-      { male: 50, female: 50 },
-    catchRate: 
-      defaultFormData.catchRate ??
-      pokemonData.detailedStats?.catchRate ?? 
-      255,
-    baseExp: 
-      defaultFormData.baseExp ??
-      pokemonData.detailedStats?.baseExp ?? 
-      0,
-    hatchRate: 
-      defaultFormData.hatchRate ??
-      pokemonData.detailedStats?.hatchRate ?? 
-      'Unknown',
-    growthRate: 
-      defaultFormData.growthRate ??
-      pokemonData.detailedStats?.growthRate ?? 
-      'Medium Fast',
-    eggGroups: 
-      defaultFormData.eggGroups ??
-      pokemonData.detailedStats?.eggGroups ?? 
-      [],
-    evYield: 
-      defaultFormData.evYield ??
-      pokemonData.detailedStats?.evYield ?? 
-      'None',
-    abilities: 
-      defaultFormData.abilities ?? 
-      pokemonData.detailedStats?.abilities ?? 
-      [],
-    faithfulAbilities: 
-      defaultFormData.faithfulAbilities ?? 
-      pokemonData.detailedStats?.faithfulAbilities ?? 
-      [],
-    updatedAbilities: 
-      defaultFormData.updatedAbilities ?? 
-      pokemonData.detailedStats?.updatedAbilities ?? 
-      [],
+    genderRatio: defaultFormData.genderRatio ??
+      pokemonData.detailedStats?.genderRatio ?? { male: 50, female: 50 },
+    catchRate: defaultFormData.catchRate ?? pokemonData.detailedStats?.catchRate ?? 255,
+    baseExp: defaultFormData.baseExp ?? pokemonData.detailedStats?.baseExp ?? 0,
+    hatchRate: defaultFormData.hatchRate ?? pokemonData.detailedStats?.hatchRate ?? 'Unknown',
+    growthRate:
+      defaultFormData.growthRate ?? pokemonData.detailedStats?.growthRate ?? 'Medium Fast',
+    eggGroups: defaultFormData.eggGroups ?? pokemonData.detailedStats?.eggGroups ?? [],
+    evYield: defaultFormData.evYield ?? pokemonData.detailedStats?.evYield ?? 'None',
+    abilities: defaultFormData.abilities ?? pokemonData.detailedStats?.abilities ?? [],
+    faithfulAbilities:
+      defaultFormData.faithfulAbilities ?? pokemonData.detailedStats?.faithfulAbilities ?? [],
+    updatedAbilities:
+      defaultFormData.updatedAbilities ?? pokemonData.detailedStats?.updatedAbilities ?? [],
   };
 
   // Add any additional forms with form-specific location data
@@ -132,9 +116,20 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
             ...formValue,
             ...(formValue.detailedStats || {}),
             // Add type fallback logic - use parent types if form types are empty
-            types: ((formValue as any).types && (formValue as any).types.length > 0) ? (formValue as any).types : (pokemonData.detailedStats as any)?.types || (pokemonData as any).types,
-            updatedTypes: ((formValue as any).updatedTypes && (formValue as any).updatedTypes.length > 0) ? (formValue as any).updatedTypes : (pokemonData.detailedStats as any)?.updatedTypes || (pokemonData as any).updatedTypes,
-            faithfulTypes: ((formValue as any).faithfulTypes && (formValue as any).faithfulTypes.length > 0) ? (formValue as any).faithfulTypes : (pokemonData.detailedStats as any)?.faithfulTypes || (pokemonData as any).faithfulTypes,
+            types:
+              formValue.types && formValue.types.length > 0
+                ? formValue.types
+                : (pokemonData.detailedStats as any)?.types || pokemonData.types,
+            updatedTypes:
+              formValue.updatedTypes && (formValue.updatedTypes.length ?? 0) > 0
+                ? formValue.updatedTypes
+                : (pokemonData.detailedStats as FormData)?.updatedTypes ||
+                  (pokemonData as unknown as FormData).updatedTypes,
+            faithfulTypes:
+              formValue.faithfulTypes && formValue.faithfulTypes.length > 0
+                ? formValue.faithfulTypes
+                : (pokemonData.detailedStats as any)?.faithfulTypes ||
+                  (pokemonData as any).faithfulTypes,
             moves: formValue.moves || [],
             faithfulMoves: formValue.faithfulMoves || [],
             updatedMoves: formValue.updatedMoves || [],
@@ -174,20 +169,18 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
               formValue.detailedStats?.bodyShape ??
               pokemonData.detailedStats?.bodyShape ??
               'Unknown',
-            genderRatio:
-              formValue.genderRatio ??
+            genderRatio: formValue.genderRatio ??
               formValue.detailedStats?.genderRatio ??
-              pokemonData.detailedStats?.genderRatio ?? 
-              { male: 50, female: 50 },
+              pokemonData.detailedStats?.genderRatio ?? { male: 50, female: 50 },
             catchRate:
               formValue.catchRate ??
-              formValue.detailedStats?.catchRate ?? 
-              pokemonData.detailedStats?.catchRate ?? 
+              formValue.detailedStats?.catchRate ??
+              pokemonData.detailedStats?.catchRate ??
               255,
-            baseExp: 
+            baseExp:
               formValue.baseExp ??
-              formValue.detailedStats?.baseExp ?? 
-              pokemonData.detailedStats?.baseExp ?? 
+              formValue.detailedStats?.baseExp ??
+              pokemonData.detailedStats?.baseExp ??
               0,
             hatchRate:
               formValue.hatchRate ??
@@ -201,13 +194,13 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
               'Medium Fast',
             eggGroups:
               formValue.eggGroups ??
-              formValue.detailedStats?.eggGroups ?? 
-              pokemonData.detailedStats?.eggGroups ?? 
+              formValue.detailedStats?.eggGroups ??
+              pokemonData.detailedStats?.eggGroups ??
               [],
             evYield:
               formValue.evYield ??
-              formValue.detailedStats?.evYield ?? 
-              pokemonData.detailedStats?.evYield ?? 
+              formValue.detailedStats?.evYield ??
+              pokemonData.detailedStats?.evYield ??
               'None',
             abilities:
               formValue.abilities && formValue.abilities.length > 0
@@ -250,14 +243,8 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   );
 
   const navigation = getPokemonNavigation(pokemonName, dexOrder);
-  // console.log('Generated navigation:', navigation);
 
-  // const moveDescFile = path.join(process.cwd(), `output/pokemon_move_descriptions.json`);
-  // const moveDescData = (await loadJsonData<Record<string, MoveDescription>>(moveDescFile)) || {};
   const movesData = await loadMovesData();
-
-  // Load move descriptions using the robust file loader
-  // const moveDescData = await loadJsonFile<Record<string, MoveDescription>>('output/pokemon_move_descriptions.json') || {};
 
   return (
     <>

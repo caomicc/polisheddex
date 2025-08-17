@@ -63,7 +63,7 @@ export const TYPE_COLORS: Record<
   }
 > = {
   bug: {
-    primary: 'var(--color-slate-50)', // lime-400
+    primary: 'var(--color-lime-200)', // lime-400
     secondary: 'var(--color-lime-900)', // lime-600
     text: 'var(--color-lime-950)',
     textSecondary: 'var(--color-lime-900)', // green-700
@@ -71,12 +71,12 @@ export const TYPE_COLORS: Record<
     hover: 'var(--color-lime-500)', // lime-500
     navHover: 'var(--color-lime-100)', // lime-600
     pageBackground: '#fbfef6',
-    tabBackground: 'var(--color-lime-200)',
+    tabBackground: 'var(--color-lime-100)',
     sectionCardBg: 'var(--color-lime-200)',
     statBarBackground: 'var(--color-lime-800)',
     grid: 'var(--color-lime-100)',
     dark: {
-      primary: 'var(--color-lime-400)',
+      primary: 'rgba(132, 204, 22, 0.1)',
       secondary: 'var(--color-lime-600)',
       text: 'var(--color-lime-100)',
       textSecondary: 'var(--color-lime-200)',
@@ -91,7 +91,7 @@ export const TYPE_COLORS: Record<
     },
   },
   dark: {
-    primary: 'var(--color-gray-800)',
+    primary: 'var(--color-gray-300)',
     secondary: 'var(--color-gray-900)',
     text: 'var(--color-gray-950)',
     textSecondary: 'var(--color-gray-400)',
@@ -99,12 +99,12 @@ export const TYPE_COLORS: Record<
     hover: 'var(--color-gray-700)',
     navHover: 'var(--color-gray-100)', // gray-600
     pageBackground: 'color-mix(in oklab, var(--color-dark) 5%, transparent)',
-    tabBackground: 'var(--color-gray-100)',
+    tabBackground: 'var(--color-gray-200)',
     sectionCardBg: 'var(--color-gray-200)', // gray-200 for section cards
     statBarBackground: 'var(--color-gray-950)',
     grid: 'var(--color-gray-200)',
     dark: {
-      primary: 'var(--color-gray-400)',
+      primary: 'rgba(75, 85, 99, 0.1)',
       secondary: 'var(--color-gray-600)',
       text: 'var(--color-gray-100)',
       textSecondary: 'var(--color-gray-300)',
@@ -119,7 +119,7 @@ export const TYPE_COLORS: Record<
     },
   },
   dragon: {
-    primary: 'var(--color-indigo-400)',
+    primary: 'var(--color-indigo-200)',
     secondary: 'var(--color-indigo-600)',
     text: 'var(--color-indigo-950)',
     textSecondary: 'var(--color-indigo-900)',
@@ -132,7 +132,7 @@ export const TYPE_COLORS: Record<
     statBarBackground: 'var(--color-indigo-950)',
     grid: 'var(--color-indigo-50)',
     dark: {
-      primary: 'var(--color-indigo-400)',
+      primary: 'rgba(99, 102, 241, 0.1)',
       secondary: 'var(--color-indigo-600)',
       text: 'var(--color-indigo-100)',
       textSecondary: 'var(--color-indigo-200)',
@@ -147,7 +147,7 @@ export const TYPE_COLORS: Record<
     },
   },
   electric: {
-    primary: 'var(--color-amber-400)',
+    primary: 'var(--color-amber-200)',
     secondary: 'var(--color-amber-600)',
     text: 'var(--color-amber-950)',
     textSecondary: 'var(--color-amber-800)',
@@ -160,7 +160,7 @@ export const TYPE_COLORS: Record<
     statBarBackground: 'var(--color-amber-700)',
     grid: 'var(--color-amber-100)',
     dark: {
-      primary: 'var(--color-amber-400)',
+      primary: 'rgba(245, 158, 11, 0.1)',
       secondary: 'var(--color-amber-600)',
       text: 'var(--color-amber-100)',
       textSecondary: 'var(--color-amber-200)',
@@ -175,7 +175,7 @@ export const TYPE_COLORS: Record<
     },
   },
   fairy: {
-    primary: 'var(--color-pink-300)',
+    primary: 'var(--color-pink-200)',
     secondary: 'var(--color-pink-700)',
     text: 'var(--color-pink-900)',
     textSecondary: 'var(--color-pink-800)',
@@ -188,7 +188,7 @@ export const TYPE_COLORS: Record<
     statBarBackground: 'var(--color-pink-900)',
     grid: 'var(--color-pink-100)',
     dark: {
-      primary: 'var(--color-pink-400)',
+      primary: 'rgba(244, 114, 182, 0.1)',
       secondary: 'var(--color-pink-600)',
       text: 'var(--color-pink-100)',
       textSecondary: 'var(--color-pink-200)',
@@ -203,7 +203,7 @@ export const TYPE_COLORS: Record<
     },
   },
   fighting: {
-    primary: 'var(--color-orange-400)',
+    primary: 'var(--color-orange-200)',
     secondary: 'var(--color-orange-700)',
     text: 'var(--color-orange-950)',
     textSecondary: 'var(--color-orange-800)',
@@ -216,7 +216,7 @@ export const TYPE_COLORS: Record<
     statBarBackground: 'var(--color-orange-950)',
     grid: 'var(--color-orange-100)',
     dark: {
-      primary: 'var(--color-orange-400)',
+      primary: 'rgba(251, 146, 60, 0.1)',
       secondary: 'var(--color-orange-600)',
       text: 'var(--color-orange-100)',
       textSecondary: 'var(--color-orange-200)',
@@ -231,7 +231,7 @@ export const TYPE_COLORS: Record<
     },
   },
   fire: {
-    primary: 'var(--color-red-400)',
+    primary: 'var(--color-red-200)',
     secondary: 'var(--color-red-700)',
     text: 'var(--color-red-950)',
     textSecondary: 'var(--color-red-800)',
@@ -244,7 +244,7 @@ export const TYPE_COLORS: Record<
     statBarBackground: 'var(--color-red-950)',
     grid: 'var(--color-red-100)',
     dark: {
-      primary: 'var(--color-red-50)',
+      primary: 'rgba(239, 68, 68, 0.1)',
       secondary: 'var(--color-red-100)',
       text: 'var(--color-red-50)',
       textSecondary: 'var(--color-red-300)',
@@ -272,7 +272,7 @@ export const TYPE_COLORS: Record<
     statBarBackground: 'var(--color-sky-950)',
     grid: 'var(--color-sky-300)',
     dark: {
-      primary: 'var(--color-sky-400)',
+      primary: 'rgba(56, 189, 248, 0.1)',
       secondary: 'var(--color-sky-600)',
       text: 'var(--color-sky-100)',
       textSecondary: 'var(--color-sky-200)',
@@ -283,11 +283,11 @@ export const TYPE_COLORS: Record<
       tabBackground: 'rgba(56, 189, 248, 0.1)',
       sectionCardBg: 'rgba(56, 189, 248, 0.1)',
       statBarBackground: 'rgba(56, 189, 248, 0.1)',
-      grid: 'var(--color-sky-700)',
+      grid: 'rgba(56, 189, 248, 0.1)',
     },
   },
   ghost: {
-    primary: 'var(--color-violet-300)',
+    primary: 'var(--color-violet-200)',
     secondary: 'var(--color-violet-700)',
     text: 'var(--color-violet-950)',
     textSecondary: 'var(--color-violet-800)',
@@ -300,7 +300,7 @@ export const TYPE_COLORS: Record<
     statBarBackground: 'var(--color-violet-950)',
     grid: 'var(--color-violet-100)',
     dark: {
-      primary: 'var(--color-violet-400)',
+      primary: 'rgba(139, 92, 246, 0.1)',
       secondary: 'var(--color-violet-600)',
       text: 'var(--color-violet-100)',
       textSecondary: 'var(--color-violet-200)',
@@ -315,7 +315,7 @@ export const TYPE_COLORS: Record<
     },
   },
   grass: {
-    primary: 'var(--color-emerald-400)',
+    primary: 'var(--color-emerald-200)',
     secondary: 'var(--color-emerald-700)',
     text: 'var(--color-emerald-950)',
     textSecondary: 'var(--color-emerald-800)',
@@ -328,7 +328,7 @@ export const TYPE_COLORS: Record<
     statBarBackground: 'var(--color-emerald-900)',
     grid: 'var(--color-emerald-100)',
     dark: {
-      primary: 'var(--color-emerald-400)',
+      primary: 'rgba(52, 211, 153, 0.1)',
       secondary: 'var(--color-emerald-600)',
       text: 'var(--color-emerald-100)',
       textSecondary: 'var(--color-emerald-200)',
@@ -336,14 +336,14 @@ export const TYPE_COLORS: Record<
       hover: 'var(--color-emerald-300)',
       navHover: 'var(--color-emerald-800)',
       pageBackground: 'transparent',
-      tabBackground: 'rgba(7, 40, 27, 1)',
+      tabBackground: 'rgba(35, 55, 47, 1)',
       sectionCardBg: 'rgba(52, 211, 153, 0.1)',
       statBarBackground: 'rgba(52, 211, 153, 0.1)',
       grid: 'rgba(52, 211, 153, 0.1)',
     },
   },
   ground: {
-    primary: 'var(--color-orange-300)',
+    primary: 'var(--color-orange-200)',
     secondary: 'var(--color-orange-700)',
     text: 'var(--color-orange-950)',
     textSecondary: 'var(--color-orange-800)',
@@ -356,7 +356,7 @@ export const TYPE_COLORS: Record<
     statBarBackground: 'var(--color-orange-900)',
     grid: 'var(--color-orange-100)',
     dark: {
-      primary: 'var(--color-orange-400)',
+      primary: 'rgba(251, 146, 60, 0.1)',
       secondary: 'var(--color-orange-600)',
       text: 'var(--color-orange-100)',
       textSecondary: 'var(--color-orange-200)',
@@ -371,7 +371,7 @@ export const TYPE_COLORS: Record<
     },
   },
   ice: {
-    primary: 'var(--color-cyan-300)',
+    primary: 'var(--color-cyan-200)',
     secondary: 'var(--color-cyan-700)',
     text: 'var(--color-cyan-950)',
     textSecondary: 'var(--color-cyan-800)',
@@ -412,7 +412,7 @@ export const TYPE_COLORS: Record<
     statBarBackground: 'var(--color-normal-800)',
     grid: 'var(--color-normal-100)',
     dark: {
-      primary: 'var(--color-normal-400)',
+      primary: 'rgba(223, 203, 170, 0.1)',
       secondary: 'var(--color-normal-600)',
       text: 'var(--color-normal-200)',
       textSecondary: 'var(--color-normal-300)',
@@ -427,7 +427,7 @@ export const TYPE_COLORS: Record<
     },
   },
   poison: {
-    primary: 'var(--color-purple-400)',
+    primary: 'var(--color-purple-200)',
     secondary: 'var(--color-purple-700)',
     text: 'var(--color-purple-950)',
     textSecondary: 'var(--color-purple-800)',
@@ -440,7 +440,7 @@ export const TYPE_COLORS: Record<
     statBarBackground: 'var(--color-purple-900)',
     grid: 'var(--color-purple-100)',
     dark: {
-      primary: 'var(--color-purple-400)',
+      primary: 'rgba(168, 85, 247, 0.1)',
       secondary: 'var(--color-purple-600)',
       text: 'var(--color-purple-100)',
       textSecondary: 'var(--color-purple-200)',
@@ -455,7 +455,7 @@ export const TYPE_COLORS: Record<
     },
   },
   psychic: {
-    primary: 'var(--color-fuchsia-400)',
+    primary: 'var(--color-fuchsia-200)',
     secondary: 'var(--color-fuchsia-700)',
     text: 'var(--color-fuchsia-950)',
     textSecondary: 'var(--color-fuchsia-800)',
@@ -468,7 +468,7 @@ export const TYPE_COLORS: Record<
     statBarBackground: 'var(--color-fuchsia-900)',
     grid: 'var(--color-fuchsia-100)',
     dark: {
-      primary: 'var(--color-fuchsia-400)',
+      primary: 'rgba(232, 121, 249, 0.1)',
       secondary: 'var(--color-fuchsia-600)',
       text: 'var(--color-fuchsia-100)',
       textSecondary: 'var(--color-fuchsia-200)',
@@ -483,7 +483,7 @@ export const TYPE_COLORS: Record<
     },
   },
   rock: {
-    primary: 'var(--color-gray-400)',
+    primary: 'var(--color-gray-200)',
     secondary: 'var(--color-gray-600)',
     text: 'var(--color-gray-800)',
     textSecondary: 'var(--color-gray-700)',
@@ -496,7 +496,7 @@ export const TYPE_COLORS: Record<
     statBarBackground: 'var(--color-gray-900)',
     grid: '',
     dark: {
-      primary: 'var(--color-gray-500)',
+      primary: 'rgba(107, 114, 128, 0.1)',
       secondary: 'var(--color-gray-600)',
       text: 'var(--color-gray-200)',
       textSecondary: 'var(--color-gray-300)',
@@ -507,11 +507,11 @@ export const TYPE_COLORS: Record<
       tabBackground: 'rgba(25, 30, 40, 1)',
       sectionCardBg: 'rgba(107, 114, 128, 0.1)',
       statBarBackground: 'rgba(107, 114, 128, 0.1)',
-      grid: '',
+      grid: 'rgba(107, 114, 128, 0.1)',
     },
   },
   steel: {
-    primary: 'var(--color-slate-400)',
+    primary: 'var(--color-slate-200)',
     secondary: 'var(--color-slate-600)',
     text: 'var(--color-slate-900)',
     textSecondary: 'var(--color-slate-700)',
@@ -524,7 +524,7 @@ export const TYPE_COLORS: Record<
     statBarBackground: 'var(--color-slate-400)',
     grid: '',
     dark: {
-      primary: 'var(--color-slate-500)',
+      primary: 'rgba(100, 116, 139, 0.1)',
       secondary: 'var(--color-slate-600)',
       text: 'var(--color-slate-200)',
       textSecondary: 'var(--color-slate-300)',
@@ -539,7 +539,7 @@ export const TYPE_COLORS: Record<
     },
   },
   water: {
-    primary: 'var(--color-blue-400)', // background
+    primary: 'var(--color-blue-200)', // background
     secondary: 'var(--color-blue-900)', // pokemon-theme-link pokemon-breadcrumb-active, pokemon-themed-link
     text: 'var(--color-blue-950)', // pokemon-hero-text
     textSecondary: 'var(--color-blue-900)', // theme-link
@@ -552,7 +552,7 @@ export const TYPE_COLORS: Record<
     statBarBackground: 'var(--color-blue-900)',
     grid: 'var(--color-blue-100)',
     dark: {
-      primary: 'var(--color-blue-400)',
+      primary: 'rgba(59, 130, 246, 0.1)',
       secondary: 'var(--color-blue-600)',
       text: 'var(--color-blue-100)',
       textSecondary: 'var(--color-blue-200)',
@@ -649,12 +649,12 @@ export const PokemonTypeProvider: React.FC<PokemonTypeProviderProps> = ({ childr
         );
         root.style.setProperty(
           '--pokemon-tab-bg',
-          typeColors.tabBackground || 'var(--color-slate-200)',
+          typeColors.tabBackground || 'var(--color-neutral-200)',
         );
         root.style.setProperty('--pokemon-section-card-bg', typeColors.sectionCardBg);
         root.style.setProperty(
           '--pokemon-theme-stat-bar-bg',
-          typeColors.statBarBackground || 'var(--color-slate-200)',
+          typeColors.statBarBackground || 'var(--color-neutral-200)',
         );
         root.style.setProperty('--pokemon-theme-grid', typeColors.grid);
       } else {

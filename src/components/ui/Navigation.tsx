@@ -200,7 +200,7 @@ export default function Navigation() {
                   Pokéarth
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[300px] gap-4 p-4">
+                  <ul className="grid w-[300px] gap-4 p-2">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link

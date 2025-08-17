@@ -145,7 +145,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
   };
 
   return (
-    <div className={cn('flex flex-col gap-6', className)}>
+    <div className={cn('flex flex-col gap-4 flex-col-reverse', className)}>
       {evolutionPaths.map((path, index) => {
         const sourceName = path.sourceForm ? `${path.source} (${path.sourceForm})` : path.source;
         const targetName = path.targetForm ? `${path.target} (${path.targetForm})` : path.target;
@@ -168,8 +168,9 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                 alt={`Sprite of Pokémon ${path.source}`}
                 primaryType={primaryType as PokemonType['name']}
                 form={path.sourceForm?.toLowerCase()}
+                className="shadow-none"
               />
-              <span className="mt-2 flex text-xs md:text-sm font-black text-muted-foreground capitalize leading-none ">
+              <span className="mt-2 flex text-xs font-black text-neutral-600 dark:text-neutral-200 capitalize leading-none">
                 {sourceName}
               </span>
             </Link>
@@ -178,11 +179,11 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
               return (
                 <div className="flex flex-col items-center min-w-[80px]">
                   <span className="text-lg">→</span>
-                  <div className="text-xs text-muted-foreground text-center">
+                  <div className="text-xs text-neutral-600 dark:text-neutral-200 text-center">
                     {path.method === 'level' && typeof path.parameter === 'number' && (
                       <div>Level {path.parameter}</div>
                     )}
-                    {path.method === 'item' && (
+                    {(path.method === 'item' || path.method === 'trade') && (
                       <div className="flex flex-col items-center gap-1">
                         <p>Item:</p>
                         {(() => {
@@ -257,9 +258,14 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                         {path.parameter === 'ATK_EQ_DEF' && <span> Attack = Defense</span>}
                       </div>
                     )}
-                    {!['level', 'item', 'location', 'happiness', 'stat'].includes(path.method) && (
+                    {!['level', 'item', 'location', 'happiness', 'stat', 'trade'].includes(
+                      path.method,
+                    ) && (
                       <div>
-                        {path.method}: {String(path.parameter)}
+                        <span className="capitalize">{path.method}</span>:{' '}
+                        <span className="capitalize">
+                          {String(path.parameter).toLowerCase().replace(/_/g, ' ')}
+                        </span>
                       </div>
                     )}
                   </div>
@@ -275,13 +281,14 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
               className="items-center flex flex-col text-center"
             >
               <PokemonSprite
+                className="shadow-none"
                 pokemonName={path.target}
                 src={getSpriteUrl(path.target)}
                 alt={`Sprite of Pokémon ${path.target}`}
                 primaryType={primaryType as PokemonType['name']}
                 form={path.targetForm?.replace(/ form$/i, '').toLowerCase()}
               />
-              <span className="mt-2 flex text-xs md:text-sm font-black text-muted-foreground capitalize leading-none">
+              <span className="mt-2 flex text-xs font-black text-neutral-600 dark:text-neutral-200 capitalize leading-none">
                 {targetName}
               </span>
             </Link>

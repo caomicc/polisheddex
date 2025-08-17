@@ -8,11 +8,9 @@ import { cn } from '@/lib/utils';
 import { Progress } from '../ui/progress';
 import { PokemonAbilities } from './pokemon-abilities';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
-import { GenderPieChart } from './pokemon-gender-pie-chart';
 import PokedexHeader from './pokemon-header';
 import { WeaknessChart } from './weakness-chart';
 import PokemonTypeSetter from './pokemon-type-setter';
-import SectionCard from './section-card';
 import { useQueryState } from 'nuqs';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonSprite } from './pokemon-sprite';
@@ -100,7 +98,12 @@ export default function PokemonFormClient({
           onValueChange={(value) => setActiveTab(value)}
           className="w-full z-10 relative"
         >
-          <TabsList className={cn(`w-full`, 'pokemon-tab-background')}>
+          <TabsList
+            className={cn(
+              `grid w-full grid-cols-3 bg-white p-1 h-12 border-1`,
+              'pokemon-tab-background',
+            )}
+          >
             <TabsTrigger className="pokemon-hero-text" value="stats">
               Stats
             </TabsTrigger>
@@ -173,7 +176,7 @@ export default function PokemonFormClient({
                         ))}
                         <div className="flex justify-between items-center mt-2 border-t pt-2 border-gray-200 dark:border-gray-700">
                           <span className="font-semibold">Total</span>
-                          <span className="text-xs text-muted-foreground">
+                          <span className="text-xs text-neutral-600 dark:text-neutral-200 font-bold">
                             {[
                               baseStatsToShow.hp,
                               baseStatsToShow.attack,
@@ -403,278 +406,331 @@ export default function PokemonFormClient({
                 </BentoGridNoLink>
               </BentoGrid>
             </div>
-            <SectionCard headline={'Species Information'}>
-              {/* <h3>Pokédex Entry:</h3>
-              <p className="text-sm md:text-md text-foreground text-left">
-                {formData.species} Pokémon
-              </p>
-              <p className="text-sm md:text-md text-muted-foreground text-left">
-                {formData.description}
-              </p> */}
 
-              <h3 className={cn('my-4')}>Sprites:</h3>
+            <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+              <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-3">
+                <BentoGridNoLink className="col-span-1">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="flex flex-col items-center justify-center gap-2">
+                      <PokemonSprite
+                        form={selectedForm}
+                        pokemonName={pokemonName}
+                        className="shadow-none"
+                      />
 
-              <div className="flex flex-row gap-4 items-start justify-center mb-8">
-                <div className="flex flex-col items-center justify-center gap-2">
-                  <PokemonSprite form={selectedForm} pokemonName={pokemonName} />
+                      <span className="flex text-xs font-black text-neutral-600 dark:text-neutral-200 capitalize leading-none">
+                        Static
+                      </span>
+                    </div>
+                    <div className="flex flex-col items-center justify-center gap-2">
+                      <PokemonSprite
+                        form={selectedForm}
+                        pokemonName={pokemonName}
+                        type="animated"
+                        className="shadow-none"
+                      />
+                      <span className="flex text-xs font-black text-neutral-600 dark:text-neutral-200 capitalize leading-none">
+                        Animated
+                      </span>
+                    </div>
 
-                  <span className="text-xs font-bold text-muted-foreground capitalize leading-none ">
-                    Front Sprite
-                  </span>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-2">
-                  <PokemonSprite form={selectedForm} pokemonName={pokemonName} type="animated" />
-                  <span className="text-xs font-bold text-muted-foreground capitalize leading-base">
-                    Front Sprite
-                    <br />
-                    (Animated)
-                  </span>
-                </div>
+                    <div className="flex flex-col items-center justify-center gap-2">
+                      <PokemonSprite
+                        form={selectedForm}
+                        pokemonName={pokemonName}
+                        variant="shiny"
+                        className="shadow-none"
+                      />
+                      <span className="flex text-xs font-black text-neutral-600 dark:text-neutral-200 capitalize leading-none">
+                        Shiny Static
+                      </span>
+                    </div>
+                    <div className="flex flex-col items-center justify-center gap-2">
+                      <PokemonSprite
+                        form={selectedForm}
+                        pokemonName={pokemonName}
+                        variant="shiny"
+                        type="animated"
+                        className="shadow-none"
+                      />
 
-                <div className="flex flex-col items-center justify-center gap-2">
-                  <PokemonSprite form={selectedForm} pokemonName={pokemonName} variant="shiny" />
-                  <span className="text-xs font-bold text-muted-foreground capitalize leading-none">
-                    Shiny Sprite
-                  </span>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-2">
-                  <PokemonSprite
-                    form={selectedForm}
-                    pokemonName={pokemonName}
-                    variant="shiny"
-                    type="animated"
-                  />
-
-                  <span className="text-xs font-bold text-muted-foreground capitalize leading-base">
-                    Shiny Sprite
-                    <br />
-                    (Animated)
-                  </span>
-                </div>
-              </div>
-
-              <div className="mt-0 flex flex-row flex-wrap gap-2 md:gap-0 w-full just</div>ify-between relative">
-                <div className="flex w-full flex-wrap justify-center items-center gap-0">
-                  <div className="w-1/3 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1 relative flex items-center justify-center">
-                    {formData.genderRatio &&
-                    formData.genderRatio.male === 0 &&
-                    formData.genderRatio.female === 0 ? (
-                      <div className="translate-y-[-1px] relative flex flex-row justify-center items-center gap-2">
-                        <div className="md:text-md text-muted-foreground relative gap-1 flex flex-col justify-start">
-                          <div className="text-xs  items-center flex">
-                            <div className="aspect-square w-3 md:w-4 inline-block relative mr-1">
-                              <Image
-                                src={'/icons/genderless-solid.svg'}
-                                alt={''}
-                                className="inline-block fa-fw"
-                                fill
-                              />
-                            </div>{' '}
-                            Genderless
-                          </div>
-                        </div>
-                        <div className="inline-block w-10 h-10 align-middle">
-                          <GenderPieChart male={0} female={0} genderless={100} />
-                        </div>
-                      </div>
-                    ) : formData.genderRatio ? (
-                      <div className="translate-y-[-1px] relative flex flex-row justify-center items-center gap-1 md:gap-2 w-full">
-                        <div className="md:text-md text-muted-foreground relative gap-1 flex flex-col justify-start">
-                          <div className="text-[10px] items-center flex">
-                            <div className="aspect-square w-3 md:w-4 inline-block relative items-center mr-1">
-                              <Image
-                                src={'/icons/mars-solid.svg'}
-                                alt={''}
-                                className="inline-block fa-fw"
-                                fill
-                              />
-                            </div>{' '}
-                            {formData.genderRatio.male}%
-                          </div>
-                          <div className="text-[10px]  items-center flex">
-                            <div className="aspect-square w-3 md:w-4 inline-block relative items-center mr-1">
-                              <Image
-                                src={'/icons/venus-solid.svg'}
-                                alt={''}
-                                className="inline-block w-full"
-                                fill
-                              />
-                            </div>{' '}
-                            {formData.genderRatio.female}%
-                          </div>
-                        </div>
-                        <div className="inline-block w-14">
-                          <GenderPieChart
-                            male={formData.genderRatio.male ?? 0}
-                            female={formData.genderRatio.female ?? 0}
-                          />
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="translate-y-[-1px] relative">
-                        <div className="inline-block w-10 h-10 align-middle">
-                          <GenderPieChart male={50} female={50} />
-                        </div>
-                        <div className="text-sm md:text-md text-muted-foreground relative">
-                          Unknown
-                        </div>
-                      </div>
-                    )}
+                      <span className="flex text-xs font-black text-neutral-600 dark:text-neutral-200 capitalize leading-none">
+                        Shiny Animated
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </SectionCard>
+                </BentoGridNoLink>
+                <BentoGridNoLink className="col-span-2">
+                  {formData.evolution &&
+                  formData.evolution.chainWithMethods &&
+                  Object.keys(formData.evolution.chainWithMethods).length > 1 ? (
+                    <EvolutionChain
+                      evolutionData={{
+                        chain: formData.evolution.chain,
+                        chainWithMethods: formData.evolution.chainWithMethods || {},
+                        methods: formData.evolution.methods || [], // if not present, fallback to empty array
+                        faithfulChainWithMethods: formData.evolution.faithfulChainWithMethods,
+                        updatedChainWithMethods: formData.evolution.updatedChainWithMethods,
+                        faithfulMethods: formData.evolution.faithfulMethods,
+                        updatedMethods: formData.evolution.updatedMethods,
+                      }}
+                      spritesByGen={(() => {
+                        const sprites: Record<string, string> = {};
 
-            {formData.evolution &&
-            formData.evolution.chainWithMethods &&
-            Object.keys(formData.evolution.chainWithMethods).length > 1 ? (
-              <SectionCard headline={'Evolution'}>
-                <h3>Evolution:</h3>
-
-                <EvolutionChain
-                  evolutionData={{
-                    chain: formData.evolution.chain,
-                    chainWithMethods: formData.evolution.chainWithMethods || {},
-                    methods: formData.evolution.methods || [], // if not present, fallback to empty array
-                    faithfulChainWithMethods: formData.evolution.faithfulChainWithMethods,
-                    updatedChainWithMethods: formData.evolution.updatedChainWithMethods,
-                    faithfulMethods: formData.evolution.faithfulMethods,
-                    updatedMethods: formData.evolution.updatedMethods,
-                  }}
-                  spritesByGen={(() => {
-                    const sprites: Record<string, string> = {};
-
-                    // Add sprites for base chain Pokémon
-                    formData.evolution.chain.forEach((name) => {
-                      for (const [formKey, formDataEntry] of Object.entries(allFormData)) {
-                        if (
-                          formDataEntry.frontSpriteUrl &&
-                          formKey.toLowerCase() === name.toLowerCase()
-                        ) {
-                          sprites[name] = formDataEntry.frontSpriteUrl;
-                          break;
-                        }
-                      }
-                    });
-
-                    // Add sprites for form variants
-                    if (formData.evolution.chainWithMethods) {
-                      Object.entries(formData.evolution.chainWithMethods).forEach(
-                        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                        ([source, methods]) => {
-                          methods.forEach((method) => {
-                            if (method.target && method.form) {
-                              const formVariantKey = `${method.target} (${method.form})`;
-
-                              for (const [formKey, formDataEntry] of Object.entries(allFormData)) {
-                                if (
-                                  formKey.toLowerCase().includes(method.form.toLowerCase()) &&
-                                  formKey.toLowerCase().includes(method.target.toLowerCase()) &&
-                                  formDataEntry.frontSpriteUrl
-                                ) {
-                                  sprites[formVariantKey] = formDataEntry.frontSpriteUrl;
-                                  break;
-                                }
-                              }
+                        // Add sprites for base chain Pokémon
+                        formData.evolution.chain.forEach((name) => {
+                          for (const [formKey, formDataEntry] of Object.entries(allFormData)) {
+                            if (
+                              formDataEntry.frontSpriteUrl &&
+                              formKey.toLowerCase() === name.toLowerCase()
+                            ) {
+                              sprites[name] = formDataEntry.frontSpriteUrl;
+                              break;
                             }
-                          });
-                        },
-                      );
-                    }
+                          }
+                        });
 
-                    return sprites;
-                  })()}
-                />
-              </SectionCard>
-            ) : (
-              <div className="text-gray-500 text-center w-full my-4 text-sm">
-                No evolution data.
-              </div>
-            )}
+                        // Add sprites for form variants
+                        if (formData.evolution.chainWithMethods) {
+                          Object.entries(formData.evolution.chainWithMethods).forEach(
+                            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                            ([source, methods]) => {
+                              methods.forEach((method) => {
+                                if (method.target && method.form) {
+                                  const formVariantKey = `${method.target} (${method.form})`;
+
+                                  for (const [formKey, formDataEntry] of Object.entries(
+                                    allFormData,
+                                  )) {
+                                    if (
+                                      formKey.toLowerCase().includes(method.form.toLowerCase()) &&
+                                      formKey.toLowerCase().includes(method.target.toLowerCase()) &&
+                                      formDataEntry.frontSpriteUrl
+                                    ) {
+                                      sprites[formVariantKey] = formDataEntry.frontSpriteUrl;
+                                      break;
+                                    }
+                                  }
+                                }
+                              });
+                            },
+                          );
+                        }
+
+                        return sprites;
+                      })()}
+                    />
+                  ) : (
+                    <div className="text-gray-500 text-center w-full my-4 text-sm">
+                      No evolution data.
+                    </div>
+                  )}
+                </BentoGridNoLink>
+              </BentoGrid>
+            </div>
           </TabsContent>
 
           <TabsContent
             value="moves"
             className="text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
           >
-            <SectionCard headline={'Moves'}>
-              <Tabs defaultValue="level-up" className="w-full">
-                <div className="px-4 md:px-0">
-                  <TabsList className="w-full">
-                    <TabsTrigger value="level-up">Level Up</TabsTrigger>
-                    <TabsTrigger value="egg">Egg Moves</TabsTrigger>
-                    <TabsTrigger value="tm-hm">TM/HM</TabsTrigger>
-                  </TabsList>
-                </div>
-                <TabsContent value="level-up">
-                  {/* Moves List */}
-                  {(() => {
-                    // Determine which moves to show based on toggle
-                    let movesToShow: Move[] = [];
+            <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+              <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-1">
+                <BentoGridNoLink>
+                  <Tabs defaultValue="level-up" className="w-full">
+                    <div className="px-4 md:px-0">
+                      <TabsList className="grid w-full grid-cols-3 p-1 h-12">
+                        <TabsTrigger value="level-up">Level Up</TabsTrigger>
+                        <TabsTrigger value="egg">Egg Moves</TabsTrigger>
+                        <TabsTrigger value="tm-hm">TM/HM</TabsTrigger>
+                      </TabsList>
+                    </div>
+                    <TabsContent value="level-up">
+                      {/* Moves List */}
+                      {(() => {
+                        // Determine which moves to show based on toggle
+                        let movesToShow: Move[] = [];
 
-                    if (showFaithful) {
-                      // Show faithful moves if available, otherwise fall back to regular moves
-                      const faithfulMoves =
-                        formData.faithfulMoves && formData.faithfulMoves.length > 0
-                          ? formData.faithfulMoves
-                          : formData.moves || [];
+                        if (showFaithful) {
+                          // Show faithful moves if available, otherwise fall back to regular moves
+                          const faithfulMoves =
+                            formData.faithfulMoves && formData.faithfulMoves.length > 0
+                              ? formData.faithfulMoves
+                              : formData.moves || [];
 
-                      // Deduplicate moves (same name + level)
-                      movesToShow = deduplicateMoves(faithfulMoves);
-                    } else {
-                      console.log('Showing updated moves', formData);
-                      // Show updated moves if available, otherwise regular moves
-                      const movesToUse =
-                        formData.updatedMoves && formData.updatedMoves.length > 0
-                          ? formData.updatedMoves
-                          : formData.moves || [];
+                          // Deduplicate moves (same name + level)
+                          movesToShow = deduplicateMoves(faithfulMoves);
+                        } else {
+                          console.log('Showing updated moves', formData);
+                          // Show updated moves if available, otherwise regular moves
+                          const movesToUse =
+                            formData.updatedMoves && formData.updatedMoves.length > 0
+                              ? formData.updatedMoves
+                              : formData.moves || [];
 
-                      // Deduplicate and sort by level
-                      movesToShow = deduplicateMoves(movesToUse).sort(
-                        (a: Move, b: Move) => Number(a.level) - Number(b.level),
-                      );
-                    }
+                          // Deduplicate and sort by level
+                          movesToShow = deduplicateMoves(movesToUse).sort(
+                            (a: Move, b: Move) => Number(a.level) - Number(b.level),
+                          );
+                        }
 
-                    return movesToShow && Array.isArray(movesToShow) && movesToShow.length > 0 ? (
-                      <div>
+                        return movesToShow &&
+                          Array.isArray(movesToShow) &&
+                          movesToShow.length > 0 ? (
+                          <div>
+                            <Table>
+                              <TableHeader className={'hidden md:table-header-group'}>
+                                <TableRow>
+                                  <TableHead className="attheader cen align-middle text-left md:w-[60px] text-xs font-bold leading-none">
+                                    Level
+                                  </TableHead>
+                                  <TableHead className="attheader cen align-middle text-left md:w-[180px] text-xs font-bold leading-none">
+                                    Attack Name
+                                  </TableHead>
+                                  <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                                    Type
+                                  </TableHead>
+                                  <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                                    Cat.
+                                  </TableHead>
+                                  <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                                    Att.
+                                  </TableHead>
+                                  <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                                    Acc.
+                                  </TableHead>
+                                  <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                                    PP
+                                  </TableHead>
+                                  <TableHead className="attheader cen align-middle text-left w-[80px] text-xs font-bold leading-none">
+                                    TM/HM
+                                  </TableHead>
+                                </TableRow>
+                              </TableHeader>
+                              <TableBody>
+                                {movesToShow.map((moveData: Move, index: number) => {
+                                  const moveInfo =
+                                    moveDescData[
+                                      moveData.name.toLowerCase().replace(/\s+/g, '-')
+                                    ] ?? undefined;
+
+                                  return (
+                                    <MoveRow
+                                      key={`move-${moveData.name}-${moveData.level}-${showFaithful ? 'faithful' : 'polished'}-${index}`}
+                                      name={moveData.name}
+                                      level={moveData.level}
+                                      info={moveInfo}
+                                    />
+                                  );
+                                })}
+                              </TableBody>
+                            </Table>
+                          </div>
+                        ) : (
+                          <div className="text-gray-400 text-sm mb-6">
+                            No {showFaithful ? 'faithful' : 'updated'} move data
+                          </div>
+                        );
+                      })()}
+                    </TabsContent>
+                    <TabsContent value="egg">
+                      {formData.eggMoves &&
+                      Array.isArray(formData.eggMoves) &&
+                      formData.eggMoves.length > 0 ? (
                         <Table>
                           <TableHeader className={'hidden md:table-header-group'}>
                             <TableRow>
-                              <TableHead className="attheader cen align-middle text-left md:w-[60px]">
-                                Level
-                              </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[180px]">
+                              <TableHead className="attheader cen align-middle text-left md:w-[238px] text-xs font-bold leading-none">
                                 Attack Name
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px]">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
                                 Type
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px]">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
                                 Cat.
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px]">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
                                 Att.
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px]">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
                                 Acc.
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px]">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
                                 PP
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left w-[80px]">
+                              <TableHead className="attheader cen align-middle text-left w-[80px] text-xs font-bold leading-none">
                                 TM/HM
                               </TableHead>
                             </TableRow>
                           </TableHeader>
                           <TableBody>
-                            {movesToShow.map((moveData: Move, index: number) => {
-                              const moveInfo =
-                                moveDescData[moveData.name.toLowerCase().replace(/\s+/g, '-')] ??
-                                undefined;
+                            {formData.eggMoves.map((moveData: Move, index) => {
+                              const keyMoveName = (moveData as unknown as Move['name'])
+                                ?.toLowerCase()
+                                .replace(/\s+/g, '-');
+
+                              const moveInfo = moveDescData[keyMoveName] ?? undefined;
+
+                              console.log(
+                                `Rendering egg move: ${moveData.name} (key: ${keyMoveName})`,
+                                moveInfo,
+                              );
 
                               return (
                                 <MoveRow
-                                  key={`move-${moveData.name}-${moveData.level}-${showFaithful ? 'faithful' : 'polished'}-${index}`}
+                                  key={`eggmove-${index}`}
+                                  name={moveData.name || (moveData as unknown as Move['name'])}
+                                  info={moveInfo}
+                                  level={moveData.level}
+                                />
+                              );
+                            })}
+                          </TableBody>
+                        </Table>
+                      ) : (
+                        <div className="text-gray-400 text-sm mb-6 mx-auto text-center py-8">
+                          No egg moves
+                        </div>
+                      )}
+                    </TabsContent>
+                    <TabsContent value="tm-hm">
+                      {formData.tmHmLearnset &&
+                      Array.isArray(formData.tmHmLearnset) &&
+                      formData.tmHmLearnset.length > 0 ? (
+                        <Table>
+                          <TableHeader className={'hidden md:table-header-group'}>
+                            <TableRow>
+                              <TableHead className="attheader cen align-middle text-left md:w-[238px] text-xs font-bold leading-none">
+                                Attack Name
+                              </TableHead>
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                                Type
+                              </TableHead>
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                                Cat.
+                              </TableHead>
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                                Att.
+                              </TableHead>
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                                Acc.
+                              </TableHead>
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                                PP
+                              </TableHead>
+                              <TableHead className="attheader cen align-middle text-left w-[80px] text-xs font-bold leading-none">
+                                TM/HM
+                              </TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {formData.tmHmLearnset.map((moveData) => {
+                              const moveInfo =
+                                moveDescData[moveData.name.toLowerCase().replace(/\s+/g, '-')] ??
+                                undefined;
+                              return (
+                                <MoveRow
+                                  key={`tm-${moveData.name}`}
                                   name={moveData.name}
                                   level={moveData.level}
                                   info={moveInfo}
@@ -683,278 +739,174 @@ export default function PokemonFormClient({
                             })}
                           </TableBody>
                         </Table>
-                      </div>
-                    ) : (
-                      <div className="text-gray-400 text-sm mb-6">
-                        No {showFaithful ? 'faithful' : 'updated'} move data
-                      </div>
-                    );
-                  })()}
-                </TabsContent>
-                <TabsContent value="egg">
-                  {formData.eggMoves &&
-                  Array.isArray(formData.eggMoves) &&
-                  formData.eggMoves.length > 0 ? (
-                    <Table>
-                      <TableHeader className={'hidden md:table-header-group'}>
-                        <TableRow>
-                          <TableHead className="attheader cen align-middle text-left md:w-[238px]">
-                            Attack Name
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
-                            Type
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
-                            Cat.
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
-                            Att.
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
-                            Acc.
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
-                            PP
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
-                            TM/HM
-                          </TableHead>
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                        {formData.eggMoves.map((moveData: Move, index) => {
-                          const keyMoveName = (moveData as unknown as Move['name'])
-                            ?.toLowerCase()
-                            .replace(/\s+/g, '-');
-
-                          const moveInfo = moveDescData[keyMoveName] ?? undefined;
-
-                          console.log(
-                            `Rendering egg move: ${moveData.name} (key: ${keyMoveName})`,
-                            moveInfo,
-                          );
-
-                          return (
-                            <MoveRow
-                              key={`eggmove-${index}`}
-                              name={moveData.name || (moveData as unknown as Move['name'])}
-                              info={moveInfo}
-                              level={moveData.level}
-                            />
-                          );
-                        })}
-                      </TableBody>
-                    </Table>
-                  ) : (
-                    <div className="text-gray-400 text-sm mb-6 mx-auto text-center py-8">
-                      No egg moves
-                    </div>
-                  )}
-                </TabsContent>
-                <TabsContent value="tm-hm">
-                  {formData.tmHmLearnset &&
-                  Array.isArray(formData.tmHmLearnset) &&
-                  formData.tmHmLearnset.length > 0 ? (
-                    <Table>
-                      <TableHeader className={'hidden md:table-header-group'}>
-                        <TableRow>
-                          <TableHead className="attheader cen align-middle text-left md:w-[238px]">
-                            Attack Name
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
-                            Type
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
-                            Cat.
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
-                            Att.
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
-                            Acc.
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
-                            PP
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
-                            TM/HM
-                          </TableHead>
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                        {formData.tmHmLearnset.map((moveData) => {
-                          const moveInfo =
-                            moveDescData[moveData.name.toLowerCase().replace(/\s+/g, '-')] ??
-                            undefined;
-                          return (
-                            <MoveRow
-                              key={`tm-${moveData.name}`}
-                              name={moveData.name}
-                              level={moveData.level}
-                              info={moveInfo}
-                            />
-                          );
-                        })}
-                      </TableBody>
-                    </Table>
-                  ) : (
-                    <div className="text-gray-400 text-sm mb-6">No learnset</div>
-                  )}
-                </TabsContent>
-              </Tabs>
-            </SectionCard>
+                      ) : (
+                        <div className="text-gray-400 text-sm mb-6">No learnset</div>
+                      )}
+                    </TabsContent>
+                  </Tabs>
+                </BentoGridNoLink>{' '}
+              </BentoGrid>
+            </div>
           </TabsContent>
           <TabsContent
             value="location"
             className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
           >
-            <SectionCard headline={'Locations'}>
-              {(() => {
-                if (
-                  !formData.locations ||
-                  !Array.isArray(formData.locations) ||
-                  formData.locations.length === 0
-                ) {
-                  return <div className="text-gray-400 text-sm mb-6">No location data</div>;
-                }
-
-                // Categorize locations by type
-                const wildLocations = formData.locations.filter(
-                  (loc: LocationEntry) =>
-                    loc.method &&
-                    [
-                      'grass',
-                      'water',
-                      'fish_good',
-                      'fish_super',
-                      'fish_old',
-                      'surf',
-                      'rock_smash',
-                      'headbutt',
-                      'wild',
-                    ].includes(loc.method),
-                );
-
-                const giftLocations = formData.locations.filter(
-                  (loc: LocationEntry) => loc.method === 'gift',
-                );
-
-                const eventLocations = formData.locations.filter(
-                  (loc: LocationEntry) =>
-                    loc.method && ['event', 'static', 'roaming'].includes(loc.method),
-                );
-
-                return (
-                  <div className="space-y-6">
-                    {/* Wild Encounters */}
-                    {wildLocations.length > 0 && (
-                      <div>
-                        <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                          <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                          Wild Encounters
-                        </h3>
-                        <div className="border-border border rounded-lg overflow-hidden">
-                          <Table>
-                            <TableHeader>
-                              <TableRow>
-                                <TableHead className="text-left">Area</TableHead>
-                                <TableHead className="text-left">Method</TableHead>
-                                <TableHead className="text-left">Time</TableHead>
-                                <TableHead className="text-left">Level</TableHead>
-                                <TableHead className="text-left">Rate</TableHead>
-                              </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                              {wildLocations.map((loc: LocationEntry, idx: number) => (
-                                <LocationListItem key={`wild-${idx}`} {...loc} />
-                              ))}
-                            </TableBody>
-                          </Table>
+            <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+              <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-1">
+                {(() => {
+                  if (
+                    !formData.locations ||
+                    !Array.isArray(formData.locations) ||
+                    formData.locations.length === 0
+                  ) {
+                    return (
+                      <BentoGridNoLink>
+                        <div className="text-gray-400 text-sm my-6 text-center">
+                          No location data found. Try breeding!
                         </div>
-                      </div>
-                    )}
+                      </BentoGridNoLink>
+                    );
+                  }
 
-                    {/* Gift Pokemon */}
-                    {giftLocations.length > 0 && (
-                      <div>
-                        <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                          <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                          Gift Pokémon
-                        </h3>
-                        <div className="border-border border rounded-lg overflow-hidden">
-                          <Table>
-                            <TableHeader>
-                              <TableRow>
-                                <TableHead className="text-left">Location</TableHead>
-                                <TableHead className="text-left">NPC</TableHead>
-                                <TableHead className="text-left">Requirements</TableHead>
-                              </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                              {giftLocations.map((loc: LocationEntry, idx: number) => (
-                                <TableRow key={`gift-${idx}`} className="hover:bg-muted/50">
-                                  <TableCell className="font-medium">
-                                    {loc.area || loc.location || 'Unknown'}
-                                  </TableCell>
-                                  <TableCell>{loc.npc || 'NPC'}</TableCell>
-                                  <TableCell className="text-sm text-muted-foreground">
-                                    {loc.conditions || 'Various requirements'}
-                                  </TableCell>
+                  // Categorize locations by type
+                  const wildLocations = formData.locations.filter(
+                    (loc: LocationEntry) =>
+                      loc.method &&
+                      [
+                        'grass',
+                        'water',
+                        'fish_good',
+                        'fish_super',
+                        'fish_old',
+                        'surf',
+                        'rock_smash',
+                        'headbutt',
+                        'wild',
+                      ].includes(loc.method),
+                  );
+
+                  const giftLocations = formData.locations.filter(
+                    (loc: LocationEntry) => loc.method === 'gift',
+                  );
+
+                  const eventLocations = formData.locations.filter(
+                    (loc: LocationEntry) =>
+                      loc.method && ['event', 'static', 'roaming'].includes(loc.method),
+                  );
+
+                  return (
+                    <>
+                      {/* Wild Encounters */}
+                      {wildLocations.length > 0 && (
+                        <BentoGridNoLink>
+                          <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                            Wild Encounters
+                          </h3>
+                          <div className="border-border border rounded-lg overflow-hidden">
+                            <Table>
+                              <TableHeader>
+                                <TableRow>
+                                  <TableHead className="text-left">Area</TableHead>
+                                  <TableHead className="text-left">Method</TableHead>
+                                  <TableHead className="text-left">Time</TableHead>
+                                  <TableHead className="text-left">Level</TableHead>
+                                  <TableHead className="text-left">Rate</TableHead>
                                 </TableRow>
-                              ))}
-                            </TableBody>
-                          </Table>
-                        </div>
-                      </div>
-                    )}
+                              </TableHeader>
+                              <TableBody>
+                                {wildLocations.map((loc: LocationEntry, idx: number) => (
+                                  <LocationListItem key={`wild-${idx}`} {...loc} />
+                                ))}
+                              </TableBody>
+                            </Table>
+                          </div>
+                        </BentoGridNoLink>
+                      )}
 
-                    {/* Event/Legendary Pokemon */}
-                    {eventLocations.length > 0 && (
-                      <div>
-                        <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                          <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                          Special Events
-                        </h3>
-                        <div className="border-border border rounded-lg overflow-hidden">
-                          <Table>
-                            <TableHeader>
-                              <TableRow>
-                                <TableHead className="text-left">Location</TableHead>
-                                <TableHead className="text-left">Method</TableHead>
-                                <TableHead className="text-left">Requirements</TableHead>
-                              </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                              {eventLocations.map((loc: LocationEntry, idx: number) => (
-                                <TableRow key={`event-${idx}`} className="hover:bg-muted/50">
-                                  <TableCell className="font-medium">
-                                    {loc.area || loc.location || 'Unknown'}
-                                  </TableCell>
-                                  <TableCell>
-                                    <Badge variant="outline" className="capitalize">
-                                      {loc.method === 'static'
-                                        ? 'Static Encounter'
-                                        : loc.method === 'roaming'
-                                          ? 'Roaming'
-                                          : loc.method === 'event'
-                                            ? 'Event'
-                                            : loc.method}
-                                    </Badge>
-                                  </TableCell>
-                                  <TableCell className="text-sm text-muted-foreground">
-                                    {loc.conditions || 'Special requirements'}
-                                  </TableCell>
+                      {/* Gift Pokemon */}
+                      {giftLocations.length > 0 && (
+                        <BentoGridNoLink>
+                          <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            Gift Pokémon
+                          </h3>
+                          <div className="border-border border rounded-lg overflow-hidden">
+                            <Table>
+                              <TableHeader>
+                                <TableRow>
+                                  <TableHead className="text-left">Location</TableHead>
+                                  <TableHead className="text-left">NPC</TableHead>
+                                  <TableHead className="text-left">Requirements</TableHead>
                                 </TableRow>
-                              ))}
-                            </TableBody>
-                          </Table>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                );
-              })()}
-            </SectionCard>
+                              </TableHeader>
+                              <TableBody>
+                                {giftLocations.map((loc: LocationEntry, idx: number) => (
+                                  <TableRow key={`gift-${idx}`} className="hover:bg-muted/50">
+                                    <TableCell className="font-medium">
+                                      {loc.area || loc.location || 'Unknown'}
+                                    </TableCell>
+                                    <TableCell>{loc.npc || 'NPC'}</TableCell>
+                                    <TableCell className="text-sm text-muted-foreground">
+                                      {loc.conditions || 'Various requirements'}
+                                    </TableCell>
+                                  </TableRow>
+                                ))}
+                              </TableBody>
+                            </Table>
+                          </div>
+                        </BentoGridNoLink>
+                      )}
+
+                      {/* Event/Legendary Pokemon */}
+                      {eventLocations.length > 0 && (
+                        <BentoGridNoLink>
+                          <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                            <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                            Special Events
+                          </h3>
+                          <div className="border-border border rounded-lg overflow-hidden">
+                            <Table>
+                              <TableHeader>
+                                <TableRow>
+                                  <TableHead className="text-left">Location</TableHead>
+                                  <TableHead className="text-left">Method</TableHead>
+                                  <TableHead className="text-left">Requirements</TableHead>
+                                </TableRow>
+                              </TableHeader>
+                              <TableBody>
+                                {eventLocations.map((loc: LocationEntry, idx: number) => (
+                                  <TableRow key={`event-${idx}`} className="hover:bg-muted/50">
+                                    <TableCell className="font-medium">
+                                      {loc.area || loc.location || 'Unknown'}
+                                    </TableCell>
+                                    <TableCell>
+                                      <Badge variant="outline" className="capitalize">
+                                        {loc.method === 'static'
+                                          ? 'Static Encounter'
+                                          : loc.method === 'roaming'
+                                            ? 'Roaming'
+                                            : loc.method === 'event'
+                                              ? 'Event'
+                                              : loc.method}
+                                      </Badge>
+                                    </TableCell>
+                                    <TableCell className="text-sm text-muted-foreground">
+                                      {loc.conditions || 'Special requirements'}
+                                    </TableCell>
+                                  </TableRow>
+                                ))}
+                              </TableBody>
+                            </Table>
+                          </div>
+                        </BentoGridNoLink>
+                      )}
+                    </>
+                  );
+                })()}
+              </BentoGrid>
+            </div>
           </TabsContent>
         </Tabs>
         {process.env.NODE_ENV === 'development' && (
