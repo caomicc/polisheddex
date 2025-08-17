@@ -2,6 +2,8 @@ import * as React from 'react';
 import { DetailedStats } from '@/types/types';
 import { cn } from '@/lib/utils';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { BentoGridItem } from '../ui/bento-box';
+import { Badge } from '../ui/badge';
 
 interface PokemonAbilitiesProps {
   abilities?: DetailedStats['abilities'];
@@ -65,25 +67,31 @@ export function PokemonAbilities({
 
   console.log('Resolved abilities:', resolvedAbilities);
 
-  return (
-    <div className={'space-y-2 ' + className}>
-      <h3>Abilities:</h3>
-      <div className={cn('flex flex-col md:flex-row gap-2', className)}>
-        {resolvedAbilities.map((ability, idx) => (
-          <AbilityRow key={`${ability.id}-${idx}`} ability={ability} />
-        ))}
-      </div>
-    </div>
-  );
+  return resolvedAbilities.map((ability, idx) => (
+    <AbilityRow key={`${ability.id}-${idx}`} ability={ability} />
+  ));
+  // <div className={'space-y-2 ' + className}>
+  //   <h3>Abilities:</h3>
+  //   <div className={cn('flex flex-col md:flex-row gap-2', className)}>
+
+  //   </div>
+  // </div>
 }
 
 function AbilityRow({ ability }: { ability: ResolvedAbility }) {
   return (
-    <div className="w-full flex flex-col items-start justify-start">
-      <span className="text-xs text-foreground capitalize">
-        {ability.name} ({ability.abilityType}):
-      </span>
-      <span className="text-xs text-muted-foreground">{ability.description}</span>
-    </div>
+    // <BentoGridNoLink className="md:col-span-2">
+    //   <span className="text-xs text-foreground capitalize">
+    //     {ability.name} ({ability.abilityType}):
+    //   </span>
+    //   <span className="text-xs text-muted-foreground">{ability.description}</span>
+    // </BentoGridNoLink>
+    <BentoGridItem
+      icon={<Badge variant={ability.abilityType}>{ability.abilityType} Ability</Badge>}
+      className="md:col-span-2"
+      title={`${ability.name}`}
+      description={ability.description}
+      href={`/abilities/${ability.name.toLowerCase().replace(/ /g, '-')}`}
+    />
   );
 }

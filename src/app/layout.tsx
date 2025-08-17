@@ -8,6 +8,7 @@ import { PokemonTypeProvider, FaithfulPreferenceProvider } from '@/contexts';
 import { NuqsProvider } from '@/components/providers/nuqs-provider';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import ServiceWorkerRegister from '@/components/service-worker-register';
+import { cn } from '@/lib/utils';
 
 const rubik = Manrope({
   variable: '--font-rubik',
@@ -102,7 +103,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${rubik.variable} ${geistMono.variable} font-sans antialiased`}>
+      <body className={`${rubik.variable} ${geistMono.variable} font-sans antialiased relative`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -112,7 +113,14 @@ export default function RootLayout({
           <NuqsProvider>
             <FaithfulPreferenceProvider>
               <PokemonTypeProvider>
-                <div className="flex flex-col min-h-screen">
+                <div
+                  className={cn(
+                    'pointer-events-none absolute inset-0 [background-size:40px_40px] select-none z-0 h-full w-full top-0 left-0 bottom-0',
+                    '[background-image:linear-gradient(to_right,var(--pokemon-theme-grid)_1px,transparent_1px),linear-gradient(to_bottom,var(--pokemon-theme-grid)_1px,transparent_1px)]',
+                    'dark:[background-image:linear-gradient(to_right,var(--pokemon-theme-grid)_1px,transparent_1px),linear-gradient(to_bottom,var(--pokemon-theme-grid)_1px,transparent_1px)]',
+                  )}
+                />
+                <div className="flex flex-col min-h-screen relative z-10">
                   <Navigation />
                   <main className="flex-grow">{children}</main>
                   <Footer />

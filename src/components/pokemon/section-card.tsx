@@ -19,15 +19,14 @@ const SectionCard: React.FC<SectionCardProps> = ({ ...props }: SectionCardProps)
   return (
     <Card
       className={cn(
-        'bg-white/90 backdrop-blur-xl dark:bg-black/5 rounded-2xl py-6 md:py-8 md:px-4',
-        'border-2 shadow-2xl',
+        'shadow-input row-span-1 flex flex-col justify-between space-y-4 rounded-xl border border-neutral-200 bg-neutral-100 p-4 transition duration-200 dark:border-white/[0.2] dark:bg-black dark:shadow-none',
         hasPokemonTheme && 'pokemon-section-card',
         `shadow-${primaryType?.toLowerCase()}`,
         className,
       )}
     >
       <CardHeader className="sr-only">{headline}</CardHeader>
-      <CardContent className="px-2 md:px-6 gap-2 flex flex-col">{children}</CardContent>
+      <CardContent className="px-0 gap-2 flex flex-col p-4 bg-white">{children}</CardContent>
     </Card>
   );
 };

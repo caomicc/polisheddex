@@ -3,5 +3,5 @@ export default function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div className="pokemon-page-background min-h-screen p-2 lg:p-4">{children}</div>;
+  return <div className="pokemon-page-background min-h-screen py-2 px-4 lg:p-4">{children}</div>;
 }

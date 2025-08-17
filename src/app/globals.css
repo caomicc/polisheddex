@@ -112,6 +112,7 @@ html {
   --pokemon-theme-hover: rgba(0, 0, 0, 0.1);
   --pokemon-theme-breadcrumb-active: inherit;
   --pokemon-theme-breadcrumb-inactive: inherit;
+  --pokemon-theme-grid: #efefef;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -249,6 +250,7 @@ html {
   --code-number: oklch(72% 0 0);
   --selection: oklch(92.2% 0 0);
   --selection-foreground: oklch(20.5% 0 0);
+  --pokemon-theme-grid: #191919;
 }
 
 /* Pokémon Type Backgrounds with 50% Opacity */
@@ -401,29 +403,28 @@ html {
 .shadow-bug {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-bug) 20%, var(--color-emerald-500) 10%)
-      var(--tw-shadow-alpha, 3),
+    color-mix(in oklab, var(--color-bug) 10%, var(--color-emerald-500) 5%) var(--tw-shadow-alpha, 3),
     transparent
   );
 }
 .shadow-dark {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-dark) 20%, var(--color-slate-700) 10%) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-dark) 10%, var(--color-slate-700) 5%) var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-dragon {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-dragon) 20%, transparent) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-dragon) 10%, transparent) var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-electric {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-electric) 20%, var(--color-amber-700) 10%)
+    color-mix(in oklab, var(--color-electric) 10%, var(--color-amber-700) 5%)
       var(--tw-shadow-alpha, 1),
     transparent
   );
@@ -431,14 +432,14 @@ html {
 .shadow-fairy {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-fairy) 20%, var(--color-pink-700) 10%) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-fairy) 10%, var(--color-pink-700) 5%) var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-fighting {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-fighting) 20%, var(--color-orange-700) 10%)
+    color-mix(in oklab, var(--color-fighting) 10%, var(--color-orange-700) 5%)
       var(--tw-shadow-alpha, 1),
     transparent
   );
@@ -446,29 +447,28 @@ html {
 .shadow-fire {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-fire) 20%, var(--color-red-700) 10%) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-fire) 10%, var(--color-red-700) 5%) var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-flying {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-flying) 20%, var(--color-sky-700) 10%) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-flying) 10%, var(--color-sky-700) 5%) var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-ghost {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-ghost) 20%, var(--color-slate-700) 10%)
-      var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-ghost) 10%, var(--color-slate-700) 5%) var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-grass {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-grass) 20%, var(--color-emerald-700) 10%)
+    color-mix(in oklab, var(--color-grass) 10%, var(--color-emerald-700) 5%)
       var(--tw-shadow-alpha, 1),
     transparent
   );
@@ -476,7 +476,7 @@ html {
 .shadow-ground {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-ground) 20%, var(--color-orange-950) 10%)
+    color-mix(in oklab, var(--color-ground) 10%, var(--color-orange-950) 5%)
       var(--tw-shadow-alpha, 1),
     transparent
   );
@@ -484,14 +484,14 @@ html {
 .shadow-ice {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-ice) 20%, var(--color-sky-700) 10%) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-ice) 10%, var(--color-sky-700) 5%) var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-normal {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-normal) 20%, var(--color-normal-700) 10%)
+    color-mix(in oklab, var(--color-normal) 10%, var(--color-normal-700) 5%)
       var(--tw-shadow-alpha, 1),
     transparent
   );
@@ -499,7 +499,7 @@ html {
 .shadow-poison {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-poison) 20%, var(--color-purple-700) 10%)
+    color-mix(in oklab, var(--color-poison) 10%, var(--color-purple-700) 5%)
       var(--tw-shadow-alpha, 1),
     transparent
   );
@@ -507,7 +507,7 @@ html {
 .shadow-psychic {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-psychic) 20%, var(--color-pink-700) 10%)
+    color-mix(in oklab, var(--color-psychic) 10%, var(--color-pink-700) 5%)
       var(--tw-shadow-alpha, 1),
     transparent
   );
@@ -515,22 +515,21 @@ html {
 .shadow-rock {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-rock) 20%, var(--color-slate-700) 10%) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-rock) 10%, var(--color-slate-700) 5%) var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-steel {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-steel) 20%, var(--color-slate-700) 10%)
-      var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-steel) 10%, var(--color-slate-700) 5%) var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-water {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-water) 20%, var(--color-sky-700) 10%) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-water) 10%, var(--color-sky-700) 5%) var(--tw-shadow-alpha, 1),
     transparent
   );
 }
@@ -690,14 +689,14 @@ html {
   background-color: var(--pokemon-tab-bg);
 }
 
-.pokemon-page-background {
+body {
   background-color: var(--pokemon-page-bg);
 }
 
 /* Ensure pokemon-page-background only applies to Pokémon pages */
-.pokemon-page .pokemon-page-background {
-  background-color: var(--pokemon-page-bg);
-}
+/* .pokemon-page .pokemon-page-background { */
+/* background-color: var(--pokemon-page-bg); */
+/* } */
 
 .pokemon-section-card {
   border-color: var(--pokemon-section-card-bg);

@@ -35,6 +35,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import TableWrapper from '../ui/table-wrapper';
+import { cn } from '@/lib/utils';
 
 interface Ability {
   id: string;
@@ -244,7 +245,12 @@ export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead
+                      key={header.id}
+                      className={
+                        header.column.columnDef.size === 200 ? 'w-[150px] sm:w-[200px]!' : ''
+                      }
+                    >
                       {header.isPlaceholder
                         ? null
                         : flexRender(header.column.columnDef.header, header.getContext())}
@@ -259,7 +265,15 @@ export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
               table.getRowModel().rows.map((row) => (
                 <TableRow key={row.id}>
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell
+                      key={cell.id}
+                      className={cn(
+                        cell.column.columnDef.size === 200
+                          ? 'w-[100px] sm:w-[200px]! text-center'
+                          : '',
+                        'p-1 md:p-2',
+                      )}
+                    >
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}

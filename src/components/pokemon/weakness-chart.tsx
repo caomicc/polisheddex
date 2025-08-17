@@ -34,7 +34,7 @@ export function WeaknessChart({ types }: { types: string[]; variant?: string }) 
   return (
     <div className="text-left">
       <div className="space-y-2 mb-6">
-        <h3>Weaknesses:</h3>
+        <h3 className="text-neutral-600 dark:text-neutral-200">Weaknesses:</h3>
         <div className="w-full flex flex-row flex-wrap gap-2 mb-3">
           {weaknesses.length === 0 ? (
             <span className="text-gray-600">None</span>
@@ -50,7 +50,7 @@ export function WeaknessChart({ types }: { types: string[]; variant?: string }) 
         </div>
       </div>
       <div className="space-y-2">
-        <h3>Resistances:</h3>
+        <h3 className="text-neutral-600 dark:text-neutral-200">Resistances:</h3>
         <div className="w-full flex flex-row flex-wrap gap-2">
           {strengths.length === 0 ? (
             <span className="text-gray-600">None</span>

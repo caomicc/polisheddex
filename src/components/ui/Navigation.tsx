@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-// import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import { motion, useScroll, useMotionValueEvent } from 'motion/react';
 
 import {
   NavigationMenu,
@@ -16,275 +16,389 @@ import {
 } from '@/components/ui/navigation-menu';
 import { Label } from './label';
 import { SimpleThemeToggle } from './theme-toggle';
-import HamburgerMenu from './hamburger';
 import { Switch } from './switch';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { usePokemonType } from '@/contexts/PokemonTypeContext';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { Badge } from './badge';
+import { Button } from './button';
+import { IconMenu2, IconX } from '@tabler/icons-react';
+import { AnimatePresence } from 'motion/react';
 
 export default function Navigation() {
   const pathname = usePathname();
-  const [heroVisible, setHeroVisible] = React.useState(true);
-  const [isHydrated, setIsHydrated] = React.useState(false);
   const { primaryType } = usePokemonType();
   const { showFaithful, toggleFaithful } = useFaithfulPreference();
 
-  React.useEffect(() => {
-    // Mark as hydrated after first render
-    setIsHydrated(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
-    const handleHeroVisibilityChange = (event: CustomEvent) => {
-      setHeroVisible(event.detail.isVisible);
-    };
+  const navItems = [
+    { title: 'Home', href: '/' },
+    { title: 'Pokemon', href: '/pokemon' },
+    { title: 'Locations', href: '/locations' },
+    { title: 'Map', href: '/map' },
+    { title: 'Items', href: '/items' },
+    { title: 'Events', href: '/events' },
+    { title: 'Attackdex', href: '/moves' },
+    { title: 'Abilities', href: '/abilities' },
+    { title: 'Team Builder', href: '/team-builder' },
+    { title: 'FAQ', href: '/faq' },
+  ];
 
-    window.addEventListener('heroVisibilityChange', handleHeroVisibilityChange as EventListener);
+  // Animation state for scroll-based resizing
+  const ref = React.useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
+  const [visible, setVisible] = React.useState<boolean>(false);
 
-    return () => {
-      window.removeEventListener(
-        'heroVisibilityChange',
-        handleHeroVisibilityChange as EventListener,
-      );
-    };
-  }, []);
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    if (latest > 100) {
+      setVisible(true);
+    } else {
+      setVisible(false);
+    }
+  });
 
-  // Use consistent state until hydrated
-  const showBackground = isHydrated && !heroVisible;
   const hasPokemonTheme = primaryType !== null;
-
   const isActive = (path: string) => pathname?.startsWith(path);
 
   return (
-    <div
-      className={cn(
-        'shadow-md dark:shadow-none fixed top-2 md:top-4 py-2 px-5 mx-0 w-[calc(100%-theme(spacing.4))] md:w-[calc(100%-theme(spacing.8))] left-[50%] transform -translate-x-1/2 z-10000 rounded-xl md:rounded-4xl transition-all duration-300 backdrop-blur-xl border border-1 max-w-5xl mx-auto border-neutral-200 dark:border-white/[0.2]',
-        showBackground ? 'bg-white/0 text-foreground' : 'dark:text-white',
-        hasPokemonTheme && 'pokemon-themed',
-      )}
-    >
-      <div className="w-full max-w-full mx-auto flex items-center justify-between gap-2 md:gap-4">
-        <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center gap-2" aria-label="Home">
-            <div className="aspect-square w-8 relative">
-              <Image
-                src="/25.png"
-                alt="PolishedDex Logo"
-                fill
-                sizes="64px"
-                className="object-contain"
-              />
-            </div>
-            <span
-              className={cn(
-                'hidden lg:inline-flex font-bold text-sm md:text-lg transition-colors duration-300 dark:text-white',
-                hasPokemonTheme && 'pokemon-hero-text',
-              )}
+    <motion.div ref={ref} className={cn('sticky inset-x-0 top-0 lg:top-10 z-40 w-full')}>
+      {/* Desktop Navigation */}
+      <motion.div
+        animate={{
+          backdropFilter: visible ? 'blur(10px)' : 'blur(2px)',
+          boxShadow: visible
+            ? '0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset'
+            : 'none',
+          width: visible ? '60%' : '100%',
+          y: visible ? 10 : 0,
+        }}
+        transition={{
+          type: 'spring',
+          stiffness: 200,
+          damping: 50,
+        }}
+        className={cn(
+          'relative z-[60] mx-auto w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 hidden lg:flex dark:bg-transparent',
+          visible && 'bg-white/80 dark:bg-neutral-950/80',
+        )}
+      >
+        <div className="w-full max-w-full mx-auto flex items-center justify-between gap-2 md:gap-4">
+          <div className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2" aria-label="Home">
+              <div className="aspect-square w-8 relative">
+                <Image
+                  src="/25.png"
+                  alt="PolishedDex Logo"
+                  fill
+                  sizes="64px"
+                  className="object-contain"
+                />
+              </div>
+              <span
+                className={cn(
+                  'hidden lg:inline-flex font-bold text-sm md:text-lg transition-colors duration-300 dark:text-white',
+                  hasPokemonTheme && 'pokemon-hero-text',
+                )}
+              >
+                PolishedDex
+              </span>
+            </Link>
+          </div>
+          <NavigationMenu className="!hidden md:!flex" viewport={false}>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  className={cn(
+                    hasPokemonTheme && 'pokemon-themed-link',
+                    isActive('/pokemon') && 'active-link',
+                  )}
+                >
+                  Pokedex
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[300px] gap-4 p-2">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href="/pokemon"
+                          className={cn(
+                            'block select-none space-y-1 rounded-lg p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+                            isActive('/pokemon') && 'active-link',
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none">Pokemon</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Browse all Pokemon in the Pokedex.
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href="/moves"
+                          className={cn(
+                            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+                            isActive('/moves') && 'active-link',
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none">Attackdex</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Browse all moves in the Pokedex.
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href="/abilities"
+                          className={cn(
+                            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+                            isActive('/abilities') && 'active-link',
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none">Abilities</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Browse all abilities.
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href="/team-builder"
+                          className={cn(
+                            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+                            isActive('/team-builder') && 'active-link',
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none">Team Builder</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Build your Pokemon team.
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  className={cn(
+                    hasPokemonTheme && 'pokemon-themed-link',
+                    (isActive('/locations') || isActive('/map')) && 'active-link',
+                  )}
+                >
+                  Pokéarth
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[300px] gap-4 p-4">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href="/locations"
+                          className={cn(
+                            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+                            isActive('/locations') && 'active-link',
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none">Locations Table</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Browse all locations.
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href="/map"
+                          className={cn(
+                            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+                            isActive('/map') && 'active-link',
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none">Map Viewer</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            View map for Polished Crystal
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  asChild
+                  className={cn(navigationMenuTriggerStyle(), isActive('/items') && 'active-link')}
+                >
+                  <Link href="/items">Items</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  asChild
+                  className={cn(navigationMenuTriggerStyle(), isActive('/events') && 'active-link')}
+                >
+                  <Link href="/events">Events</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  asChild
+                  className={cn(navigationMenuTriggerStyle(), isActive('/faq') && 'active-link')}
+                >
+                  <Link href="/faq">FAQ</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+          <div className={cn('flex items-center gap-2')}>
+            <Label htmlFor="type-toggle" className="text-sm whitespace-nowrap">
+              <Badge>{!showFaithful ? 'Polished' : 'Faithful'}</Badge>
+            </Label>
+            <Switch
+              id="type-toggle"
+              checked={!showFaithful}
+              onCheckedChange={toggleFaithful}
+              aria-label="Toggle between faithful and updated Pokémon types"
+            />
+            <SimpleThemeToggle />
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Mobile Navigation */}
+      <motion.div
+        animate={{
+          backdropFilter: visible ? 'blur(10px)' : 'none',
+          boxShadow: visible
+            ? '0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset'
+            : 'none',
+          width: visible ? '90%' : '100%',
+          paddingRight: visible ? '12px' : '0px',
+          paddingLeft: visible ? '12px' : '0px',
+          borderRadius: visible ? '2rem' : '2rem',
+          y: visible ? 20 : 0,
+        }}
+        transition={{
+          type: 'spring',
+          stiffness: 200,
+          damping: 50,
+        }}
+        className={cn(
+          'relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 lg:hidden',
+          visible && 'bg-white/80 dark:bg-neutral-950/80',
+        )}
+      >
+        <div className="flex w-full flex-row items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2" aria-label="Home">
+              <div className="aspect-square w-8 relative">
+                <Image
+                  src="/25.png"
+                  alt="PolishedDex Logo"
+                  fill
+                  sizes="64px"
+                  className="object-contain"
+                />
+              </div>
+              <span
+                className={cn(
+                  'font-bold text-sm transition-colors duration-300 dark:text-white',
+                  hasPokemonTheme && 'pokemon-hero-text',
+                )}
+              >
+                PolishedDex
+              </span>
+            </Link>
+          </div>
+          <div className="flex items-center gap-2">
+            <Label htmlFor="mobile-type-toggle-header" className="text-sm whitespace-nowrap">
+              <Badge>{!showFaithful ? 'Polished' : 'Faithful'}</Badge>
+            </Label>
+            <Switch
+              id="mobile-type-toggle-header"
+              checked={!showFaithful}
+              onCheckedChange={toggleFaithful}
+              aria-label="Toggle between faithful and updated Pokémon types"
+            />
+            <SimpleThemeToggle />
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              PolishedDex
-            </span>
-          </Link>
+              {isMobileMenuOpen ? <IconX className="h-5 w-5" /> : <IconMenu2 className="h-5 w-5" />}
+              <span className="sr-only">Toggle mobile menu</span>
+            </Button>
+          </div>
         </div>
-        <NavigationMenu className="!hidden md:!flex" viewport={false}>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger
+      </motion.div>
+
+      {/* Mobile Navigation Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+              // width: visible ? '90%' : '100%',
+            }}
+            exit={{ opacity: 0 }}
+            transition={{
+              type: 'spring',
+              stiffness: 500,
+              damping: 50,
+            }}
+            className={cn(
+              'absolute inset-x-0 top-20 z-50 mx-auto flex w-[calc(100vw-3rem)] max-w-7xl flex-col items-start justify-start gap-2 px-4 rounded-xl bg-white py-4 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:hidden dark:bg-neutral-950 backdrop-blur-md',
+              // visible && 'bg-white dark:bg-background',
+            )}
+          >
+            {navItems.map((item, idx) => (
+              <Link
+                key={`mobile-link-${idx}`}
+                href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
                 className={cn(
-                  hasPokemonTheme && 'pokemon-themed-link',
-                  isActive('/pokemon') && 'active-link',
+                  'relative text-lg font-semibold transition-colors hover:text-foreground/80',
+                  isActive(item.href)
+                    ? 'text-foreground'
+                    : 'text-neutral-600 dark:text-neutral-300',
                 )}
               >
-                Pokedex
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[300px] gap-4">
-                  <li>
-                    <NavigationMenuLink asChild>
-                      <Link href="/pokemon" className={cn(isActive('/pokemon') && 'active-link')}>
-                        <div className="font-medium">Pokemon</div>
-                        <div className="text-muted-foreground">
-                          Browse all Pokemon in the Pokedex.
-                        </div>
-                      </Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild>
-                      <Link href="/moves" className={cn(isActive('/moves') && 'active-link')}>
-                        <div className="font-medium">Attackdex</div>
-                        <div className="text-muted-foreground">
-                          Browse all moves in the Pokedex.
-                        </div>
-                      </Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild>
-                      <Link
-                        href="/abilities"
-                        className={cn(isActive('/abilities') && 'active-link')}
-                      >
-                        <div className="font-medium">Abilities</div>
-                        <div className="text-muted-foreground">Browse all abilities.</div>
-                      </Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild>
-                      <Link
-                        href="/team-builder"
-                        className={cn(isActive('/team-builder') && 'active-link')}
-                      >
-                        <div className="font-medium">Team Builder</div>
-                        <div className="text-muted-foreground">Build your Pokemon team.</div>
-                      </Link>
-                    </NavigationMenuLink>
-                  </li>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <NavigationMenuTrigger
-                className={cn(
-                  hasPokemonTheme && 'pokemon-themed-link',
-                  isActive('/locations') && 'active-link',
-                  isActive('/map') && 'active-link',
-                )}
-              >
-                Pokéarth
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[300px] gap-4">
-                  <li>
-                    <NavigationMenuLink asChild>
-                      <Link
-                        href="/locations"
-                        className={cn(isActive('/locations') && 'active-link')}
-                      >
-                        <div className="font-medium">Locations Table</div>
-                        <div className="text-muted-foreground">Browse all locations.</div>
-                      </Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild>
-                      <Link href="/map" className={cn(isActive('/map') && 'active-link')}>
-                        <div className="font-medium">Map Viewer</div>
-                        <div className="text-muted-foreground">View map for Polished Crystal</div>
-                      </Link>
-                    </NavigationMenuLink>
-                  </li>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                asChild
-                className={cn(navigationMenuTriggerStyle(), isActive('/items') && 'active-link')}
-              >
-                <Link href="/items">Items</Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                asChild
-                className={cn(navigationMenuTriggerStyle(), isActive('/events') && 'active-link')}
-              >
-                <Link href="/events">Events</Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            {/* <NavigationMenuItem>
-              <NavigationMenuLink
-                asChild
-                className={cn(navigationMenuTriggerStyle(), isActive('/wiki') && 'active-link')}
-              >
-                <Link href="/wiki">Wiki</Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem> */}
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                asChild
-                className={cn(navigationMenuTriggerStyle(), isActive('/faq') && 'active-link')}
-              >
-                <Link href="/faq">FAQ</Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            {/* <NavigationMenuItem>
-              <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[200px] gap-4">
-                  <li>
-                    <NavigationMenuLink asChild>
-                      <Link href="#">Components</Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild>
-                      <Link href="#">Documentation</Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild>
-                      <Link href="#">Blocks</Link>
-                    </NavigationMenuLink>
-                  </li>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem> */}
-            {/* <NavigationMenuItem>
-              <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[200px] gap-4">
-                  <li>
-                    <NavigationMenuLink asChild>
-                      <Link href="#" className="flex-row items-center gap-2">
-                        <CircleHelpIcon />
-                        Backlog
-                      </Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild>
-                      <Link href="#" className="flex-row items-center gap-2">
-                        <CircleIcon />
-                        To Do
-                      </Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild>
-                      <Link href="#" className="flex-row items-center gap-2">
-                        <CircleCheckIcon />
-                        Done
-                      </Link>
-                    </NavigationMenuLink>
-                  </li>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem> */}
-          </NavigationMenuList>
-        </NavigationMenu>
-        <div className={cn('flex items-center gap-2 ml-auto')}>
-          <Label htmlFor="type-toggle" className="text-sm whitespace-nowrap">
-            <Badge>{!showFaithful ? 'Polished' : 'Faithful'}</Badge>
-          </Label>
-          <Switch
-            id="type-toggle"
-            checked={!showFaithful}
-            onCheckedChange={toggleFaithful}
-            aria-label="Toggle between faithful and updated Pokémon types"
-          />
-          <SimpleThemeToggle />
-        </div>
-
-        <HamburgerMenu />
-      </div>
-    </div>
+                <span className="block">{item.title}</span>
+              </Link>
+            ))}
+            {/* <div className="flex w-full flex-col gap-4 pt-4 border-t border-neutral-100">
+              <div className="flex items-center gap-2">
+                <Label htmlFor="mobile-type-toggle" className="text-sm">
+                  <Badge>{!showFaithful ? 'Polished' : 'Faithful'}</Badge>
+                </Label>
+                <Switch
+                  id="mobile-type-toggle"
+                  checked={!showFaithful}
+                  onCheckedChange={toggleFaithful}
+                  aria-label="Toggle between faithful and updated Pokémon types"
+                />
+              </div>
+            </div> */}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
-
-// function ListItem({
-//   title,
-//   children,
-//   href,
-//   ...props
-// }: React.ComponentPropsWithoutRef<'li'> & { href: string }) {
-//   return (
-//     <li {...props}>
-//       <NavigationMenuLink asChild>
-//         <Link href={href}>
-//           <div className="text-sm leading-none font-medium">{title}</div>
-//           <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">{children}</p>
-//         </Link>
-//       </NavigationMenuLink>
-//     </li>
-//   );
-// }

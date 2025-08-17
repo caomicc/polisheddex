@@ -13,7 +13,7 @@
 export function getTypeGradientCSSProps(
   type1: string,
   type2?: string,
-  opacity: number = 20,
+  opacity: number = 100,
 ): React.CSSProperties {
   if (type2) {
     // Dual type gradient
@@ -71,7 +71,7 @@ export function getTypeGradientProps(
   type1: string,
   type2?: string,
   direction: 'vertical' | 'horizontal' | 'diagonal' = 'vertical',
-  opacity: number = 20,
+  opacity: number = 40,
 ) {
   return {
     className: getTypeGradientClass(type1, type2, direction),

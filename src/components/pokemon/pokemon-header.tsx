@@ -55,12 +55,12 @@ const PokedexHeader = ({
 
   return (
     <Hero
-      style={gradientProps.style}
-      className={cn(
-        gradientProps.className,
-        'pt-24 md:pb-[26px] shadow-lg',
-        `shadow-${secondaryType?.toLowerCase() || primaryType?.toLowerCase()}`,
-      )}
+      // style={gradientProps.style}
+      // className={cn(
+      //   gradientProps.className,
+      //   'pt-24 md:pb-[26px] shadow-lg',
+      //   `shadow-${secondaryType?.toLowerCase() || primaryType?.toLowerCase()}`,
+      // )}
       breadcrumbs={
         <Breadcrumb>
           <BreadcrumbList>
@@ -94,7 +94,7 @@ const PokedexHeader = ({
             {(() => {
               const types = formData.faithfulTypes || formData.types;
               if (!types) return <Badge variant="secondary">Unknown</Badge>;
-              
+
               const typeArray = Array.isArray(types) ? types : [types];
               return typeArray.map((type: string) => (
                 <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
@@ -108,7 +108,7 @@ const PokedexHeader = ({
             {(() => {
               const types = formData.updatedTypes || formData.types;
               if (!types) return <Badge variant="secondary">Unknown</Badge>;
-              
+
               const typeArray = Array.isArray(types) ? types : [types];
               return typeArray.map((type: string) => (
                 <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>

@@ -18,6 +18,7 @@ import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonSprite } from './pokemon-sprite';
 import { MoveRow } from '../moves';
 import { LocationListItem } from '../locations';
+import { BentoGrid, BentoGridItem, BentoGridNoLink } from '../ui/bento-box';
 
 // Helper function to deduplicate moves based on name and level
 function deduplicateMoves(moves: Move[]): Move[] {
@@ -78,7 +79,11 @@ export default function PokemonFormClient({
     <>
       {/* Set Pokemon type theme based on current form */}
       <PokemonTypeSetter
-        primaryType={(showFaithful ? formData.faithfulTypes || formData.types : formData.updatedTypes || formData.types) || null}
+        primaryType={
+          (showFaithful
+            ? formData.faithfulTypes || formData.types
+            : formData.updatedTypes || formData.types) || null
+        }
         secondaryType={undefined}
       />
       <div className="space-y-6">
@@ -93,7 +98,7 @@ export default function PokemonFormClient({
         <Tabs
           defaultValue={activeTab}
           onValueChange={(value) => setActiveTab(value)}
-          className="w-full"
+          className="w-full z-10 relative"
         >
           <TabsList className={cn(`w-full`, 'pokemon-tab-background')}>
             <TabsTrigger className="pokemon-hero-text" value="stats">
@@ -110,9 +115,9 @@ export default function PokemonFormClient({
             value="stats"
             className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
           >
-            <SectionCard headline={'Base Stats'} className="">
-              <div className="flex flex-col md:flex-row gap-12 items-start mb-6">
-                <div className="md:flex-1 flex h-full w-full">
+            <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+              <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-6">
+                <BentoGridNoLink className="md:col-span-3">
                   {(() => {
                     // Determine which base stats to show based on faithful preference
                     const baseStatsToShow = showFaithful
@@ -121,7 +126,7 @@ export default function PokemonFormClient({
 
                     return baseStatsToShow ? (
                       <div className="space-y-4 w-full">
-                        <h3>Base Stats:</h3>
+                        <h3 className={'text-neutral-600 dark:text-neutral-200'}>Base Stats:</h3>
                         {[
                           { label: 'HP', value: baseStatsToShow.hp, color: '*:bg-red-400' },
                           {
@@ -187,8 +192,8 @@ export default function PokemonFormClient({
                       <div className="text-gray-400 text-sm mb-6">No base stat data</div>
                     );
                   })()}
-                </div>
-                <div className="md:flex-1 md:h-[100%] flex ">
+                </BentoGridNoLink>
+                <BentoGridNoLink className="md:col-span-3">
                   <div className={cn('flex flex-col gap-6')}>
                     {showFaithful ? (
                       <div>
@@ -196,7 +201,7 @@ export default function PokemonFormClient({
                           types={(() => {
                             const types = formData.faithfulTypes || formData.types;
                             if (!types) return [];
-                            
+
                             const typeArray = Array.isArray(types) ? types : [types];
                             return typeArray.map((t: string) => t.toLowerCase());
                           })()}
@@ -218,14 +223,16 @@ export default function PokemonFormClient({
                       </div>
                     ) : null}
                   </div>
-                </div>
-              </div>
-              <PokemonAbilities
-                abilities={formData.abilities}
-                faithfulAbilities={formData.faithfulAbilities}
-                updatedAbilities={formData.updatedAbilities}
-              />
-            </SectionCard>
+                </BentoGridNoLink>
+                {/* <BentoGridNoLink className="md:col-span-6 h-auto min-h-none"> */}
+                <PokemonAbilities
+                  abilities={formData.abilities}
+                  faithfulAbilities={formData.faithfulAbilities}
+                  updatedAbilities={formData.updatedAbilities}
+                />
+                {/* </BentoGridNoLink> */}
+              </BentoGrid>
+            </div>
 
             <SectionCard headline={'Catch Rate'}>
               <h3 className="mb-2">Base Catch Rate: {formData.catchRate}</h3>

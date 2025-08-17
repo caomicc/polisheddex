@@ -235,8 +235,8 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
     <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
       <div className="flex flex-col gap-4 border border-neutral-200 bg-white p-4 rounded-xl mb-4 dark:border-white/[0.2] dark:bg-black dark:shadow-none">
         {/* Primary search and filters */}
-        <div className="flex flex-col sm:flex-row gap-4">
-          <div className="flex flex-col gap-2">
+        <div className="flex flex-col sm:flex-row gap-4 ">
+          <div className="flex flex-col gap-2 flex-1">
             <Label htmlFor="pokemon-filter">Pokémon Name</Label>
             <Input
               id="pokemon-filter"
@@ -248,14 +248,14 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
           </div>
 
           {/* Type filter */}
-          <div className="flex flex-row gap-4 w-full sm:w-auto">
-            <div className="flex flex-col gap-2 w-1/2 md:w-auto">
+          <div className="flex flex-row gap-4 flex-1">
+            <div className="flex flex-col gap-2 w-full">
               <Label htmlFor="type-select">Type</Label>
               <Select
                 value={type}
                 onValueChange={(value) => setUrlState({ type: value === 'all' ? null : value })}
               >
-                <SelectTrigger id="type-select" className="bg-white w-[140px]">
+                <SelectTrigger id="type-select" className="bg-white w-full md:w-full">
                   <SelectValue placeholder="All Types" />
                 </SelectTrigger>
                 <SelectContent>
@@ -271,7 +271,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
           </div>
 
           {/* Form visibility toggle */}
-          <div className="flex flex-row gap-4 w-full sm:w-auto">
+          <div className="flex flex-row gap-4 w-full sm:w-auto flex-1">
             <div className="flex flex-col items-start gap-2 w-1/2 md:w-auto">
               <Label htmlFor="forms-toggle">Show Forms</Label>
               <Checkbox
@@ -286,7 +286,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
 
           <div className={'flex items-center gap-2 ml-auto'}>
             <Label htmlFor="table-toggle" className="text-sm whitespace-nowrap">
-              <Badge>{tableView ? 'Table' : 'Cards'}</Badge>
+              <Badge className="w-[45px]">{tableView ? 'Table' : 'Cards'}</Badge>
             </Label>
             <Switch
               id="table-toggle"
@@ -331,11 +331,11 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
               Clear filters & sort
             </Button>
           )}
-          <span className="flex">
+          <span className="flex flex-col md:flex-row">
             Showing {filteredData.length} Pokémon
-            {sorting.length > 0 && (
-              <span className="ml-2">
-                • Sorted by{' '}
+            {/* {sorting.length > 0 && (
+              <span className="">
+                Sorted by{' '}
                 {sorting
                   .map((sort) => {
                     const direction = sort.desc ? 'desc' : 'asc';
@@ -343,8 +343,8 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
                   })
                   .join(', ')}
               </span>
-            )}
-            {(hasJohtoDex ||
+            )} */}
+            {/* {(hasJohtoDex ||
               hasNationalDex ||
               hasForms ||
               type !== 'all' ||
@@ -352,7 +352,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
               showForms) &&
               showForms && (
                 <span className="ml-2">
-                  • Filtered:{' '}
+                  Filtered:{' '}
                   {[
                     hasJohtoDex && 'In Johto Dex',
                     hasNationalDex && 'Has National Dex',
@@ -364,7 +364,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
                     .filter(Boolean)
                     .join(', ')}
                 </span>
-              )}
+              )} */}
           </span>
         </div>
       </div>

@@ -93,11 +93,12 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
         form={typeof pokemon.form === 'string' ? pokemon.form : 'plain'}
         src={pokemon.frontSpriteUrl} // fallback for backward compatibility
         className="aspect-square mb-0"
+        size="default"
       />
       <div className="flex w-[100%] justify-center flex-col">
         <p
           className={cn(
-            'text-xs md:text-sm md:top-4 md:left-4 font-medium tracking-wide mb-1',
+            'text-xs md:text-sm top-4 right-4 md:top-0 md:right-0 font-medium tracking-wide mb-1 absolute md:relative leading-[21px]',
             pokemon.nationalDex === null && pokemon.johtoDex === null ? 'hidden' : '',
           )}
         >
@@ -115,7 +116,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
           <Badge
             variant="form"
             className={cn(
-              'text-xxs rounded-md md:rounded-sm absolute top-4 right-4',
+              'text-xxs md:rounded-sm absolute top-4 right-12 md:right-4',
               pokemon.nationalDex === null && pokemon.johtoDex === null ? 'hidden' : '',
             )}
           >
@@ -131,7 +132,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
         >
           {displayName}
         </h2>
-        <div className="flex md:justify-start gap-1 md:gap-2 flex-col md:flex-row">
+        <div className="flex md:justify-start gap-1 md:gap-2 flex-row md:flex-row">
           {(Array.isArray(displayTypes) ? displayTypes : [displayTypes]).map((type, idx) => (
             <Badge key={type + idx} variant={type.toLowerCase() as PokemonType['name']}>
               {type}

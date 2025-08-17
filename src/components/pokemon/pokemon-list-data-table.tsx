@@ -351,7 +351,7 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
             >
               Previous
             </Button>
-            <div className="text-sm text-muted-foreground px-2">
+            <div className="text-sm text-muted-foreground px-2 min-w-[100px]">
               Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
             </div>
             <Button

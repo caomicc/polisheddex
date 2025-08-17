@@ -16,16 +16,16 @@ export default function Home() {
 
   return (
     <div className="mb-10 p-2 lg:p-4">
-      <div className="relative mx-auto my-10 flex max-w-7xl flex-col items-center justify-center">
-        <div className="absolute inset-y-0 left-0 h-full w-px bg-neutral-200/80 dark:bg-neutral-800/80">
+      <div className="relative mx-auto lg:my-10 flex max-w-7xl flex-col items-center justify-center">
+        {/* <div className="absolute inset-y-0 left-0 h-full w-px bg-neutral-200/80 dark:bg-neutral-800/80">
           <div className="absolute top-0 h-40 w-px bg-gradient-to-b from-transparent via-blue-500 to-transparent" />
-        </div>
-        <div className="absolute inset-y-0 right-0 h-full w-px bg-neutral-200/80 dark:bg-neutral-800/80">
+        </div> */}
+        {/* <div className="absolute inset-y-0 right-0 h-full w-px bg-neutral-200/80 dark:bg-neutral-800/80">
           <div className="absolute h-40 w-px bg-gradient-to-b from-transparent via-blue-500 to-transparent" />
-        </div>
-        <div className="absolute inset-x-0 bottom-0 h-px w-full bg-neutral-200/80 dark:bg-neutral-800/80">
+        </div> */}
+        {/* <div className="absolute inset-x-0 bottom-0 h-px w-full bg-neutral-200/80 dark:bg-neutral-800/80">
           <div className="absolute mx-auto h-px w-40 bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
-        </div>
+        </div> */}
         <div className="px-4 py-10 md:py-20">
           <h1 className="relative z-10 mx-auto max-w-3xl text-center text-2xl font-bold text-slate-700 md:text-4xl lg:text-6xl dark:text-slate-300">
             {'Your Polished Crystal Journey Starts Here'.split(' ').map((word, index) => (
@@ -72,9 +72,7 @@ export default function Home() {
             <span className="relative inline-flex overflow-hidden rounded-full p-[1px] text-center">
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
               <span className="inline-flex h-full w-full items-center justify-center rounded-full bg-white dark:bg-neutral-900 px-6 py-3 text-sm font-medium dark:text-white backdrop-blur-3xl gap-1">
-                Use the toggle in the corner to switch between{' '}
-                <span className="font-black uppercase tracking-wide"> Polished </span> and{' '}
-                <span className="font-black uppercase tracking-wide"> Faithful </span> versions
+                Use the toggle in the corner to switch between Polished and Faithful versions
               </span>
             </span>
           </motion.div>
@@ -194,9 +192,9 @@ const PokemonSkeleton = ({ showFaithful }: { showFaithful: boolean }) => {
       initial="initial"
       animate="animate"
       whileHover="hover"
-      className="flex flex-1 w-full h-full flex-row min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2]"
+      className="flex flex-1 gap-4 sm:gap-0 w-full h-full flex-col sm:flex-row min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2]"
     >
-      <div className="w-1/3 grid grid-cols-2">
+      <div className="w-full sm:w-1/3 grid grid-cols-4 sm:grid-cols-2">
         <PokemonSprite
           className="w-14 h-14 shadow-none border-neutral-100 border-1"
           pokemonName={showFaithful ? 'togepi' : 'togekiss'}
@@ -215,7 +213,7 @@ const PokemonSkeleton = ({ showFaithful }: { showFaithful: boolean }) => {
           pokemonName={showFaithful ? 'dragonair' : 'dragonite'}
         />
       </div>
-      <div className="w-2/3 flex-col space-y-3">
+      <div className="w-full sm:w-2/3 flex-col space-y-3">
         {stats.map((stat, i) => (
           <div key={'skeleton-two' + i} className="w-full flex-row flex gap-2">
             <Badge variant="secondary" className={'w-14 text-xs rounded-full h-[18px]'}>
@@ -485,11 +483,11 @@ const EventsSkeleton = () => {
     <motion.div
       initial="initial"
       whileHover="animate"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] space-y-2 flex-row gap-4"
+      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] space-y-2 flex-col sm:flex-row gap-4"
     >
       <motion.div
         variants={variants}
-        className="flex flex-col space-y-2 rounded-lg border border-neutral-100 dark:border-white/[0.2] p-2 items-start space-x-2 w-1/3 h-full ml-auto bg-white dark:bg-black text-center"
+        className="flex flex-col space-y-2 rounded-lg border border-neutral-100 dark:border-white/[0.2] p-2 items-start space-x-2 w-full sm:w-1/3 h-full ml-auto bg-white dark:bg-black text-center"
       >
         <div className="w-full bg-red-200 p-1 text-red-900 font-black rounded-md h-8">Daily</div>
         {dailyArr.map((_, i) => (
@@ -504,7 +502,7 @@ const EventsSkeleton = () => {
       </motion.div>
       <motion.div
         variants={variants}
-        className="flex flex-col space-y-2 rounded-lg border border-neutral-100 dark:border-white/[0.2] p-2 items-start space-x-2 w-1/3 h-full ml-auto bg-white dark:bg-black text-center"
+        className="hidden sm:flex flex-col space-y-2 rounded-lg border border-neutral-100 dark:border-white/[0.2] p-2 items-start space-x-2 w-full sm:w-1/3 h-full ml-auto bg-white dark:bg-black text-center"
       >
         <div className="w-full bg-green-200 p-1 text-green-900 font-black rounded-md h-8">
           Weekly
@@ -521,7 +519,7 @@ const EventsSkeleton = () => {
       </motion.div>
       <motion.div
         variants={variants}
-        className="flex flex-col space-y-2 rounded-lg border border-neutral-100 dark:border-white/[0.2] p-2 items-start space-x-2 w-1/3 h-full ml-auto bg-white dark:bg-black text-center"
+        className="flex flex-col space-y-2 rounded-lg border border-neutral-100 dark:border-white/[0.2] p-2 items-start space-x-2 w-full sm:w-1/3 h-full ml-auto bg-white dark:bg-black text-center"
       >
         <div className="w-full bg-purple-200 p-1 text-purple-900 font-black rounded-md h-8">
           Special
@@ -609,7 +607,7 @@ const TeamBuilderSkeleton = ({ isFaithful }: { isFaithful: boolean }) => {
       initial="initial"
       animate="animate"
       whileHover="hover"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-row space-x-2"
+      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-row sm:space-x-2"
     >
       <motion.div
         variants={first}
@@ -628,7 +626,7 @@ const TeamBuilderSkeleton = ({ isFaithful }: { isFaithful: boolean }) => {
         {/* <p className="border border-red-500 bg-red-100 dark:bg-red-900/20 text-red-600 text-xs rounded-full px-2 py-0.5 mt-4">
           Delusional
         </p> */}
-        <div className="flex flex-row gap-2">
+        <div className="flex flex-col md:flex-row items-center gap-2">
           {isFaithful ? (
             <Badge variant="grass">grass</Badge>
           ) : (
@@ -650,7 +648,7 @@ const TeamBuilderSkeleton = ({ isFaithful }: { isFaithful: boolean }) => {
         <p className="sm:text-sm text-xs text-center font-black text-neutral-500 mt-4 mb-2">
           Feraligatr
         </p>
-        <div className="flex flex-row gap-2">
+        <div className="flex flex-col md:flex-row items-center gap-2">
           <Badge variant="water">Water</Badge>
           <Badge variant="dark">Dark</Badge>
         </div>
@@ -669,7 +667,7 @@ const TeamBuilderSkeleton = ({ isFaithful }: { isFaithful: boolean }) => {
         <p className="sm:text-sm text-xs text-center font-black text-neutral-500 mt-4 mb-2">
           Typhlosion
         </p>
-        <div className="flex flex-row gap-2">
+        <div className="flex flex-col md:flex-row items-center gap-2">
           <Badge variant="fire">Fire</Badge>
           <Badge variant="ground">Ground</Badge>
         </div>

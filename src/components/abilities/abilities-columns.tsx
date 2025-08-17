@@ -38,7 +38,7 @@ export const abilityColumns: ColumnDef<Ability>[] = [
       const displayName =
         ability.name || ability.id.replace('-', ' ').replace(/\b\w/g, (l) => l.toUpperCase());
       return (
-        <div className="flex items-center space-x-2 min-w-0">
+        <div className="flex items-center space-x-2 min-w-0]">
           <Link
             href={`/abilities/${encodeURIComponent(ability.id)}`}
             className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium capitalize truncate"
@@ -59,6 +59,7 @@ export const abilityColumns: ColumnDef<Ability>[] = [
       const b = rowB.original.name || rowB.original.id;
       return a.localeCompare(b);
     },
+    size: 200,
   },
   {
     accessorKey: 'description',
