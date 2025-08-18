@@ -13,7 +13,7 @@ export default function PokemonFormSelect({
 }) {
   return (
     <div className={classes}>
-      <label className="leading-none text-xs" htmlFor="form-select">
+      <label className="label-text" htmlFor="form-select">
         Form:
       </label>
       <Select value={selectedForm} onValueChange={setSelectedForm}>

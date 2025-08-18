@@ -7,6 +7,7 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { AnyItemData, isRegularItem, isTMHMItem } from '@/types/types';
 import { accentInsensitiveIncludes } from '@/utils/stringUtils';
+import { getMoveUrlFromName } from '@/utils/itemUtils';
 
 export const itemColumns: ColumnDef<AnyItemData>[] = [
   {
@@ -16,7 +17,7 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3"
+          className="-ml-3 label-text"
         >
           Item Name
           {column.getIsSorted() === 'desc' ? (
@@ -31,10 +32,17 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
     },
     cell: ({ row }) => {
       const item = row.original;
+      
+      // Check if this is a TM/HM item that should link to moves
+      const isTM = isTMHMItem(item);
+      const linkHref = isTM && 'moveName' in item 
+        ? `/moves/${getMoveUrlFromName(item.moveName)}`
+        : `/items/${encodeURIComponent(item.id)}`;
+      
       return (
         <div className="flex items-center space-x-2 min-w-0">
           <Link
-            href={`/items/${encodeURIComponent(item.id)}`}
+            href={linkHref}
             className="hover:text-blue-600 hover:underline truncate flex items-center gap-1"
           >
             {item.name}
@@ -57,7 +65,7 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3"
+          className="-ml-3 label-text"
         >
           Price
           {column.getIsSorted() === 'desc' ? (
@@ -95,7 +103,7 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3"
+          className="-ml-3 label-text"
         >
           Category
           {column.getIsSorted() === 'desc' ? (
@@ -164,78 +172,6 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
     },
   },
 
-  // {
-  //   accessorKey: 'type',
-  //   header: ({ column }) => {
-  //     return (
-  //       <Button
-  //         variant="ghost"
-  //         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-  //                   className="-ml-3"
-
-  //       >
-  //         Type
-  //         {column.getIsSorted() === 'desc' ? (
-  //           <ArrowDown className="size-3" />
-  //         ) : column.getIsSorted() === 'asc' ? (
-  //           <ArrowUp className="size-3" />
-  //         ) : (
-  //           <ArrowUpDown className="size-3" />
-  //         )}
-  //       </Button>
-  //     );
-  //   },
-  //   cell: ({ row }) => {
-  //     const item = row.original;
-  //     if (isTMHMItem(item)) {
-  //       return (
-  //         <Badge variant="default" className="text-xs">
-  //           {item.type}
-  //         </Badge>
-  //       );
-  //     } else {
-  //       return <span className="text-gray-400 text-sm">-</span>;
-  //     }
-  //   },
-  //   // Custom accessor for sorting
-  //   accessorFn: (row) => {
-  //     return isTMHMItem(row) ? row.type : '';
-  //   },
-  // },
-  // {
-  //   accessorKey: 'power',
-  //   header: ({ column }) => {
-  //     return (
-  //       <Button
-  //         variant="ghost"
-  //         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-  //                   className="-ml-3"
-
-  //       >
-  //         Power
-  //         {column.getIsSorted() === 'desc' ? (
-  //           <ArrowDown className="size-3" />
-  //         ) : column.getIsSorted() === 'asc' ? (
-  //           <ArrowUp className="size-3" />
-  //         ) : (
-  //           <ArrowUpDown className="size-3" />
-  //         )}
-  //       </Button>
-  //     );
-  //   },
-  //   cell: ({ row }) => {
-  //     const item = row.original;
-  //     if (isTMHMItem(item)) {
-  //       return <span className="text-sm">{item.power > 0 ? item.power : '-'}</span>;
-  //     } else {
-  //       return <span className="text-gray-400 text-sm">-</span>;
-  //     }
-  //   },
-  //   // Custom accessor for sorting
-  //   accessorFn: (row) => {
-  //     return isTMHMItem(row) ? row.power : -1;
-  //   },
-  // },
   {
     accessorKey: 'locationCount',
     header: ({ column }) => {
@@ -243,7 +179,7 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3"
+          className="-ml-3 label-text"
         >
           Locations
           {column.getIsSorted() === 'desc' ? (

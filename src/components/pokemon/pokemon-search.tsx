@@ -35,7 +35,9 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
   return (
     <>
       <div className="grid w-full items-center gap-2">
-        <Label htmlFor="pokemon-search">Search Pokémon</Label>
+        <Label className="label-text" htmlFor="pokemon-search">
+          Search Pokémon
+        </Label>
         <Input
           id="pokemon-search"
           placeholder="Search by name or type..."
@@ -47,7 +49,7 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
 
       <div className="my-4 flex items-center gap-2 relative flex-wrap">
         <div className="flex items-center gap-2">
-          <Label htmlFor="sort-select" className="">
+          <Label className="label-text" htmlFor="sort-select">
             Sort:
           </Label>
           <Select
@@ -78,33 +80,7 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
             </SelectContent>
           </Select>
         </div>
-
-        {/* <div className="flex items-center gap-2 ml-auto">
-          <Label htmlFor="type-toggle" className="text-sm whitespace-nowrap">
-            <span className={!showUpdatedTypes ? 'font-bold' : 'text-gray-500'}>Faithful</span>
-            {' / '}
-            <span className={showUpdatedTypes ? 'font-bold' : 'text-gray-500'}>Updated</span>
-            {' Types'}
-          </Label>
-          <Switch
-            id="type-toggle"
-            checked={showUpdatedTypes}
-            onCheckedChange={() => toggleFaithful()}
-            aria-label="Toggle between faithful and updated Pokémon types"
-          />
-        </div> */}
       </div>
-
-      {/* <div className="flex items-center gap-2 mb-4">
-        <Label htmlFor="type-display-toggle" className="cursor-pointer">
-          {showUpdatedTypes ? 'Show Faithful Types' : 'Show Updated Types'}
-        </Label>
-        <Switch
-          id="type-display-toggle"
-          checked={showUpdatedTypes}
-          onCheckedChange={(checked) => setShowUpdatedTypes(checked)}
-        />
-      </div> */}
 
       {isSearching ? (
         <PokemonGridSkeleton count={12} />

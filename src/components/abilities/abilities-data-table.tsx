@@ -177,7 +177,9 @@ export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
         {/* Primary search and filters */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex flex-col gap-2">
-            <Label htmlFor="ability-filter">Ability Name</Label>
+            <Label htmlFor="ability-filter" className="label-text">
+              Ability Name
+            </Label>
             <Input
               id="ability-filter"
               placeholder="Search by name..."
@@ -187,7 +189,9 @@ export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
             />
           </div>
           <div className="flex flex-col gap-2">
-            <Label htmlFor="desc-filter">Description</Label>
+            <Label htmlFor="desc-filter" className="label-text">
+              Description
+            </Label>
             <Input
               id="desc-filter"
               placeholder="Search description..."
@@ -248,7 +252,9 @@ export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
                     <TableHead
                       key={header.id}
                       className={
-                        header.column.columnDef.size === 200 ? 'w-[150px] sm:w-[200px]!' : ''
+                        header.column.columnDef.size === 200
+                          ? 'w-[150px] sm:w-[200px]! label-text'
+                          : 'label-text'
                       }
                     >
                       {header.isPlaceholder
@@ -297,7 +303,7 @@ export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
         <div className="flex flex-col sm:flex-row items-center gap-4">
           {/* Page size selector */}
           <div className="flex items-center gap-2">
-            <Label htmlFor="page-size" className="text-sm whitespace-nowrap">
+            <Label htmlFor="page-size" className="label-text">
               Abilities per page:
             </Label>
             <Select

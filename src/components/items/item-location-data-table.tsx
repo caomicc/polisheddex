@@ -50,11 +50,7 @@ const columns: ColumnDef<ItemLocation>[] = [
     id: 'area',
     header: ({ column }) => {
       return (
-        <Button
-          className="-ml-3 text-foreground font-medium hover:bg-gray-200 hover:text-gray-900"
-          variant="ghost"
-          onClick={() => column.toggleSorting()}
-        >
+        <Button className="-ml-3 label-text" variant="ghost" onClick={() => column.toggleSorting()}>
           Location
         </Button>
       );
@@ -62,21 +58,15 @@ const columns: ColumnDef<ItemLocation>[] = [
     cell: ({ row }) => {
       const location = row.original;
       const shouldLink =
-        location.details?.toLowerCase() === 'hidden item' ||
-        location.details?.toLowerCase() !== 'for sale' ||
-        location.details?.toLowerCase() === 'visible item';
+        location.area?.toLowerCase() !== 'pickup' &&
+        (location.details?.toLowerCase() === 'hidden item' ||
+          location.details?.toLowerCase() !== 'for sale' ||
+          location.details?.toLowerCase() === 'visible item');
       console.log('Location:', location);
       // If the location is a hidden or visible item, link to the area page
       return (
         <div className="flex items-center space-x-2 min-w-0">
           {shouldLink ? (
-            // <Link
-            //   className="hover:text-blue-600 hover:underline truncate"
-            //   `href={`/locations/${normalizeLocationKey(location.area)}`}`
-            // >
-            //   {location.area}
-            //   <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
-            // </Link>
             <Link
               href={`/locations/${normalizeLocationKey(location.area)}`}
               className="flex items-center"
@@ -85,7 +75,7 @@ const columns: ColumnDef<ItemLocation>[] = [
               <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0 ml-2" />
             </Link>
           ) : (
-            <span className="font-medium">{location.area}</span>
+            <span className="">{location.area}</span>
           )}
         </div>
       );
@@ -104,11 +94,7 @@ const columns: ColumnDef<ItemLocation>[] = [
     id: 'method',
     header: ({ column }) => {
       return (
-        <Button
-          className="-ml-3 text-foreground font-medium hover:bg-gray-200 hover:text-gray-900"
-          variant="ghost"
-          onClick={() => column.toggleSorting()}
-        >
+        <Button className="-ml-3 label-text" variant="ghost" onClick={() => column.toggleSorting()}>
           Method
         </Button>
       );
@@ -162,14 +148,10 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
 
   return (
     <>
-      {/* Filters */}
-      <div className="flex justify-between items-center  py-4">
-        <div className="text-sm text-muted-foreground">
-          Showing {table.getFilteredRowModel().rows.length} locations
-        </div>
+      <div className="flex flex-col gap-4 border border-neutral-200 bg-white p-4 rounded-xl mb-4 dark:border-white/[0.2] dark:bg-black dark:shadow-none">
         <div className="flex gap-4 items-center">
-          <div className="min-w-[200px]">
-            <Label htmlFor="location-search" className="sr-only">
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="location-search" className="label-text">
               Search locations
             </Label>
             <Input
@@ -180,8 +162,8 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
               className="h-9"
             />
           </div>
-          <div className="min-w-[150px]">
-            <Label htmlFor="method-filter" className="sr-only">
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="method-filter" className="label-text">
               Filter by method
             </Label>
             <Select value={methodFilter} onValueChange={setMethodFilter}>
@@ -199,6 +181,9 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
             </Select>
           </div>
         </div>
+        <div className="text-sm text-muted-foreground">
+          Showing {table.getFilteredRowModel().rows.length} locations
+        </div>
       </div>
 
       {/* Table */}
@@ -208,7 +193,7 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id} className="text-foreground">
+                  <TableHead key={header.id} className="label-text">
                     {header.isPlaceholder
                       ? null
                       : flexRender(header.column.columnDef.header, header.getContext())}
@@ -243,14 +228,14 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
         </Table>
       </TableWrapper>
 
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 py-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-4">
         <div className="text-sm text-muted-foreground">
           {table.getFilteredRowModel().rows.length} of {locations.length} locations shown
         </div>
         <div className="flex flex-col sm:flex-row items-center gap-4">
           {/* Page size selector */}
           <div className="flex items-center gap-2">
-            <Label htmlFor="page-size" className="text-sm whitespace-nowrap">
+            <Label htmlFor="page-size" className="label-text">
               Locations per page:
             </Label>
             <Select

@@ -43,6 +43,7 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
               form={typeof pokemon.form === 'string' ? pokemon.form : 'plain'}
               src={pokemon.frontSpriteUrl}
               size={'sm'}
+              className="shadow-none"
             />
           </Link>
         </div>
@@ -57,7 +58,7 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
     header: ({ column }) => {
       return (
         <Button
-          className="-ml-3"
+          className="-ml-3 label-text"
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
         >
@@ -110,7 +111,7 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
     id: 'learnMethod',
     header: ({ column }) => {
       return (
-        <Button className="-ml-3" variant="ghost" onClick={() => column.toggleSorting()}>
+        <Button className="-ml-3 label-text" variant="ghost" onClick={() => column.toggleSorting()}>
           <>Method</>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -173,7 +174,7 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
     id: 'level',
     header: ({ column }) => {
       return (
-        <Button className="-ml-3" variant="ghost" onClick={() => column.toggleSorting()}>
+        <Button className="-ml-3 label-text" variant="ghost" onClick={() => column.toggleSorting()}>
           <>Level</>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />

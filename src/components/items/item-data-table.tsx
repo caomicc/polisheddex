@@ -211,7 +211,9 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
         {/* Primary search */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex flex-col gap-2">
-            <Label htmlFor="item-filter">Item Name</Label>
+            <Label className="label-text" htmlFor="item-filter">
+              Item Name
+            </Label>
             <Input
               id="item-filter"
               placeholder="Search items..."
@@ -223,7 +225,9 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
 
           {/* Category filter */}
           <div className="flex flex-col gap-2">
-            <Label htmlFor="category-select">Category</Label>
+            <Label className="label-text" htmlFor="category-select">
+              Category
+            </Label>
             <Select
               value={category}
               onValueChange={(value) => setUrlState({ category: value === 'all' ? null : value })}
@@ -251,7 +255,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
               checked={tmhm}
               onCheckedChange={(checked) => setUrlState({ tmhm: checked ? true : null })}
             />
-            <Label htmlFor="tm-hm" className="text-sm">
+            <Label htmlFor="tm-hm" className="label-text">
               TMs/HMs only
             </Label>
           </div>
@@ -262,7 +266,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
               checked={price}
               onCheckedChange={(checked) => setUrlState({ price: checked ? true : null })}
             />
-            <Label htmlFor="with-price" className="text-sm">
+            <Label htmlFor="with-price" className="label-text">
               Has price
             </Label>
           </div>
@@ -273,14 +277,14 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
               checked={locations}
               onCheckedChange={(checked) => setUrlState({ locations: checked ? true : null })}
             />
-            <Label htmlFor="with-locations" className="text-sm">
+            <Label htmlFor="with-locations" className="label-text">
               Has locations
             </Label>
           </div>
         </div>
 
         {/* Results Summary */}
-        <div className="flex flex-col sm:items-start gap-2 text-sm text-muted-foreground">
+        <div className="flex flex-col sm:items-start gap-2 label-text">
           {(Boolean(search) ||
             category !== 'all' ||
             sorting.length > 0 ||
@@ -345,7 +349,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead key={header.id} className="label-text">
                       {header.isPlaceholder
                         ? null
                         : flexRender(header.column.columnDef.header, header.getContext())}
@@ -413,7 +417,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
         <div className="flex flex-col sm:flex-row items-center gap-4">
           {/* Page size selector */}
           <div className="flex items-center gap-2">
-            <Label htmlFor="page-size" className="text-sm whitespace-nowrap">
+            <Label htmlFor="page-size" className="label-text">
               Items per page:
             </Label>
             <Select

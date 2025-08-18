@@ -16,7 +16,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3"
+          className="-ml-3 label-text"
         >
           Location
           {column.getIsSorted() === 'desc' ? (
@@ -59,7 +59,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3"
+          className="-ml-3 label-text"
         >
           Region
           {column.getIsSorted() === 'desc' ? (
@@ -95,7 +95,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3"
+          className="-ml-3 label-text"
         >
           Pokémon
           {column.getIsSorted() === 'desc' ? (
@@ -128,7 +128,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3"
+          className="-ml-3 label-text"
         >
           Trainers
           {column.getIsSorted() === 'desc' ? (
@@ -157,9 +157,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
   {
     accessorKey: 'hasItems',
     header: () => {
-      return (
-        <span className="text-muted-foreground hover:bg-gray-200 hover:text-gray-900">Items?</span>
-      );
+      return <span className="label-text">Items?</span>;
     },
     cell: ({ row }) => {
       const location = row.original;
@@ -182,7 +180,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3"
+          className="-ml-3 label-text"
         >
           Fly?
           {column.getIsSorted() === 'desc' ? (

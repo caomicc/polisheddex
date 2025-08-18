@@ -114,26 +114,26 @@ export default function MoveDetailClient({
           <CardContent className="">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="flex flex-col gap-2">
-                <Label className="text-md font-black">Category</Label>
+                <Label className="label-text">Category</Label>
                 <p className="text-sm">{moveStats?.category || 'Unknown'}</p>
               </div>
               <div className="flex flex-col gap-2">
-                <Label className="text-md font-black">Power</Label>
+                <Label className="label-text">Power</Label>
                 <p className="text-sm">{moveStats?.power || 'N/A'}</p>
               </div>
               <div className="flex flex-col gap-2">
-                <Label className="text-md font-black">Accuracy</Label>
+                <Label className="label-text">Accuracy</Label>
                 <p className="text-sm">{moveStats?.accuracy || 'N/A'}%</p>
               </div>
               <div className="flex flex-col gap-2">
-                <Label className="text-md font-black">PP</Label>
+                <Label className="label-text">PP</Label>
                 <p className="text-sm">{moveStats?.pp || 'N/A'}</p>
               </div>
             </div>
 
             {tmInfo && (
               <div className="mt-4 p-3 bg-muted rounded-lg">
-                <Label className="text-sm font-medium">TM/HM Location</Label>
+                <Label className="label-text">TM/HM Location</Label>
                 <p className="text-sm">
                   {tmInfo.number} - {tmInfo.location?.area || 'Unknown location'}
                   {tmInfo.location?.details && (

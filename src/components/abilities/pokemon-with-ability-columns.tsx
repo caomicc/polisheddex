@@ -43,6 +43,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
               form={typeof pokemon.form === 'string' ? pokemon.form : 'plain'}
               src={pokemon.frontSpriteUrl}
               size="sm"
+              className="shadow-none"
             />
           </Link>
         </div>
@@ -56,7 +57,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     id: 'pokemon',
     header: ({ column }) => {
       return (
-        <Button className="-ml-3" variant="ghost" onClick={() => column.toggleSorting()}>
+        <Button className="-ml-3 label-text" variant="ghost" onClick={() => column.toggleSorting()}>
           <>Pokémon</>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -68,23 +69,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
         </Button>
       );
     },
-    // cell: ({ row }) => {
-    //   const { pokemon } = row.original;
-    //   const pokemonUrl = pokemon.formName
-    //     ? `${createPokemonUrl(pokemon.name)}?form=${encodeURIComponent(pokemon.formName)}`
-    //     : createPokemonUrl(pokemon.name);
 
-    //   return (
-    //     <div className="flex items-center space-x-2 min-w-0">
-    //       <Link
-    //         href={pokemonUrl}
-    //         className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-black capitalize"
-    //       >
-    //         {pokemon.name}
-    //       </Link>
-    //     </div>
-    //   );
-    // },
     cell: ({ row }) => {
       const { pokemon } = row.original;
       return (
@@ -124,7 +109,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     id: 'abilityTypes',
     header: ({ column }) => {
       return (
-        <Button className="-ml-3" variant="ghost" onClick={() => column.toggleSorting()}>
+        <Button className="-ml-3 label-text" variant="ghost" onClick={() => column.toggleSorting()}>
           <>Ability Type</>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -182,7 +167,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
   {
     accessorKey: 'types',
     id: 'types',
-    header: () => <span className="text-foreground font-medium">Types</span>,
+    header: () => <span className="label-text">Types</span>,
     cell: ({ row }) => {
       const { pokemon } = row.original;
       const types = Array.isArray(pokemon.types) ? pokemon.types : [pokemon.types];

@@ -11,7 +11,7 @@ import {
   PokemonEncounter,
 } from '@/types/types';
 import { GroupedPokemon } from '@/types/locationTypes';
-import { getItemIdFromDisplayName } from '@/utils/itemUtils';
+import { getItemIdFromDisplayName, isTMItem, getTMMoveFromItemName, getMoveUrlFromName } from '@/utils/itemUtils';
 import { PokemonDataTable } from '../pokemon/pokemon-data-table';
 import { pokemonColumns } from '../pokemon/pokemon-columns';
 import TrainerCard from '../trainer/trainer-card';
@@ -73,32 +73,6 @@ export default function LocationClient({
 
   return (
     <>
-      {/* Location details from comprehensive data */}
-      {/* {comprehensiveInfo && (
-        <div className="mb-6 p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-            <div className="flex flex-col gap-2">
-              <div className="font-medium text-slate-600 dark:text-slate-300">Region</div>
-              <Badge variant={comprehensiveInfo.region}>{comprehensiveInfo.region}</Badge>
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="font-medium text-slate-600 dark:text-slate-300">Flyable?</div>
-              <div>{comprehensiveInfo.flyable ? 'Yes' : 'No'}</div>
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="font-medium text-slate-600 dark:text-slate-300">Coordinates</div>
-              <div>
-                {comprehensiveInfo.x}, {comprehensiveInfo.y}
-              </div>
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="font-medium text-slate-600 dark:text-slate-300">Connections</div>
-              <div>{comprehensiveInfo.connections.length}</div>
-            </div>
-          </div>
-        </div>
-      )} */}
-
       {/* Conditional rendering for location type */}
       {comprehensiveInfo?.gymLeader && (
         <div className="gym-details">
@@ -220,32 +194,42 @@ export default function LocationClient({
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Item</TableHead>
-                  <TableHead>Type</TableHead>
-                  <TableHead>Description</TableHead>
+                  <TableHead className="label-text">Item</TableHead>
+                  <TableHead className="label-text">Type</TableHead>
+                  <TableHead className="label-text">Description</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {comprehensiveInfo?.items?.map((item: LocationItem, index: number) => (
-                  <TableRow key={index}>
-                    <TableCell>
-                      <Link
-                        href={`/items/${getItemIdFromDisplayName(item.name)}`}
-                        className="hover:underline text-blue-600 dark:text-blue-400 font-medium"
-                      >
-                        {item.name}
-                      </Link>
-                    </TableCell>
-                    <TableCell className="capitalize">{item.type || 'Item'}</TableCell>
-                    <TableCell className="text-sm text-gray-600 dark:text-gray-400">
-                      {item.type === 'hiddenItem'
-                        ? 'Hidden Item'
-                        : item.type === 'tmHm'
-                          ? 'TM/HM'
-                          : 'Found in this location'}
-                    </TableCell>
-                  </TableRow>
-                ))}
+                {comprehensiveInfo?.items?.map((item: LocationItem, index: number) => {
+                  // Check if this is a TM/HM item
+                  const isItemTM = isTMItem(item.name, item.type);
+                  const moveName = isItemTM ? getTMMoveFromItemName(item.name) : null;
+                  
+                  return (
+                    <TableRow key={index}>
+                      <TableCell>
+                        <Link
+                          href={
+                            isItemTM && moveName
+                              ? `/moves/${getMoveUrlFromName(moveName)}`
+                              : `/items/${getItemIdFromDisplayName(item.name)}`
+                          }
+                          className="hover:underline text-blue-600 dark:text-blue-400 font-medium"
+                        >
+                          {item.name}
+                        </Link>
+                      </TableCell>
+                      <TableCell className="capitalize">{item.type || 'Item'}</TableCell>
+                      <TableCell className="text-sm text-gray-600 dark:text-gray-400">
+                        {item.type === 'hiddenItem'
+                          ? 'Hidden Item'
+                          : item.type === 'tmHm'
+                            ? `TM/HM - Links to ${moveName || 'move'} page`
+                            : 'Found in this location'}
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
               </TableBody>
             </Table>
           </TableWrapper>

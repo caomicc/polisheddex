@@ -156,7 +156,7 @@ export default function PokemonFormClient({
                         ].map(({ label, value, color }) => (
                           <div key={label} className="flex flex-row gap-4 items-center">
                             <div className="flex justify-between items-center w-[120px]">
-                              <span className="text-xs font-bold leading-none">{label}</span>
+                              <span className="label-text">{label}</span>
                               <span className="text-xs leading-none text-muted-foreground">
                                 {value ?? 'N/A'}
                               </span>
@@ -244,27 +244,27 @@ export default function PokemonFormClient({
                   </h3>
                   <div className="flex flex-row gap-4 items-center">
                     <div className="flex justify-between items-center w-[120px]">
-                      <span className="text-xs font-bold leading-none">Growth Rate</span>
+                      <span className="label-text">Growth Rate</span>
                     </div>
                     <span className="text-xs text-left">{formData.growthRate}</span>
                   </div>
 
                   <div className="flex flex-row gap-4 items-center">
                     <div className="flex justify-between items-center w-[120px]">
-                      <span className="text-xs font-bold leading-none">EV Yield</span>
+                      <span className="label-text">EV Yield</span>
                     </div>
                     <span className="text-xs text-left">{formData.evYield || 'N/A'}</span>
                   </div>
 
                   <div className="flex flex-row gap-4 items-center">
                     <div className="flex justify-between items-center w-[120px]">
-                      <span className="text-xs font-bold leading-none">Base Exp.</span>
+                      <span className="label-text">Base Exp.</span>
                     </div>
                     <span className="text-xs text-left">{formData.baseExp}</span>
                   </div>
                   <div className="flex flex-row gap-4 items-center">
                     <div className="flex justify-between items-center w-[120px]">
-                      <span className="text-xs font-bold leading-none">Egg Groups</span>
+                      <span className="label-text">Egg Groups</span>
                     </div>
                     <div className="text-xs text-left">
                       <div className="flex items-start gap-1">
@@ -285,13 +285,13 @@ export default function PokemonFormClient({
                   </div>
                   <div className="flex flex-row gap-4 items-center">
                     <div className="flex justify-between items-center w-[120px]">
-                      <span className="text-xs font-bold leading-none">Hatch Rate</span>
+                      <span className="label-text">Hatch Rate</span>
                     </div>
                     <span className="text-xs text-left">{formData.hatchRate}</span>
                   </div>
                   <div className="flex flex-row gap-4 items-center">
                     <div className="flex justify-between items-center w-[120px]">
-                      <span className="text-xs font-bold leading-none">Gender Ratio</span>
+                      <span className="label-text">Gender Ratio</span>
                     </div>
                     <span className="text-xs text-left">
                       {formData.genderRatio &&
@@ -581,28 +581,28 @@ export default function PokemonFormClient({
                             <Table>
                               <TableHeader className={'hidden md:table-header-group'}>
                                 <TableRow>
-                                  <TableHead className="attheader cen align-middle text-left md:w-[60px] text-xs font-bold leading-none">
+                                  <TableHead className="attheader cen align-middle text-left md:w-[60px] label-text">
                                     Level
                                   </TableHead>
-                                  <TableHead className="attheader cen align-middle text-left md:w-[180px] text-xs font-bold leading-none">
+                                  <TableHead className="attheader cen align-middle text-left md:w-[180px] label-text">
                                     Attack Name
                                   </TableHead>
-                                  <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                                  <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
                                     Type
                                   </TableHead>
-                                  <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                                  <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
                                     Cat.
                                   </TableHead>
-                                  <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                                  <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
                                     Att.
                                   </TableHead>
-                                  <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                                  <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
                                     Acc.
                                   </TableHead>
-                                  <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                                  <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
                                     PP
                                   </TableHead>
-                                  <TableHead className="attheader cen align-middle text-left w-[80px] text-xs font-bold leading-none">
+                                  <TableHead className="attheader cen align-middle text-left w-[80px] label-text">
                                     TM/HM
                                   </TableHead>
                                 </TableRow>
@@ -640,25 +640,25 @@ export default function PokemonFormClient({
                         <Table>
                           <TableHeader className={'hidden md:table-header-group'}>
                             <TableRow>
-                              <TableHead className="attheader cen align-middle text-left md:w-[238px] text-xs font-bold leading-none">
+                              <TableHead className="attheader cen align-middle text-left md:w-[238px] label-text">
                                 Attack Name
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
                                 Type
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
                                 Cat.
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
                                 Att.
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
                                 Acc.
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
                                 PP
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left w-[80px] text-xs font-bold leading-none">
+                              <TableHead className="attheader cen align-middle text-left w-[80px] label-text">
                                 TM/HM
                               </TableHead>
                             </TableRow>
@@ -700,25 +700,25 @@ export default function PokemonFormClient({
                         <Table>
                           <TableHeader className={'hidden md:table-header-group'}>
                             <TableRow>
-                              <TableHead className="attheader cen align-middle text-left md:w-[238px] text-xs font-bold leading-none">
+                              <TableHead className="attheader cen align-middle text-left md:w-[238px] label-text">
                                 Attack Name
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
                                 Type
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
                                 Cat.
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
                                 Att.
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
                                 Acc.
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] text-xs font-bold leading-none">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
                                 PP
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left w-[80px] text-xs font-bold leading-none">
+                              <TableHead className="attheader cen align-middle text-left w-[80px] label-text">
                                 TM/HM
                               </TableHead>
                             </TableRow>

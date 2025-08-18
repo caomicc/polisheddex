@@ -70,12 +70,6 @@ export function PokemonAbilities({
   return resolvedAbilities.map((ability, idx) => (
     <AbilityRow key={`${ability.id}-${idx}`} ability={ability} />
   ));
-  // <div className={'space-y-2 ' + className}>
-  //   <h3>Abilities:</h3>
-  //   <div className={cn('flex flex-col md:flex-row gap-2', className)}>
-
-  //   </div>
-  // </div>
 }
 
 function AbilityRow({ ability }: { ability: ResolvedAbility }) {

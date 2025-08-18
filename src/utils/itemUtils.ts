@@ -100,3 +100,50 @@ export function getItemIdFromDisplayName(displayName: string): string | null {
 export function isValidItemId(itemId: string, itemsData: Record<string, any>): boolean {
   return itemId in itemsData;
 }
+
+/**
+ * Get the move name that a TM teaches from the TM item name
+ * @param itemName The TM display name (e.g., "TM01 Dynamicpunch")
+ * @returns The move name (e.g., "Dynamicpunch") or null if not a TM or move not found
+ */
+export function getTMMoveFromItemName(itemName: string): string | null {
+  if (!itemName || typeof itemName !== 'string') {
+    return null;
+  }
+
+  // Check if this is a TM/HM/TR/Move Tutor item
+  const tmMatch = itemName.match(/^(TM|HM|TR|Move Tutor)\s?(\d+)\s+(.+)$/i);
+  if (tmMatch) {
+    const moveName = tmMatch[3].trim();
+    return moveName;
+  }
+
+  return null;
+}
+
+/**
+ * Check if an item is a TM/HM/TR that should link to a move page
+ * @param itemName The item display name
+ * @param itemType The item type from location data
+ * @returns True if this is a TM-type item that should link to moves
+ */
+export function isTMItem(itemName: string, itemType?: string): boolean {
+  if (itemType === 'tmHm') {
+    return true;
+  }
+
+  // Also check the name pattern as fallback
+  return /^(TM|HM|TR|Move Tutor)\s?\d+/i.test(itemName);
+}
+
+/**
+ * Convert a move name to a URL-safe format for linking
+ * @param moveName The move name (e.g., "Dynamicpunch")
+ * @returns URL-safe move name (e.g., "dynamicpunch")
+ */
+export function getMoveUrlFromName(moveName: string): string {
+  return moveName
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '') // Remove all non-alphanumeric characters
+    .trim();
+}

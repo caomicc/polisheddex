@@ -312,7 +312,9 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
         {/* Primary search and filters */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex flex-col gap-2">
-            <Label htmlFor="move-filter">Move Name</Label>
+            <Label className="label-text" htmlFor="move-filter">
+              Move Name
+            </Label>
             <Input
               id="move-filter"
               placeholder="Search by name..."
@@ -321,20 +323,11 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
               className="max-w-sm bg-white"
             />
           </div>
-          {/* <div className="flex flex-col gap-2">
-            <Label htmlFor="desc-filter">TM/HM</Label>
-            <Input
-              id="desc-filter"
-              placeholder="Search by TM..."
-              value={tmSearch}
-              onChange={(event) => setUrlState({ tmSearch: event.target.value || null })}
-              className="max-w-sm bg-white"
-            />
-          </div> */}
-          {/* Type filter */}
           <div className="flex flex-row gap-4 w-full sm:w-auto">
             <div className="flex flex-col gap-2 w-1/2 md:w-auto">
-              <Label htmlFor="type-select">Type</Label>
+              <Label className="label-text" htmlFor="type-select">
+                Type
+              </Label>
               <Select
                 value={type}
                 onValueChange={(value) => setUrlState({ type: value === 'all' ? null : value })}
@@ -355,7 +348,9 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
 
             {/* Category filter */}
             <div className="flex flex-col gap-2 w-1/2 md:w-auto">
-              <Label htmlFor="category-select">Category</Label>
+              <Label className="label-text" htmlFor="category-select">
+                Category
+              </Label>
               <Select
                 value={category}
                 onValueChange={(value) => setUrlState({ category: value === 'all' ? null : value })}
@@ -374,64 +369,17 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
               </Select>
             </div>
           </div>
-
-          {/* Version selector */}
-          {/* <div className="flex flex-col gap-2">
-            <Label htmlFor="version-select">Version</Label>
-            <Select value={version} onValueChange={(value) => setUrlState({ version: value })}>
-              <SelectTrigger id="version-select" className="bg-white w-[120px]">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="updated">Updated</SelectItem>
-                <SelectItem value="faithful">Faithful</SelectItem>
-              </SelectContent>
-            </Select>
-          </div> */}
         </div>
 
         {/* Checkbox Filters */}
         <div className="flex flex-wrap gap-4">
-          {/* <div className="flex items-center space-x-2">
-            <Checkbox
-              id="physical"
-              checked={physical}
-              onCheckedChange={(checked) => setUrlState({ physical: checked ? true : null })}
-            />
-            <Label htmlFor="physical" className="text-sm">
-              Physical moves only
-            </Label>
-          </div>
-
-          <div className="flex items-center space-x-2">
-            <Checkbox
-              id="special"
-              checked={special}
-              onCheckedChange={(checked) => setUrlState({ special: checked ? true : null })}
-            />
-            <Label htmlFor="special" className="text-sm">
-              Special moves only
-            </Label>
-          </div>
-
-          <div className="flex items-center space-x-2">
-            <Checkbox
-              id="status"
-              checked={status}
-              onCheckedChange={(checked) => setUrlState({ status: checked ? true : null })}
-            />
-            <Label htmlFor="status" className="text-sm">
-              Status moves only
-            </Label>
-          </div> */}
-
           <div className="flex items-center space-x-2">
             <Checkbox
               id="has-faithful"
               checked={hasFaithful}
               onCheckedChange={(checked) => setUrlState({ hasFaithful: checked ? true : null })}
             />
-            <Label htmlFor="has-faithful" className="text-sm">
+            <Label htmlFor="has-faithful" className="label-text">
               Has faithful version
             </Label>
           </div>
@@ -442,7 +390,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
               checked={highPower}
               onCheckedChange={(checked) => setUrlState({ highPower: checked ? true : null })}
             />
-            <Label htmlFor="high-power" className="text-sm">
+            <Label htmlFor="high-power" className="label-text">
               High power (80+)
             </Label>
           </div>
@@ -453,7 +401,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
               checked={hasTm}
               onCheckedChange={(checked) => setUrlState({ hasTm: checked ? true : null })}
             />
-            <Label htmlFor="tm-hm" className="text-sm">
+            <Label htmlFor="tm-hm" className="label-text">
               Has TM/HM
             </Label>
           </div>
@@ -559,7 +507,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
                   return (
                     <TableHead
                       key={header.id}
-                      className={isNameColumn ? 'hidden sm:table-cell' : ''}
+                      className={isNameColumn ? 'hidden sm:table-cell' : 'label-text'}
                     >
                       {header.isPlaceholder
                         ? null
@@ -601,7 +549,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
         <div className="flex flex-col sm:flex-row items-center gap-4">
           {/* Page size selector */}
           <div className="flex items-center gap-2">
-            <Label htmlFor="page-size" className="text-sm whitespace-nowrap">
+            <Label htmlFor="page-size" className="label-text whitespace-nowrap">
               Moves per page:
             </Label>
             <Select

@@ -60,7 +60,7 @@ export default function ItemSearch({
     <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="flex gap-2 flex-col">
-          <Label htmlFor="sort-select" className="text-sm">
+          <Label htmlFor="sort-select" className="label-text">
             Sort
           </Label>
           <Select value={sort} onValueChange={handleSortChange}>
@@ -77,7 +77,7 @@ export default function ItemSearch({
         </div>
 
         <div className="flex gap-2 flex-col">
-          <Label htmlFor="sort-options" className="text-sm">
+          <Label htmlFor="sort-options" className="label-text">
             Category
           </Label>
           <Select value={category} onValueChange={(value) => handleCategoryChange(value)}>

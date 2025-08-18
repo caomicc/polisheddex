@@ -35,16 +35,16 @@ export default async function ItemPage({ params }: ItemPageProps) {
       <Hero
         headline={item.name}
         description={item.description}
-        types={
-          <div className="flex flex-wrap gap-2" aria-label="Item Type" role="group">
-            <Badge variant="any">
-              {isRegularItem(item) ? item.attributes?.category || 'Item' : 'TM/HM'}
-            </Badge>
-            {isRegularItem(item) && item.attributes?.price !== undefined && (
-              <Badge variant="grass">₽{item.attributes.price.toLocaleString()}</Badge>
-            )}
-          </div>
-        }
+        // types={
+        //   <div className="flex flex-wrap gap-2" aria-label="Item Type" role="group">
+        //     <Badge variant="any">
+        //       {isRegularItem(item) ? item.attributes?.category || 'Item' : 'TM/HM'}
+        //     </Badge>
+        //     {isRegularItem(item) && item.attributes?.price !== undefined && (
+        //       <Badge variant="grass">₽{item.attributes.price.toLocaleString()}</Badge>
+        //     )}
+        //   </div>
+        // }
         breadcrumbs={
           <Breadcrumb>
             <BreadcrumbList>

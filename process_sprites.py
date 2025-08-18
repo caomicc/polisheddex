@@ -704,7 +704,7 @@ class GBCSpriteProcessor:
         return sorted(item_pngs)
 
     def process_item(self, item_name: str) -> bool:
-        """Process a single item's sprite with color palette"""
+        """Process a single item's sprite as monochrome"""
         item_png = self.items_dir / f"{item_name}.png"
         if not item_png.exists():
             print(f"Item PNG not found: {item_name}")
@@ -714,10 +714,9 @@ class GBCSpriteProcessor:
 
         # Items save directly to the items directory, no subdirectory needed
 
-        # Items use specific palettes rather than generic 4-color palettes
-        # Create different color schemes based on item type/category
-        palette = self.get_item_palette(item_name)
-        print(f"Using {self.get_item_category(item_name)} palette for {item_name}")
+        # Use monochrome palette for all items
+        palette = [(240, 240, 240), (160, 160, 160), (100, 100, 100), (60, 60, 60)]  # Grayscale
+        print(f"Using monochrome palette for {item_name}")
 
         # Extract frames from sprite sheet (items are typically single frame)
         raw_frames = self.extract_sprite_frames(str(item_png))

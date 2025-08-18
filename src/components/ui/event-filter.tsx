@@ -75,7 +75,9 @@ export function EventFilters(
     <div className="flex flex-col gap-4 border border-neutral-200 bg-white p-4 rounded-xl mb-4 dark:border-white/[0.2] dark:bg-black dark:shadow-none">
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="space-y-1">
-          <Label htmlFor="query">Search</Label>
+          <Label htmlFor="query" className="label-text">
+            Search
+          </Label>
           <Input
             id="query"
             placeholder="Name, location, NPC, Pokémon..."
@@ -85,13 +87,15 @@ export function EventFilters(
         </div>
 
         <div className="space-y-1">
-          <Label>Day</Label>
+          <Label htmlFor="day" className="label-text">
+            Day
+          </Label>
           <div className="flex items-center gap-2">
             <Select
               value={value.day === '' ? 'all' : (value.day as DayName)}
               onValueChange={(v) => onChange({ ...value, day: v === 'all' ? '' : (v as DayName) })}
             >
-              <SelectTrigger>
+              <SelectTrigger className="w-[150px]">
                 <SelectValue placeholder="All days" />
               </SelectTrigger>
               <SelectContent>
@@ -116,19 +120,21 @@ export function EventFilters(
         </div>
 
         <div className="space-y-1 relative">
-          <Label>Types</Label>
+          <Label htmlFor="types" className="label-text">
+            Types
+          </Label>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
                 variant="outline"
-                className="w-full justify-start bg-transparent border-border capitalize"
+                className="w-full justify-start bg-transparent border-border capitalize w-[150px]"
               >
                 <Filter className="h-4 w-4" />
                 {typeSummary}
                 {activeTypeCount > 0 ? <Badge variant="secondary">{activeTypeCount}</Badge> : null}
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="w-[220px] border-border">
+            <DropdownMenuContent align="start" className="w-[150px] border-border">
               <DropdownMenuLabel>Event types</DropdownMenuLabel>
               <DropdownMenuSeparator />
               {allTypes.map((t) => (
@@ -155,12 +161,14 @@ export function EventFilters(
         </div>
 
         <div className="space-y-1">
-          <Label>Time of day</Label>
+          <Label htmlFor="timeOfDay" className="label-text">
+            Time of day
+          </Label>
           <Select
             value={value.timeOfDay}
             onValueChange={(v) => onChange({ ...value, timeOfDay: v as FiltersState['timeOfDay'] })}
           >
-            <SelectTrigger>
+            <SelectTrigger className="w-[100px]">
               <SelectValue placeholder="Any" />
             </SelectTrigger>
             <SelectContent>

@@ -50,6 +50,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
               primaryType={'ghost'}
               variant="normal"
               type="static"
+              className="shadow-none"
               form={typeof form === 'string' ? form : 'plain'}
               // src={pokemon.frontSpriteUrl}
               size={'sm'}
@@ -66,7 +67,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
     id: 'pokemon',
     header: ({ column }) => {
       return (
-        <Button className="-ml-3" variant="ghost" onClick={() => column.toggleSorting()}>
+        <Button className="-ml-3 label-text" variant="ghost" onClick={() => column.toggleSorting()}>
           <>Pokémon</>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -136,7 +137,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
     accessorKey: 'method',
     header: ({ column }) => {
       return (
-        <Button variant="ghost" onClick={() => column.toggleSorting()} className="-ml-3">
+        <Button variant="ghost" onClick={() => column.toggleSorting()} className="-ml-3 label-text">
           Method
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -157,7 +158,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
     accessorKey: 'time',
     header: ({ column }) => {
       return (
-        <Button variant="ghost" onClick={() => column.toggleSorting()} className="-ml-3">
+        <Button variant="ghost" onClick={() => column.toggleSorting()} className="-ml-3 label-text">
           Time
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -187,7 +188,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
     accessorKey: 'level',
     header: ({ column }) => {
       return (
-        <Button variant="ghost" onClick={() => column.toggleSorting()} className="-ml-3">
+        <Button variant="ghost" onClick={() => column.toggleSorting()} className="-ml-3 label-text">
           Level
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -207,7 +208,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
     accessorKey: 'chance',
     header: ({ column }) => {
       return (
-        <Button variant="ghost" onClick={() => column.toggleSorting()} className="-ml-3">
+        <Button variant="ghost" onClick={() => column.toggleSorting()} className="-ml-3 label-text">
           Chance
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />

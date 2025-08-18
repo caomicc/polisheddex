@@ -41,7 +41,9 @@ export default function PokemonWithMoveDataTable({
       <div className="flex flex-col sm:flex-col gap-4 items-start sm:items-start justify-between">
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex gap-2 flex-col">
-            <Label htmlFor="method-filter">Learn Method</Label>
+            <Label className="label-text" htmlFor="method-filter">
+              Learn Method
+            </Label>
             <Select value={learnMethodFilter} onValueChange={onLearnMethodFilterChange}>
               <SelectTrigger className="bg-white w-full sm:w-[180px]" id="method-filter">
                 {learnMethodFilter === 'all'

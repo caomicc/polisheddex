@@ -48,6 +48,7 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
               form={typeof pokemon.form === 'string' ? pokemon.form : 'plain'}
               src={pokemon.frontSpriteUrl}
               size={'sm'}
+              className="shadow-none"
             />
           </Link>
         </div>
@@ -63,7 +64,7 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
       return (
         <Button
           variant="ghost"
-          className="-ml-3"
+          className="-ml-3 label-text"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
         >
           #
@@ -118,7 +119,7 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
     header: ({ column }) => {
       return (
         <Button
-          className="-ml-3"
+          className="-ml-3 label-text"
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
         >

@@ -237,7 +237,9 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
         {/* Primary search and filters */}
         <div className="flex flex-col sm:flex-row gap-4 ">
           <div className="flex flex-col gap-2 flex-1">
-            <Label htmlFor="pokemon-filter">Pokémon Name</Label>
+            <Label className="label-text" htmlFor="pokemon-filter">
+              Pokémon Name
+            </Label>
             <Input
               id="pokemon-filter"
               placeholder="Search by name..."
@@ -250,7 +252,9 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
           {/* Type filter */}
           <div className="flex flex-row gap-4 flex-1">
             <div className="flex flex-col gap-2 w-full">
-              <Label htmlFor="type-select">Type</Label>
+              <Label className="label-text" htmlFor="type-select">
+                Type
+              </Label>
               <Select
                 value={type}
                 onValueChange={(value) => setUrlState({ type: value === 'all' ? null : value })}
@@ -273,7 +277,9 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
           {/* Form visibility toggle */}
           <div className="flex flex-row gap-4 w-full sm:w-auto flex-1">
             <div className="flex flex-col items-start gap-2 w-1/2 md:w-auto">
-              <Label htmlFor="forms-toggle">Show Forms</Label>
+              <Label className="label-text" htmlFor="forms-toggle">
+                Show Forms
+              </Label>
               <Checkbox
                 id="forms-toggle"
                 className="mt-2"

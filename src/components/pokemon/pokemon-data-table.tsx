@@ -22,7 +22,6 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import TableWrapper from '../ui/table-wrapper';
-// import { Label } from '../ui/label';
 
 interface PokemonDataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -66,7 +65,7 @@ export function PokemonDataTable<TData, TValue>({
                     className={
                       header.column.columnDef.size === 60
                         ? 'w-11 md:w-[60px]! max-w-16 text-center'
-                        : ''
+                        : 'label-text'
                     }
                   >
                     {header.isPlaceholder

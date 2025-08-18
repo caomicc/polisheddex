@@ -20,7 +20,7 @@ export const abilityColumns: ColumnDef<Ability>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3"
+          className="-ml-3 label-text"
         >
           Name
           {column.getIsSorted() === 'desc' ? (
@@ -68,7 +68,7 @@ export const abilityColumns: ColumnDef<Ability>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3"
+          className="-ml-3 label-text"
         >
           Description
           {column.getIsSorted() === 'desc' ? (
