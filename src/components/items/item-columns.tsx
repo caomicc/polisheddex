@@ -7,9 +7,39 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { AnyItemData, isRegularItem, isTMHMItem } from '@/types/types';
 import { accentInsensitiveIncludes } from '@/utils/stringUtils';
-import { getMoveUrlFromName } from '@/utils/itemUtils';
+import { getItemSpriteName, getMoveUrlFromName } from '@/utils/itemUtils';
+import Image from 'next/image';
 
 export const itemColumns: ColumnDef<AnyItemData>[] = [
+  {
+    accessorKey: 'sprite',
+    id: 'sprite',
+    header: '',
+    cell: ({ row }) => {
+      const item = row.original;
+
+      // Check if this is a TM/HM item that should link to moves
+      const isTM = isTMHMItem(item);
+      const linkHref =
+        isTM && 'moveName' in item
+          ? `/moves/${getMoveUrlFromName(item.moveName)}`
+          : `/items/${encodeURIComponent(item.id)}`;
+
+      const spriteUrl = isTM
+        ? `/sprites/items/tm_hm.png`
+        : `/sprites/items/${getItemSpriteName(item.name)}.png`;
+
+      return (
+        <div className="">
+          <Link href={linkHref}>
+            <Image src={spriteUrl} alt={item.name} width={24} height={24} className="rounded-sm" />
+          </Link>
+        </div>
+      );
+    },
+    enableSorting: false,
+    size: 60,
+  },
   {
     accessorKey: 'name',
     header: ({ column }) => {
@@ -32,13 +62,14 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
     },
     cell: ({ row }) => {
       const item = row.original;
-      
+
       // Check if this is a TM/HM item that should link to moves
       const isTM = isTMHMItem(item);
-      const linkHref = isTM && 'moveName' in item 
-        ? `/moves/${getMoveUrlFromName(item.moveName)}`
-        : `/items/${encodeURIComponent(item.id)}`;
-      
+      const linkHref =
+        isTM && 'moveName' in item
+          ? `/moves/${getMoveUrlFromName(item.moveName)}`
+          : `/items/${encodeURIComponent(item.id)}`;
+
       return (
         <div className="flex items-center space-x-2 min-w-0">
           <Link

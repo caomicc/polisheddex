@@ -6,7 +6,8 @@ import Image from 'next/image';
 import { isRegularItem, isTMHMItem, type ItemData, type TMHMData } from '@/types/types';
 import ItemLocationDataTable from './item-location-data-table';
 import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
-import { processItemEffect, getUsageDescription, isHeldItem } from '@/utils/itemEffectProcessor';
+import { processItemEffect, getUsageDescription } from '@/utils/itemEffectProcessor';
+import { getItemSpriteName } from '@/utils/itemUtils';
 
 interface ItemDetailClientProps {
   item: ItemData | TMHMData;
@@ -15,7 +16,7 @@ interface ItemDetailClientProps {
 
 export default function ItemDetailClient({ item }: ItemDetailClientProps) {
   return (
-    <div className="relative z-10 mt-4 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+    <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
       {/* Item Information Card */}
       {isRegularItem(item) && <RegularItemDetails item={item} />}
 
@@ -33,15 +34,16 @@ function RegularItemDetails({ item }: { item: ItemData }) {
     item.attributes?.effect,
     item.attributes?.parameter,
     item.attributes?.category,
+    item.description,
+    item.attributes.isKeyItem,
   );
 
   const usageDesc = getUsageDescription(
     item.attributes?.useOutsideBattle,
     item.attributes?.useInBattle,
     item.attributes?.category,
+    item.attributes?.isKeyItem,
   );
-
-  const isHeld = isHeldItem(item.attributes?.effect, item.attributes?.category);
 
   return (
     <div className="">
@@ -50,11 +52,7 @@ function RegularItemDetails({ item }: { item: ItemData }) {
         <BentoGridNoLink className="col-span-1">
           <div className="transition duration-200 group-hover/bento:translate-x-2">
             <Image
-              src={`/sprites/items/${item.name
-                .replace(/^Max\s+/i, '') // Remove "Max " at the start, case-insensitive
-                .replace(/é/i, 'e')
-                .toLowerCase()
-                .replace(/ /g, '_')}.png`}
+              src={`/sprites/items/${getItemSpriteName(item.name)}.png`}
               width={24}
               height={24}
               alt={item.name}
@@ -65,28 +63,31 @@ function RegularItemDetails({ item }: { item: ItemData }) {
                 {effect.name}
               </div>
               <Badge
-                variant={
-                  effect.category === 'healing'
-                    ? 'medicine'
-                    : effect.category === 'status'
-                      ? 'medicine'
-                      : effect.category === 'stat'
-                        ? 'item'
-                        : effect.category === 'battle'
-                          ? 'item'
-                          : effect.category === 'held'
-                            ? 'berry'
-                            : 'default'
-                }
+                variant={(() => {
+                  switch (effect.category) {
+                    case 'healing':
+                    case 'Medicine':
+                    case 'status':
+                      return 'medicine';
+                    case 'Item':
+                    case 'stat':
+                    case 'held':
+                    case 'battle':
+                      return 'item';
+                    case 'Berry':
+                      return 'berry';
+                    case 'Poké Ball':
+                      return 'pokeball';
+                    case 'Key Item':
+                      return 'keyitem';
+                    default:
+                      return 'default';
+                  }
+                })()}
                 className="text-xs"
               >
                 {effect.category}
               </Badge>
-              {isHeld && (
-                <Badge variant="secondary" className="text-xs">
-                  Held Item
-                </Badge>
-              )}
             </div>
             <div className="font-sans text-sm font-normal text-neutral-600 dark:text-neutral-300">
               {effect.description}
@@ -127,17 +128,6 @@ function RegularItemDetails({ item }: { item: ItemData }) {
             <div className="font-sans text-sm font-normal text-neutral-600 dark:text-neutral-300">
               {usageDesc}
             </div>
-            {/* {(item.attributes?.useOutsideBattle || item.attributes?.useInBattle) && (
-              <div className="mt-3 space-y-1 text-xs text-neutral-500 dark:text-neutral-400">
-                {item.attributes.useOutsideBattle &&
-                  item.attributes.useOutsideBattle !== 'Cannot use' && (
-                    <div>Outside battle: {item.attributes.useOutsideBattle}</div>
-                  )}
-                {item.attributes.useInBattle && item.attributes.useInBattle !== 'Cannot use' && (
-                  <div>In battle: {item.attributes.useInBattle}</div>
-                )}
-              </div>
-            )} */}
           </div>
         </BentoGridNoLink>
       </BentoGrid>

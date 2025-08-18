@@ -147,3 +147,116 @@ export function getMoveUrlFromName(moveName: string): string {
     .replace(/[^a-z0-9]/g, '') // Remove all non-alphanumeric characters
     .trim();
 }
+
+/**
+ * Maps specific item names to their shared sprite image file names.
+ * Add new mappings here as needed for items that share a sprite.
+ */
+export const ITEM_SPRITE_MAP: Record<string, string> = {
+  quick_powder: 'sand',
+  sacred_ash: 'sand',
+  metal_powder: 'sand',
+  bright_powder: 'sand',
+  stardust: 'sand',
+  soft_sand: 'sand',
+  energy_powder: 'powder',
+  heal_powder: 'powder',
+  silver_powder: 'powder',
+  ice_heal: 'antidote',
+  burn_heal: 'antidote',
+  paralyze_heal: 'antidote',
+  awakening: 'antidote',
+
+  xattack: 'battle_item',
+  xdefend: 'battle_item',
+  xspeed: 'battle_item',
+  xsp_atk: 'battle_item',
+  xsp_def: 'battle_item',
+  xaccuracy: 'battle_item',
+  dire_hit: 'battle_item',
+  guard_spec: 'battle_item',
+
+  repel: 'repel',
+  super_repel: 'repel',
+  max_repel: 'repel',
+
+  ether: 'ether',
+  max_ether: 'ether',
+  elixir: 'ether',
+  max_elixir: 'ether',
+
+  silk_scarf: 'scarf',
+  choice_scarf: 'scarf',
+  thick_club: 'bone',
+  rare_bone: 'bone',
+
+  mental_herb: 'herb',
+  power_herb: 'herb',
+  white_herb: 'herb',
+
+  silver_leaf: 'leaf',
+  gold_leaf: 'leaf',
+
+  surf_mail: 'mail',
+  lite_blue_mail: 'mail',
+  blue_sky_mail: 'bluesky_mail',
+
+  harsh_lure: 'lure',
+  potent_lure: 'lure',
+  malign_lure: 'lure',
+
+  potion: 'potion',
+  super_potion: 'potion',
+  hyper_potion: 'potion',
+
+  ssticket: 's_s_ticket',
+
+  gbcsounds: 'gbc_sounds',
+
+  never_melt_ice: 'nevermeltice',
+
+  hpup: 'hp_up',
+  protein: 'vitamin',
+  zinc: 'vitamin',
+  carbos: 'vitamin',
+  calcium: 'vitamin',
+  ppmax: 'pp_max',
+  ppup: 'pp_up',
+
+  full_restore: 'max_potion',
+  poké_doll: 'poke_doll',
+  poké_ball: 'poke_ball',
+
+  weak_policy: 'policy',
+  blundr_policy: 'policy',
+
+  squirt_bottle: 'squirtbottle',
+
+  ability_patch: 'abilitypatch',
+  balm_mushroom: 'balmmushroom',
+  black_glasses: 'blackglasses',
+  maranga_berry: 'marangaberry',
+  metronome: 'metronome_i',
+  mystic_ticket: 'mysticticket',
+  orange_ticket: 'orangeticket',
+  pewter_crunch: 'pewtercrunch',
+  portrait_mail: 'portraitmail',
+  punchin_glove: 'punchinglove',
+  slowpoke_tail: 'slowpoketail',
+  tiny_mushroom: 'tinymushroom',
+  twisted_spoon: 'twistedspoon',
+  thunder_stone: 'thunderstone',
+
+  rage_candy_bar: 'ragecandybar',
+  secret_potion: 'secretpotion',
+  gsball: 'gs_ball',
+  silph_scope2: 'silphscope2',
+
+  // Add more mappings as needed
+};
+
+export function getItemSpriteName(itemName: string): string {
+  const normalized = itemName.toLowerCase().replace(/ /g, '_');
+  console.log(`Normalized item name: ${normalized}`, ITEM_SPRITE_MAP[normalized] ?? normalized);
+  return ITEM_SPRITE_MAP[normalized] ?? normalized;
+}

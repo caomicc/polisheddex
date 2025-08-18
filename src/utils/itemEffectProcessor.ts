@@ -5,7 +5,7 @@
 export interface ProcessedItemEffect {
   name: string;
   description: string;
-  category: 'healing' | 'status' | 'stat' | 'battle' | 'held' | 'special' | 'unknown';
+  category: string;
   valueDisplay?: string;
 }
 
@@ -17,6 +17,8 @@ export function processItemEffect(
   effect: string | undefined,
   parameter: string | number | undefined,
   category?: string,
+  description?: string,
+  isKeyItem?: boolean,
 ): ProcessedItemEffect {
   const effectStr = effect || '0';
   const param = parameter || 0;
@@ -109,9 +111,9 @@ export function processItemEffect(
     const moveType =
       param === 'PHYSICAL' ? 'physical' : param === 'SPECIAL' ? 'special' : 'contact';
     return {
-      name: 'Retaliation Berry',
+      name: name,
       description: `Damages the attacker when hit by ${moveType} moves`,
-      category: 'held',
+      category: category ?? 'held item',
       valueDisplay: `Counter ${moveType} attacks`,
     };
   }
@@ -159,27 +161,27 @@ export function processItemEffect(
   // Handle Poké Ball mechanics (effect "0" with parameter 0)
   if (category === 'Poké Ball' && effectStr === '0' && param === 0) {
     return {
-      name: 'Pokémon Capture',
+      name: 'Ball',
       description: 'Used to catch wild Pokémon',
-      category: 'special',
+      category: 'Poké Ball',
       valueDisplay: 'Capture item',
     };
   }
 
-  if (name.includes('Repel')) {
+  if (isKeyItem) {
     return {
-      name: 'Repel',
-      description: `Repels wild Pokémon for ${param} steps`,
-      category: 'battle',
-      // valueDisplay: `for ${param} steps`,
+      name,
+      description: description ?? '',
+      category: 'Key Item',
+      valueDisplay: 'Key Item',
     };
   }
 
   // Default fallback for unknown effects
   return {
-    name: 'Item Effect',
-    description: effect && effect !== '0' ? effect : '--',
-    category: 'unknown',
+    name: name,
+    description: effect && effect !== '0' ? effect : (description ?? ''),
+    category: category ?? 'unknown',
     valueDisplay: param ? String(param) : undefined,
   };
 }
@@ -219,9 +221,14 @@ export function getUsageDescription(
   useOutsideBattle?: string,
   useInBattle?: string,
   category?: string,
+  isKeyItem?: boolean,
 ): string {
   if (category === 'Poké Ball') {
     return 'Use on wild Pokémon to catch them';
+  }
+
+  if (isKeyItem) {
+    return 'Use in specific locations or events';
   }
 
   const descriptions: string[] = [];
