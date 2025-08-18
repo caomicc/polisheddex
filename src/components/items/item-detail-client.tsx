@@ -115,11 +115,7 @@ function RegularItemDetails({ item }: { item: ItemData }) {
         <BentoGridNoLink>
           <div className="transition duration-200 group-hover/bento:translate-x-2">
             <Image
-              src={`/sprites/items/${item.name
-                .replace(/^Max\s+/i, '') // Remove "Max " at the start, case-insensitive
-                .replace(/é/i, 'e')
-                .toLowerCase()
-                .replace(/ /g, '_')}.png`}
+              src={`/sprites/items/itemfinder.png`}
               width={24}
               height={24}
               alt={item.name}
