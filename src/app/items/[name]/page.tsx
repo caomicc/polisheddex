@@ -11,7 +11,6 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { Hero } from '@/components/ui/Hero';
-import { Badge } from '@/components/ui/badge';
 import { loadItemById, loadItemsData } from '@/utils/loaders/item-data-loader';
 import ItemDetailClient from '@/components/items/item-detail-client';
 import { PokemonGridSkeleton } from '@/components/pokemon/pokemon-card-skeleton';
@@ -35,16 +34,6 @@ export default async function ItemPage({ params }: ItemPageProps) {
       <Hero
         headline={item.name}
         description={item.description}
-        // types={
-        //   <div className="flex flex-wrap gap-2" aria-label="Item Type" role="group">
-        //     <Badge variant="any">
-        //       {isRegularItem(item) ? item.attributes?.category || 'Item' : 'TM/HM'}
-        //     </Badge>
-        //     {isRegularItem(item) && item.attributes?.price !== undefined && (
-        //       <Badge variant="grass">₽{item.attributes.price.toLocaleString()}</Badge>
-        //     )}
-        //   </div>
-        // }
         breadcrumbs={
           <Breadcrumb>
             <BreadcrumbList>
