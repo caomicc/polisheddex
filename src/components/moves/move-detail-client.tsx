@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonWithMove } from '@/utils/loaders/move-data-loader';
 import PokemonWithMoveDataTable from './pokemon-with-move-data-table';
@@ -17,6 +15,8 @@ import {
 } from '../ui/breadcrumb';
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
+import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
+import { BicepsFlexed, Crosshair, FolderOpen, HandFist } from 'lucide-react';
 
 interface MoveDetailClientProps {
   moveData: {
@@ -110,43 +110,72 @@ export default function MoveDetailClient({
       />
       <div className="space-y-6 max-w-4xl mx-auto  mb-10">
         {/* Move Information Card */}
-        <Card>
-          <CardContent className="">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="flex flex-col gap-2">
-                <Label className="label-text">Category</Label>
-                <p className="text-sm">{moveStats?.category || 'Unknown'}</p>
-              </div>
-              <div className="flex flex-col gap-2">
-                <Label className="label-text">Power</Label>
-                <p className="text-sm">{moveStats?.power || 'N/A'}</p>
-              </div>
-              <div className="flex flex-col gap-2">
-                <Label className="label-text">Accuracy</Label>
-                <p className="text-sm">{moveStats?.accuracy || 'N/A'}%</p>
-              </div>
-              <div className="flex flex-col gap-2">
-                <Label className="label-text">PP</Label>
-                <p className="text-sm">{moveStats?.pp || 'N/A'}</p>
-              </div>
-            </div>
-
-            {tmInfo && (
-              <div className="mt-4 p-3 bg-muted rounded-lg">
-                <Label className="label-text">TM/HM Location</Label>
-                <p className="text-sm">
-                  {tmInfo.number} - {tmInfo.location?.area || 'Unknown location'}
-                  {tmInfo.location?.details && (
-                    <span className="text-muted-foreground"> ({tmInfo.location.details})</span>
-                  )}
+        <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+          <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-4">
+            <BentoGridNoLink>
+              <div>
+                <FolderOpen className="size-4" />
+                <p className="mt-2 mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200 capitalize">
+                  Category
+                </p>
+                <p className="font-sans text-xs font-normal text-neutral-600 dark:text-neutral-300">
+                  {moveStats?.category || 'Unknown'}
                 </p>
               </div>
-            )}
-          </CardContent>
-        </Card>
+            </BentoGridNoLink>
+            <BentoGridNoLink>
+              <div>
+                <HandFist className="size-4" />
+                <p className="mt-2 mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200 capitalize">
+                  Power
+                </p>
+                <p className="font-sans text-xs font-normal text-neutral-600 dark:text-neutral-300">
+                  {moveStats?.power || 'N/A'}
+                </p>
+              </div>
+            </BentoGridNoLink>
+            <BentoGridNoLink>
+              <div>
+                <Crosshair className="size-4" />
+                <p className="mt-2 mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200 capitalize">
+                  Accuracy
+                </p>
+                <p className="font-sans text-xs font-normal text-neutral-600 dark:text-neutral-300">
+                  {moveStats?.accuracy || 'N/A'}%
+                </p>
+              </div>
+            </BentoGridNoLink>
+            <BentoGridNoLink>
+              <div>
+                <BicepsFlexed className="size-4" />
+                <p className="mt-2 mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200 capitalize">
+                  PP
+                </p>
+                <p className="font-sans text-xs font-normal text-neutral-600 dark:text-neutral-300">
+                  {moveStats?.pp || 'N/A'}
+                </p>
+              </div>
+            </BentoGridNoLink>
 
-        {/* Pokemon List Section */}
-        <h3>Pokémon that can learn {moveName}</h3>
+            {tmInfo && (
+              <BentoGridNoLink className="md:col-span-4">
+                <div>
+                  <Crosshair className="size-4" />
+                  <p className="mt-2 mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200 capitalize">
+                    TM/HM Location
+                  </p>
+                  <p className="font-sans text-xs font-normal text-neutral-600 dark:text-neutral-300">
+                    {tmInfo.number} - {tmInfo.location?.area || 'Unknown location'}
+                    {tmInfo.location?.details && (
+                      <span className="text-muted-foreground"> ({tmInfo.location.details})</span>
+                    )}
+                  </p>
+                </div>{' '}
+              </BentoGridNoLink>
+            )}
+          </BentoGrid>
+        </div>
+
         <PokemonWithMoveDataTable
           pokemonWithMove={pokemonWithMove}
           learnMethodFilter={learnMethodFilter}

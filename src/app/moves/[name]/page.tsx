@@ -26,15 +26,13 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
 
   return (
     <>
-      <div className="max-w-xl md:max-w-4xl mx-auto">
-        <Suspense fallback={<PokemonGridSkeleton count={8} />}>
-          <MoveDetailClient
-            moveData={moveData}
-            pokemonWithMove={pokemonWithMove}
-            moveName={moveData.name || moveName}
-          />
-        </Suspense>
-      </div>
+      <Suspense fallback={<PokemonGridSkeleton count={8} />}>
+        <MoveDetailClient
+          moveData={moveData}
+          pokemonWithMove={pokemonWithMove}
+          moveName={moveData.name || moveName}
+        />
+      </Suspense>
     </>
   );
 }
