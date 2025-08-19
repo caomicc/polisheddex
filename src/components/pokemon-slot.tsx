@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState, useEffect, useRef } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import {
   Select,
@@ -24,6 +24,7 @@ import { Ability, BaseData, PokemonType } from '@/types/types';
 import { Badge } from './ui/badge';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonSprite } from './pokemon/pokemon-sprite';
+import { BentoGridNoLink } from './ui/bento-box';
 
 export type MoveEntry = {
   name: string;
@@ -96,7 +97,10 @@ export type PokemonSlotProps = {
 export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps) {
   const [pokemonData, setPokemonData] = useState<BaseData | null>(null);
   const [movesData, setMovesData] = useState<Record<string, MoveData> | null>(null);
-  const [itemsData, setItemsData] = useState<Record<string, { name: string; description: string; attributes?: { category: string } }> | null>(null);
+  const [itemsData, setItemsData] = useState<Record<
+    string,
+    { name: string; description: string; attributes?: { category: string } }
+  > | null>(null);
   const [evolutionChainMoves, setEvolutionChainMoves] = useState<MoveEntry[]>([]);
   const { showFaithful } = useFaithfulPreference();
   const previousTypesRef = useRef<string | null>(null);
@@ -112,7 +116,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
       try {
         const [movesResponse, itemsResponse] = await Promise.all([
           fetch('/output/manifests/moves.json'),
-          fetch('/output/manifests/items.json')
+          fetch('/output/manifests/items.json'),
         ]);
 
         if (movesResponse.ok) {
@@ -312,25 +316,25 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
 
       // Try to get evolution chain from pokemonData first, then try hardcoded chains
       let evolutionChain: string[] | undefined;
-      
+
       if (pokemonData?.evolution) {
         const evolution = pokemonData.evolution as { chain?: string[] };
         evolutionChain = evolution.chain;
       }
-      
+
       // Fallback: hardcoded known evolution chains for testing
       if (!evolutionChain) {
         const knownChains: Record<string, string[]> = {
-          'Charmeleon': ['Charmander', 'Charmeleon', 'Charizard'],
-          'Charizard': ['Charmander', 'Charmeleon', 'Charizard'],
-          'Ivysaur': ['Bulbasaur', 'Ivysaur', 'Venusaur'],
-          'Venusaur': ['Bulbasaur', 'Ivysaur', 'Venusaur'],
-          'Wartortle': ['Squirtle', 'Wartortle', 'Blastoise'],
-          'Blastoise': ['Squirtle', 'Wartortle', 'Blastoise'],
+          Charmeleon: ['Charmander', 'Charmeleon', 'Charizard'],
+          Charizard: ['Charmander', 'Charmeleon', 'Charizard'],
+          Ivysaur: ['Bulbasaur', 'Ivysaur', 'Venusaur'],
+          Venusaur: ['Bulbasaur', 'Ivysaur', 'Venusaur'],
+          Wartortle: ['Squirtle', 'Wartortle', 'Blastoise'],
+          Blastoise: ['Squirtle', 'Wartortle', 'Blastoise'],
         };
         evolutionChain = knownChains[entry.name];
       }
-      
+
       if (!evolutionChain || evolutionChain.length === 0) {
         setEvolutionChainMoves([]);
         return;
@@ -338,7 +342,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
 
       const evolutionChainMoves: MoveEntry[] = [];
       const currentPokemonIndex = evolutionChain.indexOf(entry.name);
-      
+
       if (currentPokemonIndex <= 0) {
         setEvolutionChainMoves([]);
         return;
@@ -347,7 +351,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
       // Load moves from all previous evolution stages
       for (let i = 0; i < currentPokemonIndex; i++) {
         const prevEvolutionName = evolutionChain[i];
-        
+
         try {
           const fileName = prevEvolutionName.toLowerCase().replace(/[ -]/g, '-');
           const response = await fetch(`/output/pokemon/${fileName}.json`);
@@ -411,11 +415,12 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     return Object.entries(itemsData)
       .filter(([, item]) => {
         // Include items in held item categories
-        if (!item.attributes?.category || !heldItemCategories.includes(item.attributes.category)) return false;
-        
+        if (!item.attributes?.category || !heldItemCategories.includes(item.attributes.category))
+          return false;
+
         // Exclude items that match exclude patterns
         const itemName = item.name.toLowerCase();
-        return !excludePatterns.some(pattern => pattern.test(itemName));
+        return !excludePatterns.some((pattern) => pattern.test(itemName));
       })
       .map(([itemKey, item]) => ({
         id: itemKey,
@@ -520,7 +525,6 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     );
   }, [pokemonData, matched, showFaithful, movesData, evolutionChainMoves]);
 
-
   const isPokemonSelected = Boolean(matched);
 
   const setMove = (i: number, move: Partial<MoveEntry>) => {
@@ -582,9 +586,11 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
   };
 
   return (
-    <Card className="py-4">
-      <CardHeader className="flex flex-row items-center gap-3 justify-start space-y-0 px-4 relative">
+    <BentoGridNoLink>
+      <div className="flex flex-row gap-4 relative">
         <PokemonSprite
+          // size="sm"
+          className="shadow-none"
           primaryType={entry.types[0] || 'normal'}
           pokemonName={
             matched?.fileName
@@ -598,7 +604,9 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
           form={matched?.formName} // Pass the form name for sprites
         />
         <div className="flex gap-2 flex-col">
-          <CardTitle>{entry.name ? entry.name : 'Add a Pokemon...'}</CardTitle>
+          <p className="font-sans font-bold text-neutral-600 dark:text-neutral-200 capitalize">
+            {entry.name ? entry.name : 'Add a Pokemon...'}
+          </p>
           <div className="flex items-center gap-2">
             {Array.isArray(entry.types) && entry.types[0] && (
               <Badge variant={entry.types[0].toLowerCase() || 'any'}>{entry.types[0]}</Badge>
@@ -608,215 +616,218 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
             )}
           </div>
         </div>
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={clearSlot}
-          aria-label={`Clear slot ${index + 1}`}
-          className="absolute right-2 -top-2"
-        >
-          <X className="h-4 w-4" />
-        </Button>
-      </CardHeader>
-      <CardContent className="space-y-4 px-4">
-        <div className="grid gap-3">
-          <Label htmlFor={`name-${index}`}>Pokémon</Label>
-
-          <Select value={entry.name} onValueChange={(value) => autofillFromPokemon(value)}>
-            <SelectTrigger className="w-full" id={`name-${index}`}>
-              <SelectValue placeholder={'Select a Pokemon'} />
-            </SelectTrigger>
-            <SelectContent className="max-h-[300px]">
-              <SelectGroup>
-                <SelectLabel>Pokemon</SelectLabel>
-                {POKEMON_LIST.map((a, idx) => (
-                  <SelectItem key={`name-${idx}-${a}`} value={a.name}>
-                    {a.name}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </div>
-
-        <div className="grid gap-2">
-          <Label htmlFor={`ability-${index}`}>Ability</Label>
-          <Select
-            disabled={!isPokemonSelected}
-            value={entry.ability}
-            onValueChange={(value) => onChange({ ability: value })}
+        {entry.name ? (
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={clearSlot}
+            aria-label={`Clear slot ${index + 1}`}
+            className="absolute -right-2 -top-2"
           >
-            <SelectTrigger className="w-full" id={`ability-${index}`}>
-              <SelectValue
-                placeholder={isPokemonSelected ? 'Select an ability' : 'Select Pokémon first'}
-              />
-            </SelectTrigger>
-            <SelectContent className="max-h-[300px]">
-              <SelectGroup>
-                <SelectLabel>Ability</SelectLabel>
-                {abilityOptions.map((a: string, idx: number) => (
-                  <SelectItem key={`ability-${idx}-${a}`} value={a}>
-                    {a}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </div>
+            <X className="h-4 w-4" />
+          </Button>
+        ) : (
+          <></>
+        )}
+      </div>
+      <div className="flex flex-col gap-2">
+        <Label htmlFor={`name-${index}`} className="label-text">
+          Pokémon
+        </Label>
 
-        <div className="grid gap-2">
-          <Label htmlFor={`nature-${index}`}>Nature</Label>
-          <Select
-            disabled={!isPokemonSelected}
-            value={entry.nature || ''}
-            onValueChange={(value) => onChange({ nature: value as Nature })}
-          >
-            <SelectTrigger className="w-full" id={`nature-${index}`}>
-              <SelectValue
-                placeholder={isPokemonSelected ? 'Select a nature' : 'Select Pokémon first'}
-              />
-            </SelectTrigger>
-            <SelectContent className="max-h-[300px]">
-              <SelectGroup>
-                <SelectLabel>Nature</SelectLabel>
-                {(
-                  [
-                    'Hardy',
-                    'Lonely',
-                    'Brave',
-                    'Adamant',
-                    'Naughty',
-                    'Bold',
-                    'Docile',
-                    'Relaxed',
-                    'Impish',
-                    'Lax',
-                    'Timid',
-                    'Hasty',
-                    'Serious',
-                    'Jolly',
-                    'Naive',
-                    'Modest',
-                    'Mild',
-                    'Quiet',
-                    'Bashful',
-                    'Rash',
-                    'Calm',
-                    'Gentle',
-                    'Sassy',
-                    'Careful',
-                    'Quirky',
-                  ] as Nature[]
-                ).map((nature) => (
-                  <SelectItem key={`nature-${nature}`} value={nature}>
-                    {nature}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </div>
-
-        <div className="grid gap-2">
-          <Label htmlFor={`item-${index}`}>Held Item</Label>
-          <Select
-            disabled={!isPokemonSelected}
-            value={entry.item || 'none'}
-            onValueChange={(value) => onChange({ item: value === 'none' ? undefined : value })}
-          >
-            <SelectTrigger className="w-full" id={`item-${index}`}>
-              <SelectValue
-                placeholder={isPokemonSelected ? 'Select an item' : 'Select Pokémon first'}
-              />
-            </SelectTrigger>
-            <SelectContent className="max-h-[300px]">
-              <SelectGroup>
-                <SelectLabel>Held Items</SelectLabel>
-                <SelectItem value="none">
-                  None
+        <Select value={entry.name} onValueChange={(value) => autofillFromPokemon(value)}>
+          <SelectTrigger className="w-full" id={`name-${index}`}>
+            <SelectValue placeholder={'Select a Pokemon'} />
+          </SelectTrigger>
+          <SelectContent className="max-h-[300px]">
+            <SelectGroup>
+              <SelectLabel>Pokemon</SelectLabel>
+              {POKEMON_LIST.map((a, idx) => (
+                <SelectItem key={`name-${idx}-${a}`} value={a.name}>
+                  {a.name}
                 </SelectItem>
-                {availableItems.map((item) => (
-                  <SelectItem key={`item-${item.id}`} value={item.name}>
-                    {item.name}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </div>
+              ))}
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      </div>
 
+      <div className="flex flex-col gap-2">
+        <Label htmlFor={`ability-${index}`} className="label-text">
+          Ability
+        </Label>
+        <Select
+          disabled={!isPokemonSelected}
+          value={entry.ability}
+          onValueChange={(value) => onChange({ ability: value })}
+        >
+          <SelectTrigger className="w-full" id={`ability-${index}`}>
+            <SelectValue
+              placeholder={isPokemonSelected ? 'Select an ability' : 'Select Pokémon first'}
+            />
+          </SelectTrigger>
+          <SelectContent className="max-h-[300px]">
+            <SelectGroup>
+              <SelectLabel>Ability</SelectLabel>
+              {abilityOptions.map((a: string, idx: number) => (
+                <SelectItem key={`ability-${idx}-${a}`} value={a}>
+                  {a}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <Label htmlFor={`nature-${index}`} className="label-text">
+          Nature
+        </Label>
+        <Select
+          disabled={!isPokemonSelected}
+          value={entry.nature || ''}
+          onValueChange={(value) => onChange({ nature: value as Nature })}
+        >
+          <SelectTrigger className="w-full" id={`nature-${index}`}>
+            <SelectValue
+              placeholder={isPokemonSelected ? 'Select a nature' : 'Select Pokémon first'}
+            />
+          </SelectTrigger>
+          <SelectContent className="max-h-[300px]">
+            <SelectGroup>
+              <SelectLabel>Nature</SelectLabel>
+              {(
+                [
+                  'Hardy',
+                  'Lonely',
+                  'Brave',
+                  'Adamant',
+                  'Naughty',
+                  'Bold',
+                  'Docile',
+                  'Relaxed',
+                  'Impish',
+                  'Lax',
+                  'Timid',
+                  'Hasty',
+                  'Serious',
+                  'Jolly',
+                  'Naive',
+                  'Modest',
+                  'Mild',
+                  'Quiet',
+                  'Bashful',
+                  'Rash',
+                  'Calm',
+                  'Gentle',
+                  'Sassy',
+                  'Careful',
+                  'Quirky',
+                ] as Nature[]
+              ).map((nature) => (
+                <SelectItem key={`nature-${nature}`} value={nature}>
+                  {nature}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <Label htmlFor={`item-${index}`} className="label-text">
+          Held Item
+        </Label>
+        <Select
+          disabled={!isPokemonSelected}
+          value={entry.item || 'none'}
+          onValueChange={(value) => onChange({ item: value === 'none' ? undefined : value })}
+        >
+          <SelectTrigger className="w-full" id={`item-${index}`}>
+            <SelectValue
+              placeholder={isPokemonSelected ? 'Select an item' : 'Select Pokémon first'}
+            />
+          </SelectTrigger>
+          <SelectContent className="max-h-[300px]">
+            <SelectGroup>
+              <SelectLabel>Held Items</SelectLabel>
+              <SelectItem value="none">None</SelectItem>
+              {availableItems.map((item) => (
+                <SelectItem key={`item-${item.id}`} value={item.name}>
+                  {item.name}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <Label className="label-text">Moves</Label>
         <div className="grid gap-2">
-          <Label>Moves</Label>
-          <div className="grid gap-2">
-            {entry.moves.map((mv, i) => (
-              <div key={i} className="flex gap-3">
-                <Select
-                  disabled={!isPokemonSelected}
-                  value={mv.name}
-                  onValueChange={(value) => {
-                    const selectedMove = availableMoves.find(
-                      (m: { name: string; type: string; category: string }) => m.name === value,
-                    );
-                    setMove(i, {
-                      name: value,
-                      type: selectedMove?.type || null,
+          {entry.moves.map((mv, i) => (
+            <div key={i} className="flex gap-3">
+              <Select
+                disabled={!isPokemonSelected}
+                value={mv.name}
+                onValueChange={(value) => {
+                  const selectedMove = availableMoves.find(
+                    (m: { name: string; type: string; category: string }) => m.name === value,
+                  );
+                  setMove(i, {
+                    name: value,
+                    type: selectedMove?.type || null,
+                  });
+                }}
+              >
+                <SelectTrigger className="w-full" id={`ability-${index}`}>
+                  <SelectValue
+                    placeholder={isPokemonSelected ? `Move ${i + 1}` : 'Select Pokémon first'}
+                  />
+                </SelectTrigger>
+                <SelectContent className="max-h-[300px]">
+                  {/* Group moves by category */}
+                  {(() => {
+                    const categories = ['Level-up', 'Egg Move', 'TM/HM'];
+                    const evolutionCategories = [
+                      ...new Set(
+                        availableMoves
+                          .filter((m) => m.category?.startsWith('Previous Evolution'))
+                          .map((m) => m.category!),
+                      ),
+                    ];
+
+                    return [...categories, ...evolutionCategories].map((category) => {
+                      const movesInCategory = availableMoves.filter((m) => m.category === category);
+                      if (movesInCategory.length === 0) return null;
+
+                      return (
+                        <SelectGroup key={category}>
+                          <SelectLabel>{category}</SelectLabel>
+                          {movesInCategory.map((move, idx) => (
+                            <SelectItem
+                              key={`move-${category}-${idx}-${move.name}`}
+                              value={move.name}
+                              className="flex justify-between"
+                            >
+                              <div className="flex items-center justify-between w-full">
+                                <span>{move.name}</span>
+                                <Badge variant={move.type?.toLowerCase() || 'any'} className="ml-2">
+                                  {move.type}
+                                </Badge>
+                              </div>
+                            </SelectItem>
+                          ))}
+                        </SelectGroup>
+                      );
                     });
-                  }}
-                >
-                  <SelectTrigger className="w-full" id={`ability-${index}`}>
-                    <SelectValue
-                      placeholder={isPokemonSelected ? `Move ${i + 1}` : 'Select Pokémon first'}
-                    />
-                  </SelectTrigger>
-                  <SelectContent className="max-h-[300px]">
-                    {/* Group moves by category */}
-                    {(() => {
-                      const categories = ['Level-up', 'Egg Move', 'TM/HM'];
-                      const evolutionCategories = [
-                        ...new Set(
-                          availableMoves
-                            .filter((m) => m.category?.startsWith('Previous Evolution'))
-                            .map((m) => m.category!),
-                        ),
-                      ];
-
-                      return [...categories, ...evolutionCategories].map((category) => {
-                        const movesInCategory = availableMoves.filter(
-                          (m) => m.category === category,
-                        );
-                        if (movesInCategory.length === 0) return null;
-
-                        return (
-                          <SelectGroup key={category}>
-                            <SelectLabel>{category}</SelectLabel>
-                            {movesInCategory.map((move, idx) => (
-                              <SelectItem
-                                key={`move-${category}-${idx}-${move.name}`}
-                                value={move.name}
-                                className="flex justify-between"
-                              >
-                                <div className="flex items-center justify-between w-full">
-                                  <span>{move.name}</span>
-                                  <Badge
-                                    variant={move.type?.toLowerCase() || 'any'}
-                                    className="ml-2"
-                                  >
-                                    {move.type}
-                                  </Badge>
-                                </div>
-                              </SelectItem>
-                            ))}
-                          </SelectGroup>
-                        );
-                      });
-                    })()}
-                  </SelectContent>
-                </Select>
-              </div>
-            ))}
-          </div>
+                  })()}
+                </SelectContent>
+              </Select>
+            </div>
+          ))}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </BentoGridNoLink>
   );
 }

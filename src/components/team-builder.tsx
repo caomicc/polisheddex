@@ -14,6 +14,7 @@ import { loadTypesData } from '@/lib/types-data';
 import { loadTypeChart } from '@/lib/calculations';
 import { useLocalStorage } from '@/lib/use-local-storage';
 import { generateShareUrl, getTeamFromUrl, copyToClipboard } from '@/lib/team-url-sharing';
+import { BentoGrid } from './ui/bento-box';
 
 export default function TeamBuilder() {
   const [team, setTeam] = useLocalStorage<PokemonEntry[]>('pokedex-team', DEFAULT_TEAM);
@@ -206,11 +207,13 @@ export default function TeamBuilder() {
         </Card>
       )}
 
-      <section aria-label="Team slots" className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      {/* <section aria-label="Team slots" className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3"> */}
+      <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-3 mb-4">
         {team.map((entry, i) => (
           <PokemonSlot key={i} index={i} entry={entry} onChange={(data) => handleUpdate(i, data)} />
         ))}
-      </section>
+      </BentoGrid>
+      {/* </section> */}
 
       <Separator className="my-8" />
 
