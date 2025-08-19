@@ -240,7 +240,11 @@ export default function Navigation() {
               <NavigationMenuItem>
                 <NavigationMenuLink
                   asChild
-                  className={cn(navigationMenuTriggerStyle(), isActive('/items') && 'active-link')}
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    hasPokemonTheme && 'pokemon-themed-link',
+                    isActive('/items') && 'active-link',
+                  )}
                 >
                   <Link href="/items">Items</Link>
                 </NavigationMenuLink>
@@ -249,7 +253,11 @@ export default function Navigation() {
               <NavigationMenuItem>
                 <NavigationMenuLink
                   asChild
-                  className={cn(navigationMenuTriggerStyle(), isActive('/events') && 'active-link')}
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    hasPokemonTheme && 'pokemon-themed-link',
+                    isActive('/events') && 'active-link',
+                  )}
                 >
                   <Link href="/events">Events</Link>
                 </NavigationMenuLink>
@@ -258,7 +266,11 @@ export default function Navigation() {
               <NavigationMenuItem>
                 <NavigationMenuLink
                   asChild
-                  className={cn(navigationMenuTriggerStyle(), isActive('/faq') && 'active-link')}
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    hasPokemonTheme && 'pokemon-themed-link',
+                    isActive('/faq') && 'active-link',
+                  )}
                 >
                   <Link href="/faq">FAQ</Link>
                 </NavigationMenuLink>

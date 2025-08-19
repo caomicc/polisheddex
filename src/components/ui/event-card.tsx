@@ -102,7 +102,13 @@ export function EventCard(props: EventCardProps) {
       )}
     >
       <div className="">
-        <Image src={iconImageUrl} width={24} height={24} alt="Icon 1" className="rounded-md" />
+        <Image
+          src={iconImageUrl}
+          width={24}
+          height={24}
+          alt="Icon 1"
+          className="rounded-md dark:bg-white"
+        />
         <div className="mt-2 mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200">
           {event.name
             .replace(/^MR__MIME/, 'Mr. Mime')

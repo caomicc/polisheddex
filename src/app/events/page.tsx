@@ -8,12 +8,9 @@ import { Badge } from '@/components/ui/badge';
 import {
   allEventTypes,
   dayNames,
-  getIconForType,
   getTodayName,
-  // daylightOptions,
   matchesFilter,
   type AnyEvent,
-  deriveDailyType,
   eventSearchText,
 } from '@/lib/event-utils';
 import { defaultFilters, EventFilters, FiltersState } from '@/components/ui/event-filter';
@@ -155,7 +152,7 @@ export default function Page() {
         />
 
         <Tabs defaultValue="today" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 border-border border-1 p-1 h-12">
+          <TabsList className="grid w-full grid-cols-4 border-border border-1 p-1 h-12 bg-white dark:bg-white/5">
             <TabsTrigger value="today">
               Today
               <span className="ml-2 rounded-full bg-amber-100 px-2 py-0.5 text-xs text-amber-900">

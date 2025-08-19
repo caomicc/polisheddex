@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { PokemonType } from '@/types/types';
@@ -17,6 +18,8 @@ interface PokemonSpriteProps {
   // Legacy prop for backward compatibility
   src?: string;
   size?: 'default' | 'sm';
+  // New hover animation prop
+  hoverAnimate?: boolean;
 }
 
 const spriteVariants = cva('relative bg-white', {
@@ -41,8 +44,14 @@ export function PokemonSprite({
   src,
   size,
   form, // Optional form prop for specific Pokemon forms
+  hoverAnimate = false,
 }: PokemonSpriteProps) {
-  const { spriteInfo, isLoading } = useSpriteData(pokemonName, variant, type, form);
+  const [isHovered, setIsHovered] = useState(false);
+  
+  // Determine the sprite type: use hover state if hoverAnimate is enabled, otherwise use the type prop
+  const actualType = hoverAnimate ? (isHovered ? 'animated' : 'static') : type;
+  
+  const { spriteInfo, isLoading } = useSpriteData(pokemonName, variant, actualType, form);
 
   // Fallback to legacy src prop if provided and sprite data not available
   const finalSrc = spriteInfo?.url || src;
@@ -84,6 +93,8 @@ export function PokemonSprite({
         `shadow-sm shadow-${primaryType?.toLowerCase()}`,
         className,
       )}
+      onMouseEnter={hoverAnimate ? () => setIsHovered(true) : undefined}
+      onMouseLeave={hoverAnimate ? () => setIsHovered(false) : undefined}
     >
       <Image
         src={

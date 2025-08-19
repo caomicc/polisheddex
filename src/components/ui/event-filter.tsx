@@ -74,7 +74,7 @@ export function EventFilters(
   return (
     <div className="flex flex-col gap-4 border border-neutral-200 bg-white p-4 rounded-xl mb-4 dark:border-white/[0.2] dark:bg-black dark:shadow-none">
       <div className="flex flex-col sm:flex-row gap-4">
-        <div className="space-y-1">
+        <div className="flex flex-col gap-2">
           <Label htmlFor="query" className="label-text">
             Search
           </Label>
@@ -86,7 +86,7 @@ export function EventFilters(
           />
         </div>
 
-        <div className="space-y-1">
+        <div className="flex flex-col gap-2">
           <Label htmlFor="day" className="label-text">
             Day
           </Label>
@@ -119,7 +119,7 @@ export function EventFilters(
           </div>
         </div>
 
-        <div className="space-y-1 relative">
+        <div className="flex flex-col gap-2">
           <Label htmlFor="types" className="label-text">
             Types
           </Label>
@@ -160,7 +160,7 @@ export function EventFilters(
           </DropdownMenu>
         </div>
 
-        <div className="space-y-1">
+        <div className="flex flex-col gap-2">
           <Label htmlFor="timeOfDay" className="label-text">
             Time of day
           </Label>

@@ -147,16 +147,8 @@ export default function TeamBuilder() {
   }
 
   return (
-    <div className="mx-auto max-w-4xl">
-      {!dataLoaded && (
-        <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg">
-          <div className="flex items-center gap-2 text-sm text-blue-700 dark:text-blue-300">
-            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
-            Loading additional features (moves, abilities, calculations)...
-          </div>
-        </div>
-      )}
-      <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-end">
+    <>
+      <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-end max-w-xl md:max-w-4xl mx-auto mb-4">
         <Button variant="secondary" onClick={shareTeam} disabled={isEmptyTeam}>
           <Share className="mr-2 h-4 w-4" />
           Share Team
@@ -175,67 +167,85 @@ export default function TeamBuilder() {
         </Button>
       </header>
 
-      {shareMessage && (
-        <Card className="my-4">
-          <CardContent className="pt-0">
-            <p className="text-sm text-center text-green-600 dark:text-green-400">{shareMessage}</p>
-          </CardContent>
-        </Card>
-      )}
+      <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+        {!dataLoaded && (
+          <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg">
+            <div className="flex items-center gap-2 text-sm text-blue-700 dark:text-blue-300">
+              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
+              Loading additional features (moves, abilities, calculations)...
+            </div>
+          </div>
+        )}
 
-      {importing && (
-        <Card className="my-4">
-          <CardHeader>
-            <CardTitle>Import Team JSON</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <textarea
-              value={importText}
-              onChange={(e) => setImportText(e.target.value)}
-              placeholder="Paste team.json content here"
-              rows={6}
-              className="w-full rounded-md border bg-background p-3 text-sm outline-none"
-              aria-label="Import JSON"
+        {shareMessage && (
+          <Card className="my-4">
+            <CardContent className="pt-0">
+              <p className="text-sm text-center text-green-600 dark:text-green-400">
+                {shareMessage}
+              </p>
+            </CardContent>
+          </Card>
+        )}
+
+        {importing && (
+          <Card className="my-4">
+            <CardHeader>
+              <CardTitle>Import Team JSON</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <textarea
+                value={importText}
+                onChange={(e) => setImportText(e.target.value)}
+                placeholder="Paste team.json content here"
+                rows={6}
+                className="w-full rounded-md border bg-background p-3 text-sm outline-none"
+                aria-label="Import JSON"
+              />
+              <div className="mt-3 flex gap-2">
+                <Button onClick={tryImport}>Import</Button>
+                <Button variant="ghost" onClick={() => setImporting(false)}>
+                  Cancel
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* <section aria-label="Team slots" className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3"> */}
+        <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-3 mb-4">
+          {team.map((entry, i) => (
+            <PokemonSlot
+              key={i}
+              index={i}
+              entry={entry}
+              onChange={(data) => handleUpdate(i, data)}
             />
-            <div className="mt-3 flex gap-2">
-              <Button onClick={tryImport}>Import</Button>
-              <Button variant="ghost" onClick={() => setImporting(false)}>
-                Cancel
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      )}
+          ))}
+        </BentoGrid>
+        {/* </section> */}
 
-      {/* <section aria-label="Team slots" className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3"> */}
-      <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-3 mb-4">
-        {team.map((entry, i) => (
-          <PokemonSlot key={i} index={i} entry={entry} onChange={(data) => handleUpdate(i, data)} />
-        ))}
-      </BentoGrid>
-      {/* </section> */}
+        <Separator className="my-8" />
 
-      <Separator className="my-8" />
-
-      <section aria-label="Calculations" className="mb-10">
-        <div className="flex items-center gap-2">
-          <Calculator className="h-5 w-5" />
-          <h2 className="text-xl font-semibold">Calculations</h2>
-          {!dataLoaded && (
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-gray-400"></div>
-              Loading...
-            </div>
-          )}
-        </div>
-        <p className="mt-1 text-sm text-muted-foreground">
-          See your team&apos;s defensive type weaknesses/resistances and offensive coverage based on
-          selected move types.
-        </p>
-        <div className="mt-4">
-          <CalculationsPanel team={team} disabled={isEmptyTeam || !dataLoaded} />
-        </div>
-      </section>
-    </div>
+        <section aria-label="Calculations" className="mb-10">
+          <div className="flex items-center gap-2">
+            <Calculator className="h-5 w-5" />
+            <h2 className="text-xl font-semibold">Calculations</h2>
+            {!dataLoaded && (
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-gray-400"></div>
+                Loading...
+              </div>
+            )}
+          </div>
+          <p className="mt-1 text-sm text-muted-foreground">
+            See your team&apos;s defensive type weaknesses/resistances and offensive coverage based
+            on selected move types.
+          </p>
+          <div className="mt-4">
+            <CalculationsPanel team={team} disabled={isEmptyTeam || !dataLoaded} />
+          </div>
+        </section>
+      </div>
+    </>
   );
 }

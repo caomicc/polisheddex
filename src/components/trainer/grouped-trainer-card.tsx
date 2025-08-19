@@ -54,8 +54,9 @@ function TrainerTeamDisplay({ trainer }: { trainer: LocationTrainer | GymLeader 
                 >
                   <PokemonSprite
                     pokemonName={poke.species.toLowerCase().replace(/-/g, '_')}
-                    src={`/sprites/pokemon/${poke.species.toLowerCase().replace(/-/g, '_')}${poke.form ? `_${poke.form?.toLowerCase().replace(/ form/g, '')}` : ''}/normal_front.png`}
+                    form={poke.form?.toLowerCase().replace(/ form/g, '')}
                     alt={poke.species}
+                    hoverAnimate={true}
                   />
                 </Link>
                 <div className="flex-1 min-w-0">
@@ -180,6 +181,32 @@ export default function GroupedTrainerCard({
 }: GroupedTrainerCardProps) {
   const { baseTrainer, rematches, isGrouped } = groupedTrainer;
 
+  // Define gym leader classes to check against
+  const gymLeaderClasses = [
+    'FALKNER',
+    'BUGSY',
+    'WHITNEY',
+    'MORTY',
+    'CHUCK',
+    'JASMINE',
+    'PRYCE',
+    'CLAIR',
+    'BROCK',
+    'MISTY',
+    'LT_SURGE',
+    'ERIKA',
+    'JANINE',
+    'SABRINA',
+    'BLAINE',
+    'BLUE',
+  ];
+
+  // Check if this trainer is a gym leader based on their class
+  const isActualGymLeader =
+    isGymLeader || gymLeaderClasses.includes(baseTrainer.trainerClass?.toUpperCase());
+
+  console.log('GroupedTrainerCard', groupedTrainer, isGymLeader);
+
   let displayTrainerClass = baseTrainer.trainerClass;
   switch (displayTrainerClass?.toLowerCase()) {
     case 'lyra2':
@@ -251,8 +278,13 @@ export default function GroupedTrainerCard({
               />
               <div className="text-left">
                 <h3>
-                  {isGymLeader ? (
-                    displayTrainerName
+                  {isActualGymLeader ? (
+                    <span className="flex items-center gap-2">
+                      {displayTrainerName}
+                      <Badge variant="destructive" className="text-xs">
+                        Gym Leader
+                      </Badge>
+                    </span>
                   ) : (
                     <span className="capitalize">
                       {displayTrainerClass} {displayTrainerName}
@@ -264,7 +296,9 @@ export default function GroupedTrainerCard({
                     </Badge>
                   )}
                 </h3>
-                {isGymLeader && 'badge' in baseTrainer && <p>Badge: {String(baseTrainer.badge)}</p>}
+                {isActualGymLeader && 'badge' in baseTrainer && (
+                  <p>Badge: {String(baseTrainer.badge)}</p>
+                )}
               </div>
             </div>
           </AccordionTrigger>

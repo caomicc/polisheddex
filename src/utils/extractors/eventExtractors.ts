@@ -82,7 +82,10 @@ export function extractLegendaryEventLocations(): Record<string, any[]> {
         // Look for battle type indicators in surrounding lines
         for (let j = Math.max(0, i - 10); j <= Math.min(lines.length - 1, i + 10); j++) {
           const contextLine = lines[j].trim();
-          if (contextLine.includes('BATTLETYPE_LEGENDARY') || contextLine.includes('BATTLETYPE_GHOST')) {
+          if (
+            contextLine.includes('BATTLETYPE_LEGENDARY') ||
+            contextLine.includes('BATTLETYPE_GHOST')
+          ) {
             isLegendary = true;
             battleType = contextLine.includes('BATTLETYPE_GHOST') ? 'ghost' : 'legendary';
             break;
@@ -91,29 +94,38 @@ export function extractLegendaryEventLocations(): Record<string, any[]> {
 
         // Only include if it's a legendary encounter or specific known locations
         const knownLegendaryMaps = [
-          'IlexForest', 'FarawayJungle', 'TinTowerRoof', 'WhirlIslandLugiaChamber',
-          'CinnabarVolcanoB2F', 'SeafoamIslandsB4F', 'Route10North', 'VioletOutskirtsHouse',
-          'ShamoutiIsland', 'MurkySwamp', 'CherrygroveBay'
+          'IlexForest',
+          'FarawayJungle',
+          'TinTowerRoof',
+          'WhirlIslandLugiaChamber',
+          'CinnabarVolcanoB2F',
+          'SeafoamIslandsB4F',
+          'Route10North',
+          'VioletOutskirtsHouse',
+          'ShamoutiIsland',
+          'MurkySwamp',
+          'CherrygroveBay',
         ];
 
-        if (isLegendary || knownLegendaryMaps.some(map => locationName.includes(map))) {
+        if (isLegendary || knownLegendaryMaps.some((map) => locationName.includes(map))) {
           if (!legendaryLocations[pokemon]) {
             legendaryLocations[pokemon] = [];
           }
 
           // Extract conditions and descriptions directly from ROM assembly
           const romConditions = extractRomConditions(mapContent, pokemon);
-          
+
           // Determine method based on battle type
-          const method = battleType === 'ghost' ? 'event' : (isLegendary ? 'static' : 'event');
-          
+          const method = battleType === 'ghost' ? 'event' : isLegendary ? 'static' : 'event';
+
           const encounterData: any = {
             area: formatLocationName(locationName),
             method: method,
             conditions: romConditions.conditions || 'Special encounter',
             eventType: 'legendary',
-            description: romConditions.description || generateDefaultDescription(pokemon, locationName),
-            level: level
+            description:
+              romConditions.description || generateDefaultDescription(pokemon, locationName),
+            level: level,
           };
 
           // Add form information if present
@@ -127,20 +139,25 @@ export function extractLegendaryEventLocations(): Record<string, any[]> {
     }
   }
 
-  console.log(`🏛️ Found ROM-based legendary locations for ${Object.keys(legendaryLocations).length} Pokémon`);
+  console.log(
+    `🏛️ Found ROM-based legendary locations for ${Object.keys(legendaryLocations).length} Pokémon`,
+  );
   return legendaryLocations;
 }
 
 // --- Extract conditions and descriptions from ROM assembly ---
-function extractRomConditions(mapContent: string, pokemon: string): { conditions: string; description: string } {
+function extractRomConditions(
+  mapContent: string,
+  pokemon: string,
+): { conditions: string; description: string } {
   const lines = mapContent.split(/\r?\n/);
   let conditions = '';
   let description = '';
-  
+
   // Look for key item checks
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
-    
+
     // Check for key item requirements
     const keyItemMatch = line.match(/checkkeyitem\s+([A-Z_0-9]+)/);
     if (keyItemMatch) {
@@ -149,7 +166,7 @@ function extractRomConditions(mapContent: string, pokemon: string): { conditions
       description = generateDescriptionFromKeyItem(pokemon, keyItem);
       break;
     }
-    
+
     // Check for event flags that might indicate conditions
     const eventMatch = line.match(/checkevent\s+([A-Z_0-9]+)/);
     if (eventMatch) {
@@ -161,38 +178,41 @@ function extractRomConditions(mapContent: string, pokemon: string): { conditions
       }
     }
   }
-  
+
   return { conditions, description };
 }
 
 // --- Format key item conditions ---
 function formatKeyItemCondition(keyItem: string): string {
   const keyItemMap: Record<string, string> = {
-    'GS_BALL': 'Requires GS Ball',
-    'SILPHSCOPE2': 'Requires Silph Scope 2', 
-    'RAINBOW_WING': 'Requires Rainbow Wing',
-    'SILVER_WING': 'Requires Silver Wing',
-    'CLEAR_BELL': 'Requires Clear Bell',
-    'TIDAL_BELL': 'Requires Tidal Bell'
+    GS_BALL: 'Requires GS Ball',
+    SILPHSCOPE2: 'Requires Silph Scope 2',
+    RAINBOW_WING: 'Requires Rainbow Wing',
+    SILVER_WING: 'Requires Silver Wing',
+    CLEAR_BELL: 'Requires Clear Bell',
+    TIDAL_BELL: 'Requires Tidal Bell',
   };
-  
+
   return keyItemMap[keyItem] || `Requires ${keyItem.toLowerCase().replace(/_/g, ' ')}`;
 }
 
 // --- Generate descriptions based on key items ---
 function generateDescriptionFromKeyItem(pokemon: string, keyItem: string): string {
   const pokemonName = pokemon.charAt(0).toUpperCase() + pokemon.slice(1);
-  
+
   const descriptionMap: Record<string, string> = {
-    'GS_BALL': `${pokemonName} can be encountered after obtaining the GS Ball and visiting the shrine.`,
-    'SILPHSCOPE2': `A ghostly ${pokemonName} spirit can be encountered using the Silph Scope 2.`,
-    'RAINBOW_WING': `${pokemonName} appears when the Rainbow Wing is presented.`,
-    'SILVER_WING': `${pokemonName} emerges when the Silver Wing calls to it.`,
-    'CLEAR_BELL': `${pokemonName} awakens when the Clear Bell chimes.`,
-    'TIDAL_BELL': `${pokemonName} rises when the Tidal Bell tolls.`
+    GS_BALL: `${pokemonName} can be encountered after obtaining the GS Ball and visiting the shrine.`,
+    SILPHSCOPE2: `A ghostly ${pokemonName} spirit can be encountered using the Silph Scope 2.`,
+    RAINBOW_WING: `${pokemonName} appears when the Rainbow Wing is presented.`,
+    SILVER_WING: `${pokemonName} emerges when the Silver Wing calls to it.`,
+    CLEAR_BELL: `${pokemonName} awakens when the Clear Bell chimes.`,
+    TIDAL_BELL: `${pokemonName} rises when the Tidal Bell tolls.`,
   };
-  
-  return descriptionMap[keyItem] || `${pokemonName} can be encountered with the ${keyItem.toLowerCase().replace(/_/g, ' ')}.`;
+
+  return (
+    descriptionMap[keyItem] ||
+    `${pokemonName} can be encountered with the ${keyItem.toLowerCase().replace(/_/g, ' ')}.`
+  );
 }
 
 // --- Format event conditions ---
@@ -207,14 +227,14 @@ function formatEventCondition(eventFlag: string): string {
   if (eventFlag.includes('KANTO')) {
     return 'Kanto region access';
   }
-  
+
   return ''; // Return empty string if no specific mapping
 }
 
 // --- Generate descriptions from events ---
 function generateDescriptionFromEvent(pokemon: string, eventFlag: string): string {
   const pokemonName = pokemon.charAt(0).toUpperCase() + pokemon.slice(1);
-  
+
   if (eventFlag.includes('ELITE_FOUR') || eventFlag.includes('CHAMPION')) {
     return `${pokemonName} can be encountered after becoming the Champion.`;
   }
@@ -224,7 +244,7 @@ function generateDescriptionFromEvent(pokemon: string, eventFlag: string): strin
   if (eventFlag.includes('KANTO')) {
     return `${pokemonName} can be found after gaining access to Kanto.`;
   }
-  
+
   return `${pokemonName} can be encountered under special conditions.`;
 }
 
@@ -749,64 +769,64 @@ export function extractEventData(): EventData {
   eventData.specialEvents = [...filteredSpecialEvents, ...mapGiftEvents];
 
   // Extract phone call events (daily/time-based)
-  const phoneEvents: DailyEvent[] = [
-    {
-      id: 'jack_monday_morning',
-      name: "Jack's Monday Morning Call",
-      day: 'Monday',
-      location: 'Phone Call',
-      description: 'Jack calls on Monday mornings with special information.',
-      npcName: 'Jack',
-      timeOfDay: 'morning',
-    },
-    {
-      id: 'huey_wednesday_night',
-      name: "Huey's Wednesday Night Call",
-      day: 'Wednesday',
-      location: 'Phone Call',
-      description: 'Huey calls on Wednesday nights with special information.',
-      npcName: 'Huey',
-      timeOfDay: 'night',
-    },
-    {
-      id: 'gaven_thursday_morning',
-      name: "Gaven's Thursday Morning Call",
-      day: 'Thursday',
-      location: 'Phone Call',
-      description: 'Gaven calls on Thursday mornings with special information.',
-      npcName: 'Gaven',
-      timeOfDay: 'morning',
-    },
-    {
-      id: 'beth_friday_afternoon',
-      name: "Beth's Friday Afternoon Call",
-      day: 'Friday',
-      location: 'Phone Call',
-      description: 'Beth calls on Friday afternoons with special information.',
-      npcName: 'Beth',
-      timeOfDay: 'afternoon',
-    },
-    {
-      id: 'jose_saturday_night',
-      name: "Jose's Saturday Night Call",
-      day: 'Saturday',
-      location: 'Phone Call',
-      description: 'Jose calls on Saturday nights with special information.',
-      npcName: 'Jose',
-      timeOfDay: 'night',
-    },
-    {
-      id: 'reena_sunday_morning',
-      name: "Reena's Sunday Morning Call",
-      day: 'Sunday',
-      location: 'Phone Call',
-      description: 'Reena calls on Sunday mornings with special information.',
-      npcName: 'Reena',
-      timeOfDay: 'morning',
-    },
-  ];
+  // const phoneEvents: DailyEvent[] = [
+  //   {
+  //     id: 'jack_monday_morning',
+  //     name: "Jack's Monday Morning Call",
+  //     day: 'Monday',
+  //     location: 'Phone Call',
+  //     description: 'Jack calls on Monday mornings with special information.',
+  //     npcName: 'Jack',
+  //     timeOfDay: 'morning',
+  //   },
+  //   {
+  //     id: 'huey_wednesday_night',
+  //     name: "Huey's Wednesday Night Call",
+  //     day: 'Wednesday',
+  //     location: 'Phone Call',
+  //     description: 'Huey calls on Wednesday nights with special information.',
+  //     npcName: 'Huey',
+  //     timeOfDay: 'night',
+  //   },
+  //   {
+  //     id: 'gaven_thursday_morning',
+  //     name: "Gaven's Thursday Morning Call",
+  //     day: 'Thursday',
+  //     location: 'Phone Call',
+  //     description: 'Gaven calls on Thursday mornings with special information.',
+  //     npcName: 'Gaven',
+  //     timeOfDay: 'morning',
+  //   },
+  //   {
+  //     id: 'beth_friday_afternoon',
+  //     name: "Beth's Friday Afternoon Call",
+  //     day: 'Friday',
+  //     location: 'Phone Call',
+  //     description: 'Beth calls on Friday afternoons with special information.',
+  //     npcName: 'Beth',
+  //     timeOfDay: 'afternoon',
+  //   },
+  //   {
+  //     id: 'jose_saturday_night',
+  //     name: "Jose's Saturday Night Call",
+  //     day: 'Saturday',
+  //     location: 'Phone Call',
+  //     description: 'Jose calls on Saturday nights with special information.',
+  //     npcName: 'Jose',
+  //     timeOfDay: 'night',
+  //   },
+  //   {
+  //     id: 'reena_sunday_morning',
+  //     name: "Reena's Sunday Morning Call",
+  //     day: 'Sunday',
+  //     location: 'Phone Call',
+  //     description: 'Reena calls on Sunday mornings with special information.',
+  //     npcName: 'Reena',
+  //     timeOfDay: 'morning',
+  //   },
+  // ];
 
-  eventData.dailyEvents.push(...phoneEvents);
+  // eventData.dailyEvents.push(...phoneEvents);
 
   console.log(
     `📅 Extracted ${eventData.dailyEvents.length} daily events, ${eventData.weeklyEvents.length} weekly events, ${eventData.specialEvents.length} special events`,
