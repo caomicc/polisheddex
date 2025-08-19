@@ -344,21 +344,6 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
       </div>
       <TableWrapper>
         <Table className="table-fixed w-full min-w-[500px]">
-          {/* <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <TableHead key={header.id} className="label-text">
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(header.column.columnDef.header, header.getContext())}
-                    </TableHead>
-                  );
-                })}
-              </TableRow>
-            ))}
-          </TableHeader> */}
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
@@ -406,7 +391,6 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
           </TableBody>
         </Table>
       </TableWrapper>
-
       {/* Pagination */}
       {/* <div className="flex items-center justify-between space-x-2 py-4">
         <div className="flex-1 text-sm text-muted-foreground">

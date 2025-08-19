@@ -65,9 +65,9 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
   const { showFaithful } = useFaithfulPreference();
 
   return (
-    <div className="p-4 bg-white dark:bg-white/5 rounded-md md:rounded-2xl border border-border shadow-sm">
-      <Accordion type="single" collapsible>
-        <AccordionItem value="item-1">
+    <div className="">
+      <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
+        <AccordionItem value="item-1" className="p-0">
           <AccordionTrigger className="p-0  items-center">
             <div className="relative flex flex-row items-center gap-4">
               {/* not a pokemon sprite but w/e */}

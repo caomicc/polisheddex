@@ -410,6 +410,9 @@ export default function PokemonFormClient({
             <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
               <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-3">
                 <BentoGridNoLink className="col-span-1">
+                  <div className="mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200 capitalize">
+                    Sprites
+                  </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="flex flex-col items-center justify-center gap-2">
                       <PokemonSprite
@@ -461,6 +464,9 @@ export default function PokemonFormClient({
                   </div>
                 </BentoGridNoLink>
                 <BentoGridNoLink className="col-span-2">
+                  <div className="mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200 capitalize">
+                    Evolution Chain
+                  </div>
                   {formData.evolution &&
                   formData.evolution.chainWithMethods &&
                   Object.keys(formData.evolution.chainWithMethods).length > 1 ? (

@@ -1,6 +1,5 @@
 import { GymLeader, LocationTrainer, Move, PokemonType } from '@/types/types';
 import Image from 'next/image';
-import { Card, CardContent } from '../ui/card';
 import pokemonBaseData from '@/output/pokemon_base_data.json';
 import pokemonMoveDescriptions from '@/output/manifests/moves.json';
 import { Badge } from '../ui/badge';
@@ -12,6 +11,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '..
 import { TrainerSprite } from './trainer-sprite';
 import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
 import { GroupedTrainer } from '@/utils/trainerGrouping';
+import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
 
 interface GroupedTrainerCardProps {
   groupedTrainer: GroupedTrainer;
@@ -26,26 +26,28 @@ function TrainerTeamDisplay({ trainer }: { trainer: LocationTrainer | GymLeader 
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-      {trainer.pokemon.map((poke, idx) => {
-        type PokemonBaseDataKey = keyof typeof pokemonBaseData;
-        const speciesKey = poke.species.toLowerCase() as PokemonBaseDataKey;
-        const pokemonData = pokemonBaseData[speciesKey];
-        const types: string[] = Array.isArray(pokemonData?.types)
-          ? pokemonData.types
-          : typeof pokemonData?.types === 'string'
-            ? [pokemonData.types]
-            : [];
+    <div className="">
+      <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-3">
+        {trainer.pokemon.map((poke, idx) => {
+          type PokemonBaseDataKey = keyof typeof pokemonBaseData;
+          const speciesKey = poke.species.toLowerCase() as PokemonBaseDataKey;
+          const pokemonData = pokemonBaseData[speciesKey];
+          const types: string[] = Array.isArray(pokemonData?.types)
+            ? pokemonData.types
+            : typeof pokemonData?.types === 'string'
+              ? [pokemonData.types]
+              : [];
 
-        const updatedTypes: string[] = Array.isArray(pokemonData?.updatedTypes)
-          ? pokemonData.updatedTypes
-          : typeof pokemonData?.updatedTypes === 'string'
-            ? [pokemonData.updatedTypes]
-            : [];
+          const updatedTypes: string[] = Array.isArray(pokemonData?.updatedTypes)
+            ? pokemonData.updatedTypes
+            : typeof pokemonData?.updatedTypes === 'string'
+              ? [pokemonData.updatedTypes]
+              : [];
 
-        return (
-          <Card key={idx} className="bg-white dark:bg-black/5 border border-border p-0 shadow-none">
-            <CardContent className="p-4 flex flex-col gap-2">
+          return (
+            <BentoGridNoLink key={idx} className="bg-neutral-50 dark:bg-white/10">
+              {/* <Card className="bg-white dark:bg-black/5 border border-border p-0 shadow-none">
+                <CardContent className="p-4 flex flex-col gap-2"> */}
               <div className="flex items-center gap-3">
                 <Link
                   href={`${createPokemonUrl(poke.species)}${poke.form ? `?form=${poke.form?.toLowerCase().replace(/ form/g, '')}` : ''}`}
@@ -162,10 +164,12 @@ function TrainerTeamDisplay({ trainer }: { trainer: LocationTrainer | GymLeader 
                   );
                 })}
               </ul>
-            </CardContent>
-          </Card>
-        );
-      })}
+              {/* </CardContent>
+              </Card> */}
+            </BentoGridNoLink>
+          );
+        })}
+      </BentoGrid>
     </div>
   );
 }
@@ -221,12 +225,13 @@ export default function GroupedTrainerCard({
   }
 
   return (
-    <div className="p-4 bg-white dark:bg-white/5 rounded-md md:rounded-2xl border border-border shadow-sm">
+    <div className="">
       <Accordion type="single" collapsible>
         <AccordionItem value="trainer-details">
           <AccordionTrigger className="p-0 items-center">
             <div className="relative flex flex-row items-center gap-4">
               <TrainerSprite
+                className="shadow-none"
                 trainerName={
                   ['rival0', 'rival1', 'lyra0', 'lyra1'].includes(
                     baseTrainer.trainerClass.toLowerCase().replace(/-/g, '_'),
@@ -255,18 +260,11 @@ export default function GroupedTrainerCard({
                   )}
                   {isGrouped && (
                     <Badge variant="secondary" className="ml-2 text-xs">
-                      {rematches.length === 0 
-                        ? 'Double battle' 
-                        : `${rematches.length + 1} battles`}
+                      {rematches.length === 0 ? 'Double battle' : `${rematches.length + 1} battles`}
                     </Badge>
                   )}
                 </h3>
                 {isGymLeader && 'badge' in baseTrainer && <p>Badge: {String(baseTrainer.badge)}</p>}
-                {/* {isGrouped && (
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    Can be rematched for stronger teams
-                  </p>
-                )} */}
               </div>
             </div>
           </AccordionTrigger>

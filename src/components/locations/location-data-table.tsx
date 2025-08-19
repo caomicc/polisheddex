@@ -475,6 +475,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
           </span>
         </div>
       </div>
+
       <TableWrapper>
         <Table className="table-fixed w-full min-w-[500px]">
           <TableHeader>
