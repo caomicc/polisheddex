@@ -728,7 +728,11 @@ h3,
 }
 
 .table-link {
-  @apply text-xs md:text-sm items-center inline-flex hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 gap-1 font-bold tracking-[0.5px] text-neutral-600 dark:text-neutral-200;
+  @apply text-xs md:text-sm items-center inline-flex hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 gap-1 font-bold tracking-[0.5px] text-neutral-700 dark:text-neutral-200;
+}
+
+.table-lead-column-text {
+  @apply text-xs md:text-sm items-center inline-flex gap-1 font-bold tracking-[0.5px] text-neutral-600 dark:text-neutral-200;
 }
 
 .text-cell {

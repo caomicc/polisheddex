@@ -72,7 +72,9 @@ const columns: ColumnDef<ItemLocation>[] = [
               <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
             </Link>
           ) : (
-            <span className="">{location.area}</span>
+            <span className="table-lead-column-text" style={{ textDecoration: 'none !important' }}>
+              {location.area}
+            </span>
           )}
         </div>
       );
