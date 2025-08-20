@@ -62,6 +62,7 @@ export type EventType =
   | 'special'
   | 'legendary'
   | 'egg'
+  | 'phone_item'
   | 'gift';
 
 export type AnyEvent = DailyEvent | WeeklyEvent | SpecialEvent;

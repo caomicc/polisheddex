@@ -41,6 +41,8 @@ export type EventCardProps =
 export function EventCard(props: EventCardProps) {
   const { variant, event, className } = props;
 
+  console.log('EventCard', { variant, event });
+
   const timeOfDay = (() => {
     if ('timeOfDay' in event && event.timeOfDay) {
       switch (event.timeOfDay) {
@@ -58,11 +60,36 @@ export function EventCard(props: EventCardProps) {
 
   const iconImageUrl = (() => {
     if (variant === 'special') {
+      if ((event as unknown as DailyEvent).reward) {
+        switch ((event as unknown as DailyEvent).reward) {
+          case 'Iron':
+          case 'Calcium':
+          case 'Protein':
+          case 'Carbos':
+            return '/sprites/items/vitamin.png';
+          case 'HP Up':
+            return '/sprites/items/hp_up.png';
+          case 'Leaf Stone':
+            return '/sprites/items/leaf_stone.png';
+          case 'Fire Stone':
+            return '/sprites/items/fire_stone.png';
+          case 'Water Stone':
+            return '/sprites/items/water_stone.png';
+          case 'Thunder Stone':
+            return '/sprites/items/thunderstone.png';
+          case 'Pink Bow':
+            return '/sprites/items/pink_bow.png';
+        }
+      }
       switch ((event as SpecialEvent).type) {
         case 'egg':
           return '/sprites/items/mystery_egg.png';
         case 'gift':
           return '/sprites/items/poke_ball.png';
+        case 'call':
+        case 'phone_item':
+          return '/sprites/items/pokegear.png';
+
         default:
           break;
       }
