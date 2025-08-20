@@ -601,7 +601,10 @@ export function extractDetailedStats(
               break;
             }
           }
-          break; // We've found and processed the conditional block
+          // Only break if we actually found type information in this conditional block
+          if (hasConditionalTypes) {
+            break;
+          }
         }
       }
 
@@ -630,8 +633,9 @@ export function extractDetailedStats(
         }
       }
 
-      // If updatedTypes is still unknown but faithfulTypes is known, use faithfulTypes as the default
-      if (updatedTypes === 'Unknown' && faithfulTypes !== 'Unknown') {
+      // Only fallback to faithfulTypes if no conditional types were found at all
+      // This prevents overwriting correctly parsed updatedTypes
+      if (!hasConditionalTypes && updatedTypes === 'Unknown' && faithfulTypes !== 'Unknown') {
         updatedTypes = faithfulTypes;
       }
 
