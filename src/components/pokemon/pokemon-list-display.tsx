@@ -233,7 +233,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
   }, [view]);
 
   return (
-    <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+    <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
       <div className="flex flex-col gap-4 border border-neutral-200 bg-white p-4 rounded-xl mb-4 dark:border-white/[0.2] dark:bg-black dark:shadow-none">
         {/* Primary search and filters */}
         <div className="flex flex-col sm:flex-row gap-4 ">

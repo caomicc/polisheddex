@@ -118,7 +118,7 @@ export default function PokemonFormClient({
             value="stats"
             className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
           >
-            <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+            <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
               <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-6">
                 <BentoGridNoLink className="md:col-span-3">
                   {(() => {
@@ -236,7 +236,7 @@ export default function PokemonFormClient({
                 {/* </BentoGridNoLink> */}
               </BentoGrid>
             </div>
-            <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+            <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
               <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-2">
                 <BentoGridNoLink className="md:col-span-1">
                   <h3 className={'font-bold text-neutral-600 dark:text-neutral-200 capitalize'}>
@@ -407,7 +407,7 @@ export default function PokemonFormClient({
               </BentoGrid>
             </div>
 
-            <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+            <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
               <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-3">
                 <BentoGridNoLink className="md:col-span-1">
                   <div className="mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200 capitalize">
@@ -540,7 +540,7 @@ export default function PokemonFormClient({
             value="moves"
             className="text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
           >
-            <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+            <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
               <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-1">
                 <BentoGridNoLink>
                   <Tabs defaultValue="level-up" className="w-full">
@@ -755,7 +755,7 @@ export default function PokemonFormClient({
             value="location"
             className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
           >
-            <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+            <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
               <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-1">
                 {(() => {
                   if (

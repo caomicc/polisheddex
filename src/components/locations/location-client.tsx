@@ -83,7 +83,7 @@ export default function LocationClient({
 
   return (
     <>
-      <div className="relative z-10 space-y-4">
+      <div className="relative z-10 space-y-4 py-4">
         {/* About tab - Location details */}
         {comprehensiveInfo &&
         comprehensiveInfo.connections &&
@@ -136,7 +136,7 @@ export default function LocationClient({
           <></>
         )}
       </div>
-      <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 space-y-4">
+      <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full space-y-4">
         {comprehensiveInfo?.trainers && (
           <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-1">
             {groupRematchTrainers(comprehensiveInfo.trainers)?.map((groupedTrainer, index) => (
@@ -298,7 +298,7 @@ export default function LocationClient({
       </div>
 
       {comprehensiveInfo?.items && (
-        <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 space-y-4">
+        <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full space-y-4">
           <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-4">
             {comprehensiveInfo?.items?.map((item: LocationItem, index: number) => {
               // Check if this is a TM/HM item

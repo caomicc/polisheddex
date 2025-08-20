@@ -110,7 +110,7 @@ export default function MoveDetailClient({
       />
       <div className="space-y-6 max-w-4xl mx-auto  mb-10">
         {/* Move Information Card */}
-        <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
           <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-4">
             <BentoGridNoLink>
               <div>
