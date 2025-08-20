@@ -77,7 +77,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
   // Generate the correct URL with form parameter if needed
 
   const baseClassName = cn(
-    'group/bento row-span-1 flex flex-row justify-between space-y-4 rounded-xl border border-neutral-200 bg-white p-4 transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-black shadow-none relative gap-2',
+    'group/bento row-span-1 flex flex-row justify-start space-y-4 rounded-xl border border-neutral-200 bg-white p-4 transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-black shadow-none relative gap-2',
     gradientProps.className,
     `shadow-${primaryType.toLowerCase()}`,
   );
@@ -96,7 +96,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
         className="aspect-square mb-0"
         size="default"
       />
-      <div className="flex w-[100%] justify-center flex-col ml-2">
+      <div className="flex w-auto justify-center flex-col ml-2">
         <p
           className={cn(
             'text-xs md:text-sm top-4 right-4 md:top-0 md:right-0 font-medium tracking-wide mb-1 absolute md:relative leading-[21px]',

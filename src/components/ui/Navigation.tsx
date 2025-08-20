@@ -74,7 +74,7 @@ export default function Navigation() {
           boxShadow: visible
             ? '0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset'
             : 'none',
-          width: visible ? '60%' : '100%',
+          width: visible ? '80%' : '100%',
           y: visible ? 10 : 0,
         }}
         transition={{
@@ -329,7 +329,7 @@ export default function Navigation() {
               </div>
               <span
                 className={cn(
-                  'font-bold text-sm transition-colors duration-300 dark:text-white',
+                  'hidden sm:flex font-bold text-sm md:text-lg transition-colors duration-300 dark:text-white',
                   hasPokemonTheme && 'pokemon-hero-text',
                 )}
               >
@@ -376,7 +376,7 @@ export default function Navigation() {
               damping: 50,
             }}
             className={cn(
-              'absolute inset-x-0 top-20 z-50 mx-auto flex w-[calc(100vw-3rem)] max-w-7xl flex-col items-start justify-start gap-2 px-4 rounded-xl bg-white py-4 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:hidden dark:bg-neutral-950 backdrop-blur-md',
+              'absolute inset-x-0 top-20 z-50 mx-auto flex w-[calc(100vw-3rem)] max-w-7xl flex-col items-start justify-start gap-2 px-4 rounded-xl bg-white py-4 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] lg:hidden dark:bg-neutral-950 backdrop-blur-md',
               // visible && 'bg-white dark:bg-background',
             )}
           >

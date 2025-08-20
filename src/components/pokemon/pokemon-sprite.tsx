@@ -25,8 +25,8 @@ interface PokemonSpriteProps {
 const spriteVariants = cva('relative bg-white', {
   variants: {
     size: {
-      default: 'p-2 w-12 md:w-20 h-12 md:h-20 rounded-lg md:rounded-lg',
-      sm: 'w-10 h-10 p-1 rounded-md',
+      default: 'aspect-square p-2 w-12 md:w-20 rounded-lg md:rounded-lg',
+      sm: 'aspect-square w-10 p-1 rounded-md',
     },
   },
   defaultVariants: {
@@ -47,10 +47,10 @@ export function PokemonSprite({
   hoverAnimate = false,
 }: PokemonSpriteProps) {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   // Determine the sprite type: use hover state if hoverAnimate is enabled, otherwise use the type prop
   const actualType = hoverAnimate ? (isHovered ? 'animated' : 'static') : type;
-  
+
   const { spriteInfo, isLoading } = useSpriteData(pokemonName, variant, actualType, form);
 
   // Fallback to legacy src prop if provided and sprite data not available

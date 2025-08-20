@@ -26,7 +26,7 @@ export default function Home() {
         {/* <div className="absolute inset-x-0 bottom-0 h-px w-full bg-neutral-200/80 dark:bg-neutral-800/80">
           <div className="absolute mx-auto h-px w-40 bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
         </div> */}
-        <div className="px-4 py-10 md:py-20">
+        <div className="py-10 md:py-20">
           <h1 className="relative z-10 mx-auto max-w-3xl text-center text-3xl font-bold text-slate-700 md:text-4xl lg:text-6xl dark:text-slate-300">
             {'Your Polished Crystal Journey Starts Here'.split(' ').map((word, index) => (
               <motion.span
@@ -115,7 +115,7 @@ export default function Home() {
             }}
             className="relative z-10 mt-20 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900"
           >
-            <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
+            <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {getItems(showFaithful).map((item, i) => (
                 <BentoGridItem
                   key={i}
@@ -192,35 +192,35 @@ const PokemonSkeleton = ({ showFaithful }: { showFaithful: boolean }) => {
       initial="initial"
       animate="animate"
       whileHover="hover"
-      className="flex flex-1 gap-4 sm:gap-0 w-full h-full flex-col sm:flex-row min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2]"
+      className="flex flex-1 gap-4 w-full h-full flex-col sm:flex-row min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2]"
     >
-      <div className="w-full sm:w-1/3 grid grid-cols-4 sm:grid-cols-2">
+      <div className="w-full sm:w-1/4 md:w-1/3 grid grid-cols-4 sm:grid-cols-2 gap-2">
         <PokemonSprite
-          className="w-14 h-14 shadow-none border-neutral-100 border-1"
+          className="w-full shadow-none border-neutral-100 border-1"
           pokemonName={showFaithful ? 'togepi' : 'togekiss'}
           variant="normal"
           hoverAnimate={true}
         />
         <PokemonSprite
-          className="w-14 h-14 shadow-none border-neutral-100 border-1"
+          className="w-full shadow-none border-neutral-100 border-1"
           pokemonName="gengar"
           hoverAnimate={true}
         />
         <PokemonSprite
-          className="w-14 h-14 shadow-none border-neutral-100 border-1"
+          className="w-full shadow-none border-neutral-100 border-1"
           pokemonName="ho-oh"
           hoverAnimate={true}
         />
         <PokemonSprite
-          className="w-14 h-14 shadow-none border-neutral-100 border-1"
+          className="w-full shadow-none border-neutral-100 border-1"
           pokemonName={showFaithful ? 'dragonair' : 'dragonite'}
           hoverAnimate={true}
         />
       </div>
-      <div className="w-full sm:w-2/3 flex-col space-y-3">
+      <div className="w-full sm:w-3/4 md:w-2/3 flex-col space-y-3 content-around flex flex-wrap">
         {stats.map((stat, i) => (
-          <div key={'skeleton-two' + i} className="w-full flex-row flex gap-2">
-            <Badge variant="secondary" className={'w-14 text-xs rounded-full h-[18px]'}>
+          <div key={'skeleton-two' + i} className="w-full flex-row flex gap-2 items-center">
+            <Badge variant="secondary" className={'w-14 lg:h-[18px] p-0!'}>
               {stat.label.toUpperCase()}
             </Badge>
             <motion.div
@@ -228,7 +228,7 @@ const PokemonSkeleton = ({ showFaithful }: { showFaithful: boolean }) => {
               style={{
                 maxWidth: stat.fixedWidth + '%',
               }}
-              className={`flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 optional:bg-neutral-100 dark:bg-black w-full h-4 ${stat.barColor}`}
+              className={`flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] lg:p-2 items-center justify-between space-x-2 optional:bg-neutral-100 dark:bg-black w-full h-3 lg:h-[16px] ${stat.barColor}`}
             ></motion.div>
           </div>
         ))}
@@ -382,13 +382,18 @@ const LocationsSkeleton = () => {
         repeat: Infinity,
         repeatType: 'reverse',
       }}
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2"
+      className="overflow-hidden relative flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2"
       style={{
-        background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)',
+        backgroundImage: 'linear-gradient(-45deg, #c27aff, #51a2ff, #23a6d5, #23d5ab)',
         backgroundSize: '400% 400%',
       }}
     >
-      <motion.div className="h-full w-full rounded-lg"></motion.div>
+      <Image
+        src="/tiles/6/15/37.webp"
+        alt="Pallet Town"
+        fill
+        className="w-full h-full object-cover object-top opacity-80"
+      />
     </motion.div>
   );
 };
@@ -487,13 +492,15 @@ const EventsSkeleton = () => {
     <motion.div
       initial="initial"
       whileHover="animate"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] space-y-2 flex-col sm:flex-row gap-4"
+      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] space-y-2 flex-col sm:flex-row gap-2 sm:gap-4"
     >
       <motion.div
         variants={variants}
         className="flex flex-col space-y-2 rounded-lg border border-neutral-100 dark:border-white/[0.2] p-2 items-start space-x-2 w-full sm:w-1/3 h-full ml-auto bg-white dark:bg-black text-center"
       >
-        <div className="w-full bg-red-200 p-1 text-red-900 font-black rounded-md h-8">Daily</div>
+        <div className="w-full bg-red-200 p-1 text-red-900 font-black rounded-md text-sm sm:text-base">
+          Daily
+        </div>
         {dailyArr.map((_, i) => (
           <div
             key={'skeleton-two' + i}
@@ -506,9 +513,9 @@ const EventsSkeleton = () => {
       </motion.div>
       <motion.div
         variants={variants}
-        className="hidden sm:flex flex-col space-y-2 rounded-lg border border-neutral-100 dark:border-white/[0.2] p-2 items-start space-x-2 w-full sm:w-1/3 h-full ml-auto bg-white dark:bg-black text-center"
+        className="flex flex-col space-y-2 rounded-lg border border-neutral-100 dark:border-white/[0.2] p-2 items-start space-x-2 w-full sm:w-1/3 h-full ml-auto bg-white dark:bg-black text-center"
       >
-        <div className="w-full bg-green-200 p-1 text-green-900 font-black rounded-md h-8">
+        <div className="w-full bg-green-200 p-1 text-green-900 font-black rounded-md text-sm sm:text-base">
           Weekly
         </div>
         {weeklyArr.map((_, i) => (
@@ -525,7 +532,7 @@ const EventsSkeleton = () => {
         variants={variants}
         className="flex flex-col space-y-2 rounded-lg border border-neutral-100 dark:border-white/[0.2] p-2 items-start space-x-2 w-full sm:w-1/3 h-full ml-auto bg-white dark:bg-black text-center"
       >
-        <div className="w-full bg-purple-200 p-1 text-purple-900 font-black rounded-md h-8">
+        <div className="w-full bg-purple-200 p-1 text-purple-900 font-black rounded-md text-sm sm:text-base">
           Special
         </div>
         {specialArr.map((_, i) => (
@@ -677,7 +684,7 @@ const getItems = (showFaithful: boolean) => [
     description: <span className="text-sm">Discover stats, types, and evolutions</span>,
     header: <PokemonSkeleton showFaithful={showFaithful} />,
     href: '/pokemon',
-    className: 'md:col-span-2',
+    className: 'col-span-1 sm:col-span-2 lg:col-span-2',
     icon: <Image src="/sprites/poke-ball.png" width={24} height={24} alt="Icon 1" />,
   },
   {
@@ -685,7 +692,7 @@ const getItems = (showFaithful: boolean) => [
     description: <span className="text-sm">Quick answers to common queries</span>,
     header: <HelpSkeleton />,
     href: '/faq',
-    className: 'md:col-span-1',
+    className: 'col-span-1 lg:col-span-1',
     icon: <Image src="/sprites/escape-rope.png" width={24} height={24} alt="Icon 1" />,
   },
   {
@@ -693,7 +700,7 @@ const getItems = (showFaithful: boolean) => [
     description: <span className="text-sm">From Tackle to Thunder</span>,
     header: <AttackdexSkeleton />,
     href: '/moves',
-    className: 'md:col-span-1',
+    className: 'col-span-1 lg:col-span-1',
     icon: <Image src="/sprites/tm-case.png" width={24} height={24} alt="Icon 1" />,
   },
   {
@@ -701,7 +708,7 @@ const getItems = (showFaithful: boolean) => [
     description: <span className="text-sm">From Kanto to the Orange Islands</span>,
     header: <LocationsSkeleton />,
     href: '/locations',
-    className: 'md:col-span-1',
+    className: 'col-span-1 lg:col-span-1',
     icon: <Image src="/sprites/town-map.png" width={24} height={24} alt="Icon 1" />,
   },
   {
@@ -709,7 +716,7 @@ const getItems = (showFaithful: boolean) => [
     description: <span className="text-sm">Every item, every effect</span>,
     header: <ItemsSkeleton />,
     href: '/items',
-    className: 'md:col-span-1',
+    className: 'col-span-1 lg:col-span-1',
     icon: <Image src="/sprites/forage-bag.png" width={24} height={24} alt="Icon 1" />,
   },
   {
@@ -717,7 +724,7 @@ const getItems = (showFaithful: boolean) => [
     description: <span className="text-sm">Dailies, weeklies, and more</span>,
     header: <EventsSkeleton />,
     href: '/events',
-    className: 'md:col-span-2',
+    className: 'col-span-1 sm:col-span-1 lg:col-span-2',
     icon: <Image src="/sprites/mystery-egg.png" width={24} height={24} alt="Icon 1" />,
   },
   {
@@ -725,7 +732,7 @@ const getItems = (showFaithful: boolean) => [
     description: <span className="text-sm">Unlock competitive advantages</span>,
     header: <AbilitiesSkeleton />,
     href: '/abilities',
-    className: 'md:col-span-1',
+    className: 'col-span-1 sm:col-span-1 lg:col-span-1',
     icon: <Image src="/sprites/ability-capsule.png" width={24} height={24} alt="Icon 1" />,
   },
 
@@ -734,7 +741,7 @@ const getItems = (showFaithful: boolean) => [
     description: <span className="text-sm">Strategy meets synergy</span>,
     header: <TeamBuilderSkeleton />,
     href: '/team-builder',
-    className: 'md:col-span-3',
+    className: 'col-span-1 sm:col-span-2 lg:col-span-3',
     icon: <Image src="/sprites/choice-scarf.png" width={24} height={24} alt="Icon 1" />,
   },
 ];
