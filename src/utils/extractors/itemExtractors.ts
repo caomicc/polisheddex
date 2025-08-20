@@ -1206,13 +1206,9 @@ export function extractBerryTreeLocations(itemData: Record<string, ItemData>): v
     const mapContent = fs.readFileSync(mapPath, 'utf8');
     const lines = mapContent.split(/\r?\n/);
 
-    // Extract location name from filename
-    const locationName = path
-      .basename(mapFile, '.asm')
-      .replace(/([a-z])([A-Z])/g, '$1 $2') // Add spaces between camelCase
-      .replace(/(\d+)([A-Z])/g, '$1 $2') // Add spaces between numbers and letters
-      .replace(/([A-Z])(\d+)/g, '$1 $2') // Add spaces between letters and numbers
-      .trim();
+    // Extract location name from filename and format for display
+    const locationKey = path.basename(mapFile, '.asm');
+    const locationName = formatDisplayName(locationKey);
 
     for (const line of lines) {
       const trimmedLine = line.trim();
@@ -1225,6 +1221,8 @@ export function extractBerryTreeLocations(itemData: Record<string, ItemData>): v
         const x = parseInt(fruitTreeMatch[1]);
         const y = parseInt(fruitTreeMatch[2]);
         const berryName = fruitTreeMatch[3];
+        // Skip apricorn entries (they are handled separately)
+        if (berryName.includes('APRICORN') || berryName.includes('apricorn')) return;
 
         // Normalize berry name to match item IDs
         const normalizedBerryId = normalizeItemId(berryName);
@@ -1320,13 +1318,13 @@ export function extractApricornItems(itemData: Record<string, ItemData>): void {
       description: 'A red apricorn that can be used by Kurt to make Level Balls.',
     },
     BLU_APRICORN: {
-      id: 'blu-apricorn', 
+      id: 'blu-apricorn',
       name: 'Blu Apricorn',
       description: 'A blue apricorn that can be used by Kurt to make Lure Balls.',
     },
     YLW_APRICORN: {
       id: 'ylw-apricorn',
-      name: 'Ylw Apricorn', 
+      name: 'Ylw Apricorn',
       description: 'A yellow apricorn that can be used by Kurt to make Moon Balls.',
     },
     GRN_APRICORN: {
@@ -1352,7 +1350,10 @@ export function extractApricornItems(itemData: Record<string, ItemData>): void {
   };
 
   // Store apricorn locations
-  const apricornLocations: Record<string, Array<{ area: string; coordinates?: { x: number; y: number } }>> = {};
+  const apricornLocations: Record<
+    string,
+    Array<{ area: string; coordinates?: { x: number; y: number } }>
+  > = {};
 
   // Get all map files
   const mapFiles = fs.readdirSync(mapsDir).filter((file) => file.endsWith('.asm'));
@@ -1362,13 +1363,9 @@ export function extractApricornItems(itemData: Record<string, ItemData>): void {
     const mapContent = fs.readFileSync(mapPath, 'utf8');
     const lines = mapContent.split(/\r?\n/);
 
-    // Extract location name from filename
-    const locationName = path
-      .basename(mapFile, '.asm')
-      .replace(/([a-z])([A-Z])/g, '$1 $2') // Add spaces between camelCase
-      .replace(/(\d+)([A-Z])/g, '$1 $2') // Add spaces between numbers and letters
-      .replace(/([A-Z])(\d+)/g, '$1 $2') // Add spaces between letters and numbers
-      .trim();
+    // Extract location name from filename and format for display
+    const locationKey = path.basename(mapFile, '.asm');
+    const locationName = formatDisplayName(locationKey);
 
     for (const line of lines) {
       const trimmedLine = line.trim();
@@ -1377,7 +1374,7 @@ export function extractApricornItems(itemData: Record<string, ItemData>): void {
       const fruitTreeMatch = trimmedLine.match(
         /fruittree_event\s+(-?\d+),\s*(-?\d+),\s*\w+,\s*(\w+_APRICORN),/,
       );
-      
+
       if (fruitTreeMatch) {
         const x = parseInt(fruitTreeMatch[1]);
         const y = parseInt(fruitTreeMatch[2]);
@@ -1404,7 +1401,7 @@ export function extractApricornItems(itemData: Record<string, ItemData>): void {
 
   for (const [apricornType, apricornData] of Object.entries(apricornTypes)) {
     const { id, name, description } = apricornData;
-    
+
     // Create the apricorn item if it doesn't exist
     if (!itemData[id]) {
       itemData[id] = {
@@ -1427,14 +1424,17 @@ export function extractApricornItems(itemData: Record<string, ItemData>): void {
       for (const location of apricornLocations[id]) {
         itemData[id].locations!.push({
           area: location.area,
-          details: 'Apricorn tree',
+          details: 'Fruit tree (apricorn)',
+          coordinates: location.coordinates,
         });
       }
     }
   }
 
   console.log(`✅ Created ${apricornsCreated} apricorn items`);
-  console.log(`🌳 Found apricorn trees in ${Object.keys(apricornLocations).length} different types`);
+  console.log(
+    `🌳 Found apricorn trees in ${Object.keys(apricornLocations).length} different types`,
+  );
 
   // Log some debug info
   for (const [apricornId, locations] of Object.entries(apricornLocations)) {
@@ -1571,13 +1571,9 @@ export function extractEventItemLocations(itemData: Record<string, ItemData>): v
     const mapContent = fs.readFileSync(mapPath, 'utf8');
     const lines = mapContent.split(/\r?\n/);
 
-    // Extract location name from filename
-    const locationName = path
-      .basename(mapFile, '.asm')
-      .replace(/([a-z])([A-Z])/g, '$1 $2') // Add spaces between camelCase
-      .replace(/(\d+)([A-Z])/g, '$1 $2') // Add spaces between numbers and letters
-      .replace(/([A-Z])(\d+)/g, '$1 $2') // Add spaces between letters and numbers
-      .trim();
+    // Extract location name from filename and format for display
+    const locationKey = path.basename(mapFile, '.asm');
+    const locationName = formatDisplayName(locationKey);
 
     let currentNPC = null;
 
@@ -1692,7 +1688,10 @@ export function extractMapItemLocations(itemData: Record<string, ItemData>): voi
   }
 
   // Store map items by their normalized IDs
-  const mapItems: Record<string, Array<{ area: string; details: string; coordinates?: { x: number; y: number } }>> = {};
+  const mapItems: Record<
+    string,
+    Array<{ area: string; details: string; coordinates?: { x: number; y: number } }>
+  > = {};
 
   // Get all map files
   const mapFiles = fs.readdirSync(mapsDir).filter((file) => file.endsWith('.asm'));
@@ -1702,7 +1701,7 @@ export function extractMapItemLocations(itemData: Record<string, ItemData>): voi
     const mapContent = fs.readFileSync(mapPath, 'utf8');
     const lines = mapContent.split(/\r?\n/);
 
-    // Extract location name from filename and format it properly
+    // Extract location name from filename and format for display
     const locationKey = path.basename(mapFile, '.asm');
     const locationName = formatDisplayName(locationKey);
 
@@ -1731,7 +1730,9 @@ export function extractMapItemLocations(itemData: Record<string, ItemData>): voi
       }
 
       // Hidden item events (bg_event with BGEVENT_ITEM)
-      const hiddenItemMatch = trimmedLine.match(/bg_event\s+(\d+),\s*(\d+),\s*BGEVENT_ITEM\s*\+\s*(\w+),/);
+      const hiddenItemMatch = trimmedLine.match(
+        /bg_event\s+(\d+),\s*(\d+),\s*BGEVENT_ITEM\s*\+\s*(\w+),/,
+      );
       if (hiddenItemMatch) {
         const x = parseInt(hiddenItemMatch[1]);
         const y = parseInt(hiddenItemMatch[2]);
@@ -1752,12 +1753,19 @@ export function extractMapItemLocations(itemData: Record<string, ItemData>): voi
       }
 
       // Berry tree events (fruittree_event)
-      const berryTreeMatch = trimmedLine.match(/fruittree_event\s+(\d+),\s*(\d+),\s*FRUITTREE_(\w+),\s*(\w+)/);
+      const berryTreeMatch = trimmedLine.match(
+        /fruittree_event\s+(\d+),\s*(\d+),\s*FRUITTREE_(\w+),\s*(\w+)/,
+      );
       if (berryTreeMatch) {
         const x = parseInt(berryTreeMatch[1]);
         const y = parseInt(berryTreeMatch[2]);
         const treeType = berryTreeMatch[3]; // e.g., "CHESTO"
         const berryName = berryTreeMatch[4]; // e.g., "CHESTO_BERRY"
+
+        // Skip apricorn entries (they are handled separately)
+        if (berryName.includes('APRICORN') || berryName.includes('apricorn')) {
+          continue;
+        }
 
         // Convert berry name to item ID (CHESTO_BERRY -> chestoberry)
         const normalizedItemId = normalizeItemId(berryName);
