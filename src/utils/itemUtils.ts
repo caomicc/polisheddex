@@ -38,7 +38,7 @@ export function getItemIdFromDisplayName(displayName: string): string | null {
     // Apricorns - now handled as individual items
     redapricorn: 'red-apricorn',
     bluapricorn: 'blu-apricorn',
-    whtapricorn: 'wht-apricorn', 
+    whtapricorn: 'wht-apricorn',
     grnapricorn: 'grn-apricorn',
     ylwapricorn: 'ylw-apricorn',
     pnkapricorn: 'pnk-apricorn',
@@ -261,13 +261,13 @@ export const ITEM_SPRITE_MAP: Record<string, string> = {
   silph_scope2: 'silphscope2',
 
   // Apricorns - all use the generic apricorn sprite
-  'red-apricorn': 'apricorn',
-  'blu-apricorn': 'apricorn', 
-  'wht-apricorn': 'apricorn',
-  'grn-apricorn': 'apricorn',
-  'ylw-apricorn': 'apricorn',
-  'pnk-apricorn': 'apricorn',
-  'blk-apricorn': 'apricorn',
+  red_apricorn: 'apricorn',
+  blu_apricorn: 'apricorn',
+  wht_apricorn: 'apricorn',
+  grn_apricorn: 'apricorn',
+  ylw_apricorn: 'apricorn',
+  pnk_apricorn: 'apricorn',
+  blk_apricorn: 'apricorn',
 
   // Add more mappings as needed
 };
