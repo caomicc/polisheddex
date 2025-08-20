@@ -47,6 +47,8 @@ export function normalizeLocationKey(input: string): string {
     .replace(/_b(\d+)_f(?=_|$)/g, '_b_$1f')
     // Handle regular floor patterns: "tower_1_f" -> "tower_1f"
     .replace(/(\w)_?(\d+)_+f(_|$)/gi, '$1_$2f$3')
+    // Ensure room/floor numbers have consistent underscore separation
+    .replace(/(room)(\d+)(_|$)/gi, '$1_$2$3')
     // Pattern for standalone numbers that should be floors - but NOT for routes
     // Only add "f" to numbers that are likely floors (between words that suggest buildings/areas)
     .replace(
