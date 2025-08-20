@@ -273,45 +273,63 @@ export function deepReplaceMonString(obj: unknown): unknown {
  * Format a normalized location key into a display-friendly name
  */
 export function formatDisplayName(normalizedKey: string): string {
-  return normalizedKey
-    .replace(/([a-z])([A-Z])/g, '$1_$2') // Add underscore before capitals
-    .replace(/([a-zA-Z])(\d+[Ff])/g, '$1_$2') // Separate letters from floor numbers like "Tower1F" -> "Tower_1F"
-    .replace(/([Bb])(\d+[Ff])(north|south|east|west)/gi, '$1$2_$3') // Handle "B1fnorth" -> "B1f_north"
-    .split('_')
-    .map((word) => {
-      // Handle floor abbreviations (both uppercase and lowercase f)
-      if (/^[Bb]\d+[Ff]$/i.test(word)) {
-        const floorNum = word.match(/\d+/)?.[0];
-        return `Basement ${floorNum ? ordinalSuffix(parseInt(floorNum)) : ''} Floor`;
-      }
-      if (/^\d+[Ff]$/i.test(word)) {
-        const floorNum = word.match(/\d+/)?.[0];
-        return `${floorNum ? ordinalSuffix(parseInt(floorNum)) : ''} Floor`;
-      }
-      // Handle directions
-      if (/^(ne|nw|se|sw|ea|we|n|s|e|w|north|south|east|west)$/i.test(word)) {
-        const dirMap: Record<string, string> = {
-          n: 'North',
-          s: 'South',
-          e: 'East',
-          w: 'West',
-          ne: 'Northeast',
-          nw: 'Northwest',
-          se: 'Southeast',
-          sw: 'Southwest',
-          ea: 'East',
-          we: 'West',
-          north: 'North',
-          south: 'South',
-          east: 'East',
-          west: 'West',
-        };
-        return dirMap[word.toLowerCase()] || word.toUpperCase();
-      }
-      // Capitalize normal words
-      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-    })
-    .join(' ');
+  return (
+    normalizedKey
+      .replace(/([a-z])([A-Z])/g, '$1_$2') // Add underscore before capitals
+      .replace(/([a-zA-Z])(\d+[Ff])/g, '$1_$2') // Separate letters from floor numbers like "Tower1F" -> "Tower_1F"
+      .replace(/(\d+[Ff])([A-Z][a-z])/g, '$1_$2') // Separate floor numbers from following words like "1FInside" -> "1F_Inside"
+      .replace(/([Bb])(\d+[Ff])(north|south|east|west|coast|inside)/gi, '$1$2_$3') // Handle "B1fnorth" -> "B1f_north"
+      .replace(/(\d+)([a-z]+)/g, '$1_$2')
+      .replace(/(route)(\d+)(north|south|east|west|coast|inside)/gi, '$1_$2_$3') // Separate route numbers: "Route44" -> "Route_44"
+      // Separate digits from following lowercase words (handles "route42inside" -> "route_42_inside")
+      .split('_')
+      .map((word) => {
+        // Handle floor abbreviations (both uppercase and lowercase f)
+        if (/^[Bb]\d+[Ff]$/i.test(word)) {
+          const floorNum = word.match(/\d+/)?.[0];
+          return `Basement ${floorNum ? ordinalSuffix(parseInt(floorNum)) : ''} Floor`;
+        }
+        if (/^\d+[Ff]$/i.test(word)) {
+          const floorNum = word.match(/\d+/)?.[0];
+          return `${floorNum ? ordinalSuffix(parseInt(floorNum)) : ''} Floor`;
+        }
+        // Handle route numbers (route44 -> Route 44)
+        if (/^route\d+[a-zA-Z]*$/i.test(word)) {
+          const m = word.match(/^route(\d+)([a-zA-Z]+)?$/i);
+          const routeNum = m?.[1];
+          const suffix = m?.[2];
+          if (routeNum) {
+            if (suffix) {
+              return `Route ${routeNum} ${suffix.charAt(0).toUpperCase() + suffix.slice(1).toLowerCase()}`;
+            }
+            return `Route ${routeNum}`;
+          }
+        }
+        // Handle directions
+        if (/^(ne|nw|se|sw|ea|we|n|s|e|w|north|south|east|west)$/i.test(word)) {
+          const dirMap: Record<string, string> = {
+            n: 'North',
+            s: 'South',
+            e: 'East',
+            w: 'West',
+            ne: 'Northeast',
+            nw: 'Northwest',
+            se: 'Southeast',
+            sw: 'Southwest',
+            ea: 'East',
+            we: 'West',
+            north: 'North',
+            south: 'South',
+            east: 'East',
+            west: 'West',
+          };
+          return dirMap[word.toLowerCase()] || word.toUpperCase();
+        }
+        // Capitalize normal words (numbers remain unchanged)
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      })
+      .join(' ')
+  );
 }
 
 /**

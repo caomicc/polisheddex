@@ -809,24 +809,22 @@ export default function PokemonFormClient({
                             <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                             Wild Encounters
                           </h3>
-                          <div className="border-border border rounded-lg overflow-hidden">
-                            <Table>
-                              <TableHeader>
-                                <TableRow>
-                                  <TableHead className="text-left">Area</TableHead>
-                                  <TableHead className="text-left">Method</TableHead>
-                                  <TableHead className="text-left">Time</TableHead>
-                                  <TableHead className="text-left">Level</TableHead>
-                                  <TableHead className="text-left">Rate</TableHead>
-                                </TableRow>
-                              </TableHeader>
-                              <TableBody>
-                                {wildLocations.map((loc: LocationEntry, idx: number) => (
-                                  <LocationListItem key={`wild-${idx}`} {...loc} />
-                                ))}
-                              </TableBody>
-                            </Table>
-                          </div>
+                          <Table>
+                            <TableHeader>
+                              <TableRow>
+                                <TableHead className="text-left label-text">Area</TableHead>
+                                <TableHead className="text-left label-text">Method</TableHead>
+                                <TableHead className="text-left label-text">Time</TableHead>
+                                <TableHead className="text-left label-text">Level</TableHead>
+                                <TableHead className="text-left label-text">Rate</TableHead>
+                              </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                              {wildLocations.map((loc: LocationEntry, idx: number) => (
+                                <LocationListItem key={`wild-${idx}`} {...loc} />
+                              ))}
+                            </TableBody>
+                          </Table>
                         </BentoGridNoLink>
                       )}
 
@@ -837,30 +835,28 @@ export default function PokemonFormClient({
                             <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                             Gift Pokémon
                           </h3>
-                          <div className="border-border border rounded-lg overflow-hidden">
-                            <Table>
-                              <TableHeader>
-                                <TableRow>
-                                  <TableHead className="text-left">Location</TableHead>
-                                  <TableHead className="text-left">NPC</TableHead>
-                                  <TableHead className="text-left">Requirements</TableHead>
+                          <Table>
+                            <TableHeader>
+                              <TableRow>
+                                <TableHead className="text-left label-text">Location</TableHead>
+                                <TableHead className="text-left label-text">NPC</TableHead>
+                                <TableHead className="text-left label-text">Requirements</TableHead>
+                              </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                              {giftLocations.map((loc: LocationEntry, idx: number) => (
+                                <TableRow key={`gift-${idx}`} className="hover:bg-muted/50">
+                                  <TableCell className="font-medium">
+                                    {loc.area || loc.location || 'Unknown'}
+                                  </TableCell>
+                                  <TableCell>{loc.npc || 'NPC'}</TableCell>
+                                  <TableCell className="text-sm text-muted-foreground">
+                                    {loc.conditions || 'Various requirements'}
+                                  </TableCell>
                                 </TableRow>
-                              </TableHeader>
-                              <TableBody>
-                                {giftLocations.map((loc: LocationEntry, idx: number) => (
-                                  <TableRow key={`gift-${idx}`} className="hover:bg-muted/50">
-                                    <TableCell className="font-medium">
-                                      {loc.area || loc.location || 'Unknown'}
-                                    </TableCell>
-                                    <TableCell>{loc.npc || 'NPC'}</TableCell>
-                                    <TableCell className="text-sm text-muted-foreground">
-                                      {loc.conditions || 'Various requirements'}
-                                    </TableCell>
-                                  </TableRow>
-                                ))}
-                              </TableBody>
-                            </Table>
-                          </div>
+                              ))}
+                            </TableBody>
+                          </Table>
                         </BentoGridNoLink>
                       )}
 
@@ -871,40 +867,38 @@ export default function PokemonFormClient({
                             <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
                             Special Events
                           </h3>
-                          <div className="border-border border rounded-lg overflow-hidden">
-                            <Table>
-                              <TableHeader>
-                                <TableRow>
-                                  <TableHead className="text-left">Location</TableHead>
-                                  <TableHead className="text-left">Method</TableHead>
-                                  <TableHead className="text-left">Requirements</TableHead>
+                          <Table className="table-fixed w-full min-w-[500px]">
+                            <TableHeader>
+                              <TableRow>
+                                <TableHead className="text-left label-text">Location</TableHead>
+                                <TableHead className="text-left label-text">Method</TableHead>
+                                <TableHead className="text-left label-text">Requirements</TableHead>
+                              </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                              {eventLocations.map((loc: LocationEntry, idx: number) => (
+                                <TableRow key={`event-${idx}`} className="hover:bg-muted/50">
+                                  <TableCell className="font-medium">
+                                    {loc.area || loc.location || 'Unknown'}
+                                  </TableCell>
+                                  <TableCell>
+                                    <Badge variant="outline" className="capitalize">
+                                      {loc.method === 'static'
+                                        ? 'Static Encounter'
+                                        : loc.method === 'roaming'
+                                          ? 'Roaming'
+                                          : loc.method === 'event'
+                                            ? 'Event'
+                                            : loc.method}
+                                    </Badge>
+                                  </TableCell>
+                                  <TableCell className="text-sm text-muted-foreground">
+                                    {loc.conditions || 'Special requirements'}
+                                  </TableCell>
                                 </TableRow>
-                              </TableHeader>
-                              <TableBody>
-                                {eventLocations.map((loc: LocationEntry, idx: number) => (
-                                  <TableRow key={`event-${idx}`} className="hover:bg-muted/50">
-                                    <TableCell className="font-medium">
-                                      {loc.area || loc.location || 'Unknown'}
-                                    </TableCell>
-                                    <TableCell>
-                                      <Badge variant="outline" className="capitalize">
-                                        {loc.method === 'static'
-                                          ? 'Static Encounter'
-                                          : loc.method === 'roaming'
-                                            ? 'Roaming'
-                                            : loc.method === 'event'
-                                              ? 'Event'
-                                              : loc.method}
-                                      </Badge>
-                                    </TableCell>
-                                    <TableCell className="text-sm text-muted-foreground">
-                                      {loc.conditions || 'Special requirements'}
-                                    </TableCell>
-                                  </TableRow>
-                                ))}
-                              </TableBody>
-                            </Table>
-                          </div>
+                              ))}
+                            </TableBody>
+                          </Table>
                         </BentoGridNoLink>
                       )}
                     </>

@@ -5,6 +5,7 @@ import { extractMartData } from './martExtractors.ts';
 import { replaceMonString } from '../stringUtils.ts';
 import { normalizeLocationKey } from '../locationUtils.ts';
 import { extractTMHMLocations } from './tmHmExtractors.ts';
+import { formatDisplayName } from '../stringUtils.ts';
 import type { LocationItem } from '../../../src/types/types.ts';
 // Define types for item data
 export interface ItemData {
@@ -325,6 +326,9 @@ export function extractItemData(): Record<string, ItemData> {
 
   console.log('🔧 Extracting event-based item locations...');
   extractEventItemLocations(items);
+
+  console.log('🗺️ Extracting map-based item locations...');
+  extractMapItemLocations(items);
 
   // Write the extracted data to a JSON file
   fs.writeFileSync(outputFile, JSON.stringify(items, null, 2));
@@ -1512,6 +1516,171 @@ export function extractEventItemLocations(itemData: Record<string, ItemData>): v
     console.log(
       `⚠️ Could not match ${unmatchedEventItems.length} event items:`,
       unmatchedEventItems.join(', '),
+    );
+  }
+}
+
+/**
+ * Extract map-based item locations (visible/hidden items) and add them to item data
+ * @param itemData The existing item data to update with location information
+ */
+export function extractMapItemLocations(itemData: Record<string, ItemData>): void {
+  // Use this workaround for __dirname in ES modules
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  console.log('🗺️ Extracting map-based item locations...');
+
+  // Path to maps directory
+  const mapsDir = path.join(__dirname, '../../../polishedcrystal/maps');
+
+  if (!fs.existsSync(mapsDir)) {
+    console.log('⚠️ Maps directory not found, skipping map items extraction');
+    return;
+  }
+
+  // Store map items by their normalized IDs
+  const mapItems: Record<string, Array<{ area: string; details: string; coordinates?: { x: number; y: number } }>> = {};
+
+  // Get all map files
+  const mapFiles = fs.readdirSync(mapsDir).filter((file) => file.endsWith('.asm'));
+
+  for (const mapFile of mapFiles) {
+    const mapPath = path.join(mapsDir, mapFile);
+    const mapContent = fs.readFileSync(mapPath, 'utf8');
+    const lines = mapContent.split(/\r?\n/);
+
+    // Extract location name from filename and format it properly
+    const locationKey = path.basename(mapFile, '.asm');
+    const locationName = formatDisplayName(locationKey);
+
+    for (const line of lines) {
+      const trimmedLine = line.trim();
+
+      // Visible item events (itemball_event)
+      const visibleItemMatch = trimmedLine.match(/itemball_event\s+(\d+),\s*(\d+),\s*(\w+),/);
+      if (visibleItemMatch) {
+        const x = parseInt(visibleItemMatch[1]);
+        const y = parseInt(visibleItemMatch[2]);
+        const itemName = visibleItemMatch[3];
+
+        // Normalize item name to match item IDs
+        const normalizedItemId = normalizeItemId(itemName);
+
+        if (!mapItems[normalizedItemId]) {
+          mapItems[normalizedItemId] = [];
+        }
+
+        mapItems[normalizedItemId].push({
+          area: locationName,
+          details: 'Visible item',
+          coordinates: { x, y },
+        });
+      }
+
+      // Hidden item events (bg_event with BGEVENT_ITEM)
+      const hiddenItemMatch = trimmedLine.match(/bg_event\s+(\d+),\s*(\d+),\s*BGEVENT_ITEM\s*\+\s*(\w+),/);
+      if (hiddenItemMatch) {
+        const x = parseInt(hiddenItemMatch[1]);
+        const y = parseInt(hiddenItemMatch[2]);
+        const itemName = hiddenItemMatch[3];
+
+        // Normalize item name to match item IDs
+        const normalizedItemId = normalizeItemId(itemName);
+
+        if (!mapItems[normalizedItemId]) {
+          mapItems[normalizedItemId] = [];
+        }
+
+        mapItems[normalizedItemId].push({
+          area: locationName,
+          details: 'Hidden item',
+          coordinates: { x, y },
+        });
+      }
+
+      // Berry tree events (fruittree_event)
+      const berryTreeMatch = trimmedLine.match(/fruittree_event\s+(\d+),\s*(\d+),\s*FRUITTREE_(\w+),\s*(\w+)/);
+      if (berryTreeMatch) {
+        const x = parseInt(berryTreeMatch[1]);
+        const y = parseInt(berryTreeMatch[2]);
+        const treeType = berryTreeMatch[3]; // e.g., "CHESTO"
+        const berryName = berryTreeMatch[4]; // e.g., "CHESTO_BERRY"
+
+        // Convert berry name to item ID (CHESTO_BERRY -> chestoberry)
+        const normalizedItemId = normalizeItemId(berryName);
+
+        if (!mapItems[normalizedItemId]) {
+          mapItems[normalizedItemId] = [];
+        }
+
+        mapItems[normalizedItemId].push({
+          area: locationName,
+          details: 'Berry tree',
+          coordinates: { x, y },
+        });
+      }
+    }
+  }
+
+  // Update item data with map-based location information
+  let itemsWithMapLocations = 0;
+  const unmatchedMapItems: string[] = [];
+
+  for (const [itemId, locations] of Object.entries(mapItems)) {
+    // Try different ID variations to match with existing items
+    const possibleIds = [
+      itemId,
+      itemId.replace(/[_-]/g, ''), // Remove all underscores and hyphens
+      itemId.replace(/[_-]/g, '').toLowerCase(),
+      generateItemId(itemId),
+      itemId.toLowerCase(),
+      // Handle specific X-stat items (x-sp-atk -> xspatk)
+      itemId.replace(/^x[-_]([a-z]+)[-_]([a-z]+)$/i, 'x$1$2'),
+      // Handle old-sea-map -> oldseamap
+      itemId.replace(/[-_]/g, '').replace(/^old/, 'old'),
+      // Handle smoke-ball -> smoke
+      itemId.replace(/^smoke[-_]ball$/i, 'smoke'),
+      // Handle iron-ball -> iron
+      itemId.replace(/^iron[-_]ball$/i, 'iron'),
+    ];
+
+    let found = false;
+    for (const id of possibleIds) {
+      if (itemData[id]) {
+        if (!itemData[id].locations) {
+          itemData[id].locations = [];
+        }
+
+        // Add all locations for this item
+        for (const location of locations) {
+          itemData[id].locations.push({
+            area: location.area,
+            details: location.details,
+            ...(location.coordinates ? { coordinates: location.coordinates } : {}),
+          });
+        }
+
+        itemsWithMapLocations++;
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      unmatchedMapItems.push(itemId);
+    }
+  }
+
+  console.log(`✅ Added map-based location data to ${itemsWithMapLocations} items`);
+  console.log(
+    `🗺️ Found ${Object.keys(mapItems).length} unique items in ${mapFiles.length} map files`,
+  );
+
+  if (unmatchedMapItems.length > 0) {
+    console.log(
+      `⚠️ Could not match ${unmatchedMapItems.length} map items:`,
+      unmatchedMapItems.slice(0, 10).join(', ') + (unmatchedMapItems.length > 10 ? '...' : ''),
     );
   }
 }

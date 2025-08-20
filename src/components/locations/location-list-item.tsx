@@ -12,24 +12,21 @@ export function LocationListItem({ area, method, time, level, chance }: Location
   const desktopRows = [
     <TableRow
       key={`row-${formattedArea}-${level}`}
-      className="hover:bg-muted/50 border-b-0 group hidden md:table-row"
+      className="hover:bg-muted/50 group hidden md:table-row"
     >
       <TableCell className="font-semibold">
         {area ? (
-          <Link
-            href={areaUrl}
-            className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
+          <Link href={areaUrl} className="table-link">
             {getLocationDisplayName(area)}
           </Link>
         ) : (
           getLocationDisplayName(formattedArea)
         )}
       </TableCell>
-      <TableCell className="">
+      <TableCell className="text-xs">
         {method ? formatMethod(method) : <span className="text-gray-400 text-sm">—</span>}
       </TableCell>
-      <TableCell className="text-sm">
+      <TableCell className="text-xs">
         {time ? (
           <TimeIcon
             time={time}
@@ -40,46 +37,26 @@ export function LocationListItem({ area, method, time, level, chance }: Location
           <span className="text-gray-400 text-sm">—</span>
         )}
       </TableCell>
-      <TableCell className="text-sm">
+      <TableCell className="text-xs">
         {level ? <span>Lv. {level}</span> : <span className="text-gray-400 text-sm">—</span>}
       </TableCell>
-      <TableCell className="text-sm">
+      <TableCell className="text-xs">
         {chance ? <span>{chance}%</span> : <span className="text-gray-400 text-sm">—</span>}
       </TableCell>
-      {/* <TableCell className="text-amber-600 font-medium">
-        {rareItem
-          ? (() => {
-              const itemId = getItemIdFromDisplayName(rareItem);
-              return itemId ? (
-                <Link
-                  href={`/items/${itemId}`}
-                  className="hover:text-amber-700 hover:underline transition-colors"
-                >
-                  Item: {rareItem}
-                </Link>
-              ) : (
-                `Item: ${rareItem}`
-              );
-            })()
-          : '-'}
-      </TableCell> */}
     </TableRow>,
   ];
 
   const mobileRows = [
     <TableRow
       key={`row-${area || formattedArea}-${level}-mobile`}
-      className="hover:bg-muted/50 border-b-0 md:hidden"
+      className="hover:bg-muted/50 md:hidden"
     >
       {/* Mobile combined cell for level and name */}
       <TableCell className="align-middle p-2">
         <div className="flex items-center">
           <span className="font-bold">
             {area ? (
-              <Link
-                href={areaUrl}
-                className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
+              <Link href={areaUrl} className="table-link">
                 {getLocationDisplayName(area)}
               </Link>
             ) : (
@@ -99,7 +76,7 @@ export function LocationListItem({ area, method, time, level, chance }: Location
     </TableRow>,
     <TableRow key={`desc-${area || formattedArea}-${level}-mobile`} className="md:hidden">
       <TableCell className={cn('text-muted-foreground text-xs px-2 pb-3 italic')} colSpan={4}>
-        <span className="">Lv. {level ?? '—'}</span>
+        <span className="">Lv. {level ?? <span className="text-gray-400 text-sm">—</span>}</span>
       </TableCell>
     </TableRow>,
   ];
