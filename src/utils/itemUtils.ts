@@ -146,14 +146,17 @@ export function isTMItem(itemName: string, itemType?: string): boolean {
 
 /**
  * Convert a move name to a URL-safe format for linking
- * @param moveName The move name (e.g., "Dynamicpunch")
- * @returns URL-safe move name (e.g., "dynamicpunch")
+ * @param moveName The move name (e.g., "Dragon Claw", "Fire Punch")
+ * @returns URL-safe move name (e.g., "dragon-claw", "fire-punch")
  */
 export function getMoveUrlFromName(moveName: string): string {
   return moveName
     .toLowerCase()
-    .replace(/[^a-z0-9]/g, '') // Remove all non-alphanumeric characters
-    .trim();
+    .trim()
+    .replace(/\s+/g, '-') // Convert spaces to hyphens
+    .replace(/[^a-z0-9-]/g, '') // Keep only alphanumeric characters and hyphens
+    .replace(/-+/g, '-') // Replace multiple consecutive hyphens with single hyphen
+    .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
 }
 
 /**
