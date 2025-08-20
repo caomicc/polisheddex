@@ -114,3 +114,11 @@ For questions or feedback, open an issue or contact [Cammy](https://caomi.cc).
 - http://localhost:3001/locations/violet_gym
 - http://localhost:3001/locations/route_31
 - http://localhost:3001/events
+
+## map command
+```
+vips dzsave FullMapFinal.png ../public/tiles \
+  --layout google \
+  --suffix '.webp[Q=80]' \
+  --tile-size 256
+```
