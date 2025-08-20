@@ -527,7 +527,7 @@ export default function PokemonFormClient({
                       })()}
                     />
                   ) : (
-                    <div className="text-gray-500 text-center w-full my-4 text-sm">
+                    <div className="text-gray-500 text-center w-full my-4 text-sm mb-auto">
                       No evolution data.
                     </div>
                   )}
@@ -803,8 +803,7 @@ export default function PokemonFormClient({
                       {/* Wild Encounters */}
                       {wildLocations.length > 0 && (
                         <BentoGridNoLink>
-                          <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                          <h3 className="text-lg font-semibold mb-3 flex items-center gap-2 text-neutral-600 dark:text-neutral-200">
                             Wild Encounters
                           </h3>
                           <Table>
@@ -839,8 +838,7 @@ export default function PokemonFormClient({
                       {/* Gift Pokemon */}
                       {giftLocations.length > 0 && (
                         <BentoGridNoLink>
-                          <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                          <h3 className="text-lg font-semibold mb-3 flex items-center gap-2 text-neutral-600 dark:text-neutral-200">
                             Gift Pokémon
                           </h3>
                           <Table>
@@ -871,8 +869,7 @@ export default function PokemonFormClient({
                       {/* Event/Legendary Pokemon */}
                       {eventLocations.length > 0 && (
                         <BentoGridNoLink>
-                          <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                            <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                          <h3 className="text-lg font-semibold mb-3 flex items-center gap-2 text-neutral-600 dark:text-neutral-200">
                             Special Events
                           </h3>
                           <Table className="table-fixed w-full min-w-[500px]">

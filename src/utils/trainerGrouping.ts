@@ -4,6 +4,83 @@ export interface GroupedTrainer {
   baseTrainer: LocationTrainer;
   rematches: LocationTrainer[];
   isGrouped: boolean;
+  groupType?: 'rematch' | 'starter_variation' | 'double_battle';
+}
+
+/**
+ * Detect if a group of trainers represents starter variations
+ * rather than traditional rematches
+ */
+function isStarterVariationGroup(group: LocationTrainer[]): boolean {
+  if (group.length < 2) return false;
+  
+  const firstTrainer = group[0];
+  
+  // Check if this is a known starter-dependent trainer
+  const starterTrainers = ['lyra', 'rival', '<rival>'];
+  const isStarterTrainer = starterTrainers.some(name => 
+    firstTrainer.name.toLowerCase().includes(name.toLowerCase()) ||
+    firstTrainer.trainerClass.toLowerCase().includes('lyra') ||
+    firstTrainer.trainerClass.toLowerCase().includes('rival')
+  );
+  
+  if (!isStarterTrainer) return false;
+  
+  // Check if all trainers have similar levels (starter variations should be at similar levels)
+  // Unlike rematches which typically have increasing levels
+  const levels = group.flatMap(trainer => 
+    trainer.pokemon?.map(p => p.level || 0) || []
+  );
+  
+  if (levels.length === 0) return false;
+  
+  const minLevel = Math.min(...levels);
+  const maxLevel = Math.max(...levels);
+  const levelRange = maxLevel - minLevel;
+  
+  // If level range is small (≤ 10), likely starter variations
+  // If level range is large (> 15), likely rematches
+  return levelRange <= 10;
+}
+
+/**
+ * Analyze a trainer group to determine the most likely grouping type
+ */
+function determineGroupType(group: LocationTrainer[]): 'rematch' | 'starter_variation' | 'double_battle' {
+  const firstTrainer = group[0];
+  
+  // Check for starter variations first
+  if (isStarterVariationGroup(group)) {
+    return 'starter_variation';
+  }
+  
+  // Check for trainer pairs/twins (double battles)
+  if (group.length === 2) {
+    const areTrainerPairs = group.every(
+      (trainer) =>
+        trainer.name === firstTrainer.name &&
+        trainer.trainerClass === firstTrainer.trainerClass &&
+        (trainer.trainerClass === 'TWINS' ||
+          trainer.trainerClass === 'SR_AND_JR' ||
+          trainer.trainerClass === 'ACE_DUO' ||
+          trainer.name.includes('&')) &&
+        // Check if coordinates are adjacent
+        Math.abs(trainer.coordinates.x - firstTrainer.coordinates.x) <= 2 &&
+        Math.abs(trainer.coordinates.y - firstTrainer.coordinates.y) <= 2 &&
+        // But not exactly the same coordinates
+        !(
+          trainer.coordinates.x === firstTrainer.coordinates.x &&
+          trainer.coordinates.y === firstTrainer.coordinates.y
+        ),
+    );
+    
+    if (areTrainerPairs) {
+      return 'double_battle';
+    }
+  }
+  
+  // Default to rematch for other grouped trainers
+  return 'rematch';
 }
 
 export function groupRematchTrainers(trainers: LocationTrainer[]): GroupedTrainer[] {
@@ -84,6 +161,7 @@ export function groupRematchTrainers(trainers: LocationTrainer[]): GroupedTraine
           baseTrainer: sortedRematches[0], // First encounter
           rematches: sortedRematches.slice(1), // Subsequent rematches
           isGrouped: true,
+          groupType: 'rematch',
         });
       } else if (areTrainerPairs) {
         // Group as trainer pairs/twins - combine their Pokémon into one encounter
@@ -103,6 +181,7 @@ export function groupRematchTrainers(trainers: LocationTrainer[]): GroupedTraine
           baseTrainer: combinedTrainer,
           rematches: [],
           isGrouped: true,
+          groupType: 'double_battle',
         });
       } else {
         // Check if they're likely rematches even if rematchable flag is wrong
@@ -121,20 +200,40 @@ export function groupRematchTrainers(trainers: LocationTrainer[]): GroupedTraine
         }
 
         if (hasSequentialIds && allHaveNumbers && group.length > 1) {
-          // These are likely rematches despite the rematchable flag being false
-          const sortedRematches = group.sort((a, b) => {
-            const aNum = parseInt(a.id.match(/\d+$/)?.[0] || '1');
-            const bNum = parseInt(b.id.match(/\d+$/)?.[0] || '1');
-            return aNum - bNum;
-          });
+          // Determine the type of grouping for this trainer set
+          const groupType = determineGroupType(group);
+          
+          if (groupType === 'starter_variation') {
+            // Group as starter variations - sort by ID
+            const sortedVariations = group.sort((a, b) => {
+              const aNum = parseInt(a.id.match(/\d+$/)?.[0] || '1');
+              const bNum = parseInt(b.id.match(/\d+$/)?.[0] || '1');
+              return aNum - bNum;
+            });
 
-          groupedTrainers.push({
-            baseTrainer: sortedRematches[0], // First encounter
-            rematches: sortedRematches.slice(1), // Subsequent rematches
-            isGrouped: true,
-          });
+            groupedTrainers.push({
+              baseTrainer: sortedVariations[0], // First variation (often Chikorita team)
+              rematches: sortedVariations.slice(1), // Other starter variations
+              isGrouped: true,
+              groupType: 'starter_variation',
+            });
+          } else {
+            // These are likely rematches despite the rematchable flag being false
+            const sortedRematches = group.sort((a, b) => {
+              const aNum = parseInt(a.id.match(/\d+$/)?.[0] || '1');
+              const bNum = parseInt(b.id.match(/\d+$/)?.[0] || '1');
+              return aNum - bNum;
+            });
+
+            groupedTrainers.push({
+              baseTrainer: sortedRematches[0], // First encounter
+              rematches: sortedRematches.slice(1), // Subsequent rematches
+              isGrouped: true,
+              groupType: 'rematch',
+            });
+          }
         } else {
-          // Different trainers (like starter-dependent rivals) - keep separate
+          // Different trainers (unrelated) - keep separate
           group.forEach((trainer) => {
             groupedTrainers.push({
               baseTrainer: trainer,

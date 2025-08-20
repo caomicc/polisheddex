@@ -129,16 +129,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
       return (
         <div className="flex gap-1 flex-wrap">
           {abilityTypes.map((abilityType) => (
-            <Badge
-              key={abilityType}
-              variant="secondary"
-              className={cn(
-                'text-xs',
-                abilityType === 'primary' && 'bg-blue-100 text-blue-800',
-                abilityType === 'secondary' && 'bg-green-100 text-green-800',
-                abilityType === 'hidden' && 'bg-purple-100 text-purple-800',
-              )}
-            >
+            <Badge key={abilityType} variant={abilityType}>
               {abilityType === 'primary' && 'Primary'}
               {abilityType === 'secondary' && 'Secondary'}
               {abilityType === 'hidden' && 'Hidden'}

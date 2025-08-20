@@ -241,6 +241,11 @@ export function getFallbackTrainerSprite(
       break;
     case 'rocket_scientist':
       normalizedName = 'scientist';
+    case 'prof_elm':
+      normalizedName = 'elm';
+      break;
+    case 'prof_oak':
+      normalizedName = 'oak';
       break;
     default:
       break;

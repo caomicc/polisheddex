@@ -185,7 +185,7 @@ export default function GroupedTrainerCard({
   groupedTrainer,
   isGymLeader,
 }: GroupedTrainerCardProps) {
-  const { baseTrainer, rematches, isGrouped } = groupedTrainer;
+  const { baseTrainer, rematches, isGrouped, groupType } = groupedTrainer;
 
   // Define gym leader classes to check against
   const gymLeaderClasses = [
@@ -344,7 +344,11 @@ export default function GroupedTrainerCard({
                   )}
                   {isGrouped && (
                     <Badge variant="secondary" className="ml-2 text-xs">
-                      {rematches.length === 0 ? 'Double battle' : `${rematches.length + 1} battles`}
+                      {groupType === 'double_battle' 
+                        ? 'Double battle'
+                        : groupType === 'starter_variation'
+                        ? `${rematches.length + 1} teams`
+                        : `${rematches.length + 1} battles`}
                     </Badge>
                   )}
                 </h3>
@@ -362,21 +366,96 @@ export default function GroupedTrainerCard({
                 <TrainerTeamDisplay trainer={baseTrainer} />
               </div>
             ) : (
-              // Grouped trainer - show initial battle and rematches
+              // Grouped trainer - show based on group type
               <div className="space-y-6">
-                {/* Initial Battle */}
+                {/* Initial Team/Battle */}
                 <div>
-                  <h4 className="font-semibold mb-3 text-lg">Initial Battle</h4>
+                  <h4 className="font-semibold mb-3 text-lg">
+                    {groupType === 'starter_variation' ? (() => {
+                      // Determine player's starter based on base trainer's starter
+                      const hasChikorita = baseTrainer.pokemon?.some(p => 
+                        p.species.toLowerCase().includes('chikorita') || 
+                        p.species.toLowerCase().includes('bayleef') || 
+                        p.species.toLowerCase().includes('meganium')
+                      );
+                      
+                      const hasCyndaquil = baseTrainer.pokemon?.some(p => 
+                        p.species.toLowerCase().includes('cyndaquil') || 
+                        p.species.toLowerCase().includes('quilava') || 
+                        p.species.toLowerCase().includes('typhlosion')
+                      );
+                      
+                      const hasTotodile = baseTrainer.pokemon?.some(p => 
+                        p.species.toLowerCase().includes('totodile') || 
+                        p.species.toLowerCase().includes('croconaw') || 
+                        p.species.toLowerCase().includes('feraligatr')
+                      );
+
+                      if (hasChikorita) {
+                        return 'Team 1 (if you choose Cyndaquil)';
+                      } else if (hasTotodile) {
+                        return 'Team 1 (if you choose Chikorita)';
+                      } else if (hasCyndaquil) {
+                        return 'Team 1 (if you choose Totodile)';
+                      } else {
+                        return 'Team 1';
+                      }
+                    })() : 'Initial Battle'}
+                  </h4>
                   <TrainerTeamDisplay trainer={baseTrainer} />
                 </div>
 
-                {/* Rematches */}
-                {rematches.map((rematchTrainer, index) => (
-                  <div key={rematchTrainer.id}>
-                    <h4 className="font-semibold mb-3 text-lg">Rematch {index + 1}</h4>
-                    <TrainerTeamDisplay trainer={rematchTrainer} />
-                  </div>
-                ))}
+                {/* Additional Teams/Rematches */}
+                {rematches.map((rematchTrainer, index) => {
+                  // For starter variations, determine which starter the player chose based on opponent's team
+                  let starterContext = '';
+                  if (groupType === 'starter_variation') {
+                    // Look at the opponent's starter to determine which starter the player chose
+                    const hasChikorita = rematchTrainer.pokemon?.some(p => 
+                      p.species.toLowerCase().includes('chikorita') || 
+                      p.species.toLowerCase().includes('bayleef') || 
+                      p.species.toLowerCase().includes('meganium')
+                    );
+                    
+                    const hasCyndaquil = rematchTrainer.pokemon?.some(p => 
+                      p.species.toLowerCase().includes('cyndaquil') || 
+                      p.species.toLowerCase().includes('quilava') || 
+                      p.species.toLowerCase().includes('typhlosion')
+                    );
+                    
+                    const hasTotodile = rematchTrainer.pokemon?.some(p => 
+                      p.species.toLowerCase().includes('totodile') || 
+                      p.species.toLowerCase().includes('croconaw') || 
+                      p.species.toLowerCase().includes('feraligatr')
+                    );
+
+                    if (hasChikorita) {
+                      // Opponent has Chikorita, so player chose Cyndaquil (Fire beats Grass)
+                      starterContext = 'if you choose Cyndaquil';
+                    } else if (hasTotodile) {
+                      // Opponent has Totodile, so player chose Chikorita (Grass gets neutral vs Water)
+                      starterContext = 'if you choose Chikorita';
+                    } else if (hasCyndaquil) {
+                      // Opponent has Cyndaquil, so player chose Totodile (Water beats Fire)
+                      starterContext = 'if you choose Totodile';
+                    } else {
+                      // Fallback to index-based assignment
+                      const starters = ['Cyndaquil', 'Chikorita'];
+                      starterContext = `if you choose ${starters[index] || 'Cyndaquil'}`;
+                    }
+                  }
+
+                  return (
+                    <div key={rematchTrainer.id}>
+                      <h4 className="font-semibold mb-3 text-lg">
+                        {groupType === 'starter_variation'
+                          ? `Team ${index + 2} (${starterContext})`
+                          : `Rematch ${index + 1}`}
+                      </h4>
+                      <TrainerTeamDisplay trainer={rematchTrainer} />
+                    </div>
+                  );
+                })}
               </div>
             )}
           </AccordionContent>

@@ -275,7 +275,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
   };
 
   return (
-    <div className="w-full px-2 sm:px-0">
+    <div className="w-full">
       <div className="flex flex-col gap-4 border border-neutral-200 bg-white p-4 rounded-xl mb-4 dark:border-white/[0.2] dark:bg-black dark:shadow-none">
         {/* Primary search */}
         <div className="flex flex-col sm:flex-row gap-4">
