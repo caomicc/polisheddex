@@ -321,6 +321,9 @@ export function extractItemData(): Record<string, ItemData> {
   console.log('🔧 Extracting berry tree locations...');
   extractBerryTreeLocations(items);
 
+  console.log('🔧 Extracting apricorn items from fruit trees...');
+  extractApricornItems(items);
+
   console.log("🔧 Extracting Kurt's ball crafting locations...");
   extractKurtBallLocations(items);
 
@@ -1287,6 +1290,155 @@ export function extractBerryTreeLocations(itemData: Record<string, ItemData>): v
       `⚠️ Could not match ${unmatchedBerries.length} berry items:`,
       unmatchedBerries.join(', '),
     );
+  }
+}
+
+/**
+ * Extract apricorn items from fruit tree events and create them as proper items
+ * @param itemData The existing item data to add apricorn items to
+ */
+export function extractApricornItems(itemData: Record<string, ItemData>): void {
+  // Use this workaround for __dirname in ES modules
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  console.log('🔧 Extracting apricorn items from fruit tree events...');
+
+  // Path to maps directory
+  const mapsDir = path.join(__dirname, '../../../polishedcrystal/maps');
+
+  if (!fs.existsSync(mapsDir)) {
+    console.log('⚠️ Maps directory not found, skipping apricorn extraction');
+    return;
+  }
+
+  // Define apricorn types and their properties
+  const apricornTypes = {
+    RED_APRICORN: {
+      id: 'red-apricorn',
+      name: 'Red Apricorn',
+      description: 'A red apricorn that can be used by Kurt to make Level Balls.',
+    },
+    BLU_APRICORN: {
+      id: 'blu-apricorn', 
+      name: 'Blu Apricorn',
+      description: 'A blue apricorn that can be used by Kurt to make Lure Balls.',
+    },
+    YLW_APRICORN: {
+      id: 'ylw-apricorn',
+      name: 'Ylw Apricorn', 
+      description: 'A yellow apricorn that can be used by Kurt to make Moon Balls.',
+    },
+    GRN_APRICORN: {
+      id: 'grn-apricorn',
+      name: 'Grn Apricorn',
+      description: 'A green apricorn that can be used by Kurt to make Friend Balls.',
+    },
+    WHT_APRICORN: {
+      id: 'wht-apricorn',
+      name: 'Wht Apricorn',
+      description: 'A white apricorn that can be used by Kurt to make Fast Balls.',
+    },
+    BLK_APRICORN: {
+      id: 'blk-apricorn',
+      name: 'Blk Apricorn',
+      description: 'A black apricorn that can be used by Kurt to make Heavy Balls.',
+    },
+    PNK_APRICORN: {
+      id: 'pnk-apricorn',
+      name: 'Pnk Apricorn',
+      description: 'A pink apricorn that can be used by Kurt to make Love Balls.',
+    },
+  };
+
+  // Store apricorn locations
+  const apricornLocations: Record<string, Array<{ area: string; coordinates?: { x: number; y: number } }>> = {};
+
+  // Get all map files
+  const mapFiles = fs.readdirSync(mapsDir).filter((file) => file.endsWith('.asm'));
+
+  for (const mapFile of mapFiles) {
+    const mapPath = path.join(mapsDir, mapFile);
+    const mapContent = fs.readFileSync(mapPath, 'utf8');
+    const lines = mapContent.split(/\r?\n/);
+
+    // Extract location name from filename
+    const locationName = path
+      .basename(mapFile, '.asm')
+      .replace(/([a-z])([A-Z])/g, '$1 $2') // Add spaces between camelCase
+      .replace(/(\d+)([A-Z])/g, '$1 $2') // Add spaces between numbers and letters
+      .replace(/([A-Z])(\d+)/g, '$1 $2') // Add spaces between letters and numbers
+      .trim();
+
+    for (const line of lines) {
+      const trimmedLine = line.trim();
+
+      // Look for fruittree_event patterns with apricorns
+      const fruitTreeMatch = trimmedLine.match(
+        /fruittree_event\s+(-?\d+),\s*(-?\d+),\s*\w+,\s*(\w+_APRICORN),/,
+      );
+      
+      if (fruitTreeMatch) {
+        const x = parseInt(fruitTreeMatch[1]);
+        const y = parseInt(fruitTreeMatch[2]);
+        const apricornType = fruitTreeMatch[3] as keyof typeof apricornTypes;
+
+        if (apricornTypes[apricornType]) {
+          const apricornId = apricornTypes[apricornType].id;
+
+          if (!apricornLocations[apricornId]) {
+            apricornLocations[apricornId] = [];
+          }
+
+          apricornLocations[apricornId].push({
+            area: locationName,
+            coordinates: { x, y },
+          });
+        }
+      }
+    }
+  }
+
+  // Create apricorn items and add their locations
+  let apricornsCreated = 0;
+
+  for (const [apricornType, apricornData] of Object.entries(apricornTypes)) {
+    const { id, name, description } = apricornData;
+    
+    // Create the apricorn item if it doesn't exist
+    if (!itemData[id]) {
+      itemData[id] = {
+        id,
+        name,
+        description,
+        attributes: {
+          price: 0, // Apricorns are free from trees
+          category: 'Berry', // Use Berry category like other fruit tree items
+          useOutsideBattle: 'Cannot use',
+          useInBattle: 'Cannot use',
+        },
+        locations: [],
+      };
+      apricornsCreated++;
+    }
+
+    // Add locations if we found any
+    if (apricornLocations[id]) {
+      for (const location of apricornLocations[id]) {
+        itemData[id].locations!.push({
+          area: location.area,
+          details: 'Apricorn tree',
+        });
+      }
+    }
+  }
+
+  console.log(`✅ Created ${apricornsCreated} apricorn items`);
+  console.log(`🌳 Found apricorn trees in ${Object.keys(apricornLocations).length} different types`);
+
+  // Log some debug info
+  for (const [apricornId, locations] of Object.entries(apricornLocations)) {
+    console.log(`   ${apricornId}: ${locations.length} locations`);
   }
 }
 

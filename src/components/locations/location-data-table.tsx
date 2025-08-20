@@ -120,12 +120,12 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return data.filter((location: any) => {
       // Filter out empty buildings with no content
-      const hasAnyContent = 
+      const hasAnyContent =
         (location.pokemonCount && location.pokemonCount > 0) ||
         (location.trainerCount && location.trainerCount > 0) ||
         (location.items && location.items.length > 0) ||
         (location.eventCount && location.eventCount > 0);
-      
+
       if (!hasAnyContent) {
         return false;
       }
@@ -287,7 +287,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
 
   return (
     <div className="w-full">
-      <div className="flex flex-col gap-4 border border-neutral-200 bg-white p-4 rounded-xl mb-4 dark:border-white/[0.2] dark:bg-black dark:shadow-none">
+      <div className="flex flex-col gap-4 border border-neutral-200 bg-white p-4 rounded-xl mb-2 md:mb-4 dark:border-white/[0.2] dark:bg-black dark:shadow-none">
         {/* Primary search */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex flex-col gap-2">

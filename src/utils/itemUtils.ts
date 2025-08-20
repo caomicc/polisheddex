@@ -35,14 +35,14 @@ export function getItemIdFromDisplayName(displayName: string): string | null {
     heavyball: 'heavy',
     fastball: 'fast',
     sportball: 'sport',
-    // Apricorns - these don't have individual item pages, they're collectibles
-    redapricorn: 'apricornbox', // Redirect to apricorn box since individual apricorns don't have pages
-    bluapricorn: 'apricornbox',
-    whtapricorn: 'apricornbox', 
-    grnapricorn: 'apricornbox',
-    ylwapricorn: 'apricornbox',
-    pnkapricorn: 'apricornbox',
-    blkapricorn: 'apricornbox',
+    // Apricorns - now handled as individual items
+    redapricorn: 'red-apricorn',
+    bluapricorn: 'blu-apricorn',
+    whtapricorn: 'wht-apricorn', 
+    grnapricorn: 'grn-apricorn',
+    ylwapricorn: 'ylw-apricorn',
+    pnkapricorn: 'pnk-apricorn',
+    blkapricorn: 'blk-apricorn',
     // Evolution stones
     thunderstone: 'thunderstone',
     waterstone: 'waterstone',
@@ -261,19 +261,18 @@ export const ITEM_SPRITE_MAP: Record<string, string> = {
   silph_scope2: 'silphscope2',
 
   // Apricorns - all use the generic apricorn sprite
-  red_apricorn: 'apricorn',
-  blu_apricorn: 'apricorn', 
-  wht_apricorn: 'apricorn',
-  grn_apricorn: 'apricorn',
-  ylw_apricorn: 'apricorn',
-  pnk_apricorn: 'apricorn',
-  blk_apricorn: 'apricorn',
+  'red-apricorn': 'apricorn',
+  'blu-apricorn': 'apricorn', 
+  'wht-apricorn': 'apricorn',
+  'grn-apricorn': 'apricorn',
+  'ylw-apricorn': 'apricorn',
+  'pnk-apricorn': 'apricorn',
+  'blk-apricorn': 'apricorn',
 
   // Add more mappings as needed
 };
 
 export function getItemSpriteName(itemName: string): string {
   const normalized = itemName.toLowerCase().replace(/ /g, '_');
-  console.log(`Normalized item name: ${normalized}`, ITEM_SPRITE_MAP[normalized] ?? normalized);
   return ITEM_SPRITE_MAP[normalized] ?? normalized;
 }

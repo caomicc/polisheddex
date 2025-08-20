@@ -179,7 +179,7 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
 
   return (
     <>
-      <div className="flex flex-col gap-4 border border-neutral-200 bg-white p-4 rounded-xl mb-4 dark:border-white/[0.2] dark:bg-black dark:shadow-none">
+      <div className="flex flex-col gap-4 border border-neutral-200 bg-white p-4 rounded-xl mb-2 md:mb-4 dark:border-white/[0.2] dark:bg-black dark:shadow-none">
         <div className="flex gap-4 items-center">
           <div className="flex flex-col gap-2">
             <Label htmlFor="location-search" className="label-text">

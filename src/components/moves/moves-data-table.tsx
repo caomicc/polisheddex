@@ -301,7 +301,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
 
   return (
     <div className="w-full">
-      <div className="flex flex-col gap-4 border border-neutral-200 bg-white p-4 rounded-xl mb-4 dark:border-white/[0.2] dark:bg-black dark:shadow-none">
+      <div className="flex flex-col gap-4 border border-neutral-200 bg-white p-4 rounded-xl mb-2 md:mb-4 dark:border-white/[0.2] dark:bg-black dark:shadow-none">
         {/* Primary search and filters */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex flex-col gap-2">
