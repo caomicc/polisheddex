@@ -82,7 +82,7 @@ export const abilityColumns: ColumnDef<Ability>[] = [
     cell: ({ row }) => {
       const ability = row.original;
       return (
-        <div className="text-xs text-muted-foreground max-w-md truncate">
+        <div className="text-cell max-w-md truncate">
           {ability.description || 'No description available'}
         </div>
       );

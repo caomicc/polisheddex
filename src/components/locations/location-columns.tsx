@@ -71,7 +71,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
     },
     cell: ({ row }) => {
       const region = row.getValue('region') as string;
-      if (!region) return <span className="text-gray-400 text-sm">—</span>;
+      if (!region) return <span className="text-cell text-cell-muted">—</span>;
       return (
         <Badge variant={region as 'kanto' | 'johto' | 'orange'}>
           {region.charAt(0).toUpperCase() + region.slice(1)}
@@ -110,9 +110,9 @@ export const locationColumns: ColumnDef<LocationData>[] = [
       return (
         <div className="">
           {count && count > 0 ? (
-            <span className="text-xs">{count}</span>
+            <span className="text-cell">{count}</span>
           ) : (
-            <span className="text-gray-400 text-sm">—</span>
+            <span className="text-cell text-cell-muted">—</span>
           )}
         </div>
       );
@@ -143,9 +143,9 @@ export const locationColumns: ColumnDef<LocationData>[] = [
       return (
         <div className="">
           {count && count > 0 ? (
-            <span className="text-xs">{count}</span>
+            <span className="text-cell">{count}</span>
           ) : (
-            <span className="text-gray-400 text-sm">—</span>
+            <span className="text-cell text-cell-muted">—</span>
           )}
         </div>
       );
@@ -162,9 +162,9 @@ export const locationColumns: ColumnDef<LocationData>[] = [
       return (
         <div className="">
           {hasItems ? (
-            <span className="text-xs">Yes</span>
+            <span className="text-cell">Yes</span>
           ) : (
-            <span className="text-gray-400 text-xs">—</span>
+            <span className="text-cell text-cell-muted">—</span>
           )}
         </div>
       );
@@ -193,8 +193,8 @@ export const locationColumns: ColumnDef<LocationData>[] = [
     cell: ({ row }) => {
       const flyable = row.getValue('flyable') as boolean;
       return (
-        <div className="text-xs">
-          {flyable ? <span>Yes</span> : <span className="text-gray-400 text-sm">—</span>}
+        <div className="text-cell">
+          {flyable ? <span>Yes</span> : <span className="text-cell text-cell-muted">—</span>}
         </div>
       );
     },

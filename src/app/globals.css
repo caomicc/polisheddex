@@ -728,5 +728,13 @@ h3,
 }
 
 .table-link {
-  @apply text-xs items-center inline-flex hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 gap-1;
+  @apply text-xs md:text-sm items-center inline-flex hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 gap-1 font-bold tracking-[0.5px] text-neutral-600 dark:text-neutral-200;
+}
+
+.text-cell {
+  @apply text-xs md:text-sm font-medium;
+}
+
+.text-cell-muted {
+  @apply text-muted-foreground;
 }

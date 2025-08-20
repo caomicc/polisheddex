@@ -192,10 +192,10 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
       const { learnMethod, level } = row.original;
 
       if (learnMethod !== 'level' || !level) {
-        return <span className="text-muted-foreground">—</span>;
+        return <span className="text-cell text-cell-muted">—</span>;
       }
 
-      return <span className="text-xs">Level: {level}</span>;
+      return <span className="text-cell">Level: {level}</span>;
     },
     sortingFn: (rowA, rowB) => {
       const a = rowA.original;

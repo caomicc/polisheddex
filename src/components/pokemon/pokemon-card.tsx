@@ -104,13 +104,17 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
           )}
         >
           #
-          {sortType === 'johtodex'
-            ? pokemon.johtoDex !== null && pokemon.johtoDex < 999
-              ? pokemon.johtoDex
-              : '—'
-            : pokemon.nationalDex !== null
-              ? pokemon.nationalDex
-              : '—'}
+          {sortType === 'johtodex' ? (
+            pokemon.johtoDex !== null && pokemon.johtoDex < 999 ? (
+              pokemon.johtoDex
+            ) : (
+              <span className="text-cell text-cell-muted">—</span>
+            )
+          ) : pokemon.nationalDex !== null ? (
+            pokemon.nationalDex
+          ) : (
+            <span className="text-cell text-cell-muted">—</span>
+          )}
         </p>
 
         {pokemon.form ? (

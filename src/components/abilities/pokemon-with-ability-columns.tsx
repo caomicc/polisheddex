@@ -6,7 +6,6 @@ import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
 import { PokemonWithAbility } from '@/utils/loaders/ability-data-loader';
-import { cn } from '@/lib/utils';
 import {
   formatPokemonDisplayWithForm,
   formatPokemonUrlWithForm,

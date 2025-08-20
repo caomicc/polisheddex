@@ -96,38 +96,17 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
     cell: ({ row }) => {
       const johtoDex = row.getValue('johtoDex') as number | null;
       return (
-        <div className="text-xs font-mono">
-          {johtoDex !== null && johtoDex < 999 ? `#${johtoDex}` : '—'}
+        <div className="text-cell">
+          {johtoDex !== null && johtoDex < 999 ? (
+            `#${johtoDex}`
+          ) : (
+            <span className="text-cell text-cell-muted">—</span>
+          )}
         </div>
       );
     },
     size: 60,
   },
-  // {
-  //   accessorKey: 'nationalDex',
-  //   id: 'nationalDex',
-  //   header: ({ column }) => {
-  //     return (
-  //       <Button className="-ml-3" variant="ghost" onClick={() => column.toggleSorting()}>
-  //         National #
-  //         {column.getIsSorted() === 'desc' ? (
-  //           <ArrowDown className="size-3" />
-  //         ) : column.getIsSorted() === 'asc' ? (
-  //           <ArrowUp className="size-3" />
-  //         ) : (
-  //           <ArrowUpDown className="size-3" />
-  //         )}
-  //       </Button>
-  //     );
-  //   },
-  //   cell: ({ row }) => {
-  //     const nationalDex = row.getValue('nationalDex') as number | null;
-  //     return (
-  //       <div className="text-sm font-mono">{nationalDex !== null ? `#${nationalDex}` : '—'}</div>
-  //     );
-  //   },
-  //   size: 100,
-  // },
   {
     accessorKey: 'name',
     id: 'name',

@@ -169,7 +169,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
     },
     cell: ({ row }) => {
       const method = row.getValue('method') as string | undefined;
-      return <div className="text-xs">{method ? formatMethod(method) : '-'}</div>;
+      return <div className="text-cell">{method ? formatMethod(method) : '-'}</div>;
     },
   },
   {
@@ -217,7 +217,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
       );
     },
     cell: ({ row }) => {
-      return <div className="text-xs">Lv. {row.getValue('level')}</div>;
+      return <div className="text-cell">Lv. {row.getValue('level')}</div>;
     },
   },
   {
@@ -237,7 +237,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
       );
     },
     cell: ({ row }) => {
-      return <div className="text-xs">{row.getValue('chance')}%</div>;
+      return <div className="text-cell">{row.getValue('chance')}%</div>;
     },
   },
 ];

@@ -117,12 +117,12 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
       if (isRegularItem(item)) {
         const price = item.attributes?.price || 0;
         return (
-          <span className="text-xs font-bold text-green-600 dark:text-green-400">
+          <span className="text-cell text-green-600 dark:text-green-400">
             ₽{price.toLocaleString()}
           </span>
         );
       } else {
-        return <span className="text-gray-400 text-sm">—</span>;
+        return <span className="text-cell text-cell-muted">—</span>;
       }
     },
     // Custom accessor for sorting
@@ -237,11 +237,11 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
       }
 
       return (
-        <span className="text-xs">
+        <span className="">
           {locationCount > 0 ? (
-            `${locationCount} location${locationCount !== 1 ? 's' : ''}`
+            <span className="text-cell">{`${locationCount} location${locationCount !== 1 ? 's' : ''}`}</span>
           ) : (
-            <span className="text-gray-400">—</span>
+            <span className="text-cell text-cell-muted">—</span>
           )}
         </span>
       );
