@@ -1425,7 +1425,7 @@ export function extractApricornItems(itemData: Record<string, ItemData>): void {
         itemData[id].locations!.push({
           area: location.area,
           details: 'Fruit tree (apricorn)',
-          coordinates: location.coordinates,
+          // coordinates: location.coordinates,
         });
       }
     }
