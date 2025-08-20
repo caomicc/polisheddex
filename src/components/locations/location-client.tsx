@@ -226,7 +226,7 @@ export default function LocationClient({
             </CardContent>
           </TableWrapper>
         )}
-
+        {console.log('comprehensiveInfo?.events', comprehensiveInfo?.events)}
         {comprehensiveInfo?.events &&
           comprehensiveInfo.events.some(
             (event: { type: string }) => event.type === 'phone_call',
@@ -273,6 +273,28 @@ export default function LocationClient({
               </CardContent>
             </TableWrapper>
           )}
+        {(() => {
+          const hasTrainers = !!(
+            comprehensiveInfo?.trainers && comprehensiveInfo.trainers.length > 0
+          );
+          const hasPokemon = Object.keys(groupedPokemonData || {}).length > 0;
+          const hasTrades = !!(comprehensiveInfo?.trades && comprehensiveInfo.trades.length > 0);
+          const hasPhoneCalls = !!(
+            comprehensiveInfo?.events &&
+            comprehensiveInfo.events.some((e: { type: string }) => e.type === 'phone_call')
+          );
+
+          if (!hasTrainers && !hasPokemon && !hasTrades && !hasPhoneCalls) {
+            return (
+              <BentoGridNoLink>
+                <div className="text-gray-400 text-sm my-6 text-center">
+                  There doesn&apos;t seem to be any relevant information available...
+                </div>
+              </BentoGridNoLink>
+            );
+          }
+          return null;
+        })()}
       </div>
 
       {comprehensiveInfo?.items && (

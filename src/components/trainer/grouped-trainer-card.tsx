@@ -13,6 +13,124 @@ import { GroupedTrainer } from '@/utils/trainerGrouping';
 import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
 import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
 
+// Utility functions to reduce redundancy
+const normalizeForm = (form?: string): string => {
+  return form ? form.toLowerCase().replace(/ form/g, '') : 'plain';
+};
+
+const normalizePokemonName = (species: string): string => {
+  return species.toLowerCase().replace(/-/g, '_');
+};
+
+const normalizeItemName = (item: string): string => {
+  return item
+    .toLowerCase()
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+};
+
+const GYM_LEADER_CLASSES = [
+  'FALKNER',
+  'BUGSY',
+  'WHITNEY',
+  'MORTY',
+  'CHUCK',
+  'JASMINE',
+  'PRYCE',
+  'CLAIR',
+  'BROCK',
+  'MISTY',
+  'LT_SURGE',
+  'ERIKA',
+  'JANINE',
+  'SABRINA',
+  'BLAINE',
+  'BLUE',
+];
+
+const STARTER_LINES = {
+  grass: ['chikorita', 'bayleef', 'meganium'],
+  fire: ['cyndaquil', 'quilava', 'typhlosion'],
+  water: ['totodile', 'croconaw', 'feraligatr'],
+};
+
+const detectStarterType = (
+  pokemon: LocationTrainer['pokemon'],
+): 'grass' | 'fire' | 'water' | null => {
+  if (!pokemon) return null;
+
+  for (const [type, pokemonNames] of Object.entries(STARTER_LINES)) {
+    const hasStarter = pokemon.some((p) =>
+      pokemonNames.some((name) => p.species.toLowerCase().includes(name)),
+    );
+    if (hasStarter) return type as 'grass' | 'fire' | 'water';
+  }
+  return null;
+};
+
+const getPlayerStarterFromOpponent = (
+  opponentStarter: 'grass' | 'fire' | 'water',
+  isRival: boolean,
+): string => {
+  const starterMap = {
+    weak: { grass: 'Cyndaquil', fire: 'Totodile', water: 'Chikorita' },
+    strong: { grass: 'Totodile', fire: 'Chikorita', water: 'Cyndaquil' },
+  };
+
+  const behavior = isRival ? 'strong' : 'weak';
+  return starterMap[behavior][opponentStarter];
+};
+
+const normalizeTrainerClass = (trainerClass?: string): string => {
+  if (!trainerClass) return '';
+
+  const classMap: Record<string, string> = {
+    lyra2: '',
+    rival2: '',
+    lyra1: '',
+    rival1: '',
+    rival0: '',
+    prof_elm: 'Professor',
+    prof_oak: 'Professor',
+    cooltrainerm: 'Cool Trainer',
+    cooltrainerf: 'Cool Trainer',
+    swimmerm: 'Swimmer',
+    swimmerf: 'Swimmer',
+    veteranm: 'Veteran',
+    veteranf: 'Veteran',
+    psychict: 'Psychic',
+    psychic_t: 'Psychic',
+    teacherm: 'Teacher',
+    teacherf: 'Teacher',
+    sightseerm: 'Sightseer',
+    sightseerf: 'Sightseer',
+    pokefanf: 'PokeFan',
+    pokefanm: 'PokeFan',
+    officerm: 'Officer',
+    officerf: 'Officer',
+    guitaristm: 'Guitarist',
+    guitaristf: 'Guitarist',
+    gruntm: 'Grunt',
+    gruntf: 'Grunt',
+    blackbelt_t: 'Blackbelt',
+  };
+
+  const lowerClass = trainerClass.toLowerCase();
+  return classMap[lowerClass] || trainerClass.replace(/_/g, ' ').toLowerCase();
+};
+
+const normalizeTrainerSpritePath = (trainerClass: string): string => {
+  const spriteMap: Record<string, string> = {
+    cooltrainerm: 'cooltrainer_m',
+    cooltrainerf: 'cooltrainer_f',
+    prof_elm: 'elm',
+    rival0: 'rival1',
+  };
+
+  const lowerClass = trainerClass.toLowerCase().replace(/_/g, '_');
+  return spriteMap[lowerClass] || lowerClass;
+};
+
 interface GroupedTrainerCardProps {
   groupedTrainer: GroupedTrainer;
   isGymLeader?: boolean;
@@ -44,32 +162,23 @@ function TrainerTeamDisplay({ trainer }: { trainer: LocationTrainer | GymLeader 
               ? [pokemonData.updatedTypes]
               : [];
 
+          const normalizedForm = normalizeForm(poke.form);
+          const pokemonNameForUrl = normalizePokemonName(poke.species);
+
           return (
             <BentoGridNoLink key={idx} className="bg-neutral-50 dark:bg-white/10">
-              {/* <Card className="bg-white dark:bg-black/5 border border-border p-0 shadow-none">
-                <CardContent className="p-4 flex flex-col gap-2"> */}
               <div className="flex items-center gap-3">
-                <Link
-                  href={formatPokemonUrlWithForm(
-                    poke.species,
-                    poke.form ? poke.form.toLowerCase().replace(/ form/g, '') : 'plain',
-                  )}
-                >
+                <Link href={formatPokemonUrlWithForm(poke.species, normalizedForm)}>
                   <PokemonSprite
-                    pokemonName={poke.species.toLowerCase().replace(/-/g, '_')}
-                    form={poke.form?.toLowerCase().replace(/ form/g, '')}
+                    pokemonName={pokemonNameForUrl}
+                    form={normalizedForm}
                     alt={poke.species}
                     hoverAnimate={true}
                   />
                 </Link>
                 <div className="flex-1 min-w-0">
                   <h3>
-                    <Link
-                      href={formatPokemonUrlWithForm(
-                        poke.species,
-                        poke.form ? poke.form.toLowerCase().replace(/ form/g, '') : 'plain',
-                      )}
-                    >
+                    <Link href={formatPokemonUrlWithForm(poke.species, normalizedForm)}>
                       {poke.species}{' '}
                       {poke.gender?.toLowerCase() === 'female' && (
                         <Image
@@ -100,10 +209,7 @@ function TrainerTeamDisplay({ trainer }: { trainer: LocationTrainer | GymLeader 
                         href={`/items/${getItemIdFromDisplayName(poke.item)}`}
                         className="text-indigo-700 dark:text-indigo-300 hover:underline font-bold"
                       >
-                        {poke.item
-                          .toLowerCase()
-                          .replace(/_/g, ' ')
-                          .replace(/\b\w/g, (c) => c.toUpperCase())}
+                        {normalizeItemName(poke.item)}
                       </a>
                     </p>
                   )}
@@ -171,8 +277,6 @@ function TrainerTeamDisplay({ trainer }: { trainer: LocationTrainer | GymLeader 
                   );
                 })}
               </ul>
-              {/* </CardContent>
-              </Card> */}
             </BentoGridNoLink>
           );
         })}
@@ -187,120 +291,29 @@ export default function GroupedTrainerCard({
 }: GroupedTrainerCardProps) {
   const { baseTrainer, rematches, isGrouped, groupType } = groupedTrainer;
 
-  // Define gym leader classes to check against
-  const gymLeaderClasses = [
-    'FALKNER',
-    'BUGSY',
-    'WHITNEY',
-    'MORTY',
-    'CHUCK',
-    'JASMINE',
-    'PRYCE',
-    'CLAIR',
-    'BROCK',
-    'MISTY',
-    'LT_SURGE',
-    'ERIKA',
-    'JANINE',
-    'SABRINA',
-    'BLAINE',
-    'BLUE',
-  ];
-
   // Check if this trainer is a gym leader based on their class
   const isActualGymLeader =
-    isGymLeader || gymLeaderClasses.includes(baseTrainer.trainerClass?.toUpperCase());
+    isGymLeader || GYM_LEADER_CLASSES.includes(baseTrainer.trainerClass?.toUpperCase());
 
   console.log('GroupedTrainerCard', groupedTrainer, isGymLeader);
 
-  let displayTrainerClass = baseTrainer.trainerClass;
-  switch (displayTrainerClass?.toLowerCase()) {
-    case 'lyra2':
-    case 'rival2':
-    case 'lyra1':
-    case 'rival1':
-    case 'rival0':
-      displayTrainerClass = '';
-      break;
-    case 'prof_elm':
-    case 'prof_oak':
-      displayTrainerClass = 'Professor';
-      break;
-    case 'cooltrainerm':
-    case 'cooltrainerf':
-      displayTrainerClass = 'Cool Trainer';
-      break;
-    case 'swimmerm':
-    case 'swimmerf':
-      displayTrainerClass = 'Swimmer';
-      break;
-    case 'veteranm':
-    case 'veteranf':
-      displayTrainerClass = 'Veteran';
-      break;
-    case 'psychict':
-      displayTrainerClass = 'Psychic';
-      break;
-    case 'teacherm':
-    case 'teacherf':
-      displayTrainerClass = 'Teacher';
-      break;
-    case 'sightseerm':
-    case 'sightseerf':
-      displayTrainerClass = 'Sightseer';
-      break;
-    case 'pokefanf':
-    case 'pokefanm':
-      displayTrainerClass = 'PokeFan';
-      break;
-    case 'officerm':
-    case 'officerf':
-      displayTrainerClass = 'Officer';
-      break;
-    case 'guitaristm':
-    case 'guitaristf':
-      displayTrainerClass = 'Guitarist';
-      break;
-    case 'gruntm':
-    case 'gruntf':
-      displayTrainerClass = 'Grunt';
-      break;
-    case 'blackbelt_t':
-      displayTrainerClass = 'Blackbelt';
-      break;
-    case 'psychic_t':
-      displayTrainerClass = 'Psychic';
-      break;
-    case undefined:
-    case null:
-      displayTrainerClass = '';
-      break;
-    default:
-      displayTrainerClass = baseTrainer.trainerClass.replace(/_/g, ' ').toLowerCase();
-      break;
-  }
-
+  const displayTrainerClass = normalizeTrainerClass(baseTrainer.trainerClass);
   let displayTrainerName = baseTrainer.name;
 
   if (displayTrainerName === '<RIVAL>' || displayTrainerName === 'boy') {
     displayTrainerName = 'Rival';
   }
 
-  let trainerSpritePath = baseTrainer.trainerClass.toLowerCase().replace(/_/g, '_');
-  switch (trainerSpritePath.toLowerCase()) {
-    case 'cooltrainerm':
-      trainerSpritePath = 'cooltrainer_m';
-      break;
-    case 'cooltrainerf':
-      trainerSpritePath = 'cooltrainer_f';
-      break;
-    case 'prof_elm':
-      trainerSpritePath = 'elm';
-      break;
-    case 'rival0':
-      trainerSpritePath = 'rival1';
-      break;
-  }
+  const trainerSpritePath = normalizeTrainerSpritePath(
+    ['rival0', 'rival1', 'lyra0', 'lyra1'].includes(
+      baseTrainer.trainerClass.toLowerCase().replace(/-/g, '_'),
+    )
+      ? baseTrainer.trainerClass
+          .toLowerCase()
+          .replace(/-/g, '_')
+          .replace(/(\d)$/, (match) => `${parseInt(match) + 1}`)
+      : baseTrainer.trainerClass.toLowerCase().replace(/-/g, '_')
+  );
 
   console.log('trainerSpritePath after', trainerSpritePath);
 
@@ -312,16 +325,7 @@ export default function GroupedTrainerCard({
             <div className="relative flex flex-row items-center gap-4">
               <TrainerSprite
                 className="shadow-none"
-                trainerName={
-                  ['rival0', 'rival1', 'lyra0', 'lyra1'].includes(
-                    baseTrainer.trainerClass.toLowerCase().replace(/-/g, '_'),
-                  )
-                    ? baseTrainer.trainerClass
-                        .toLowerCase()
-                        .replace(/-/g, '_')
-                        .replace(/(\d)$/, (match) => `${parseInt(match) + 1}`)
-                    : baseTrainer.trainerClass.toLowerCase().replace(/-/g, '_')
-                }
+                trainerName={trainerSpritePath}
                 alt={baseTrainer.name}
               />
               <div className="text-left">
@@ -373,37 +377,18 @@ export default function GroupedTrainerCard({
                   <h4 className="font-semibold mb-3 text-lg">
                     {groupType === 'starter_variation'
                       ? (() => {
-                          // Determine player's starter based on base trainer's starter
-                          const hasChikorita = baseTrainer.pokemon?.some(
-                            (p) =>
-                              p.species.toLowerCase().includes('chikorita') ||
-                              p.species.toLowerCase().includes('bayleef') ||
-                              p.species.toLowerCase().includes('meganium'),
-                          );
+                          const opponentStarter = detectStarterType(baseTrainer.pokemon);
+                          const trainerClassLower = baseTrainer.trainerClass?.toLowerCase() ?? '';
+                          const trainerNameLower = baseTrainer.name?.toLowerCase() ?? '';
+                          const isRival = trainerClassLower.includes('rival') || trainerNameLower.includes('rival');
 
-                          const hasCyndaquil = baseTrainer.pokemon?.some(
-                            (p) =>
-                              p.species.toLowerCase().includes('cyndaquil') ||
-                              p.species.toLowerCase().includes('quilava') ||
-                              p.species.toLowerCase().includes('typhlosion'),
-                          );
-
-                          const hasTotodile = baseTrainer.pokemon?.some(
-                            (p) =>
-                              p.species.toLowerCase().includes('totodile') ||
-                              p.species.toLowerCase().includes('croconaw') ||
-                              p.species.toLowerCase().includes('feraligatr'),
-                          );
-
-                          if (hasChikorita) {
-                            return 'Team 1 (if you choose Cyndaquil)';
-                          } else if (hasTotodile) {
-                            return 'Team 1 (if you choose Chikorita)';
-                          } else if (hasCyndaquil) {
-                            return 'Team 1 (if you choose Totodile)';
-                          } else {
-                            return 'Team 1';
+                          if (opponentStarter) {
+                            const playerStarter = getPlayerStarterFromOpponent(opponentStarter, isRival);
+                            const who = trainerNameLower.includes('lyra') ? 'Lyra' : isRival ? 'Rival' : 'Opponent';
+                            return `Team 1 (if you choose ${playerStarter}) ${who}`;
                           }
+
+                          return 'Team 1';
                         })()
                       : 'Initial Battle'}
                   </h4>
@@ -412,43 +397,19 @@ export default function GroupedTrainerCard({
 
                 {/* Additional Teams/Rematches */}
                 {rematches.map((rematchTrainer, index) => {
-                  // For starter variations, determine which starter the player chose based on opponent's team
                   let starterContext = '';
                   if (groupType === 'starter_variation') {
-                    // Look at the opponent's starter to determine which starter the player chose
-                    const hasChikorita = rematchTrainer.pokemon?.some(
-                      (p) =>
-                        p.species.toLowerCase().includes('chikorita') ||
-                        p.species.toLowerCase().includes('bayleef') ||
-                        p.species.toLowerCase().includes('meganium'),
-                    );
+                    const opponentStarter = detectStarterType(rematchTrainer.pokemon);
+                    const trainerClassLower = baseTrainer.trainerClass?.toLowerCase() ?? '';
+                    const trainerNameLower = baseTrainer.name?.toLowerCase() ?? '';
+                    const isRival = trainerClassLower.includes('rival') || trainerNameLower.includes('rival');
 
-                    const hasCyndaquil = rematchTrainer.pokemon?.some(
-                      (p) =>
-                        p.species.toLowerCase().includes('cyndaquil') ||
-                        p.species.toLowerCase().includes('quilava') ||
-                        p.species.toLowerCase().includes('typhlosion'),
-                    );
-
-                    const hasTotodile = rematchTrainer.pokemon?.some(
-                      (p) =>
-                        p.species.toLowerCase().includes('totodile') ||
-                        p.species.toLowerCase().includes('croconaw') ||
-                        p.species.toLowerCase().includes('feraligatr'),
-                    );
-
-                    if (hasChikorita) {
-                      // Opponent has Chikorita, so player chose Cyndaquil (Fire beats Grass)
-                      starterContext = 'if you choose Cyndaquil';
-                    } else if (hasTotodile) {
-                      // Opponent has Totodile, so player chose Chikorita (Grass gets neutral vs Water)
-                      starterContext = 'if you choose Chikorita';
-                    } else if (hasCyndaquil) {
-                      // Opponent has Cyndaquil, so player chose Totodile (Water beats Fire)
-                      starterContext = 'if you choose Totodile';
+                    if (opponentStarter) {
+                      const playerStarter = getPlayerStarterFromOpponent(opponentStarter, isRival);
+                      starterContext = `if you choose ${playerStarter}`;
                     } else {
                       // Fallback to index-based assignment
-                      const starters = ['Cyndaquil', 'Chikorita'];
+                      const starters = ['Cyndaquil', 'Chikorita', 'Totodile'];
                       starterContext = `if you choose ${starters[index] || 'Cyndaquil'}`;
                     }
                   }

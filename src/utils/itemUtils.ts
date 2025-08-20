@@ -35,6 +35,14 @@ export function getItemIdFromDisplayName(displayName: string): string | null {
     heavyball: 'heavy',
     fastball: 'fast',
     sportball: 'sport',
+    // Apricorns - these don't have individual item pages, they're collectibles
+    redapricorn: 'apricornbox', // Redirect to apricorn box since individual apricorns don't have pages
+    bluapricorn: 'apricornbox',
+    whtapricorn: 'apricornbox', 
+    grnapricorn: 'apricornbox',
+    ylwapricorn: 'apricornbox',
+    pnkapricorn: 'apricornbox',
+    blkapricorn: 'apricornbox',
     // Evolution stones
     thunderstone: 'thunderstone',
     waterstone: 'waterstone',
@@ -251,6 +259,15 @@ export const ITEM_SPRITE_MAP: Record<string, string> = {
   secret_potion: 'secretpotion',
   gsball: 'gs_ball',
   silph_scope2: 'silphscope2',
+
+  // Apricorns - all use the generic apricorn sprite
+  red_apricorn: 'apricorn',
+  blu_apricorn: 'apricorn', 
+  wht_apricorn: 'apricorn',
+  grn_apricorn: 'apricorn',
+  ylw_apricorn: 'apricorn',
+  pnk_apricorn: 'apricorn',
+  blk_apricorn: 'apricorn',
 
   // Add more mappings as needed
 };

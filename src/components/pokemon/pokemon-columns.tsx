@@ -52,7 +52,16 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
               variant="normal"
               type="static"
               className="shadow-none"
-              form={form ? form.toLowerCase().replace(/_form$/, '') : 'plain'}
+              form={
+                form
+                  ? form
+                      .toLowerCase()
+                      .replace(/_?form$/g, '')
+                      .replace(/^arbok/, '')
+                      .replace(/^ekans/, '')
+                      .replace(/\s+/g, '')
+                  : 'plain'
+              }
               size={'sm'}
             />
           </Link>
