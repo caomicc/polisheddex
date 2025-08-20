@@ -159,7 +159,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                 path.source,
                 path.sourceForm ? path.sourceForm.toLowerCase().replace(/ form/g, '') : 'plain',
               )}
-              className="table-link"
+              className="table-link flex flex-col"
             >
               <PokemonSprite
                 pokemonName={path.source}
@@ -276,7 +276,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                 path.target,
                 path.targetForm ? path.targetForm.toLowerCase().replace(/ form/g, '') : 'plain',
               )}
-              className="table-link"
+              className="table-link flex flex-col"
             >
               <PokemonSprite
                 className="shadow-none"

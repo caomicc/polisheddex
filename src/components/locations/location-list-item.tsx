@@ -2,8 +2,9 @@ import { LocationEntry } from '@/types/types';
 import Link from 'next/link';
 import { TableRow, TableCell } from '@/components/ui/table';
 import { cn } from '@/lib/utils';
-import TimeIcon from '../pokemon/time-icon';
 import { normalizeLocationKey, getLocationDisplayName } from '@/utils/locationUtils';
+import { ExternalLink } from 'lucide-react';
+import { Badge, BadgeVariant } from '../ui/badge';
 
 export function LocationListItem({ area, method, time, level, chance }: LocationEntry) {
   const formattedArea = area || 'N/A';
@@ -28,11 +29,7 @@ export function LocationListItem({ area, method, time, level, chance }: Location
       </TableCell>
       <TableCell className="text-xs">
         {time ? (
-          <TimeIcon
-            time={time}
-            className={'w-7 h-7 p-[6px]'}
-            showTooltip={time === null ? false : true}
-          />
+          <Badge variant={time as BadgeVariant}>{time}</Badge>
         ) : (
           <span className="text-gray-400 text-sm">—</span>
         )}
@@ -54,29 +51,31 @@ export function LocationListItem({ area, method, time, level, chance }: Location
       {/* Mobile combined cell for level and name */}
       <TableCell className="align-middle p-2">
         <div className="flex items-center">
-          <span className="font-bold">
-            {area ? (
-              <Link href={areaUrl} className="table-link">
-                {getLocationDisplayName(area)}
-              </Link>
-            ) : (
-              getLocationDisplayName(formattedArea)
-            )}
-          </span>
+          {area ? (
+            <Link href={areaUrl} className="table-link">
+              {getLocationDisplayName(area)}
+              <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
+            </Link>
+          ) : (
+            getLocationDisplayName(formattedArea)
+          )}
         </div>
       </TableCell>
 
-      <TableCell className="align-middle py-2 px-1 w-8">
-        <span className="font-medium text-xs text-muted-foreground mr-1">{chance}%</span>
+      <TableCell className="align-middle py-2 px-1 text-xs">
+        {/* <span className="font-medium text-xs text-muted-foreground mr-1">{chance}%</span> */}
+        {method ? formatMethod(method) : <span className="text-gray-400 text-sm">—</span>}
       </TableCell>
       {/* Power - Always visible */}
-      <TableCell className="align-middle p-2 text-center w-16">
-        <TimeIcon time={time} />
+      <TableCell className="align-middle p-2 text-center">
+        {/* <TimeIcon time={time} /> */}
+        <Badge variant={time as BadgeVariant}>{time}</Badge>
       </TableCell>
-    </TableRow>,
-    <TableRow key={`desc-${area || formattedArea}-${level}-mobile`} className="md:hidden">
-      <TableCell className={cn('text-muted-foreground text-xs px-2 pb-3 italic')} colSpan={4}>
+      <TableCell className={cn('text-xs px-2 pb-3 text-left')}>
         <span className="">Lv. {level ?? <span className="text-gray-400 text-sm">—</span>}</span>
+      </TableCell>
+      <TableCell className="align-middle py-2 px-1">
+        <span className="font-medium text-xs">{chance}%</span>
       </TableCell>
     </TableRow>,
   ];

@@ -136,7 +136,7 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
 
   const mobileRows = [
     <TableRow
-      className="md:hidden group border-b-0 hover:bg-muted/0 pt-2"
+      className="md:hidden group border-b-0 hover:bg-muted/0"
       key={`mobile-header-${name}-${level}`}
       id={`mobile-header-${name}-${level}`}
     >
@@ -144,7 +144,10 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
         colSpan={6}
         className="align-middle font-bold p-1 md:p-2 text-left text-xs md:text-md col-span-2"
       >
-        <Link href={`/moves/${name.toLowerCase().replace(/\s+/g, '-')}`} className="table-link">
+        <Link
+          href={`/moves/${name.toLowerCase().replace(/\s+/g, '-')}`}
+          className="table-link pt-2"
+        >
           {name}
           <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
         </Link>
@@ -220,7 +223,7 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
     >
       <TableCell
         className={cn(
-          'text-muted-foreground text-xs p-1 md:p-2 pb-2',
+          'text-muted-foreground text-xs p-1 md:p-2 pb-4',
           !info?.description?.trim() && 'text-error',
         )}
         colSpan={6}

@@ -409,7 +409,7 @@ export default function PokemonFormClient({
 
             <div className="relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900">
               <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-3">
-                <BentoGridNoLink className="col-span-1">
+                <BentoGridNoLink className="md:col-span-1">
                   <div className="mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200 capitalize">
                     Sprites
                   </div>
@@ -463,7 +463,7 @@ export default function PokemonFormClient({
                     </div>
                   </div>
                 </BentoGridNoLink>
-                <BentoGridNoLink className="col-span-2">
+                <BentoGridNoLink className="md:col-span-2">
                   <div className="mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200 capitalize">
                     Evolution Chain
                   </div>
@@ -544,13 +544,11 @@ export default function PokemonFormClient({
               <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-1">
                 <BentoGridNoLink>
                   <Tabs defaultValue="level-up" className="w-full">
-                    <div className="px-4 md:px-0">
-                      <TabsList className="grid w-full grid-cols-3 p-1 h-12">
-                        <TabsTrigger value="level-up">Level Up</TabsTrigger>
-                        <TabsTrigger value="egg">Egg Moves</TabsTrigger>
-                        <TabsTrigger value="tm-hm">TM/HM</TabsTrigger>
-                      </TabsList>
-                    </div>
+                    <TabsList className="grid w-full grid-cols-3 p-1 h-12">
+                      <TabsTrigger value="level-up">Level Up</TabsTrigger>
+                      <TabsTrigger value="egg">Egg Moves</TabsTrigger>
+                      <TabsTrigger value="tm-hm">TM/HM</TabsTrigger>
+                    </TabsList>
                     <TabsContent value="level-up">
                       {/* Moves List */}
                       {(() => {
@@ -812,11 +810,21 @@ export default function PokemonFormClient({
                           <Table>
                             <TableHeader>
                               <TableRow>
-                                <TableHead className="text-left label-text">Area</TableHead>
-                                <TableHead className="text-left label-text">Method</TableHead>
-                                <TableHead className="text-left label-text">Time</TableHead>
-                                <TableHead className="text-left label-text">Level</TableHead>
-                                <TableHead className="text-left label-text">Rate</TableHead>
+                                <TableHead className="text-left">
+                                  <span className="label-text">Area</span>
+                                </TableHead>
+                                <TableHead className="text-left">
+                                  <span className="label-text">Method</span>
+                                </TableHead>
+                                <TableHead className="text-left">
+                                  <span className="label-text">Time</span>
+                                </TableHead>
+                                <TableHead className="text-left">
+                                  <span className="label-text">Level</span>
+                                </TableHead>
+                                <TableHead className="text-left">
+                                  <span className="label-text">Rate</span>
+                                </TableHead>
                               </TableRow>
                             </TableHeader>
                             <TableBody>
@@ -870,9 +878,15 @@ export default function PokemonFormClient({
                           <Table className="table-fixed w-full min-w-[500px]">
                             <TableHeader>
                               <TableRow>
-                                <TableHead className="text-left label-text">Location</TableHead>
-                                <TableHead className="text-left label-text">Method</TableHead>
-                                <TableHead className="text-left label-text">Requirements</TableHead>
+                                <TableHead className="text-left">
+                                  <span className="label-text">Location</span>
+                                </TableHead>
+                                <TableHead className="text-left">
+                                  <span className="label-text">Method</span>
+                                </TableHead>
+                                <TableHead className="text-left">
+                                  <span className="label-text">Requirements</span>
+                                </TableHead>
                               </TableRow>
                             </TableHeader>
                             <TableBody>
