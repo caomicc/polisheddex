@@ -112,7 +112,7 @@ const badgeVariants = cva(
         Common: 'bg-purple-100 text-purple-900 border-purple-200',
         prize: 'bg-purple-100 text-purple-900 border-purple-200',
         Rare: 'bg-purple-100 text-purple-900 border-purple-200',
-        points: 'bg-purple-100 text-purple-900 border-purple-200',
+        purchase: 'bg-purple-100 text-purple-900 border-purple-200',
         'rock-smash': 'bg-purple-100 text-purple-900 border-purple-200',
       },
     },

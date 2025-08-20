@@ -312,7 +312,7 @@ export default function GroupedTrainerCard({
           .toLowerCase()
           .replace(/-/g, '_')
           .replace(/(\d)$/, (match) => `${parseInt(match) + 1}`)
-      : baseTrainer.trainerClass.toLowerCase().replace(/-/g, '_')
+      : baseTrainer.trainerClass.toLowerCase().replace(/-/g, '_'),
   );
 
   console.log('trainerSpritePath after', trainerSpritePath);
@@ -380,11 +380,20 @@ export default function GroupedTrainerCard({
                           const opponentStarter = detectStarterType(baseTrainer.pokemon);
                           const trainerClassLower = baseTrainer.trainerClass?.toLowerCase() ?? '';
                           const trainerNameLower = baseTrainer.name?.toLowerCase() ?? '';
-                          const isRival = trainerClassLower.includes('rival') || trainerNameLower.includes('rival');
+                          const isRival =
+                            trainerClassLower.includes('rival') ||
+                            trainerNameLower.includes('rival');
 
                           if (opponentStarter) {
-                            const playerStarter = getPlayerStarterFromOpponent(opponentStarter, isRival);
-                            const who = trainerNameLower.includes('lyra') ? 'Lyra' : isRival ? 'Rival' : 'Opponent';
+                            const playerStarter = getPlayerStarterFromOpponent(
+                              opponentStarter,
+                              isRival,
+                            );
+                            const who = trainerNameLower.includes('lyra')
+                              ? 'Lyra'
+                              : isRival
+                                ? 'Rival'
+                                : 'Opponent';
                             return `Team 1 (if you choose ${playerStarter}) ${who}`;
                           }
 
@@ -402,7 +411,8 @@ export default function GroupedTrainerCard({
                     const opponentStarter = detectStarterType(rematchTrainer.pokemon);
                     const trainerClassLower = baseTrainer.trainerClass?.toLowerCase() ?? '';
                     const trainerNameLower = baseTrainer.name?.toLowerCase() ?? '';
-                    const isRival = trainerClassLower.includes('rival') || trainerNameLower.includes('rival');
+                    const isRival =
+                      trainerClassLower.includes('rival') || trainerNameLower.includes('rival');
 
                     if (opponentStarter) {
                       const playerStarter = getPlayerStarterFromOpponent(opponentStarter, isRival);

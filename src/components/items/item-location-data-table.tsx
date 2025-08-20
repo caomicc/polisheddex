@@ -100,20 +100,29 @@ const columns: ColumnDef<ItemLocation>[] = [
       const method = row.original.details || 'Unknown';
       const isNpc = method.toLowerCase().includes('npc');
       const isPrize = method.toLowerCase().includes('prize');
-      const hasPoints = method.toLowerCase().includes('points');
+      const hasPoints =
+        method.toLowerCase().includes('points') || method.toLowerCase().includes('for sale');
       const isRockSmash = method.toLowerCase().includes('rock smash');
       const variant = isNpc
         ? 'npc'
         : isPrize
           ? 'prize'
           : hasPoints
-            ? 'points'
+            ? 'purchase'
             : isRockSmash
               ? 'rock-smash'
               : method;
       return (
         <Badge variant={variant} className="text-xs">
-          {isNpc ? 'NPC' : isPrize ? 'Prize' : isRockSmash ? 'Rock Smash' : method}
+          {isNpc
+            ? 'NPC Gift'
+            : isPrize
+              ? 'Prize'
+              : isRockSmash
+                ? 'Rock Smash'
+                : hasPoints
+                  ? 'Purchase'
+                  : method}
         </Badge>
       );
     },
@@ -134,15 +143,26 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
   const [globalFilter, setGlobalFilter] = useState('');
   const [methodFilter, setMethodFilter] = useState<string>('all');
 
+  // Filter out Players House2 F locations with NPC methods
+  const filteredLocations = useMemo(() => {
+    return locations.filter((location) => {
+      const isPlayersHouse2F = location.area?.toLowerCase() === 'players house2 f';
+      const isNpcMethod = location.details?.toLowerCase().includes('npc');
+
+      // Exclude if it's Players House2 F AND involves an NPC
+      return !(isPlayersHouse2F && isNpcMethod);
+    });
+  }, [locations]);
+
   // Get unique methods for the filter dropdown
   const uniqueMethods = useMemo(() => {
-    const methods = Array.from(new Set(locations.map((loc) => loc.details || 'Unknown')));
+    const methods = Array.from(new Set(filteredLocations.map((loc) => loc.details || 'Unknown')));
     return methods.sort();
-  }, [locations]);
+  }, [filteredLocations]);
   const [{ pageIndex, pageSize }, setPagination] = usePaginationSearchParams();
 
   const table = useReactTable({
-    data: locations,
+    data: filteredLocations,
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
@@ -152,7 +172,7 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
     state: {
       pagination: { pageIndex, pageSize },
     },
-    pageCount: Math.ceil(locations.length / pageSize),
+    pageCount: Math.ceil(filteredLocations.length / pageSize),
   });
 
   return (
@@ -239,7 +259,7 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
 
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-4">
         <div className="text-sm text-muted-foreground">
-          {table.getFilteredRowModel().rows.length} of {locations.length} locations shown
+          {table.getFilteredRowModel().rows.length} of {filteredLocations.length} locations shown
         </div>
         <div className="flex flex-col sm:flex-row items-center gap-4">
           {/* Page size selector */}

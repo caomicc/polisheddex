@@ -176,6 +176,7 @@ export function formatPokemonBaseName(baseName: string): string {
     'arbokarbok-johto-form': 'Arbok',
     'ekansarbok-kanto-form': 'Ekans',
     'arbokarbok-kanto-form': 'Arbok',
+    'pikachupikachu-surf-form': 'Pikachu',
     arbok: 'Arbok',
     arbokarbok: 'Arbok',
   };

@@ -59,6 +59,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
                       .replace(/_?form$/g, '')
                       .replace(/^arbok/, '')
                       .replace(/^ekans/, '')
+                      .replace(/^pikachu/, '')
                       .replace(/\s+/g, '')
                   : 'plain'
               }
@@ -105,6 +106,9 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
                     .toLowerCase()
                     .replace(/_form$/, '')
                     .replace(/form$/g, '')
+                    .replace(/^arbok/, '')
+                    .replace(/^ekans/, '')
+                    .replace(/^pikachu/, '')
                     .replace(/arbok/g, ''),
                 )}
               </span>
