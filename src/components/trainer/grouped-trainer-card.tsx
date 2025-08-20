@@ -9,9 +9,9 @@ import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonSprite } from '../pokemon/pokemon-sprite';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
 import { TrainerSprite } from './trainer-sprite';
-import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
 import { GroupedTrainer } from '@/utils/trainerGrouping';
 import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
+import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
 
 interface GroupedTrainerCardProps {
   groupedTrainer: GroupedTrainer;
@@ -50,7 +50,10 @@ function TrainerTeamDisplay({ trainer }: { trainer: LocationTrainer | GymLeader 
                 <CardContent className="p-4 flex flex-col gap-2"> */}
               <div className="flex items-center gap-3">
                 <Link
-                  href={`${createPokemonUrl(poke.species)}${poke.form ? `?form=${poke.form?.toLowerCase().replace(/ form/g, '')}` : ''}`}
+                  href={formatPokemonUrlWithForm(
+                    poke.species,
+                    poke.form ? poke.form.toLowerCase().replace(/ form/g, '') : 'plain',
+                  )}
                 >
                   <PokemonSprite
                     pokemonName={poke.species.toLowerCase().replace(/-/g, '_')}
@@ -62,7 +65,10 @@ function TrainerTeamDisplay({ trainer }: { trainer: LocationTrainer | GymLeader 
                 <div className="flex-1 min-w-0">
                   <h3>
                     <Link
-                      href={`${createPokemonUrl(poke.species)}${poke.form ? `?form=${poke.form?.toLowerCase().replace(/ form/g, '')}` : ''}`}
+                      href={formatPokemonUrlWithForm(
+                        poke.species,
+                        poke.form ? poke.form.toLowerCase().replace(/ form/g, '') : 'plain',
+                      )}
                     >
                       {poke.species}{' '}
                       {poke.gender?.toLowerCase() === 'female' && (
@@ -220,6 +226,51 @@ export default function GroupedTrainerCard({
     case 'prof_oak':
       displayTrainerClass = 'Professor';
       break;
+    case 'cooltrainerm':
+    case 'cooltrainerf':
+      displayTrainerClass = 'Cool Trainer';
+      break;
+    case 'swimmerm':
+    case 'swimmerf':
+      displayTrainerClass = 'Swimmer';
+      break;
+    case 'veteranm':
+    case 'veteranf':
+      displayTrainerClass = 'Veteran';
+      break;
+    case 'psychict':
+      displayTrainerClass = 'Psychic';
+      break;
+    case 'teacherm':
+    case 'teacherf':
+      displayTrainerClass = 'Teacher';
+      break;
+    case 'sightseerm':
+    case 'sightseerf':
+      displayTrainerClass = 'Sightseer';
+      break;
+    case 'pokefanf':
+    case 'pokefanm':
+      displayTrainerClass = 'PokeFan';
+      break;
+    case 'officerm':
+    case 'officerf':
+      displayTrainerClass = 'Officer';
+      break;
+    case 'guitarist_m':
+    case 'guitaristf':
+      displayTrainerClass = 'Guitarist';
+      break;
+    case 'gruntm':
+    case 'gruntf':
+      displayTrainerClass = 'Grunt';
+      break;
+    case 'blackbelt_t':
+      displayTrainerClass = 'Blackbelt';
+      break;
+    case 'psychic_t':
+      displayTrainerClass = 'Psychic';
+      break;
     case undefined:
     case null:
       displayTrainerClass = '';
@@ -251,6 +302,8 @@ export default function GroupedTrainerCard({
       break;
   }
 
+  console.log('trainerSpritePath after', trainerSpritePath);
+
   return (
     <div className="">
       <Accordion type="single" collapsible>
@@ -269,11 +322,6 @@ export default function GroupedTrainerCard({
                         .replace(/(\d)$/, (match) => `${parseInt(match) + 1}`)
                     : baseTrainer.trainerClass.toLowerCase().replace(/-/g, '_')
                 }
-                src={`/sprites/trainers/${
-                  ['rival0', 'rival1', 'lyra0', 'lyra1'].includes(trainerSpritePath)
-                    ? trainerSpritePath.replace(/(\d)$/, (match) => `${parseInt(match) + 1}`)
-                    : trainerSpritePath
-                }/static.png`}
                 alt={baseTrainer.name}
               />
               <div className="text-left">
@@ -281,14 +329,18 @@ export default function GroupedTrainerCard({
                   {isActualGymLeader ? (
                     <span className="flex items-center gap-2">
                       {displayTrainerName}
-                      <Badge variant="destructive" className="text-xs">
+                      <Badge variant="nite" className="text-xs">
                         Gym Leader
                       </Badge>
                     </span>
-                  ) : (
+                  ) : (displayTrainerClass || '').trim().toLowerCase() !==
+                      (displayTrainerName || '').trim().toLowerCase() &&
+                    (displayTrainerClass || '').trim() ? (
                     <span className="capitalize">
                       {displayTrainerClass} {displayTrainerName}
                     </span>
+                  ) : (
+                    <span className="capitalize">{displayTrainerName}</span>
                   )}
                   {isGrouped && (
                     <Badge variant="secondary" className="ml-2 text-xs">
@@ -302,7 +354,7 @@ export default function GroupedTrainerCard({
               </div>
             </div>
           </AccordionTrigger>
-          <AccordionContent className="pt-6">
+          <AccordionContent className="pt-6 pb-0">
             {!isGrouped ? (
               // Single trainer - show team normally
               <div className="flex-grow min-w-0 w-full">

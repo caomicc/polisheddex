@@ -370,11 +370,14 @@ export interface NPCTrade {
 }
 
 export interface LocationEvent {
-  type: 'rival_battle' | 'trainer_battle' | 'special' | 'coordinate_trigger' | 'item';
+  type: 'rival_battle' | 'trainer_battle' | 'special' | 'coordinate_trigger' | 'item' | 'phone_call';
   description: string;
   details?: string;
   eventFlag?: string;
   coordinates?: { x: number; y: number };
+  npc?: string;
+  reward?: string;
+  conditions?: string;
 }
 
 export interface LocationItem {

@@ -63,9 +63,7 @@ export default function PokemonWithMoveDataTable({
             </div>
           </div>
 
-          <div className="text-sm text-gray-600 dark:text-gray-400">
-            {filteredData.length} pokemon found
-          </div>
+          <div className="text-xs">{filteredData.length} pokemon found</div>
         </BentoGridNoLink>
         <PokemonDataTable columns={pokemonWithMoveColumns} data={filteredData} />
       </BentoGrid>

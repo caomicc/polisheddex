@@ -20,6 +20,8 @@ export function TrainerSprite({ className, trainerName, variant, alt, src }: Tra
   const width = spriteInfo?.width || 64;
   const height = spriteInfo?.height || 64;
 
+  console.log('trainerSpritePath', finalSrc);
+
   if (isLoading) {
     return (
       <div

@@ -8,7 +8,7 @@ import { PokemonSprite } from './pokemon-sprite';
 import { usePokemonType } from '@/contexts/PokemonTypeContext';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonType } from '@/types/types';
-import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
+import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
 
 interface EvolutionMethod {
   method: string;
@@ -155,12 +155,11 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
             className="grid grid-cols-3 gap-6 items-center"
           >
             <Link
-              href={`${createPokemonUrl(sourceName.includes('(') ? sourceName.split(' (')[0] : sourceName)}${
-                path.sourceForm && path.sourceForm.toLowerCase() !== 'plain form'
-                  ? `?form=${encodeURIComponent(path.sourceForm.replace(/ form$/i, '').toLowerCase())}`
-                  : ''
-              }`}
-              className="items-center flex flex-col text-center"
+              href={formatPokemonUrlWithForm(
+                path.source,
+                path.sourceForm ? path.sourceForm.toLowerCase().replace(/ form/g, '') : 'plain',
+              )}
+              className="table-link"
             >
               <PokemonSprite
                 pokemonName={path.source}
@@ -273,12 +272,11 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
               );
             })()}
             <Link
-              href={`${createPokemonUrl(targetName.includes('(') ? targetName.split(' (')[0] : targetName)}${
-                path.targetForm && path.targetForm.toLowerCase() !== 'plain form'
-                  ? `?form=${encodeURIComponent(path.targetForm.replace(/ form$/i, '').toLowerCase())}`
-                  : ''
-              }`}
-              className="items-center flex flex-col text-center"
+              href={formatPokemonUrlWithForm(
+                path.target,
+                path.targetForm ? path.targetForm.toLowerCase().replace(/ form/g, '') : 'plain',
+              )}
+              className="table-link"
             >
               <PokemonSprite
                 className="shadow-none"

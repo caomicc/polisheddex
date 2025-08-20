@@ -16,11 +16,11 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
   const effectiveInfo: MoveDescription['updated'] | MoveDescription['faithful'] = (showFaithful
     ? info?.faithful || info?.updated || undefined
     : info?.updated || info?.faithful) ?? {
-    type: '-',
-    pp: '--',
-    power: '--',
-    accuracy: '--',
-    effectPercent: '--',
+    type: '—',
+    pp: '—',
+    power: '—',
+    accuracy: '—',
+    effectPercent: '—',
     category: 'Unknown',
   };
 
@@ -31,7 +31,7 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
       className="hover:bg-muted/0 border-b-0 group hidden md:table-row"
     >
       {level !== undefined && (
-        <TableCell rowSpan={2} className="align-middle font-semibold w-12 p-2 ">
+        <TableCell rowSpan={2} className="align-middle font-semibold w-12 p-2 text-xs">
           {level ?? '—'}
         </TableCell>
       )}
@@ -40,12 +40,9 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
         rowSpan={2}
         className="align-middle font-medium p-2 text-center md:text-left text-xs md:text-md md:w-[238px]"
       >
-        <Link
-          href={`/moves/${name.toLowerCase().replace(/\s+/g, '-')}`}
-          className="flex items-center"
-        >
+        <Link href={`/moves/${name.toLowerCase().replace(/\s+/g, '-')}`} className="table-link">
           {name}
-          <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0 ml-2" />
+          <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
         </Link>
       </TableCell>
 
@@ -78,18 +75,24 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
         </Badge> */}
       </TableCell>
 
-      <TableCell className="align-middle p-2 ">{effectiveInfo?.power ?? '--'}</TableCell>
+      <TableCell className="align-middle p-2 text-xs">
+        {effectiveInfo?.power ?? <span className="text-gray-400 text-sm">—</span>}
+      </TableCell>
 
-      <TableCell className="align-middle p-2 ">{effectiveInfo?.accuracy ?? '--'}</TableCell>
+      <TableCell className="align-middle p-2 text-xs">
+        {effectiveInfo?.accuracy ?? <span className="text-gray-400 text-sm">—</span>}
+      </TableCell>
 
-      <TableCell className="align-middle p-2 ">{effectiveInfo?.pp ?? '--'}</TableCell>
-      <TableCell className="align-middle p-2">
+      <TableCell className="align-middle p-2 text-xs">
+        {effectiveInfo?.pp ?? <span className="text-gray-400 text-sm">—</span>}
+      </TableCell>
+      <TableCell className="align-middle p-2 text-xs">
         {info?.tm?.number ? (
           info.tm.number.toLowerCase().startsWith('mt') ? (
             <Link
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
               href={`/locations/${encodeURIComponent((info.tm.location as any).area?.toLowerCase().replace(/\s+/g, '_'))}`}
-              className="flex items-center"
+              className="table-link"
             >
               <Badge
                 variant={'berry'}
@@ -97,21 +100,21 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
               >
                 {info.tm.number}
               </Badge>
-              <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0 ml-2" />
+              <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
             </Link>
           ) : (
-            <Link href={`/items/${info.tm.number.toLowerCase()}`} className="flex items-center">
+            <Link href={`/items/${info.tm.number.toLowerCase()}`} className="table-link">
               <Badge
                 variant={info.tm.number.startsWith('TM') ? 'tm' : 'hm'}
                 className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
               >
                 {info.tm.number}
               </Badge>
-              <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0 ml-2" />
+              <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
             </Link>
           )
         ) : (
-          <span className="text-muted-foreground">--</span>
+          <span className="text-gray-400 text-sm">—</span>
         )}
       </TableCell>
     </TableRow>,
@@ -141,12 +144,9 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
         colSpan={6}
         className="align-middle font-bold p-1 md:p-2 text-left text-xs md:text-md col-span-2"
       >
-        <Link
-          href={`/moves/${name.toLowerCase().replace(/\s+/g, '-')}`}
-          className="flex items-center"
-        >
+        <Link href={`/moves/${name.toLowerCase().replace(/\s+/g, '-')}`} className="table-link">
           {name}
-          <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0 ml-2" />
+          <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
         </Link>
         {level !== undefined && (
           <span className="text-xs text-muted-foreground ml-2">Level: {level}</span>
@@ -187,24 +187,30 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
         </Badge> */}
       </TableCell>
 
-      <TableCell className="align-middle p-1 md:p-2">{effectiveInfo?.power ?? '--'}</TableCell>
+      <TableCell className="align-middle p-1 md:p-2">
+        {effectiveInfo?.power ?? <span className="text-gray-400 text-sm">—</span>}
+      </TableCell>
 
-      <TableCell className="align-middle p-1 md:p-2">{effectiveInfo?.accuracy ?? '--'}</TableCell>
+      <TableCell className="align-middle p-1 md:p-2">
+        {effectiveInfo?.accuracy ?? <span className="text-gray-400 text-sm">—</span>}
+      </TableCell>
 
-      <TableCell className="align-middle p-1 md:p-2">{effectiveInfo?.pp ?? '--'}</TableCell>
+      <TableCell className="align-middle p-1 md:p-2">
+        {effectiveInfo?.pp ?? <span className="text-gray-400 text-sm">—</span>}
+      </TableCell>
       <TableCell className="align-middle p-1 md:p-2 ">
         {info?.tm?.number ? (
-          <Link href={`/items/${info.tm.number.toLowerCase()}`} className="flex items-center">
+          <Link href={`/items/${info.tm.number.toLowerCase()}`} className="table-link">
             <Badge
               variant={info.tm.number.startsWith('TM') ? 'tm' : 'hm'}
               className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
             >
               {info.tm.number}
             </Badge>
-            <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0 ml-2" />
+            <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
           </Link>
         ) : (
-          <span className="text-muted-foreground">--</span>
+          <span className="text-gray-400 text-sm">—</span>
         )}
       </TableCell>
     </TableRow>,

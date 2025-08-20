@@ -47,6 +47,19 @@ export function extractPokemonForm(pokemonName: string): {
     return { baseName: pokemonName, formName: null };
   }
 
+  // Check for parentheses form first (like "Arbok (Johto)")
+  const parenthesesMatch = pokemonName.match(/^(.+?)\s*\(([^)]+)\)/);
+  if (parenthesesMatch) {
+    const baseName = parenthesesMatch[1].trim();
+    const formInParentheses = parenthesesMatch[2];
+    const normalizedForm = normalizeFormName(formInParentheses);
+
+    return {
+      baseName: baseName,
+      formName: normalizedForm,
+    };
+  }
+
   // Check for known regional forms
   for (const [key, formValue] of Object.entries(KNOWN_FORMS)) {
     // Match if the string ends with the form value (with or without _form suffix), not just _form
@@ -98,6 +111,8 @@ export function extractPokemonForm(pokemonName: string): {
 export function formatPokemonDisplayWithForm(pokemonName: string): string {
   const { baseName, formName } = extractPokemonForm(pokemonName);
 
+  console.log('formatPokemonDisplayWithForm', { pokemonName, baseName, formName });
+
   if (!formName) {
     return formatPokemonBaseName(baseName);
   }
@@ -122,11 +137,14 @@ export function formatPokemonUrlWithForm(pokemonName: string, formString: string
   const { baseName, formName } = extractPokemonForm(pokemonName);
   // console.log('formatPokemonUrlWithForm', { baseName, formName });
   const base = `/pokemon/${encodeURIComponent(formatPokemonBaseName(baseName).toLowerCase().replace(/'/g, '-'))}`;
-  if ((formName || formString) && formName !== 'plain' && formString !== 'plain') {
+
+  // Normalize the form string if it has parentheses
+  const normalizedFormString = formString ? normalizeFormName(formString) : formString;
+  const finalFormName = formName || normalizedFormString;
+
+  if (finalFormName && finalFormName !== 'plain') {
     // Remove _form suffix if present
-    const formParam = encodeURIComponent(
-      (formName || formString).toLowerCase().replace(/_form$/, ''),
-    );
+    const formParam = encodeURIComponent(finalFormName.toLowerCase().replace(/_form$/, ''));
     return `${base}?form=${formParam}`;
   }
   return base;
@@ -137,7 +155,7 @@ export function formatPokemonUrlWithForm(pokemonName: string, formString: string
  * @param baseName - The base Pokémon name
  * @returns Formatted base name
  */
-function formatPokemonBaseName(baseName: string): string {
+export function formatPokemonBaseName(baseName: string): string {
   // Handle special cases
   const specialCases: Record<string, string> = {
     'nidoran-f': 'Nidoran ♀',
@@ -154,6 +172,8 @@ function formatPokemonBaseName(baseName: string): string {
     'hakamo-o': 'Hakamo-o',
     'kommo-o': 'Kommo-o',
     ekansarbok: 'Ekans',
+    'ekansarbok-johto-form': 'Ekans',
+    'arbokarbok-johto-form': 'Arbok',
     arbok: 'Arbok',
     arbokarbok: 'Arbok',
   };
@@ -185,11 +205,60 @@ function formatPokemonBaseName(baseName: string): string {
 }
 
 /**
+ * Normalize form names that come with parentheses like "Arbok (Johto)" to just "johto"
+ * @param formName - The form identifier that may contain parentheses
+ * @returns Normalized form name
+ */
+export function normalizeFormName(formName: string): string {
+  if (!formName) return formName;
+
+  // Extract text from parentheses like "Arbok (Johto)" -> "Johto"
+  const parenthesesMatch = formName.match(/\(([^)]+)\)/);
+  if (parenthesesMatch) {
+    const extractedForm = parenthesesMatch[1].toLowerCase().trim();
+
+    // Map common form names to their canonical values
+    const formMappings: Record<string, string> = {
+      johto: KNOWN_FORMS.JOHTO_FORM,
+      kanto: KNOWN_FORMS.KANTO_FORM,
+      koga: KNOWN_FORMS.KOGA_FORM,
+      agatha: KNOWN_FORMS.AGATHA_FORM,
+      ariana: KNOWN_FORMS.ARIANA_FORM,
+      alolan: KNOWN_FORMS.ALOLAN,
+      galarian: KNOWN_FORMS.GALARIAN,
+      hisuian: KNOWN_FORMS.HISUIAN,
+      paldean: KNOWN_FORMS.PALDEAN,
+    };
+
+    return formMappings[extractedForm] || extractedForm;
+  }
+
+  // If no parentheses, check if it needs normalization
+  const lowerForm = formName.toLowerCase().trim();
+  const formMappings: Record<string, string> = {
+    johto: KNOWN_FORMS.JOHTO_FORM,
+    kanto: KNOWN_FORMS.KANTO_FORM,
+    koga: KNOWN_FORMS.KOGA_FORM,
+    agatha: KNOWN_FORMS.AGATHA_FORM,
+    ariana: KNOWN_FORMS.ARIANA_FORM,
+    alolan: KNOWN_FORMS.ALOLAN,
+    galarian: KNOWN_FORMS.GALARIAN,
+    hisuian: KNOWN_FORMS.HISUIAN,
+    paldean: KNOWN_FORMS.PALDEAN,
+  };
+
+  return formMappings[lowerForm] || formName;
+}
+
+/**
  * Format form name for display
  * @param formName - The form identifier
  * @returns User-friendly form name
  */
-function formatFormName(formName: string): string {
+export function formatFormName(formName: string): string {
+  // First normalize the form name in case it has parentheses
+  const normalizedForm = normalizeFormName(formName);
+
   const formDisplayNames: Record<string, string> = {
     [KNOWN_FORMS.ALOLAN]: 'Alolan',
     [KNOWN_FORMS.GALARIAN]: 'Galarian',
@@ -206,13 +275,17 @@ function formatFormName(formName: string): string {
     [KNOWN_FORMS.PIKACHU_SURF_FORM]: 'Surfing',
     [KNOWN_FORMS.PLAIN]: 'Plain',
     [KNOWN_FORMS.JOHTO_FORM]: 'Johto',
+    [KNOWN_FORMS.ARBOK_JOHTO_FORM]: 'Johto',
     [KNOWN_FORMS.KANTO_FORM]: 'Kanto',
     [KNOWN_FORMS.KOGA_FORM]: 'Koga',
     [KNOWN_FORMS.AGATHA_FORM]: 'Agatha',
     [KNOWN_FORMS.ARIANA_FORM]: 'Ariana',
   };
 
-  return formDisplayNames[formName] || formName.charAt(0).toUpperCase() + formName.slice(1);
+  return (
+    formDisplayNames[normalizedForm] ||
+    normalizedForm.charAt(0).toUpperCase() + normalizedForm.slice(1)
+  );
 }
 
 /**

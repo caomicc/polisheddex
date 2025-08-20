@@ -567,7 +567,6 @@ export default function PokemonFormClient({
                           // Deduplicate moves (same name + level)
                           movesToShow = deduplicateMoves(faithfulMoves);
                         } else {
-                          console.log('Showing updated moves', formData);
                           // Show updated moves if available, otherwise regular moves
                           const movesToUse =
                             formData.updatedMoves && formData.updatedMoves.length > 0

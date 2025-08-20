@@ -30,7 +30,11 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
     },
     cell: ({ row }) => {
       const move = row.original;
-      return <div className="flex items-center space-x-2 min-w-0 word-wrap">{move.name}</div>;
+      return (
+        <div className="flex items-center space-x-2 min-w-0 word-wrap text-xs font-bold">
+          {move.name}
+        </div>
+      );
     },
     filterFn: (row, id, value) => {
       if (!value) return true;
@@ -126,7 +130,9 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
     },
     cell: ({ row }) => {
       const move = row.original;
-      const power = move.updated?.power ?? move.faithful?.power ?? '-';
+      const power = move.updated?.power ?? move.faithful?.power ?? (
+        <span className="text-gray-400 text-sm">—</span>
+      );
       return <span>{power}</span>;
     },
     accessorFn: (row) => row.updated?.power ?? row.faithful?.power ?? null,
@@ -154,7 +160,9 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
     },
     cell: ({ row }) => {
       const move = row.original;
-      const accuracy = move.updated?.accuracy ?? move.faithful?.accuracy ?? '-';
+      const accuracy = move.updated?.accuracy ?? move.faithful?.accuracy ?? (
+        <span className="text-gray-400 text-sm">—</span>
+      );
       return <span>{accuracy}</span>;
     },
     accessorFn: (row) => row.updated?.accuracy ?? row.faithful?.accuracy ?? null,
@@ -181,7 +189,9 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
     },
     cell: ({ row }) => {
       const move = row.original;
-      const pp = move.updated?.pp ?? move.faithful?.pp ?? '-';
+      const pp = move.updated?.pp ?? move.faithful?.pp ?? (
+        <span className="text-gray-400 text-sm">—</span>
+      );
       return <span>{pp}</span>;
     },
     accessorFn: (row) => row.updated?.pp ?? row.faithful?.pp ?? null,
@@ -214,7 +224,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
           {tm}
         </Badge>
       ) : (
-        <span className="text-muted-foreground">-</span>
+        <span className="text-gray-400 text-sm">—</span>
       );
     },
     accessorFn: (row) => {

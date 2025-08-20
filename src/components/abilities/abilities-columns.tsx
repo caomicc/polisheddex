@@ -1,7 +1,7 @@
 'use client';
 
 import { ColumnDef } from '@tanstack/react-table';
-import { ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react';
+import { ArrowUpDown, ArrowUp, ArrowDown, ExternalLink } from 'lucide-react';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import { accentInsensitiveIncludes } from '@/utils/stringUtils';
@@ -38,12 +38,10 @@ export const abilityColumns: ColumnDef<Ability>[] = [
       const displayName =
         ability.name || ability.id.replace('-', ' ').replace(/\b\w/g, (l) => l.toUpperCase());
       return (
-        <div className="flex items-center space-x-2 min-w-0]">
-          <Link
-            href={`/abilities/${encodeURIComponent(ability.id)}`}
-            className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium capitalize truncate"
-          >
+        <div className="flex items-center space-x-2 min-w-0">
+          <Link href={`/abilities/${encodeURIComponent(ability.id)}`} className="table-link">
             {displayName}
+            <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
           </Link>
         </div>
       );
@@ -84,7 +82,7 @@ export const abilityColumns: ColumnDef<Ability>[] = [
     cell: ({ row }) => {
       const ability = row.original;
       return (
-        <div className="text-sm text-muted-foreground max-w-md truncate">
+        <div className="text-xs text-muted-foreground max-w-md truncate">
           {ability.description || 'No description available'}
         </div>
       );

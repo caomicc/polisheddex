@@ -14,11 +14,9 @@ import {
 } from '@/utils/itemUtils';
 import { PokemonDataTable } from '../pokemon/pokemon-data-table';
 import { pokemonColumns } from '../pokemon/pokemon-columns';
-import TrainerCard from '../trainer/trainer-card';
 import GroupedTrainerCard from '../trainer/grouped-trainer-card';
 import { groupRematchTrainers } from '@/utils/trainerGrouping';
 import TableWrapper from '../ui/table-wrapper';
-import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
 import { BentoGrid, BentoGridItem, BentoGridNoLink } from '../ui/bento-box';
 import {
   DoorOpen,
@@ -31,6 +29,7 @@ import {
   MoveUpLeft,
   MoveUpRight,
 } from 'lucide-react';
+import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
 
 export default function LocationClient({
   comprehensiveInfo,
@@ -199,7 +198,7 @@ export default function LocationClient({
                       <div className="text-center">
                         <div className="text-sm text-gray-500">You give</div>
                         <Link
-                          href={createPokemonUrl(trade.wantsPokemon)}
+                          href={formatPokemonUrlWithForm(trade.wantsPokemon, 'plain')}
                           className="font-semibold text-blue-600 dark:text-blue-400 hover:underline"
                         >
                           {trade.wantsPokemon}
@@ -209,7 +208,7 @@ export default function LocationClient({
                       <div className="text-center">
                         <div className="text-sm text-gray-500">You get</div>
                         <Link
-                          href={createPokemonUrl(trade.givesPokemon)}
+                          href={formatPokemonUrlWithForm(trade.givesPokemon, 'plain')}
                           className="font-semibold text-green-600 dark:text-green-400 hover:underline"
                         >
                           {trade.givesPokemon}
@@ -227,6 +226,53 @@ export default function LocationClient({
             </CardContent>
           </TableWrapper>
         )}
+
+        {comprehensiveInfo?.events &&
+          comprehensiveInfo.events.some(
+            (event: { type: string }) => event.type === 'phone_call',
+          ) && (
+            <TableWrapper className="pt-4 pb-6">
+              <CardHeader>
+                <h3>Phone Call Rewards</h3>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  {comprehensiveInfo.events
+                    .filter((event: { type: string }) => event.type === 'phone_call')
+                    .map(
+                      (
+                        event: { npc: string; reward: string; conditions: string },
+                        index: number,
+                      ) => (
+                        <div
+                          key={index}
+                          className="flex items-center justify-between p-4 border rounded-lg"
+                        >
+                          <div className="flex items-center gap-4">
+                            <div className="text-center">
+                              <div className="text-sm text-gray-500">Trainer</div>
+                              <div className="font-semibold text-blue-600 dark:text-blue-400">
+                                {event.npc}
+                              </div>
+                            </div>
+                            <div className="text-2xl">📞</div>
+                            <div className="text-center">
+                              <div className="text-sm text-gray-500">Gives</div>
+                              <div className="font-semibold text-green-600 dark:text-green-400">
+                                {event.reward}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="text-sm text-gray-600 dark:text-gray-400 max-w-md">
+                            {event.conditions}
+                          </div>
+                        </div>
+                      ),
+                    )}
+                </div>
+              </CardContent>
+            </TableWrapper>
+          )}
       </div>
 
       {comprehensiveInfo?.items && (

@@ -96,7 +96,7 @@ export default function Home() {
                 className="flex items-center gap-2 w-60"
               >
                 Download ROM on GitHub
-                <ExternalLink className="h-4 w-4" />
+                <ExternalLink className="h-3 w-3 flex-shrink-0" />
               </Link>
             </Button>
           </motion.div>

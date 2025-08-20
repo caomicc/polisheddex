@@ -8,7 +8,7 @@ import { normalizeLocationKey } from './src/utils/locationUtils.ts';
 import { restructureLocationsToIndividualFiles } from './restructure_locations.ts';
 import { extractGymLeaders } from './src/utils/extractors/gymExtractors.ts';
 import { extractTMHMLocations } from './src/utils/extractors/tmHmExtractors.ts';
-import { extractLocationEvents, extractNPCTrades } from './src/utils/extractors/eventExtractors.ts';
+import { extractLocationEvents, extractNPCTrades, convertPhoneEventsToLocationEvents } from './src/utils/extractors/eventExtractors.ts';
 import { extractLocationItems } from './src/utils/extractors/itemExtractors.ts';
 
 // Use this workaround for __dirname in ES modules
@@ -24,6 +24,7 @@ export function extractAllLocations(): Record<string, LocationData> {
   // Extract NPC trades, events, items, TM/HM locations, and trainer data first
   const tradesByLocation = extractNPCTrades();
   const eventsByLocation = extractLocationEvents();
+  const phoneEventsByLocation = convertPhoneEventsToLocationEvents();
   const itemsByLocation = extractLocationItems();
   const tmhmByLocation = extractTMHMLocations();
   const trainerData = extractTrainerData();
@@ -431,6 +432,21 @@ export function extractAllLocations(): Record<string, LocationData> {
       locations[locationKey].events = events;
     } else {
       console.log(`⚠️  Events found for unknown location: ${locationKey}`);
+    }
+  }
+
+  // Merge phone call events into location data
+  console.log('📞 Merging phone call events...');
+  for (const [locationKey, phoneEvents] of Object.entries(phoneEventsByLocation)) {
+    if (locations[locationKey]) {
+      // Merge with existing events or create new events array
+      if (locations[locationKey].events) {
+        locations[locationKey].events = [...(locations[locationKey].events || []), ...phoneEvents];
+      } else {
+        locations[locationKey].events = phoneEvents;
+      }
+    } else {
+      console.log(`⚠️  Phone events found for unknown location: ${locationKey}`);
     }
   }
 

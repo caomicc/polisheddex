@@ -1,3 +1,4 @@
+// pokemon columns for /pokemon route
 'use client';
 
 import * as React from 'react';

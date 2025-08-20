@@ -202,15 +202,8 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
         typeof moveData?.power === 'number'
           ? moveData.power
           : parseInt(String(moveData?.power || '0'));
-      // const moveAccuracy =
-      //   typeof moveData?.accuracy === 'number'
-      //     ? moveData.accuracy
-      //     : moveData?.accuracy === '--'
-      //       ? 100
-      //       : parseInt(String(moveData?.accuracy || '0'));
 
       const matchesHighPower = !highPower || movePower >= 80;
-      // const matchesPerfectAccuracy = !perfectAccuracy || moveAccuracy >= 100;
 
       const matchesHasTM = !hasTm || move.tm;
 
@@ -449,7 +442,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
               Clear filters & sort
             </Button>
           )}
-          <span className="flex">
+          <span className="flex text-xs text-muted-foreground">
             Showing {table.getFilteredRowModel().rows.length} of {filteredData.length} moves
             {sorting.length > 0 && (
               <span className="ml-2">

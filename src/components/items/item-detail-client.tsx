@@ -50,7 +50,7 @@ function RegularItemDetails({ item }: { item: ItemData }) {
       {/* Primary Effect Display */}
       <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-3 mb-4">
         <BentoGridNoLink className="col-span-1">
-          <div className="transition duration-200 group-hover/bento:translate-x-2">
+          <div>
             <Image
               src={`/sprites/items/${getItemSpriteName(item.name)}.png`}
               width={24}
@@ -96,7 +96,7 @@ function RegularItemDetails({ item }: { item: ItemData }) {
         </BentoGridNoLink>
 
         <BentoGridNoLink>
-          <div className="transition duration-200 group-hover/bento:translate-x-2">
+          <div>
             <Image
               src={`/sprites/items/coin_case.png`}
               width={24}
@@ -107,14 +107,14 @@ function RegularItemDetails({ item }: { item: ItemData }) {
             <div className="mb-2 mt-2 font-sans font-bold text-neutral-600 dark:text-neutral-200">
               Price
             </div>
-            <div className="font-sans text-xs font-normal text-neutral-600 dark:text-neutral-300">
+            <div className="font-sans text-sm font-bold text-green-600 dark:text-green-300">
               ₽{item.attributes.price.toLocaleString()}
             </div>
           </div>
         </BentoGridNoLink>
 
         <BentoGridNoLink>
-          <div className="transition duration-200 group-hover/bento:translate-x-2">
+          <div>
             <Image
               src={`/sprites/items/itemfinder.png`}
               width={24}

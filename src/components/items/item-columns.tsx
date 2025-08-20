@@ -32,7 +32,13 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
       return (
         <div className="">
           <Link href={linkHref}>
-            <Image src={spriteUrl} alt={item.name} width={24} height={24} className="rounded-sm" />
+            <Image
+              src={spriteUrl}
+              alt={item.name}
+              width={24}
+              height={24}
+              className="rounded-sm dark:bg-white rounded-sm"
+            />
           </Link>
         </div>
       );
@@ -72,10 +78,7 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
 
       return (
         <div className="flex items-center space-x-2 min-w-0">
-          <Link
-            href={linkHref}
-            className="hover:text-blue-600 hover:underline truncate flex items-center gap-1"
-          >
+          <Link href={linkHref} className="table-link">
             {item.name}
             <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
           </Link>
@@ -114,12 +117,12 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
       if (isRegularItem(item)) {
         const price = item.attributes?.price || 0;
         return (
-          <span className="font-medium text-green-600 dark:text-green-400">
+          <span className="text-xs font-bold text-green-600 dark:text-green-400">
             ₽{price.toLocaleString()}
           </span>
         );
       } else {
-        return <span className="text-gray-400 text-sm">-</span>;
+        return <span className="text-gray-400 text-sm">—</span>;
       }
     },
     // Custom accessor for sorting
@@ -234,11 +237,11 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
       }
 
       return (
-        <span className="text-sm">
+        <span className="text-xs">
           {locationCount > 0 ? (
             `${locationCount} location${locationCount !== 1 ? 's' : ''}`
           ) : (
-            <span className="text-gray-400">No locations</span>
+            <span className="text-gray-400">—</span>
           )}
         </span>
       );

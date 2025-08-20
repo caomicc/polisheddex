@@ -242,7 +242,7 @@ export default function FAQPage() {
                       {...props}
                     >
                       {children}
-                      <ExternalLink className="inline h-3 w-3 ml-1" />
+                      <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0 ml-1" />
                     </Link>
                   );
                 }

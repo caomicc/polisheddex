@@ -36,18 +36,15 @@ export const locationColumns: ColumnDef<LocationData>[] = [
         location.urlName || (location.area ? normalizeLocationKey(location.area) : null);
 
       return (
-        <div className="flex items-center space-x-2 min-w-0">
+        <div className="flex items-center space-x-2 min-w-0 text-xs ">
           {urlPath ? (
-            <Link
-              href={`/locations/${encodeURIComponent(urlPath)}`}
-              className="hover:text-blue-600 hover:underline  truncate"
-            >
+            <Link href={`/locations/${encodeURIComponent(urlPath)}`} className="table-link">
               {location.displayName || location.area}
+              <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
             </Link>
           ) : (
-            <span className=" truncate text-sm ">{location.displayName || location.area}</span>
+            <span className=" truncate">{location.displayName || location.area}</span>
           )}
-          {urlPath && <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />}
         </div>
       );
     },
@@ -74,7 +71,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
     },
     cell: ({ row }) => {
       const region = row.getValue('region') as string;
-      if (!region) return <span className="text-gray-400 text-sm">-</span>;
+      if (!region) return <span className="text-gray-400 text-sm">—</span>;
       return (
         <Badge variant={region as 'kanto' | 'johto' | 'orange'}>
           {region.charAt(0).toUpperCase() + region.slice(1)}
@@ -113,9 +110,9 @@ export const locationColumns: ColumnDef<LocationData>[] = [
       return (
         <div className="">
           {count && count > 0 ? (
-            <span className="text-sm">{count}</span>
+            <span className="text-xs">{count}</span>
           ) : (
-            <span className="text-gray-400 text-sm">-</span>
+            <span className="text-gray-400 text-sm">—</span>
           )}
         </div>
       );
@@ -146,9 +143,9 @@ export const locationColumns: ColumnDef<LocationData>[] = [
       return (
         <div className="">
           {count && count > 0 ? (
-            <span className="text-sm">{count}</span>
+            <span className="text-xs">{count}</span>
           ) : (
-            <span className="text-gray-400 text-sm">-</span>
+            <span className="text-gray-400 text-sm">—</span>
           )}
         </div>
       );
@@ -165,9 +162,9 @@ export const locationColumns: ColumnDef<LocationData>[] = [
       return (
         <div className="">
           {hasItems ? (
-            <span className="text-sm">Yes</span>
+            <span className="text-xs">Yes</span>
           ) : (
-            <span className="text-gray-400 text-sm">-</span>
+            <span className="text-gray-400 text-xs">—</span>
           )}
         </div>
       );
@@ -195,7 +192,11 @@ export const locationColumns: ColumnDef<LocationData>[] = [
     },
     cell: ({ row }) => {
       const flyable = row.getValue('flyable') as boolean;
-      return <div className="">{flyable ? <span>Yes</span> : <span>-</span>}</div>;
+      return (
+        <div className="text-xs">
+          {flyable ? <span>Yes</span> : <span className="text-gray-400 text-sm">—</span>}
+        </div>
+      );
     },
   },
 ];

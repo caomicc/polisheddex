@@ -313,7 +313,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
               Clear filters & sort
             </Button>
           )}
-          <span className="flex">
+          <span className="flex text-xs text-muted-foreground">
             Showing {table.getFilteredRowModel().rows.length} of {filteredData.length} items
             {sorting.length > 0 && (
               <span className="ml-2">

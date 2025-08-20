@@ -1,3 +1,4 @@
+// pokemon columns for /pokemon route
 'use client';
 import { BaseData } from '@/types/types';
 import { PokemonListDataTable } from './pokemon-list-data-table';
@@ -337,7 +338,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
               Clear filters & sort
             </Button>
           )}
-          <span className="flex flex-col md:flex-row">
+          <span className="flex flex-col md:flex-row text-xs text-muted-foreground">
             Showing {filteredData.length} Pokémon
             {/* {sorting.length > 0 && (
               <span className="">

@@ -1,13 +1,19 @@
+// pokemon columns for /pokemon route
+
 'use client';
 
 import { ColumnDef } from '@tanstack/react-table';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react';
+import { ArrowDown, ArrowUp, ArrowUpDown, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
 import { BaseData, PokemonType } from '@/types/types';
 import { PokemonSprite } from './pokemon-sprite';
-import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
+import {
+  getFormTypeClass,
+  extractPokemonForm,
+  formatPokemonUrlWithForm,
+} from '@/utils/pokemonFormUtils';
 
 // Helper function to format Pokemon names
 function formatPokemonName(name: string): string {
@@ -34,18 +40,26 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
           ? pokemon.types[0].toLowerCase()
           : 'unknown';
 
+      // Extract base name and form for proper sprite handling
+      const { baseName, formName } = extractPokemonForm(pokemon.name);
+      const actualFormName = formName || pokemon.form;
+
       return (
         <div className="">
           <Link
-            href={`${createPokemonUrl(pokemon.name)}${pokemon.form ? `?form=${pokemon.form}` : ''}`}
+            href={formatPokemonUrlWithForm(
+              baseName,
+              actualFormName ? actualFormName.toString() : 'plain',
+            )}
+            className="table-link"
           >
             <PokemonSprite
-              pokemonName={pokemon.name}
-              alt={`${pokemon.name} sprite`}
+              pokemonName={baseName}
+              alt={`${baseName} sprite`}
               primaryType={primaryType as PokemonType['name']}
               variant="normal"
               type="static"
-              form={typeof pokemon.form === 'string' ? pokemon.form : 'plain'}
+              form={typeof actualFormName === 'string' ? actualFormName : 'plain'}
               src={pokemon.frontSpriteUrl}
               size={'sm'}
               className="shadow-none"
@@ -81,7 +95,7 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
     cell: ({ row }) => {
       const johtoDex = row.getValue('johtoDex') as number | null;
       return (
-        <div className="text-sm font-mono">
+        <div className="text-xs font-mono">
           {johtoDex !== null && johtoDex < 999 ? `#${johtoDex}` : '—'}
         </div>
       );
@@ -136,28 +150,54 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
     },
     cell: ({ row }) => {
       const pokemon = row.original;
-      const displayName = formatPokemonName(pokemon.name);
+
+      // Extract base name and form from the pokemon name
+      const { baseName, formName } = extractPokemonForm(pokemon.name);
+      const displayName = formatPokemonName(baseName);
+
+      // Use the extracted form name or the stored form property, ensuring it's a string when used in JSX
+      const rawActualForm = formName ?? pokemon.form;
+      const actualFormName =
+        typeof rawActualForm === 'string' && rawActualForm !== '' ? rawActualForm : undefined;
 
       return (
         <div className="min-w-0">
-          <Link href={createPokemonUrl(pokemon.name)} className="font-semibold">
+          <Link
+            className="table-link"
+            href={formatPokemonUrlWithForm(
+              baseName,
+              actualFormName ? actualFormName.toString() : 'plain',
+            )}
+          >
             {displayName}
+            {actualFormName && actualFormName !== 'plain' && (
+              <span
+                className={`text-xs text-muted-foreground block capitalize ml-1 ${getFormTypeClass(actualFormName)}`}
+              >
+                ({actualFormName.replace(/_form$/, '').replace(/^./, (c) => c.toUpperCase())})
+              </span>
+            )}
+            <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
           </Link>
-          {typeof pokemon.form === 'string' && (
-            <div className="text-xs text-muted-foreground capitalize">{pokemon.form}</div>
-          )}
         </div>
       );
     },
     filterFn: (row, id, value) => {
       const pokemon = row.original;
       const searchText = value.toLowerCase();
-      const pokemonName = pokemon.name.toLowerCase();
-      const displayName = formatPokemonName(pokemon.name).toLowerCase();
-      // const types = row.getValue(id) as string[];
+
+      // Extract base name for search
+      const { baseName, formName } = extractPokemonForm(pokemon.name);
+      const baseNameLower = baseName.toLowerCase();
+      const displayName = formatPokemonName(baseName).toLowerCase();
+      const fullNameLower = pokemon.name.toLowerCase();
+      const formNameLower = formName ? formName.toLowerCase() : '';
+
       return (
-        // types.some((type) => type.toLowerCase().includes(value.toLowerCase())) ||
-        pokemonName.includes(searchText) || displayName.includes(searchText)
+        baseNameLower.includes(searchText) ||
+        displayName.includes(searchText) ||
+        fullNameLower.includes(searchText) ||
+        formNameLower.includes(searchText)
       );
     },
     // size: 150,

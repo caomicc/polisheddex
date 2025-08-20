@@ -175,12 +175,81 @@ export function getFallbackTrainerSprite(
   trainerName: string,
   type: SpriteType = 'static',
 ): SpriteInfo {
-  const normalizedName = trainerName.toLowerCase().replace(/-/g, '_');
-  const extension = type === 'animated' ? 'gif' : 'png';
-  const filename = type === 'animated' ? `animated.${extension}` : `static.${extension}`;
+  let normalizedName = trainerName.toLowerCase().replace(/-/g, '_');
 
+  // special mapping: handle known trainer name variants
+  switch (normalizedName) {
+    case 'cooltrainerm':
+      normalizedName = 'cooltrainer_m';
+      break;
+    case 'cooltrainerf':
+      normalizedName = 'cooltrainer_f';
+      break;
+    case 'swimmerm':
+      normalizedName = 'swimmer_m';
+      break;
+    case 'swimmerf':
+      normalizedName = 'swimmer_f';
+      break;
+    case 'teacherm':
+      normalizedName = 'teacher_m';
+      break;
+    case 'teacherf':
+      normalizedName = 'teacher_f';
+      break;
+    case 'veteranm':
+      normalizedName = 'veteran_m';
+      break;
+    case 'veteranf':
+      normalizedName = 'veteran_f';
+      break;
+    case 'sightseerm':
+      normalizedName = 'sightseer_m';
+      break;
+    case 'sightseerf':
+      normalizedName = 'sightseer_f';
+      break;
+    case 'pokefanm':
+      normalizedName = 'pokefan_m';
+      break;
+    case 'pokefanf':
+      normalizedName = 'pokefan_f';
+      break;
+    case 'officerm':
+      normalizedName = 'officer_m';
+      break;
+    case 'officerf':
+      normalizedName = 'officer_f';
+      break;
+    case 'guitarist_m':
+      normalizedName = 'guitarist_m';
+      break;
+    case 'guitaristf':
+      normalizedName = 'guitarist_f';
+      break;
+    case 'gruntm':
+      normalizedName = 'grunt_m';
+      break;
+    case 'gruntf':
+      normalizedName = 'grunt_f';
+      break;
+    case 'psychict':
+      normalizedName = 'psychic_m';
+      break;
+    case 'blackbeltt':
+      normalizedName = 'blackbelt_t';
+      break;
+    case 'rocket_scientist':
+      normalizedName = 'scientist';
+      break;
+    default:
+      break;
+  }
+
+  // const filename = type === 'animated' ? `animated.${extension}` : `static.${extension}`;
+  console.log('trainerSpritePath', `/sprites/trainers/${normalizedName}/${normalizedName}.png`);
   return {
-    url: `/sprites/trainers/${normalizedName}/${filename}`,
+    url: `/sprites/trainers/${normalizedName}/${normalizedName}.png`,
     width: 64, // fallback dimensions
     height: 64,
   };
@@ -227,6 +296,8 @@ export function getUnifiedSpriteWithFallback(
 ): SpriteInfo {
   const sprite = getUnifiedSprite(manifest, spriteName, category, variant, type);
 
+  console.log('Unified sprite', sprite, manifest, spriteName, category, variant, type);
+
   if (sprite) {
     return sprite;
   }
@@ -242,6 +313,7 @@ export function getUnifiedSpriteWithFallback(
     }
     return getFallbackSprite(spriteName, variant as SpriteVariant, type);
   } else {
+    console.log('spriteName', spriteName);
     return getFallbackTrainerSprite(spriteName, type || 'static');
   }
 }

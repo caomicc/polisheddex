@@ -6,7 +6,6 @@ import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
 import { PokemonWithAbility } from '@/utils/loaders/ability-data-loader';
-// import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
 import { cn } from '@/lib/utils';
 import {
   formatPokemonDisplayWithForm,
@@ -14,7 +13,6 @@ import {
   getFormTypeClass,
 } from '@/utils/pokemonFormUtils';
 import { PokemonSprite } from '../pokemon/pokemon-sprite';
-import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
 import { PokemonType } from '@/types/types';
 
 export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
@@ -32,7 +30,11 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
       return (
         <div className="">
           <Link
-            href={`${createPokemonUrl(pokemon.name)}${pokemon.form ? `?form=${pokemon.form}` : ''}`}
+            className="table-link"
+            href={formatPokemonUrlWithForm(
+              pokemon.name,
+              pokemon.form ? pokemon.form.toString() : 'plain',
+            )}
           >
             <PokemonSprite
               pokemonName={pokemon.name}
@@ -75,7 +77,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
       return (
         <Link
           href={formatPokemonUrlWithForm(pokemon.name, pokemon.formName || '')}
-          className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-black"
+          className="table-link"
         >
           {formatPokemonDisplayWithForm(pokemon.name)}
           {pokemon.formName && (

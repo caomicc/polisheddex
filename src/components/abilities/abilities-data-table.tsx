@@ -224,7 +224,7 @@ export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
               Clear filters & sort
             </Button>
           )}
-          <span className="flex">
+          <span className="flex text-xs text-muted-foreground">
             Showing {table.getFilteredRowModel().rows.length} of {data.length} abilities
             {sorting.length > 0 && (
               <span className="ml-2">

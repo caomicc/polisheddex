@@ -10,7 +10,7 @@ import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonSprite } from '../pokemon/pokemon-sprite';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
 import { TrainerSprite } from './trainer-sprite';
-import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
+import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
 
 interface TrainerCardProps {
   trainer: GymLeader | LocationTrainer;
@@ -47,6 +47,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
   }
 
   let trainerSpritePath = trainer.trainerClass.toLowerCase().replace(/_/g, '_');
+  console.log('trainerSpritePath', trainerSpritePath);
   switch (trainerSpritePath.toLowerCase()) {
     case 'cooltrainerm':
       trainerSpritePath = 'cooltrainer_m';
@@ -103,7 +104,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
               </div>
             </div>
           </AccordionTrigger>
-          <AccordionContent>
+          <AccordionContent className="pb-0">
             {trainer.pokemon && trainer.pokemon.length > 0 && (
               <div className="flex-grow min-w-0 w-full pt-6">
                 <span className="sr-only">Pokemon:</span>
@@ -143,7 +144,10 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                         <CardContent className="p-4 flex flex-col gap-2">
                           <div className="flex items-center gap-3">
                             <Link
-                              href={`${createPokemonUrl(poke.species)}${poke.form ? `?form=${poke.form?.toLowerCase().replace(/ form/g, '')}` : ''}`}
+                              href={formatPokemonUrlWithForm(
+                                poke.species,
+                                poke.form ? poke.form.toLowerCase().replace(/ form/g, '') : 'plain',
+                              )}
                             >
                               <PokemonSprite
                                 pokemonName={poke.species.toLowerCase().replace(/-/g, '_')}
@@ -154,7 +158,12 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                             <div className="flex-1 min-w-0">
                               <h3>
                                 <Link
-                                  href={`${createPokemonUrl(poke.species)}${poke.form ? `?form=${poke.form?.toLowerCase().replace(/ form/g, '')}` : ''}`}
+                                  href={formatPokemonUrlWithForm(
+                                    poke.species,
+                                    poke.form
+                                      ? poke.form.toLowerCase().replace(/ form/g, '')
+                                      : 'plain',
+                                  )}
                                 >
                                   {poke.species}{' '}
                                   {poke.gender?.toLowerCase() === 'female' && (

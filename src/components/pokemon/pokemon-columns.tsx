@@ -2,9 +2,11 @@
 
 import { ColumnDef } from '@tanstack/react-table';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react';
+import { ArrowDown, ArrowUp, ArrowUpDown, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import {
+  formatFormName,
+  formatPokemonBaseName,
   formatPokemonDisplayWithForm,
   formatPokemonUrlWithForm,
   getFormTypeClass,
@@ -13,7 +15,6 @@ import {
 import { Badge } from '../ui/badge';
 import { PokemonEncounter } from '@/types/types';
 import { PokemonSprite } from './pokemon-sprite';
-import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
 // import { P } from 'vitest/dist/reporters-5f784f42.js';
 
 // Helper function to format method names (matching LocationListItem)
@@ -43,16 +44,15 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
 
       return (
         <div className="">
-          <Link href={`${createPokemonUrl(name)}${form ? `?form=${form}` : ''}`}>
+          <Link href={formatPokemonUrlWithForm(name, form || '')} className="table-link">
             <PokemonSprite
-              pokemonName={name}
+              pokemonName={formatPokemonBaseName(name)}
               alt={`${name} sprite`}
               primaryType={'ghost'}
               variant="normal"
               type="static"
               className="shadow-none"
-              form={typeof form === 'string' ? form : 'plain'}
-              // src={pokemon.frontSpriteUrl}
+              form={form ? form.toLowerCase().replace(/_form$/, '') : 'plain'}
               size={'sm'}
             />
           </Link>
@@ -81,22 +81,26 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
     },
     cell: ({ row }) => {
       const pokemon = row.original;
-      const { form } = pokemon;
+      const { name, form } = pokemon;
 
       return (
         <div className="flex flex-col items-start space-x-2 min-w-0">
-          <Link
-            href={formatPokemonUrlWithForm(pokemon.name, form || '')}
-            className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-black"
-          >
-            {formatPokemonDisplayWithForm(pokemon.name)}
+          <Link href={formatPokemonUrlWithForm(name, form || '')} className="table-link">
+            {formatPokemonBaseName(name)}
             {form && (
               <span
-                className={`text-xs text-muted-foreground block capitalize ${getFormTypeClass(form)}`}
+                className={`text-xs text-muted-foreground block capitalize ml-2 ${getFormTypeClass(form)}`}
               >
-                {formatPokemonDisplayWithForm(form.replace(/_form$/, '')) || form}
+                {formatFormName(
+                  form
+                    .toLowerCase()
+                    .replace(/_form$/, '')
+                    .replace(/form$/g, '')
+                    .replace(/arbok/g, ''),
+                )}
               </span>
             )}
+            <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
           </Link>
         </div>
       );
@@ -151,7 +155,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
     },
     cell: ({ row }) => {
       const method = row.getValue('method') as string | undefined;
-      return <div className="text-foreground">{method ? formatMethod(method) : '-'}</div>;
+      return <div className="text-xs">{method ? formatMethod(method) : '-'}</div>;
     },
   },
   {
@@ -172,8 +176,6 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
     },
     cell: ({ row }) => {
       let time = row.getValue('time') as PokemonEncounter['time'];
-
-      console.log('Encounter time:', row.getValue('time'));
 
       if (time === null || time === undefined || time === 'null') time = 'any';
 
@@ -201,7 +203,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
       );
     },
     cell: ({ row }) => {
-      return <div className="text-sm">Lv. {row.getValue('level')}</div>;
+      return <div className="text-xs">Lv. {row.getValue('level')}</div>;
     },
   },
   {
@@ -221,7 +223,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
       );
     },
     cell: ({ row }) => {
-      return <div className="text-sm text-foreground">{row.getValue('chance')}%</div>;
+      return <div className="text-xs">{row.getValue('chance')}%</div>;
     },
   },
 ];

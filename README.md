@@ -98,3 +98,19 @@ This project is licensed under the MIT License.
 
 ---
 For questions or feedback, open an issue or contact [Cammy](https://caomi.cc).
+
+
+## Testing Routes:
+
+- http://localhost:3001/items
+- http://localhost:3001/items/ultra
+- http://localhost:3001/pokemon?view=table
+- http://localhost:3001/pokemon/chikorita?tab=moves
+- http://localhost:3001/moves
+- http://localhost:3001/moves/acrobatics
+- http://localhost:3001/abilities
+- http://localhost:3001/abilities/magic-guard
+- http://localhost:3001/locations
+- http://localhost:3001/locations/violet_gym
+- http://localhost:3001/locations/route_31
+- http://localhost:3001/events

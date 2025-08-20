@@ -23,7 +23,7 @@ export { extractTmHmItems } from './tmHmExtractors.ts';
 export { extractMartData } from './martExtractors.ts';
 
 // Export from eventExtractors.ts
-export { extractEventData, writeEventDataToFile, extractNPCTrades, extractLocationEvents } from './eventExtractors.ts';
+export { extractEventData, writeEventDataToFile, extractNPCTrades, extractLocationEvents, extractPhoneCallEvents, extractPhoneEventsForLocations, convertPhoneEventsToLocationEvents } from './eventExtractors.ts';
 
 // Re-export everything for specific use cases
 export * from './formExtractors.ts';

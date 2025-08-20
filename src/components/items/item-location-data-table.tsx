@@ -67,12 +67,9 @@ const columns: ColumnDef<ItemLocation>[] = [
       return (
         <div className="flex items-center space-x-2 min-w-0">
           {shouldLink ? (
-            <Link
-              href={`/locations/${normalizeLocationKey(location.area)}`}
-              className="flex items-center"
-            >
+            <Link href={`/locations/${normalizeLocationKey(location.area)}`} className="table-link">
               {location.area}
-              <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0 ml-2" />
+              <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
             </Link>
           ) : (
             <span className="">{location.area}</span>
@@ -181,7 +178,7 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
             </Select>
           </div>
         </div>
-        <div className="text-sm text-muted-foreground">
+        <div className="text-xs text-muted-foreground">
           Showing {table.getFilteredRowModel().rows.length} locations
         </div>
       </div>
@@ -211,7 +208,7 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
                   className="hover:bg-muted/50 border-b border-b-gray-100 dark:border-b-gray-700"
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="p-2 align-middle">
+                    <TableCell key={cell.id} className="p-2 align-middle text-xs ">
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}

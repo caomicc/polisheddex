@@ -726,3 +726,7 @@ h3,
 .label-text {
   @apply text-xs font-bold text-neutral-700 dark:text-neutral-300;
 }
+
+.table-link {
+  @apply text-xs items-center inline-flex hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 gap-1;
+}

@@ -1,5 +1,6 @@
 import type { PokemonEntry } from '@/components/pokemon-slot';
 import { Ability, PokemonType } from '@/types/types';
+import { normalizeFormName } from '@/utils/pokemonFormUtils';
 
 export type PokemonBasic = {
   name: string;
@@ -165,6 +166,9 @@ export async function loadPokemonData(): Promise<PokemonBasic[]> {
                     formTypeArray.push(null);
                   }
 
+                  // Normalize the form name to remove parentheses and convert to standard format
+                  const normalizedFormName = normalizeFormName(formName);
+                  
                   // Create form entry with a descriptive name
                   const formDisplayName = `${formatPokemonDisplayName(pokemon.name)} (${formatPokemonDisplayName(formName)})`;
 
@@ -173,7 +177,7 @@ export async function loadPokemonData(): Promise<PokemonBasic[]> {
                     types: [formTypeArray[0], formTypeArray[1]],
                     abilities: undefined,
                     fileName: pokemon.fileName,
-                    formName: formName, // Add formName to distinguish forms
+                    formName: normalizedFormName, // Store normalized form name
                   };
 
                   pokemonList.push(formPokemon);

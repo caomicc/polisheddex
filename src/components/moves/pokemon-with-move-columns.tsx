@@ -2,7 +2,7 @@
 
 import { ColumnDef } from '@tanstack/react-table';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react';
+import { ArrowDown, ArrowUp, ArrowUpDown, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
 import { PokemonWithMove } from '@/utils/loaders/move-data-loader';
@@ -13,7 +13,6 @@ import {
   formatPokemonUrlWithForm,
   getFormTypeClass,
 } from '@/utils/pokemonFormUtils';
-import { createPokemonUrl } from '@/utils/pokemonLinkHelper';
 import { PokemonSprite } from '../pokemon/pokemon-sprite';
 import { PokemonType } from '@/types/types';
 
@@ -32,7 +31,11 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
       return (
         <div className="">
           <Link
-            href={`${createPokemonUrl(pokemon.name)}${pokemon.form ? `?form=${pokemon.form}` : ''}`}
+            href={formatPokemonUrlWithForm(
+              pokemon.name,
+              pokemon.form ? pokemon.form.toString() : 'plain',
+            )}
+            className="table-link"
           >
             <PokemonSprite
               pokemonName={pokemon.name}
@@ -78,7 +81,7 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
       return (
         <Link
           href={formatPokemonUrlWithForm(pokemon.name, pokemon.formName || '')}
-          className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-black"
+          className="table-link"
         >
           {formatPokemonDisplayWithForm(pokemon.name)}
           {pokemon.formName && pokemon.formName !== 'plain' && (
@@ -89,6 +92,7 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
                 pokemon.formName}
             </span>
           )}
+          <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
         </Link>
       );
     },

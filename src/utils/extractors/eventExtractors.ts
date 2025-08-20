@@ -34,9 +34,11 @@ export interface SpecialEvent {
   name: string;
   area: string;
   description: string;
-  type: 'legendary' | 'gift' | 'egg' | 'other';
+  type: 'legendary' | 'gift' | 'egg' | 'phone_item' | 'other';
   pokemon?: string;
   conditions?: string;
+  reward?: string;
+  npc?: string;
 }
 
 export interface EventData {
@@ -419,6 +421,105 @@ export function extractLocationEvents(): Record<string, LocationEvent[]> {
   return eventsByLocation;
 }
 
+// --- Phone Call Events Extraction ---
+export function extractPhoneCallEvents(): SpecialEvent[] {
+  console.log('📞 Extracting phone call events...');
+  const phoneEvents: SpecialEvent[] = [];
+
+  // Define phone events that give items based on the constants you provided
+  const phoneCallRewards = [
+    {
+      event: 'EVENT_GOT_PROTEIN_FROM_HUEY',
+      npc: 'Huey',
+      item: 'Protein',
+      location: 'Route 38',
+      description: 'Huey calls and gives a Protein after being contacted.',
+    },
+    {
+      event: 'EVENT_GOT_HP_UP_FROM_JOEY',
+      npc: 'Joey',
+      item: 'HP Up',
+      location: 'Route 30',
+      description: 'Joey calls and gives an HP Up after being contacted.',
+    },
+    {
+      event: 'EVENT_GOT_CARBOS_FROM_VANCE',
+      npc: 'Vance',
+      item: 'Carbos',
+      location: 'Route 44',
+      description: 'Vance calls and gives Carbos after being contacted.',
+    },
+    {
+      event: 'EVENT_GOT_IRON_FROM_PARRY',
+      npc: 'Parry',
+      item: 'Iron',
+      location: 'Route 45',
+      description: 'Parry calls and gives Iron after being contacted.',
+    },
+    {
+      event: 'EVENT_GOT_CALCIUM_FROM_ERIN',
+      npc: 'Erin',
+      item: 'Calcium',
+      location: 'Route 46',
+      description: 'Erin calls and gives Calcium after being contacted.',
+    },
+    {
+      event: 'EVENT_GINA_GAVE_LEAF_STONE',
+      npc: 'Gina',
+      item: 'Leaf Stone',
+      location: 'Route 34',
+      description: 'Gina calls and gives a Leaf Stone after being contacted.',
+    },
+    {
+      event: 'EVENT_ALAN_GAVE_FIRE_STONE',
+      npc: 'Alan',
+      item: 'Fire Stone',
+      location: 'Route 36',
+      description: 'Alan calls and gives a Fire Stone after being contacted.',
+    },
+    {
+      event: 'EVENT_DANA_GAVE_THUNDERSTONE',
+      npc: 'Dana',
+      item: 'Thunder Stone',
+      location: 'Route 38',
+      description: 'Dana calls and gives a Thunder Stone after being contacted.',
+    },
+    {
+      event: 'EVENT_TULLY_GAVE_WATER_STONE',
+      npc: 'Tully',
+      item: 'Water Stone',
+      location: 'Route 42',
+      description: 'Tully calls and gives a Water Stone after being contacted.',
+    },
+    {
+      event: 'EVENT_TIFFANY_GAVE_PINK_BOW',
+      npc: 'Tiffany',
+      item: 'Pink Bow',
+      location: 'Route 43',
+      description: 'Tiffany calls and gives a Pink Bow after being contacted.',
+    },
+  ];
+
+  // Convert to SpecialEvent format
+  for (const phoneReward of phoneCallRewards) {
+    const eventId = `phone_${phoneReward.npc.toLowerCase()}_${phoneReward.item.toLowerCase().replace(/\s+/g, '_')}`;
+    
+    phoneEvents.push({
+      id: eventId,
+      name: `${phoneReward.item} from ${phoneReward.npc}`,
+      area: `${phoneReward.location} (Phone Call)`,
+      description: phoneReward.description,
+      type: 'phone_item',
+      reward: phoneReward.item,
+      npc: phoneReward.npc,
+      conditions: 'After registering phone number and receiving call',
+    });
+  }
+
+  console.log(`📞 Found ${phoneEvents.length} phone call events that give items`);
+  return phoneEvents;
+}
+
 // --- Map-based Pokemon Gift Events Extraction ---
 export function extractMapGiftEvents(): SpecialEvent[] {
   console.log('🎁 Extracting map-based gift Pokemon events...');
@@ -759,14 +860,17 @@ export function extractEventData(): EventData {
 
   // Extract map-based gift events and merge them
   const mapGiftEvents = extractMapGiftEvents();
+  
+  // Extract phone call events
+  const phoneCallEvents = extractPhoneCallEvents();
 
   // Remove duplicates from manual events that are now automatically detected
   const filteredSpecialEvents = specialEvents.filter(
     (event) => !['eevee_bill', 'tyrogue_karate_master', 'starter_pokemon_elm'].includes(event.id),
   );
 
-  // Combine manual and map-extracted events
-  eventData.specialEvents = [...filteredSpecialEvents, ...mapGiftEvents];
+  // Combine manual, map-extracted, and phone call events
+  eventData.specialEvents = [...filteredSpecialEvents, ...mapGiftEvents, ...phoneCallEvents];
 
   // Extract phone call events (daily/time-based)
   // const phoneEvents: DailyEvent[] = [
@@ -893,6 +997,65 @@ export function writeGiftLocationDataToFile(
 
   fs.writeFileSync(outputPath, JSON.stringify(giftData, null, 2), 'utf8');
   console.log(`🎁 Gift location data written to ${outputPath}`);
+}
+
+// --- Phone Call Events for Location Integration ---
+export function extractPhoneEventsForLocations(): Record<string, SpecialEvent[]> {
+  console.log('📞 Extracting phone events by location...');
+  const phoneEvents = extractPhoneCallEvents();
+  const eventsByLocation: Record<string, SpecialEvent[]> = {};
+
+  // Group phone events by their original location (where you meet the trainer)
+  for (const phoneEvent of phoneEvents) {
+    if (phoneEvent.area && phoneEvent.npc) {
+      // Extract the route/location from the area string (before "(Phone Call)")
+      const location = phoneEvent.area.replace(/\s*\(Phone Call\)/, '').trim();
+      const normalizedLocation = normalizeLocationKey(location);
+      
+      if (!eventsByLocation[normalizedLocation]) {
+        eventsByLocation[normalizedLocation] = [];
+      }
+      
+      eventsByLocation[normalizedLocation].push(phoneEvent);
+    }
+  }
+
+  console.log(`📞 Mapped phone events to ${Object.keys(eventsByLocation).length} locations`);
+  return eventsByLocation;
+}
+
+// --- Convert Phone Events to LocationEvent format ---
+export function convertPhoneEventsToLocationEvents(): Record<string, LocationEvent[]> {
+  console.log('📞 Converting phone events to LocationEvent format...');
+  const phoneEvents = extractPhoneCallEvents();
+  const locationEvents: Record<string, LocationEvent[]> = {};
+
+  for (const phoneEvent of phoneEvents) {
+    if (phoneEvent.area && phoneEvent.npc) {
+      // Extract the route/location from the area string (before "(Phone Call)")
+      const location = phoneEvent.area.replace(/\s*\(Phone Call\)/, '').trim();
+      const normalizedLocation = normalizeLocationKey(location);
+      
+      if (!locationEvents[normalizedLocation]) {
+        locationEvents[normalizedLocation] = [];
+      }
+      
+      // Convert SpecialEvent to LocationEvent
+      const locationEvent: LocationEvent = {
+        type: 'phone_call',
+        description: `${phoneEvent.npc} can give you ${phoneEvent.reward} via phone call`,
+        details: phoneEvent.description,
+        npc: phoneEvent.npc,
+        reward: phoneEvent.reward,
+        conditions: phoneEvent.conditions,
+      };
+      
+      locationEvents[normalizedLocation].push(locationEvent);
+    }
+  }
+
+  console.log(`📞 Converted phone events for ${Object.keys(locationEvents).length} locations`);
+  return locationEvents;
 }
 
 export function writeEventDataToFile(eventData: EventData, outputPath: string): void {

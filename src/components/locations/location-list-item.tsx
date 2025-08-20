@@ -26,7 +26,9 @@ export function LocationListItem({ area, method, time, level, chance }: Location
           getLocationDisplayName(formattedArea)
         )}
       </TableCell>
-      <TableCell className="">{method ? formatMethod(method) : '--'}</TableCell>
+      <TableCell className="">
+        {method ? formatMethod(method) : <span className="text-gray-400 text-sm">—</span>}
+      </TableCell>
       <TableCell className="text-sm">
         {time ? (
           <TimeIcon
@@ -35,11 +37,15 @@ export function LocationListItem({ area, method, time, level, chance }: Location
             showTooltip={time === null ? false : true}
           />
         ) : (
-          '--'
+          <span className="text-gray-400 text-sm">—</span>
         )}
       </TableCell>
-      <TableCell className="text-sm">{level ? <span>Lv. {level}</span> : '--'}</TableCell>
-      <TableCell className="text-sm">{chance ? <span>{chance}%</span> : '--'}</TableCell>
+      <TableCell className="text-sm">
+        {level ? <span>Lv. {level}</span> : <span className="text-gray-400 text-sm">—</span>}
+      </TableCell>
+      <TableCell className="text-sm">
+        {chance ? <span>{chance}%</span> : <span className="text-gray-400 text-sm">—</span>}
+      </TableCell>
       {/* <TableCell className="text-amber-600 font-medium">
         {rareItem
           ? (() => {

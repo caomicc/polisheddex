@@ -107,7 +107,7 @@ export function EventCard(props: EventCardProps) {
           width={24}
           height={24}
           alt="Icon 1"
-          className="rounded-md dark:bg-white"
+          className="rounded-sm dark:bg-white"
         />
         <div className="mt-2 mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200">
           {event.name
