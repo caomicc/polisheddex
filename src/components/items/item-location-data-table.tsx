@@ -28,7 +28,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import { normalizeLocationKey } from '@/utils/locationUtils';
 import { usePaginationSearchParams } from '@/hooks/use-pagination-search-params';
@@ -100,33 +99,7 @@ const columns: ColumnDef<ItemLocation>[] = [
     },
     cell: ({ row }) => {
       const method = row.original.details || 'Unknown';
-      const isNpc = method.toLowerCase().includes('npc');
-      const isPrize = method.toLowerCase().includes('prize');
-      const hasPoints =
-        method.toLowerCase().includes('points') || method.toLowerCase().includes('for sale');
-      const isRockSmash = method.toLowerCase().includes('rock smash');
-      const variant = isNpc
-        ? 'npc'
-        : isPrize
-          ? 'prize'
-          : hasPoints
-            ? 'purchase'
-            : isRockSmash
-              ? 'rock-smash'
-              : method;
-      return (
-        <Badge variant={variant} className="text-xs">
-          {isNpc
-            ? 'NPC Gift'
-            : isPrize
-              ? 'Prize'
-              : isRockSmash
-                ? 'Rock Smash'
-                : hasPoints
-                  ? 'Purchase'
-                  : method}
-        </Badge>
-      );
+      return <span className="text-cell">{method}</span>;
     },
     filterFn: (row, id, value) => {
       const method = row.original.details || 'Unknown';
