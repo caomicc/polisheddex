@@ -161,151 +161,90 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
   // Normalize move name for comparison
   const normalizedMoveName = moveName.toLowerCase();
 
-  // Load individual Pokemon files to get full move data
-  for (const [pokemonKey, basePokemon] of Object.entries(pokemonBaseData)) {
-    try {
-      const fs = await import('fs');
-      const path = await import('path');
+  try {
+    // Load pre-computed move data files for much faster lookups
+    const [tmHmData, levelMoveData, eggMoveData] = await Promise.all([
+      loadJsonFile<Record<string, any[]>>('output/pokemon_tm_hm_learnset.json'),
+      loadJsonFile<Record<string, { moves: any[] }>>('output/pokemon_level_moves.json'),
+      loadJsonFile<Record<string, any[]>>('output/pokemon_egg_moves.json'),
+    ]);
 
-      // The pokemonKey is already normalized (lowercase), so use it directly
-      const pokemonFilePath = path.join(process.cwd(), `output/pokemon/${pokemonKey}.json`);
+    // Check TM/HM moves
+    if (tmHmData) {
+      Object.entries(tmHmData).forEach(([pokemonKey, moves]) => {
+        const basePokemon = pokemonBaseData[pokemonKey];
+        if (!basePokemon) return;
 
-      if (!fs.existsSync(pokemonFilePath)) {
-        console.warn(`Pokemon file not found: ${pokemonFilePath}`);
-        continue; // Skip if individual file doesn't exist
-      }
-
-      const pokemonData = JSON.parse(fs.readFileSync(pokemonFilePath, 'utf8'));
-      const pokemon = {
-        ...basePokemon,
-        ...pokemonData,
-        normalizedUrl: pokemonKey, // Use the pokemonKey as it's already normalized
-      };
-
-      // Check level moves (faithful and updated)
-      const checkLevelMoves = (moves: any[], version: 'faithful' | 'updated') => {
         moves?.forEach((move) => {
           if (move.name && move.name.toLowerCase() === normalizedMoveName) {
-            // Check if this move already exists for this Pokemon
-            const existingIndex = pokemonWithMove.findIndex(
-              (item) =>
-                item.pokemon.name === pokemon.name &&
-                item.learnMethod === 'level' &&
-                item.level === move.level,
-            );
-
-            if (existingIndex >= 0) {
-              // Update existing entry to include this version
-              pokemonWithMove[existingIndex][version] = true;
-            } else {
-              // Create new entry
-              pokemonWithMove.push({
-                pokemon,
-                learnMethod: 'level',
-                level: move.level,
-                [version]: true,
-              });
-            }
-          }
-        });
-      };
-
-      // Check main level moves (for backward compatibility)
-      if (pokemon.moves) {
-        checkLevelMoves(pokemon.moves, 'updated');
-      }
-
-      // Check faithful level moves
-      if (pokemon.faithfulMoves) {
-        checkLevelMoves(pokemon.faithfulMoves, 'faithful');
-      }
-
-      // Check updated level moves
-      if (pokemon.updatedMoves) {
-        checkLevelMoves(pokemon.updatedMoves, 'updated');
-      }
-
-      // Check TM/HM moves (try both property names)
-      const tmMoves = (pokemon as any).tmHmMoves || pokemon.tmHmLearnset;
-      tmMoves?.forEach((move: any) => {
-        if (move.name && move.name.toLowerCase() === normalizedMoveName) {
-          pokemonWithMove.push({
-            pokemon,
-            learnMethod: 'tm',
-            faithful: true,
-            updated: true,
-          });
-        }
-      });
-
-      // Check egg moves
-      pokemon.eggMoves?.forEach((move: any) => {
-        if (move.name && move.name.toLowerCase() === normalizedMoveName) {
-          pokemonWithMove.push({
-            pokemon,
-            learnMethod: 'egg',
-            faithful: true,
-            updated: true,
-          });
-        }
-      });
-
-      // Check forms if they exist
-      if (pokemon.forms) {
-        Object.entries(pokemon.forms).forEach(([formName, formData]) => {
-          // Check form level moves
-          const checkFormLevelMoves = (moves: any[], version: 'faithful' | 'updated') => {
-            moves?.forEach((move) => {
-              if (move.name && move.name.toLowerCase() === normalizedMoveName) {
-                const formPokemonName = `${pokemon.name}`;
-                // Check if this move already exists for this form
-                const existingIndex = pokemonWithMove.findIndex(
-                  (item) =>
-                    item.pokemon.name === formPokemonName &&
-                    item.learnMethod === 'level' &&
-                    item.level === move.level,
-                );
-
-                if (existingIndex >= 0) {
-                  // Update existing entry to include this version
-                  pokemonWithMove[existingIndex][version] = true;
-                } else {
-                  // Create new entry
-                  pokemonWithMove.push({
-                    pokemon: {
-                      ...pokemon,
-                      // name: formPokemonName,
-                      formName,
-                      // normalizedUrl: normalizePokemonUrlKey(pokemon.name).toLowerCase(),
-                    },
-                    learnMethod: 'level',
-                    level: move.level,
-                    [version]: true,
-                  });
-                }
-              }
+            pokemonWithMove.push({
+              pokemon: {
+                ...basePokemon,
+                normalizedUrl: pokemonKey,
+              },
+              learnMethod: 'tm',
+              faithful: true,
+              updated: true,
             });
-          };
-
-          // Check main level moves for form (for backward compatibility)
-          if ((formData as any).moves) {
-            checkFormLevelMoves((formData as any).moves, 'updated');
-          }
-
-          if ((formData as any).faithfulMoves) {
-            checkFormLevelMoves((formData as any).faithfulMoves, 'faithful');
-          }
-
-          if ((formData as any).updatedMoves) {
-            checkFormLevelMoves((formData as any).updatedMoves, 'updated');
           }
         });
-      }
-    } catch (error: any) {
-      // Skip Pokemon if there's an error loading their data
-      console.warn(`Error loading data for ${pokemonKey}:`, error.message);
-      continue;
+      });
     }
+
+    // Check level moves
+    if (levelMoveData) {
+      Object.entries(levelMoveData).forEach(([pokemonName, data]) => {
+        // Find Pokemon by name (not key) since level moves use display names
+        const pokemonEntry = Object.entries(pokemonBaseData).find(([key, pokemon]) => 
+          pokemon.name.toLowerCase() === pokemonName.toLowerCase()
+        );
+        
+        if (!pokemonEntry) return;
+        const [pokemonKey, basePokemon] = pokemonEntry;
+
+        data.moves?.forEach((move) => {
+          if (move.name && move.name.toLowerCase() === normalizedMoveName) {
+            pokemonWithMove.push({
+              pokemon: {
+                ...basePokemon,
+                normalizedUrl: pokemonKey,
+              },
+              learnMethod: 'level',
+              level: move.level,
+              faithful: true,
+              updated: true,
+            });
+          }
+        });
+      });
+    }
+
+    // Check egg moves
+    if (eggMoveData) {
+      Object.entries(eggMoveData).forEach(([pokemonKey, moves]) => {
+        const basePokemon = pokemonBaseData[pokemonKey];
+        if (!basePokemon) return;
+
+        moves?.forEach((move) => {
+          if (move.name && move.name.toLowerCase() === normalizedMoveName) {
+            pokemonWithMove.push({
+              pokemon: {
+                ...basePokemon,
+                normalizedUrl: pokemonKey,
+              },
+              learnMethod: 'egg',
+              faithful: true,
+              updated: true,
+            });
+          }
+        });
+      });
+    }
+
+  } catch (error) {
+    console.error('Error loading move data from pre-computed files:', error);
+    // Fallback to empty array rather than the slow file-by-file approach
+    return [];
   }
 
   // Remove duplicates and sort by Pokemon name
