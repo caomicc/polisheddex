@@ -17,24 +17,28 @@ import { groupLocationsHierarchically } from '@/utils/locationGrouping';
 import {
   loadMergedPokemonLocationData,
   loadAllLocationData,
+  loadLocationByFileName,
+  loadLocationManifest,
 } from '@/utils/loaders/location-data-loader';
 
 // Generate static params for all locations (including those without Pokemon)
 export async function generateStaticParams() {
   try {
-    const [pokemonLocations, allLocationData] = await Promise.all([
+    const [pokemonLocations, locationManifest] = await Promise.all([
       loadMergedPokemonLocationData(),
-      loadAllLocationData(),
+      loadLocationManifest(),
     ]);
 
     const locationNames = new Set<string>();
 
+    // Add locations from Pokemon data
     Object.keys(pokemonLocations).forEach((location) => {
       locationNames.add(normalizeLocationKey(location.toLowerCase()));
     });
 
-    Object.keys(allLocationData).forEach((location) => {
-      locationNames.add(normalizeLocationKey(location.toLowerCase()));
+    // Add locations from manifest (which lists individual files)
+    locationManifest.locations.forEach((location) => {
+      locationNames.add(normalizeLocationKey(location.name.toLowerCase()));
     });
 
     return Array.from(locationNames).map((name) => ({
@@ -57,14 +61,24 @@ export default async function LocationDetailPage({
   const { name } = await params;
   const locationName = decodeURIComponent(name);
 
-  const [pokemonLocationData, allLocationData] = await Promise.all([
+  // Load individual location file directly
+  const locationFileName = `${locationName}.json`;
+  
+  const [pokemonLocationData, individualLocationData] = await Promise.all([
     loadMergedPokemonLocationData(),
-    loadAllLocationData(),
+    loadLocationByFileName(locationFileName),
   ]);
 
-  const groupedLocations = groupLocationsHierarchically(allLocationData);
+  // If individual file not found, try loading from manifest as fallback
+  let comprehensiveInfo = individualLocationData;
+  if (!comprehensiveInfo) {
+    const allLocationData = await loadAllLocationData();
+    comprehensiveInfo = allLocationData[locationName];
+  }
 
-  const comprehensiveInfo = allLocationData[locationName];
+  // For hierarchical grouping, we still need the full dataset as fallback
+  const allLocationData = await loadAllLocationData();
+  const groupedLocations = groupLocationsHierarchically(allLocationData);
 
   let pokemonInfo = null;
   const aggregatedPokemonData: Record<
@@ -270,13 +284,21 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   const { name } = await params;
   const locationName = decodeURIComponent(name);
 
-  const [allLocationData, pokemonLocationData] = await Promise.all([
-    loadAllLocationData(),
+  // Load individual location file directly
+  const locationFileName = `${locationName}.json`;
+  
+  const [individualLocationData, pokemonLocationData] = await Promise.all([
+    loadLocationByFileName(locationFileName),
     loadMergedPokemonLocationData(),
   ]);
 
-  // Get comprehensive location info
-  const comprehensiveInfo = allLocationData[locationName];
+  // If individual file not found, try loading from manifest as fallback
+  let comprehensiveInfo = individualLocationData;
+  if (!comprehensiveInfo) {
+    const allLocationData = await loadAllLocationData();
+    comprehensiveInfo = allLocationData[locationName];
+  }
+  
   const pokemonInfo = pokemonLocationData[locationName];
 
   // Create display name and description

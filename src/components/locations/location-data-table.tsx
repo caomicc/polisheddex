@@ -119,6 +119,17 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
   const filteredData = React.useMemo(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return data.filter((location: any) => {
+      // Filter out empty buildings with no content
+      const hasAnyContent = 
+        (location.pokemonCount && location.pokemonCount > 0) ||
+        (location.trainerCount && location.trainerCount > 0) ||
+        (location.items && location.items.length > 0) ||
+        (location.eventCount && location.eventCount > 0);
+      
+      if (!hasAnyContent) {
+        return false;
+      }
+
       const matchesPokemon = !pokemon || (location.pokemonCount && location.pokemonCount > 0);
       const matchesFlyable = !flyable || location.flyable;
       const matchesGrottoes = !grottoes || location.hasHiddenGrottoes;

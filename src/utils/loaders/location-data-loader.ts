@@ -153,15 +153,168 @@ export async function loadLocationByFileName(fileName: string): Promise<Location
 }
 
 /**
- * Load comprehensive location data using manifest (cached)
+ * Interface for comprehensive location manifest
  */
-let allLocationDataCache: Record<string, LocationData> | null = null;
+interface ComprehensiveLocationManifest {
+  metadata: {
+    totalLocations: number;
+    regions: Record<string, number>;
+    flyableLocations: number;
+    landmarks: number;
+    lastUpdated: string;
+  };
+  locations: Record<string, LocationData>;
+}
 
-export async function loadAllLocationData(): Promise<Record<string, LocationData>> {
-  if (allLocationDataCache) {
-    return allLocationDataCache;
+/**
+ * Interface for optimized location manifest with summary data only
+ */
+interface OptimizedLocationManifest {
+  metadata: {
+    totalLocations: number;
+    regions: Record<string, number>;
+    flyableLocations: number;
+    landmarks: number;
+    lastUpdated: string;
+  };
+  locations: Record<string, {
+    name: string;
+    displayName: string;
+    region: string;
+    flyable: boolean;
+    locationType: string;
+    pokemonCount: number;
+    trainerCount: number;
+    itemCount: number;
+    connectionCount: number;
+    eventCount: number;
+    hasHiddenGrottoes: boolean;
+    coordinates?: { x: number; y: number };
+  }>;
+}
+
+/**
+ * Load optimized location manifest (cached)
+ */
+let optimizedLocationManifestCache: OptimizedLocationManifest | null = null;
+
+export async function loadOptimizedLocationManifest(): Promise<OptimizedLocationManifest> {
+  if (optimizedLocationManifestCache) {
+    return optimizedLocationManifestCache;
   }
 
+  try {
+    const data = await loadJsonFile<OptimizedLocationManifest>('output/manifests/locations.json');
+    optimizedLocationManifestCache = data || {
+      metadata: {
+        totalLocations: 0,
+        regions: {},
+        flyableLocations: 0,
+        landmarks: 0,
+        lastUpdated: new Date().toISOString(),
+      },
+      locations: {},
+    };
+    return optimizedLocationManifestCache;
+  } catch (error) {
+    console.error('Error loading optimized location manifest:', error);
+    // Fallback to loading individual files if manifest doesn't exist
+    return loadAllLocationDataFallbackOptimized();
+  }
+}
+
+/**
+ * Load comprehensive location manifest (cached) - kept for backward compatibility
+ */
+let comprehensiveLocationManifestCache: ComprehensiveLocationManifest | null = null;
+
+export async function loadComprehensiveLocationManifest(): Promise<ComprehensiveLocationManifest> {
+  if (comprehensiveLocationManifestCache) {
+    return comprehensiveLocationManifestCache;
+  }
+
+  try {
+    const data = await loadJsonFile<ComprehensiveLocationManifest>('output/manifests/locations.json');
+    comprehensiveLocationManifestCache = data || {
+      metadata: {
+        totalLocations: 0,
+        regions: {},
+        flyableLocations: 0,
+        landmarks: 0,
+        lastUpdated: new Date().toISOString(),
+      },
+      locations: {},
+    };
+    return comprehensiveLocationManifestCache;
+  } catch (error) {
+    console.error('Error loading comprehensive location manifest:', error);
+    // Fallback to loading individual files if manifest doesn't exist
+    return loadAllLocationDataFallback();
+  }
+}
+
+/**
+ * Fallback function to load individual location files and create optimized manifest
+ */
+async function loadAllLocationDataFallbackOptimized(): Promise<OptimizedLocationManifest> {
+  try {
+    const manifest = await loadLocationManifest();
+    const optimizedLocationData: Record<string, any> = {};
+
+    // Load only the locations we need based on the manifest
+    await Promise.all(
+      manifest.locations.map(async (locationInfo) => {
+        const data = await loadLocationByFileName(locationInfo.fileName);
+        if (data) {
+          // Create summary data instead of full data
+          optimizedLocationData[locationInfo.name] = {
+            name: locationInfo.name,
+            displayName: locationInfo.displayName,
+            region: locationInfo.region,
+            flyable: locationInfo.flyable,
+            locationType: locationInfo.locationType,
+            pokemonCount: 0, // Individual location files don't contain Pokemon data
+            trainerCount: data.trainers ? data.trainers.length : 0,
+            itemCount: data.items ? data.items.length : 0,
+            connectionCount: data.connections ? data.connections.length : 0,
+            eventCount: data.events ? data.events.length : 0,
+            hasHiddenGrottoes: false, // Individual location files don't contain Pokemon data
+            coordinates: (data.x >= 0 && data.y >= 0) ? 
+              { x: data.x, y: data.y } : undefined,
+          };
+        }
+      }),
+    );
+
+    return {
+      metadata: {
+        totalLocations: manifest.totalLocations,
+        regions: manifest.regions,
+        flyableLocations: manifest.flyableLocations,
+        landmarks: manifest.landmarks,
+        lastUpdated: new Date().toISOString(),
+      },
+      locations: optimizedLocationData,
+    };
+  } catch (error) {
+    console.error('Error in fallback optimized location data loading:', error);
+    return {
+      metadata: {
+        totalLocations: 0,
+        regions: {},
+        flyableLocations: 0,
+        landmarks: 0,
+        lastUpdated: new Date().toISOString(),
+      },
+      locations: {},
+    };
+  }
+}
+
+/**
+ * Fallback function to load individual location files (for backward compatibility)
+ */
+async function loadAllLocationDataFallback(): Promise<ComprehensiveLocationManifest> {
   try {
     const manifest = await loadLocationManifest();
     const locationData: Record<string, LocationData> = {};
@@ -176,7 +329,44 @@ export async function loadAllLocationData(): Promise<Record<string, LocationData
       }),
     );
 
-    allLocationDataCache = locationData;
+    return {
+      metadata: {
+        totalLocations: manifest.totalLocations,
+        regions: manifest.regions,
+        flyableLocations: manifest.flyableLocations,
+        landmarks: manifest.landmarks,
+        lastUpdated: new Date().toISOString(),
+      },
+      locations: locationData,
+    };
+  } catch (error) {
+    console.error('Error in fallback location data loading:', error);
+    return {
+      metadata: {
+        totalLocations: 0,
+        regions: {},
+        flyableLocations: 0,
+        landmarks: 0,
+        lastUpdated: new Date().toISOString(),
+      },
+      locations: {},
+    };
+  }
+}
+
+/**
+ * Load comprehensive location data using manifest (cached)
+ */
+let allLocationDataCache: Record<string, LocationData> | null = null;
+
+export async function loadAllLocationData(): Promise<Record<string, LocationData>> {
+  if (allLocationDataCache) {
+    return allLocationDataCache;
+  }
+
+  try {
+    const comprehensiveManifest = await loadComprehensiveLocationManifest();
+    allLocationDataCache = comprehensiveManifest.locations;
     return allLocationDataCache;
   } catch (error) {
     console.error('Error loading all location data:', error);
@@ -276,7 +466,117 @@ function getLocationTypes(locationName: string): string[] {
 }
 
 /**
- * Create enhanced locations with all data aggregated
+ * Create enhanced locations using optimized manifest (for performance)
+ */
+export async function loadEnhancedLocationsOptimized(): Promise<EnhancedLocation[]> {
+  try {
+    const [optimizedManifest, pokemonLocationData, itemsData] = await Promise.all([
+      loadOptimizedLocationManifest(),
+      loadPokemonLocationData(),
+      loadItemsDataForLocations(),
+    ]);
+
+    // Create items by location mapping
+    const itemsByLocation: Record<
+      string,
+      Array<{ type: 'item' | 'hiddenItem' | 'tmHm'; name: string; details?: string }>
+    > = {};
+
+    if (itemsData && typeof itemsData === 'object') {
+      Object.values(itemsData).forEach((item: any) => {
+        if (item && item.locations && Array.isArray(item.locations)) {
+          item.locations.forEach((location: any) => {
+            if (location && location.area && location.details) {
+              if (location.area.toLowerCase() === 'pickup') {
+                return;
+              }
+
+              const normalizedLocationKey = normalizeLocationKey(location.area);
+              if (!itemsByLocation[normalizedLocationKey]) {
+                itemsByLocation[normalizedLocationKey] = [];
+              }
+
+              let itemType: 'item' | 'hiddenItem' | 'tmHm' = 'item';
+              if (location.details && location.details.toLowerCase().includes('hidden')) {
+                itemType = 'hiddenItem';
+              } else if (item.name && (item.name.startsWith('TM') || item.name.startsWith('HM'))) {
+                itemType = 'tmHm';
+              }
+
+              itemsByLocation[normalizedLocationKey].push({
+                type: itemType,
+                name: item.name,
+                details: location.details,
+              });
+            }
+          });
+        }
+      });
+    }
+
+    // Create normalized Pokemon location map for additional Pokemon data
+    const normalizedPokemonData: Record<string, { originalKey: string; data: LocationAreaData }> = {};
+    Object.keys(pokemonLocationData).forEach((originalKey) => {
+      const normalizedKey = normalizeLocationKey(originalKey);
+      normalizedPokemonData[normalizedKey] = {
+        originalKey,
+        data: pokemonLocationData[originalKey],
+      };
+    });
+
+    // Convert optimized location summaries to EnhancedLocation format
+    const enhancedLocations: EnhancedLocation[] = Object.entries(optimizedManifest.locations).map(
+      ([locationKey, locationSummary]) => {
+        const normalizedKey = normalizeLocationKey(locationSummary.name);
+        
+        // Get additional Pokemon data from Pokemon locations if available
+        let additionalPokemonCount = 0;
+        let hasHiddenGrottoes = locationSummary.hasHiddenGrottoes;
+        
+        if (normalizedPokemonData[normalizedKey]) {
+          const pokemonData = normalizedPokemonData[normalizedKey].data;
+          additionalPokemonCount = Object.keys(pokemonData.pokemon).length;
+          
+          if (!hasHiddenGrottoes) {
+            hasHiddenGrottoes = Object.values(pokemonData.pokemon).some(
+              (pokemon: any) =>
+                pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto'),
+            );
+          }
+        }
+
+        // Use the higher Pokemon count between manifest and Pokemon location data
+        const finalPokemonCount = Math.max(locationSummary.pokemonCount, additionalPokemonCount);
+
+        // Get items for this location
+        const locationItems = itemsByLocation[normalizedKey] || [];
+
+        return {
+          area: locationKey,
+          urlName: locationKey,
+          displayName: locationSummary.displayName,
+          types: getLocationTypes(locationSummary.displayName),
+          pokemonCount: finalPokemonCount,
+          hasHiddenGrottoes,
+          hasTrainers: locationSummary.trainerCount > 0,
+          trainerCount: locationSummary.trainerCount,
+          items: locationItems,
+          region: locationSummary.region as 'johto' | 'kanto' | 'orange',
+          flyable: locationSummary.flyable,
+          coordinates: locationSummary.coordinates,
+        };
+      },
+    );
+
+    return enhancedLocations;
+  } catch (error) {
+    console.error('Error loading optimized enhanced locations:', error);
+    return [];
+  }
+}
+
+/**
+ * Create enhanced locations with all data aggregated (full version)
  */
 export async function loadEnhancedLocations(): Promise<EnhancedLocation[]> {
   try {
@@ -484,6 +784,8 @@ export async function searchLocations(query: string): Promise<EnhancedLocation[]
 export function clearLocationCaches(): void {
   pokemonLocationDataCache = null;
   locationManifestCache = null;
+  optimizedLocationManifestCache = null;
+  comprehensiveLocationManifestCache = null;
   individualLocationCache = {};
   allLocationDataCache = null;
   groupedLocationDataCache = null;
@@ -614,4 +916,4 @@ export async function loadMergedPokemonLocationData(): Promise<Record<string, Lo
 
   return mergedData;
 }
-export type { LocationData, LocationAreaData, GroupedLocation, EnhancedLocation };
+export type { LocationData, LocationAreaData, GroupedLocation, EnhancedLocation, ComprehensiveLocationManifest, OptimizedLocationManifest };
