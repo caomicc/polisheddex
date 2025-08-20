@@ -98,10 +98,22 @@ const columns: ColumnDef<ItemLocation>[] = [
     },
     cell: ({ row }) => {
       const method = row.original.details || 'Unknown';
-
+      const isNpc = method.toLowerCase().includes('npc');
+      const isPrize = method.toLowerCase().includes('prize');
+      const hasPoints = method.toLowerCase().includes('points');
+      const isRockSmash = method.toLowerCase().includes('rock smash');
+      const variant = isNpc
+        ? 'npc'
+        : isPrize
+          ? 'prize'
+          : hasPoints
+            ? 'points'
+            : isRockSmash
+              ? 'rock-smash'
+              : method;
       return (
-        <Badge variant="secondary" className="text-xs">
-          {method}
+        <Badge variant={variant} className="text-xs">
+          {isNpc ? 'NPC' : isPrize ? 'Prize' : isRockSmash ? 'Rock Smash' : method}
         </Badge>
       );
     },
