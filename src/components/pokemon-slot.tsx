@@ -590,6 +590,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
       <div className="flex flex-row gap-4 relative">
         <PokemonSprite
           // size="sm"
+          hoverAnimate={true}
           className="shadow-none"
           primaryType={entry.types[0] || 'normal'}
           pokemonName={

@@ -46,6 +46,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
         <div className="">
           <Link href={formatPokemonUrlWithForm(name, form || '')} className="table-link">
             <PokemonSprite
+              hoverAnimate={true}
               pokemonName={formatPokemonBaseName(name)}
               alt={`${name} sprite`}
               primaryType={'ghost'}

@@ -85,6 +85,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
   return (
     <Card className={baseClassName} style={gradientProps.style}>
       <PokemonSprite
+        hoverAnimate={true}
         pokemonName={pokemon.name}
         alt={`${pokemon.name} sprite`}
         primaryType={primaryType as PokemonType['name']}

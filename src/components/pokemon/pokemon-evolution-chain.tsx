@@ -145,7 +145,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
   };
 
   return (
-    <div className={cn('flex flex-col gap-4 flex-col-reverse', className)}>
+    <div className={cn('flex flex-col gap-4 flex-col-reverse justify-start', className)}>
       {evolutionPaths.map((path, index) => {
         const sourceName = path.sourceForm ? `${path.source} (${path.sourceForm})` : path.source;
         const targetName = path.targetForm ? `${path.target} (${path.targetForm})` : path.target;
@@ -162,6 +162,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
               className="table-link flex flex-col"
             >
               <PokemonSprite
+                hoverAnimate={true}
                 pokemonName={path.source}
                 src={getSpriteUrl(path.source)}
                 alt={`Sprite of Pokémon ${path.source}`}
@@ -279,6 +280,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
               className="table-link flex flex-col"
             >
               <PokemonSprite
+                hoverAnimate={true}
                 className="shadow-none"
                 pokemonName={path.target}
                 src={getSpriteUrl(path.target)}

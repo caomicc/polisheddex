@@ -31,19 +31,17 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
       return (
         <div className="">
           <Link
-            href={formatPokemonUrlWithForm(
-              pokemon.name,
-              pokemon.form ? pokemon.form.toString() : 'plain',
-            )}
+            href={formatPokemonUrlWithForm(pokemon.name, pokemon.formName || '')}
             className="table-link"
           >
             <PokemonSprite
+              hoverAnimate={true}
               pokemonName={pokemon.name}
               alt={`${pokemon.name} sprite`}
               primaryType={primaryType as PokemonType['name']}
               variant="normal"
               type="static"
-              form={typeof pokemon.form === 'string' ? pokemon.form : 'plain'}
+              form={typeof pokemon.formName === 'string' ? pokemon.formName : 'plain'}
               src={pokemon.frontSpriteUrl}
               size={'sm'}
               className="shadow-none"
@@ -197,7 +195,7 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
         return <span className="text-muted-foreground">—</span>;
       }
 
-      return <span className="font-mono">{level}</span>;
+      return <span className="text-xs">Level: {level}</span>;
     },
     sortingFn: (rowA, rowB) => {
       const a = rowA.original;

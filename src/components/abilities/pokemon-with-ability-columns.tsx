@@ -37,6 +37,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
             )}
           >
             <PokemonSprite
+              hoverAnimate={true}
               pokemonName={pokemon.name}
               alt={`${pokemon.name} sprite`}
               primaryType={primaryType as PokemonType['name']}

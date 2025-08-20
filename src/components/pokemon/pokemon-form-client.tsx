@@ -463,7 +463,7 @@ export default function PokemonFormClient({
                     </div>
                   </div>
                 </BentoGridNoLink>
-                <BentoGridNoLink className="md:col-span-2">
+                <BentoGridNoLink className="md:col-span-2 justify-start">
                   <div className="mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200 capitalize">
                     Evolution Chain
                   </div>

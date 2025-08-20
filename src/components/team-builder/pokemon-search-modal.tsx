@@ -261,6 +261,7 @@ export function PokemonSearchModal({
                   <div className="flex flex-col items-center space-y-2">
                     {entry.data.frontSpriteUrl && (
                       <PokemonSprite
+                        hoverAnimate={true}
                         pokemonName={entry.name}
                         primaryType={
                           Array.isArray(entry.data.types)

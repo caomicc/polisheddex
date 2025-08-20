@@ -199,18 +199,22 @@ const PokemonSkeleton = ({ showFaithful }: { showFaithful: boolean }) => {
           className="w-14 h-14 shadow-none border-neutral-100 border-1"
           pokemonName={showFaithful ? 'togepi' : 'togekiss'}
           variant="normal"
+          hoverAnimate={true}
         />
         <PokemonSprite
           className="w-14 h-14 shadow-none border-neutral-100 border-1"
           pokemonName="gengar"
+          hoverAnimate={true}
         />
         <PokemonSprite
           className="w-14 h-14 shadow-none border-neutral-100 border-1"
           pokemonName="ho-oh"
+          hoverAnimate={true}
         />
         <PokemonSprite
           className="w-14 h-14 shadow-none border-neutral-100 border-1"
           pokemonName={showFaithful ? 'dragonair' : 'dragonite'}
+          hoverAnimate={true}
         />
       </div>
       <div className="w-full sm:w-2/3 flex-col space-y-3">

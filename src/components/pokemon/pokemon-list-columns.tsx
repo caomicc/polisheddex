@@ -54,6 +54,7 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
             className="table-link"
           >
             <PokemonSprite
+              hoverAnimate={true}
               pokemonName={baseName}
               alt={`${baseName} sprite`}
               primaryType={primaryType as PokemonType['name']}

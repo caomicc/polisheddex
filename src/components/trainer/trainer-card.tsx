@@ -150,6 +150,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                               )}
                             >
                               <PokemonSprite
+                                hoverAnimate={true}
                                 pokemonName={poke.species.toLowerCase().replace(/-/g, '_')}
                                 src={`/sprites/pokemon/${poke.species.toLowerCase().replace(/-/g, '_')}${poke.form ? `_${poke.form?.toLowerCase().replace(/ form/g, '')}` : ''}/normal_front.png`}
                                 alt={poke.species}
