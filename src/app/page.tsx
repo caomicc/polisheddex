@@ -389,8 +389,8 @@ const LocationsSkeleton = () => {
       }}
     >
       <Image
-        src="/tiles/6/15/37.webp"
-        alt="Pallet Town"
+        src="/tiles/6/21/25.webp"
+        alt="Poke Center"
         fill
         className="w-full h-full object-cover object-top opacity-80"
       />
