@@ -221,7 +221,7 @@ export function getFallbackTrainerSprite(
     case 'officerf':
       normalizedName = 'officer_f';
       break;
-    case 'guitarist_m':
+    case 'guitaristm':
       normalizedName = 'guitarist_m';
       break;
     case 'guitaristf':

@@ -257,7 +257,7 @@ export default function GroupedTrainerCard({
     case 'officerf':
       displayTrainerClass = 'Officer';
       break;
-    case 'guitarist_m':
+    case 'guitaristm':
     case 'guitaristf':
       displayTrainerClass = 'Guitarist';
       break;
@@ -344,11 +344,11 @@ export default function GroupedTrainerCard({
                   )}
                   {isGrouped && (
                     <Badge variant="secondary" className="ml-2 text-xs">
-                      {groupType === 'double_battle' 
+                      {groupType === 'double_battle'
                         ? 'Double battle'
                         : groupType === 'starter_variation'
-                        ? `${rematches.length + 1} teams`
-                        : `${rematches.length + 1} battles`}
+                          ? `${rematches.length + 1} teams`
+                          : `${rematches.length + 1} battles`}
                     </Badge>
                   )}
                 </h3>
@@ -371,36 +371,41 @@ export default function GroupedTrainerCard({
                 {/* Initial Team/Battle */}
                 <div>
                   <h4 className="font-semibold mb-3 text-lg">
-                    {groupType === 'starter_variation' ? (() => {
-                      // Determine player's starter based on base trainer's starter
-                      const hasChikorita = baseTrainer.pokemon?.some(p => 
-                        p.species.toLowerCase().includes('chikorita') || 
-                        p.species.toLowerCase().includes('bayleef') || 
-                        p.species.toLowerCase().includes('meganium')
-                      );
-                      
-                      const hasCyndaquil = baseTrainer.pokemon?.some(p => 
-                        p.species.toLowerCase().includes('cyndaquil') || 
-                        p.species.toLowerCase().includes('quilava') || 
-                        p.species.toLowerCase().includes('typhlosion')
-                      );
-                      
-                      const hasTotodile = baseTrainer.pokemon?.some(p => 
-                        p.species.toLowerCase().includes('totodile') || 
-                        p.species.toLowerCase().includes('croconaw') || 
-                        p.species.toLowerCase().includes('feraligatr')
-                      );
+                    {groupType === 'starter_variation'
+                      ? (() => {
+                          // Determine player's starter based on base trainer's starter
+                          const hasChikorita = baseTrainer.pokemon?.some(
+                            (p) =>
+                              p.species.toLowerCase().includes('chikorita') ||
+                              p.species.toLowerCase().includes('bayleef') ||
+                              p.species.toLowerCase().includes('meganium'),
+                          );
 
-                      if (hasChikorita) {
-                        return 'Team 1 (if you choose Cyndaquil)';
-                      } else if (hasTotodile) {
-                        return 'Team 1 (if you choose Chikorita)';
-                      } else if (hasCyndaquil) {
-                        return 'Team 1 (if you choose Totodile)';
-                      } else {
-                        return 'Team 1';
-                      }
-                    })() : 'Initial Battle'}
+                          const hasCyndaquil = baseTrainer.pokemon?.some(
+                            (p) =>
+                              p.species.toLowerCase().includes('cyndaquil') ||
+                              p.species.toLowerCase().includes('quilava') ||
+                              p.species.toLowerCase().includes('typhlosion'),
+                          );
+
+                          const hasTotodile = baseTrainer.pokemon?.some(
+                            (p) =>
+                              p.species.toLowerCase().includes('totodile') ||
+                              p.species.toLowerCase().includes('croconaw') ||
+                              p.species.toLowerCase().includes('feraligatr'),
+                          );
+
+                          if (hasChikorita) {
+                            return 'Team 1 (if you choose Cyndaquil)';
+                          } else if (hasTotodile) {
+                            return 'Team 1 (if you choose Chikorita)';
+                          } else if (hasCyndaquil) {
+                            return 'Team 1 (if you choose Totodile)';
+                          } else {
+                            return 'Team 1';
+                          }
+                        })()
+                      : 'Initial Battle'}
                   </h4>
                   <TrainerTeamDisplay trainer={baseTrainer} />
                 </div>
@@ -411,22 +416,25 @@ export default function GroupedTrainerCard({
                   let starterContext = '';
                   if (groupType === 'starter_variation') {
                     // Look at the opponent's starter to determine which starter the player chose
-                    const hasChikorita = rematchTrainer.pokemon?.some(p => 
-                      p.species.toLowerCase().includes('chikorita') || 
-                      p.species.toLowerCase().includes('bayleef') || 
-                      p.species.toLowerCase().includes('meganium')
+                    const hasChikorita = rematchTrainer.pokemon?.some(
+                      (p) =>
+                        p.species.toLowerCase().includes('chikorita') ||
+                        p.species.toLowerCase().includes('bayleef') ||
+                        p.species.toLowerCase().includes('meganium'),
                     );
-                    
-                    const hasCyndaquil = rematchTrainer.pokemon?.some(p => 
-                      p.species.toLowerCase().includes('cyndaquil') || 
-                      p.species.toLowerCase().includes('quilava') || 
-                      p.species.toLowerCase().includes('typhlosion')
+
+                    const hasCyndaquil = rematchTrainer.pokemon?.some(
+                      (p) =>
+                        p.species.toLowerCase().includes('cyndaquil') ||
+                        p.species.toLowerCase().includes('quilava') ||
+                        p.species.toLowerCase().includes('typhlosion'),
                     );
-                    
-                    const hasTotodile = rematchTrainer.pokemon?.some(p => 
-                      p.species.toLowerCase().includes('totodile') || 
-                      p.species.toLowerCase().includes('croconaw') || 
-                      p.species.toLowerCase().includes('feraligatr')
+
+                    const hasTotodile = rematchTrainer.pokemon?.some(
+                      (p) =>
+                        p.species.toLowerCase().includes('totodile') ||
+                        p.species.toLowerCase().includes('croconaw') ||
+                        p.species.toLowerCase().includes('feraligatr'),
                     );
 
                     if (hasChikorita) {

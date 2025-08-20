@@ -788,7 +788,7 @@ export function extractFishingEncounters(): Record<string, LocationEntry[]> {
   const fishMapContent = fs.readFileSync(fishMapPath, 'utf8');
   const locationToFishGroup = parseFishLocationMappings(fishMapContent);
 
-  // Combine data to create location entries
+  // Combine data to create location entries with combination logic
   for (const [location, fishGroupName] of Object.entries(locationToFishGroup)) {
     const fishGroup = fishGroups[fishGroupName];
     if (!fishGroup) continue;
@@ -797,22 +797,67 @@ export function extractFishingEncounters(): Record<string, LocationEntry[]> {
 
     // Process each rod type
     for (const [rodType, encounters] of Object.entries(fishGroup)) {
+      // Group encounters by Pokemon for combination
+      const encountersByPokemon: Record<string, Array<{ entry: LocationEntry; rate: number }>> = {};
+
       for (const encounter of encounters) {
-        // const pokemonKey = normalizePokemonUrlKey(encounter.species);
         const pokemonKey = encounter.species.toLowerCase(); // Ensure species is in lowercase
-
-        if (!fishingLocations[pokemonKey]) {
-          fishingLocations[pokemonKey] = [];
-        }
-
-        fishingLocations[pokemonKey].push({
+        const encounterRate = encounter.chance;
+        
+        const entry: LocationEntry = {
           area: normalizedLocation,
           method: `fish_${rodType}`,
           time: 'all',
           level: encounter.level.toString(),
-          chance: encounter.chance,
+          chance: encounterRate,
           formName: encounter.form || null,
-        });
+        };
+
+        if (!encountersByPokemon[pokemonKey]) {
+          encountersByPokemon[pokemonKey] = [];
+        }
+
+        encountersByPokemon[pokemonKey].push({ entry, rate: encounterRate });
+      }
+
+      // For each pokemon, combine identical encounters (same area, method, time, level, formName)
+      for (const [pokemonKey, encounters] of Object.entries(encountersByPokemon)) {
+        if (!fishingLocations[pokemonKey]) {
+          fishingLocations[pokemonKey] = [];
+        }
+
+        // Group by encounter characteristics (excluding chance)
+        const encounterGroups: Record<
+          string,
+          { combinedEntry: LocationEntry; totalRate: number }
+        > = {};
+
+        for (const { entry, rate } of encounters) {
+          // Create a key that uniquely identifies identical encounters (excluding chance)
+          const encounterKey = JSON.stringify({
+            area: entry.area,
+            method: entry.method,
+            time: entry.time,
+            level: entry.level,
+            formName: entry.formName,
+          });
+
+          if (!encounterGroups[encounterKey]) {
+            encounterGroups[encounterKey] = {
+              combinedEntry: { ...entry, chance: 0 }, // Start with 0, will be set below
+              totalRate: 0,
+            };
+          }
+
+          // Add this encounter's rate to the total
+          encounterGroups[encounterKey].totalRate += rate;
+        }
+
+        // Add the combined encounters to fishingLocations
+        for (const { combinedEntry, totalRate } of Object.values(encounterGroups)) {
+          combinedEntry.chance = totalRate;
+          fishingLocations[pokemonKey].push(combinedEntry);
+        }
       }
     }
   }
