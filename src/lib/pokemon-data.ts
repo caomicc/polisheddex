@@ -358,6 +358,7 @@ export const emptyPokemonEntry: PokemonEntry = {
     spdef: 0,
     speed: 0,
   },
+  level: 50, // Default to level 50 (standard competitive level)
 };
 
 export const DEFAULT_TEAM: PokemonEntry[] = new Array(6)

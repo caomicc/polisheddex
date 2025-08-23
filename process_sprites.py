@@ -142,6 +142,7 @@ class GBCSpriteProcessor:
         self.pokemon_dir = self.rom_path / "gfx" / "pokemon"
         self.trainer_dir = self.rom_path / "gfx" / "trainers"
         self.items_dir = self.rom_path / "gfx" / "items"
+        self.minis_dir = self.rom_path / "gfx" / "minis"
 
         # Create output directories
         self.sprites_dir = self.output_path / "sprites" / "pokemon"
@@ -152,6 +153,9 @@ class GBCSpriteProcessor:
 
         self.item_sprites_dir = self.output_path / "sprites" / "items"
         self.item_sprites_dir.mkdir(parents=True, exist_ok=True)
+
+        self.minis_sprites_dir = self.output_path / "sprites" / "minis"
+        self.minis_sprites_dir.mkdir(parents=True, exist_ok=True)
 
         # Mapping of variant directory names to base Pokemon names
         # For Pokemon with multiple visual variants, we need to know which directory
@@ -762,7 +766,7 @@ class GBCSpriteProcessor:
         for sprite_file in self.item_sprites_dir.iterdir():
             if sprite_file.is_file() and sprite_file.suffix == '.png':
                 item_name = sprite_file.stem
-                
+
                 # Get image dimensions
                 try:
                     with Image.open(sprite_file) as img:
@@ -790,50 +794,50 @@ class GBCSpriteProcessor:
     def get_item_category(self, item_name: str) -> str:
         """Categorize items based on their name for palette selection"""
         item_lower = item_name.lower()
-        
+
         # Poké Balls
         if 'ball' in item_lower:
             return 'pokeball'
-        
+
         # Potions and medicines
         if any(word in item_lower for word in ['potion', 'heal', 'antidote', 'awakening', 'burn_heal', 'paralyze_heal', 'ice_heal', 'full_heal', 'revive', 'ether', 'elixir']):
             return 'medicine'
-        
+
         # Berries
         if 'berry' in item_lower:
             return 'berry'
-        
+
         # Stones (evolution items)
         if 'stone' in item_lower:
             return 'stone'
-        
+
         # TMs/HMs
         if item_lower.startswith('tm') or item_lower.startswith('hm'):
             return 'tm'
-        
+
         # Battle items
         if any(word in item_lower for word in ['x_', 'guard_spec', 'dire_hit']):
             return 'battle'
-        
+
         # Key items (special quest items)
         if any(word in item_lower for word in ['key', 'card', 'pass', 'ticket', 'map', 'bell', 'wing', 'egg', 'scope', 'rod', 'coin_case']):
             return 'key'
-        
+
         # Held items (battle equipment)
         if any(word in item_lower for word in ['band', 'belt', 'lens', 'claw', 'orb', 'herb', 'powder', 'coat', 'vest', 'specs', 'scarf']):
             return 'held'
-        
+
         # Valuables (sellable items)
         if any(word in item_lower for word in ['nugget', 'pearl', 'mushroom', 'star', 'fossil', 'scale']):
             return 'valuable'
-        
+
         # Default category
         return 'general'
 
     def get_item_palette(self, item_name: str) -> List[Tuple[int, int, int]]:
         """Get appropriate color palette based on item category"""
         category = self.get_item_category(item_name)
-        
+
         # Different color schemes for different item types
         palettes = {
             'pokeball': [(255, 255, 255), (255, 60, 60), (200, 30, 30), (120, 20, 20)],  # Red/white
@@ -847,19 +851,351 @@ class GBCSpriteProcessor:
             'valuable': [(255, 240, 255), (200, 150, 200), (150, 100, 150), (100, 50, 100)],  # Pink
             'general': [(240, 240, 240), (160, 160, 160), (100, 100, 100), (60, 60, 60)]  # Gray
         }
-        
+
         return palettes.get(category, palettes['general'])
 
+    def apply_mask_to_sprite(self, sprite: Image.Image, mask: Image.Image) -> Image.Image:
+        """Apply transparency mask to sprite using mask file"""
+        # Ensure both images are the same size
+        if sprite.size != mask.size:
+            print(f"Warning: Sprite and mask size mismatch - sprite: {sprite.size}, mask: {mask.size}")
+            mask = mask.resize(sprite.size, Image.NEAREST)
+
+        # Convert sprite to RGBA if not already
+        if sprite.mode != 'RGBA':
+            sprite = sprite.convert('RGBA')
+
+        # Convert mask to grayscale
+        mask_gray = mask.convert('L')
+
+        # Create new RGBA image with transparency applied
+        masked_sprite = Image.new('RGBA', sprite.size, (0, 0, 0, 0))
+        sprite_pixels = sprite.load()
+        mask_pixels = mask_gray.load()
+        result_pixels = masked_sprite.load()
+
+        for y in range(sprite.size[1]):
+            for x in range(sprite.size[0]):
+                # For Game Boy masks: dark/black areas in mask = opaque, light/white = transparent
+                # This is opposite of what I initially implemented
+                mask_value = mask_pixels[x, y]
+                if mask_value < 128:  # Dark areas in mask = visible sprite pixels
+                    result_pixels[x, y] = sprite_pixels[x, y]
+                # Light areas in mask = transparent (already initialized to (0,0,0,0))
+
+        return masked_sprite
+
+    def apply_palette_to_mini_sprite(self, sprite: Image.Image, palette: List[Tuple[int, int, int]]) -> Image.Image:
+        """Apply GBC palette to mini sprite - different logic than main sprites"""
+        # Convert to grayscale first to map palette indices
+        gray_sprite = sprite.convert('L')
+
+        # Extend palette to 4 colors if needed (GBC standard)
+        while len(palette) < 4:
+            palette.append((255, 255, 255))  # Add white as default
+
+        # Create RGBA image - for mini sprites, don't make anything transparent yet
+        rgba_sprite = Image.new('RGBA', sprite.size, (0, 0, 0, 0))
+        pixels = rgba_sprite.load()
+        gray_pixels = gray_sprite.load()
+
+        for y in range(sprite.size[1]):
+            for x in range(sprite.size[0]):
+                gray_value = gray_pixels[x, y]
+
+                # Map grayscale values to palette indices for mini sprites
+                # Use all 4 palette colors, don't make any transparent automatically
+                if gray_value >= 192:    # Lightest -> palette[0]
+                    r, g, b = palette[0] if len(palette) > 0 else (255, 255, 255)
+                    pixels[x, y] = (r, g, b, 255)
+                elif gray_value >= 128:  # Light gray -> palette[1]
+                    r, g, b = palette[1] if len(palette) > 1 else (200, 200, 200)
+                    pixels[x, y] = (r, g, b, 255)
+                elif gray_value >= 64:   # Dark gray -> palette[2]
+                    r, g, b = palette[2] if len(palette) > 2 else (100, 100, 100)
+                    pixels[x, y] = (r, g, b, 255)
+                else:                    # Darkest -> palette[3]
+                    r, g, b = palette[3] if len(palette) > 3 else (0, 0, 0)
+                    pixels[x, y] = (r, g, b, 255)
+
+        return rgba_sprite
+
+    def get_mini_list(self) -> List[str]:
+        """Get list of all mini sprite base names (without _mask suffix)"""
+        mini_sprites = set()
+        if self.minis_dir.exists():
+            for item in self.minis_dir.iterdir():
+                if item.is_file() and item.suffix == '.png' and not item.name.endswith('_mask.png'):
+                    # Extract base name (remove .png extension)
+                    base_name = item.stem
+                    mini_sprites.add(base_name)
+        return sorted(list(mini_sprites))
+
+    def process_mini(self, mini_name: str) -> bool:
+        """Process a single mini sprite with its mask for transparency - create both static and animated versions"""
+        mini_png = self.minis_dir / f"{mini_name}.png"
+        mask_png = self.minis_dir / f"{mini_name}_mask.png"
+
+        if not mini_png.exists():
+            print(f"Mini sprite not found: {mini_name}")
+            return False
+
+        print(f"Processing mini sprite {mini_name}...")
+
+        try:
+            # Load the sprite image
+            sprite_img = Image.open(mini_png).convert('RGBA')
+
+            # Get appropriate palette based on Pokemon name
+            palette = self.get_mini_palette(mini_name)
+
+            # Extract frames from the sprite sheet (mini sprites may have multiple frames)
+            raw_frames = self.extract_sprite_frames_for_mini(sprite_img)
+
+            # Process each frame
+            processed_frames = []
+            for frame in raw_frames:
+                # Apply colorization using mini-specific palette logic
+                colored_frame = self.apply_palette_to_mini_sprite(frame, palette)
+
+                # Apply mask if available
+                if mask_png.exists():
+                    mask_img = Image.open(mask_png)
+                    # For multi-frame sprites, we may need to extract corresponding mask frames
+                    mask_frames = self.extract_sprite_frames_for_mini(mask_img)
+                    if len(mask_frames) == len(raw_frames):
+                        # Use corresponding mask frame
+                        frame_idx = raw_frames.index(frame)
+                        final_frame = self.apply_mask_to_sprite(colored_frame, mask_frames[frame_idx])
+                    else:
+                        # Use first mask frame for all sprite frames
+                        final_frame = self.apply_mask_to_sprite(colored_frame, mask_frames[0])
+                else:
+                    print(f"Warning: No mask found for {mini_name}, using sprite as-is")
+                    final_frame = colored_frame
+
+                processed_frames.append(final_frame)
+
+            # Save static PNG (first frame)
+            if processed_frames:
+                static_path = self.minis_sprites_dir / f"{mini_name}.png"
+                processed_frames[0].save(static_path)
+                print(f"Saved static mini sprite: {static_path}")
+
+                # Create animated GIF if there are multiple frames
+                if len(processed_frames) > 1:
+                    # Generate realistic frame durations for overworld sprites
+                    # Overworld sprites typically animate slower than battle sprites
+                    durations = [800] * len(processed_frames)  # 800ms per frame for smooth overworld animation
+
+                    gif_path = self.minis_sprites_dir / f"{mini_name}_animated.gif"
+                    self.create_animated_gif(processed_frames, durations, str(gif_path))
+                else:
+                    # For single frame sprites, create a simple "breathing" animation
+                    self.create_breathing_animation(processed_frames[0], mini_name)
+
+            return True
+
+        except Exception as e:
+            print(f"Error processing mini sprite {mini_name}: {e}")
+            return False
+
+    def extract_sprite_frames_for_mini(self, sprite: Image.Image) -> List[Image.Image]:
+        """Extract frames from mini sprite - they're typically 16x16 or 16x32"""
+        width, height = sprite.size
+
+        # Most mini sprites are 16 pixels wide
+        if width == 16:
+            # Check if it's a multi-frame sprite (height > width)
+            if height > width:
+                frame_height = 16  # Standard mini sprite frame height
+                frames = []
+                num_frames = height // frame_height
+
+                for i in range(num_frames):
+                    top = i * frame_height
+                    bottom = min(top + frame_height, height)
+                    frame = sprite.crop((0, top, width, bottom))
+                    frames.append(frame)
+
+                return frames if frames else [sprite]
+            else:
+                # Single frame sprite
+                return [sprite]
+        else:
+            # Non-standard size, treat as single frame
+            return [sprite]
+
+    def create_breathing_animation(self, static_frame: Image.Image, mini_name: str):
+        """Create a subtle breathing animation for single-frame mini sprites"""
+        try:
+            # Create a simple 2-frame breathing effect
+            frames = [static_frame, static_frame.copy()]  # Same frame twice for subtle effect
+
+            # Longer duration for breathing effect
+            durations = [1500, 1500]  # 1.5 seconds per frame for very slow breathing
+
+            gif_path = self.minis_sprites_dir / f"{mini_name}_animated.gif"
+            self.create_animated_gif(frames, durations, str(gif_path))
+
+        except Exception as e:
+            print(f"Warning: Could not create breathing animation for {mini_name}: {e}")
+
+    def get_mini_palette(self, mini_name: str) -> List[Tuple[int, int, int]]:
+        """Get appropriate color palette for mini sprites based on Pokemon type/characteristics"""
+        mini_lower = mini_name.lower()
+
+        # Try to find corresponding Pokemon palette from main sprites
+        # Map mini names to Pokemon names for palette lookup
+        pokemon_name = mini_name
+
+        # Handle special cases and variants
+        if '_alolan' in mini_lower:
+            pokemon_name = mini_name.replace('_alolan', '')
+        elif '_galarian' in mini_lower:
+            pokemon_name = mini_name.replace('_galarian', '')
+        elif '_hisuian' in mini_lower:
+            pokemon_name = mini_name.replace('_hisuian', '')
+        elif '_paldean' in mini_lower:
+            pokemon_name = mini_name.replace('_paldean', '')
+        elif '_armored' in mini_lower:
+            pokemon_name = mini_name.replace('_armored', '')
+        elif '_bloodmoon' in mini_lower:
+            pokemon_name = mini_name.replace('_bloodmoon', '')
+        elif '_two_segment' in mini_lower:
+            pokemon_name = mini_name.replace('_two_segment', '')
+        elif '_three_segment' in mini_lower:
+            pokemon_name = mini_name.replace('_three_segment', '')
+        elif '_fire' in mini_lower:
+            pokemon_name = mini_name.replace('_fire', '')
+        elif '_water' in mini_lower:
+            pokemon_name = mini_name.replace('_water', '')
+        elif mini_name == 'egg':
+            return [(255, 255, 240), (240, 200, 160), (200, 150, 100), (150, 100, 60)]  # Cream/beige
+
+        # Check if we have a palette file for this Pokemon
+        palette_dir = self.pokemon_dir / pokemon_name
+        if pokemon_name in self.palette_directory_mapping:
+            palette_dir = self.pokemon_dir / self.palette_directory_mapping[pokemon_name]
+
+        normal_pal = palette_dir / "normal.pal"
+        if normal_pal.exists():
+            return GBCPaletteParser.parse_palette_file(str(normal_pal))
+
+        # Fallback to type-based coloring for minis
+        return self.get_type_based_palette(mini_name)
+
+    def get_type_based_palette(self, mini_name: str) -> List[Tuple[int, int, int]]:
+        """Get a palette based on Pokemon type characteristics for overworld sprites"""
+        mini_lower = mini_name.lower()
+
+        # Common Pokemon type color schemes for overworld sprites
+        if any(word in mini_lower for word in ['pikachu', 'raichu', 'electabuzz', 'elekid', 'magnezone', 'electrode', 'zapdos']):
+            return [(255, 255, 200), (255, 220, 0), (200, 150, 0), (100, 80, 0)]  # Electric - Yellow
+        elif any(word in mini_lower for word in ['charizard', 'charmander', 'charmeleon', 'arcanine', 'growlithe', 'moltres']):
+            return [(255, 240, 200), (255, 100, 50), (200, 60, 30), (120, 40, 20)]  # Fire - Red/Orange
+        elif any(word in mini_lower for word in ['blastoise', 'squirtle', 'wartortle', 'gyarados', 'lapras', 'articuno']):
+            return [(240, 240, 255), (100, 150, 255), (60, 100, 200), (30, 60, 150)]  # Water - Blue
+        elif any(word in mini_lower for word in ['venusaur', 'bulbasaur', 'ivysaur', 'oddish', 'bellsprout']):
+            return [(240, 255, 240), (100, 200, 100), (60, 150, 60), (30, 100, 30)]  # Grass - Green
+        elif any(word in mini_lower for word in ['gengar', 'gastly', 'haunter', 'misdreavus', 'murkrow']):
+            return [(200, 180, 220), (120, 80, 160), (80, 50, 120), (50, 30, 80)]  # Ghost - Purple
+        elif any(word in mini_lower for word in ['machamp', 'machoke', 'machop', 'hitmon']):
+            return [(255, 220, 180), (200, 140, 100), (150, 100, 70), (100, 70, 50)]  # Fighting - Brown
+        elif any(word in mini_lower for word in ['alakazam', 'abra', 'kadabra', 'mewtwo', 'mew']):
+            return [(255, 240, 255), (200, 150, 200), (150, 100, 150), (100, 60, 100)]  # Psychic - Pink
+        else:
+            # Default neutral palette for unknown types
+            return [(240, 240, 240), (180, 180, 180), (120, 120, 120), (80, 80, 80)]  # Normal - Gray
+
+    def process_all_minis(self):
+        """Process all mini sprites with masking"""
+        mini_list = self.get_mini_list()
+        total = len(mini_list)
+        processed = 0
+
+        print(f"Found {total} mini sprites to process...")
+
+        for i, mini_name in enumerate(mini_list, 1):
+            print(f"[{i}/{total}] Processing mini {mini_name}")
+            if self.process_mini(mini_name):
+                processed += 1
+
+        print(f"\nCompleted! Processed {processed}/{total} mini sprites")
+        print(f"Output directory: {self.minis_sprites_dir}")
+
+    def create_mini_manifest(self):
+        """Create a JSON manifest of all processed mini sprites with dimensions - includes both static and animated versions"""
+        mini_manifest = {}
+
+        # Get unique mini names (without file extensions)
+        mini_names = set()
+        for sprite_file in self.minis_sprites_dir.iterdir():
+            if sprite_file.is_file() and sprite_file.suffix in ['.png', '.gif']:
+                # Remove _animated suffix if present to get base name
+                base_name = sprite_file.stem.replace('_animated', '')
+                mini_names.add(base_name)
+
+        # Process each mini sprite
+        for mini_name in sorted(mini_names):
+            mini_data = {}
+
+            # Check for static PNG
+            static_file = self.minis_sprites_dir / f"{mini_name}.png"
+            if static_file.exists():
+                try:
+                    with Image.open(static_file) as img:
+                        width, height = img.size
+                        mini_data["overworld"] = {
+                            "url": f"sprites/minis/{static_file.name}",
+                            "width": width,
+                            "height": height
+                        }
+                except Exception as e:
+                    print(f"Warning: Could not read dimensions for {static_file}: {e}")
+                    mini_data["overworld"] = {
+                        "url": f"sprites/minis/{static_file.name}",
+                        "width": 16,  # fallback dimensions
+                        "height": 16
+                    }
+
+            # Check for animated GIF
+            animated_file = self.minis_sprites_dir / f"{mini_name}_animated.gif"
+            if animated_file.exists():
+                try:
+                    with Image.open(animated_file) as img:
+                        width, height = img.size
+                        mini_data["overworld_animated"] = {
+                            "url": f"sprites/minis/{animated_file.name}",
+                            "width": width,
+                            "height": height
+                        }
+                except Exception as e:
+                    print(f"Warning: Could not read dimensions for {animated_file}: {e}")
+                    mini_data["overworld_animated"] = {
+                        "url": f"sprites/minis/{animated_file.name}",
+                        "width": 16,  # fallback dimensions
+                        "height": 16
+                    }
+
+            # Only add to manifest if we have at least one file
+            if mini_data:
+                mini_manifest[mini_name] = mini_data
+
+        return mini_manifest
+
     def create_unified_manifest(self):
-        """Create a unified JSON manifest containing Pokemon, trainer, and item sprites"""
+        """Create a unified JSON manifest containing Pokemon, trainer, item, and mini sprites"""
         pokemon_data = self.create_sprite_manifest()
         trainer_data = self.create_trainer_manifest()
         item_data = self.create_item_manifest()
+        mini_data = self.create_mini_manifest()
 
         unified_manifest = {
             "pokemon": pokemon_data,
             "trainers": trainer_data,
-            "items": item_data
+            "items": item_data,
+            "minis": mini_data
         }
 
         # Save unified manifest
@@ -871,6 +1207,7 @@ class GBCSpriteProcessor:
         print(f"Pokemon sprites: {len(pokemon_data)}")
         print(f"Trainer sprites: {len(trainer_data)}")
         print(f"Item sprites: {len(item_data)}")
+        print(f"Mini sprites: {len(mini_data)}")
 
     def export_sprite(self, sprite: Image.Image, output_path: str) -> None:
         """Export the processed sprite to the specified output path."""
@@ -894,6 +1231,7 @@ def main():
     parser.add_argument('--pokemon', action='store_true', help='Process Pokemon sprites only')
     parser.add_argument('--trainers', action='store_true', help='Process trainer sprites only')
     parser.add_argument('--items', action='store_true', help='Process item sprites only')
+    parser.add_argument('--minis', action='store_true', help='Process mini/overworld sprites only')
     parser.add_argument('--rom-path', default='polishedcrystal', help='Path to ROM directory')
     parser.add_argument('--output-path', default='public', help='Output directory')
 
@@ -912,6 +1250,9 @@ def main():
 
         print("\nProcessing all item sprites...")
         processor.process_all_items()
+
+        print("\nProcessing all mini sprites...")
+        processor.process_all_minis()
 
         # Create unified manifest
         print("\nCreating unified sprite manifest...")
@@ -935,16 +1276,24 @@ def main():
         # Create unified manifest with existing Pokemon and trainer data
         processor.create_unified_manifest()
 
+    elif args.minis:
+        # Process only mini sprites
+        processor.process_all_minis()
+        # Create unified manifest with existing data
+        processor.create_unified_manifest()
+
     elif args.target:
-        # Try to process specific target (check if it's Pokemon, trainer, or item)
+        # Try to process specific target (check if it's Pokemon, trainer, item, or mini)
         if processor.process_pokemon(args.target):
             print(f"Processed Pokemon: {args.target}")
         elif processor.process_trainer(args.target):
             print(f"Processed trainer: {args.target}")
         elif processor.process_item(args.target):
             print(f"Processed item: {args.target}")
+        elif processor.process_mini(args.target):
+            print(f"Processed mini sprite: {args.target}")
         else:
-            print(f"Target '{args.target}' not found as Pokemon, trainer, or item")
+            print(f"Target '{args.target}' not found as Pokemon, trainer, item, or mini sprite")
 
     else:
         # Default: process test cases
@@ -967,7 +1316,13 @@ def main():
         else:
             print("Item test failed")
 
-        print("Run with --all to process all sprites, --pokemon for Pokemon only, --trainers for trainers only, or --items for items only")
+        print("Testing mini sprite (pikachu)...")
+        if processor.process_mini('pikachu'):
+            print("Mini sprite test successful!")
+        else:
+            print("Mini sprite test failed")
+
+        print("Run with --all to process all sprites, --pokemon for Pokemon only, --trainers for trainers only, --items for items only, or --minis for mini sprites only")
 
 if __name__ == "__main__":
     main()

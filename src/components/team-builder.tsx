@@ -15,7 +15,10 @@ import { loadTypeChart } from '@/lib/calculations';
 import { useLocalStorage } from '@/lib/use-local-storage';
 import { generateShareUrl, getTeamFromUrl, copyToClipboard } from '@/lib/team-url-sharing';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
+import StatsDisplay from './pokemon/stats-display';
+import { BentoGrid, BentoGridNoLink } from './ui/bento-box';
 import { PokemonSprite } from './pokemon/pokemon-sprite';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
 
 export default function TeamBuilder() {
   const [team, setTeam] = useLocalStorage<PokemonEntry[]>('pokedex-team', DEFAULT_TEAM);
@@ -149,7 +152,7 @@ export default function TeamBuilder() {
 
   return (
     <>
-      <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-end max-w-xl md:max-w-4xl mx-auto mb-4">
+      <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-end max-w-xl md:max-w-5xl mx-auto mb-4">
         <Button variant="secondary" onClick={shareTeam} disabled={isEmptyTeam}>
           <Share className="mr-2 h-4 w-4" />
           Share Team
@@ -168,7 +171,7 @@ export default function TeamBuilder() {
         </Button>
       </header>
 
-      <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
+      <div className="max-w-xl md:max-w-5xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
         {!dataLoaded && (
           <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg">
             <div className="flex items-center gap-2 text-sm text-blue-700 dark:text-blue-300">
@@ -214,19 +217,13 @@ export default function TeamBuilder() {
 
         {/* <section aria-label="Team slots" className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3"> */}
         <Tabs defaultValue="0" className="mb-4" aria-label="Team slots">
-          <TabsList className="grid grid-cols-6 gap-1">
+          <TabsList className="w-full flex-col sm:flex-row h-auto md:h-9">
             {team.map((entry, i) => (
               <TabsTrigger
                 key={i}
                 value={`${i}`}
-                className="text-xs truncate data-[state=active]:bg-white h-auto"
+                className="text-xs data-[state=active]:bg-cyan-200 data-[state=active]:text-cyan-900 data-[state=active]:border-cyan-300 h-auto"
               >
-                <div className="w-8 relative">
-                  <PokemonSprite
-                    pokemonName={entry.name ? entry.name : 'egg'}
-                    className="w-full! p-[1px]! rounded-sm! shadow-none"
-                  />
-                </div>
                 {entry.name ? entry.name : `Slot ${i + 1}`}
               </TabsTrigger>
             ))}
@@ -239,29 +236,71 @@ export default function TeamBuilder() {
           ))}
         </Tabs>
 
-        {/* </section> */}
+        {/* Display calculated stats for each team member */}
+        {team.some((entry) => entry.name) && (
+          <>
+            <Separator className="my-2" />
+            <Accordion type="multiple" className="w-full">
+              <AccordionItem value="weakness-table">
+                <AccordionTrigger>
+                  <div className="flex items-center gap-2">
+                    <Calculator className="h-5 w-5" />
+                    <h2 className="text-lg font-semibold">Team Summary</h2>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <BentoGrid className="mx-auto md:auto-rows-auto md:grid-cols-3">
+                    {team.map((entry, i) => {
+                      if (!entry.name) return null;
+                      return (
+                        <BentoGridNoLink key={i}>
+                          <div className="flex flex-row gap-4">
+                            <PokemonSprite hoverAnimate pokemonName={entry.name} />
+                            <div className="flex gap-0 flex-col">
+                              <div className="font-bold">{entry.name}</div>
+                              <div className="text-xs">{entry.nature}</div>
+                              {entry.level && <div className="text-xs">Lv. {entry.level}</div>}
+                              {entry.item && <div className="text-xs">Item: {entry.item}</div>}
+                            </div>
+                          </div>
+                          <StatsDisplay
+                            pokemonName={entry.name}
+                            ivs={entry.ivs}
+                            evs={entry.evs}
+                            level={entry.level || 50}
+                            nature={entry.nature}
+                          />
+                        </BentoGridNoLink>
+                      );
+                    })}
+                  </BentoGrid>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </>
+        )}
 
-        <Separator className="my-8" />
+        <Separator className="my-2" />
 
-        <section aria-label="Calculations" className="mb-10">
-          <div className="flex items-center gap-2">
-            <Calculator className="h-5 w-5" />
-            <h2 className="text-xl font-semibold">Calculations</h2>
-            {!dataLoaded && (
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-gray-400"></div>
-                Loading...
+        <Accordion type="multiple" className="w-full">
+          <AccordionItem value="weakness-table">
+            <AccordionTrigger>
+              <div className="flex items-center gap-2">
+                <Calculator className="h-5 w-5" />
+                <h2 className="text-lg font-semibold">Calculations</h2>
               </div>
-            )}
-          </div>
-          <p className="mt-1 text-sm text-muted-foreground">
-            See your team&apos;s defensive type weaknesses/resistances and offensive coverage based
-            on selected move types.
-          </p>
-          <div className="mt-4">
-            <CalculationsPanel team={team} disabled={isEmptyTeam || !dataLoaded} />
-          </div>
-        </section>
+            </AccordionTrigger>
+            <AccordionContent>
+              {!dataLoaded && (
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-gray-400"></div>
+                  Loading...
+                </div>
+              )}
+              <CalculationsPanel team={team} disabled={isEmptyTeam || !dataLoaded} />
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </div>
     </>
   );

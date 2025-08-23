@@ -19,7 +19,7 @@ export async function loadTypesData(): Promise<string[]> {
       .map((type) => type.charAt(0).toUpperCase() + type.slice(1).toLowerCase());
 
     // Sort alphabetically
-    typesList.sort((a, b) => a.localeCompare(b));
+    // typesList.sort((a, b) => a.localeCompare(b));
 
     // Update the exported list
     TYPES.splice(0, TYPES.length, ...typesList);

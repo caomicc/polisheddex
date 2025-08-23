@@ -199,6 +199,7 @@ export type PokemonEntry = {
   moves: MoveEntry[]; // 4 moves
   ivs?: IVs;
   evs?: EVs;
+  level?: number;
 };
 
 export type PokemonSlotProps = {
@@ -230,7 +231,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
   const [moveModalOpen, setMoveModalOpen] = useState(false); // Single modal for all moves
   const [moveSearchQuery, setMoveSearchQuery] = useState('');
   const [selectedMoveSlot, setSelectedMoveSlot] = useState<number | null>(null); // Track which slot we're editing
-  const [selectedLevel, setSelectedLevel] = useState(50); // Default to level 50 (common competitive level)
+  const [selectedLevel, setSelectedLevel] = useState(entry.level || 50); // Use saved level or default to 50
   const searchInputRef = useRef<HTMLInputElement>(null);
   const abilitySearchInputRef = useRef<HTMLInputElement>(null);
   const natureSearchInputRef = useRef<HTMLInputElement>(null);
@@ -238,6 +239,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
   const moveSearchInputRef = useRef<HTMLInputElement>(null);
   const { showFaithful } = useFaithfulPreference();
   const previousTypesRef = useRef<string | null>(null);
+  const previousFaithfulRef = useRef<boolean | null>(null);
 
   // Memoize nature modifiers to ensure reactivity
   const natureModifiers = useMemo(() => getNatureModifiers(entry.nature), [entry.nature]);
@@ -679,6 +681,50 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     }
   }, [pokemonData, showFaithful, matched?.name, matched?.formName, entry.types, onChange]);
 
+  // Update ability when faithful preference changes
+  useEffect(() => {
+    // Only trigger when the faithful preference actually changes
+    if (previousFaithfulRef.current !== null && previousFaithfulRef.current !== showFaithful) {
+      if (pokemonData && entry.name && entry.ability) {
+        // Check for forms structure (individual files) or direct structure (manifest)
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const formData: any = pokemonData?.forms?.plain || pokemonData;
+
+        // Get abilities for current context
+        const abilities: Ability[] = showFaithful
+          ? formData.detailedStats?.faithfulAbilities || formData.abilities || []
+          : formData.detailedStats?.updatedAbilities || formData.abilities || [];
+
+        const abilityList = abilities
+          .map((ability) => {
+            if (typeof ability === 'string') return ability;
+            if (ability && ability.id) {
+              // Convert kebab-case to title case
+              return ability.id
+                .split('-')
+                .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
+            }
+            if (ability && ability.name) return ability.name;
+            return null;
+          })
+          .filter(Boolean) as string[];
+
+        // Update to the first available ability in the new context
+        if (abilityList.length > 0) {
+          const newAbility = abilityList[0];
+          console.log(
+            `Context changed: Updating ${entry.name} ability to ${newAbility} for ${showFaithful ? 'faithful' : 'polished'} mode`,
+          );
+          onChange({ ability: newAbility });
+        }
+      }
+    }
+
+    // Update the ref to track the current faithful preference
+    previousFaithfulRef.current = showFaithful;
+  }, [pokemonData, showFaithful, entry.name, entry.ability, onChange]);
+
   // Load evolution chain moves when Pokemon data changes
   useEffect(() => {
     const loadEvolutionChainMoves = async () => {
@@ -988,7 +1034,9 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
         </Dialog>
       </div>
 
-      <div className={cn('flex flex-row gap-8 relative', !isPokemonSelected && 'hidden')}>
+      <div
+        className={cn('flex flex-col md:flex-row gap-8 relative', !isPokemonSelected && 'hidden')}
+      >
         <Button
           variant="destructive"
           size="icon"
@@ -1015,8 +1063,8 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
               }
               form={matched?.formName} // Pass the form name for sprites
             />
-            <div className="flex gap-2 text-center flex-col">
-              <h2 className="text-xl">{entry.name}</h2>
+            <div className="flex gap-2 text-center flex-col w-full items-center">
+              <h2 className="text-xl font-bold">{entry.name}</h2>
               <div className="flex items-center gap-2">
                 {Array.isArray(entry.types) && entry.types[0] && (
                   <Badge variant={entry.types[0].toLowerCase() || 'any'}>{entry.types[0]}</Badge>
@@ -1598,18 +1646,24 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                         min="1"
                         max="100"
                         value={selectedLevel}
-                        onChange={(e) =>
-                          setSelectedLevel(
-                            Math.max(1, Math.min(100, parseInt(e.target.value) || 1)),
-                          )
-                        }
+                        onChange={(e) => {
+                          const newLevel = Math.max(
+                            1,
+                            Math.min(100, parseInt(e.target.value) || 1),
+                          );
+                          setSelectedLevel(newLevel);
+                          onChange({ level: newLevel });
+                        }}
                         className="w-16 h-8 text-sm text-center"
                       />
                       <div className="flex gap-1">
                         <Button
                           variant="secondary"
                           size="sm"
-                          onClick={() => setSelectedLevel(1)}
+                          onClick={() => {
+                            setSelectedLevel(1);
+                            onChange({ level: 1 });
+                          }}
                           className={cn(selectedLevel === 1 && 'bg-blue-100 dark:bg-blue-900')}
                         >
                           Lv. 1
@@ -1617,7 +1671,10 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                         <Button
                           variant="secondary"
                           size="sm"
-                          onClick={() => setSelectedLevel(50)}
+                          onClick={() => {
+                            setSelectedLevel(50);
+                            onChange({ level: 50 });
+                          }}
                           className={cn(selectedLevel === 50 && 'bg-blue-100 dark:bg-blue-900')}
                         >
                           Lv. 50
@@ -1625,7 +1682,10 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                         <Button
                           variant="secondary"
                           size="sm"
-                          onClick={() => setSelectedLevel(100)}
+                          onClick={() => {
+                            setSelectedLevel(100);
+                            onChange({ level: 100 });
+                          }}
                           className={cn(selectedLevel === 100 && 'bg-blue-100 dark:bg-blue-900')}
                         >
                           Lv. 100
