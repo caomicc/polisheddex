@@ -430,12 +430,11 @@ export default function CalculationsPanel({
           <div className="grid gap-4 lg:grid-cols-3">
             {Object.entries(offensive.typeEffectiveness).map(([moveType, effectiveness]) => (
               <BentoGridNoLink key={moveType}>
-                <div className="flex items-center gap-2">
-                  <Badge variant={moveType.toLowerCase()}>{moveType}</Badge>
-                  <span className="text-sm font-medium">moves</span>
+                <div className="flex items-center">
+                  <h3 className=" font-medium">{moveType}</h3>
                 </div>
                 <div>
-                  <div className="font-medium text-green-700 mb-1">
+                  <div className="label-text text-green-700! mb-1">
                     Super Effective ({[...new Set(effectiveness.superEffective)].length})
                   </div>
                   <div className="flex flex-wrap gap-1">
@@ -447,7 +446,7 @@ export default function CalculationsPanel({
                   </div>
                 </div>
                 <div>
-                  <div className="font-medium text-red-700 mb-1">
+                  <div className="label-text text-red-700! mb-1">
                     Not Very Effective ({[...new Set(effectiveness.notVeryEffective)].length})
                   </div>
                   <div className="flex flex-wrap gap-1">
