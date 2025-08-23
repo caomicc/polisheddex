@@ -1575,6 +1575,12 @@ export function extractEventItemLocations(itemData: Record<string, ItemData>): v
     const locationKey = path.basename(mapFile, '.asm');
     const locationName = formatDisplayName(locationKey);
 
+    // Skip PlayersHouse2F as it contains debugging items
+    if (locationKey === 'PlayersHouse2F') {
+      console.log(`⏭️ Skipping ${locationKey} in event items (contains debugging items)`);
+      continue;
+    }
+
     let currentNPC = null;
 
     for (let i = 0; i < lines.length; i++) {
@@ -1704,6 +1710,12 @@ export function extractMapItemLocations(itemData: Record<string, ItemData>): voi
     // Extract location name from filename and format for display
     const locationKey = path.basename(mapFile, '.asm');
     const locationName = formatDisplayName(locationKey);
+
+    // Skip PlayersHouse2F as it contains debugging items
+    if (locationKey === 'PlayersHouse2F') {
+      console.log(`⏭️ Skipping ${locationKey} (contains debugging items)`);
+      continue;
+    }
 
     for (const line of lines) {
       const trimmedLine = line.trim();
@@ -1866,6 +1878,12 @@ export function extractLocationItems(): Record<string, LocationItem[]> {
     const locationKey = path.basename(mapFile, '.asm');
     // Use the normalization function for consistent keys
     const normalizedKey = normalizeLocationKey(locationKey);
+
+    // Skip PlayersHouse2F as it contains debugging items
+    if (locationKey === 'PlayersHouse2F') {
+      console.log(`⏭️ Skipping ${locationKey} in location items (contains debugging items)`);
+      continue;
+    }
 
     const mapPath = path.join(mapsDir, mapFile);
     const mapContent = fs.readFileSync(mapPath, 'utf8');
