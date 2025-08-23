@@ -168,7 +168,7 @@ export async function loadPokemonData(): Promise<PokemonBasic[]> {
 
                   // Normalize the form name to remove parentheses and convert to standard format
                   const normalizedFormName = normalizeFormName(formName);
-                  
+
                   // Create form entry with a descriptive name
                   const formDisplayName = `${formatPokemonDisplayName(pokemon.name)} (${formatPokemonDisplayName(formName)})`;
 
@@ -342,6 +342,22 @@ export const emptyPokemonEntry: PokemonEntry = {
     { name: '', type: null },
     { name: '', type: null },
   ],
+  ivs: {
+    hp: 31,
+    attack: 31,
+    defense: 31,
+    spatk: 31,
+    spdef: 31,
+    speed: 31,
+  },
+  evs: {
+    hp: 0,
+    attack: 0,
+    defense: 0,
+    spatk: 0,
+    spdef: 0,
+    speed: 0,
+  },
 };
 
 export const DEFAULT_TEAM: PokemonEntry[] = new Array(6)

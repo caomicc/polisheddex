@@ -14,7 +14,8 @@ import { loadTypesData } from '@/lib/types-data';
 import { loadTypeChart } from '@/lib/calculations';
 import { useLocalStorage } from '@/lib/use-local-storage';
 import { generateShareUrl, getTeamFromUrl, copyToClipboard } from '@/lib/team-url-sharing';
-import { BentoGrid } from './ui/bento-box';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
+import { PokemonSprite } from './pokemon/pokemon-sprite';
 
 export default function TeamBuilder() {
   const [team, setTeam] = useLocalStorage<PokemonEntry[]>('pokedex-team', DEFAULT_TEAM);
@@ -212,16 +213,32 @@ export default function TeamBuilder() {
         )}
 
         {/* <section aria-label="Team slots" className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3"> */}
-        <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-3 mb-4">
+        <Tabs defaultValue="0" className="mb-4" aria-label="Team slots">
+          <TabsList className="grid grid-cols-6 gap-1">
+            {team.map((entry, i) => (
+              <TabsTrigger
+                key={i}
+                value={`${i}`}
+                className="text-xs truncate data-[state=active]:bg-white h-auto"
+              >
+                <div className="w-8 relative">
+                  <PokemonSprite
+                    pokemonName={entry.name ? entry.name : 'egg'}
+                    className="w-full! p-[1px]! rounded-sm! shadow-none"
+                  />
+                </div>
+                {entry.name ? entry.name : `Slot ${i + 1}`}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+
           {team.map((entry, i) => (
-            <PokemonSlot
-              key={i}
-              index={i}
-              entry={entry}
-              onChange={(data) => handleUpdate(i, data)}
-            />
+            <TabsContent key={i} value={`${i}`} className="">
+              <PokemonSlot index={i} entry={entry} onChange={(data) => handleUpdate(i, data)} />
+            </TabsContent>
           ))}
-        </BentoGrid>
+        </Tabs>
+
         {/* </section> */}
 
         <Separator className="my-8" />
