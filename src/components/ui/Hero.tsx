@@ -78,14 +78,14 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
           {breadcrumbs}
         </div>
       ) : null}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 relative">
         {image && (
-          <div>
+          <div className="relative">
             <PokemonSprite
               src={image ?? ''}
               primaryType={primaryType ?? undefined}
               alt={`Accent Image to accompany hero`}
-              className="mx-auto relative "
+              className="mx-auto relative"
               pokemonName={headline?.toString().toLowerCase() || 'egg'}
               type="animated"
               form={form || undefined}

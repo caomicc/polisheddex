@@ -144,6 +144,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                         <CardContent className="p-4 flex flex-col gap-2">
                           <div className="flex items-center gap-3">
                             <Link
+                              className="relative"
                               href={formatPokemonUrlWithForm(
                                 poke.species,
                                 poke.form ? poke.form.toLowerCase().replace(/ form/g, '') : 'plain',
