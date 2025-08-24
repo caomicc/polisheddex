@@ -713,6 +713,14 @@ async function generateIndividualPokemonFiles(): Promise<void> {
     );
   }
 
+  // Read Pokédex entries data
+  const pokedexEntriesPath = path.join(__dirname, '../output/pokemon_pokedex_entries.json');
+  let pokedexEntriesData: Record<string, any> = {};
+  if (fs.existsSync(pokedexEntriesPath)) {
+    pokedexEntriesData = JSON.parse(fs.readFileSync(pokedexEntriesPath, 'utf8'));
+    console.log(`📖 Loaded Pokédex entries for ${Object.keys(pokedexEntriesData).length} Pokémon`);
+  }
+
   // Create output directory
   const outputDir = path.join(__dirname, '../output/pokemon');
   if (!fs.existsSync(outputDir)) {
@@ -783,6 +791,10 @@ async function generateIndividualPokemonFiles(): Promise<void> {
         };
       }
 
+      // Get Pokédex entries for this Pokémon
+      const pokemonNameLower = pokemonKey.toLowerCase();
+      const pokedexEntries = pokedexEntriesData[pokemonNameLower];
+
       // Create the individual Pokemon data object
       const individualPokemonData: PokemonData = {
         name: pokemonKey,
@@ -808,6 +820,7 @@ async function generateIndividualPokemonFiles(): Promise<void> {
               ),
             }
           : {}),
+        ...(pokedexEntries ? { pokedexEntries: pokedexEntries } : {}),
       };
 
       // Write the individual file

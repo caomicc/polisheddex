@@ -1,0 +1,262 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e5]:
+      - link "Home" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img "PolishedDex Logo" [ref=e9] [cursor=pointer]
+        - generic [ref=e10] [cursor=pointer]: PolishedDex
+      - navigation "Main" [ref=e11]:
+        - list [ref=e13]:
+          - listitem [ref=e14]:
+            - button "Pokedex" [ref=e15]:
+              - text: Pokedex
+              - img
+          - listitem [ref=e16]:
+            - button "Pokéarth" [ref=e17]:
+              - text: Pokéarth
+              - img
+          - listitem [ref=e18]:
+            - link "Items" [ref=e19] [cursor=pointer]:
+              - /url: /items
+          - listitem [ref=e20]:
+            - link "Events" [ref=e21] [cursor=pointer]:
+              - /url: /events
+          - listitem [ref=e22]:
+            - link "FAQ" [ref=e23] [cursor=pointer]:
+              - /url: /faq
+      - generic [ref=e24]:
+        - generic [ref=e26]: Polished
+        - switch "Toggle between faithful and updated Pokémon types" [checked] [ref=e27]
+        - button "Toggle theme" [ref=e28]:
+          - img
+          - generic [ref=e29]: Toggle theme
+    - main [ref=e30]:
+      - generic [ref=e32]:
+        - heading "bulbasaur" [level=1] [ref=e33]
+        - generic [ref=e34]:
+          - generic [ref=e35]:
+            - navigation "breadcrumb" [ref=e37]:
+              - list [ref=e38]:
+                - listitem [ref=e39]:
+                  - link "Home" [ref=e40] [cursor=pointer]:
+                    - /url: /
+                - listitem [ref=e41]:
+                  - img [ref=e42]
+                - listitem [ref=e44]:
+                  - link "Pokemon" [ref=e45] [cursor=pointer]:
+                    - /url: /pokemon
+                - listitem [ref=e46]:
+                  - img [ref=e47]
+                - listitem [ref=e49]:
+                  - link "bulbasaur" [disabled] [ref=e50]
+            - generic [ref=e51]:
+              - img "Accent Image to accompany hero" [ref=e54]
+              - generic [ref=e55]:
+                - heading "bulbasaur" [level=1] [ref=e56]
+                - group "Pokemon Types" [ref=e58]:
+                  - generic [ref=e59]: Grass
+                  - generic [ref=e60]: Poison
+          - generic [ref=e61]:
+            - tablist [ref=e62]:
+              - tab "Stats" [selected] [ref=e63]
+              - tab "Moves" [ref=e64]
+              - tab "Location" [ref=e65]
+            - tabpanel "Stats" [ref=e66]:
+              - generic [ref=e68]:
+                - generic [ref=e70]:
+                  - heading "Base Stats:" [level=3] [ref=e71]
+                  - generic [ref=e72]:
+                    - generic [ref=e73]:
+                      - generic [ref=e74]: HP
+                      - generic [ref=e75]: "45"
+                    - progressbar "HP stat" [ref=e76]
+                  - generic [ref=e78]:
+                    - generic [ref=e79]:
+                      - generic [ref=e80]: Atk
+                      - generic [ref=e81]: "49"
+                    - progressbar "Atk stat" [ref=e82]
+                  - generic [ref=e84]:
+                    - generic [ref=e85]:
+                      - generic [ref=e86]: Def
+                      - generic [ref=e87]: "49"
+                    - progressbar "Def stat" [ref=e88]
+                  - generic [ref=e90]:
+                    - generic [ref=e91]:
+                      - generic [ref=e92]: Sp. Atk
+                      - generic [ref=e93]: "65"
+                    - progressbar "Sp. Atk stat" [ref=e94]
+                  - generic [ref=e96]:
+                    - generic [ref=e97]:
+                      - generic [ref=e98]: Sp. Def
+                      - generic [ref=e99]: "65"
+                    - progressbar "Sp. Def stat" [ref=e100]
+                  - generic [ref=e102]:
+                    - generic [ref=e103]:
+                      - generic [ref=e104]: Spd
+                      - generic [ref=e105]: "45"
+                    - progressbar "Spd stat" [ref=e106]
+                  - generic [ref=e108]:
+                    - generic [ref=e109]: Total
+                    - generic [ref=e110]: "318"
+                - generic [ref=e114]:
+                  - generic [ref=e115]:
+                    - heading "Weaknesses:" [level=3] [ref=e116]
+                    - generic [ref=e117]:
+                      - generic [ref=e119]: flying ×2
+                      - generic [ref=e121]: fire ×2
+                      - generic [ref=e123]: psychic ×2
+                      - generic [ref=e125]: ice ×2
+                  - generic [ref=e126]:
+                    - heading "Resistances:" [level=3] [ref=e127]
+                    - generic [ref=e128]:
+                      - generic [ref=e130]: fighting ×0.5
+                      - generic [ref=e132]: water ×0.5
+                      - generic [ref=e134]: grass ×0.25
+                      - generic [ref=e136]: electric ×0.5
+                      - generic [ref=e138]: fairy ×0.5
+                - link "primary Ability Overgrow Boosts Grass moves in a pinch." [ref=e139] [cursor=pointer]:
+                  - /url: /abilities/overgrow
+                  - generic [ref=e140] [cursor=pointer]:
+                    - generic [ref=e141] [cursor=pointer]: primary Ability
+                    - generic [ref=e142] [cursor=pointer]: Overgrow
+                    - generic [ref=e143] [cursor=pointer]: Boosts Grass moves in a pinch.
+                - link "secondary Ability Chlorophyll Boosts its Speed in sunshine." [ref=e144] [cursor=pointer]:
+                  - /url: /abilities/chlorophyll
+                  - generic [ref=e145] [cursor=pointer]:
+                    - generic [ref=e146] [cursor=pointer]: secondary Ability
+                    - generic [ref=e147] [cursor=pointer]: Chlorophyll
+                    - generic [ref=e148] [cursor=pointer]: Boosts its Speed in sunshine.
+                - link "hidden Ability Effect Spore Contact may cause Par, Psn, or Slp." [ref=e149] [cursor=pointer]:
+                  - /url: /abilities/effect-spore
+                  - generic [ref=e150] [cursor=pointer]:
+                    - generic [ref=e151] [cursor=pointer]: hidden Ability
+                    - generic [ref=e152] [cursor=pointer]: Effect Spore
+                    - generic [ref=e153] [cursor=pointer]: Contact may cause Par, Psn, or Slp.
+              - generic [ref=e155]:
+                - generic [ref=e156]:
+                  - heading "Training Stats:" [level=3] [ref=e157]
+                  - generic [ref=e158]:
+                    - generic [ref=e160]: Growth Rate
+                    - generic [ref=e161]: Medium Slow
+                  - generic [ref=e162]:
+                    - generic [ref=e164]: EV Yield
+                    - generic [ref=e165]: 1 SAt
+                  - generic [ref=e166]:
+                    - generic [ref=e168]: Base Exp.
+                    - generic [ref=e169]: "64"
+                  - generic [ref=e170]:
+                    - generic [ref=e172]: Egg Groups
+                    - generic [ref=e174]:
+                      - generic [ref=e175]:
+                        - text: Monster
+                        - generic [ref=e176]: ","
+                      - generic [ref=e177]: Grass
+                  - generic [ref=e178]:
+                    - generic [ref=e180]: Hatch Rate
+                    - generic [ref=e181]: Medium-Fast (5,120 steps)
+                  - generic [ref=e182]:
+                    - generic [ref=e184]: Gender Ratio
+                    - generic [ref=e185]:
+                      - text: 87.5%
+                      - img "male icon" [ref=e187]
+                      - text: ", 12.5%"
+                      - img "female icon" [ref=e189]
+                - generic [ref=e190]:
+                  - 'heading "Base Catch Rate: 45" [level=3] [ref=e191]'
+                  - generic [ref=e192]:
+                    - generic [ref=e193]:
+                      - generic [ref=e194]:
+                        - img "Pokeball Icon" [ref=e195]
+                        - text: Pokeball
+                      - generic [ref=e197]: 12.1%
+                    - generic [ref=e198]:
+                      - generic [ref=e199]:
+                        - img "Greatball Icon" [ref=e200]
+                        - text: Greatball
+                      - paragraph [ref=e201]:
+                        - generic [ref=e202]: 16.8%
+                    - generic [ref=e203]:
+                      - paragraph [ref=e204]:
+                        - img "Ultraball Icon" [ref=e205]
+                        - text: Ultraball
+                      - paragraph [ref=e206]:
+                        - generic [ref=e207]: 20.4%
+                  - paragraph [ref=e208]: Sample rates for this pokemon when full HP, actual calculation may vary based on status effects, level, and other factors.
+              - generic [ref=e210]:
+                - generic [ref=e211]:
+                  - generic [ref=e212]: Sprites
+                  - generic [ref=e213]:
+                    - generic [ref=e214]:
+                      - img "bulbasaur sprite" [ref=e216]
+                      - generic [ref=e217]: Static
+                    - generic [ref=e218]:
+                      - img "bulbasaur sprite" [ref=e220]
+                      - generic [ref=e221]: Animated
+                    - generic [ref=e222]:
+                      - img "bulbasaur sprite" [ref=e224]
+                      - generic [ref=e225]: Shiny Static
+                    - generic [ref=e226]:
+                      - img "bulbasaur sprite" [ref=e228]
+                      - generic [ref=e229]: Shiny Animated
+                - generic [ref=e230]:
+                  - generic [ref=e231]: Evolution Chain
+                  - generic [ref=e232]:
+                    - generic [ref=e233]:
+                      - link "Sprite of Pokémon Bulbasaur Bulbasaur" [ref=e234] [cursor=pointer]:
+                        - /url: /pokemon/bulbasaur
+                        - img "Sprite of Pokémon Bulbasaur" [ref=e236] [cursor=pointer]
+                        - generic [ref=e237] [cursor=pointer]: Bulbasaur
+                      - generic [ref=e238]:
+                        - generic [ref=e239]: →
+                        - generic [ref=e241]: Level 16
+                      - link "Sprite of Pokémon ivysaur ivysaur" [ref=e242] [cursor=pointer]:
+                        - /url: /pokemon/ivysaur
+                        - img "Sprite of Pokémon ivysaur" [ref=e244] [cursor=pointer]
+                        - generic [ref=e245] [cursor=pointer]: ivysaur
+                    - generic [ref=e246]:
+                      - link "Sprite of Pokémon Ivysaur Ivysaur" [ref=e247] [cursor=pointer]:
+                        - /url: /pokemon/ivysaur
+                        - img "Sprite of Pokémon Ivysaur" [ref=e249] [cursor=pointer]
+                        - generic [ref=e250] [cursor=pointer]: Ivysaur
+                      - generic [ref=e251]:
+                        - generic [ref=e252]: →
+                        - generic [ref=e254]: Level 32
+                      - link "Sprite of Pokémon venusaur venusaur" [ref=e255] [cursor=pointer]:
+                        - /url: /pokemon/venusaur
+                        - img "Sprite of Pokémon venusaur" [ref=e257] [cursor=pointer]
+                        - generic [ref=e258] [cursor=pointer]: venusaur
+          - group [ref=e260]
+        - generic [ref=e262]:
+          - generic [ref=e263]: "Johto Dex: #264 of 289"
+          - generic [ref=e264]:
+            - link "←#263" [ref=e265] [cursor=pointer]:
+              - /url: /pokemon/snorlax
+              - generic [ref=e266] [cursor=pointer]: ←#263
+            - link "Back to List" [ref=e267] [cursor=pointer]:
+              - /url: /pokemon
+              - generic [ref=e268] [cursor=pointer]: Back to List
+            - link "#265 →" [ref=e269] [cursor=pointer]:
+              - /url: /pokemon/ivysaur
+              - generic [ref=e270] [cursor=pointer]: "#265 →"
+          - generic [ref=e271]: Use ← → arrow keys to navigate
+    - contentinfo [ref=e272]:
+      - generic [ref=e273]:
+        - generic [ref=e274]: © 2025 PolishedDex. All rights reserved.
+        - generic [ref=e275]:
+          - text: Made by
+          - link "Cammy" [ref=e276] [cursor=pointer]:
+            - /url: https://caomi.cc
+          - text: .
+      - generic [ref=e277]:
+        - link "Bugs & Feature Requests" [ref=e278] [cursor=pointer]:
+          - /url: https://www.notion.so/Polished-Dex-Roadmap-24662146b03a805e88f3c6db6b800837
+          - text: Bugs & Feature Requests
+          - img
+        - generic [ref=e279]: "Updated: 8/22/2025"
+  - alert [ref=e280]
+  - button "Open Next.js Dev Tools" [ref=e286] [cursor=pointer]:
+    - img [ref=e287] [cursor=pointer]
+```

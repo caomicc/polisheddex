@@ -279,7 +279,7 @@ export function formatDisplayName(normalizedKey: string): string {
       .replace(/([a-zA-Z])(\d+[Ff])/g, '$1_$2') // Separate letters from floor numbers like "Tower1F" -> "Tower_1F"
       .replace(/(\d+[Ff])([A-Z][a-z])/g, '$1_$2') // Separate floor numbers from following words like "1FInside" -> "1F_Inside"
       .replace(/([Bb])(\d+[Ff])(north|south|east|west|coast|inside)/gi, '$1$2_$3') // Handle "B1fnorth" -> "B1f_north"
-      .replace(/(\d+)([a-z]+)/g, '$1_$2')
+      // .replace(/(\d+)([a-z]+)/g, '$1_$2')
       .replace(/(route)(\d+)(north|south|east|west|coast|inside)/gi, '$1_$2_$3') // Separate route numbers: "Route44" -> "Route_44"
       // Separate digits from following lowercase words (handles "route42inside" -> "route_42_inside")
       .split('_')

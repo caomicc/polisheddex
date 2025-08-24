@@ -25,6 +25,10 @@
     "update-rom": "cd polishedcrystal && git pull origin master && cd ..",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:headed": "playwright test --headed",
+    "test:quick": "playwright test tests/production-ready.spec.ts --reporter=line",
     "analyze": "ANALYZE=true npm run build"
   },
   "dependencies": {
@@ -71,6 +75,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@next/bundle-analyzer": "^15.4.5",
+    "@playwright/test": "^1.55.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/pngjs": "^6.0.5",

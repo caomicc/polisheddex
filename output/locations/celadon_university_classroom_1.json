@@ -1,0 +1,110 @@
+{
+  "id": -1,
+  "name": "celadon_university_classroom_1",
+  "displayName": "Celadon University Classroom 1",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "celadon_university_1f",
+      "targetLocationDisplay": "Celadon University First Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "imakuni_1",
+      "name": "Imakuni",
+      "trainerClass": "IMAKUNI",
+      "spriteType": "imakuni",
+      "coordinates": {
+        "x": 0,
+        "y": 6
+      },
+      "pokemon": [
+        {
+          "level": 62,
+          "species": "Golduck",
+          "item": "Brightpowder",
+          "moves": [
+            "Psychic",
+            "Nasty Plot",
+            "Hydro Pump",
+            "Amnesia"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 62,
+          "species": "Slowbro",
+          "item": "Twistedspoon",
+          "moves": [
+            "Belly Drum",
+            "Rain Dance",
+            "Psychic",
+            "Amnesia"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 63,
+          "species": "Hypno",
+          "item": "Quick Claw",
+          "moves": [
+            "Future Sight",
+            "Toxic",
+            "Nasty Plot",
+            "Psychic"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 61,
+          "species": "FarfetchD",
+          "item": "Leek",
+          "moves": [
+            "Brave Bird",
+            "Air Slash",
+            "False Swipe",
+            "Hi Jump Kick"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 61,
+          "species": "Dodrio",
+          "item": "Sharp Beak",
+          "moves": [
+            "Thrash",
+            "Reversal",
+            "Drill Peck",
+            "Hi Jump Kick"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 64,
+          "species": "Wobbuffet",
+          "item": "Leftovers",
+          "moves": [
+            "Splash",
+            "Charm",
+            "Encore",
+            "Amnesia"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ]
+}

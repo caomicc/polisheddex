@@ -22,6 +22,62 @@ const __dirname = path.dirname(__filename);
 const LOCATIONS_DATA_PATH = path.join(__dirname, '../../../output/pokemon_locations.json');
 const LOCATIONS_BY_AREA_OUTPUT = path.join(__dirname, '../../../output/locations_by_area.json');
 
+/**
+ * Normalizes location display names, handling floor abbreviations
+ */
+function normalizeLocationDisplayName(locationKey: string): string {
+  return locationKey
+    .split('_')
+    .map((word, index, words) => {
+      // Handle floor abbreviations (e.g., "2F" -> "Second Floor")
+      if (word.match(/^\d+f$/i)) {
+        const floorNumber = word.replace(/f$/i, '');
+        const floorNames = ['', 'First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth', 'Ninth', 'Tenth'];
+        const num = parseInt(floorNumber);
+        if (num > 0 && num < floorNames.length) {
+          return `${floorNames[num]} Floor`;
+        }
+        return `${floorNumber} Floor`;
+      }
+      
+      // Handle individual digit + letter f pattern (e.g., "2", "f" -> "Second Floor") 
+      if (!isNaN(parseInt(word)) && index < words.length - 1 && words[index + 1].toLowerCase() === 'f') {
+        const floorNames = ['', 'First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth', 'Ninth', 'Tenth'];
+        const num = parseInt(word);
+        if (num > 0 && num < floorNames.length) {
+          return `${floorNames[num]} Floor`;
+        }
+        return `${word} Floor`;
+      }
+      
+      // Skip standalone "f" that comes after a number (handled above)
+      if (word.toLowerCase() === 'f' && index > 0 && !isNaN(parseInt(words[index - 1]))) {
+        return null; // Mark for removal
+      }
+      
+      // Handle "B" followed by floor number (e.g., "B", "2F" -> "B Second Floor")
+      if (word.toLowerCase() === 'b' && index < words.length - 1 && words[index + 1].match(/^\d+f$/i)) {
+        return 'B';
+      }
+      
+      // Skip processing floor numbers that come after "B" (they'll be handled above)
+      if (index > 0 && words[index - 1].toLowerCase() === 'b' && word.match(/^\d+f$/i)) {
+        const floorNumber = word.replace(/f$/i, '');
+        const floorNames = ['', 'First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth', 'Ninth', 'Tenth'];
+        const num = parseInt(floorNumber);
+        if (num > 0 && num < floorNames.length) {
+          return `${floorNames[num]} Floor`;
+        }
+        return `${floorNumber} Floor`;
+      }
+      
+      // Regular word capitalization
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    })
+    .filter(word => word !== null && word !== '') // Remove null/empty entries
+    .join(' ');
+}
+
 // --- Hidden Grotto Extraction ---
 export function extractHiddenGrottoes(): Record<string, LocationEntry[]> {
   // Result will be keyed by Pokémon name, containing location entries
@@ -440,6 +496,9 @@ export function extractAllLocations(): Record<string, LocationData> {
 
       // Clean up display name (remove ¯ characters used for line breaks)
       displayName = displayName.replace(/¯/g, ' ');
+      
+      // Apply location display name normalization to ROM text as well
+      displayName = normalizeLocationDisplayName(displayName.toLowerCase().replace(/\s+/g, '_'));
 
       displayNameMap[nameConstant] = displayName;
     }
@@ -455,13 +514,22 @@ export function extractAllLocations(): Record<string, LocationData> {
     );
 
     if (nameConstant) {
-      locationData.displayName = displayNameMap[nameConstant];
+      let displayName = displayNameMap[nameConstant];
+      // Debug: show what ROM text looks like
+      if (locationKey.includes('gym') || locationKey.includes('rocket')) {
+        console.log(`🔍 ROM text for ${locationKey}: "${displayName}"`);
+      }
+      // Always normalize display names, regardless of source
+      if (displayName.match(/\b\d+\s+f\b/i)) {
+        displayName = normalizeLocationDisplayName(displayName.toLowerCase().replace(/\s+/g, '_'));
+        console.log(`🔧 Normalizing ROM text for ${locationKey}: "${displayNameMap[nameConstant]}" → "${displayName}"`);
+      }
+      locationData.displayName = displayName;
     } else {
       // Fallback: convert constant name to readable format
-      locationData.displayName = locationKey
-        .split('_')
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-        .join(' ');
+      const normalizedName = normalizeLocationDisplayName(locationKey);
+      console.log(`🔧 Normalizing fallback for ${locationKey}: "${normalizedName}"`);
+      locationData.displayName = normalizedName;
     }
   }
 
@@ -542,6 +610,10 @@ export function extractAllLocations(): Record<string, LocationData> {
         // Try to get the actual display name if the target location exists
         if (locations[targetLocationKey]) {
           targetDisplayName = locations[targetLocationKey].displayName || targetDisplayName;
+          // Normalize target location display name as well
+          if (targetDisplayName.match(/\b\d+\s+f\b/i)) {
+            targetDisplayName = normalizeLocationDisplayName(targetDisplayName.toLowerCase().replace(/\s+/g, '_'));
+          }
         }
 
         currentConnections.push({

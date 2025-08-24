@@ -370,7 +370,13 @@ export interface NPCTrade {
 }
 
 export interface LocationEvent {
-  type: 'rival_battle' | 'trainer_battle' | 'special' | 'coordinate_trigger' | 'item' | 'phone_call';
+  type:
+    | 'rival_battle'
+    | 'trainer_battle'
+    | 'special'
+    | 'coordinate_trigger'
+    | 'item'
+    | 'phone_call';
   description: string;
   details?: string;
   eventFlag?: string;
@@ -489,7 +495,7 @@ export interface TrainerPokemon {
 }
 
 // Location trainer interface
-export interface LocationTrainer {
+export type LocationTrainer = {
   id: string;
   name: string;
   trainerClass: string;
@@ -513,7 +519,7 @@ export interface LocationTrainer {
       rematchable?: boolean;
     };
   };
-}
+};
 
 // TM/HM location structure
 export interface TMHMLocation {
