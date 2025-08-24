@@ -105,7 +105,7 @@ export function PokemonSprite({
         alt={alt || `${pokemonName} sprite`}
         width={width}
         height={height}
-        className="mx-auto relative top-1/2 -translate-y-1/2 object-contain"
+        className="mx-auto relative md:top-1/2 md:-translate-y-1/2 object-contain"
         priority={false}
         quality={85}
       />
