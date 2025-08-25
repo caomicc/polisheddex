@@ -119,6 +119,9 @@ export async function loadPokemonData(): Promise<PokemonBasic[]> {
 
         if (Array.isArray(pokemon.types)) {
           typeArray = pokemon.types.map((t: string) => normalizeTypeName(t)).slice(0, 2);
+        } else {
+          // Make sure pokemon with a single type are stored correctly
+          typeArray = [normalizeTypeName(pokemon.types), null];
         }
 
         // Ensure we always have exactly 2 elements
@@ -215,6 +218,8 @@ export async function loadPokemonData(): Promise<PokemonBasic[]> {
 
         if (Array.isArray(typesData)) {
           typeArray = typesData.map((t: string) => normalizeTypeName(t)).slice(0, 2);
+        } else {
+          typeArray = [normalizeTypeName(typesData), null];
         }
 
         // Ensure we always have exactly 2 elements
