@@ -50,7 +50,12 @@ export function getSprite(
   variant: SpriteVariant = 'normal',
   type: SpriteType = 'static',
 ): SpriteInfo | null {
-  const normalizedName = pokemonName.toLowerCase().replace(/-/g, '_');
+  const normalizedName = pokemonName
+    .toLowerCase()
+    .replace(/-/g, '_')
+    .replace(/\(/g, '_')
+    .replace(/\)/g, '')
+    .replace(/\s/g, '');
 
   // Handle both unified and legacy manifests
   const pokemonData =
