@@ -60,7 +60,7 @@ const ABILITY_SYNERGIES: Record<string, { description: string; category: string 
   "Slush Rush": { description: "Doubles Speed in hail", category: "Weather Synergy" },
 }
 
-function defensiveMultiplierAgainst(p: PokemonEntry, attackingType: TypeName): number {
+export function defensiveMultiplierAgainst(p: PokemonEntry, attackingType: TypeName): number {
   const [t1, t2] = p.types
   let mult = 1
   const attackingTypeLower = attackingType.toLowerCase()

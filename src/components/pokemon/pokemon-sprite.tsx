@@ -22,7 +22,7 @@ interface PokemonSpriteProps {
   hoverAnimate?: boolean;
 }
 
-const spriteVariants = cva('relative bg-white', {
+const spriteVariants = cva('relative bg-white flex', {
   variants: {
     size: {
       default: 'aspect-square p-2 w-12 md:w-20 rounded-lg md:rounded-lg',
@@ -105,7 +105,7 @@ export function PokemonSprite({
         alt={alt || `${pokemonName} sprite`}
         width={width}
         height={height}
-        className="mx-auto relative top-1/2 -translate-y-1/2 object-contain"
+        className="mx-auto relative object-contain"
         priority={false}
         quality={85}
       />
