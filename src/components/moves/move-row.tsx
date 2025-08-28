@@ -123,7 +123,7 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
       className="group-hover:bg-muted/0 hover:bg-muted/0 hidden md:table-row"
     >
       <TableCell
-        className={cn('text-cell p-2 pb-4', !info?.description?.trim() && 'text-error')}
+        className={cn('text-cell p-2 pb-3 md:pt-0', !info?.description?.trim() && 'text-error')}
         // colSpan={1}
       >
         {info?.description?.trim() ? info.description : 'No description found.'}
