@@ -25,6 +25,7 @@ import { Badge } from './badge';
 import { Button } from './button';
 import { IconMenu2, IconX } from '@tabler/icons-react';
 import { AnimatePresence } from 'motion/react';
+import { ExternalLink } from 'lucide-react';
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -43,6 +44,7 @@ export default function Navigation() {
     { title: 'Attackdex', href: '/moves' },
     { title: 'Abilities', href: '/abilities' },
     { title: 'Team Builder', href: '/team-builder' },
+    { title: 'Polished Cheats', href: 'https://polishedcheats.vercel.app' },
     { title: 'FAQ', href: '/faq' },
   ];
 
@@ -170,27 +172,11 @@ export default function Navigation() {
                         </Link>
                       </NavigationMenuLink>
                     </li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link
-                          href="/team-builder"
-                          className={cn(
-                            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
-                            isActive('/team-builder') && 'active-link',
-                          )}
-                        >
-                          <div className="text-sm font-medium leading-none">Team Builder</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Build your Pokemon team.
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
-              <NavigationMenuItem>
+              {/* <NavigationMenuItem>
                 <NavigationMenuTrigger
                   className={cn(
                     hasPokemonTheme && 'pokemon-themed-link',
@@ -235,6 +221,84 @@ export default function Navigation() {
                     </li>
                   </ul>
                 </NavigationMenuContent>
+              </NavigationMenuItem> */}
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  className={cn(
+                    hasPokemonTheme && 'pokemon-themed-link',
+                    (isActive('/locations') || isActive('/map')) && 'active-link',
+                  )}
+                >
+                  Tools
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[300px] gap-4 p-2">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href="/map"
+                          className={cn(
+                            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+                            isActive('/map') && 'active-link',
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none">Map Viewer</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            View map for Polished Crystal
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href="/team-builder"
+                          className={cn(
+                            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+                            isActive('/team-builder') && 'active-link',
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none">Team Builder</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Build your Pokemon team.
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href="https://polishedcheats.vercel.app"
+                          target="_blank"
+                          className={cn(
+                            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none flex gap-1">
+                            Polished Cheats <ExternalLink className="size-3 mt-px" />
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Cheat generator by Rev3lation
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  asChild
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    hasPokemonTheme && 'pokemon-themed-link',
+                    isActive('/locations') && 'active-link',
+                  )}
+                >
+                  <Link href="/locations">Pokéarth</Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
@@ -385,6 +449,8 @@ export default function Navigation() {
                 key={`mobile-link-${idx}`}
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
+                target={item.href.startsWith('https') ? '_blank' : undefined}
+                rel={item.href.startsWith('https') ? 'noopener noreferrer' : undefined}
                 className={cn(
                   'relative text-lg font-semibold transition-colors hover:text-foreground/80',
                   isActive(item.href)
@@ -392,7 +458,12 @@ export default function Navigation() {
                     : 'text-neutral-600 dark:text-neutral-300',
                 )}
               >
-                <span className="block">{item.title}</span>
+                <span className="flex gap-2 items-center">
+                  {item.title}{' '}
+                  {item.href.startsWith('https') ? (
+                    <ExternalLink className="size-5 text-muted-foreground" />
+                  ) : undefined}
+                </span>
               </Link>
             ))}
             {/* <div className="flex w-full flex-col gap-4 pt-4 border-t border-neutral-100">
