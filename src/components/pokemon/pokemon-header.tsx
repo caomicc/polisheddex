@@ -1,9 +1,7 @@
 import React from 'react';
-import { cn } from '@/lib/utils';
 import { FormData, PokemonType } from '@/types/types';
 import { Badge } from '../ui/badge';
 import PokemonFormSelect from './pokemon-form-select';
-import { getTypeGradientProps } from '@/utils/css-gradients';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -38,20 +36,20 @@ const PokedexHeader = ({
   // Determine which types to use for the gradient: faithful (original) or polished (updated)
   // const usePolished = selectedForm === 'polished' || selectedForm === 'updated'; // Adjust this logic if you have a more explicit trigger
   const { showFaithful } = useFaithfulPreference();
-  const faithfulTypes = Array.isArray(formData.types)
-    ? formData.types
-    : [formData.types].filter(Boolean);
-  const polishedTypes = Array.isArray(formData.updatedTypes)
-    ? formData.updatedTypes
-    : [formData.updatedTypes].filter(Boolean);
+  // const faithfulTypes = Array.isArray(formData.types)
+  //   ? formData.types
+  //   : [formData.types].filter(Boolean);
+  // const polishedTypes = Array.isArray(formData.updatedTypes)
+  //   ? formData.updatedTypes
+  //   : [formData.updatedTypes].filter(Boolean);
 
   // Use selected types based on trigger
-  const [primaryType, secondaryType] =
-    !showFaithful && polishedTypes.length > 0 ? polishedTypes : faithfulTypes;
+  // const [primaryType, secondaryType] =
+  //   !showFaithful && polishedTypes.length > 0 ? polishedTypes : faithfulTypes;
 
-  const gradientProps = primaryType
-    ? getTypeGradientProps(primaryType.toLowerCase(), secondaryType?.toLowerCase())
-    : { className: '', style: {} };
+  // const gradientProps = primaryType
+  //   ? getTypeGradientProps(primaryType.toLowerCase(), secondaryType?.toLowerCase())
+  //   : { className: '', style: {} };
 
   return (
     <Hero

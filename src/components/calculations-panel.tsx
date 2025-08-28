@@ -18,8 +18,8 @@ import {
   // computeDefensiveSummary,
   computeOffensiveCoverage,
   analyzeAbilitySynergies,
-  computeDetailedDefensiveAnalysis,
   loadTypeChart,
+  defensiveMultiplierAgainst,
 } from '@/lib/calculations';
 import { useEffect, useState } from 'react';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
@@ -149,7 +149,6 @@ export default function CalculationsPanel({
   // const defensive = computeDefensiveSummary(enrichedTeam);
   const offensive = computeOffensiveCoverage(enrichedTeam);
   const abilitySynergies = analyzeAbilitySynergies(enrichedTeam);
-  const detailedDefensive = computeDetailedDefensiveAnalysis(enrichedTeam);
 
   // const maxWeak = Math.max(...TYPES.map((t) => defensive[t]?.weak ?? 0));
 
@@ -222,15 +221,11 @@ export default function CalculationsPanel({
 
               team.forEach((pokemon) => {
                 if (!pokemon.name) return;
-                const memberData = detailedDefensive.memberAnalysis.find(
-                  (m) => m.name === pokemon.name,
-                );
-                if (memberData) {
-                  if (memberData.weaknesses.includes(type)) {
-                    weaknessCount++;
-                  } else if (memberData.resistances.includes(type)) {
-                    resistanceCount++;
-                  }
+                const multiplier = defensiveMultiplierAgainst(pokemon, type);
+                if (multiplier >= 2) {
+                  weaknessCount++;
+                } else if (multiplier > 0 && multiplier <= 0.5) {
+                  resistanceCount++;
                 }
               });
 
@@ -243,25 +238,27 @@ export default function CalculationsPanel({
                     .map((pokemon, index) => {
                       if (!pokemon.name) return null;
 
-                      const memberData = detailedDefensive.memberAnalysis.find(
-                        (m) => m.name === pokemon.name,
-                      );
-                      const isWeak = memberData?.weaknesses.includes(type);
-                      const isResist = memberData?.resistances.includes(type);
-                      const isImmune = memberData?.immunities.includes(type);
+                      // Calculate exact effectiveness multiplier for this pokemon vs this attacking type
+                      const multiplier = defensiveMultiplierAgainst(pokemon, type);
 
                       let effectiveness = '1x';
-                      let cellClass = 'text-center';
+                      let cellClass = 'text-center font-medium';
 
-                      if (isImmune) {
-                        effectiveness = '0x';
+                      if (multiplier === 0) {
+                        effectiveness = '—';
                         cellClass += ' bg-gray-100 text-gray-600';
-                      } else if (isWeak) {
+                      } else if (multiplier === 4) {
+                        effectiveness = '4x';
+                        cellClass += ' bg-red-200 text-red-900 font-black';
+                      } else if (multiplier === 2) {
                         effectiveness = '2x';
                         cellClass += ' bg-red-100 text-red-800 font-semibold';
-                      } else if (isResist) {
+                      } else if (multiplier === 0.25) {
+                        effectiveness = '4x';
+                        cellClass += ' bg-green-200 text-green-900 font-black';
+                      } else if (multiplier === 0.5) {
                         effectiveness = '0.5x';
-                        cellClass += ' bg-green-100 text-green-800';
+                        cellClass += ' bg-green-100 text-green-800 font-semibold';
                       }
 
                       return (
