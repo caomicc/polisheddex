@@ -1,5 +1,5 @@
 {
-  "name": "Scizor",
+  "name": "scizor",
   "nationalDex": 212,
   "johtoDex": 117,
   "evolution": {
@@ -70,24 +70,6 @@
       "specialDefense": 80,
       "total": 500
     },
-    "faithfulBaseStats": {
-      "hp": 70,
-      "attack": 130,
-      "defense": 100,
-      "speed": 65,
-      "specialAttack": 55,
-      "specialDefense": 80,
-      "total": 500
-    },
-    "polishedBaseStats": {
-      "hp": 70,
-      "attack": 130,
-      "defense": 100,
-      "speed": 65,
-      "specialAttack": 55,
-      "specialDefense": 80,
-      "total": 500
-    },
     "catchRate": 25,
     "baseExp": 200,
     "heldItems": [
@@ -101,50 +83,22 @@
     "abilities": [
       {
         "id": "swarm",
-        "name": "Swarm",
-        "description": "\tBoosts Bug moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "technician",
-        "name": "Technician",
-        "description": "\tPowers up its \tweaker moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "light-metal",
-        "name": "Light Metal",
-        "description": "\tHalves the Poké- \tmon's weight.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "swarm",
-        "name": "Swarm",
-        "description": "\tBoosts Bug moves \tin a pinch.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "technician",
-        "name": "Technician",
-        "description": "\tPowers up its \tweaker moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "light-metal",
-        "name": "Light Metal",
-        "description": "\tHalves the Poké- \tmon's weight.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Bug",
@@ -1536,5 +1490,6 @@
       "species": "Scissors",
       "description": "This #mon's pincers, which contain steel, can crush any hard object it gets a hold of into bits."
     }
-  }
+  },
+  "locations": []
 }

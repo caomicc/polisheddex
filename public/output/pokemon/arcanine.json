@@ -1,5 +1,5 @@
 {
-  "name": "Arcanine",
+  "name": "arcanine",
   "nationalDex": 59,
   "johtoDex": 137,
   "evolution": {
@@ -69,24 +69,6 @@
       "specialDefense": 80,
       "total": 555
     },
-    "faithfulBaseStats": {
-      "hp": 90,
-      "attack": 110,
-      "defense": 80,
-      "speed": 95,
-      "specialAttack": 100,
-      "specialDefense": 80,
-      "total": 555
-    },
-    "polishedBaseStats": {
-      "hp": 90,
-      "attack": 110,
-      "defense": 80,
-      "speed": 95,
-      "specialAttack": 100,
-      "specialDefense": 80,
-      "total": 555
-    },
     "catchRate": 75,
     "baseExp": 213,
     "heldItems": [
@@ -100,50 +82,22 @@
     "abilities": [
       {
         "id": "intimidate",
-        "name": "Intimidate",
-        "description": "\tLowers the foe's \tAttack stat.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "flash-fire",
-        "name": "Flash Fire",
-        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "justified",
-        "name": "Justified",
-        "description": "\tBoosts Attack when \thit by Dark moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "intimidate",
-        "name": "Intimidate",
-        "description": "\tLowers the foe's \tAttack stat.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "flash-fire",
-        "name": "Flash Fire",
-        "description": "\tBoosts Fire moves \tif hit by one.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "justified",
-        "name": "Justified",
-        "description": "\tBoosts Attack when \thit by Dark moves.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Slow",
     "eggGroups": [
       "Field",
@@ -1996,6 +1950,10 @@
     "default": {
       "species": "Legendary",
       "description": "An ancient picture scroll shows that people were attracted to its movement as it ran through prairies."
+    },
+    "Hisuian": {
+      "species": "Legendary",
+      "description": "Despite its bulk, it deftly feints every which way, leading opponents on a chase as it dances past them."
     }
   }
 }

@@ -25,56 +25,120 @@ const LOCATIONS_BY_AREA_OUTPUT = path.join(__dirname, '../../../output/locations
 /**
  * Normalizes location display names, handling floor abbreviations
  */
-function normalizeLocationDisplayName(locationKey: string): string {
+export function normalizeLocationDisplayName(locationKey: string): string {
   return locationKey
     .split('_')
     .map((word, index, words) => {
       // Handle floor abbreviations (e.g., "2F" -> "Second Floor")
       if (word.match(/^\d+f$/i)) {
         const floorNumber = word.replace(/f$/i, '');
-        const floorNames = ['', 'First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth', 'Ninth', 'Tenth'];
+        const floorNames = [
+          '',
+          'First',
+          'Second',
+          'Third',
+          'Fourth',
+          'Fifth',
+          'Sixth',
+          'Seventh',
+          'Eighth',
+          'Ninth',
+          'Tenth',
+        ];
         const num = parseInt(floorNumber);
         if (num > 0 && num < floorNames.length) {
           return `${floorNames[num]} Floor`;
         }
         return `${floorNumber} Floor`;
       }
-      
-      // Handle individual digit + letter f pattern (e.g., "2", "f" -> "Second Floor") 
-      if (!isNaN(parseInt(word)) && index < words.length - 1 && words[index + 1].toLowerCase() === 'f') {
-        const floorNames = ['', 'First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth', 'Ninth', 'Tenth'];
+
+      // Handle room abbreviations (e.g., "room3" -> "Room 3")
+      if (word.match(/^room\d+$/i)) {
+        const roomNumber = word.replace(/^room/i, '');
+        return `Room ${roomNumber}`;
+      }
+
+      // Handle individual digit + letter f pattern (e.g., "2", "f" -> "Second Floor")
+      if (
+        !isNaN(parseInt(word)) &&
+        index < words.length - 1 &&
+        words[index + 1].toLowerCase() === 'f'
+      ) {
+        const floorNames = [
+          '',
+          'First',
+          'Second',
+          'Third',
+          'Fourth',
+          'Fifth',
+          'Sixth',
+          'Seventh',
+          'Eighth',
+          'Ninth',
+          'Tenth',
+        ];
         const num = parseInt(word);
         if (num > 0 && num < floorNames.length) {
           return `${floorNames[num]} Floor`;
         }
         return `${word} Floor`;
       }
-      
+
+      // Handle individual "room" + number pattern (e.g., "room", "3" -> "Room 3")
+      if (
+        word.toLowerCase() === 'room' &&
+        index < words.length - 1 &&
+        !isNaN(parseInt(words[index + 1]))
+      ) {
+        return 'Room';
+      }
+
+      // Skip standalone number that comes after "room" (handled above)
+      if (!isNaN(parseInt(word)) && index > 0 && words[index - 1].toLowerCase() === 'room') {
+        return word; // Return the number to be joined with "Room"
+      }
+
       // Skip standalone "f" that comes after a number (handled above)
       if (word.toLowerCase() === 'f' && index > 0 && !isNaN(parseInt(words[index - 1]))) {
         return null; // Mark for removal
       }
-      
+
       // Handle "B" followed by floor number (e.g., "B", "2F" -> "B Second Floor")
-      if (word.toLowerCase() === 'b' && index < words.length - 1 && words[index + 1].match(/^\d+f$/i)) {
+      if (
+        word.toLowerCase() === 'b' &&
+        index < words.length - 1 &&
+        words[index + 1].match(/^\d+f$/i)
+      ) {
         return 'B';
       }
-      
+
       // Skip processing floor numbers that come after "B" (they'll be handled above)
       if (index > 0 && words[index - 1].toLowerCase() === 'b' && word.match(/^\d+f$/i)) {
         const floorNumber = word.replace(/f$/i, '');
-        const floorNames = ['', 'First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth', 'Ninth', 'Tenth'];
+        const floorNames = [
+          '',
+          'First',
+          'Second',
+          'Third',
+          'Fourth',
+          'Fifth',
+          'Sixth',
+          'Seventh',
+          'Eighth',
+          'Ninth',
+          'Tenth',
+        ];
         const num = parseInt(floorNumber);
         if (num > 0 && num < floorNames.length) {
           return `${floorNames[num]} Floor`;
         }
         return `${floorNumber} Floor`;
       }
-      
+
       // Regular word capitalization
       return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
     })
-    .filter(word => word !== null && word !== '') // Remove null/empty entries
+    .filter((word) => word !== null && word !== '') // Remove null/empty entries
     .join(' ');
 }
 
@@ -496,7 +560,7 @@ export function extractAllLocations(): Record<string, LocationData> {
 
       // Clean up display name (remove ¯ characters used for line breaks)
       displayName = displayName.replace(/¯/g, ' ');
-      
+
       // Apply location display name normalization to ROM text as well
       displayName = normalizeLocationDisplayName(displayName.toLowerCase().replace(/\s+/g, '_'));
 
@@ -522,7 +586,9 @@ export function extractAllLocations(): Record<string, LocationData> {
       // Always normalize display names, regardless of source
       if (displayName.match(/\b\d+\s+f\b/i)) {
         displayName = normalizeLocationDisplayName(displayName.toLowerCase().replace(/\s+/g, '_'));
-        console.log(`🔧 Normalizing ROM text for ${locationKey}: "${displayNameMap[nameConstant]}" → "${displayName}"`);
+        console.log(
+          `🔧 Normalizing ROM text for ${locationKey}: "${displayNameMap[nameConstant]}" → "${displayName}"`,
+        );
       }
       locationData.displayName = displayName;
     } else {
@@ -612,7 +678,9 @@ export function extractAllLocations(): Record<string, LocationData> {
           targetDisplayName = locations[targetLocationKey].displayName || targetDisplayName;
           // Normalize target location display name as well
           if (targetDisplayName.match(/\b\d+\s+f\b/i)) {
-            targetDisplayName = normalizeLocationDisplayName(targetDisplayName.toLowerCase().replace(/\s+/g, '_'));
+            targetDisplayName = normalizeLocationDisplayName(
+              targetDisplayName.toLowerCase().replace(/\s+/g, '_'),
+            );
           }
         }
 
@@ -875,7 +943,7 @@ export function extractFishingEncounters(): Record<string, LocationEntry[]> {
       for (const encounter of encounters) {
         const pokemonKey = encounter.species.toLowerCase(); // Ensure species is in lowercase
         const encounterRate = encounter.chance;
-        
+
         const entry: LocationEntry = {
           area: normalizedLocation,
           method: `fish_${rodType}`,
@@ -899,10 +967,8 @@ export function extractFishingEncounters(): Record<string, LocationEntry[]> {
         }
 
         // Group by encounter characteristics (excluding chance)
-        const encounterGroups: Record<
-          string,
-          { combinedEntry: LocationEntry; totalRate: number }
-        > = {};
+        const encounterGroups: Record<string, { combinedEntry: LocationEntry; totalRate: number }> =
+          {};
 
         for (const { entry, rate } of encounters) {
           // Create a key that uniquely identifies identical encounters (excluding chance)

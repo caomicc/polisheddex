@@ -1,5 +1,5 @@
 {
-  "name": "Clefairy",
+  "name": "clefairy",
   "nationalDex": 35,
   "johtoDex": 41,
   "evolution": {
@@ -91,24 +91,6 @@
       "specialDefense": 65,
       "total": 323
     },
-    "faithfulBaseStats": {
-      "hp": 70,
-      "attack": 45,
-      "defense": 48,
-      "speed": 35,
-      "specialAttack": 60,
-      "specialDefense": 65,
-      "total": 323
-    },
-    "polishedBaseStats": {
-      "hp": 70,
-      "attack": 45,
-      "defense": 48,
-      "speed": 35,
-      "specialAttack": 60,
-      "specialDefense": 65,
-      "total": 323
-    },
     "catchRate": 150,
     "baseExp": 68,
     "heldItems": [
@@ -123,50 +105,22 @@
     "abilities": [
       {
         "id": "cute-charm",
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "magic-guard",
-        "name": "Magic Guard",
-        "description": "\tOnly takes damage \tfrom attacks.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "cute-charm",
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "cute-charm",
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "magic-guard",
-        "name": "Magic Guard",
-        "description": "\tOnly takes damage \tfrom attacks.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "cute-charm",
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Fast",
     "eggGroups": [
       "Fairy",
@@ -1893,12 +1847,6 @@
       "level": "58",
       "chance": 3,
       "formName": null
-    },
-    {
-      "area": "Goldenrod Game Corner",
-      "method": "gift",
-      "npc": "Game Corner",
-      "conditions": "Exchange coins"
     }
   ],
   "pokedexEntries": {

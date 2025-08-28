@@ -1,5 +1,5 @@
 {
-  "name": "Mewtwo",
+  "name": "mewtwo",
   "nationalDex": 150,
   "johtoDex": 287,
   "evolution": {
@@ -29,24 +29,6 @@
       "specialDefense": 90,
       "total": 680
     },
-    "faithfulBaseStats": {
-      "hp": 106,
-      "attack": 110,
-      "defense": 90,
-      "speed": 130,
-      "specialAttack": 154,
-      "specialDefense": 90,
-      "total": 680
-    },
-    "polishedBaseStats": {
-      "hp": 106,
-      "attack": 110,
-      "defense": 90,
-      "speed": 130,
-      "specialAttack": 154,
-      "specialDefense": 90,
-      "total": 680
-    },
     "catchRate": 3,
     "baseExp": 220,
     "heldItems": [
@@ -60,50 +42,22 @@
     "abilities": [
       {
         "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "insomnia",
-        "name": "Insomnia",
-        "description": "",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "unnerve",
-        "name": "Unnerve",
-        "description": "\tPrevents foes from \teating Berries.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "insomnia",
-        "name": "Insomnia",
-        "description": "",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "unnerve",
-        "name": "Unnerve",
-        "description": "\tPrevents foes from \teating Berries.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered",
@@ -3343,20 +3297,15 @@
       "evYield": "3 SAt"
     }
   },
-  "locations": [
-    {
-      "area": "Cerulean Cave B1 F",
-      "method": "static",
-      "conditions": "Special encounter",
-      "eventType": "legendary",
-      "description": "Mewtwo can be encountered at Cerulean Cave B1 F.",
-      "level": 80
-    }
-  ],
+  "locations": [],
   "pokedexEntries": {
     "default": {
       "species": "Genetic",
       "description": "Said to rest quietly in an undiscovered cave, this #mon was created solely for battling."
+    },
+    "Armored": {
+      "species": "Genetic",
+      "description": "With its defenses bolstered and its psychic attacks amplified by its armor, Mewtwo's power is unstoppable."
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Wartortle",
+  "name": "wartortle",
   "nationalDex": 8,
   "johtoDex": 271,
   "evolution": {
@@ -91,24 +91,6 @@
       "specialDefense": 80,
       "total": 405
     },
-    "faithfulBaseStats": {
-      "hp": 59,
-      "attack": 63,
-      "defense": 80,
-      "speed": 58,
-      "specialAttack": 65,
-      "specialDefense": 80,
-      "total": 405
-    },
-    "polishedBaseStats": {
-      "hp": 59,
-      "attack": 63,
-      "defense": 80,
-      "speed": 58,
-      "specialAttack": 65,
-      "specialDefense": 80,
-      "total": 405
-    },
     "catchRate": 45,
     "baseExp": 143,
     "heldItems": [],
@@ -120,50 +102,22 @@
     "abilities": [
       {
         "id": "torrent",
-        "name": "Torrent",
-        "description": "\tBoosts Water moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "rain-dish",
-        "name": "Rain Dish",
-        "description": "\tGradually regains \tHP in rain.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "shell-armor",
-        "name": "Shell Armor",
-        "description": "\tProtects from \tcritical hits.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "torrent",
-        "name": "Torrent",
-        "description": "\tBoosts Water moves \tin a pinch.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "rain-dish",
-        "name": "Rain Dish",
-        "description": "\tGradually regains \tHP in rain.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "shell-armor",
-        "name": "Shell Armor",
-        "description": "\tProtects from \tcritical hits.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Monster",
@@ -1355,5 +1309,6 @@
       "species": "Turtle",
       "description": "Its long, furry tail is a symbol of longevity, making it quite popular among older people."
     }
-  }
+  },
+  "locations": []
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Espeon",
+  "name": "espeon",
   "nationalDex": 196,
   "johtoDex": 207,
   "evolution": {
@@ -244,24 +244,6 @@
       "specialDefense": 95,
       "total": 525
     },
-    "faithfulBaseStats": {
-      "hp": 65,
-      "attack": 65,
-      "defense": 60,
-      "speed": 110,
-      "specialAttack": 130,
-      "specialDefense": 95,
-      "total": 525
-    },
-    "polishedBaseStats": {
-      "hp": 65,
-      "attack": 65,
-      "defense": 60,
-      "speed": 110,
-      "specialAttack": 130,
-      "specialDefense": 95,
-      "total": 525
-    },
     "catchRate": 45,
     "baseExp": 197,
     "heldItems": [],
@@ -273,68 +255,34 @@
     "abilities": [
       {
         "id": "synchronize",
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "synchronize",
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "magic-bounce",
-        "name": "Magic Bounce",
-        "description": "\tReflects status- \tchanging moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "synchronize",
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "synchronize",
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "magic-bounce",
-        "name": "Magic Bounce",
-        "description": "\tReflects status- \tchanging moves.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
         "id": "synchronize",
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "magic-guard",
-        "name": "Magic Guard",
-        "description": "\tOnly takes damage \tfrom attacks.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "magic-bounce",
-        "name": "Magic Bounce",
-        "description": "\tReflects status- \tchanging moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1565,5 +1513,6 @@
       "species": "Sun",
       "description": "The tip of its forked tail quivers when it is predicting its opponent's next move."
     }
-  }
+  },
+  "locations": []
 }

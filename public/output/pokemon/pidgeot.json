@@ -1,5 +1,5 @@
 {
-  "name": "Pidgeot",
+  "name": "pidgeot",
   "nationalDex": 18,
   "johtoDex": 12,
   "evolution": {
@@ -73,15 +73,6 @@
       "specialDefense": 70,
       "total": 479
     },
-    "faithfulBaseStats": {
-      "hp": 83,
-      "attack": 80,
-      "defense": 75,
-      "speed": 101,
-      "specialAttack": 70,
-      "specialDefense": 70,
-      "total": 479
-    },
     "polishedBaseStats": {
       "hp": 93,
       "attack": 80,
@@ -102,50 +93,22 @@
     "abilities": [
       {
         "id": "keen-eye",
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "tangled-feet",
-        "name": "Tangled Feet",
-        "description": "\tBoosts evasion if \tit is confused.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "no-guard",
-        "name": "No Guard",
-        "description": "\tEnsures attacks by \tor against it hit.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "keen-eye",
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "tangled-feet",
-        "name": "Tangled Feet",
-        "description": "\tBoosts evasion if \tit is confused.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "no-guard",
-        "name": "No Guard",
-        "description": "\tEnsures attacks by \tor against it hit.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Flying",

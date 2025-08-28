@@ -1,5 +1,5 @@
 {
-  "name": "Gyarados",
+  "name": "gyarados",
   "nationalDex": 130,
   "johtoDex": 82,
   "evolution": {
@@ -54,24 +54,6 @@
       "specialDefense": 100,
       "total": 540
     },
-    "faithfulBaseStats": {
-      "hp": 95,
-      "attack": 125,
-      "defense": 79,
-      "speed": 81,
-      "specialAttack": 60,
-      "specialDefense": 100,
-      "total": 540
-    },
-    "polishedBaseStats": {
-      "hp": 95,
-      "attack": 125,
-      "defense": 79,
-      "speed": 81,
-      "specialAttack": 60,
-      "specialDefense": 100,
-      "total": 540
-    },
     "catchRate": 45,
     "baseExp": 214,
     "heldItems": [],
@@ -83,50 +65,22 @@
     "abilities": [
       {
         "id": "intimidate",
-        "name": "Intimidate",
-        "description": "\tLowers the foe's \tAttack stat.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "moxie",
-        "name": "Moxie",
-        "description": "\tBoosts Attack when \tknocking out foes.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "mold-breaker",
-        "name": "Mold Breaker",
-        "description": "\tMoves disregard \tthe foe's ability.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "intimidate",
-        "name": "Intimidate",
-        "description": "\tLowers the foe's \tAttack stat.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "moxie",
-        "name": "Moxie",
-        "description": "\tBoosts Attack when \tknocking out foes.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "mold-breaker",
-        "name": "Mold Breaker",
-        "description": "\tMoves disregard \tthe foe's ability.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered"
@@ -3009,6 +2963,10 @@
     "default": {
       "species": "Atrocious",
       "description": "It appears whenever there is world conflict, burning down any place it travels through."
+    },
+    "Red": {
+      "species": "Atrocious",
+      "description": "Due to how rapidly it was forced to undergo evolution, this Gyarados retained its red Magikarp scales."
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Venomoth",
+  "name": "venomoth",
   "nationalDex": 49,
   "johtoDex": 115,
   "evolution": {
@@ -51,15 +51,6 @@
       "specialDefense": 75,
       "total": 450
     },
-    "faithfulBaseStats": {
-      "hp": 70,
-      "attack": 65,
-      "defense": 60,
-      "speed": 90,
-      "specialAttack": 90,
-      "specialDefense": 75,
-      "total": 450
-    },
     "polishedBaseStats": {
       "hp": 70,
       "attack": 65,
@@ -83,50 +74,22 @@
     "abilities": [
       {
         "id": "shield-dust",
-        "name": "Shield Dust",
-        "description": "\tBlocks additional \tattack effects.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "tinted-lens",
-        "name": "Tinted Lens",
-        "description": "\tPowers up not very \teffective moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "wonder-skin",
-        "name": "Wonder Skin",
-        "description": "\tMakes status moves \tmiss more often.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "shield-dust",
-        "name": "Shield Dust",
-        "description": "\tBlocks additional \tattack effects.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "tinted-lens",
-        "name": "Tinted Lens",
-        "description": "\tPowers up not very \teffective moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "wonder-skin",
-        "name": "Wonder Skin",
-        "description": "\tMakes status moves \tmiss more often.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Bug",

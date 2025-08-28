@@ -1,5 +1,5 @@
 {
-  "name": "Mankey",
+  "name": "mankey",
   "nationalDex": 56,
   "johtoDex": 145,
   "evolution": {
@@ -91,24 +91,6 @@
       "specialDefense": 45,
       "total": 305
     },
-    "faithfulBaseStats": {
-      "hp": 40,
-      "attack": 80,
-      "defense": 35,
-      "speed": 70,
-      "specialAttack": 35,
-      "specialDefense": 45,
-      "total": 305
-    },
-    "polishedBaseStats": {
-      "hp": 40,
-      "attack": 80,
-      "defense": 35,
-      "speed": 70,
-      "specialAttack": 35,
-      "specialDefense": 45,
-      "total": 305
-    },
     "catchRate": 190,
     "baseExp": 74,
     "heldItems": [
@@ -122,50 +104,22 @@
     "abilities": [
       {
         "id": "vital-spirit",
-        "name": "Vital Spirit",
-        "description": "\tPrevents it from \tfalling asleep.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "anger-point",
-        "name": "Anger Point",
-        "description": "\tMaxes Attack after \ta critical hit.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "defiant",
-        "name": "Defiant",
-        "description": "\tBoosts Attack when \tstats are lowered.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "vital-spirit",
-        "name": "Vital Spirit",
-        "description": "\tPrevents it from \tfalling asleep.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "anger-point",
-        "name": "Anger Point",
-        "description": "\tMaxes Attack after \ta critical hit.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "defiant",
-        "name": "Defiant",
-        "description": "\tBoosts Attack when \tstats are lowered.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

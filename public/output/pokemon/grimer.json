@@ -1,5 +1,5 @@
 {
-  "name": "Grimer",
+  "name": "grimer",
   "nationalDex": 88,
   "johtoDex": 123,
   "evolution": {
@@ -72,24 +72,6 @@
       "specialDefense": 50,
       "total": 325
     },
-    "faithfulBaseStats": {
-      "hp": 80,
-      "attack": 80,
-      "defense": 50,
-      "speed": 25,
-      "specialAttack": 40,
-      "specialDefense": 50,
-      "total": 325
-    },
-    "polishedBaseStats": {
-      "hp": 80,
-      "attack": 80,
-      "defense": 50,
-      "speed": 25,
-      "specialAttack": 40,
-      "specialDefense": 50,
-      "total": 325
-    },
     "catchRate": 190,
     "baseExp": 90,
     "heldItems": [
@@ -104,50 +86,22 @@
     "abilities": [
       {
         "id": "stench",
-        "name": "Stench",
-        "description": "\tMay cause the foe \tto flinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "sticky-hold",
-        "name": "Sticky Hold",
-        "description": "\tProtects it from \titem theft.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "poison-touch",
-        "name": "Poison Touch",
-        "description": "\tMay poison the foe \ton contact.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "stench",
-        "name": "Stench",
-        "description": "\tMay cause the foe \tto flinch.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "sticky-hold",
-        "name": "Sticky Hold",
-        "description": "\tProtects it from \titem theft.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "poison-touch",
-        "name": "Poison Touch",
-        "description": "\tMay poison the foe \ton contact.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Amorphous",
@@ -2509,6 +2463,10 @@
     "default": {
       "species": "Sludge",
       "description": "When two of these #mon's bodies are combined together, new poisons are created."
+    },
+    "Alolan": {
+      "species": "Sludge",
+      "description": "A Grimer which had been brought in to solve a problem with garbage developed into this form."
     }
   }
 }

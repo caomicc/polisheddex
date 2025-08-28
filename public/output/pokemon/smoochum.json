@@ -1,5 +1,5 @@
 {
-  "name": "Smoochum",
+  "name": "smoochum",
   "nationalDex": 238,
   "johtoDex": 167,
   "evolution": {
@@ -69,24 +69,6 @@
       "specialDefense": 65,
       "total": 305
     },
-    "faithfulBaseStats": {
-      "hp": 45,
-      "attack": 30,
-      "defense": 15,
-      "speed": 65,
-      "specialAttack": 85,
-      "specialDefense": 65,
-      "total": 305
-    },
-    "polishedBaseStats": {
-      "hp": 45,
-      "attack": 30,
-      "defense": 15,
-      "speed": 65,
-      "specialAttack": 85,
-      "specialDefense": 65,
-      "total": 305
-    },
     "catchRate": 45,
     "baseExp": 87,
     "heldItems": [
@@ -100,68 +82,34 @@
     "abilities": [
       {
         "id": "oblivious",
-        "name": "Oblivious",
-        "description": "\tPrevents it from \tbeing infatuated.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "forewarn",
-        "name": "Forewarn",
-        "description": "\tDetermines the \tfoe's moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "hydration",
-        "name": "Hydration",
-        "description": "\tHeals status \tproblems in rain.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "oblivious",
-        "name": "Oblivious",
-        "description": "\tPrevents it from \tbeing infatuated.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "forewarn",
-        "name": "Forewarn",
-        "description": "\tDetermines the \tfoe's moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "hydration",
-        "name": "Hydration",
-        "description": "\tHeals status \tproblems in rain.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
         "id": "oblivious",
-        "name": "Oblivious",
-        "description": "\tPrevents it from \tbeing infatuated.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "filter",
-        "name": "Filter",
-        "description": "",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "hydration",
-        "name": "Hydration",
-        "description": "\tHeals status \tproblems in rain.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1338,5 +1286,6 @@
       "species": "Kiss",
       "description": "The sensitivity of its lips develops most quickly. It uses them to try to identify unknown objects."
     }
-  }
+  },
+  "locations": []
 }

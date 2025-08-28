@@ -1,5 +1,5 @@
 {
-  "name": "Aerodactyl",
+  "name": "aerodactyl",
   "nationalDex": 142,
   "johtoDex": 261,
   "evolution": {
@@ -29,24 +29,6 @@
       "specialDefense": 75,
       "total": 515
     },
-    "faithfulBaseStats": {
-      "hp": 80,
-      "attack": 105,
-      "defense": 65,
-      "speed": 130,
-      "specialAttack": 60,
-      "specialDefense": 75,
-      "total": 515
-    },
-    "polishedBaseStats": {
-      "hp": 80,
-      "attack": 105,
-      "defense": 65,
-      "speed": 130,
-      "specialAttack": 60,
-      "specialDefense": 75,
-      "total": 515
-    },
     "catchRate": 45,
     "baseExp": 202,
     "heldItems": [],
@@ -58,50 +40,22 @@
     "abilities": [
       {
         "id": "rock-head",
-        "name": "Rock Head",
-        "description": "\tProtects it from \trecoil damage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "unnerve",
-        "name": "Unnerve",
-        "description": "\tPrevents foes from \teating Berries.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "tough-claws",
-        "name": "Tough Claws",
-        "description": "\tBoosts moves that \tmakes contact.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "rock-head",
-        "name": "Rock Head",
-        "description": "\tProtects it from \trecoil damage.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "unnerve",
-        "name": "Unnerve",
-        "description": "\tPrevents foes from \teating Berries.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "tough-claws",
-        "name": "Tough Claws",
-        "description": "\tBoosts moves that \tmakes contact.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Slow",
     "eggGroups": [
       "Flying",
@@ -1412,14 +1366,7 @@
       ]
     }
   },
-  "locations": [
-    {
-      "area": "Pewter Museum of Science",
-      "method": "gift",
-      "npc": "Pewter Museum of Science",
-      "conditions": "Various requirements"
-    }
-  ],
+  "locations": [],
   "pokedexEntries": {
     "default": {
       "species": "Fossil",

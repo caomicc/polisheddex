@@ -1,5 +1,5 @@
 {
-  "name": "Vileplume",
+  "name": "vileplume",
   "nationalDex": 45,
   "johtoDex": 90,
   "evolution": {
@@ -92,15 +92,6 @@
       "specialDefense": 90,
       "total": 490
     },
-    "faithfulBaseStats": {
-      "hp": 75,
-      "attack": 80,
-      "defense": 85,
-      "speed": 50,
-      "specialAttack": 110,
-      "specialDefense": 90,
-      "total": 490
-    },
     "polishedBaseStats": {
       "hp": 75,
       "attack": 80,
@@ -123,50 +114,22 @@
     "abilities": [
       {
         "id": "chlorophyll",
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "chlorophyll",
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "effect-spore",
-        "name": "Effect Spore",
-        "description": "\tContact may cause \tPar, Psn, or Slp.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "chlorophyll",
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "chlorophyll",
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "effect-spore",
-        "name": "Effect Spore",
-        "description": "\tContact may cause \tPar, Psn, or Slp.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Grass",
@@ -1025,5 +988,6 @@
       "species": "Flower",
       "description": "By shaking its big petals, it scatters toxic pollen into the air, turning the air yellow."
     }
-  }
+  },
+  "locations": []
 }

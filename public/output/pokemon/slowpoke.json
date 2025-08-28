@@ -1,5 +1,5 @@
 {
-  "name": "Slowpoke",
+  "name": "slowpoke",
   "nationalDex": 79,
   "johtoDex": 85,
   "evolution": {
@@ -112,24 +112,6 @@
       "specialDefense": 40,
       "total": 315
     },
-    "faithfulBaseStats": {
-      "hp": 90,
-      "attack": 65,
-      "defense": 65,
-      "speed": 15,
-      "specialAttack": 40,
-      "specialDefense": 40,
-      "total": 315
-    },
-    "polishedBaseStats": {
-      "hp": 90,
-      "attack": 65,
-      "defense": 65,
-      "speed": 15,
-      "specialAttack": 40,
-      "specialDefense": 40,
-      "total": 315
-    },
     "catchRate": 190,
     "baseExp": 99,
     "heldItems": [
@@ -143,50 +125,22 @@
     "abilities": [
       {
         "id": "oblivious",
-        "name": "Oblivious",
-        "description": "\tPrevents it from \tbeing infatuated.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "own-tempo",
-        "name": "Own Tempo",
-        "description": "\tPrevents it from \tbecoming confused.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "regenerator",
-        "name": "Regenerator",
-        "description": "\tRestores HP when \twithdrawn.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "oblivious",
-        "name": "Oblivious",
-        "description": "\tPrevents it from \tbeing infatuated.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "own-tempo",
-        "name": "Own Tempo",
-        "description": "\tPrevents it from \tbecoming confused.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "regenerator",
-        "name": "Regenerator",
-        "description": "\tRestores HP when \twithdrawn.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Monster",
@@ -3035,6 +2989,10 @@
     "default": {
       "species": "Dopey",
       "description": "It is always so absentminded that it won't react, even if its flavorful tail is bitten."
+    },
+    "Galarian": {
+      "species": "Dopey",
+      "description": "Although normally zoned out, its expression abruptly sharpens on occasion. This may be due to its diet."
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Horsea",
+  "name": "horsea",
   "nationalDex": 116,
   "johtoDex": 212,
   "evolution": {
@@ -91,24 +91,6 @@
       "specialDefense": 25,
       "total": 295
     },
-    "faithfulBaseStats": {
-      "hp": 30,
-      "attack": 40,
-      "defense": 70,
-      "speed": 60,
-      "specialAttack": 70,
-      "specialDefense": 25,
-      "total": 295
-    },
-    "polishedBaseStats": {
-      "hp": 30,
-      "attack": 40,
-      "defense": 70,
-      "speed": 60,
-      "specialAttack": 70,
-      "specialDefense": 25,
-      "total": 295
-    },
     "catchRate": 225,
     "baseExp": 83,
     "heldItems": [
@@ -122,50 +104,22 @@
     "abilities": [
       {
         "id": "swift-swim",
-        "name": "Swift Swim",
-        "description": "\tBoosts its Speed \tin rain.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "sniper",
-        "name": "Sniper",
-        "description": "\tPowers up critical \thits.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "damp",
-        "name": "Damp",
-        "description": "\tPrevents self- \tdestructing moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "swift-swim",
-        "name": "Swift Swim",
-        "description": "\tBoosts its Speed \tin rain.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "sniper",
-        "name": "Sniper",
-        "description": "\tPowers up critical \thits.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "damp",
-        "name": "Damp",
-        "description": "\tPrevents self- \tdestructing moves.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"

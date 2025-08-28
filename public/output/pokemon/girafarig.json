@@ -1,5 +1,5 @@
 {
-  "name": "Girafarig",
+  "name": "girafarig",
   "nationalDex": 203,
   "johtoDex": 160,
   "evolution": {
@@ -69,15 +69,6 @@
       "specialDefense": 65,
       "total": 455
     },
-    "faithfulBaseStats": {
-      "hp": 70,
-      "attack": 80,
-      "defense": 65,
-      "speed": 85,
-      "specialAttack": 90,
-      "specialDefense": 65,
-      "total": 455
-    },
     "polishedBaseStats": {
       "hp": 70,
       "attack": 80,
@@ -100,50 +91,22 @@
     "abilities": [
       {
         "id": "inner-focus",
-        "name": "Inner Focus",
-        "description": "\tProtects it from \tflinching.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "early-bird",
-        "name": "Early Bird",
-        "description": "\tAwakens quickly \tfrom sleep.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sap-sipper",
-        "name": "Sap Sipper",
-        "description": "\tBoosts Attack when \thit by Grass.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "inner-focus",
-        "name": "Inner Focus",
-        "description": "\tProtects it from \tflinching.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "early-bird",
-        "name": "Early Bird",
-        "description": "\tAwakens quickly \tfrom sleep.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "sap-sipper",
-        "name": "Sap Sipper",
-        "description": "\tBoosts Attack when \thit by Grass.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

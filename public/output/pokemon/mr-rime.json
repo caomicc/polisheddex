@@ -2,126 +2,9 @@
   "name": "mr-rime",
   "nationalDex": 280,
   "johtoDex": 174,
-  "evolution": {
-    "methods": [],
-    "chain": [
-      "Mime-Jr",
-      "Mr-Mime",
-      "mr-rime"
-    ],
-    "chainWithMethods": {
-      "mr-rime": [],
-      "Mr-Mime": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 42,
-          "target": "mr-rime"
-        }
-      ],
-      "Mime-Jr": [
-        {
-          "method": "EVOLVE_LOCATION",
-          "parameter": "ICE_PATH",
-          "target": "Mr-Mime",
-          "form": "Galarian Form"
-        },
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 30,
-          "target": "Mr-Mime",
-          "form": "Plain Form"
-        },
-        {
-          "method": "EVOLVE_ITEM",
-          "parameter": "ICE_STONE",
-          "target": "Mr-Mime",
-          "form": "Galarian Form"
-        }
-      ]
-    },
-    "faithfulMethods": [],
-    "faithfulChainWithMethods": {
-      "mr-rime": [],
-      "Mr-Mime": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 42,
-          "target": "mr-rime"
-        }
-      ],
-      "Mime-Jr": [
-        {
-          "method": "EVOLVE_LOCATION",
-          "parameter": "ICE_PATH",
-          "target": "Mr-Mime",
-          "form": "Galarian Form"
-        },
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 30,
-          "target": "Mr-Mime",
-          "form": "Plain Form"
-        },
-        {
-          "method": "EVOLVE_ITEM",
-          "parameter": "ICE_STONE",
-          "target": "Mr-Mime",
-          "form": "Galarian Form"
-        }
-      ]
-    },
-    "updatedMethods": [],
-    "updatedChainWithMethods": {
-      "mr-rime": [],
-      "Mr-Mime": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 42,
-          "target": "mr-rime"
-        }
-      ],
-      "Mime-Jr": [
-        {
-          "method": "EVOLVE_LOCATION",
-          "parameter": "ICE_PATH",
-          "target": "Mr-Mime",
-          "form": "Galarian Form"
-        },
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 30,
-          "target": "Mr-Mime",
-          "form": "Plain Form"
-        },
-        {
-          "method": "EVOLVE_ITEM",
-          "parameter": "ICE_STONE",
-          "target": "Mr-Mime",
-          "form": "Galarian Form"
-        }
-      ]
-    }
-  },
+  "evolution": null,
   "detailedStats": {
     "baseStats": {
-      "hp": 80,
-      "attack": 85,
-      "defense": 75,
-      "speed": 70,
-      "specialAttack": 110,
-      "specialDefense": 100,
-      "total": 520
-    },
-    "faithfulBaseStats": {
-      "hp": 80,
-      "attack": 85,
-      "defense": 75,
-      "speed": 70,
-      "specialAttack": 110,
-      "specialDefense": 100,
-      "total": 520
-    },
-    "polishedBaseStats": {
       "hp": 80,
       "attack": 85,
       "defense": 75,
@@ -141,50 +24,22 @@
     "abilities": [
       {
         "id": "tangled-feet",
-        "name": "Tangled Feet",
-        "description": "\tBoosts evasion if \tit is confused.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "screen-cleaner",
-        "name": "Screen Cleaner",
-        "description": "\tRemoves screens \twhen switched in.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "ice-body",
-        "name": "Ice Body",
-        "description": "\tGradually regains \tHP in hail.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "tangled-feet",
-        "name": "Tangled Feet",
-        "description": "\tBoosts evasion if \tit is confused.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "screen-cleaner",
-        "name": "Screen Cleaner",
-        "description": "\tRemoves screens \twhen switched in.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "ice-body",
-        "name": "Ice Body",
-        "description": "\tGradually regains \tHP in hail.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Human-Like",
@@ -1820,5 +1675,12 @@
         }
       ]
     }
-  }
+  },
+  "pokedexEntries": {
+    "default": {
+      "species": "Comedian",
+      "description": "It's highly skilled at tapdancing. It waves its cane of ice in time with its graceful movements."
+    }
+  },
+  "locations": []
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Umbreon",
+  "name": "umbreon",
   "nationalDex": 197,
   "johtoDex": 208,
   "evolution": {
@@ -244,24 +244,6 @@
       "specialDefense": 130,
       "total": 525
     },
-    "faithfulBaseStats": {
-      "hp": 95,
-      "attack": 65,
-      "defense": 110,
-      "speed": 65,
-      "specialAttack": 60,
-      "specialDefense": 130,
-      "total": 525
-    },
-    "polishedBaseStats": {
-      "hp": 95,
-      "attack": 65,
-      "defense": 110,
-      "speed": 65,
-      "specialAttack": 60,
-      "specialDefense": 130,
-      "total": 525
-    },
     "catchRate": 45,
     "baseExp": 197,
     "heldItems": [],
@@ -273,68 +255,34 @@
     "abilities": [
       {
         "id": "synchronize",
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "synchronize",
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "inner-focus",
-        "name": "Inner Focus",
-        "description": "\tProtects it from \tflinching.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "synchronize",
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "synchronize",
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "inner-focus",
-        "name": "Inner Focus",
-        "description": "\tProtects it from \tflinching.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
         "id": "synchronize",
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "magic-guard",
-        "name": "Magic Guard",
-        "description": "\tOnly takes damage \tfrom attacks.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "inner-focus",
-        "name": "Inner Focus",
-        "description": "\tProtects it from \tflinching.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1489,5 +1437,6 @@
       "species": "Moonlight",
       "description": "On the night of a full moon, or when it gets excited, the ring patterns on its body glow yellow."
     }
-  }
+  },
+  "locations": []
 }

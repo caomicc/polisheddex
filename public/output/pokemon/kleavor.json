@@ -1,5 +1,5 @@
 {
-  "name": "Kleavor",
+  "name": "kleavor",
   "nationalDex": 282,
   "johtoDex": 118,
   "evolution": {
@@ -70,24 +70,6 @@
       "specialDefense": 75,
       "total": 500
     },
-    "faithfulBaseStats": {
-      "hp": 70,
-      "attack": 130,
-      "defense": 95,
-      "speed": 85,
-      "specialAttack": 45,
-      "specialDefense": 75,
-      "total": 500
-    },
-    "polishedBaseStats": {
-      "hp": 70,
-      "attack": 130,
-      "defense": 95,
-      "speed": 85,
-      "specialAttack": 45,
-      "specialDefense": 75,
-      "total": 500
-    },
     "catchRate": 25,
     "baseExp": 200,
     "heldItems": [],
@@ -99,50 +81,22 @@
     "abilities": [
       {
         "id": "swarm",
-        "name": "Swarm",
-        "description": "\tBoosts Bug moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "sheer-force",
-        "name": "Sheer Force",
-        "description": "\tRemoves effects to \tincrease damage.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sharpness",
-        "name": "Sharpness",
-        "description": "\tBoosts power of \tslicing moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "swarm",
-        "name": "Swarm",
-        "description": "\tBoosts Bug moves \tin a pinch.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "sheer-force",
-        "name": "Sheer Force",
-        "description": "\tRemoves effects to \tincrease damage.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "sharpness",
-        "name": "Sharpness",
-        "description": "\tBoosts power of \tslicing moves.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Bug",
@@ -1364,5 +1318,6 @@
       "species": "Axe",
       "description": "A violent creature that fells towering trees with its crude axes and shields itself with hard stone."
     }
-  }
+  },
+  "locations": []
 }

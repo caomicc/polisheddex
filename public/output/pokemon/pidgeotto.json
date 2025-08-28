@@ -1,5 +1,5 @@
 {
-  "name": "Pidgeotto",
+  "name": "pidgeotto",
   "nationalDex": 17,
   "johtoDex": 11,
   "evolution": {
@@ -91,24 +91,6 @@
       "specialDefense": 50,
       "total": 349
     },
-    "faithfulBaseStats": {
-      "hp": 63,
-      "attack": 60,
-      "defense": 55,
-      "speed": 71,
-      "specialAttack": 50,
-      "specialDefense": 50,
-      "total": 349
-    },
-    "polishedBaseStats": {
-      "hp": 63,
-      "attack": 60,
-      "defense": 55,
-      "speed": 71,
-      "specialAttack": 50,
-      "specialDefense": 50,
-      "total": 349
-    },
     "catchRate": 120,
     "baseExp": 113,
     "heldItems": [],
@@ -120,50 +102,22 @@
     "abilities": [
       {
         "id": "keen-eye",
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "tangled-feet",
-        "name": "Tangled Feet",
-        "description": "\tBoosts evasion if \tit is confused.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "big-pecks",
-        "name": "Big Pecks",
-        "description": "\tPrevents foes from \tlowering Defense.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "keen-eye",
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "tangled-feet",
-        "name": "Tangled Feet",
-        "description": "\tBoosts evasion if \tit is confused.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "big-pecks",
-        "name": "Big Pecks",
-        "description": "\tPrevents foes from \tlowering Defense.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Flying",

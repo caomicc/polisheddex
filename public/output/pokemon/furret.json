@@ -1,5 +1,5 @@
 {
-  "name": "Furret",
+  "name": "furret",
   "nationalDex": 162,
   "johtoDex": 20,
   "evolution": {
@@ -51,15 +51,6 @@
       "specialDefense": 55,
       "total": 415
     },
-    "faithfulBaseStats": {
-      "hp": 85,
-      "attack": 76,
-      "defense": 64,
-      "speed": 90,
-      "specialAttack": 45,
-      "specialDefense": 55,
-      "total": 415
-    },
     "polishedBaseStats": {
       "hp": 85,
       "attack": 86,
@@ -83,50 +74,22 @@
     "abilities": [
       {
         "id": "run-away",
-        "name": "Run Away",
-        "description": "\tSure getaway from \twild #mon.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "keen-eye",
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "frisk",
-        "name": "Frisk",
-        "description": "\tChecks the foe's \theld item.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "run-away",
-        "name": "Run Away",
-        "description": "\tSure getaway from \twild #mon.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "keen-eye",
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "frisk",
-        "name": "Frisk",
-        "description": "\tChecks the foe's \theld item.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

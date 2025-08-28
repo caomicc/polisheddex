@@ -1,5 +1,5 @@
 {
-  "name": "Meowth",
+  "name": "meowth",
   "nationalDex": 52,
   "johtoDex": 148,
   "evolution": {
@@ -94,24 +94,6 @@
       "specialDefense": 40,
       "total": 290
     },
-    "faithfulBaseStats": {
-      "hp": 40,
-      "attack": 45,
-      "defense": 35,
-      "speed": 90,
-      "specialAttack": 40,
-      "specialDefense": 40,
-      "total": 290
-    },
-    "polishedBaseStats": {
-      "hp": 40,
-      "attack": 45,
-      "defense": 35,
-      "speed": 90,
-      "specialAttack": 40,
-      "specialDefense": 40,
-      "total": 290
-    },
     "catchRate": 255,
     "baseExp": 69,
     "heldItems": [
@@ -125,50 +107,22 @@
     "abilities": [
       {
         "id": "pickup",
-        "name": "Pickup",
-        "description": "\tThe #mon may \tpick up items.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "technician",
-        "name": "Technician",
-        "description": "\tPowers up its \tweaker moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "unnerve",
-        "name": "Unnerve",
-        "description": "\tPrevents foes from \teating Berries.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "pickup",
-        "name": "Pickup",
-        "description": "\tThe #mon may \tpick up items.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "technician",
-        "name": "Technician",
-        "description": "\tPowers up its \tweaker moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "unnerve",
-        "name": "Unnerve",
-        "description": "\tPrevents foes from \teating Berries.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
@@ -3843,6 +3797,14 @@
     "default": {
       "species": "Scratch Cat",
       "description": "It loves things that sparkle. When it sees a shiny object, the gold coin on its head shines too."
+    },
+    "Alolan": {
+      "species": "Scratch Cat",
+      "description": "Highly intelligent and prideful, it's famously difficult to handle. That's also a reason for its popularity."
+    },
+    "Galarian": {
+      "species": "Scratch Cat",
+      "description": "These daring #mon have coins on their foreheads. Harder coins garner more respect among Meowth."
     }
   }
 }

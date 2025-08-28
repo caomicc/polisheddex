@@ -1,5 +1,5 @@
 {
-  "name": "Chinchou",
+  "name": "chinchou",
   "nationalDex": 170,
   "johtoDex": 195,
   "evolution": {
@@ -69,24 +69,6 @@
       "specialDefense": 56,
       "total": 330
     },
-    "faithfulBaseStats": {
-      "hp": 75,
-      "attack": 38,
-      "defense": 38,
-      "speed": 67,
-      "specialAttack": 56,
-      "specialDefense": 56,
-      "total": 330
-    },
-    "polishedBaseStats": {
-      "hp": 75,
-      "attack": 38,
-      "defense": 38,
-      "speed": 67,
-      "specialAttack": 56,
-      "specialDefense": 56,
-      "total": 330
-    },
     "catchRate": 190,
     "baseExp": 90,
     "heldItems": [
@@ -100,50 +82,22 @@
     "abilities": [
       {
         "id": "volt-absorb",
-        "name": "Volt Absorb",
-        "description": "\tRestores HP if hit \tby Electric moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "illuminate",
-        "name": "Illuminate",
-        "description": "\tRaises the rate \tof wild #mon.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "water-absorb",
-        "name": "Water Absorb",
-        "description": "\tRestores HP if hit \tby Water moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "volt-absorb",
-        "name": "Volt Absorb",
-        "description": "\tRestores HP if hit \tby Electric moves.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "illuminate",
-        "name": "Illuminate",
-        "description": "\tRaises the rate \tof wild #mon.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "water-absorb",
-        "name": "Water Absorb",
-        "description": "\tRestores HP if hit \tby Water moves.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered"

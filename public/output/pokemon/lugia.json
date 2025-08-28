@@ -1,5 +1,5 @@
 {
-  "name": "Lugia",
+  "name": "lugia",
   "nationalDex": 249,
   "johtoDex": 285,
   "evolution": {
@@ -29,24 +29,6 @@
       "specialDefense": 154,
       "total": 680
     },
-    "faithfulBaseStats": {
-      "hp": 106,
-      "attack": 90,
-      "defense": 130,
-      "speed": 110,
-      "specialAttack": 90,
-      "specialDefense": 154,
-      "total": 680
-    },
-    "polishedBaseStats": {
-      "hp": 106,
-      "attack": 90,
-      "defense": 130,
-      "speed": 110,
-      "specialAttack": 90,
-      "specialDefense": 154,
-      "total": 680
-    },
     "catchRate": 3,
     "baseExp": 220,
     "heldItems": [
@@ -60,68 +42,34 @@
     "abilities": [
       {
         "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "multiscale",
-        "name": "Multiscale",
-        "description": "\tReduces damage \twhen HP is full.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "multiscale",
-        "name": "Multiscale",
-        "description": "\tReduces damage \twhen HP is full.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
         "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "drizzle",
-        "name": "Drizzle",
-        "description": "\tSummons rain when \tswitched in.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "multiscale",
-        "name": "Multiscale",
-        "description": "\tReduces damage \twhen HP is full.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1619,16 +1567,7 @@
       ]
     }
   },
-  "locations": [
-    {
-      "area": "Whirl Island Lugia Chamber",
-      "method": "static",
-      "conditions": "Requires Silver Wing",
-      "eventType": "legendary",
-      "description": "Lugia can be encountered in the deepest chamber of the Whirl Islands.",
-      "level": 75
-    }
-  ],
+  "locations": [],
   "pokedexEntries": {
     "default": {
       "species": "Diving",

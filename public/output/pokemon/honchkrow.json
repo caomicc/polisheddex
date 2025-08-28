@@ -1,5 +1,5 @@
 {
-  "name": "Honchkrow",
+  "name": "honchkrow",
   "nationalDex": 256,
   "johtoDex": 240,
   "evolution": {
@@ -51,15 +51,6 @@
       "specialDefense": 52,
       "total": 505
     },
-    "faithfulBaseStats": {
-      "hp": 100,
-      "attack": 125,
-      "defense": 52,
-      "speed": 71,
-      "specialAttack": 105,
-      "specialDefense": 52,
-      "total": 505
-    },
     "polishedBaseStats": {
       "hp": 105,
       "attack": 125,
@@ -80,50 +71,22 @@
     "abilities": [
       {
         "id": "insomnia",
-        "name": "Insomnia",
-        "description": "",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "super-luck",
-        "name": "Super Luck",
-        "description": "\tBoosts the rate \tof critical hits.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "moxie",
-        "name": "Moxie",
-        "description": "\tBoosts Attack when \tknocking out foes.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "insomnia",
-        "name": "Insomnia",
-        "description": "",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "super-luck",
-        "name": "Super Luck",
-        "description": "\tBoosts the rate \tof critical hits.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "moxie",
-        "name": "Moxie",
-        "description": "\tBoosts Attack when \tknocking out foes.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Flying",
@@ -1080,5 +1043,6 @@
       "species": "Big Boss",
       "description": "It is merciless by nature. It is said that it never forgives the mistakes of its Murkrow followers."
     }
-  }
+  },
+  "locations": []
 }

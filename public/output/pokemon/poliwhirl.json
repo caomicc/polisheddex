@@ -1,5 +1,5 @@
 {
-  "name": "Poliwhirl",
+  "name": "poliwhirl",
   "nationalDex": 61,
   "johtoDex": 78,
   "evolution": {
@@ -125,24 +125,6 @@
       "specialDefense": 50,
       "total": 385
     },
-    "faithfulBaseStats": {
-      "hp": 65,
-      "attack": 65,
-      "defense": 65,
-      "speed": 90,
-      "specialAttack": 50,
-      "specialDefense": 50,
-      "total": 385
-    },
-    "polishedBaseStats": {
-      "hp": 65,
-      "attack": 65,
-      "defense": 65,
-      "speed": 90,
-      "specialAttack": 50,
-      "specialDefense": 50,
-      "total": 385
-    },
     "catchRate": 120,
     "baseExp": 131,
     "heldItems": [
@@ -156,50 +138,22 @@
     "abilities": [
       {
         "id": "water-absorb",
-        "name": "Water Absorb",
-        "description": "\tRestores HP if hit \tby Water moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "damp",
-        "name": "Damp",
-        "description": "\tPrevents self- \tdestructing moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "swift-swim",
-        "name": "Swift Swim",
-        "description": "\tBoosts its Speed \tin rain.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "water-absorb",
-        "name": "Water Absorb",
-        "description": "\tRestores HP if hit \tby Water moves.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "damp",
-        "name": "Damp",
-        "description": "\tPrevents self- \tdestructing moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "swift-swim",
-        "name": "Swift Swim",
-        "description": "\tBoosts its Speed \tin rain.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Undiscovered"

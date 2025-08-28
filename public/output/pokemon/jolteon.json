@@ -1,5 +1,5 @@
 {
-  "name": "Jolteon",
+  "name": "jolteon",
   "nationalDex": 135,
   "johtoDex": 205,
   "evolution": {
@@ -244,24 +244,6 @@
       "specialDefense": 95,
       "total": 525
     },
-    "faithfulBaseStats": {
-      "hp": 65,
-      "attack": 65,
-      "defense": 60,
-      "speed": 130,
-      "specialAttack": 110,
-      "specialDefense": 95,
-      "total": 525
-    },
-    "polishedBaseStats": {
-      "hp": 65,
-      "attack": 65,
-      "defense": 60,
-      "speed": 130,
-      "specialAttack": 110,
-      "specialDefense": 95,
-      "total": 525
-    },
     "catchRate": 45,
     "baseExp": 197,
     "heldItems": [],
@@ -273,68 +255,34 @@
     "abilities": [
       {
         "id": "volt-absorb",
-        "name": "Volt Absorb",
-        "description": "\tRestores HP if hit \tby Electric moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "volt-absorb",
-        "name": "Volt Absorb",
-        "description": "\tRestores HP if hit \tby Electric moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "quick-feet",
-        "name": "Quick Feet",
-        "description": "\tBoosts Speed with \tstatus problems.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "volt-absorb",
-        "name": "Volt Absorb",
-        "description": "\tRestores HP if hit \tby Electric moves.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "volt-absorb",
-        "name": "Volt Absorb",
-        "description": "\tRestores HP if hit \tby Electric moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "quick-feet",
-        "name": "Quick Feet",
-        "description": "\tBoosts Speed with \tstatus problems.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
         "id": "volt-absorb",
-        "name": "Volt Absorb",
-        "description": "\tRestores HP if hit \tby Electric moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "static",
-        "name": "Static",
-        "description": "\tContact may cause \tparalysis.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "quick-feet",
-        "name": "Quick Feet",
-        "description": "\tBoosts Speed with \tstatus problems.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1563,5 +1511,6 @@
       "species": "Lightning",
       "description": "The negatively charged ions generated in its fur create a constant sparking noise."
     }
-  }
+  },
+  "locations": []
 }

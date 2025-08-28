@@ -1,5 +1,5 @@
 {
-  "name": "Ditto",
+  "name": "ditto",
   "nationalDex": 132,
   "johtoDex": 97,
   "evolution": {
@@ -21,15 +21,6 @@
   },
   "detailedStats": {
     "baseStats": {
-      "hp": 48,
-      "attack": 48,
-      "defense": 48,
-      "speed": 48,
-      "specialAttack": 48,
-      "specialDefense": 48,
-      "total": 288
-    },
-    "faithfulBaseStats": {
       "hp": 48,
       "attack": 48,
       "defense": 48,
@@ -61,50 +52,22 @@
     "abilities": [
       {
         "id": "limber",
-        "name": "Limber",
-        "description": "\tProtects from \tparalysis.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "limber",
-        "name": "Limber",
-        "description": "\tProtects from \tparalysis.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "imposter",
-        "name": "Imposter",
-        "description": "\tTransforms itself \tinto the foe.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "limber",
-        "name": "Limber",
-        "description": "\tProtects from \tparalysis.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "limber",
-        "name": "Limber",
-        "description": "\tProtects from \tparalysis.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "imposter",
-        "name": "Imposter",
-        "description": "\tTransforms itself \tinto the foe.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Ditto",

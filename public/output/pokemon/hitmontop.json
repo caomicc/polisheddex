@@ -1,5 +1,5 @@
 {
-  "name": "Hitmontop",
+  "name": "hitmontop",
   "nationalDex": 237,
   "johtoDex": 159,
   "evolution": {
@@ -89,24 +89,6 @@
       "specialDefense": 110,
       "total": 455
     },
-    "faithfulBaseStats": {
-      "hp": 50,
-      "attack": 95,
-      "defense": 95,
-      "speed": 70,
-      "specialAttack": 35,
-      "specialDefense": 110,
-      "total": 455
-    },
-    "polishedBaseStats": {
-      "hp": 50,
-      "attack": 95,
-      "defense": 95,
-      "speed": 70,
-      "specialAttack": 35,
-      "specialDefense": 110,
-      "total": 455
-    },
     "catchRate": 45,
     "baseExp": 138,
     "heldItems": [],
@@ -118,50 +100,22 @@
     "abilities": [
       {
         "id": "intimidate",
-        "name": "Intimidate",
-        "description": "\tLowers the foe's \tAttack stat.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "technician",
-        "name": "Technician",
-        "description": "\tPowers up its \tweaker moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "steadfast",
-        "name": "Steadfast",
-        "description": "\tBoosts Speed when \tit flinches.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "intimidate",
-        "name": "Intimidate",
-        "description": "\tLowers the foe's \tAttack stat.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "technician",
-        "name": "Technician",
-        "description": "\tPowers up its \tweaker moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "steadfast",
-        "name": "Steadfast",
-        "description": "\tBoosts Speed when \tit flinches.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Human-Like",
@@ -1311,5 +1265,6 @@
       "species": "Handstand",
       "description": "After doing a handstand to throw off the opponent's timing, it presents its fancy kick moves."
     }
-  }
+  },
+  "locations": []
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Weezing",
+  "name": "weezing",
   "nationalDex": 110,
   "johtoDex": 122,
   "evolution": {
@@ -72,24 +72,6 @@
       "specialDefense": 70,
       "total": 490
     },
-    "faithfulBaseStats": {
-      "hp": 65,
-      "attack": 90,
-      "defense": 120,
-      "speed": 60,
-      "specialAttack": 85,
-      "specialDefense": 70,
-      "total": 490
-    },
-    "polishedBaseStats": {
-      "hp": 65,
-      "attack": 90,
-      "defense": 120,
-      "speed": 60,
-      "specialAttack": 85,
-      "specialDefense": 70,
-      "total": 490
-    },
     "catchRate": 60,
     "baseExp": 173,
     "heldItems": [
@@ -103,50 +85,22 @@
     "abilities": [
       {
         "id": "levitate",
-        "name": "Levitate",
-        "description": "\tGives immunity to \tGround-type moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "neutralizing-gas",
-        "name": "Neutralizing Gas",
-        "description": "\tSuppresses all \tother Abilities.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "stench",
-        "name": "Stench",
-        "description": "\tMay cause the foe \tto flinch.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "levitate",
-        "name": "Levitate",
-        "description": "\tGives immunity to \tGround-type moves.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "neutralizing-gas",
-        "name": "Neutralizing Gas",
-        "description": "\tSuppresses all \tother Abilities.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "stench",
-        "name": "Stench",
-        "description": "\tMay cause the foe \tto flinch.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Amorphous",
@@ -2359,6 +2313,10 @@
     "default": {
       "species": "Poison Gas",
       "description": "When it inhales poisonous gases from garbage, its body expands, and its insides smell much worse."
+    },
+    "Galarian": {
+      "species": "Poison Gas",
+      "description": "It consumes particles that contaminate the air. Instead of leaving droppings, it expels clean air."
     }
   }
 }

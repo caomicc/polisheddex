@@ -1,5 +1,5 @@
 {
-  "name": "Arbok",
+  "name": "arbok",
   "nationalDex": 24,
   "johtoDex": 52,
   "evolution": {
@@ -54,24 +54,6 @@
       "specialDefense": 79,
       "total": 448
     },
-    "faithfulBaseStats": {
-      "hp": 60,
-      "attack": 95,
-      "defense": 69,
-      "speed": 80,
-      "specialAttack": 65,
-      "specialDefense": 79,
-      "total": 448
-    },
-    "polishedBaseStats": {
-      "hp": 60,
-      "attack": 95,
-      "defense": 69,
-      "speed": 80,
-      "specialAttack": 65,
-      "specialDefense": 79,
-      "total": 448
-    },
     "catchRate": 90,
     "baseExp": 147,
     "heldItems": [
@@ -85,50 +67,22 @@
     "abilities": [
       {
         "id": "intimidate",
-        "name": "Intimidate",
-        "description": "\tLowers the foe's \tAttack stat.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "shed-skin",
-        "name": "Shed Skin",
-        "description": "\tMay heal its own \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "unnerve",
-        "name": "Unnerve",
-        "description": "\tPrevents foes from \teating Berries.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "intimidate",
-        "name": "Intimidate",
-        "description": "\tLowers the foe's \tAttack stat.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "shed-skin",
-        "name": "Shed Skin",
-        "description": "\tMay heal its own \tstatus problems.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "unnerve",
-        "name": "Unnerve",
-        "description": "\tPrevents foes from \teating Berries.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

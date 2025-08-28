@@ -1,5 +1,5 @@
 {
-  "name": "Mew",
+  "name": "mew",
   "nationalDex": 151,
   "johtoDex": 288,
   "evolution": {
@@ -29,24 +29,6 @@
       "specialDefense": 100,
       "total": 600
     },
-    "faithfulBaseStats": {
-      "hp": 100,
-      "attack": 100,
-      "defense": 100,
-      "speed": 100,
-      "specialAttack": 100,
-      "specialDefense": 100,
-      "total": 600
-    },
-    "polishedBaseStats": {
-      "hp": 100,
-      "attack": 100,
-      "defense": 100,
-      "speed": 100,
-      "specialAttack": 100,
-      "specialDefense": 100,
-      "total": 600
-    },
     "catchRate": 45,
     "baseExp": 64,
     "heldItems": [
@@ -60,68 +42,34 @@
     "abilities": [
       {
         "id": "synchronize",
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "synchronize",
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "synchronize",
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "synchronize",
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "synchronize",
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "synchronize",
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
         "id": "synchronize",
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "synchronize",
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "magic-guard",
-        "name": "Magic Guard",
-        "description": "\tOnly takes damage \tfrom attacks.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -2279,16 +2227,7 @@
       ]
     }
   },
-  "locations": [
-    {
-      "area": "Faraway Jungle",
-      "method": "wild",
-      "conditions": "Special access required",
-      "eventType": "legendary",
-      "description": "Mew can be encountered at Faraway Island.",
-      "level": 30
-    }
-  ],
+  "locations": [],
   "pokedexEntries": {
     "default": {
       "species": "New Species",

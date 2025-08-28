@@ -1,5 +1,5 @@
 {
-  "name": "Magmortar",
+  "name": "magmortar",
   "nationalDex": 268,
   "johtoDex": 166,
   "evolution": {
@@ -73,15 +73,6 @@
       "specialDefense": 95,
       "total": 540
     },
-    "faithfulBaseStats": {
-      "hp": 75,
-      "attack": 95,
-      "defense": 67,
-      "speed": 83,
-      "specialAttack": 125,
-      "specialDefense": 95,
-      "total": 540
-    },
     "polishedBaseStats": {
       "hp": 75,
       "attack": 95,
@@ -105,50 +96,22 @@
     "abilities": [
       {
         "id": "flame-body",
-        "name": "Flame Body",
-        "description": "\tContact may burn \tthe foe.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "flame-body",
-        "name": "Flame Body",
-        "description": "\tContact may burn \tthe foe.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "vital-spirit",
-        "name": "Vital Spirit",
-        "description": "\tPrevents it from \tfalling asleep.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "flame-body",
-        "name": "Flame Body",
-        "description": "\tContact may burn \tthe foe.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "flame-body",
-        "name": "Flame Body",
-        "description": "\tContact may burn \tthe foe.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "vital-spirit",
-        "name": "Vital Spirit",
-        "description": "\tPrevents it from \tfalling asleep.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Human-Like",
@@ -1425,5 +1388,6 @@
       "species": "Blast",
       "description": "There are still quite a few factories that rely on the flames provided by Magmortar to process metals."
     }
-  }
+  },
+  "locations": []
 }

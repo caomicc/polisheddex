@@ -1,5 +1,5 @@
 {
-  "name": "Ursaring",
+  "name": "ursaring",
   "nationalDex": 217,
   "johtoDex": 222,
   "evolution": {
@@ -151,24 +151,6 @@
       "specialDefense": 75,
       "total": 500
     },
-    "faithfulBaseStats": {
-      "hp": 90,
-      "attack": 130,
-      "defense": 75,
-      "speed": 55,
-      "specialAttack": 75,
-      "specialDefense": 75,
-      "total": 500
-    },
-    "polishedBaseStats": {
-      "hp": 90,
-      "attack": 130,
-      "defense": 75,
-      "speed": 55,
-      "specialAttack": 75,
-      "specialDefense": 75,
-      "total": 500
-    },
     "catchRate": 60,
     "baseExp": 189,
     "heldItems": [
@@ -182,50 +164,22 @@
     "abilities": [
       {
         "id": "guts",
-        "name": "Guts",
-        "description": "\tBoosts Attack on \tstatus problems.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "quick-feet",
-        "name": "Quick Feet",
-        "description": "\tBoosts Speed with \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "unnerve",
-        "name": "Unnerve",
-        "description": "\tPrevents foes from \teating Berries.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "guts",
-        "name": "Guts",
-        "description": "\tBoosts Attack on \tstatus problems.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "quick-feet",
-        "name": "Quick Feet",
-        "description": "\tBoosts Speed with \tstatus problems.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "unnerve",
-        "name": "Unnerve",
-        "description": "\tPrevents foes from \teating Berries.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

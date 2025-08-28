@@ -1,5 +1,5 @@
 {
-  "name": "Ponyta",
+  "name": "ponyta",
   "nationalDex": 77,
   "johtoDex": 231,
   "evolution": {
@@ -72,24 +72,6 @@
       "specialDefense": 65,
       "total": 410
     },
-    "faithfulBaseStats": {
-      "hp": 50,
-      "attack": 85,
-      "defense": 55,
-      "speed": 90,
-      "specialAttack": 65,
-      "specialDefense": 65,
-      "total": 410
-    },
-    "polishedBaseStats": {
-      "hp": 50,
-      "attack": 85,
-      "defense": 55,
-      "speed": 90,
-      "specialAttack": 65,
-      "specialDefense": 65,
-      "total": 410
-    },
     "catchRate": 190,
     "baseExp": 152,
     "heldItems": [
@@ -103,50 +85,22 @@
     "abilities": [
       {
         "id": "run-away",
-        "name": "Run Away",
-        "description": "\tSure getaway from \twild #mon.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "flash-fire",
-        "name": "Flash Fire",
-        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "flame-body",
-        "name": "Flame Body",
-        "description": "\tContact may burn \tthe foe.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "run-away",
-        "name": "Run Away",
-        "description": "\tSure getaway from \twild #mon.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "flash-fire",
-        "name": "Flash Fire",
-        "description": "\tBoosts Fire moves \tif hit by one.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "flame-body",
-        "name": "Flame Body",
-        "description": "\tContact may burn \tthe foe.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
@@ -2299,6 +2253,10 @@
     "default": {
       "species": "Fire Horse",
       "description": "Training by jumping over grass that grows longer every day has made it a worldclass jumper."
+    },
+    "Galarian": {
+      "species": "Unique Horn",
+      "description": "It will look into your eyes and read the contents of your heart. If it finds evil there, it hides away."
     }
   }
 }

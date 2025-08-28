@@ -1,5 +1,5 @@
 {
-  "name": "Mantine",
+  "name": "mantine",
   "nationalDex": 226,
   "johtoDex": 227,
   "evolution": {
@@ -51,24 +51,6 @@
       "specialDefense": 140,
       "total": 485
     },
-    "faithfulBaseStats": {
-      "hp": 85,
-      "attack": 40,
-      "defense": 70,
-      "speed": 70,
-      "specialAttack": 80,
-      "specialDefense": 140,
-      "total": 485
-    },
-    "polishedBaseStats": {
-      "hp": 85,
-      "attack": 40,
-      "defense": 70,
-      "speed": 70,
-      "specialAttack": 80,
-      "specialDefense": 140,
-      "total": 485
-    },
     "catchRate": 25,
     "baseExp": 168,
     "heldItems": [],
@@ -80,50 +62,22 @@
     "abilities": [
       {
         "id": "swift-swim",
-        "name": "Swift Swim",
-        "description": "\tBoosts its Speed \tin rain.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "water-absorb",
-        "name": "Water Absorb",
-        "description": "\tRestores HP if hit \tby Water moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "water-veil",
-        "name": "Water Veil",
-        "description": "\tPrevents it from \tgetting a burn.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "swift-swim",
-        "name": "Swift Swim",
-        "description": "\tBoosts its Speed \tin rain.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "water-absorb",
-        "name": "Water Absorb",
-        "description": "\tRestores HP if hit \tby Water moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "water-veil",
-        "name": "Water Veil",
-        "description": "\tPrevents it from \tgetting a burn.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered"

@@ -1,5 +1,5 @@
 {
-  "name": "Cleffa",
+  "name": "cleffa",
   "nationalDex": 173,
   "johtoDex": 40,
   "evolution": {
@@ -91,24 +91,6 @@
       "specialDefense": 55,
       "total": 218
     },
-    "faithfulBaseStats": {
-      "hp": 50,
-      "attack": 25,
-      "defense": 28,
-      "speed": 15,
-      "specialAttack": 45,
-      "specialDefense": 55,
-      "total": 218
-    },
-    "polishedBaseStats": {
-      "hp": 50,
-      "attack": 25,
-      "defense": 28,
-      "speed": 15,
-      "specialAttack": 45,
-      "specialDefense": 55,
-      "total": 218
-    },
     "catchRate": 150,
     "baseExp": 37,
     "heldItems": [
@@ -122,50 +104,22 @@
     "abilities": [
       {
         "id": "cute-charm",
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "magic-guard",
-        "name": "Magic Guard",
-        "description": "\tOnly takes damage \tfrom attacks.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "cute-charm",
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "cute-charm",
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "magic-guard",
-        "name": "Magic Guard",
-        "description": "\tOnly takes damage \tfrom attacks.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "cute-charm",
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Fast",
     "eggGroups": [
       "Undiscovered",
@@ -1133,5 +1087,6 @@
       "species": "Star Shape",
       "description": "If the impact site of a meteorite is found, this #mon is certain to be within the immediate area."
     }
-  }
+  },
+  "locations": []
 }

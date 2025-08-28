@@ -1,5 +1,5 @@
 {
-  "name": "Dugtrio",
+  "name": "dugtrio",
   "nationalDex": 51,
   "johtoDex": 144,
   "evolution": {
@@ -72,24 +72,6 @@
       "specialDefense": 70,
       "total": 425
     },
-    "faithfulBaseStats": {
-      "hp": 35,
-      "attack": 100,
-      "defense": 50,
-      "speed": 120,
-      "specialAttack": 50,
-      "specialDefense": 70,
-      "total": 425
-    },
-    "polishedBaseStats": {
-      "hp": 35,
-      "attack": 100,
-      "defense": 50,
-      "speed": 120,
-      "specialAttack": 50,
-      "specialDefense": 70,
-      "total": 425
-    },
     "catchRate": 50,
     "baseExp": 153,
     "heldItems": [
@@ -103,50 +85,22 @@
     "abilities": [
       {
         "id": "sand-veil",
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "arena-trap",
-        "name": "Arena Trap",
-        "description": "\tPrevents the foe \tfrom fleeing.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sand-force",
-        "name": "Sand Force",
-        "description": "\tBoosts some moves \tin a sandstorm.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "sand-veil",
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "arena-trap",
-        "name": "Arena Trap",
-        "description": "\tPrevents the foe \tfrom fleeing.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "sand-force",
-        "name": "Sand Force",
-        "description": "\tBoosts some moves \tin a sandstorm.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
@@ -2639,6 +2593,10 @@
     "default": {
       "species": "Mole",
       "description": "Its three heads bob separately up and down to loosen the soil nearby, making it easier for it to burrow."
+    },
+    "Alolan": {
+      "species": "Mole",
+      "description": "Its metallic whiskers are heavy, so it's not very fast, but it has the power to dig through bedrock."
     }
   }
 }

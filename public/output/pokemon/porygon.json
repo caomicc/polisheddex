@@ -1,5 +1,5 @@
 {
-  "name": "Porygon",
+  "name": "porygon",
   "nationalDex": 137,
   "johtoDex": 250,
   "evolution": {
@@ -91,24 +91,6 @@
       "specialDefense": 75,
       "total": 395
     },
-    "faithfulBaseStats": {
-      "hp": 65,
-      "attack": 60,
-      "defense": 70,
-      "speed": 40,
-      "specialAttack": 85,
-      "specialDefense": 75,
-      "total": 395
-    },
-    "polishedBaseStats": {
-      "hp": 65,
-      "attack": 60,
-      "defense": 70,
-      "speed": 40,
-      "specialAttack": 85,
-      "specialDefense": 75,
-      "total": 395
-    },
     "catchRate": 45,
     "baseExp": 130,
     "heldItems": [
@@ -122,50 +104,22 @@
     "abilities": [
       {
         "id": "trace",
-        "name": "Trace",
-        "description": "\tCopies the foe's \tAbility.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "download",
-        "name": "Download",
-        "description": "\tAdjusts stats based \ton foe's defenses.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "analytic",
-        "name": "Analytic",
-        "description": "\tBoosts move power \twhen moving last.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "trace",
-        "name": "Trace",
-        "description": "\tCopies the foe's \tAbility.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "download",
-        "name": "Download",
-        "description": "\tAdjusts stats based \ton foe's defenses.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "analytic",
-        "name": "Analytic",
-        "description": "\tBoosts move power \twhen moving last.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Mineral",
@@ -1267,14 +1221,7 @@
       ]
     }
   },
-  "locations": [
-    {
-      "area": "Celadon Game Corner",
-      "method": "gift",
-      "npc": "Game Corner",
-      "conditions": "Exchange coins"
-    }
-  ],
+  "locations": [],
   "pokedexEntries": {
     "default": {
       "species": "Virtual",

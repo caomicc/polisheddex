@@ -14,6 +14,7 @@ import {
   convertPhoneEventsToLocationEvents,
 } from './src/utils/extractors/eventExtractors.ts';
 import { extractLocationItems } from './src/utils/extractors/itemExtractors.ts';
+import { normalizeLocationDisplayName } from './src/utils/extractors/locationExtractors.ts';
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -357,7 +358,10 @@ export function extractAllLocations(): Record<string, LocationData> {
       locationData.displayName = displayNameMap[nameConstant];
     } else {
       // Fallback: convert constant name to readable format
-      locationData.displayName = formatDisplayName(normalizeLocationKey(locationKey));
+      // locationData.displayName = formatDisplayName(normalizeLocationKey(locationKey));
+      locationData.displayName = normalizeLocationDisplayName(
+        locationData.displayName.toLowerCase().replace(/\s+/g, '_'),
+      );
     }
   }
 
@@ -366,7 +370,9 @@ export function extractAllLocations(): Record<string, LocationData> {
     for (const connection of location.connections) {
       const targetLocation = locations[connection.targetLocation];
       if (targetLocation && targetLocation.displayName) {
-        connection.targetLocationDisplay = targetLocation.displayName;
+        connection.targetLocationDisplay = normalizeLocationDisplayName(
+          targetLocation.displayName.toLowerCase().replace(/\s+/g, '_'),
+        );
       }
     }
   }

@@ -1,5 +1,5 @@
 {
-  "name": "Vulpix",
+  "name": "vulpix",
   "nationalDex": 37,
   "johtoDex": 134,
   "evolution": {
@@ -72,24 +72,6 @@
       "specialDefense": 65,
       "total": 299
     },
-    "faithfulBaseStats": {
-      "hp": 38,
-      "attack": 41,
-      "defense": 40,
-      "speed": 65,
-      "specialAttack": 50,
-      "specialDefense": 65,
-      "total": 299
-    },
-    "polishedBaseStats": {
-      "hp": 38,
-      "attack": 41,
-      "defense": 40,
-      "speed": 65,
-      "specialAttack": 50,
-      "specialDefense": 65,
-      "total": 299
-    },
     "catchRate": 190,
     "baseExp": 63,
     "heldItems": [
@@ -103,68 +85,34 @@
     "abilities": [
       {
         "id": "flash-fire",
-        "name": "Flash Fire",
-        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "flash-fire",
-        "name": "Flash Fire",
-        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "drought",
-        "name": "Drought",
-        "description": "\tSummons sunlight \twhen switched in.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "flash-fire",
-        "name": "Flash Fire",
-        "description": "\tBoosts Fire moves \tif hit by one.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "flash-fire",
-        "name": "Flash Fire",
-        "description": "\tBoosts Fire moves \tif hit by one.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "drought",
-        "name": "Drought",
-        "description": "\tSummons sunlight \twhen switched in.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
         "id": "flash-fire",
-        "name": "Flash Fire",
-        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "forewarn",
-        "name": "Forewarn",
-        "description": "\tDetermines the \tfoe's moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "drought",
-        "name": "Drought",
-        "description": "\tSummons sunlight \twhen switched in.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -2932,6 +2880,10 @@
     "default": {
       "species": "Fox",
       "description": "As its body grows larger, its six warm tails become more beautiful, with a more luxurious coat of fur."
+    },
+    "Alolan": {
+      "species": "Fox",
+      "description": "If you observe its curly hairs through a microscope, you'll see small ice particles springing up."
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Snorlax",
+  "name": "snorlax",
   "nationalDex": 143,
   "johtoDex": 263,
   "evolution": {
@@ -51,24 +51,6 @@
       "specialDefense": 110,
       "total": 540
     },
-    "faithfulBaseStats": {
-      "hp": 160,
-      "attack": 110,
-      "defense": 65,
-      "speed": 30,
-      "specialAttack": 65,
-      "specialDefense": 110,
-      "total": 540
-    },
-    "polishedBaseStats": {
-      "hp": 160,
-      "attack": 110,
-      "defense": 65,
-      "speed": 30,
-      "specialAttack": 65,
-      "specialDefense": 110,
-      "total": 540
-    },
     "catchRate": 25,
     "baseExp": 154,
     "heldItems": [
@@ -82,50 +64,22 @@
     "abilities": [
       {
         "id": "immunity",
-        "name": "Immunity",
-        "description": "",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "thick-fat",
-        "name": "Thick Fat",
-        "description": "\tUps resistance to \tFire and Ice.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "gluttony",
-        "name": "Gluttony",
-        "description": "\tEncourages early \tBerry use.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "immunity",
-        "name": "Immunity",
-        "description": "",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "thick-fat",
-        "name": "Thick Fat",
-        "description": "\tUps resistance to \tFire and Ice.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "gluttony",
-        "name": "Gluttony",
-        "description": "\tEncourages early \tBerry use.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Slow",
     "eggGroups": [
       "Monster",
@@ -1552,5 +1506,6 @@
       "species": "Sleeping",
       "description": "This #mon's stomach is so strong, even eating moldy or rotten food will not affect it."
     }
-  }
+  },
+  "locations": []
 }

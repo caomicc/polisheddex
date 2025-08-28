@@ -1,5 +1,5 @@
 {
-  "name": "Raikou",
+  "name": "raikou",
   "nationalDex": 243,
   "johtoDex": 276,
   "evolution": {
@@ -29,24 +29,6 @@
       "specialDefense": 100,
       "total": 580
     },
-    "faithfulBaseStats": {
-      "hp": 90,
-      "attack": 85,
-      "defense": 75,
-      "speed": 115,
-      "specialAttack": 115,
-      "specialDefense": 100,
-      "total": 580
-    },
-    "polishedBaseStats": {
-      "hp": 90,
-      "attack": 85,
-      "defense": 75,
-      "speed": 115,
-      "specialAttack": 115,
-      "specialDefense": 100,
-      "total": 580
-    },
     "catchRate": 3,
     "baseExp": 216,
     "heldItems": [
@@ -60,68 +42,34 @@
     "abilities": [
       {
         "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "inner-focus",
-        "name": "Inner Focus",
-        "description": "\tProtects it from \tflinching.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "inner-focus",
-        "name": "Inner Focus",
-        "description": "\tProtects it from \tflinching.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
         "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "inner-focus",
-        "name": "Inner Focus",
-        "description": "\tProtects it from \tflinching.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "volt-absorb",
-        "name": "Volt Absorb",
-        "description": "\tRestores HP if hit \tby Electric moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1385,5 +1333,6 @@
       "species": "Thunder",
       "description": "This rough #mon stores energy inside its body, then sweeps across the land, shooting off electricity."
     }
-  }
+  },
+  "locations": []
 }

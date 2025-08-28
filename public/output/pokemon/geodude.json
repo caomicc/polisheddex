@@ -1,5 +1,5 @@
 {
-  "name": "Geodude",
+  "name": "geodude",
   "nationalDex": 74,
   "johtoDex": 34,
   "evolution": {
@@ -115,24 +115,6 @@
       "specialDefense": 30,
       "total": 300
     },
-    "faithfulBaseStats": {
-      "hp": 40,
-      "attack": 80,
-      "defense": 100,
-      "speed": 20,
-      "specialAttack": 30,
-      "specialDefense": 30,
-      "total": 300
-    },
-    "polishedBaseStats": {
-      "hp": 40,
-      "attack": 80,
-      "defense": 100,
-      "speed": 20,
-      "specialAttack": 30,
-      "specialDefense": 30,
-      "total": 300
-    },
     "catchRate": 255,
     "baseExp": 86,
     "heldItems": [
@@ -146,50 +128,22 @@
     "abilities": [
       {
         "id": "rock-head",
-        "name": "Rock Head",
-        "description": "\tProtects it from \trecoil damage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "sturdy",
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sand-veil",
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "rock-head",
-        "name": "Rock Head",
-        "description": "\tProtects it from \trecoil damage.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "sturdy",
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "sand-veil",
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Mineral",
@@ -3231,6 +3185,10 @@
     "default": {
       "species": "Rock",
       "description": "Proud of their sturdy bodies, they bash against each other in a contest to prove whose is harder."
+    },
+    "Alolan": {
+      "species": "Rock",
+      "description": "Its body is a magnetic stone. Iron sand attaches to the portions of its body that are the most magnetic."
     }
   }
 }
