@@ -18,7 +18,7 @@ const buttonVariants = cva(
         ghost: 'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
         link: 'text-primary underline-offset-4 hover:underline',
         save: 'bg-grass text-white shadow-xs hover:bg-grass/90 focus-visible:ring-grass/20 dark:focus-visible:ring-grass/40 dark:bg-grass/60 cursor-pointer',
-        load: 'bg-cyan-200 text-cyan-900 hover:bg-cyan-400 shadow-xs focus-visible:ring-dark/20 dark:focus-visible:ring-dark/40 dark:bg-dark/60',
+        load: 'bg-cyan-200 text-cyan-900 hover:bg-cyan-400 shadow-xs hover:text-cyan-900 focus-visible:ring-dark/20 dark:focus-visible:ring-dark/40 dark:text-cyan-100 dark:bg-cyan-900',
         bugs: 'bg-pink-200 text-pink-950 shadow-xs hover:bg-pink-300 hover:text-pink-950 dark:text-pink-100 focus-visible:ring-dark/20 dark:focus-visible:ring-dark/40 dark:bg-pink-950',
       },
       size: {

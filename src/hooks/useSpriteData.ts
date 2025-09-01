@@ -50,7 +50,8 @@ export function useSpriteData(
 
     try {
       // Construct the full sprite name including form if provided
-      const fullSpriteName = form !== 'plain' ? `${spriteName}_${form}` : spriteName;
+      const fullSpriteName =
+        form !== undefined && form !== 'plain' ? `${spriteName}_${form}` : spriteName;
       console.log(
         `DEBUG: Fetching sprite for ${fullSpriteName} with variant=${variant} and type=${type}`,
       );
