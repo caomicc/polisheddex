@@ -1,4 +1,4 @@
-import { GymLeader, LocationTrainer, Move, PokemonType } from '@/types/types';
+import { GroupedTrainer, GymLeader, LocationTrainer, Move, PokemonType } from '@/types/types';
 import Image from 'next/image';
 import pokemonBaseData from '@/output/pokemon_base_data.json';
 import pokemonMoveDescriptions from '@/output/manifests/moves.json';
@@ -9,7 +9,6 @@ import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonSprite } from '../pokemon/pokemon-sprite';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
 import { TrainerSprite } from './trainer-sprite';
-import { GroupedTrainer } from '@/utils/trainerGrouping';
 import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
 import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
 

@@ -611,3 +611,9 @@ export function isRegularItem(item: AnyItemData): item is ItemData {
 export function isTMHMItem(item: AnyItemData): item is TMHMData {
   return 'tmNumber' in item && item.tmNumber !== undefined;
 }
+export interface GroupedTrainer {
+  baseTrainer: LocationTrainer;
+  rematches: LocationTrainer[];
+  isGrouped: boolean;
+  groupType?: 'rematch' | 'starter_variation' | 'double_battle';
+}

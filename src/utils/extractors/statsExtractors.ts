@@ -58,6 +58,7 @@ export function extractDetailedStats(
 
     // Extract the Pokemon name from the file name
     const { basePokemonName, formName } = extractFormInfo(fileName);
+    // For form-specific files, create a unique key that includes the form name
     let pokemonName = formName ? `${basePokemonName} ${formName}`.trim() : basePokemonName.trim();
 
     console.log(`Processing extractFormInfo ${fileName} as ${pokemonName}`);
@@ -670,6 +671,18 @@ export function extractDetailedStats(
 
   // Write the detailedStats to a JSON file for use in the app
   const outputPath = path.join(__dirname, '../../../output/pokemon_detailed_stats.json');
+  
+  // Debug: Check what Typhlosion keys exist before writing
+  const typhlosionKeys = Object.keys(detailedStats).filter(k => k.includes('Typhlosion'));
+  console.log(`🔍 FINAL TYPHLOSION KEYS BEFORE WRITING: ${typhlosionKeys.join(', ')}`);
+  
+  // Debug: Check abilities for both forms
+  for (const key of typhlosionKeys) {
+    const abilities = detailedStats[key].updatedAbilities || detailedStats[key].abilities || [];
+    const hiddenAbility = abilities.find(a => a.isHidden)?.name || 'None';
+    console.log(`🔍 ${key} hidden ability: ${hiddenAbility}`);
+  }
+  
   fs.writeFileSync(outputPath, JSON.stringify(detailedStats, null, 2));
   console.log('Detailed stats extracted to', outputPath);
 

@@ -1,11 +1,4 @@
-import type { LocationTrainer } from '../types/types.js';
-
-export interface GroupedTrainer {
-  baseTrainer: LocationTrainer;
-  rematches: LocationTrainer[];
-  isGrouped: boolean;
-  groupType?: 'rematch' | 'starter_variation' | 'double_battle';
-}
+import type { GroupedTrainer, LocationTrainer } from '../types/types.ts';
 
 /**
  * Detect if a group of trainers represents starter variations
