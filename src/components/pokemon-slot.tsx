@@ -311,7 +311,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     // Use faithful or polished abilities based on context
     const abilities: Ability[] = showFaithful
       ? formData.detailedStats?.faithfulAbilities || formData.abilities || []
-      : formData.detailedStats?.updatedAbilities || formData.abilities || [];
+      : formData.detailedStats?.updatedAbilities || formData.updatedAbilities || [];
 
     const abilityList = abilities
       .map((ability) => {
@@ -693,7 +693,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
         // Get abilities for current context
         const abilities: Ability[] = showFaithful
           ? formData.detailedStats?.faithfulAbilities || formData.abilities || []
-          : formData.detailedStats?.updatedAbilities || formData.abilities || [];
+          : formData.detailedStats?.updatedAbilities || formData.updatedAbilities || [];
 
         const abilityList = abilities
           .map((ability) => {
