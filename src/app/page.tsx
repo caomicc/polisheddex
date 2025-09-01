@@ -334,7 +334,7 @@ const HelpSkeleton = () => {
         variants={variants}
         className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2  items-start space-x-2 bg-white dark:bg-black"
       >
-        <img
+        <Image
           src="/sprites/help-avatar.png"
           alt="avatar"
           height="100"
@@ -351,7 +351,7 @@ const HelpSkeleton = () => {
       >
         <p className="text-xs text-neutral-500">Check the FAQ first!</p>
         {/* <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 shrink-0" /> */}
-        <img
+        <Image
           src="/sprites/helper-avatar.png"
           alt="avatar"
           height="100"
@@ -408,32 +408,32 @@ const ItemsSkeleton = () => {
       <div className="grid grid-cols-3 gap-2 flex-1">
         {[
           {
-            bg: 'bg-[#ee7752]',
+            bg: 'bg-red-300',
             src: '/sprites/items/poke_ball.png',
             alt: 'Poké Ball',
           },
           {
-            bg: 'bg-blue-400',
+            bg: 'bg-blue-200',
             src: '/sprites/items/great_ball.png',
             alt: 'Great Ball',
           },
           {
-            bg: 'bg-purple-500',
+            bg: 'bg-purple-200',
             src: '/sprites/items/master_ball.png',
             alt: 'Master Ball',
           },
           {
-            bg: 'bg-orange-400',
+            bg: 'bg-orange-200',
             src: '/sprites/items/potion.png',
             alt: 'Potion',
           },
           {
-            bg: 'bg-teal-400',
+            bg: 'bg-green-200',
             src: '/sprites/items/repel.png',
             alt: 'Repel',
           },
           {
-            bg: 'bg-yellow-400',
+            bg: 'bg-yellow-200',
             src: '/sprites/items/thunderstone.png',
             alt: 'Thunderstone',
           },
