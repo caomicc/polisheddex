@@ -108,6 +108,7 @@ export const POKEMON_NAME_MAP: Record<string, string> = {
   'mr-mime': 'MR_MIME',
   'farfetch-d': 'FARFETCHD',
   'farfetchd': 'FARFETCHD',
+  'porygon-z': 'PORYGONZ',
   // Add more mappings as needed
 };
 

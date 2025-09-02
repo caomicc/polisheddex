@@ -358,6 +358,13 @@ async function createPokemonManifest(): Promise<void> {
           Object.keys(spriteManifest).forEach((key) => {
             if (baseNamePattern.test(key) && key !== pokemonId) {
               const formName = key.replace(`${pokemonId}_`, '');
+              
+              // Exclude known separate evolutions that might be mistaken for forms
+              const separateEvolutions = ['z']; // porygon_z should be treated as separate Pokemon, not a form
+              if (pokemonId === 'porygon' && separateEvolutions.includes(formName)) {
+                return; // Skip this, it's a separate evolution
+              }
+              
               if (!forms.includes(formName)) {
                 forms.push(formName);
               }
