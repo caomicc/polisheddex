@@ -1,5 +1,5 @@
 {
-  "name": "Lickilicky",
+  "name": "lickilicky",
   "nationalDex": 264,
   "johtoDex": 200,
   "evolution": {
@@ -51,24 +51,6 @@
       "specialDefense": 95,
       "total": 515
     },
-    "faithfulBaseStats": {
-      "hp": 110,
-      "attack": 85,
-      "defense": 95,
-      "speed": 50,
-      "specialAttack": 80,
-      "specialDefense": 95,
-      "total": 515
-    },
-    "polishedBaseStats": {
-      "hp": 110,
-      "attack": 85,
-      "defense": 95,
-      "speed": 50,
-      "specialAttack": 80,
-      "specialDefense": 95,
-      "total": 515
-    },
     "catchRate": 30,
     "baseExp": 193,
     "heldItems": [
@@ -82,50 +64,22 @@
     "abilities": [
       {
         "id": "own-tempo",
-        "name": "Own Tempo",
-        "description": "\tPrevents it from \tbecoming confused.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "oblivious",
-        "name": "Oblivious",
-        "description": "\tPrevents it from \tbeing infatuated.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "cloud-nine",
-        "name": "Cloud Nine",
-        "description": "\tEliminates effects \tof weather.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "own-tempo",
-        "name": "Own Tempo",
-        "description": "\tPrevents it from \tbecoming confused.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "oblivious",
-        "name": "Oblivious",
-        "description": "\tPrevents it from \tbeing infatuated.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "cloud-nine",
-        "name": "Cloud Nine",
-        "description": "\tEliminates effects \tof weather.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Monster",
@@ -1588,5 +1542,6 @@
       "species": "Licking",
       "description": "The long tongue is always soggy with slobber. The saliva contains a solvent that causes numbness."
     }
-  }
+  },
+  "locations": []
 }

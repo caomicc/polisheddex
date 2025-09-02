@@ -1,5 +1,5 @@
 {
-  "name": "Articuno",
+  "name": "articuno",
   "nationalDex": 144,
   "johtoDex": 273,
   "evolution": {
@@ -29,24 +29,6 @@
       "specialDefense": 125,
       "total": 580
     },
-    "faithfulBaseStats": {
-      "hp": 90,
-      "attack": 85,
-      "defense": 100,
-      "speed": 85,
-      "specialAttack": 95,
-      "specialDefense": 125,
-      "total": 580
-    },
-    "polishedBaseStats": {
-      "hp": 90,
-      "attack": 85,
-      "defense": 100,
-      "speed": 85,
-      "specialAttack": 95,
-      "specialDefense": 125,
-      "total": 580
-    },
     "catchRate": 3,
     "baseExp": 215,
     "heldItems": [
@@ -60,68 +42,34 @@
     "abilities": [
       {
         "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "snow-cloak",
-        "name": "Snow Cloak",
-        "description": "\tBoosts evasion in \thailstorms.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "snow-cloak",
-        "name": "Snow Cloak",
-        "description": "\tBoosts evasion in \thailstorms.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
         "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "snow-warning",
-        "name": "Snow Warning",
-        "description": "\tSummons hailstorm \twhen switched in.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "snow-cloak",
-        "name": "Snow Cloak",
-        "description": "\tBoosts evasion in \thailstorms.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -2489,7 +2437,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "competitive",
+          "name": "Competitive",
+          "description": "\tBoosts Sp.Atk on \tstat reduction.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "competitive",
+          "name": "Competitive",
+          "description": "\tBoosts Sp.Atk on \tstat reduction.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "competitive",
+          "name": "Competitive",
+          "description": "\tBoosts Sp.Atk on \tstat reduction.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 90,
         "attack": 85,
@@ -2535,25 +2505,7 @@
       "evYield": "3 SAt"
     }
   },
-  "locations": [
-    {
-      "area": "Cherrygrove Bay",
-      "method": "static",
-      "conditions": "Special encounter",
-      "eventType": "legendary",
-      "description": "Articuno can be encountered at Cherrygrove Bay.",
-      "level": 65,
-      "form": "galarian"
-    },
-    {
-      "area": "Seafoam Islands B4 F",
-      "method": "static",
-      "conditions": "Navigate to deepest chamber",
-      "eventType": "legendary",
-      "description": "Articuno can be encountered in Seafoam Islands.",
-      "level": 65
-    }
-  ],
+  "locations": [],
   "pokedexEntries": {
     "default": {
       "species": "Freeze",

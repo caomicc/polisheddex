@@ -2858,7 +2858,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "fur-coat",
+          "name": "Fur Coat",
+          "description": "\tHalves damage from \tphysical moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 65,
         "attack": 60,

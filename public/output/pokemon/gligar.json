@@ -1,5 +1,5 @@
 {
-  "name": "Gligar",
+  "name": "gligar",
   "nationalDex": 207,
   "johtoDex": 215,
   "evolution": {
@@ -69,24 +69,6 @@
       "specialDefense": 65,
       "total": 430
     },
-    "faithfulBaseStats": {
-      "hp": 65,
-      "attack": 75,
-      "defense": 105,
-      "speed": 85,
-      "specialAttack": 35,
-      "specialDefense": 65,
-      "total": 430
-    },
-    "polishedBaseStats": {
-      "hp": 65,
-      "attack": 75,
-      "defense": 105,
-      "speed": 85,
-      "specialAttack": 35,
-      "specialDefense": 65,
-      "total": 430
-    },
     "catchRate": 60,
     "baseExp": 108,
     "heldItems": [
@@ -100,50 +82,22 @@
     "abilities": [
       {
         "id": "hyper-cutter",
-        "name": "Hyper Cutter",
-        "description": "\tPrevents foes from \tlowering Attack.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "sand-veil",
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "immunity",
-        "name": "Immunity",
-        "description": "",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "hyper-cutter",
-        "name": "Hyper Cutter",
-        "description": "\tPrevents foes from \tlowering Attack.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "sand-veil",
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "immunity",
-        "name": "Immunity",
-        "description": "",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Bug",

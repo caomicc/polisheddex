@@ -1,5 +1,5 @@
 {
-  "name": "Rhyhorn",
+  "name": "rhyhorn",
   "nationalDex": 111,
   "johtoDex": 236,
   "evolution": {
@@ -91,24 +91,6 @@
       "specialDefense": 30,
       "total": 345
     },
-    "faithfulBaseStats": {
-      "hp": 80,
-      "attack": 85,
-      "defense": 95,
-      "speed": 25,
-      "specialAttack": 30,
-      "specialDefense": 30,
-      "total": 345
-    },
-    "polishedBaseStats": {
-      "hp": 80,
-      "attack": 85,
-      "defense": 95,
-      "speed": 25,
-      "specialAttack": 30,
-      "specialDefense": 30,
-      "total": 345
-    },
     "catchRate": 120,
     "baseExp": 135,
     "heldItems": [
@@ -122,68 +104,34 @@
     "abilities": [
       {
         "id": "lightning-rod",
-        "name": "Lightning Rod",
-        "description": "\tElectric moves \tboost Sp.Atk.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "rock-head",
-        "name": "Rock Head",
-        "description": "\tProtects it from \trecoil damage.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "reckless",
-        "name": "Reckless",
-        "description": "\tPowers up moves \tthat recoil.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "lightning-rod",
-        "name": "Lightning Rod",
-        "description": "\tElectric moves \tboost Sp.Atk.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "rock-head",
-        "name": "Rock Head",
-        "description": "\tProtects it from \trecoil damage.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "reckless",
-        "name": "Reckless",
-        "description": "\tPowers up moves \tthat recoil.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
         "id": "rock-head",
-        "name": "Rock Head",
-        "description": "\tProtects it from \trecoil damage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "solid-rock",
-        "name": "Solid Rock",
-        "description": "\tReduces super \teffective damage.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "reckless",
-        "name": "Reckless",
-        "description": "\tPowers up moves \tthat recoil.",
         "isHidden": true,
         "abilityType": "hidden"
       }

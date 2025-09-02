@@ -2477,7 +2477,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "pastel-veil",
+          "name": "Pastel Veil",
+          "description": "\tPrevents it from \tgetting poisoned.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "anticipation",
+          "name": "Anticipation",
+          "description": "\tSenses the foe's \tdangerous moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 65,
         "attack": 100,

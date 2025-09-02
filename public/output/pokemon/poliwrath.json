@@ -1,5 +1,5 @@
 {
-  "name": "Poliwrath",
+  "name": "poliwrath",
   "nationalDex": 62,
   "johtoDex": 79,
   "evolution": {
@@ -92,15 +92,6 @@
       "specialDefense": 90,
       "total": 510
     },
-    "faithfulBaseStats": {
-      "hp": 90,
-      "attack": 95,
-      "defense": 95,
-      "speed": 70,
-      "specialAttack": 70,
-      "specialDefense": 90,
-      "total": 510
-    },
     "polishedBaseStats": {
       "hp": 90,
       "attack": 95,
@@ -123,50 +114,22 @@
     "abilities": [
       {
         "id": "water-absorb",
-        "name": "Water Absorb",
-        "description": "\tRestores HP if hit \tby Water moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "damp",
-        "name": "Damp",
-        "description": "\tPrevents self- \tdestructing moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "swift-swim",
-        "name": "Swift Swim",
-        "description": "\tBoosts its Speed \tin rain.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "water-absorb",
-        "name": "Water Absorb",
-        "description": "\tRestores HP if hit \tby Water moves.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "damp",
-        "name": "Damp",
-        "description": "\tPrevents self- \tdestructing moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "swift-swim",
-        "name": "Swift Swim",
-        "description": "\tBoosts its Speed \tin rain.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Undiscovered"

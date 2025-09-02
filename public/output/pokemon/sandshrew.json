@@ -1,5 +1,5 @@
 {
-  "name": "Sandshrew",
+  "name": "sandshrew",
   "nationalDex": 27,
   "johtoDex": 49,
   "evolution": {
@@ -72,24 +72,6 @@
       "specialDefense": 30,
       "total": 300
     },
-    "faithfulBaseStats": {
-      "hp": 50,
-      "attack": 75,
-      "defense": 85,
-      "speed": 40,
-      "specialAttack": 20,
-      "specialDefense": 30,
-      "total": 300
-    },
-    "polishedBaseStats": {
-      "hp": 50,
-      "attack": 75,
-      "defense": 85,
-      "speed": 40,
-      "specialAttack": 20,
-      "specialDefense": 30,
-      "total": 300
-    },
     "catchRate": 255,
     "baseExp": 93,
     "heldItems": [
@@ -103,50 +85,22 @@
     "abilities": [
       {
         "id": "sand-veil",
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "sand-veil",
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sand-rush",
-        "name": "Sand Rush",
-        "description": "\tBoosts Speed in \ta sandstorm.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "sand-veil",
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "sand-veil",
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "sand-rush",
-        "name": "Sand Rush",
-        "description": "\tBoosts Speed in \ta sandstorm.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
@@ -2725,7 +2679,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "slush-rush",
+          "name": "Slush Rush",
+          "description": "\tBoosts Speed in \ta hailstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 50,
         "attack": 75,

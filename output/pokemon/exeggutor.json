@@ -1912,7 +1912,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "frisk",
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "frisk",
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "harvest",
+          "name": "Harvest",
+          "description": "\tMay recreate a \tBerry after use.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 95,
         "attack": 105,

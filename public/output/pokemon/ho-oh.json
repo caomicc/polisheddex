@@ -1,44 +1,10 @@
 {
-  "name": "Ho-Oh",
+  "name": "ho-oh",
   "nationalDex": 250,
   "johtoDex": 286,
-  "evolution": {
-    "methods": [],
-    "chain": [
-      "Ho-Oh"
-    ],
-    "chainWithMethods": {
-      "Ho-Oh": []
-    },
-    "faithfulMethods": [],
-    "faithfulChainWithMethods": {
-      "Ho-Oh": []
-    },
-    "updatedMethods": [],
-    "updatedChainWithMethods": {
-      "Ho-Oh": []
-    }
-  },
+  "evolution": null,
   "detailedStats": {
     "baseStats": {
-      "hp": 106,
-      "attack": 130,
-      "defense": 90,
-      "speed": 90,
-      "specialAttack": 110,
-      "specialDefense": 154,
-      "total": 680
-    },
-    "faithfulBaseStats": {
-      "hp": 106,
-      "attack": 130,
-      "defense": 90,
-      "speed": 90,
-      "specialAttack": 110,
-      "specialDefense": 154,
-      "total": 680
-    },
-    "polishedBaseStats": {
       "hp": 106,
       "attack": 130,
       "defense": 90,
@@ -60,68 +26,34 @@
     "abilities": [
       {
         "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "regenerator",
-        "name": "Regenerator",
-        "description": "\tRestores HP when \twithdrawn.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "regenerator",
-        "name": "Regenerator",
-        "description": "\tRestores HP when \twithdrawn.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
         "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "drought",
-        "name": "Drought",
-        "description": "\tSummons sunlight \twhen switched in.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "regenerator",
-        "name": "Regenerator",
-        "description": "\tRestores HP when \twithdrawn.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1478,5 +1410,6 @@
       "species": "Rainbow",
       "description": "It will reveal itself before a purehearted trainer by shining its bright rainbowcolored wings."
     }
-  }
+  },
+  "locations": []
 }

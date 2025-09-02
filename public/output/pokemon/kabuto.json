@@ -1,5 +1,5 @@
 {
-  "name": "Kabuto",
+  "name": "kabuto",
   "nationalDex": 140,
   "johtoDex": 259,
   "evolution": {
@@ -69,24 +69,6 @@
       "specialDefense": 45,
       "total": 355
     },
-    "faithfulBaseStats": {
-      "hp": 30,
-      "attack": 80,
-      "defense": 90,
-      "speed": 55,
-      "specialAttack": 55,
-      "specialDefense": 45,
-      "total": 355
-    },
-    "polishedBaseStats": {
-      "hp": 30,
-      "attack": 80,
-      "defense": 90,
-      "speed": 55,
-      "specialAttack": 55,
-      "specialDefense": 45,
-      "total": 355
-    },
     "catchRate": 45,
     "baseExp": 119,
     "heldItems": [],
@@ -98,50 +80,22 @@
     "abilities": [
       {
         "id": "swift-swim",
-        "name": "Swift Swim",
-        "description": "\tBoosts its Speed \tin rain.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "battle-armor",
-        "name": "Battle Armor",
-        "description": "",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "weak-armor",
-        "name": "Weak Armor",
-        "description": "\tPhysical attacks \ttrade Def for Spe.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "swift-swim",
-        "name": "Swift Swim",
-        "description": "\tBoosts its Speed \tin rain.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "battle-armor",
-        "name": "Battle Armor",
-        "description": "",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "weak-armor",
-        "name": "Weak Armor",
-        "description": "\tPhysical attacks \ttrade Def for Spe.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"
@@ -1275,14 +1229,7 @@
       ]
     }
   },
-  "locations": [
-    {
-      "area": "Pewter Museum of Science",
-      "method": "gift",
-      "npc": "Pewter Museum of Science",
-      "conditions": "Various requirements"
-    }
-  ],
+  "locations": [],
   "pokedexEntries": {
     "default": {
       "species": "Shellfish",

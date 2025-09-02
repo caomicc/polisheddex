@@ -2643,7 +2643,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "cursed-body",
+          "name": "Cursed Body",
+          "description": "\tMay disable a move \tused on it.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 60,
         "attack": 55,

@@ -1,5 +1,5 @@
 {
-  "name": "Marowak",
+  "name": "marowak",
   "nationalDex": 105,
   "johtoDex": 234,
   "evolution": {
@@ -72,15 +72,6 @@
       "specialDefense": 80,
       "total": 425
     },
-    "faithfulBaseStats": {
-      "hp": 60,
-      "attack": 80,
-      "defense": 110,
-      "speed": 45,
-      "specialAttack": 50,
-      "specialDefense": 80,
-      "total": 425
-    },
     "polishedBaseStats": {
       "hp": 60,
       "attack": 80,
@@ -103,50 +94,22 @@
     "abilities": [
       {
         "id": "rock-head",
-        "name": "Rock Head",
-        "description": "\tProtects it from \trecoil damage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "lightning-rod",
-        "name": "Lightning Rod",
-        "description": "\tElectric moves \tboost Sp.Atk.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "battle-armor",
-        "name": "Battle Armor",
-        "description": "",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "rock-head",
-        "name": "Rock Head",
-        "description": "\tProtects it from \trecoil damage.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "lightning-rod",
-        "name": "Lightning Rod",
-        "description": "\tElectric moves \tboost Sp.Atk.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "battle-armor",
-        "name": "Battle Armor",
-        "description": "",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Monster",
@@ -2812,7 +2775,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "cursed-body",
+          "name": "Cursed Body",
+          "description": "\tMay disable a move \tused on it.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "lightning-rod",
+          "name": "Lightning Rod",
+          "description": "\tElectric moves \tboost Sp.Atk.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 60,
         "attack": 80,

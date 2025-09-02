@@ -1,5 +1,5 @@
 {
-  "name": "Mamoswine",
+  "name": "mamoswine",
   "nationalDex": 274,
   "johtoDex": 220,
   "evolution": {
@@ -73,24 +73,6 @@
       "specialDefense": 60,
       "total": 530
     },
-    "faithfulBaseStats": {
-      "hp": 110,
-      "attack": 130,
-      "defense": 80,
-      "speed": 80,
-      "specialAttack": 70,
-      "specialDefense": 60,
-      "total": 530
-    },
-    "polishedBaseStats": {
-      "hp": 110,
-      "attack": 130,
-      "defense": 80,
-      "speed": 80,
-      "specialAttack": 70,
-      "specialDefense": 60,
-      "total": 530
-    },
     "catchRate": 50,
     "baseExp": 207,
     "heldItems": [
@@ -105,50 +87,22 @@
     "abilities": [
       {
         "id": "oblivious",
-        "name": "Oblivious",
-        "description": "\tPrevents it from \tbeing infatuated.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "snow-cloak",
-        "name": "Snow Cloak",
-        "description": "\tBoosts evasion in \thailstorms.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "thick-fat",
-        "name": "Thick Fat",
-        "description": "\tUps resistance to \tFire and Ice.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "oblivious",
-        "name": "Oblivious",
-        "description": "\tPrevents it from \tbeing infatuated.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "snow-cloak",
-        "name": "Snow Cloak",
-        "description": "\tBoosts evasion in \thailstorms.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "thick-fat",
-        "name": "Thick Fat",
-        "description": "\tUps resistance to \tFire and Ice.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Slow",
     "eggGroups": [
       "Field",
@@ -1446,5 +1400,6 @@
       "species": "Twin Tusk",
       "description": "Its impressive tusks are made of ice. The population thinned when it turned warm after the ice age."
     }
-  }
+  },
+  "locations": []
 }

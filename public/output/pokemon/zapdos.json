@@ -1,5 +1,5 @@
 {
-  "name": "Zapdos",
+  "name": "zapdos",
   "nationalDex": 145,
   "johtoDex": 274,
   "evolution": {
@@ -29,24 +29,6 @@
       "specialDefense": 90,
       "total": 580
     },
-    "faithfulBaseStats": {
-      "hp": 90,
-      "attack": 90,
-      "defense": 85,
-      "speed": 100,
-      "specialAttack": 125,
-      "specialDefense": 90,
-      "total": 580
-    },
-    "polishedBaseStats": {
-      "hp": 90,
-      "attack": 90,
-      "defense": 85,
-      "speed": 100,
-      "specialAttack": 125,
-      "specialDefense": 90,
-      "total": 580
-    },
     "catchRate": 3,
     "baseExp": 216,
     "heldItems": [
@@ -60,68 +42,34 @@
     "abilities": [
       {
         "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "static",
-        "name": "Static",
-        "description": "\tContact may cause \tparalysis.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "static",
-        "name": "Static",
-        "description": "\tContact may cause \tparalysis.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
         "id": "pressure",
-        "name": "Pressure",
-        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "drizzle",
-        "name": "Drizzle",
-        "description": "\tSummons rain when \tswitched in.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "static",
-        "name": "Static",
-        "description": "\tContact may cause \tparalysis.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -2534,7 +2482,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "defiant",
+          "name": "Defiant",
+          "description": "\tBoosts Attack when \tstats are lowered.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "defiant",
+          "name": "Defiant",
+          "description": "\tBoosts Attack when \tstats are lowered.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "defiant",
+          "name": "Defiant",
+          "description": "\tBoosts Attack when \tstats are lowered.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 90,
         "attack": 125,
@@ -2580,25 +2550,7 @@
       "evYield": "3 Atk"
     }
   },
-  "locations": [
-    {
-      "area": "Cherrygrove Bay",
-      "method": "static",
-      "conditions": "Special encounter",
-      "eventType": "legendary",
-      "description": "Zapdos can be encountered at Cherrygrove Bay.",
-      "level": 65,
-      "form": "galarian"
-    },
-    {
-      "area": "Route10 North",
-      "method": "static",
-      "conditions": "Power Plant access",
-      "eventType": "legendary",
-      "description": "Zapdos can be encountered on Route 10 North.",
-      "level": 65
-    }
-  ],
+  "locations": [],
   "pokedexEntries": {
     "default": {
       "species": "Electric",

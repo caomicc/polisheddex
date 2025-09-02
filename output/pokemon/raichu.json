@@ -2021,7 +2021,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "motor-drive",
+          "name": "Motor Drive",
+          "description": "\tElectric moves \tboost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 60,
         "attack": 95,

@@ -1,5 +1,5 @@
 {
-  "name": "Azurill",
+  "name": "azurill",
   "nationalDex": 252,
   "johtoDex": 140,
   "evolution": {
@@ -91,24 +91,6 @@
       "specialDefense": 40,
       "total": 190
     },
-    "faithfulBaseStats": {
-      "hp": 50,
-      "attack": 20,
-      "defense": 40,
-      "speed": 20,
-      "specialAttack": 20,
-      "specialDefense": 40,
-      "total": 190
-    },
-    "polishedBaseStats": {
-      "hp": 50,
-      "attack": 20,
-      "defense": 40,
-      "speed": 20,
-      "specialAttack": 20,
-      "specialDefense": 40,
-      "total": 190
-    },
     "catchRate": 150,
     "baseExp": 33,
     "heldItems": [],
@@ -120,50 +102,22 @@
     "abilities": [
       {
         "id": "thick-fat",
-        "name": "Thick Fat",
-        "description": "\tUps resistance to \tFire and Ice.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "huge-power",
-        "name": "Huge Power",
-        "description": "\tBoosts its Attack \tstat.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sap-sipper",
-        "name": "Sap Sipper",
-        "description": "\tBoosts Attack when \thit by Grass.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "thick-fat",
-        "name": "Thick Fat",
-        "description": "\tUps resistance to \tFire and Ice.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "huge-power",
-        "name": "Huge Power",
-        "description": "\tBoosts its Attack \tstat.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "sap-sipper",
-        "name": "Sap Sipper",
-        "description": "\tBoosts Attack when \thit by Grass.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Fast",
     "eggGroups": [
       "Undiscovered",
@@ -1106,5 +1060,6 @@
       "species": "Polka Dot",
       "description": "Its tail is filled with the nutrients necessary for growth. It plays by bouncing on its tail."
     }
-  }
+  },
+  "locations": []
 }

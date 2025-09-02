@@ -1,5 +1,5 @@
 {
-  "name": "Politoed",
+  "name": "politoed",
   "nationalDex": 186,
   "johtoDex": 80,
   "evolution": {
@@ -92,15 +92,6 @@
       "specialDefense": 100,
       "total": 500
     },
-    "faithfulBaseStats": {
-      "hp": 90,
-      "attack": 75,
-      "defense": 75,
-      "speed": 70,
-      "specialAttack": 90,
-      "specialDefense": 100,
-      "total": 500
-    },
     "polishedBaseStats": {
       "hp": 90,
       "attack": 75,
@@ -123,50 +114,22 @@
     "abilities": [
       {
         "id": "water-absorb",
-        "name": "Water Absorb",
-        "description": "\tRestores HP if hit \tby Water moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "damp",
-        "name": "Damp",
-        "description": "\tPrevents self- \tdestructing moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "drizzle",
-        "name": "Drizzle",
-        "description": "\tSummons rain when \tswitched in.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "water-absorb",
-        "name": "Water Absorb",
-        "description": "\tRestores HP if hit \tby Water moves.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "damp",
-        "name": "Damp",
-        "description": "\tPrevents self- \tdestructing moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "drizzle",
-        "name": "Drizzle",
-        "description": "\tSummons rain when \tswitched in.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Undiscovered"
@@ -1160,5 +1123,6 @@
       "species": "Frog",
       "description": "When it expands its throat to croak out a tune, nearby Poliwag and Poliwhirl gather immediately."
     }
-  }
+  },
+  "locations": []
 }

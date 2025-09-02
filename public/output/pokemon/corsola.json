@@ -1,5 +1,5 @@
 {
-  "name": "Corsola",
+  "name": "corsola",
   "nationalDex": 222,
   "johtoDex": 191,
   "evolution": {
@@ -54,24 +54,6 @@
       "specialDefense": 95,
       "total": 410
     },
-    "faithfulBaseStats": {
-      "hp": 65,
-      "attack": 55,
-      "defense": 95,
-      "speed": 35,
-      "specialAttack": 65,
-      "specialDefense": 95,
-      "total": 410
-    },
-    "polishedBaseStats": {
-      "hp": 65,
-      "attack": 55,
-      "defense": 95,
-      "speed": 35,
-      "specialAttack": 65,
-      "specialDefense": 95,
-      "total": 410
-    },
     "catchRate": 60,
     "baseExp": 113,
     "heldItems": [
@@ -85,50 +67,22 @@
     "abilities": [
       {
         "id": "hustle",
-        "name": "Hustle",
-        "description": "\tBoosts Attack, but \tlowers accuracy.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "natural-cure",
-        "name": "Natural Cure",
-        "description": "\tSwitch-outs heal \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "regenerator",
-        "name": "Regenerator",
-        "description": "\tRestores HP when \twithdrawn.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "hustle",
-        "name": "Hustle",
-        "description": "\tBoosts Attack, but \tlowers accuracy.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "natural-cure",
-        "name": "Natural Cure",
-        "description": "\tSwitch-outs heal \tstatus problems.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "regenerator",
-        "name": "Regenerator",
-        "description": "\tRestores HP when \twithdrawn.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Fast",
     "eggGroups": [
       "Undiscovered"
@@ -2643,7 +2597,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "cursed-body",
+          "name": "Cursed Body",
+          "description": "\tMay disable a move \tused on it.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 60,
         "attack": 55,

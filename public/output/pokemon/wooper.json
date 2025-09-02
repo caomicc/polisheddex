@@ -1,5 +1,5 @@
 {
-  "name": "Wooper",
+  "name": "wooper",
   "nationalDex": 194,
   "johtoDex": 58,
   "evolution": {
@@ -70,24 +70,6 @@
       "specialDefense": 25,
       "total": 210
     },
-    "faithfulBaseStats": {
-      "hp": 55,
-      "attack": 45,
-      "defense": 45,
-      "speed": 15,
-      "specialAttack": 25,
-      "specialDefense": 25,
-      "total": 210
-    },
-    "polishedBaseStats": {
-      "hp": 55,
-      "attack": 45,
-      "defense": 45,
-      "speed": 15,
-      "specialAttack": 25,
-      "specialDefense": 25,
-      "total": 210
-    },
     "catchRate": 255,
     "baseExp": 52,
     "heldItems": [
@@ -101,50 +83,22 @@
     "abilities": [
       {
         "id": "damp",
-        "name": "Damp",
-        "description": "\tPrevents self- \tdestructing moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "water-absorb",
-        "name": "Water Absorb",
-        "description": "\tRestores HP if hit \tby Water moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "unaware",
-        "name": "Unaware",
-        "description": "\tIgnores the foe's \tstat changes.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "damp",
-        "name": "Damp",
-        "description": "\tPrevents self- \tdestructing moves.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "water-absorb",
-        "name": "Water Absorb",
-        "description": "\tRestores HP if hit \tby Water moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "unaware",
-        "name": "Unaware",
-        "description": "\tIgnores the foe's \tstat changes.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"
@@ -2280,7 +2234,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "poison-point",
+          "name": "Poison Point",
+          "description": "\tContact may poison \tthe foe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "water-absorb",
+          "name": "Water Absorb",
+          "description": "\tRestores HP if hit \tby Water moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "unaware",
+          "name": "Unaware",
+          "description": "\tIgnores the foe's \tstat changes.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 55,
         "attack": 45,

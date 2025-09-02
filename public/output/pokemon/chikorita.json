@@ -1,5 +1,5 @@
 {
-  "name": "Chikorita",
+  "name": "chikorita",
   "nationalDex": 152,
   "johtoDex": 1,
   "evolution": {
@@ -91,24 +91,6 @@
       "specialDefense": 65,
       "total": 318
     },
-    "faithfulBaseStats": {
-      "hp": 45,
-      "attack": 49,
-      "defense": 65,
-      "speed": 45,
-      "specialAttack": 49,
-      "specialDefense": 65,
-      "total": 318
-    },
-    "polishedBaseStats": {
-      "hp": 45,
-      "attack": 49,
-      "defense": 65,
-      "speed": 45,
-      "specialAttack": 49,
-      "specialDefense": 65,
-      "total": 318
-    },
     "catchRate": 45,
     "baseExp": 64,
     "heldItems": [],
@@ -120,68 +102,34 @@
     "abilities": [
       {
         "id": "overgrow",
-        "name": "Overgrow",
-        "description": "\tBoosts Grass moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "overgrow",
-        "name": "Overgrow",
-        "description": "\tBoosts Grass moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "leaf-guard",
-        "name": "Leaf Guard",
-        "description": "\tPrevents status \tproblems in sun.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "overgrow",
-        "name": "Overgrow",
-        "description": "\tBoosts Grass moves \tin a pinch.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "overgrow",
-        "name": "Overgrow",
-        "description": "\tBoosts Grass moves \tin a pinch.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "leaf-guard",
-        "name": "Leaf Guard",
-        "description": "\tPrevents status \tproblems in sun.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
         "id": "overgrow",
-        "name": "Overgrow",
-        "description": "\tBoosts Grass moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "natural-cure",
-        "name": "Natural Cure",
-        "description": "\tSwitch-outs heal \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "leaf-guard",
-        "name": "Leaf Guard",
-        "description": "\tPrevents status \tproblems in sun.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1373,5 +1321,6 @@
       "species": "Leaf",
       "description": "It loves to bask in the sunlight. It uses the leaf on its head to seek out warm places."
     }
-  }
+  },
+  "locations": []
 }

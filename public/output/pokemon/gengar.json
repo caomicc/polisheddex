@@ -1,5 +1,5 @@
 {
-  "name": "Gengar",
+  "name": "gengar",
   "nationalDex": 94,
   "johtoDex": 63,
   "evolution": {
@@ -73,24 +73,6 @@
       "specialDefense": 75,
       "total": 500
     },
-    "faithfulBaseStats": {
-      "hp": 60,
-      "attack": 65,
-      "defense": 60,
-      "speed": 110,
-      "specialAttack": 130,
-      "specialDefense": 75,
-      "total": 500
-    },
-    "polishedBaseStats": {
-      "hp": 60,
-      "attack": 65,
-      "defense": 60,
-      "speed": 110,
-      "specialAttack": 130,
-      "specialDefense": 75,
-      "total": 500
-    },
     "catchRate": 45,
     "baseExp": 190,
     "heldItems": [
@@ -104,68 +86,34 @@
     "abilities": [
       {
         "id": "cursed-body",
-        "name": "Cursed Body",
-        "description": "\tMay disable a move \tused on it.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "cursed-body",
-        "name": "Cursed Body",
-        "description": "\tMay disable a move \tused on it.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "shadow-tag",
-        "name": "Shadow Tag",
-        "description": "\tPrevents the foe \tfrom escaping.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "cursed-body",
-        "name": "Cursed Body",
-        "description": "\tMay disable a move \tused on it.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "cursed-body",
-        "name": "Cursed Body",
-        "description": "\tMay disable a move \tused on it.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "shadow-tag",
-        "name": "Shadow Tag",
-        "description": "\tPrevents the foe \tfrom escaping.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
         "id": "cursed-body",
-        "name": "Cursed Body",
-        "description": "\tMay disable a move \tused on it.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "levitate",
-        "name": "Levitate",
-        "description": "\tGives immunity to \tGround-type moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "shadow-tag",
-        "name": "Shadow Tag",
-        "description": "\tPrevents the foe \tfrom escaping.",
         "isHidden": true,
         "abilityType": "hidden"
       }

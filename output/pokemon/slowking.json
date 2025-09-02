@@ -3220,7 +3220,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "own-tempo",
+          "name": "Own Tempo",
+          "description": "\tPrevents it from \tbecoming confused.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "regenerator",
+          "name": "Regenerator",
+          "description": "\tRestores HP when \twithdrawn.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 95,
         "attack": 65,

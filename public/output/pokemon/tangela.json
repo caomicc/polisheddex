@@ -1,5 +1,5 @@
 {
-  "name": "Tangela",
+  "name": "tangela",
   "nationalDex": 114,
   "johtoDex": 201,
   "evolution": {
@@ -69,24 +69,6 @@
       "specialDefense": 40,
       "total": 435
     },
-    "faithfulBaseStats": {
-      "hp": 65,
-      "attack": 55,
-      "defense": 115,
-      "speed": 60,
-      "specialAttack": 100,
-      "specialDefense": 40,
-      "total": 435
-    },
-    "polishedBaseStats": {
-      "hp": 65,
-      "attack": 55,
-      "defense": 115,
-      "speed": 60,
-      "specialAttack": 100,
-      "specialDefense": 40,
-      "total": 435
-    },
     "catchRate": 45,
     "baseExp": 166,
     "heldItems": [],
@@ -98,50 +80,22 @@
     "abilities": [
       {
         "id": "chlorophyll",
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "leaf-guard",
-        "name": "Leaf Guard",
-        "description": "\tPrevents status \tproblems in sun.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "regenerator",
-        "name": "Regenerator",
-        "description": "\tRestores HP when \twithdrawn.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "chlorophyll",
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "leaf-guard",
-        "name": "Leaf Guard",
-        "description": "\tPrevents status \tproblems in sun.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "regenerator",
-        "name": "Regenerator",
-        "description": "\tRestores HP when \twithdrawn.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Grass",

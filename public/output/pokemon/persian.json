@@ -1,5 +1,5 @@
 {
-  "name": "Persian",
+  "name": "persian",
   "nationalDex": 53,
   "johtoDex": 149,
   "evolution": {
@@ -94,24 +94,6 @@
       "specialDefense": 65,
       "total": 440
     },
-    "faithfulBaseStats": {
-      "hp": 65,
-      "attack": 70,
-      "defense": 60,
-      "speed": 115,
-      "specialAttack": 65,
-      "specialDefense": 65,
-      "total": 440
-    },
-    "polishedBaseStats": {
-      "hp": 65,
-      "attack": 70,
-      "defense": 60,
-      "speed": 115,
-      "specialAttack": 65,
-      "specialDefense": 65,
-      "total": 440
-    },
     "catchRate": 90,
     "baseExp": 148,
     "heldItems": [
@@ -125,50 +107,22 @@
     "abilities": [
       {
         "id": "limber",
-        "name": "Limber",
-        "description": "\tProtects from \tparalysis.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "technician",
-        "name": "Technician",
-        "description": "\tPowers up its \tweaker moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "unnerve",
-        "name": "Unnerve",
-        "description": "\tPrevents foes from \teating Berries.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "limber",
-        "name": "Limber",
-        "description": "\tProtects from \tparalysis.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "technician",
-        "name": "Technician",
-        "description": "\tPowers up its \tweaker moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "unnerve",
-        "name": "Unnerve",
-        "description": "\tPrevents foes from \teating Berries.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
@@ -2858,7 +2812,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "fur-coat",
+          "name": "Fur Coat",
+          "description": "\tHalves damage from \tphysical moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 65,
         "attack": 60,

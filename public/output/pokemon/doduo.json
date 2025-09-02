@@ -1,5 +1,5 @@
 {
-  "name": "Doduo",
+  "name": "doduo",
   "nationalDex": 84,
   "johtoDex": 229,
   "evolution": {
@@ -69,24 +69,6 @@
       "specialDefense": 35,
       "total": 310
     },
-    "faithfulBaseStats": {
-      "hp": 35,
-      "attack": 85,
-      "defense": 45,
-      "speed": 75,
-      "specialAttack": 35,
-      "specialDefense": 35,
-      "total": 310
-    },
-    "polishedBaseStats": {
-      "hp": 35,
-      "attack": 85,
-      "defense": 45,
-      "speed": 75,
-      "specialAttack": 35,
-      "specialDefense": 35,
-      "total": 310
-    },
     "catchRate": 190,
     "baseExp": 96,
     "heldItems": [
@@ -100,50 +82,22 @@
     "abilities": [
       {
         "id": "run-away",
-        "name": "Run Away",
-        "description": "\tSure getaway from \twild #mon.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "early-bird",
-        "name": "Early Bird",
-        "description": "\tAwakens quickly \tfrom sleep.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "tangled-feet",
-        "name": "Tangled Feet",
-        "description": "\tBoosts evasion if \tit is confused.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "run-away",
-        "name": "Run Away",
-        "description": "\tSure getaway from \twild #mon.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "early-bird",
-        "name": "Early Bird",
-        "description": "\tAwakens quickly \tfrom sleep.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "tangled-feet",
-        "name": "Tangled Feet",
-        "description": "\tBoosts evasion if \tit is confused.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Flying",

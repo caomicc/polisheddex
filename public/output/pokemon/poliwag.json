@@ -1,5 +1,5 @@
 {
-  "name": "Poliwag",
+  "name": "poliwag",
   "nationalDex": 60,
   "johtoDex": 77,
   "evolution": {
@@ -110,24 +110,6 @@
       "specialDefense": 40,
       "total": 300
     },
-    "faithfulBaseStats": {
-      "hp": 40,
-      "attack": 50,
-      "defense": 40,
-      "speed": 90,
-      "specialAttack": 40,
-      "specialDefense": 40,
-      "total": 300
-    },
-    "polishedBaseStats": {
-      "hp": 40,
-      "attack": 50,
-      "defense": 40,
-      "speed": 90,
-      "specialAttack": 40,
-      "specialDefense": 40,
-      "total": 300
-    },
     "catchRate": 255,
     "baseExp": 77,
     "heldItems": [],
@@ -139,50 +121,22 @@
     "abilities": [
       {
         "id": "water-absorb",
-        "name": "Water Absorb",
-        "description": "\tRestores HP if hit \tby Water moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "damp",
-        "name": "Damp",
-        "description": "\tPrevents self- \tdestructing moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "swift-swim",
-        "name": "Swift Swim",
-        "description": "\tBoosts its Speed \tin rain.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "water-absorb",
-        "name": "Water Absorb",
-        "description": "\tRestores HP if hit \tby Water moves.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "damp",
-        "name": "Damp",
-        "description": "\tPrevents self- \tdestructing moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "swift-swim",
-        "name": "Swift Swim",
-        "description": "\tBoosts its Speed \tin rain.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Undiscovered"

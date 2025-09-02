@@ -1,5 +1,5 @@
 {
-  "name": "Slowking",
+  "name": "slowking",
   "nationalDex": 199,
   "johtoDex": 87,
   "evolution": {
@@ -112,15 +112,6 @@
       "specialDefense": 110,
       "total": 490
     },
-    "faithfulBaseStats": {
-      "hp": 95,
-      "attack": 75,
-      "defense": 80,
-      "speed": 30,
-      "specialAttack": 100,
-      "specialDefense": 110,
-      "total": 490
-    },
     "polishedBaseStats": {
       "hp": 95,
       "attack": 75,
@@ -143,50 +134,22 @@
     "abilities": [
       {
         "id": "oblivious",
-        "name": "Oblivious",
-        "description": "\tPrevents it from \tbeing infatuated.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "own-tempo",
-        "name": "Own Tempo",
-        "description": "\tPrevents it from \tbecoming confused.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "regenerator",
-        "name": "Regenerator",
-        "description": "\tRestores HP when \twithdrawn.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "oblivious",
-        "name": "Oblivious",
-        "description": "\tPrevents it from \tbeing infatuated.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "own-tempo",
-        "name": "Own Tempo",
-        "description": "\tPrevents it from \tbecoming confused.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "regenerator",
-        "name": "Regenerator",
-        "description": "\tRestores HP when \twithdrawn.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Monster",
@@ -3220,7 +3183,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "own-tempo",
+          "name": "Own Tempo",
+          "description": "\tPrevents it from \tbecoming confused.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "regenerator",
+          "name": "Regenerator",
+          "description": "\tRestores HP when \twithdrawn.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 95,
         "attack": 65,

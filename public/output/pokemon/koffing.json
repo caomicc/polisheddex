@@ -1,5 +1,5 @@
 {
-  "name": "Koffing",
+  "name": "koffing",
   "nationalDex": 109,
   "johtoDex": 121,
   "evolution": {
@@ -111,24 +111,6 @@
       "specialDefense": 45,
       "total": 340
     },
-    "faithfulBaseStats": {
-      "hp": 40,
-      "attack": 65,
-      "defense": 95,
-      "speed": 35,
-      "specialAttack": 60,
-      "specialDefense": 45,
-      "total": 340
-    },
-    "polishedBaseStats": {
-      "hp": 40,
-      "attack": 65,
-      "defense": 95,
-      "speed": 35,
-      "specialAttack": 60,
-      "specialDefense": 45,
-      "total": 340
-    },
     "catchRate": 190,
     "baseExp": 114,
     "heldItems": [
@@ -142,50 +124,22 @@
     "abilities": [
       {
         "id": "levitate",
-        "name": "Levitate",
-        "description": "\tGives immunity to \tGround-type moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "neutralizing-gas",
-        "name": "Neutralizing Gas",
-        "description": "\tSuppresses all \tother Abilities.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "stench",
-        "name": "Stench",
-        "description": "\tMay cause the foe \tto flinch.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "levitate",
-        "name": "Levitate",
-        "description": "\tGives immunity to \tGround-type moves.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "neutralizing-gas",
-        "name": "Neutralizing Gas",
-        "description": "\tSuppresses all \tother Abilities.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "stench",
-        "name": "Stench",
-        "description": "\tMay cause the foe \tto flinch.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Amorphous",

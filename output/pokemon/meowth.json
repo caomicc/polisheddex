@@ -2560,7 +2560,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "pickup",
+          "name": "Pickup",
+          "description": "\tThe #mon may \tpick up items.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "tough-claws",
+          "name": "Tough Claws",
+          "description": "\tBoosts moves that \tmakes contact.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 40,
         "attack": 35,
@@ -3719,7 +3741,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "battle-armor",
+          "name": "Battle Armor",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "tough-claws",
+          "name": "Tough Claws",
+          "description": "\tBoosts moves that \tmakes contact.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "steely-spirit",
+          "name": "Steely Spirit",
+          "description": "\tBoosts Steel-type \tmoves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 50,
         "attack": 65,

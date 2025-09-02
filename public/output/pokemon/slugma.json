@@ -1,5 +1,5 @@
 {
-  "name": "Slugma",
+  "name": "slugma",
   "nationalDex": 218,
   "johtoDex": 243,
   "evolution": {
@@ -69,24 +69,6 @@
       "specialDefense": 40,
       "total": 250
     },
-    "faithfulBaseStats": {
-      "hp": 40,
-      "attack": 40,
-      "defense": 40,
-      "speed": 20,
-      "specialAttack": 70,
-      "specialDefense": 40,
-      "total": 250
-    },
-    "polishedBaseStats": {
-      "hp": 40,
-      "attack": 40,
-      "defense": 40,
-      "speed": 20,
-      "specialAttack": 70,
-      "specialDefense": 40,
-      "total": 250
-    },
     "catchRate": 190,
     "baseExp": 78,
     "heldItems": [],
@@ -98,50 +80,22 @@
     "abilities": [
       {
         "id": "magma-armor",
-        "name": "Magma Armor",
-        "description": "\tPrevents it from \tbecoming frozen.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "flame-body",
-        "name": "Flame Body",
-        "description": "\tContact may burn \tthe foe.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "weak-armor",
-        "name": "Weak Armor",
-        "description": "\tPhysical attacks \ttrade Def for Spe.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "magma-armor",
-        "name": "Magma Armor",
-        "description": "\tPrevents it from \tbecoming frozen.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "flame-body",
-        "name": "Flame Body",
-        "description": "\tContact may burn \tthe foe.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "weak-armor",
-        "name": "Weak Armor",
-        "description": "\tPhysical attacks \ttrade Def for Spe.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Amorphous",

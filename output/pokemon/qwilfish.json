@@ -2667,7 +2667,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "poison-point",
+          "name": "Poison Point",
+          "description": "\tContact may poison \tthe foe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 65,
         "attack": 95,

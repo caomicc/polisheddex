@@ -1,5 +1,5 @@
 {
-  "name": "Igglybuff",
+  "name": "igglybuff",
   "nationalDex": 174,
   "johtoDex": 43,
   "evolution": {
@@ -91,24 +91,6 @@
       "specialDefense": 20,
       "total": 210
     },
-    "faithfulBaseStats": {
-      "hp": 90,
-      "attack": 30,
-      "defense": 15,
-      "speed": 15,
-      "specialAttack": 40,
-      "specialDefense": 20,
-      "total": 210
-    },
-    "polishedBaseStats": {
-      "hp": 90,
-      "attack": 30,
-      "defense": 15,
-      "speed": 15,
-      "specialAttack": 40,
-      "specialDefense": 20,
-      "total": 210
-    },
     "catchRate": 150,
     "baseExp": 39,
     "heldItems": [],
@@ -120,68 +102,34 @@
     "abilities": [
       {
         "id": "cute-charm",
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "competitive",
-        "name": "Competitive",
-        "description": "\tBoosts Sp.Atk on \tstat reduction.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "frisk",
-        "name": "Frisk",
-        "description": "\tChecks the foe's \theld item.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "cute-charm",
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "competitive",
-        "name": "Competitive",
-        "description": "\tBoosts Sp.Atk on \tstat reduction.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "frisk",
-        "name": "Frisk",
-        "description": "\tChecks the foe's \theld item.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
         "id": "cute-charm",
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "competitive",
-        "name": "Competitive",
-        "description": "\tBoosts Sp.Atk on \tstat reduction.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "soundproof",
-        "name": "Soundproof",
-        "description": "\tGives immunity to \tsound-based moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1157,5 +1105,6 @@
       "species": "Balloon",
       "description": "Instead of walking with its short legs, it moves around by bouncing on its soft, tender body."
     }
-  }
+  },
+  "locations": []
 }

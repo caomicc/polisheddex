@@ -2264,7 +2264,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "hustle",
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 30,
         "attack": 56,

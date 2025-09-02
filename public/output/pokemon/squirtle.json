@@ -1,5 +1,5 @@
 {
-  "name": "Squirtle",
+  "name": "squirtle",
   "nationalDex": 7,
   "johtoDex": 270,
   "evolution": {
@@ -91,24 +91,6 @@
       "specialDefense": 64,
       "total": 314
     },
-    "faithfulBaseStats": {
-      "hp": 44,
-      "attack": 48,
-      "defense": 65,
-      "speed": 43,
-      "specialAttack": 50,
-      "specialDefense": 64,
-      "total": 314
-    },
-    "polishedBaseStats": {
-      "hp": 44,
-      "attack": 48,
-      "defense": 65,
-      "speed": 43,
-      "specialAttack": 50,
-      "specialDefense": 64,
-      "total": 314
-    },
     "catchRate": 45,
     "baseExp": 66,
     "heldItems": [],
@@ -120,50 +102,22 @@
     "abilities": [
       {
         "id": "torrent",
-        "name": "Torrent",
-        "description": "\tBoosts Water moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "rain-dish",
-        "name": "Rain Dish",
-        "description": "\tGradually regains \tHP in rain.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "shell-armor",
-        "name": "Shell Armor",
-        "description": "\tProtects from \tcritical hits.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "torrent",
-        "name": "Torrent",
-        "description": "\tBoosts Water moves \tin a pinch.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "rain-dish",
-        "name": "Rain Dish",
-        "description": "\tGradually regains \tHP in rain.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "shell-armor",
-        "name": "Shell Armor",
-        "description": "\tProtects from \tcritical hits.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Monster",
@@ -1355,5 +1309,6 @@
       "species": "Tiny Turtle",
       "description": "When it feels threatened, it draws its legs inside its shell and sprays water from its mouth."
     }
-  }
+  },
+  "locations": []
 }

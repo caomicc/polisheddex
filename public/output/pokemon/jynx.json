@@ -1,5 +1,5 @@
 {
-  "name": "Jynx",
+  "name": "jynx",
   "nationalDex": 124,
   "johtoDex": 168,
   "evolution": {
@@ -51,15 +51,6 @@
       "specialDefense": 95,
       "total": 455
     },
-    "faithfulBaseStats": {
-      "hp": 65,
-      "attack": 50,
-      "defense": 35,
-      "speed": 95,
-      "specialAttack": 115,
-      "specialDefense": 95,
-      "total": 455
-    },
     "polishedBaseStats": {
       "hp": 70,
       "attack": 60,
@@ -83,68 +74,34 @@
     "abilities": [
       {
         "id": "oblivious",
-        "name": "Oblivious",
-        "description": "\tPrevents it from \tbeing infatuated.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "forewarn",
-        "name": "Forewarn",
-        "description": "\tDetermines the \tfoe's moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "dry-skin",
-        "name": "Dry Skin",
-        "description": "\tReduces HP in sun. \tWater restores HP.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "oblivious",
-        "name": "Oblivious",
-        "description": "\tPrevents it from \tbeing infatuated.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "forewarn",
-        "name": "Forewarn",
-        "description": "\tDetermines the \tfoe's moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "dry-skin",
-        "name": "Dry Skin",
-        "description": "\tReduces HP in sun. \tWater restores HP.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
         "id": "oblivious",
-        "name": "Oblivious",
-        "description": "\tPrevents it from \tbeing infatuated.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "filter",
-        "name": "Filter",
-        "description": "",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "dry-skin",
-        "name": "Dry Skin",
-        "description": "\tReduces HP in sun. \tWater restores HP.",
         "isHidden": true,
         "abilityType": "hidden"
       }

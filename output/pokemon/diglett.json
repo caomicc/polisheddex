@@ -2287,7 +2287,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "tangling-hair",
+          "name": "Tangling Hair",
+          "description": "\tContact may lower \tthe foe's Speed.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sand-force",
+          "name": "Sand Force",
+          "description": "\tBoosts some moves \tin a sandstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 10,
         "attack": 55,

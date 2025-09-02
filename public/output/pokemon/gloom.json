@@ -1,5 +1,5 @@
 {
-  "name": "Gloom",
+  "name": "gloom",
   "nationalDex": 44,
   "johtoDex": 89,
   "evolution": {
@@ -125,24 +125,6 @@
       "specialDefense": 75,
       "total": 395
     },
-    "faithfulBaseStats": {
-      "hp": 60,
-      "attack": 65,
-      "defense": 70,
-      "speed": 40,
-      "specialAttack": 85,
-      "specialDefense": 75,
-      "total": 395
-    },
-    "polishedBaseStats": {
-      "hp": 60,
-      "attack": 65,
-      "defense": 70,
-      "speed": 40,
-      "specialAttack": 85,
-      "specialDefense": 75,
-      "total": 395
-    },
     "catchRate": 120,
     "baseExp": 132,
     "heldItems": [
@@ -156,50 +138,22 @@
     "abilities": [
       {
         "id": "chlorophyll",
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "chlorophyll",
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "stench",
-        "name": "Stench",
-        "description": "\tMay cause the foe \tto flinch.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "chlorophyll",
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "chlorophyll",
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "stench",
-        "name": "Stench",
-        "description": "\tMay cause the foe \tto flinch.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Grass",

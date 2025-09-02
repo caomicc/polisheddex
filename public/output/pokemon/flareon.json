@@ -1,5 +1,5 @@
 {
-  "name": "Flareon",
+  "name": "flareon",
   "nationalDex": 136,
   "johtoDex": 206,
   "evolution": {
@@ -244,24 +244,6 @@
       "specialDefense": 110,
       "total": 525
     },
-    "faithfulBaseStats": {
-      "hp": 65,
-      "attack": 130,
-      "defense": 60,
-      "speed": 65,
-      "specialAttack": 95,
-      "specialDefense": 110,
-      "total": 525
-    },
-    "polishedBaseStats": {
-      "hp": 65,
-      "attack": 130,
-      "defense": 60,
-      "speed": 65,
-      "specialAttack": 95,
-      "specialDefense": 110,
-      "total": 525
-    },
     "catchRate": 45,
     "baseExp": 198,
     "heldItems": [],
@@ -273,68 +255,34 @@
     "abilities": [
       {
         "id": "flash-fire",
-        "name": "Flash Fire",
-        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "flash-fire",
-        "name": "Flash Fire",
-        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "guts",
-        "name": "Guts",
-        "description": "\tBoosts Attack on \tstatus problems.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "flash-fire",
-        "name": "Flash Fire",
-        "description": "\tBoosts Fire moves \tif hit by one.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "flash-fire",
-        "name": "Flash Fire",
-        "description": "\tBoosts Fire moves \tif hit by one.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "guts",
-        "name": "Guts",
-        "description": "\tBoosts Attack on \tstatus problems.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
         "id": "flash-fire",
-        "name": "Flash Fire",
-        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "drought",
-        "name": "Drought",
-        "description": "\tSummons sunlight \twhen switched in.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "guts",
-        "name": "Guts",
-        "description": "\tBoosts Attack on \tstatus problems.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1513,5 +1461,6 @@
       "species": "Flame",
       "description": "Once it has stored up enough heat, this #mon's body temperature can reach up to 1700 degrees."
     }
-  }
+  },
+  "locations": []
 }

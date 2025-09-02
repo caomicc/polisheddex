@@ -1,5 +1,5 @@
 {
-  "name": "Houndour",
+  "name": "houndour",
   "nationalDex": 228,
   "johtoDex": 241,
   "evolution": {
@@ -69,24 +69,6 @@
       "specialDefense": 50,
       "total": 330
     },
-    "faithfulBaseStats": {
-      "hp": 45,
-      "attack": 60,
-      "defense": 30,
-      "speed": 65,
-      "specialAttack": 80,
-      "specialDefense": 50,
-      "total": 330
-    },
-    "polishedBaseStats": {
-      "hp": 45,
-      "attack": 60,
-      "defense": 30,
-      "speed": 65,
-      "specialAttack": 80,
-      "specialDefense": 50,
-      "total": 330
-    },
     "catchRate": 120,
     "baseExp": 114,
     "heldItems": [],
@@ -98,50 +80,22 @@
     "abilities": [
       {
         "id": "early-bird",
-        "name": "Early Bird",
-        "description": "\tAwakens quickly \tfrom sleep.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "flash-fire",
-        "name": "Flash Fire",
-        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "unnerve",
-        "name": "Unnerve",
-        "description": "\tPrevents foes from \teating Berries.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "early-bird",
-        "name": "Early Bird",
-        "description": "\tAwakens quickly \tfrom sleep.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "flash-fire",
-        "name": "Flash Fire",
-        "description": "\tBoosts Fire moves \tif hit by one.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "unnerve",
-        "name": "Unnerve",
-        "description": "\tPrevents foes from \teating Berries.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Slow",
     "eggGroups": [
       "Field",

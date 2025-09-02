@@ -1,5 +1,5 @@
 {
-  "name": "Forretress",
+  "name": "forretress",
   "nationalDex": 205,
   "johtoDex": 99,
   "evolution": {
@@ -51,24 +51,6 @@
       "specialDefense": 60,
       "total": 465
     },
-    "faithfulBaseStats": {
-      "hp": 75,
-      "attack": 90,
-      "defense": 140,
-      "speed": 40,
-      "specialAttack": 60,
-      "specialDefense": 60,
-      "total": 465
-    },
-    "polishedBaseStats": {
-      "hp": 75,
-      "attack": 90,
-      "defense": 140,
-      "speed": 40,
-      "specialAttack": 60,
-      "specialDefense": 60,
-      "total": 465
-    },
     "catchRate": 75,
     "baseExp": 118,
     "heldItems": [],
@@ -80,50 +62,22 @@
     "abilities": [
       {
         "id": "sturdy",
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "sturdy",
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "overcoat",
-        "name": "Overcoat",
-        "description": "\tProtects it from \tweather damage.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "sturdy",
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "sturdy",
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "overcoat",
-        "name": "Overcoat",
-        "description": "\tProtects it from \tweather damage.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Bug",
@@ -1471,5 +1425,6 @@
       "species": "Bagworm",
       "description": "Usually found hanging on to a fat tree trunk. It shoots out bits of its shell when it sees action."
     }
-  }
+  },
+  "locations": []
 }

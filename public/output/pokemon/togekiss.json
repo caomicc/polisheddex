@@ -1,5 +1,5 @@
 {
-  "name": "Togekiss",
+  "name": "togekiss",
   "nationalDex": 269,
   "johtoDex": 48,
   "evolution": {
@@ -73,24 +73,6 @@
       "specialDefense": 115,
       "total": 545
     },
-    "faithfulBaseStats": {
-      "hp": 85,
-      "attack": 50,
-      "defense": 95,
-      "speed": 80,
-      "specialAttack": 120,
-      "specialDefense": 115,
-      "total": 545
-    },
-    "polishedBaseStats": {
-      "hp": 85,
-      "attack": 50,
-      "defense": 95,
-      "speed": 80,
-      "specialAttack": 120,
-      "specialDefense": 115,
-      "total": 545
-    },
     "catchRate": 30,
     "baseExp": 220,
     "heldItems": [],
@@ -102,50 +84,22 @@
     "abilities": [
       {
         "id": "hustle",
-        "name": "Hustle",
-        "description": "\tBoosts Attack, but \tlowers accuracy.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "serene-grace",
-        "name": "Serene Grace",
-        "description": "\tBoosts the rate of \tadded effects.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "super-luck",
-        "name": "Super Luck",
-        "description": "\tBoosts the rate \tof critical hits.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "hustle",
-        "name": "Hustle",
-        "description": "\tBoosts Attack, but \tlowers accuracy.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "serene-grace",
-        "name": "Serene Grace",
-        "description": "\tBoosts the rate of \tadded effects.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "super-luck",
-        "name": "Super Luck",
-        "description": "\tBoosts the rate \tof critical hits.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Fast",
     "eggGroups": [
       "Flying",
@@ -1182,5 +1136,6 @@
       "species": "Jubilee",
       "description": "It shares many blessings with people who respect one another's rights and avoid needless strife."
     }
-  }
+  },
+  "locations": []
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Electrode",
+  "name": "electrode",
   "nationalDex": 101,
   "johtoDex": 129,
   "evolution": {
@@ -69,24 +69,6 @@
       "specialDefense": 80,
       "total": 490
     },
-    "faithfulBaseStats": {
-      "hp": 60,
-      "attack": 50,
-      "defense": 70,
-      "speed": 150,
-      "specialAttack": 80,
-      "specialDefense": 80,
-      "total": 490
-    },
-    "polishedBaseStats": {
-      "hp": 60,
-      "attack": 50,
-      "defense": 70,
-      "speed": 150,
-      "specialAttack": 80,
-      "specialDefense": 80,
-      "total": 490
-    },
     "catchRate": 60,
     "baseExp": 150,
     "heldItems": [],
@@ -98,50 +80,22 @@
     "abilities": [
       {
         "id": "soundproof",
-        "name": "Soundproof",
-        "description": "\tGives immunity to \tsound-based moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "static",
-        "name": "Static",
-        "description": "\tContact may cause \tparalysis.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "aftermath",
-        "name": "Aftermath",
-        "description": "\tDamages the foe on \tfainting.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "soundproof",
-        "name": "Soundproof",
-        "description": "\tGives immunity to \tsound-based moves.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "static",
-        "name": "Static",
-        "description": "\tContact may cause \tparalysis.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "aftermath",
-        "name": "Aftermath",
-        "description": "\tDamages the foe on \tfainting.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Mineral",
@@ -2417,7 +2371,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "soundproof",
+          "name": "Soundproof",
+          "description": "\tGives immunity to \tsound-based moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "aftermath",
+          "name": "Aftermath",
+          "description": "\tDamages the foe on \tfainting.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 60,
         "attack": 50,

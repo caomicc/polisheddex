@@ -2547,7 +2547,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "magnet-pull",
+          "name": "Magnet Pull",
+          "description": "\tPrevents escape by \tSteel-type foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "galvanize",
+          "name": "Galvanize",
+          "description": "\tNormal-type moves \tbecome Electric.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 40,
         "attack": 80,

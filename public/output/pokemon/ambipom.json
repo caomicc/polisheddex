@@ -1,5 +1,5 @@
 {
-  "name": "Ambipom",
+  "name": "ambipom",
   "nationalDex": 254,
   "johtoDex": 131,
   "evolution": {
@@ -51,24 +51,6 @@
       "specialDefense": 66,
       "total": 482
     },
-    "faithfulBaseStats": {
-      "hp": 75,
-      "attack": 100,
-      "defense": 66,
-      "speed": 115,
-      "specialAttack": 60,
-      "specialDefense": 66,
-      "total": 482
-    },
-    "polishedBaseStats": {
-      "hp": 75,
-      "attack": 100,
-      "defense": 66,
-      "speed": 115,
-      "specialAttack": 60,
-      "specialDefense": 66,
-      "total": 482
-    },
     "catchRate": 45,
     "baseExp": 186,
     "heldItems": [
@@ -82,50 +64,22 @@
     "abilities": [
       {
         "id": "technician",
-        "name": "Technician",
-        "description": "\tPowers up its \tweaker moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "pickup",
-        "name": "Pickup",
-        "description": "\tThe #mon may \tpick up items.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "skill-link",
-        "name": "Skill Link",
-        "description": "\tIncreases multi- \tstrike move hits.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "technician",
-        "name": "Technician",
-        "description": "\tPowers up its \tweaker moves.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "pickup",
-        "name": "Pickup",
-        "description": "\tThe #mon may \tpick up items.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "skill-link",
-        "name": "Skill Link",
-        "description": "\tIncreases multi- \tstrike move hits.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Fast",
     "eggGroups": [
       "Field",
@@ -1462,5 +1416,6 @@
       "species": "Long Tail",
       "description": "Split in two, the tails are so adept at handling and doing things. Ambipom rarely uses its hands."
     }
-  }
+  },
+  "locations": []
 }

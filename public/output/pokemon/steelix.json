@@ -1,5 +1,5 @@
 {
-  "name": "Steelix",
+  "name": "steelix",
   "nationalDex": 208,
   "johtoDex": 68,
   "evolution": {
@@ -51,15 +51,6 @@
       "specialDefense": 65,
       "total": 510
     },
-    "faithfulBaseStats": {
-      "hp": 75,
-      "attack": 85,
-      "defense": 200,
-      "speed": 30,
-      "specialAttack": 55,
-      "specialDefense": 65,
-      "total": 510
-    },
     "polishedBaseStats": {
       "hp": 75,
       "attack": 90,
@@ -82,50 +73,22 @@
     "abilities": [
       {
         "id": "sheer-force",
-        "name": "Sheer Force",
-        "description": "\tRemoves effects to \tincrease damage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "sturdy",
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sand-force",
-        "name": "Sand Force",
-        "description": "\tBoosts some moves \tin a sandstorm.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "sheer-force",
-        "name": "Sheer Force",
-        "description": "\tRemoves effects to \tincrease damage.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "sturdy",
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "sand-force",
-        "name": "Sand Force",
-        "description": "\tBoosts some moves \tin a sandstorm.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Mineral",

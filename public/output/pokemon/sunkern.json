@@ -1,5 +1,5 @@
 {
-  "name": "Sunkern",
+  "name": "sunkern",
   "nationalDex": 191,
   "johtoDex": 108,
   "evolution": {
@@ -69,24 +69,6 @@
       "specialDefense": 30,
       "total": 180
     },
-    "faithfulBaseStats": {
-      "hp": 30,
-      "attack": 30,
-      "defense": 30,
-      "speed": 30,
-      "specialAttack": 30,
-      "specialDefense": 30,
-      "total": 180
-    },
-    "polishedBaseStats": {
-      "hp": 30,
-      "attack": 30,
-      "defense": 30,
-      "speed": 30,
-      "specialAttack": 30,
-      "specialDefense": 30,
-      "total": 180
-    },
     "catchRate": 235,
     "baseExp": 52,
     "heldItems": [
@@ -100,50 +82,22 @@
     "abilities": [
       {
         "id": "chlorophyll",
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "solar-power",
-        "name": "Solar Power",
-        "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "early-bird",
-        "name": "Early Bird",
-        "description": "\tAwakens quickly \tfrom sleep.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "chlorophyll",
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "solar-power",
-        "name": "Solar Power",
-        "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "early-bird",
-        "name": "Early Bird",
-        "description": "\tAwakens quickly \tfrom sleep.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Grass",

@@ -1,5 +1,5 @@
 {
-  "name": "Skarmory",
+  "name": "skarmory",
   "nationalDex": 227,
   "johtoDex": 228,
   "evolution": {
@@ -21,15 +21,6 @@
   },
   "detailedStats": {
     "baseStats": {
-      "hp": 65,
-      "attack": 80,
-      "defense": 140,
-      "speed": 70,
-      "specialAttack": 40,
-      "specialDefense": 70,
-      "total": 465
-    },
-    "faithfulBaseStats": {
       "hp": 65,
       "attack": 80,
       "defense": 140,
@@ -60,50 +51,22 @@
     "abilities": [
       {
         "id": "keen-eye",
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "sturdy",
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "weak-armor",
-        "name": "Weak Armor",
-        "description": "\tPhysical attacks \ttrade Def for Spe.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "keen-eye",
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "sturdy",
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "weak-armor",
-        "name": "Weak Armor",
-        "description": "\tPhysical attacks \ttrade Def for Spe.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Slow",
     "eggGroups": [
       "Flying",

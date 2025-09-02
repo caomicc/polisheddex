@@ -1,5 +1,5 @@
 {
-  "name": "Diglett",
+  "name": "diglett",
   "nationalDex": 50,
   "johtoDex": 143,
   "evolution": {
@@ -72,24 +72,6 @@
       "specialDefense": 45,
       "total": 265
     },
-    "faithfulBaseStats": {
-      "hp": 10,
-      "attack": 55,
-      "defense": 25,
-      "speed": 95,
-      "specialAttack": 35,
-      "specialDefense": 45,
-      "total": 265
-    },
-    "polishedBaseStats": {
-      "hp": 10,
-      "attack": 55,
-      "defense": 25,
-      "speed": 95,
-      "specialAttack": 35,
-      "specialDefense": 45,
-      "total": 265
-    },
     "catchRate": 255,
     "baseExp": 81,
     "heldItems": [
@@ -103,50 +85,22 @@
     "abilities": [
       {
         "id": "sand-veil",
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "arena-trap",
-        "name": "Arena Trap",
-        "description": "\tPrevents the foe \tfrom fleeing.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sand-force",
-        "name": "Sand Force",
-        "description": "\tBoosts some moves \tin a sandstorm.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "sand-veil",
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "arena-trap",
-        "name": "Arena Trap",
-        "description": "\tPrevents the foe \tfrom fleeing.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "sand-force",
-        "name": "Sand Force",
-        "description": "\tBoosts some moves \tin a sandstorm.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
@@ -2287,7 +2241,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "tangling-hair",
+          "name": "Tangling Hair",
+          "description": "\tContact may lower \tthe foe's Speed.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sand-force",
+          "name": "Sand Force",
+          "description": "\tBoosts some moves \tin a sandstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 10,
         "attack": 55,

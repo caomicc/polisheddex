@@ -1,5 +1,5 @@
 {
-  "name": "Magcargo",
+  "name": "magcargo",
   "nationalDex": 219,
   "johtoDex": 244,
   "evolution": {
@@ -51,15 +51,6 @@
       "specialDefense": 80,
       "total": 430
     },
-    "faithfulBaseStats": {
-      "hp": 60,
-      "attack": 50,
-      "defense": 120,
-      "speed": 30,
-      "specialAttack": 90,
-      "specialDefense": 80,
-      "total": 430
-    },
     "polishedBaseStats": {
       "hp": 60,
       "attack": 50,
@@ -80,50 +71,22 @@
     "abilities": [
       {
         "id": "magma-armor",
-        "name": "Magma Armor",
-        "description": "\tPrevents it from \tbecoming frozen.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "flame-body",
-        "name": "Flame Body",
-        "description": "\tContact may burn \tthe foe.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "weak-armor",
-        "name": "Weak Armor",
-        "description": "\tPhysical attacks \ttrade Def for Spe.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "magma-armor",
-        "name": "Magma Armor",
-        "description": "\tPrevents it from \tbecoming frozen.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "flame-body",
-        "name": "Flame Body",
-        "description": "\tContact may burn \tthe foe.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "weak-armor",
-        "name": "Weak Armor",
-        "description": "\tPhysical attacks \ttrade Def for Spe.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Amorphous",

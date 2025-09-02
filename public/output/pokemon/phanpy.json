@@ -1,5 +1,5 @@
 {
-  "name": "Phanpy",
+  "name": "phanpy",
   "nationalDex": 231,
   "johtoDex": 224,
   "evolution": {
@@ -69,24 +69,6 @@
       "specialDefense": 40,
       "total": 330
     },
-    "faithfulBaseStats": {
-      "hp": 90,
-      "attack": 60,
-      "defense": 60,
-      "speed": 40,
-      "specialAttack": 40,
-      "specialDefense": 40,
-      "total": 330
-    },
-    "polishedBaseStats": {
-      "hp": 90,
-      "attack": 60,
-      "defense": 60,
-      "speed": 40,
-      "specialAttack": 40,
-      "specialDefense": 40,
-      "total": 330
-    },
     "catchRate": 120,
     "baseExp": 124,
     "heldItems": [
@@ -100,50 +82,22 @@
     "abilities": [
       {
         "id": "pickup",
-        "name": "Pickup",
-        "description": "\tThe #mon may \tpick up items.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "pickup",
-        "name": "Pickup",
-        "description": "\tThe #mon may \tpick up items.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sand-veil",
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "pickup",
-        "name": "Pickup",
-        "description": "\tThe #mon may \tpick up items.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "pickup",
-        "name": "Pickup",
-        "description": "\tThe #mon may \tpick up items.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "sand-veil",
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

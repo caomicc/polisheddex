@@ -1,5 +1,5 @@
 {
-  "name": "Farigiraf",
+  "name": "farigiraf",
   "nationalDex": 287,
   "johtoDex": 161,
   "evolution": {
@@ -51,15 +51,6 @@
       "specialDefense": 70,
       "total": 520
     },
-    "faithfulBaseStats": {
-      "hp": 120,
-      "attack": 90,
-      "defense": 70,
-      "speed": 60,
-      "specialAttack": 110,
-      "specialDefense": 70,
-      "total": 520
-    },
     "polishedBaseStats": {
       "hp": 120,
       "attack": 90,
@@ -82,50 +73,22 @@
     "abilities": [
       {
         "id": "cud-chew",
-        "name": "Cud Chew",
-        "description": "\tEats a Berry again \tafter first use.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "armor-tail",
-        "name": "Armor Tail",
-        "description": "\tStops foes using \tpriority moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sap-sipper",
-        "name": "Sap Sipper",
-        "description": "\tBoosts Attack when \thit by Grass.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "cud-chew",
-        "name": "Cud Chew",
-        "description": "\tEats a Berry again \tafter first use.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "armor-tail",
-        "name": "Armor Tail",
-        "description": "\tStops foes using \tpriority moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "sap-sipper",
-        "name": "Sap Sipper",
-        "description": "\tBoosts Attack when \thit by Grass.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
@@ -1434,5 +1397,6 @@
       "species": "Long Neck",
       "description": "Now that the brain waves from its head and tail are synced up, its psychic power is 10 times stronger."
     }
-  }
+  },
+  "locations": []
 }

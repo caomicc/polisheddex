@@ -1,5 +1,5 @@
 {
-  "name": "Wynaut",
+  "name": "wynaut",
   "nationalDex": 253,
   "johtoDex": 65,
   "evolution": {
@@ -69,24 +69,6 @@
       "specialDefense": 48,
       "total": 260
     },
-    "faithfulBaseStats": {
-      "hp": 95,
-      "attack": 23,
-      "defense": 48,
-      "speed": 23,
-      "specialAttack": 23,
-      "specialDefense": 48,
-      "total": 260
-    },
-    "polishedBaseStats": {
-      "hp": 95,
-      "attack": 23,
-      "defense": 48,
-      "speed": 23,
-      "specialAttack": 23,
-      "specialDefense": 48,
-      "total": 260
-    },
     "catchRate": 125,
     "baseExp": 44,
     "heldItems": [],
@@ -98,50 +80,22 @@
     "abilities": [
       {
         "id": "shadow-tag",
-        "name": "Shadow Tag",
-        "description": "\tPrevents the foe \tfrom escaping.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "shadow-tag",
-        "name": "Shadow Tag",
-        "description": "\tPrevents the foe \tfrom escaping.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "shadow-tag",
-        "name": "Shadow Tag",
-        "description": "\tPrevents the foe \tfrom escaping.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "shadow-tag",
-        "name": "Shadow Tag",
-        "description": "\tPrevents the foe \tfrom escaping.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "shadow-tag",
-        "name": "Shadow Tag",
-        "description": "\tPrevents the foe \tfrom escaping.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "shadow-tag",
-        "name": "Shadow Tag",
-        "description": "\tPrevents the foe \tfrom escaping.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered",
@@ -581,5 +535,6 @@
       "species": "Bright",
       "description": "It tends to move in a pack. Individuals squash against one another to toughen their spirits."
     }
-  }
+  },
+  "locations": []
 }

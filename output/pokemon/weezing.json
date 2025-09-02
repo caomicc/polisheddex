@@ -2211,7 +2211,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "neutralizing-gas",
+          "name": "Neutralizing Gas",
+          "description": "\tSuppresses all \tother Abilities.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "white-smoke",
+          "name": "White Smoke",
+          "description": "\tPrevents foes from \tlowering stats.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 65,
         "attack": 90,

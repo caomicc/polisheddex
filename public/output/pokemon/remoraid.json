@@ -1,5 +1,5 @@
 {
-  "name": "Remoraid",
+  "name": "remoraid",
   "nationalDex": 223,
   "johtoDex": 193,
   "evolution": {
@@ -69,24 +69,6 @@
       "specialDefense": 35,
       "total": 300
     },
-    "faithfulBaseStats": {
-      "hp": 35,
-      "attack": 65,
-      "defense": 35,
-      "speed": 65,
-      "specialAttack": 65,
-      "specialDefense": 35,
-      "total": 300
-    },
-    "polishedBaseStats": {
-      "hp": 35,
-      "attack": 65,
-      "defense": 35,
-      "speed": 65,
-      "specialAttack": 65,
-      "specialDefense": 35,
-      "total": 300
-    },
     "catchRate": 190,
     "baseExp": 78,
     "heldItems": [],
@@ -98,50 +80,22 @@
     "abilities": [
       {
         "id": "hustle",
-        "name": "Hustle",
-        "description": "\tBoosts Attack, but \tlowers accuracy.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "sniper",
-        "name": "Sniper",
-        "description": "\tPowers up critical \thits.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "moody",
-        "name": "Moody",
-        "description": "\tRaises a stat and \tlowers another.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "hustle",
-        "name": "Hustle",
-        "description": "\tBoosts Attack, but \tlowers accuracy.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "sniper",
-        "name": "Sniper",
-        "description": "\tPowers up critical \thits.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "moody",
-        "name": "Moody",
-        "description": "\tRaises a stat and \tlowers another.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"

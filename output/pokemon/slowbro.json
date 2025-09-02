@@ -3135,7 +3135,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "quick-draw",
+          "name": "Quick Draw",
+          "description": "\tMoves first \toccasionally.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "own-tempo",
+          "name": "Own Tempo",
+          "description": "\tPrevents it from \tbecoming confused.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "regenerator",
+          "name": "Regenerator",
+          "description": "\tRestores HP when \twithdrawn.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 95,
         "attack": 100,

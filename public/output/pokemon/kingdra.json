@@ -1,5 +1,5 @@
 {
-  "name": "Kingdra",
+  "name": "kingdra",
   "nationalDex": 230,
   "johtoDex": 214,
   "evolution": {
@@ -73,24 +73,6 @@
       "specialDefense": 95,
       "total": 540
     },
-    "faithfulBaseStats": {
-      "hp": 75,
-      "attack": 95,
-      "defense": 95,
-      "speed": 85,
-      "specialAttack": 95,
-      "specialDefense": 95,
-      "total": 540
-    },
-    "polishedBaseStats": {
-      "hp": 75,
-      "attack": 95,
-      "defense": 95,
-      "speed": 85,
-      "specialAttack": 95,
-      "specialDefense": 95,
-      "total": 540
-    },
     "catchRate": 45,
     "baseExp": 207,
     "heldItems": [
@@ -104,50 +86,22 @@
     "abilities": [
       {
         "id": "swift-swim",
-        "name": "Swift Swim",
-        "description": "\tBoosts its Speed \tin rain.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "sniper",
-        "name": "Sniper",
-        "description": "\tPowers up critical \thits.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "damp",
-        "name": "Damp",
-        "description": "\tPrevents self- \tdestructing moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "swift-swim",
-        "name": "Swift Swim",
-        "description": "\tBoosts its Speed \tin rain.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "sniper",
-        "name": "Sniper",
-        "description": "\tPowers up critical \thits.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "damp",
-        "name": "Damp",
-        "description": "\tPrevents self- \tdestructing moves.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"

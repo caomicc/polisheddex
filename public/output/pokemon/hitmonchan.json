@@ -1,5 +1,5 @@
 {
-  "name": "Hitmonchan",
+  "name": "hitmonchan",
   "nationalDex": 107,
   "johtoDex": 158,
   "evolution": {
@@ -89,24 +89,6 @@
       "specialDefense": 110,
       "total": 455
     },
-    "faithfulBaseStats": {
-      "hp": 50,
-      "attack": 105,
-      "defense": 79,
-      "speed": 76,
-      "specialAttack": 35,
-      "specialDefense": 110,
-      "total": 455
-    },
-    "polishedBaseStats": {
-      "hp": 50,
-      "attack": 105,
-      "defense": 79,
-      "speed": 76,
-      "specialAttack": 35,
-      "specialDefense": 110,
-      "total": 455
-    },
     "catchRate": 45,
     "baseExp": 140,
     "heldItems": [],
@@ -118,50 +100,22 @@
     "abilities": [
       {
         "id": "keen-eye",
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "iron-fist",
-        "name": "Iron Fist",
-        "description": "\tBoosts power of \tpunching moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "inner-focus",
-        "name": "Inner Focus",
-        "description": "\tProtects it from \tflinching.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "keen-eye",
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "iron-fist",
-        "name": "Iron Fist",
-        "description": "\tBoosts power of \tpunching moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "inner-focus",
-        "name": "Inner Focus",
-        "description": "\tProtects it from \tflinching.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Human-Like",
@@ -1433,5 +1387,6 @@
       "species": "Punching",
       "description": "To increase the strength of all its punch moves, it spins its arms just before making contact."
     }
-  }
+  },
+  "locations": []
 }

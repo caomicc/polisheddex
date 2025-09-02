@@ -1,5 +1,5 @@
 {
-  "name": "Pidgey",
+  "name": "pidgey",
   "nationalDex": 16,
   "johtoDex": 10,
   "evolution": {
@@ -91,24 +91,6 @@
       "specialDefense": 35,
       "total": 251
     },
-    "faithfulBaseStats": {
-      "hp": 40,
-      "attack": 45,
-      "defense": 40,
-      "speed": 56,
-      "specialAttack": 35,
-      "specialDefense": 35,
-      "total": 251
-    },
-    "polishedBaseStats": {
-      "hp": 40,
-      "attack": 45,
-      "defense": 40,
-      "speed": 56,
-      "specialAttack": 35,
-      "specialDefense": 35,
-      "total": 251
-    },
     "catchRate": 255,
     "baseExp": 55,
     "heldItems": [],
@@ -120,50 +102,22 @@
     "abilities": [
       {
         "id": "keen-eye",
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "tangled-feet",
-        "name": "Tangled Feet",
-        "description": "\tBoosts evasion if \tit is confused.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "big-pecks",
-        "name": "Big Pecks",
-        "description": "\tPrevents foes from \tlowering Defense.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "keen-eye",
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "tangled-feet",
-        "name": "Tangled Feet",
-        "description": "\tBoosts evasion if \tit is confused.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "big-pecks",
-        "name": "Big Pecks",
-        "description": "\tPrevents foes from \tlowering Defense.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Flying",

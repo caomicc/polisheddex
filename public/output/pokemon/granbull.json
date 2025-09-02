@@ -1,5 +1,5 @@
 {
-  "name": "Granbull",
+  "name": "granbull",
   "nationalDex": 210,
   "johtoDex": 133,
   "evolution": {
@@ -51,24 +51,6 @@
       "specialDefense": 60,
       "total": 450
     },
-    "faithfulBaseStats": {
-      "hp": 90,
-      "attack": 120,
-      "defense": 75,
-      "speed": 45,
-      "specialAttack": 60,
-      "specialDefense": 60,
-      "total": 450
-    },
-    "polishedBaseStats": {
-      "hp": 90,
-      "attack": 120,
-      "defense": 75,
-      "speed": 45,
-      "specialAttack": 60,
-      "specialDefense": 60,
-      "total": 450
-    },
     "catchRate": 75,
     "baseExp": 178,
     "heldItems": [],
@@ -80,50 +62,22 @@
     "abilities": [
       {
         "id": "intimidate",
-        "name": "Intimidate",
-        "description": "\tLowers the foe's \tAttack stat.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "quick-feet",
-        "name": "Quick Feet",
-        "description": "\tBoosts Speed with \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "rattled",
-        "name": "Rattled",
-        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "intimidate",
-        "name": "Intimidate",
-        "description": "\tLowers the foe's \tAttack stat.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "quick-feet",
-        "name": "Quick Feet",
-        "description": "\tBoosts Speed with \tstatus problems.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "rattled",
-        "name": "Rattled",
-        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Fast",
     "eggGroups": [
       "Field",

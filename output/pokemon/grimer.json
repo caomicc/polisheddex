@@ -2328,7 +2328,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "poison-touch",
+          "name": "Poison Touch",
+          "description": "\tMay poison the foe \ton contact.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "corrosion",
+          "name": "Corrosion",
+          "description": "\tFoes of any type \tcan be poisoned.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 80,
         "attack": 80,

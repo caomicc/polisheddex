@@ -1,5 +1,5 @@
 {
-  "name": "Sylveon",
+  "name": "sylveon",
   "nationalDex": 276,
   "johtoDex": 211,
   "evolution": {
@@ -244,24 +244,6 @@
       "specialDefense": 130,
       "total": 525
     },
-    "faithfulBaseStats": {
-      "hp": 95,
-      "attack": 65,
-      "defense": 65,
-      "speed": 60,
-      "specialAttack": 110,
-      "specialDefense": 130,
-      "total": 525
-    },
-    "polishedBaseStats": {
-      "hp": 95,
-      "attack": 65,
-      "defense": 65,
-      "speed": 60,
-      "specialAttack": 110,
-      "specialDefense": 130,
-      "total": 525
-    },
     "catchRate": 45,
     "baseExp": 196,
     "heldItems": [
@@ -275,68 +257,34 @@
     "abilities": [
       {
         "id": "cute-charm",
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "cute-charm",
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "pixilate",
-        "name": "Pixilate",
-        "description": "\tNormal-type moves \tbecome Fairy-type.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "cute-charm",
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "cute-charm",
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "pixilate",
-        "name": "Pixilate",
-        "description": "\tNormal-type moves \tbecome Fairy-type.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
         "id": "cute-charm",
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "serene-grace",
-        "name": "Serene Grace",
-        "description": "\tBoosts the rate of \tadded effects.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "pixilate",
-        "name": "Pixilate",
-        "description": "\tNormal-type moves \tbecome Fairy-type.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1435,5 +1383,6 @@
       "species": "Intertwined",
       "description": "It wraps its ribbonlike feelers around the arm of its beloved trainer and walks with them."
     }
-  }
+  },
+  "locations": []
 }

@@ -2280,7 +2280,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "poison-point",
+          "name": "Poison Point",
+          "description": "\tContact may poison \tthe foe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "water-absorb",
+          "name": "Water Absorb",
+          "description": "\tRestores HP if hit \tby Water moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "unaware",
+          "name": "Unaware",
+          "description": "\tIgnores the foe's \tstat changes.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 55,
         "attack": 45,

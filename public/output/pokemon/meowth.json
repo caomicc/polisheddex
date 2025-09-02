@@ -1,5 +1,5 @@
 {
-  "name": "Meowth",
+  "name": "meowth",
   "nationalDex": 52,
   "johtoDex": 148,
   "evolution": {
@@ -94,24 +94,6 @@
       "specialDefense": 40,
       "total": 290
     },
-    "faithfulBaseStats": {
-      "hp": 40,
-      "attack": 45,
-      "defense": 35,
-      "speed": 90,
-      "specialAttack": 40,
-      "specialDefense": 40,
-      "total": 290
-    },
-    "polishedBaseStats": {
-      "hp": 40,
-      "attack": 45,
-      "defense": 35,
-      "speed": 90,
-      "specialAttack": 40,
-      "specialDefense": 40,
-      "total": 290
-    },
     "catchRate": 255,
     "baseExp": 69,
     "heldItems": [
@@ -125,50 +107,22 @@
     "abilities": [
       {
         "id": "pickup",
-        "name": "Pickup",
-        "description": "\tThe #mon may \tpick up items.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "technician",
-        "name": "Technician",
-        "description": "\tPowers up its \tweaker moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "unnerve",
-        "name": "Unnerve",
-        "description": "\tPrevents foes from \teating Berries.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "id": "pickup",
-        "name": "Pickup",
-        "description": "\tThe #mon may \tpick up items.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "technician",
-        "name": "Technician",
-        "description": "\tPowers up its \tweaker moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "unnerve",
-        "name": "Unnerve",
-        "description": "\tPrevents foes from \teating Berries.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
@@ -2560,7 +2514,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "pickup",
+          "name": "Pickup",
+          "description": "\tThe #mon may \tpick up items.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "tough-claws",
+          "name": "Tough Claws",
+          "description": "\tBoosts moves that \tmakes contact.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 40,
         "attack": 35,
@@ -3719,7 +3695,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "battle-armor",
+          "name": "Battle Armor",
+          "description": "",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "tough-claws",
+          "name": "Tough Claws",
+          "description": "\tBoosts moves that \tmakes contact.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "steely-spirit",
+          "name": "Steely Spirit",
+          "description": "\tBoosts Steel-type \tmoves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 50,
         "attack": 65,

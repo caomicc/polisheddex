@@ -2812,7 +2812,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "cursed-body",
+          "name": "Cursed Body",
+          "description": "\tMay disable a move \tused on it.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "lightning-rod",
+          "name": "Lightning Rod",
+          "description": "\tElectric moves \tboost Sp.Atk.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 60,
         "attack": 80,
