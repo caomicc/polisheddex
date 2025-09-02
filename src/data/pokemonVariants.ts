@@ -9,8 +9,7 @@ export const POKEMON_VARIANTS = {
     'exclamation', 'question'
   ],
   
-  // Arbok forms (cosmetic variants)
-  ARBOK: ['johto', 'kanto', 'koga', 'agatha', 'ariana'],
+  // Arbok forms removed - these were just cosmetic sprite variants without gameplay differences
   
   // Pikachu forms (cosmetic variants)
   PIKACHU: ['plain', 'fly', 'surf', 'red', 'yellow', 'spark'],

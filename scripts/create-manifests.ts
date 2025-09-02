@@ -350,7 +350,13 @@ async function createPokemonManifest(): Promise<void> {
 
           // Check for forms in evolution data or other indicators
           if (pokemonData.forms) {
-            forms.push(...Object.keys(pokemonData.forms));
+            // Special cases: consolidate purely cosmetic sprite variants to single form
+            if (pokemonId === 'arbok' || pokemonId === 'pikachu' || pokemonId === 'pichu') {
+              // Arbok's forms are just cosmetic sprite variants, consolidate to plain
+              forms.push('plain');
+            } else {
+              forms.push(...Object.keys(pokemonData.forms));
+            }
           }
 
           // Check sprite manifest for form variations
@@ -358,13 +364,18 @@ async function createPokemonManifest(): Promise<void> {
           Object.keys(spriteManifest).forEach((key) => {
             if (baseNamePattern.test(key) && key !== pokemonId) {
               const formName = key.replace(`${pokemonId}_`, '');
-              
+
               // Exclude known separate evolutions that might be mistaken for forms
               const separateEvolutions = ['z']; // porygon_z should be treated as separate Pokemon, not a form
               if (pokemonId === 'porygon' && separateEvolutions.includes(formName)) {
                 return; // Skip this, it's a separate evolution
               }
-              
+
+              // Exclude cosmetic sprite variants that should be consolidated
+              if (pokemonId === 'arbok') {
+                return; // Skip all arbok sprite variants, they're just cosmetic
+              }
+
               if (!forms.includes(formName)) {
                 forms.push(formName);
               }
