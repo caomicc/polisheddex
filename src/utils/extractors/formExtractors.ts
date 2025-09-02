@@ -61,18 +61,22 @@ export function extractFormInfo(fileName: string): {
     return { basePokemonName: 'mr-rime', formName: null };
   }
 
+  // Special case for porygon_z (separate Pokémon, not a form)
+  if (fileName.toLowerCase() === 'porygon_z') {
+    return { basePokemonName: 'porygon-z', formName: null };
+  }
+
   // Special case for farfetch_d and sirfetch_d
   if (
     fileName.toLowerCase().startsWith('farfetch_d') ||
-    fileName.toLowerCase().startsWith('sirfetch_d') ||
-    fileName.toLowerCase().startsWith('porygon_z')
+    fileName.toLowerCase().startsWith('sirfetch_d')
   ) {
     // For these special cases, properly identify the base name and form
     // farfetch_d_plain -> baseName: farfetch-d, form: plain
     // farfetch_d_galarian -> baseName: farfetch-d, form: galarian
     const baseMatch = fileName
       .toLowerCase()
-      .match(/^(farfetch_d|sirfetch_d|porygon_z|pikachu|arbok|unown)(?:_([a-z_]+))?$/);
+      .match(/^(farfetch_d|sirfetch_d|pikachu|arbok|unown)(?:_([a-z_]+))?$/);
 
     if (baseMatch) {
       const baseName = baseMatch[1].replace('_', '-'); // Convert to hyphenated format
