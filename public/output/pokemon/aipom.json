@@ -1,5 +1,5 @@
 {
-  "name": "aipom",
+  "name": "Aipom",
   "nationalDex": 190,
   "johtoDex": 130,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 55,
       "total": 355
     },
+    "faithfulBaseStats": {
+      "hp": 55,
+      "attack": 70,
+      "defense": 55,
+      "speed": 80,
+      "specialAttack": 40,
+      "specialDefense": 55,
+      "total": 355
+    },
+    "polishedBaseStats": {
+      "hp": 55,
+      "attack": 70,
+      "defense": 55,
+      "speed": 80,
+      "specialAttack": 40,
+      "specialDefense": 55,
+      "total": 355
+    },
     "catchRate": 45,
     "baseExp": 94,
     "heldItems": [],
@@ -80,22 +98,50 @@
     "abilities": [
       {
         "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "pickup",
+        "name": "Pickup",
+        "description": "\tThe #mon may \tpick up items.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "skill-link",
+        "name": "Skill Link",
+        "description": "\tIncreases multi- \tstrike move hits.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "pickup",
+        "name": "Pickup",
+        "description": "\tThe #mon may \tpick up items.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "skill-link",
+        "name": "Skill Link",
+        "description": "\tIncreases multi- \tstrike move hits.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Fast",
     "eggGroups": [
       "Field",

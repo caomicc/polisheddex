@@ -1,5 +1,5 @@
 {
-  "name": "entei",
+  "name": "Entei",
   "nationalDex": 244,
   "johtoDex": 277,
   "evolution": {
@@ -29,6 +29,24 @@
       "specialDefense": 75,
       "total": 580
     },
+    "faithfulBaseStats": {
+      "hp": 115,
+      "attack": 115,
+      "defense": 85,
+      "speed": 100,
+      "specialAttack": 90,
+      "specialDefense": 75,
+      "total": 580
+    },
+    "polishedBaseStats": {
+      "hp": 115,
+      "attack": 115,
+      "defense": 85,
+      "speed": 100,
+      "specialAttack": 90,
+      "specialDefense": 75,
+      "total": 580
+    },
     "catchRate": 3,
     "baseExp": 217,
     "heldItems": [
@@ -42,34 +60,68 @@
     "abilities": [
       {
         "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "updatedAbilities": [
       {
         "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1337,6 +1389,5 @@
       "species": "Volcano",
       "description": "This brawny #mon courses around the earth, spouting flames hotter than a volcano's magma."
     }
-  },
-  "locations": []
+  }
 }

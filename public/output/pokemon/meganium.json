@@ -1,5 +1,5 @@
 {
-  "name": "meganium",
+  "name": "Meganium",
   "nationalDex": 154,
   "johtoDex": 3,
   "evolution": {
@@ -73,6 +73,24 @@
       "specialDefense": 100,
       "total": 525
     },
+    "faithfulBaseStats": {
+      "hp": 80,
+      "attack": 82,
+      "defense": 100,
+      "speed": 80,
+      "specialAttack": 83,
+      "specialDefense": 100,
+      "total": 525
+    },
+    "polishedBaseStats": {
+      "hp": 80,
+      "attack": 82,
+      "defense": 100,
+      "speed": 80,
+      "specialAttack": 83,
+      "specialDefense": 100,
+      "total": 525
+    },
     "catchRate": 45,
     "baseExp": 208,
     "heldItems": [],
@@ -84,34 +102,68 @@
     "abilities": [
       {
         "id": "overgrow",
+        "name": "Overgrow",
+        "description": "\tBoosts Grass moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "overgrow",
+        "name": "Overgrow",
+        "description": "\tBoosts Grass moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "leaf-guard",
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "overgrow",
+        "name": "Overgrow",
+        "description": "\tBoosts Grass moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "overgrow",
+        "name": "Overgrow",
+        "description": "\tBoosts Grass moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "leaf-guard",
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "updatedAbilities": [
       {
         "id": "overgrow",
+        "name": "Overgrow",
+        "description": "\tBoosts Grass moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "natural-cure",
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "leaf-guard",
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1449,6 +1501,5 @@
       "species": "Herb",
       "description": "Anyone who stands beside it becomes refreshed, just as if they were relaxing in a sunny forest."
     }
-  },
-  "locations": []
+  }
 }

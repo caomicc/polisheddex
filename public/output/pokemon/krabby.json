@@ -1,5 +1,5 @@
 {
-  "name": "krabby",
+  "name": "Krabby",
   "nationalDex": 98,
   "johtoDex": 184,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 25,
       "total": 325
     },
+    "faithfulBaseStats": {
+      "hp": 30,
+      "attack": 105,
+      "defense": 90,
+      "speed": 50,
+      "specialAttack": 25,
+      "specialDefense": 25,
+      "total": 325
+    },
+    "polishedBaseStats": {
+      "hp": 30,
+      "attack": 105,
+      "defense": 90,
+      "speed": 50,
+      "specialAttack": 25,
+      "specialDefense": 25,
+      "total": 325
+    },
     "catchRate": 225,
     "baseExp": 115,
     "heldItems": [],
@@ -80,22 +98,50 @@
     "abilities": [
       {
         "id": "hyper-cutter",
+        "name": "Hyper Cutter",
+        "description": "\tPrevents foes from \tlowering Attack.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sheer-force",
+        "name": "Sheer Force",
+        "description": "\tRemoves effects to \tincrease damage.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "hyper-cutter",
+        "name": "Hyper Cutter",
+        "description": "\tPrevents foes from \tlowering Attack.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "sheer-force",
+        "name": "Sheer Force",
+        "description": "\tRemoves effects to \tincrease damage.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"

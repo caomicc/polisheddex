@@ -1,5 +1,5 @@
 {
-  "name": "oddish",
+  "name": "Oddish",
   "nationalDex": 43,
   "johtoDex": 88,
   "evolution": {
@@ -110,6 +110,24 @@
       "specialDefense": 65,
       "total": 320
     },
+    "faithfulBaseStats": {
+      "hp": 45,
+      "attack": 50,
+      "defense": 55,
+      "speed": 30,
+      "specialAttack": 75,
+      "specialDefense": 65,
+      "total": 320
+    },
+    "polishedBaseStats": {
+      "hp": 45,
+      "attack": 50,
+      "defense": 55,
+      "speed": 30,
+      "specialAttack": 75,
+      "specialDefense": 65,
+      "total": 320
+    },
     "catchRate": 255,
     "baseExp": 78,
     "heldItems": [
@@ -123,22 +141,50 @@
     "abilities": [
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Grass",

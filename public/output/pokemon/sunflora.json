@@ -1,5 +1,5 @@
 {
-  "name": "sunflora",
+  "name": "Sunflora",
   "nationalDex": 192,
   "johtoDex": 109,
   "evolution": {
@@ -51,6 +51,15 @@
       "specialDefense": 85,
       "total": 425
     },
+    "faithfulBaseStats": {
+      "hp": 75,
+      "attack": 75,
+      "defense": 55,
+      "speed": 30,
+      "specialAttack": 105,
+      "specialDefense": 85,
+      "total": 425
+    },
     "polishedBaseStats": {
       "hp": 75,
       "attack": 55,
@@ -71,22 +80,50 @@
     "abilities": [
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "solar-power",
+        "name": "Solar Power",
+        "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "early-bird",
+        "name": "Early Bird",
+        "description": "\tAwakens quickly \tfrom sleep.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "solar-power",
+        "name": "Solar Power",
+        "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "early-bird",
+        "name": "Early Bird",
+        "description": "\tAwakens quickly \tfrom sleep.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Grass",

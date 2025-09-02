@@ -1,5 +1,5 @@
 {
-  "name": "machamp",
+  "name": "Machamp",
   "nationalDex": 68,
   "johtoDex": 155,
   "evolution": {
@@ -73,6 +73,24 @@
       "specialDefense": 85,
       "total": 505
     },
+    "faithfulBaseStats": {
+      "hp": 90,
+      "attack": 130,
+      "defense": 80,
+      "speed": 55,
+      "specialAttack": 65,
+      "specialDefense": 85,
+      "total": 505
+    },
+    "polishedBaseStats": {
+      "hp": 90,
+      "attack": 130,
+      "defense": 80,
+      "speed": 55,
+      "specialAttack": 65,
+      "specialDefense": 85,
+      "total": 505
+    },
     "catchRate": 45,
     "baseExp": 193,
     "heldItems": [
@@ -86,22 +104,50 @@
     "abilities": [
       {
         "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "no-guard",
+        "name": "No Guard",
+        "description": "\tEnsures attacks by \tor against it hit.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "steadfast",
+        "name": "Steadfast",
+        "description": "\tBoosts Speed when \tit flinches.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "no-guard",
+        "name": "No Guard",
+        "description": "\tEnsures attacks by \tor against it hit.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "steadfast",
+        "name": "Steadfast",
+        "description": "\tBoosts Speed when \tit flinches.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Human-Like",

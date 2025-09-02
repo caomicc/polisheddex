@@ -1,5 +1,5 @@
 {
-  "name": "weavile",
+  "name": "Weavile",
   "nationalDex": 262,
   "johtoDex": 246,
   "evolution": {
@@ -70,6 +70,24 @@
       "specialDefense": 85,
       "total": 510
     },
+    "faithfulBaseStats": {
+      "hp": 70,
+      "attack": 120,
+      "defense": 65,
+      "speed": 125,
+      "specialAttack": 45,
+      "specialDefense": 85,
+      "total": 510
+    },
+    "polishedBaseStats": {
+      "hp": 70,
+      "attack": 120,
+      "defense": 65,
+      "speed": 125,
+      "specialAttack": 45,
+      "specialDefense": 85,
+      "total": 510
+    },
     "catchRate": 45,
     "baseExp": 199,
     "heldItems": [
@@ -84,34 +102,68 @@
     "abilities": [
       {
         "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "pickpocket",
+        "name": "Pickpocket",
+        "description": "\tSteals foe's item \twhen contacted.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "pickpocket",
+        "name": "Pickpocket",
+        "description": "\tSteals foe's item \twhen contacted.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "updatedAbilities": [
       {
         "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "technician",
+        "name": "Technician",
+        "description": "\tPowers up its \tweaker moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "pickpocket",
+        "name": "Pickpocket",
+        "description": "\tSteals foe's item \twhen contacted.",
         "isHidden": true,
         "abilityType": "hidden"
       }

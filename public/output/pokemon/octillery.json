@@ -1,5 +1,5 @@
 {
-  "name": "octillery",
+  "name": "Octillery",
   "nationalDex": 224,
   "johtoDex": 194,
   "evolution": {
@@ -51,6 +51,24 @@
       "specialDefense": 75,
       "total": 480
     },
+    "faithfulBaseStats": {
+      "hp": 75,
+      "attack": 105,
+      "defense": 75,
+      "speed": 45,
+      "specialAttack": 105,
+      "specialDefense": 75,
+      "total": 480
+    },
+    "polishedBaseStats": {
+      "hp": 75,
+      "attack": 105,
+      "defense": 75,
+      "speed": 45,
+      "specialAttack": 105,
+      "specialDefense": 75,
+      "total": 480
+    },
     "catchRate": 75,
     "baseExp": 164,
     "heldItems": [],
@@ -62,22 +80,50 @@
     "abilities": [
       {
         "id": "suction-cups",
+        "name": "Suction Cups",
+        "description": "\tNegates forced \tswitch-outs.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "sniper",
+        "name": "Sniper",
+        "description": "\tPowers up critical \thits.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "moody",
+        "name": "Moody",
+        "description": "\tRaises a stat and \tlowers another.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "suction-cups",
+        "name": "Suction Cups",
+        "description": "\tNegates forced \tswitch-outs.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sniper",
+        "name": "Sniper",
+        "description": "\tPowers up critical \thits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "moody",
+        "name": "Moody",
+        "description": "\tRaises a stat and \tlowers another.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"

@@ -1,5 +1,5 @@
 {
-  "name": "seel",
+  "name": "Seel",
   "nationalDex": 86,
   "johtoDex": 197,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 70,
       "total": 325
     },
+    "faithfulBaseStats": {
+      "hp": 65,
+      "attack": 45,
+      "defense": 55,
+      "speed": 45,
+      "specialAttack": 45,
+      "specialDefense": 70,
+      "total": 325
+    },
+    "polishedBaseStats": {
+      "hp": 65,
+      "attack": 45,
+      "defense": 55,
+      "speed": 45,
+      "specialAttack": 45,
+      "specialDefense": 70,
+      "total": 325
+    },
     "catchRate": 190,
     "baseExp": 100,
     "heldItems": [
@@ -82,22 +100,50 @@
     "abilities": [
       {
         "id": "thick-fat",
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "hydration",
+        "name": "Hydration",
+        "description": "\tHeals status \tproblems in rain.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "ice-body",
+        "name": "Ice Body",
+        "description": "\tGradually regains \tHP in hail.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "thick-fat",
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "hydration",
+        "name": "Hydration",
+        "description": "\tHeals status \tproblems in rain.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "ice-body",
+        "name": "Ice Body",
+        "description": "\tGradually regains \tHP in hail.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"

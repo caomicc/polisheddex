@@ -1,5 +1,5 @@
 {
-  "name": "larvitar",
+  "name": "Larvitar",
   "nationalDex": 246,
   "johtoDex": 282,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 50,
       "total": 300
     },
+    "faithfulBaseStats": {
+      "hp": 50,
+      "attack": 64,
+      "defense": 50,
+      "speed": 41,
+      "specialAttack": 45,
+      "specialDefense": 50,
+      "total": 300
+    },
+    "polishedBaseStats": {
+      "hp": 50,
+      "attack": 64,
+      "defense": 50,
+      "speed": 41,
+      "specialAttack": 45,
+      "specialDefense": 50,
+      "total": 300
+    },
     "catchRate": 45,
     "baseExp": 67,
     "heldItems": [],
@@ -102,34 +120,68 @@
     "abilities": [
       {
         "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "updatedAbilities": [
       {
         "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "battle-armor",
+        "name": "Battle Armor",
+        "description": "",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
         "isHidden": true,
         "abilityType": "hidden"
       }

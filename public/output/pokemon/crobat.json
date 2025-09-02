@@ -1,5 +1,5 @@
 {
-  "name": "crobat",
+  "name": "Crobat",
   "nationalDex": 169,
   "johtoDex": 39,
   "evolution": {
@@ -73,6 +73,24 @@
       "specialDefense": 80,
       "total": 535
     },
+    "faithfulBaseStats": {
+      "hp": 85,
+      "attack": 90,
+      "defense": 80,
+      "speed": 130,
+      "specialAttack": 70,
+      "specialDefense": 80,
+      "total": 535
+    },
+    "polishedBaseStats": {
+      "hp": 85,
+      "attack": 90,
+      "defense": 80,
+      "speed": 130,
+      "specialAttack": 70,
+      "specialDefense": 80,
+      "total": 535
+    },
     "catchRate": 90,
     "baseExp": 204,
     "heldItems": [],
@@ -84,34 +102,68 @@
     "abilities": [
       {
         "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "infiltrator",
+        "name": "Infiltrator",
+        "description": "\tAttacks bypass the \tfoe's barriers.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "infiltrator",
+        "name": "Infiltrator",
+        "description": "\tAttacks bypass the \tfoe's barriers.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "updatedAbilities": [
       {
         "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "anticipation",
+        "name": "Anticipation",
+        "description": "\tSenses the foe's \tdangerous moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "infiltrator",
+        "name": "Infiltrator",
+        "description": "\tAttacks bypass the \tfoe's barriers.",
         "isHidden": true,
         "abilityType": "hidden"
       }

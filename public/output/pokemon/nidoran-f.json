@@ -1,10 +1,88 @@
 {
-  "name": "nidoran-f",
+  "name": "Nidoran-F",
   "nationalDex": 29,
   "johtoDex": 100,
-  "evolution": null,
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Nidoran-F",
+      "Nidorina",
+      "Nidoqueen"
+    ],
+    "chainWithMethods": {
+      "Nidoran-F": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Nidorina"
+        }
+      ],
+      "Nidorina": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Nidoqueen"
+        }
+      ],
+      "Nidoqueen": []
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Nidoran-F": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Nidorina"
+        }
+      ],
+      "Nidorina": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Nidoqueen"
+        }
+      ],
+      "Nidoqueen": []
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Nidoran-F": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Nidorina"
+        }
+      ],
+      "Nidorina": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Nidoqueen"
+        }
+      ],
+      "Nidoqueen": []
+    }
+  },
   "detailedStats": {
     "baseStats": {
+      "hp": 55,
+      "attack": 47,
+      "defense": 52,
+      "speed": 41,
+      "specialAttack": 40,
+      "specialDefense": 40,
+      "total": 275
+    },
+    "faithfulBaseStats": {
+      "hp": 55,
+      "attack": 47,
+      "defense": 52,
+      "speed": 41,
+      "specialAttack": 40,
+      "specialDefense": 40,
+      "total": 275
+    },
+    "polishedBaseStats": {
       "hp": 55,
       "attack": 47,
       "defense": 52,
@@ -24,22 +102,50 @@
     "abilities": [
       {
         "id": "poison-point",
+        "name": "Poison Point",
+        "description": "\tContact may poison \tthe foe.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "rivalry",
+        "name": "Rivalry",
+        "description": "\tBoosts damage to \tsame-gender foes.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "hustle",
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "poison-point",
+        "name": "Poison Point",
+        "description": "\tContact may poison \tthe foe.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "rivalry",
+        "name": "Rivalry",
+        "description": "\tBoosts damage to \tsame-gender foes.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "hustle",
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Monster",

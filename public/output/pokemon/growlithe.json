@@ -1,5 +1,5 @@
 {
-  "name": "growlithe",
+  "name": "Growlithe",
   "nationalDex": 58,
   "johtoDex": 136,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 50,
       "total": 350
     },
+    "faithfulBaseStats": {
+      "hp": 55,
+      "attack": 70,
+      "defense": 45,
+      "speed": 60,
+      "specialAttack": 70,
+      "specialDefense": 50,
+      "total": 350
+    },
+    "polishedBaseStats": {
+      "hp": 55,
+      "attack": 70,
+      "defense": 45,
+      "speed": 60,
+      "specialAttack": 70,
+      "specialDefense": 50,
+      "total": 350
+    },
     "catchRate": 190,
     "baseExp": 91,
     "heldItems": [
@@ -82,22 +100,50 @@
     "abilities": [
       {
         "id": "intimidate",
+        "name": "Intimidate",
+        "description": "\tLowers the foe's \tAttack stat.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "justified",
+        "name": "Justified",
+        "description": "\tBoosts Attack when \thit by Dark moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "intimidate",
+        "name": "Intimidate",
+        "description": "\tLowers the foe's \tAttack stat.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "justified",
+        "name": "Justified",
+        "description": "\tBoosts Attack when \thit by Dark moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Field",

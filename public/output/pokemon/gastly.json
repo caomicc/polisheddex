@@ -1,5 +1,5 @@
 {
-  "name": "gastly",
+  "name": "Gastly",
   "nationalDex": 92,
   "johtoDex": 61,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 35,
       "total": 310
     },
+    "faithfulBaseStats": {
+      "hp": 30,
+      "attack": 35,
+      "defense": 30,
+      "speed": 80,
+      "specialAttack": 100,
+      "specialDefense": 35,
+      "total": 310
+    },
+    "polishedBaseStats": {
+      "hp": 30,
+      "attack": 35,
+      "defense": 30,
+      "speed": 80,
+      "specialAttack": 100,
+      "specialDefense": 35,
+      "total": 310
+    },
     "catchRate": 190,
     "baseExp": 95,
     "heldItems": [
@@ -104,22 +122,50 @@
     "abilities": [
       {
         "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Amorphous",

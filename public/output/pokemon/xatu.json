@@ -1,5 +1,5 @@
 {
-  "name": "xatu",
+  "name": "Xatu",
   "nationalDex": 178,
   "johtoDex": 179,
   "evolution": {
@@ -51,6 +51,15 @@
       "specialDefense": 70,
       "total": 470
     },
+    "faithfulBaseStats": {
+      "hp": 65,
+      "attack": 75,
+      "defense": 70,
+      "speed": 95,
+      "specialAttack": 95,
+      "specialDefense": 70,
+      "total": 470
+    },
     "polishedBaseStats": {
       "hp": 65,
       "attack": 75,
@@ -71,22 +80,50 @@
     "abilities": [
       {
         "id": "synchronize",
+        "name": "Synchronize",
+        "description": "\tPasses Psn, Par, \tor Brn to foes.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "early-bird",
+        "name": "Early Bird",
+        "description": "\tAwakens quickly \tfrom sleep.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "magic-bounce",
+        "name": "Magic Bounce",
+        "description": "\tReflects status- \tchanging moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "synchronize",
+        "name": "Synchronize",
+        "description": "\tPasses Psn, Par, \tor Brn to foes.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "early-bird",
+        "name": "Early Bird",
+        "description": "\tAwakens quickly \tfrom sleep.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "magic-bounce",
+        "name": "Magic Bounce",
+        "description": "\tReflects status- \tchanging moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Flying",

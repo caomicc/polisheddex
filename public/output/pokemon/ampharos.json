@@ -1,5 +1,5 @@
 {
-  "name": "ampharos",
+  "name": "Ampharos",
   "nationalDex": 181,
   "johtoDex": 57,
   "evolution": {
@@ -73,6 +73,15 @@
       "specialDefense": 90,
       "total": 510
     },
+    "faithfulBaseStats": {
+      "hp": 90,
+      "attack": 75,
+      "defense": 85,
+      "speed": 55,
+      "specialAttack": 115,
+      "specialDefense": 90,
+      "total": 510
+    },
     "polishedBaseStats": {
       "hp": 95,
       "attack": 75,
@@ -93,22 +102,50 @@
     "abilities": [
       {
         "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "mold-breaker",
+        "name": "Mold Breaker",
+        "description": "\tMoves disregard \tthe foe's ability.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "mold-breaker",
+        "name": "Mold Breaker",
+        "description": "\tMoves disregard \tthe foe's ability.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Monster",
@@ -1538,6 +1575,5 @@
       "species": "Light",
       "description": "When it gets dark, the light from its bright, shiny tail can be seen from far away on the ocean's surface."
     }
-  },
-  "locations": []
+  }
 }

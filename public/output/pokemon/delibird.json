@@ -1,5 +1,5 @@
 {
-  "name": "delibird",
+  "name": "Delibird",
   "nationalDex": 225,
   "johtoDex": 217,
   "evolution": {
@@ -21,6 +21,15 @@
   },
   "detailedStats": {
     "baseStats": {
+      "hp": 45,
+      "attack": 55,
+      "defense": 45,
+      "speed": 75,
+      "specialAttack": 65,
+      "specialDefense": 45,
+      "total": 330
+    },
+    "faithfulBaseStats": {
       "hp": 45,
       "attack": 55,
       "defense": 45,
@@ -51,22 +60,50 @@
     "abilities": [
       {
         "id": "vital-spirit",
+        "name": "Vital Spirit",
+        "description": "\tPrevents it from \tfalling asleep.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "hustle",
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "insomnia",
+        "name": "Insomnia",
+        "description": "",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "vital-spirit",
+        "name": "Vital Spirit",
+        "description": "\tPrevents it from \tfalling asleep.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "hustle",
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "insomnia",
+        "name": "Insomnia",
+        "description": "",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Fast",
     "eggGroups": [
       "Undiscovered"

@@ -1,5 +1,5 @@
 {
-  "name": "blissey",
+  "name": "Blissey",
   "nationalDex": 242,
   "johtoDex": 255,
   "evolution": {
@@ -73,6 +73,24 @@
       "specialDefense": 135,
       "total": 540
     },
+    "faithfulBaseStats": {
+      "hp": 255,
+      "attack": 10,
+      "defense": 10,
+      "speed": 55,
+      "specialAttack": 75,
+      "specialDefense": 135,
+      "total": 540
+    },
+    "polishedBaseStats": {
+      "hp": 255,
+      "attack": 10,
+      "defense": 10,
+      "speed": 55,
+      "specialAttack": 75,
+      "specialDefense": 135,
+      "total": 540
+    },
     "catchRate": 30,
     "baseExp": 255,
     "heldItems": [
@@ -87,22 +105,50 @@
     "abilities": [
       {
         "id": "natural-cure",
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "serene-grace",
+        "name": "Serene Grace",
+        "description": "\tBoosts the rate of \tadded effects.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "natural-cure",
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "natural-cure",
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "serene-grace",
+        "name": "Serene Grace",
+        "description": "\tBoosts the rate of \tadded effects.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "natural-cure",
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Fast",
     "eggGroups": [
       "Fairy",

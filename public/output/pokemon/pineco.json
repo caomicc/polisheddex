@@ -1,5 +1,5 @@
 {
-  "name": "pineco",
+  "name": "Pineco",
   "nationalDex": 204,
   "johtoDex": 98,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 35,
       "total": 290
     },
+    "faithfulBaseStats": {
+      "hp": 50,
+      "attack": 65,
+      "defense": 90,
+      "speed": 15,
+      "specialAttack": 35,
+      "specialDefense": 35,
+      "total": 290
+    },
+    "polishedBaseStats": {
+      "hp": 50,
+      "attack": 65,
+      "defense": 90,
+      "speed": 15,
+      "specialAttack": 35,
+      "specialDefense": 35,
+      "total": 290
+    },
     "catchRate": 190,
     "baseExp": 60,
     "heldItems": [],
@@ -80,22 +98,50 @@
     "abilities": [
       {
         "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "overcoat",
+        "name": "Overcoat",
+        "description": "\tProtects it from \tweather damage.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "overcoat",
+        "name": "Overcoat",
+        "description": "\tProtects it from \tweather damage.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Bug",

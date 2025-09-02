@@ -1,5 +1,5 @@
 {
-  "name": "exeggcute",
+  "name": "Exeggcute",
   "nationalDex": 102,
   "johtoDex": 110,
   "evolution": {
@@ -111,6 +111,24 @@
       "specialDefense": 45,
       "total": 325
     },
+    "faithfulBaseStats": {
+      "hp": 60,
+      "attack": 40,
+      "defense": 80,
+      "speed": 40,
+      "specialAttack": 60,
+      "specialDefense": 45,
+      "total": 325
+    },
+    "polishedBaseStats": {
+      "hp": 60,
+      "attack": 40,
+      "defense": 80,
+      "speed": 40,
+      "specialAttack": 60,
+      "specialDefense": 45,
+      "total": 325
+    },
     "catchRate": 90,
     "baseExp": 98,
     "heldItems": [
@@ -124,22 +142,50 @@
     "abilities": [
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "harvest",
+        "name": "Harvest",
+        "description": "\tMay recreate a \tBerry after use.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "harvest",
+        "name": "Harvest",
+        "description": "\tMay recreate a \tBerry after use.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Grass",

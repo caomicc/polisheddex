@@ -1,5 +1,5 @@
 {
-  "name": "ursaluna",
+  "name": "Ursaluna",
   "nationalDex": 283,
   "johtoDex": 223,
   "evolution": {
@@ -103,6 +103,24 @@
       "specialDefense": 80,
       "total": 550
     },
+    "faithfulBaseStats": {
+      "hp": 130,
+      "attack": 140,
+      "defense": 105,
+      "speed": 50,
+      "specialAttack": 45,
+      "specialDefense": 80,
+      "total": 550
+    },
+    "polishedBaseStats": {
+      "hp": 130,
+      "attack": 140,
+      "defense": 105,
+      "speed": 50,
+      "specialAttack": 45,
+      "specialDefense": 80,
+      "total": 550
+    },
     "catchRate": 30,
     "baseExp": 229,
     "heldItems": [
@@ -116,22 +134,50 @@
     "abilities": [
       {
         "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "bulletproof",
+        "name": "Bulletproof",
+        "description": "\tProtects from ball \tand bomb moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "unnerve",
+        "name": "Unnerve",
+        "description": "\tPrevents foes from \teating Berries.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "bulletproof",
+        "name": "Bulletproof",
+        "description": "\tProtects from ball \tand bomb moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "unnerve",
+        "name": "Unnerve",
+        "description": "\tPrevents foes from \teating Berries.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
@@ -3213,7 +3259,26 @@
       "evYield": "3 SAt"
     }
   },
-  "locations": [],
+  "locations": [
+    {
+      "area": "Murky Swamp",
+      "method": "static",
+      "conditions": "Special encounter",
+      "eventType": "legendary",
+      "description": "Ursaluna can be encountered at Murky Swamp.",
+      "level": 60,
+      "form": "ursaluna_bloodmoon"
+    },
+    {
+      "area": "Murky Swamp",
+      "method": "static",
+      "conditions": "Special encounter",
+      "eventType": "legendary",
+      "description": "Ursaluna can be encountered at Murky Swamp.",
+      "level": 30,
+      "form": "ursaluna_bloodmoon"
+    }
+  ],
   "pokedexEntries": {
     "default": {
       "species": "Peat",

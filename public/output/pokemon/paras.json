@@ -1,5 +1,5 @@
 {
-  "name": "paras",
+  "name": "Paras",
   "nationalDex": 46,
   "johtoDex": 75,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 55,
       "total": 285
     },
+    "faithfulBaseStats": {
+      "hp": 35,
+      "attack": 70,
+      "defense": 55,
+      "speed": 25,
+      "specialAttack": 45,
+      "specialDefense": 55,
+      "total": 285
+    },
+    "polishedBaseStats": {
+      "hp": 35,
+      "attack": 70,
+      "defense": 55,
+      "speed": 25,
+      "specialAttack": 45,
+      "specialDefense": 55,
+      "total": 285
+    },
     "catchRate": 190,
     "baseExp": 70,
     "heldItems": [
@@ -83,22 +101,50 @@
     "abilities": [
       {
         "id": "effect-spore",
+        "name": "Effect Spore",
+        "description": "\tContact may cause \tPar, Psn, or Slp.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "dry-skin",
+        "name": "Dry Skin",
+        "description": "\tReduces HP in sun. \tWater restores HP.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "damp",
+        "name": "Damp",
+        "description": "\tPrevents self- \tdestructing moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "effect-spore",
+        "name": "Effect Spore",
+        "description": "\tContact may cause \tPar, Psn, or Slp.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "dry-skin",
+        "name": "Dry Skin",
+        "description": "\tReduces HP in sun. \tWater restores HP.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "damp",
+        "name": "Damp",
+        "description": "\tPrevents self- \tdestructing moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Bug",

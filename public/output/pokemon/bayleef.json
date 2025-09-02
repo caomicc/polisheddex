@@ -1,5 +1,5 @@
 {
-  "name": "bayleef",
+  "name": "Bayleef",
   "nationalDex": 153,
   "johtoDex": 2,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 80,
       "total": 405
     },
+    "faithfulBaseStats": {
+      "hp": 60,
+      "attack": 62,
+      "defense": 80,
+      "speed": 60,
+      "specialAttack": 63,
+      "specialDefense": 80,
+      "total": 405
+    },
+    "polishedBaseStats": {
+      "hp": 60,
+      "attack": 62,
+      "defense": 80,
+      "speed": 60,
+      "specialAttack": 63,
+      "specialDefense": 80,
+      "total": 405
+    },
     "catchRate": 45,
     "baseExp": 141,
     "heldItems": [],
@@ -102,34 +120,68 @@
     "abilities": [
       {
         "id": "overgrow",
+        "name": "Overgrow",
+        "description": "\tBoosts Grass moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "overgrow",
+        "name": "Overgrow",
+        "description": "\tBoosts Grass moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "leaf-guard",
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "overgrow",
+        "name": "Overgrow",
+        "description": "\tBoosts Grass moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "overgrow",
+        "name": "Overgrow",
+        "description": "\tBoosts Grass moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "leaf-guard",
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "updatedAbilities": [
       {
         "id": "overgrow",
+        "name": "Overgrow",
+        "description": "\tBoosts Grass moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "natural-cure",
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "leaf-guard",
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1347,6 +1399,5 @@
       "species": "Leaf",
       "description": "The scent that wafts from the leaves on its neck causes anyone who smells it to become energetic."
     }
-  },
-  "locations": []
+  }
 }

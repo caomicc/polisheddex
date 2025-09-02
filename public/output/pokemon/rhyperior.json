@@ -1,5 +1,5 @@
 {
-  "name": "rhyperior",
+  "name": "Rhyperior",
   "nationalDex": 265,
   "johtoDex": 238,
   "evolution": {
@@ -73,6 +73,15 @@
       "specialDefense": 55,
       "total": 535
     },
+    "faithfulBaseStats": {
+      "hp": 115,
+      "attack": 140,
+      "defense": 130,
+      "speed": 40,
+      "specialAttack": 55,
+      "specialDefense": 55,
+      "total": 535
+    },
     "polishedBaseStats": {
       "hp": 120,
       "attack": 140,
@@ -93,22 +102,50 @@
     "abilities": [
       {
         "id": "lightning-rod",
+        "name": "Lightning Rod",
+        "description": "\tElectric moves \tboost Sp.Atk.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "solid-rock",
+        "name": "Solid Rock",
+        "description": "\tReduces super \teffective damage.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "reckless",
+        "name": "Reckless",
+        "description": "\tPowers up moves \tthat recoil.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "lightning-rod",
+        "name": "Lightning Rod",
+        "description": "\tElectric moves \tboost Sp.Atk.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "solid-rock",
+        "name": "Solid Rock",
+        "description": "\tReduces super \teffective damage.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "reckless",
+        "name": "Reckless",
+        "description": "\tPowers up moves \tthat recoil.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Monster",
@@ -1771,6 +1808,5 @@
       "species": "Drill",
       "description": "From holes in its palms, it fires out Geodude. Its carapace can withstand volcanic eruptions."
     }
-  },
-  "locations": []
+  }
 }

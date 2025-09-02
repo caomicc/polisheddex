@@ -1,5 +1,5 @@
 {
-  "name": "omanyte",
+  "name": "Omanyte",
   "nationalDex": 138,
   "johtoDex": 257,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 55,
       "total": 355
     },
+    "faithfulBaseStats": {
+      "hp": 35,
+      "attack": 40,
+      "defense": 100,
+      "speed": 35,
+      "specialAttack": 90,
+      "specialDefense": 55,
+      "total": 355
+    },
+    "polishedBaseStats": {
+      "hp": 35,
+      "attack": 40,
+      "defense": 100,
+      "speed": 35,
+      "specialAttack": 90,
+      "specialDefense": 55,
+      "total": 355
+    },
     "catchRate": 45,
     "baseExp": 120,
     "heldItems": [],
@@ -80,22 +98,50 @@
     "abilities": [
       {
         "id": "swift-swim",
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "weak-armor",
+        "name": "Weak Armor",
+        "description": "\tPhysical attacks \ttrade Def for Spe.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "swift-swim",
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "weak-armor",
+        "name": "Weak Armor",
+        "description": "\tPhysical attacks \ttrade Def for Spe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"
@@ -1214,7 +1260,14 @@
       ]
     }
   },
-  "locations": [],
+  "locations": [
+    {
+      "area": "Pewter Museum of Science",
+      "method": "gift",
+      "npc": "Pewter Museum of Science",
+      "conditions": "Various requirements"
+    }
+  ],
   "pokedexEntries": {
     "default": {
       "species": "Spiral",

@@ -1,5 +1,5 @@
 {
-  "name": "tyrogue",
+  "name": "Tyrogue",
   "nationalDex": 236,
   "johtoDex": 156,
   "evolution": {
@@ -137,6 +137,24 @@
       "specialDefense": 35,
       "total": 210
     },
+    "faithfulBaseStats": {
+      "hp": 35,
+      "attack": 35,
+      "defense": 35,
+      "speed": 35,
+      "specialAttack": 35,
+      "specialDefense": 35,
+      "total": 210
+    },
+    "polishedBaseStats": {
+      "hp": 35,
+      "attack": 35,
+      "defense": 35,
+      "speed": 35,
+      "specialAttack": 35,
+      "specialDefense": 35,
+      "total": 210
+    },
     "catchRate": 75,
     "baseExp": 91,
     "heldItems": [],
@@ -148,22 +166,50 @@
     "abilities": [
       {
         "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "steadfast",
+        "name": "Steadfast",
+        "description": "\tBoosts Speed when \tit flinches.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "vital-spirit",
+        "name": "Vital Spirit",
+        "description": "\tPrevents it from \tfalling asleep.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "steadfast",
+        "name": "Steadfast",
+        "description": "\tBoosts Speed when \tit flinches.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "vital-spirit",
+        "name": "Vital Spirit",
+        "description": "\tPrevents it from \tfalling asleep.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered",
@@ -769,7 +815,14 @@
       ]
     }
   },
-  "locations": [],
+  "locations": [
+    {
+      "area": "Mount Mortar B1F",
+      "method": "gift",
+      "npc": "Karate Master",
+      "conditions": "Defeat Karate Master Kiyo"
+    }
+  ],
   "pokedexEntries": {
     "default": {
       "species": "Scuffle",

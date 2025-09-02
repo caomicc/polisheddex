@@ -1,5 +1,5 @@
 {
-  "name": "leafeon",
+  "name": "Leafeon",
   "nationalDex": 271,
   "johtoDex": 209,
   "evolution": {
@@ -244,6 +244,24 @@
       "specialDefense": 65,
       "total": 525
     },
+    "faithfulBaseStats": {
+      "hp": 65,
+      "attack": 110,
+      "defense": 130,
+      "speed": 95,
+      "specialAttack": 60,
+      "specialDefense": 65,
+      "total": 525
+    },
+    "polishedBaseStats": {
+      "hp": 65,
+      "attack": 110,
+      "defense": 130,
+      "speed": 95,
+      "specialAttack": 60,
+      "specialDefense": 65,
+      "total": 525
+    },
     "catchRate": 45,
     "baseExp": 196,
     "heldItems": [],
@@ -255,34 +273,68 @@
     "abilities": [
       {
         "id": "leaf-guard",
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "leaf-guard",
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "leaf-guard",
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "leaf-guard",
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "updatedAbilities": [
       {
         "id": "leaf-guard",
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "natural-cure",
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1510,6 +1562,5 @@
       "species": "Verdant",
       "description": "Just like a plant, it uses photosynthesis. As a result, it is always enveloped in clear air."
     }
-  },
-  "locations": []
+  }
 }

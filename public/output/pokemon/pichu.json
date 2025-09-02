@@ -1,5 +1,5 @@
 {
-  "name": "pichu",
+  "name": "Pichu",
   "nationalDex": 172,
   "johtoDex": 21,
   "evolution": {
@@ -112,6 +112,24 @@
       "specialDefense": 35,
       "total": 205
     },
+    "faithfulBaseStats": {
+      "hp": 20,
+      "attack": 40,
+      "defense": 15,
+      "speed": 60,
+      "specialAttack": 35,
+      "specialDefense": 35,
+      "total": 205
+    },
+    "polishedBaseStats": {
+      "hp": 20,
+      "attack": 40,
+      "defense": 15,
+      "speed": 60,
+      "specialAttack": 35,
+      "specialDefense": 35,
+      "total": 205
+    },
     "catchRate": 190,
     "baseExp": 42,
     "heldItems": [
@@ -126,22 +144,50 @@
     "abilities": [
       {
         "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "lightning-rod",
+        "name": "Lightning Rod",
+        "description": "\tElectric moves \tboost Sp.Atk.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "lightning-rod",
+        "name": "Lightning Rod",
+        "description": "\tElectric moves \tboost Sp.Atk.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered",

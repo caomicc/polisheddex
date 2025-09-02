@@ -1,5 +1,5 @@
 {
-  "name": "bellsprout",
+  "name": "Bellsprout",
   "nationalDex": 69,
   "johtoDex": 69,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 30,
       "total": 300
     },
+    "faithfulBaseStats": {
+      "hp": 50,
+      "attack": 75,
+      "defense": 35,
+      "speed": 40,
+      "specialAttack": 70,
+      "specialDefense": 30,
+      "total": 300
+    },
+    "polishedBaseStats": {
+      "hp": 50,
+      "attack": 75,
+      "defense": 35,
+      "speed": 40,
+      "specialAttack": 70,
+      "specialDefense": 30,
+      "total": 300
+    },
     "catchRate": 255,
     "baseExp": 84,
     "heldItems": [
@@ -104,22 +122,50 @@
     "abilities": [
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "gluttony",
+        "name": "Gluttony",
+        "description": "\tEncourages early \tBerry use.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "gluttony",
+        "name": "Gluttony",
+        "description": "\tEncourages early \tBerry use.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Grass",

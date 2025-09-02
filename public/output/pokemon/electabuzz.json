@@ -1,5 +1,5 @@
 {
-  "name": "electabuzz",
+  "name": "Electabuzz",
   "nationalDex": 125,
   "johtoDex": 170,
   "evolution": {
@@ -91,6 +91,15 @@
       "specialDefense": 85,
       "total": 490
     },
+    "faithfulBaseStats": {
+      "hp": 65,
+      "attack": 83,
+      "defense": 57,
+      "speed": 105,
+      "specialAttack": 95,
+      "specialDefense": 85,
+      "total": 490
+    },
     "polishedBaseStats": {
       "hp": 65,
       "attack": 88,
@@ -114,22 +123,50 @@
     "abilities": [
       {
         "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "vital-spirit",
+        "name": "Vital Spirit",
+        "description": "\tPrevents it from \tfalling asleep.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "vital-spirit",
+        "name": "Vital Spirit",
+        "description": "\tPrevents it from \tfalling asleep.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Human-Like",

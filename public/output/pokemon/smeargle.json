@@ -1,5 +1,5 @@
 {
-  "name": "smeargle",
+  "name": "Smeargle",
   "nationalDex": 235,
   "johtoDex": 175,
   "evolution": {
@@ -29,6 +29,15 @@
       "specialDefense": 45,
       "total": 250
     },
+    "faithfulBaseStats": {
+      "hp": 55,
+      "attack": 20,
+      "defense": 35,
+      "speed": 75,
+      "specialAttack": 20,
+      "specialDefense": 45,
+      "total": 250
+    },
     "polishedBaseStats": {
       "hp": 55,
       "attack": 20,
@@ -49,22 +58,50 @@
     "abilities": [
       {
         "id": "own-tempo",
+        "name": "Own Tempo",
+        "description": "\tPrevents it from \tbecoming confused.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "technician",
+        "name": "Technician",
+        "description": "\tPowers up its \tweaker moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "moody",
+        "name": "Moody",
+        "description": "\tRaises a stat and \tlowers another.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "own-tempo",
+        "name": "Own Tempo",
+        "description": "\tPrevents it from \tbecoming confused.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "technician",
+        "name": "Technician",
+        "description": "\tPowers up its \tweaker moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "moody",
+        "name": "Moody",
+        "description": "\tRaises a stat and \tlowers another.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Fast",
     "eggGroups": [
       "Field",

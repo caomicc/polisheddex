@@ -1,5 +1,5 @@
 {
-  "name": "yanmega",
+  "name": "Yanmega",
   "nationalDex": 270,
   "johtoDex": 107,
   "evolution": {
@@ -51,6 +51,24 @@
       "specialDefense": 56,
       "total": 515
     },
+    "faithfulBaseStats": {
+      "hp": 86,
+      "attack": 76,
+      "defense": 86,
+      "speed": 95,
+      "specialAttack": 116,
+      "specialDefense": 56,
+      "total": 515
+    },
+    "polishedBaseStats": {
+      "hp": 86,
+      "attack": 76,
+      "defense": 86,
+      "speed": 95,
+      "specialAttack": 116,
+      "specialDefense": 56,
+      "total": 515
+    },
     "catchRate": 30,
     "baseExp": 198,
     "heldItems": [
@@ -64,34 +82,68 @@
     "abilities": [
       {
         "id": "speed-boost",
+        "name": "Speed Boost",
+        "description": "\tIts Speed stat is \tgradually boosted.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "tinted-lens",
+        "name": "Tinted Lens",
+        "description": "\tPowers up not very \teffective moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "frisk",
+        "name": "Frisk",
+        "description": "\tChecks the foe's \theld item.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": [
+    "faithfulAbilities": [
       {
         "id": "speed-boost",
+        "name": "Speed Boost",
+        "description": "\tIts Speed stat is \tgradually boosted.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "tinted-lens",
+        "name": "Tinted Lens",
+        "description": "\tPowers up not very \teffective moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "frisk",
+        "name": "Frisk",
+        "description": "\tChecks the foe's \theld item.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "id": "speed-boost",
+        "name": "Speed Boost",
+        "description": "\tIts Speed stat is \tgradually boosted.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "tinted-lens",
+        "name": "Tinted Lens",
+        "description": "\tPowers up not very \teffective moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }

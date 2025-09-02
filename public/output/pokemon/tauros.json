@@ -1,5 +1,5 @@
 {
-  "name": "tauros",
+  "name": "Tauros",
   "nationalDex": 128,
   "johtoDex": 162,
   "evolution": {
@@ -29,6 +29,24 @@
       "specialDefense": 70,
       "total": 490
     },
+    "faithfulBaseStats": {
+      "hp": 75,
+      "attack": 100,
+      "defense": 95,
+      "speed": 110,
+      "specialAttack": 40,
+      "specialDefense": 70,
+      "total": 490
+    },
+    "polishedBaseStats": {
+      "hp": 75,
+      "attack": 100,
+      "defense": 95,
+      "speed": 110,
+      "specialAttack": 40,
+      "specialDefense": 70,
+      "total": 490
+    },
     "catchRate": 45,
     "baseExp": 211,
     "heldItems": [],
@@ -40,22 +58,50 @@
     "abilities": [
       {
         "id": "intimidate",
+        "name": "Intimidate",
+        "description": "\tLowers the foe's \tAttack stat.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "anger-point",
+        "name": "Anger Point",
+        "description": "\tMaxes Attack after \ta critical hit.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sheer-force",
+        "name": "Sheer Force",
+        "description": "\tRemoves effects to \tincrease damage.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "intimidate",
+        "name": "Intimidate",
+        "description": "\tLowers the foe's \tAttack stat.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "anger-point",
+        "name": "Anger Point",
+        "description": "\tMaxes Attack after \ta critical hit.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "sheer-force",
+        "name": "Sheer Force",
+        "description": "\tRemoves effects to \tincrease damage.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Field",

@@ -1,5 +1,5 @@
 {
-  "name": "misdreavus",
+  "name": "Misdreavus",
   "nationalDex": 200,
   "johtoDex": 248,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 85,
       "total": 435
     },
+    "faithfulBaseStats": {
+      "hp": 60,
+      "attack": 60,
+      "defense": 60,
+      "speed": 85,
+      "specialAttack": 85,
+      "specialDefense": 85,
+      "total": 435
+    },
+    "polishedBaseStats": {
+      "hp": 60,
+      "attack": 60,
+      "defense": 60,
+      "speed": 85,
+      "specialAttack": 85,
+      "specialDefense": 85,
+      "total": 435
+    },
     "catchRate": 45,
     "baseExp": 147,
     "heldItems": [
@@ -82,22 +100,50 @@
     "abilities": [
       {
         "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Fast",
     "eggGroups": [
       "Amorphous",

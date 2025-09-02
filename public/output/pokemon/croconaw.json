@@ -1,5 +1,5 @@
 {
-  "name": "croconaw",
+  "name": "Croconaw",
   "nationalDex": 159,
   "johtoDex": 8,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 63,
       "total": 405
     },
+    "faithfulBaseStats": {
+      "hp": 65,
+      "attack": 80,
+      "defense": 80,
+      "speed": 58,
+      "specialAttack": 59,
+      "specialDefense": 63,
+      "total": 405
+    },
+    "polishedBaseStats": {
+      "hp": 65,
+      "attack": 80,
+      "defense": 80,
+      "speed": 58,
+      "specialAttack": 59,
+      "specialDefense": 63,
+      "total": 405
+    },
     "catchRate": 45,
     "baseExp": 143,
     "heldItems": [],
@@ -102,34 +120,68 @@
     "abilities": [
       {
         "id": "torrent",
+        "name": "Torrent",
+        "description": "\tBoosts Water moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "torrent",
+        "name": "Torrent",
+        "description": "\tBoosts Water moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sheer-force",
+        "name": "Sheer Force",
+        "description": "\tRemoves effects to \tincrease damage.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "torrent",
+        "name": "Torrent",
+        "description": "\tBoosts Water moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "torrent",
+        "name": "Torrent",
+        "description": "\tBoosts Water moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "sheer-force",
+        "name": "Sheer Force",
+        "description": "\tRemoves effects to \tincrease damage.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "updatedAbilities": [
       {
         "id": "torrent",
+        "name": "Torrent",
+        "description": "\tBoosts Water moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sheer-force",
+        "name": "Sheer Force",
+        "description": "\tRemoves effects to \tincrease damage.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1465,6 +1517,5 @@
       "species": "Big Jaw",
       "description": "The tips of its fangs are slanted backward. Once those fangs clamp down, the prey has no hope of escape."
     }
-  },
-  "locations": []
+  }
 }

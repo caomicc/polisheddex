@@ -1,5 +1,5 @@
 {
-  "name": "sneasel",
+  "name": "Sneasel",
   "nationalDex": 215,
   "johtoDex": 245,
   "evolution": {
@@ -70,6 +70,24 @@
       "specialDefense": 75,
       "total": 430
     },
+    "faithfulBaseStats": {
+      "hp": 55,
+      "attack": 95,
+      "defense": 55,
+      "speed": 115,
+      "specialAttack": 35,
+      "specialDefense": 75,
+      "total": 430
+    },
+    "polishedBaseStats": {
+      "hp": 55,
+      "attack": 95,
+      "defense": 55,
+      "speed": 115,
+      "specialAttack": 35,
+      "specialDefense": 75,
+      "total": 430
+    },
     "catchRate": 60,
     "baseExp": 132,
     "heldItems": [
@@ -84,22 +102,50 @@
     "abilities": [
       {
         "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "keen-eye",
+        "name": "Keen Eye",
+        "description": "\tPrevents foes from \tlowering accuracy.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "pickpocket",
+        "name": "Pickpocket",
+        "description": "\tSteals foe's item \twhen contacted.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "keen-eye",
+        "name": "Keen Eye",
+        "description": "\tPrevents foes from \tlowering accuracy.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "pickpocket",
+        "name": "Pickpocket",
+        "description": "\tSteals foe's item \twhen contacted.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Field",

@@ -1,5 +1,5 @@
 {
-  "name": "parasect",
+  "name": "Parasect",
   "nationalDex": 47,
   "johtoDex": 76,
   "evolution": {
@@ -51,6 +51,15 @@
       "specialDefense": 80,
       "total": 405
     },
+    "faithfulBaseStats": {
+      "hp": 60,
+      "attack": 95,
+      "defense": 80,
+      "speed": 30,
+      "specialAttack": 60,
+      "specialDefense": 80,
+      "total": 405
+    },
     "polishedBaseStats": {
       "hp": 60,
       "attack": 115,
@@ -74,22 +83,50 @@
     "abilities": [
       {
         "id": "effect-spore",
+        "name": "Effect Spore",
+        "description": "\tContact may cause \tPar, Psn, or Slp.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "dry-skin",
+        "name": "Dry Skin",
+        "description": "\tReduces HP in sun. \tWater restores HP.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "damp",
+        "name": "Damp",
+        "description": "\tPrevents self- \tdestructing moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "effect-spore",
+        "name": "Effect Spore",
+        "description": "\tContact may cause \tPar, Psn, or Slp.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "dry-skin",
+        "name": "Dry Skin",
+        "description": "\tReduces HP in sun. \tWater restores HP.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "damp",
+        "name": "Damp",
+        "description": "\tPrevents self- \tdestructing moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Bug",

@@ -1,5 +1,5 @@
 {
-  "name": "murkrow",
+  "name": "Murkrow",
   "nationalDex": 198,
   "johtoDex": 239,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 42,
       "total": 405
     },
+    "faithfulBaseStats": {
+      "hp": 60,
+      "attack": 85,
+      "defense": 42,
+      "speed": 91,
+      "specialAttack": 85,
+      "specialDefense": 42,
+      "total": 405
+    },
+    "polishedBaseStats": {
+      "hp": 60,
+      "attack": 85,
+      "defense": 42,
+      "speed": 91,
+      "specialAttack": 85,
+      "specialDefense": 42,
+      "total": 405
+    },
     "catchRate": 30,
     "baseExp": 107,
     "heldItems": [],
@@ -80,22 +98,50 @@
     "abilities": [
       {
         "id": "insomnia",
+        "name": "Insomnia",
+        "description": "",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "super-luck",
+        "name": "Super Luck",
+        "description": "\tBoosts the rate \tof critical hits.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "prankster",
+        "name": "Prankster",
+        "description": "\tGives priority to \ta status move.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "insomnia",
+        "name": "Insomnia",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "super-luck",
+        "name": "Super Luck",
+        "description": "\tBoosts the rate \tof critical hits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "prankster",
+        "name": "Prankster",
+        "description": "\tGives priority to \ta status move.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Flying",

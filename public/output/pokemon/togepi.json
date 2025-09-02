@@ -1,5 +1,5 @@
 {
-  "name": "togepi",
+  "name": "Togepi",
   "nationalDex": 175,
   "johtoDex": 46,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 65,
       "total": 245
     },
+    "faithfulBaseStats": {
+      "hp": 35,
+      "attack": 20,
+      "defense": 65,
+      "speed": 20,
+      "specialAttack": 40,
+      "specialDefense": 65,
+      "total": 245
+    },
+    "polishedBaseStats": {
+      "hp": 35,
+      "attack": 20,
+      "defense": 65,
+      "speed": 20,
+      "specialAttack": 40,
+      "specialDefense": 65,
+      "total": 245
+    },
     "catchRate": 190,
     "baseExp": 74,
     "heldItems": [],
@@ -102,22 +120,50 @@
     "abilities": [
       {
         "id": "hustle",
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "serene-grace",
+        "name": "Serene Grace",
+        "description": "\tBoosts the rate of \tadded effects.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "super-luck",
+        "name": "Super Luck",
+        "description": "\tBoosts the rate \tof critical hits.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "hustle",
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "serene-grace",
+        "name": "Serene Grace",
+        "description": "\tBoosts the rate of \tadded effects.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "super-luck",
+        "name": "Super Luck",
+        "description": "\tBoosts the rate \tof critical hits.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Fast",
     "eggGroups": [
       "Undiscovered",

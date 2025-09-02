@@ -1,5 +1,5 @@
 {
-  "name": "sudowoodo",
+  "name": "Sudowoodo",
   "nationalDex": 185,
   "johtoDex": 113,
   "evolution": {
@@ -51,6 +51,15 @@
       "specialDefense": 65,
       "total": 410
     },
+    "faithfulBaseStats": {
+      "hp": 70,
+      "attack": 100,
+      "defense": 115,
+      "speed": 30,
+      "specialAttack": 30,
+      "specialDefense": 65,
+      "total": 410
+    },
     "polishedBaseStats": {
       "hp": 75,
       "attack": 115,
@@ -71,22 +80,50 @@
     "abilities": [
       {
         "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "rock-head",
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "rattled",
+        "name": "Rattled",
+        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "rock-head",
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "rattled",
+        "name": "Rattled",
+        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Mineral",
@@ -1265,6 +1302,5 @@
       "species": "Imitation",
       "description": "If a tree branch shakes when there is no wind, it's a Sudowoodo, not a tree. It hides from the rain."
     }
-  },
-  "locations": []
+  }
 }

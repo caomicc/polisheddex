@@ -1,5 +1,5 @@
 {
-  "name": "ninetales",
+  "name": "Ninetales",
   "nationalDex": 38,
   "johtoDex": 135,
   "evolution": {
@@ -72,6 +72,24 @@
       "specialDefense": 100,
       "total": 505
     },
+    "faithfulBaseStats": {
+      "hp": 73,
+      "attack": 76,
+      "defense": 75,
+      "speed": 100,
+      "specialAttack": 81,
+      "specialDefense": 100,
+      "total": 505
+    },
+    "polishedBaseStats": {
+      "hp": 73,
+      "attack": 76,
+      "defense": 75,
+      "speed": 100,
+      "specialAttack": 81,
+      "specialDefense": 100,
+      "total": 505
+    },
     "catchRate": 75,
     "baseExp": 178,
     "heldItems": [
@@ -85,34 +103,68 @@
     "abilities": [
       {
         "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "drought",
+        "name": "Drought",
+        "description": "\tSummons sunlight \twhen switched in.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "drought",
+        "name": "Drought",
+        "description": "\tSummons sunlight \twhen switched in.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "updatedAbilities": [
       {
         "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "forewarn",
+        "name": "Forewarn",
+        "description": "\tDetermines the \tfoe's moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "drought",
+        "name": "Drought",
+        "description": "\tSummons sunlight \twhen switched in.",
         "isHidden": true,
         "abilityType": "hidden"
       }

@@ -1,5 +1,5 @@
 {
-  "name": "caterpie",
+  "name": "Caterpie",
   "nationalDex": 10,
   "johtoDex": 24,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 20,
       "total": 195
     },
+    "faithfulBaseStats": {
+      "hp": 45,
+      "attack": 30,
+      "defense": 35,
+      "speed": 45,
+      "specialAttack": 20,
+      "specialDefense": 20,
+      "total": 195
+    },
+    "polishedBaseStats": {
+      "hp": 45,
+      "attack": 30,
+      "defense": 35,
+      "speed": 45,
+      "specialAttack": 20,
+      "specialDefense": 20,
+      "total": 195
+    },
     "catchRate": 255,
     "baseExp": 53,
     "heldItems": [],
@@ -102,22 +120,50 @@
     "abilities": [
       {
         "id": "shield-dust",
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "shield-dust",
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "shield-dust",
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shield-dust",
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Bug",

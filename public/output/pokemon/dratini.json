@@ -1,5 +1,5 @@
 {
-  "name": "dratini",
+  "name": "Dratini",
   "nationalDex": 147,
   "johtoDex": 279,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 50,
       "total": 300
     },
+    "faithfulBaseStats": {
+      "hp": 41,
+      "attack": 64,
+      "defense": 45,
+      "speed": 50,
+      "specialAttack": 50,
+      "specialDefense": 50,
+      "total": 300
+    },
+    "polishedBaseStats": {
+      "hp": 41,
+      "attack": 64,
+      "defense": 45,
+      "speed": 50,
+      "specialAttack": 50,
+      "specialDefense": 50,
+      "total": 300
+    },
     "catchRate": 45,
     "baseExp": 67,
     "heldItems": [
@@ -104,22 +122,50 @@
     "abilities": [
       {
         "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "marvel-scale",
+        "name": "Marvel Scale",
+        "description": "\tBoosts Defense on \tstatus problems.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "marvel-scale",
+        "name": "Marvel Scale",
+        "description": "\tBoosts Defense on \tstatus problems.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered"
@@ -1456,6 +1502,12 @@
       "level": "40",
       "chance": 30,
       "formName": null
+    },
+    {
+      "area": "Dragon's Den Shrine",
+      "method": "gift",
+      "npc": "Dragon Elder",
+      "conditions": "Complete Dragon Den challenge"
     }
   ],
   "pokedexEntries": {

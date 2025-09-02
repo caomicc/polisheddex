@@ -1,5 +1,5 @@
 {
-  "name": "piloswine",
+  "name": "Piloswine",
   "nationalDex": 221,
   "johtoDex": 219,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 60,
       "total": 450
     },
+    "faithfulBaseStats": {
+      "hp": 100,
+      "attack": 100,
+      "defense": 80,
+      "speed": 50,
+      "specialAttack": 60,
+      "specialDefense": 60,
+      "total": 450
+    },
+    "polishedBaseStats": {
+      "hp": 100,
+      "attack": 100,
+      "defense": 80,
+      "speed": 50,
+      "specialAttack": 60,
+      "specialDefense": 60,
+      "total": 450
+    },
     "catchRate": 75,
     "baseExp": 160,
     "heldItems": [
@@ -105,22 +123,50 @@
     "abilities": [
       {
         "id": "oblivious",
+        "name": "Oblivious",
+        "description": "\tPrevents it from \tbeing infatuated.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "snow-cloak",
+        "name": "Snow Cloak",
+        "description": "\tBoosts evasion in \thailstorms.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "thick-fat",
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "oblivious",
+        "name": "Oblivious",
+        "description": "\tPrevents it from \tbeing infatuated.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "snow-cloak",
+        "name": "Snow Cloak",
+        "description": "\tBoosts evasion in \thailstorms.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "thick-fat",
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Field",
@@ -1395,6 +1441,5 @@
       "species": "Swine",
       "description": "Although its legs are short, its rugged hooves prevent it from slipping, even on icy ground."
     }
-  },
-  "locations": []
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "raticate",
+  "name": "Raticate",
   "nationalDex": 20,
   "johtoDex": 18,
   "evolution": {
@@ -69,6 +69,15 @@
       "specialDefense": 70,
       "total": 413
     },
+    "faithfulBaseStats": {
+      "hp": 55,
+      "attack": 81,
+      "defense": 60,
+      "speed": 97,
+      "specialAttack": 50,
+      "specialDefense": 70,
+      "total": 413
+    },
     "polishedBaseStats": {
       "hp": 65,
       "attack": 91,
@@ -91,22 +100,50 @@
     "abilities": [
       {
         "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "hustle",
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "hustle",
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

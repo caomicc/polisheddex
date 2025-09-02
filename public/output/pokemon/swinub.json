@@ -1,5 +1,5 @@
 {
-  "name": "swinub",
+  "name": "Swinub",
   "nationalDex": 220,
   "johtoDex": 218,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 30,
       "total": 250
     },
+    "faithfulBaseStats": {
+      "hp": 50,
+      "attack": 50,
+      "defense": 40,
+      "speed": 50,
+      "specialAttack": 30,
+      "specialDefense": 30,
+      "total": 250
+    },
+    "polishedBaseStats": {
+      "hp": 50,
+      "attack": 50,
+      "defense": 40,
+      "speed": 50,
+      "specialAttack": 30,
+      "specialDefense": 30,
+      "total": 250
+    },
     "catchRate": 225,
     "baseExp": 78,
     "heldItems": [
@@ -104,22 +122,50 @@
     "abilities": [
       {
         "id": "oblivious",
+        "name": "Oblivious",
+        "description": "\tPrevents it from \tbeing infatuated.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "snow-cloak",
+        "name": "Snow Cloak",
+        "description": "\tBoosts evasion in \thailstorms.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "thick-fat",
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "oblivious",
+        "name": "Oblivious",
+        "description": "\tPrevents it from \tbeing infatuated.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "snow-cloak",
+        "name": "Snow Cloak",
+        "description": "\tBoosts evasion in \thailstorms.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "thick-fat",
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Field",

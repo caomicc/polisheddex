@@ -1,5 +1,5 @@
 {
-  "name": "scyther",
+  "name": "Scyther",
   "nationalDex": 123,
   "johtoDex": 116,
   "evolution": {
@@ -103,6 +103,24 @@
       "specialDefense": 80,
       "total": 500
     },
+    "faithfulBaseStats": {
+      "hp": 70,
+      "attack": 110,
+      "defense": 80,
+      "speed": 105,
+      "specialAttack": 55,
+      "specialDefense": 80,
+      "total": 500
+    },
+    "polishedBaseStats": {
+      "hp": 70,
+      "attack": 110,
+      "defense": 80,
+      "speed": 105,
+      "specialAttack": 55,
+      "specialDefense": 80,
+      "total": 500
+    },
     "catchRate": 45,
     "baseExp": 187,
     "heldItems": [],
@@ -114,22 +132,50 @@
     "abilities": [
       {
         "id": "swarm",
+        "name": "Swarm",
+        "description": "\tBoosts Bug moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "technician",
+        "name": "Technician",
+        "description": "\tPowers up its \tweaker moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "steadfast",
+        "name": "Steadfast",
+        "description": "\tBoosts Speed when \tit flinches.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "swarm",
+        "name": "Swarm",
+        "description": "\tBoosts Bug moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "technician",
+        "name": "Technician",
+        "description": "\tPowers up its \tweaker moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "steadfast",
+        "name": "Steadfast",
+        "description": "\tBoosts Speed when \tit flinches.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Bug",

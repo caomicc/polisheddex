@@ -1,5 +1,5 @@
 {
-  "name": "alakazam",
+  "name": "Alakazam",
   "nationalDex": 65,
   "johtoDex": 96,
   "evolution": {
@@ -73,6 +73,24 @@
       "specialDefense": 95,
       "total": 500
     },
+    "faithfulBaseStats": {
+      "hp": 55,
+      "attack": 50,
+      "defense": 45,
+      "speed": 120,
+      "specialAttack": 135,
+      "specialDefense": 95,
+      "total": 500
+    },
+    "polishedBaseStats": {
+      "hp": 55,
+      "attack": 50,
+      "defense": 45,
+      "speed": 120,
+      "specialAttack": 135,
+      "specialDefense": 95,
+      "total": 500
+    },
     "catchRate": 50,
     "baseExp": 186,
     "heldItems": [
@@ -86,22 +104,50 @@
     "abilities": [
       {
         "id": "synchronize",
+        "name": "Synchronize",
+        "description": "\tPasses Psn, Par, \tor Brn to foes.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "magic-guard",
+        "name": "Magic Guard",
+        "description": "\tOnly takes damage \tfrom attacks.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "trace",
+        "name": "Trace",
+        "description": "\tCopies the foe's \tAbility.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "synchronize",
+        "name": "Synchronize",
+        "description": "\tPasses Psn, Par, \tor Brn to foes.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "magic-guard",
+        "name": "Magic Guard",
+        "description": "\tOnly takes damage \tfrom attacks.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "trace",
+        "name": "Trace",
+        "description": "\tCopies the foe's \tAbility.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Human-Like",

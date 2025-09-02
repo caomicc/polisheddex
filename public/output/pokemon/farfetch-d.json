@@ -1,5 +1,5 @@
 {
-  "name": "farfetch-d",
+  "name": "Farfetch-d",
   "nationalDex": 83,
   "johtoDex": 176,
   "evolution": {
@@ -54,6 +54,24 @@
       "specialDefense": 62,
       "total": 377
     },
+    "faithfulBaseStats": {
+      "hp": 52,
+      "attack": 90,
+      "defense": 55,
+      "speed": 60,
+      "specialAttack": 58,
+      "specialDefense": 62,
+      "total": 377
+    },
+    "polishedBaseStats": {
+      "hp": 52,
+      "attack": 90,
+      "defense": 55,
+      "speed": 60,
+      "specialAttack": 58,
+      "specialDefense": 62,
+      "total": 377
+    },
     "catchRate": 45,
     "baseExp": 94,
     "heldItems": [
@@ -67,22 +85,50 @@
     "abilities": [
       {
         "id": "keen-eye",
+        "name": "Keen Eye",
+        "description": "\tPrevents foes from \tlowering accuracy.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "defiant",
+        "name": "Defiant",
+        "description": "\tBoosts Attack when \tstats are lowered.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "keen-eye",
+        "name": "Keen Eye",
+        "description": "\tPrevents foes from \tlowering accuracy.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "defiant",
+        "name": "Defiant",
+        "description": "\tBoosts Attack when \tstats are lowered.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Flying",

@@ -1,5 +1,5 @@
 {
-  "name": "venonat",
+  "name": "Venonat",
   "nationalDex": 48,
   "johtoDex": 114,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 55,
       "total": 305
     },
+    "faithfulBaseStats": {
+      "hp": 60,
+      "attack": 55,
+      "defense": 50,
+      "speed": 45,
+      "specialAttack": 40,
+      "specialDefense": 55,
+      "total": 305
+    },
+    "polishedBaseStats": {
+      "hp": 60,
+      "attack": 55,
+      "defense": 50,
+      "speed": 45,
+      "specialAttack": 40,
+      "specialDefense": 55,
+      "total": 305
+    },
     "catchRate": 190,
     "baseExp": 75,
     "heldItems": [],
@@ -80,22 +98,50 @@
     "abilities": [
       {
         "id": "compound-eyes",
+        "name": "Compound Eyes",
+        "description": "\tBoosts the Poké- \tmon's accuracy.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "tinted-lens",
+        "name": "Tinted Lens",
+        "description": "\tPowers up not very \teffective moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "compound-eyes",
+        "name": "Compound Eyes",
+        "description": "\tBoosts the Poké- \tmon's accuracy.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "tinted-lens",
+        "name": "Tinted Lens",
+        "description": "\tPowers up not very \teffective moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Bug",

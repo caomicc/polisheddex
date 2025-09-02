@@ -1,10 +1,127 @@
 {
-  "name": "mr-mime",
+  "name": "Mr-Mime",
   "nationalDex": 122,
   "johtoDex": 173,
-  "evolution": null,
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Mime-Jr",
+      "Mr-Mime",
+      "mr-rime"
+    ],
+    "chainWithMethods": {
+      "Mr-Mime": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 42,
+          "target": "mr-rime"
+        }
+      ],
+      "mr-rime": [],
+      "Mime-Jr": [
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Mr-Mime",
+          "form": "Galarian Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Mr-Mime",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Mr-Mime",
+          "form": "Galarian Form"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Mr-Mime": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 42,
+          "target": "mr-rime"
+        }
+      ],
+      "mr-rime": [],
+      "Mime-Jr": [
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Mr-Mime",
+          "form": "Galarian Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Mr-Mime",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Mr-Mime",
+          "form": "Galarian Form"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Mr-Mime": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 42,
+          "target": "mr-rime"
+        }
+      ],
+      "mr-rime": [],
+      "Mime-Jr": [
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Mr-Mime",
+          "form": "Galarian Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Mr-Mime",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Mr-Mime",
+          "form": "Galarian Form"
+        }
+      ]
+    }
+  },
   "detailedStats": {
     "baseStats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 65,
+      "speed": 90,
+      "specialAttack": 100,
+      "specialDefense": 120,
+      "total": 460
+    },
+    "faithfulBaseStats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 65,
+      "speed": 90,
+      "specialAttack": 100,
+      "specialDefense": 120,
+      "total": 460
+    },
+    "polishedBaseStats": {
       "hp": 40,
       "attack": 45,
       "defense": 65,
@@ -27,22 +144,50 @@
     "abilities": [
       {
         "id": "soundproof",
+        "name": "Soundproof",
+        "description": "\tGives immunity to \tsound-based moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "filter",
+        "name": "Filter",
+        "description": "",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "technician",
+        "name": "Technician",
+        "description": "\tPowers up its \tweaker moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "soundproof",
+        "name": "Soundproof",
+        "description": "\tGives immunity to \tsound-based moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "filter",
+        "name": "Filter",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "technician",
+        "name": "Technician",
+        "description": "\tPowers up its \tweaker moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Human-Like",

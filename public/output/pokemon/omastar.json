@@ -1,5 +1,5 @@
 {
-  "name": "omastar",
+  "name": "Omastar",
   "nationalDex": 139,
   "johtoDex": 258,
   "evolution": {
@@ -51,6 +51,24 @@
       "specialDefense": 70,
       "total": 495
     },
+    "faithfulBaseStats": {
+      "hp": 70,
+      "attack": 60,
+      "defense": 125,
+      "speed": 55,
+      "specialAttack": 115,
+      "specialDefense": 70,
+      "total": 495
+    },
+    "polishedBaseStats": {
+      "hp": 70,
+      "attack": 60,
+      "defense": 125,
+      "speed": 55,
+      "specialAttack": 115,
+      "specialDefense": 70,
+      "total": 495
+    },
     "catchRate": 45,
     "baseExp": 199,
     "heldItems": [],
@@ -62,22 +80,50 @@
     "abilities": [
       {
         "id": "swift-swim",
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "weak-armor",
+        "name": "Weak Armor",
+        "description": "\tPhysical attacks \ttrade Def for Spe.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "swift-swim",
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "weak-armor",
+        "name": "Weak Armor",
+        "description": "\tPhysical attacks \ttrade Def for Spe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"
@@ -1289,6 +1335,5 @@
       "species": "Spiral",
       "description": "Its heavy shell allowed it to reach only nearby food. This could be the reason it is extinct."
     }
-  },
-  "locations": []
+  }
 }

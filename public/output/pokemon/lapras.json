@@ -1,5 +1,5 @@
 {
-  "name": "lapras",
+  "name": "Lapras",
   "nationalDex": 131,
   "johtoDex": 256,
   "evolution": {
@@ -29,6 +29,24 @@
       "specialDefense": 95,
       "total": 535
     },
+    "faithfulBaseStats": {
+      "hp": 130,
+      "attack": 85,
+      "defense": 80,
+      "speed": 60,
+      "specialAttack": 85,
+      "specialDefense": 95,
+      "total": 535
+    },
+    "polishedBaseStats": {
+      "hp": 130,
+      "attack": 85,
+      "defense": 80,
+      "speed": 60,
+      "specialAttack": 85,
+      "specialDefense": 95,
+      "total": 535
+    },
     "catchRate": 45,
     "baseExp": 219,
     "heldItems": [
@@ -42,22 +60,50 @@
     "abilities": [
       {
         "id": "water-absorb",
+        "name": "Water Absorb",
+        "description": "\tRestores HP if hit \tby Water moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "hydration",
+        "name": "Hydration",
+        "description": "\tHeals status \tproblems in rain.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "water-absorb",
+        "name": "Water Absorb",
+        "description": "\tRestores HP if hit \tby Water moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "hydration",
+        "name": "Hydration",
+        "description": "\tHeals status \tproblems in rain.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Monster",
@@ -1484,6 +1530,5 @@
       "species": "Transport",
       "description": "This gentle #mon loves to give people rides and provides a very comfortable way to get around."
     }
-  },
-  "locations": []
+  }
 }

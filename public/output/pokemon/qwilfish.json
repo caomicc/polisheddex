@@ -1,5 +1,5 @@
 {
-  "name": "qwilfish",
+  "name": "Qwilfish",
   "nationalDex": 211,
   "johtoDex": 180,
   "evolution": {
@@ -51,6 +51,24 @@
       "specialDefense": 55,
       "total": 440
     },
+    "faithfulBaseStats": {
+      "hp": 65,
+      "attack": 95,
+      "defense": 85,
+      "speed": 85,
+      "specialAttack": 55,
+      "specialDefense": 55,
+      "total": 440
+    },
+    "polishedBaseStats": {
+      "hp": 65,
+      "attack": 95,
+      "defense": 85,
+      "speed": 85,
+      "specialAttack": 55,
+      "specialDefense": 55,
+      "total": 440
+    },
     "catchRate": 45,
     "baseExp": 100,
     "heldItems": [
@@ -64,22 +82,50 @@
     "abilities": [
       {
         "id": "poison-point",
+        "name": "Poison Point",
+        "description": "\tContact may poison \tthe foe.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "swift-swim",
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "intimidate",
+        "name": "Intimidate",
+        "description": "\tLowers the foe's \tAttack stat.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "poison-point",
+        "name": "Poison Point",
+        "description": "\tContact may poison \tthe foe.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "swift-swim",
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "intimidate",
+        "name": "Intimidate",
+        "description": "\tLowers the foe's \tAttack stat.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"

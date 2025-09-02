@@ -1,5 +1,5 @@
 {
-  "name": "exeggutor",
+  "name": "Exeggutor",
   "nationalDex": 103,
   "johtoDex": 111,
   "evolution": {
@@ -72,6 +72,24 @@
       "specialDefense": 75,
       "total": 530
     },
+    "faithfulBaseStats": {
+      "hp": 95,
+      "attack": 95,
+      "defense": 85,
+      "speed": 55,
+      "specialAttack": 125,
+      "specialDefense": 75,
+      "total": 530
+    },
+    "polishedBaseStats": {
+      "hp": 95,
+      "attack": 95,
+      "defense": 85,
+      "speed": 55,
+      "specialAttack": 125,
+      "specialDefense": 75,
+      "total": 530
+    },
     "catchRate": 45,
     "baseExp": 212,
     "heldItems": [
@@ -85,22 +103,50 @@
     "abilities": [
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "harvest",
+        "name": "Harvest",
+        "description": "\tMay recreate a \tBerry after use.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "harvest",
+        "name": "Harvest",
+        "description": "\tMay recreate a \tBerry after use.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Grass",
@@ -1958,6 +2004,15 @@
       "level": "59",
       "chance": 5,
       "formName": null
+    },
+    {
+      "area": "Shamouti Island",
+      "method": "static",
+      "conditions": "Special encounter",
+      "eventType": "legendary",
+      "description": "Exeggutor can be encountered at Shamouti Island.",
+      "level": 60,
+      "form": "alolan"
     }
   ],
   "pokedexEntries": {

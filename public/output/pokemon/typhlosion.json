@@ -1,5 +1,5 @@
 {
-  "name": "typhlosion",
+  "name": "Typhlosion",
   "nationalDex": 157,
   "johtoDex": 6,
   "evolution": {
@@ -73,6 +73,24 @@
       "specialDefense": 85,
       "total": 534
     },
+    "faithfulBaseStats": {
+      "hp": 78,
+      "attack": 84,
+      "defense": 78,
+      "speed": 100,
+      "specialAttack": 109,
+      "specialDefense": 85,
+      "total": 534
+    },
+    "polishedBaseStats": {
+      "hp": 78,
+      "attack": 84,
+      "defense": 78,
+      "speed": 100,
+      "specialAttack": 109,
+      "specialDefense": 85,
+      "total": 534
+    },
     "catchRate": 45,
     "baseExp": 209,
     "heldItems": [],
@@ -84,34 +102,68 @@
     "abilities": [
       {
         "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "updatedAbilities": [
       {
         "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -2934,7 +2986,17 @@
       "evYield": "3 SAt"
     }
   },
-  "locations": [],
+  "locations": [
+    {
+      "area": "Violet Outskirts House",
+      "method": "event",
+      "conditions": "Requires Silph Scope 2",
+      "eventType": "legendary",
+      "description": "A ghostly Typhlosion spirit can be encountered at the old shrine.",
+      "level": 60,
+      "form": "hisuian"
+    }
+  ],
   "pokedexEntries": {
     "default": {
       "species": "Volcano",

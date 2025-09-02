@@ -1,5 +1,5 @@
 {
-  "name": "mismagius",
+  "name": "Mismagius",
   "nationalDex": 255,
   "johtoDex": 249,
   "evolution": {
@@ -51,6 +51,15 @@
       "specialDefense": 105,
       "total": 495
     },
+    "faithfulBaseStats": {
+      "hp": 60,
+      "attack": 60,
+      "defense": 60,
+      "speed": 105,
+      "specialAttack": 105,
+      "specialDefense": 105,
+      "total": 495
+    },
     "polishedBaseStats": {
       "hp": 60,
       "attack": 60,
@@ -73,22 +82,50 @@
     "abilities": [
       {
         "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Fast",
     "eggGroups": [
       "Amorphous",

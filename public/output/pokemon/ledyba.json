@@ -1,5 +1,5 @@
 {
-  "name": "ledyba",
+  "name": "Ledyba",
   "nationalDex": 165,
   "johtoDex": 30,
   "evolution": {
@@ -69,6 +69,15 @@
       "specialDefense": 80,
       "total": 265
     },
+    "faithfulBaseStats": {
+      "hp": 40,
+      "attack": 20,
+      "defense": 30,
+      "speed": 55,
+      "specialAttack": 40,
+      "specialDefense": 80,
+      "total": 265
+    },
     "polishedBaseStats": {
       "hp": 40,
       "attack": 40,
@@ -89,22 +98,50 @@
     "abilities": [
       {
         "id": "swarm",
+        "name": "Swarm",
+        "description": "\tBoosts Bug moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "early-bird",
+        "name": "Early Bird",
+        "description": "\tAwakens quickly \tfrom sleep.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "rattled",
+        "name": "Rattled",
+        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "swarm",
+        "name": "Swarm",
+        "description": "\tBoosts Bug moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "early-bird",
+        "name": "Early Bird",
+        "description": "\tAwakens quickly \tfrom sleep.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "rattled",
+        "name": "Rattled",
+        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Fast",
     "eggGroups": [
       "Bug",

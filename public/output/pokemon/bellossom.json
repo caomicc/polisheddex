@@ -1,5 +1,5 @@
 {
-  "name": "bellossom",
+  "name": "Bellossom",
   "nationalDex": 182,
   "johtoDex": 91,
   "evolution": {
@@ -92,6 +92,15 @@
       "specialDefense": 100,
       "total": 490
     },
+    "faithfulBaseStats": {
+      "hp": 75,
+      "attack": 80,
+      "defense": 95,
+      "speed": 50,
+      "specialAttack": 90,
+      "specialDefense": 100,
+      "total": 490
+    },
     "polishedBaseStats": {
       "hp": 75,
       "attack": 80,
@@ -114,34 +123,68 @@
     "abilities": [
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": [
+    "faithfulAbilities": [
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "own-tempo",
+        "name": "Own Tempo",
+        "description": "\tPrevents it from \tbecoming confused.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1021,6 +1064,5 @@
       "species": "Flower",
       "description": "When these dance together, their petals rub against each other, making pretty, relaxing sounds."
     }
-  },
-  "locations": []
+  }
 }

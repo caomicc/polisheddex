@@ -1,5 +1,5 @@
 {
-  "name": "victreebel",
+  "name": "Victreebel",
   "nationalDex": 71,
   "johtoDex": 71,
   "evolution": {
@@ -73,6 +73,15 @@
       "specialDefense": 70,
       "total": 490
     },
+    "faithfulBaseStats": {
+      "hp": 80,
+      "attack": 105,
+      "defense": 65,
+      "speed": 70,
+      "specialAttack": 100,
+      "specialDefense": 70,
+      "total": 490
+    },
     "polishedBaseStats": {
       "hp": 80,
       "attack": 115,
@@ -95,22 +104,50 @@
     "abilities": [
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "gluttony",
+        "name": "Gluttony",
+        "description": "\tEncourages early \tBerry use.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "gluttony",
+        "name": "Gluttony",
+        "description": "\tEncourages early \tBerry use.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Grass",
@@ -916,6 +953,5 @@
       "species": "Flycatcher",
       "description": "Once ingested into this #mon's body, even the hardest object will melt into nothing."
     }
-  },
-  "locations": []
+  }
 }

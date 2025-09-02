@@ -1,5 +1,5 @@
 {
-  "name": "hypno",
+  "name": "Hypno",
   "nationalDex": 97,
   "johtoDex": 93,
   "evolution": {
@@ -51,6 +51,24 @@
       "specialDefense": 115,
       "total": 483
     },
+    "faithfulBaseStats": {
+      "hp": 85,
+      "attack": 73,
+      "defense": 70,
+      "speed": 67,
+      "specialAttack": 73,
+      "specialDefense": 115,
+      "total": 483
+    },
+    "polishedBaseStats": {
+      "hp": 85,
+      "attack": 73,
+      "defense": 70,
+      "speed": 67,
+      "specialAttack": 73,
+      "specialDefense": 115,
+      "total": 483
+    },
     "catchRate": 75,
     "baseExp": 165,
     "heldItems": [],
@@ -62,22 +80,50 @@
     "abilities": [
       {
         "id": "insomnia",
+        "name": "Insomnia",
+        "description": "",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "forewarn",
+        "name": "Forewarn",
+        "description": "\tDetermines the \tfoe's moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "insomnia",
+        "name": "Insomnia",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "forewarn",
+        "name": "Forewarn",
+        "description": "\tDetermines the \tfoe's moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Human-Like",
