@@ -1,5 +1,5 @@
 {
-  "name": "dudunsparce",
+  "name": "Dudunsparce",
   "nationalDex": 286,
   "johtoDex": 54,
   "evolution": {
@@ -54,6 +54,24 @@
       "specialDefense": 75,
       "total": 520
     },
+    "faithfulBaseStats": {
+      "hp": 125,
+      "attack": 100,
+      "defense": 80,
+      "speed": 55,
+      "specialAttack": 85,
+      "specialDefense": 75,
+      "total": 520
+    },
+    "polishedBaseStats": {
+      "hp": 125,
+      "attack": 100,
+      "defense": 80,
+      "speed": 55,
+      "specialAttack": 85,
+      "specialDefense": 75,
+      "total": 520
+    },
     "catchRate": 45,
     "baseExp": 115,
     "heldItems": [],
@@ -65,22 +83,50 @@
     "abilities": [
       {
         "id": "serene-grace",
+        "name": "Serene Grace",
+        "description": "\tBoosts the rate of \tadded effects.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "rattled",
+        "name": "Rattled",
+        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "serene-grace",
+        "name": "Serene Grace",
+        "description": "\tBoosts the rate of \tadded effects.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "rattled",
+        "name": "Rattled",
+        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
@@ -3540,6 +3586,5 @@
       "species": "Land Snake",
       "description": "It makes its nest with its hard tail by boring holes into deep bedrock. The nest can reach over six miles."
     }
-  },
-  "locations": []
+  }
 }

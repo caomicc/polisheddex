@@ -1,5 +1,5 @@
 {
-  "name": "sandslash",
+  "name": "Sandslash",
   "nationalDex": 28,
   "johtoDex": 50,
   "evolution": {
@@ -72,6 +72,24 @@
       "specialDefense": 55,
       "total": 450
     },
+    "faithfulBaseStats": {
+      "hp": 75,
+      "attack": 100,
+      "defense": 110,
+      "speed": 65,
+      "specialAttack": 45,
+      "specialDefense": 55,
+      "total": 450
+    },
+    "polishedBaseStats": {
+      "hp": 75,
+      "attack": 100,
+      "defense": 110,
+      "speed": 65,
+      "specialAttack": 45,
+      "specialDefense": 55,
+      "total": 450
+    },
     "catchRate": 90,
     "baseExp": 163,
     "heldItems": [
@@ -85,22 +103,50 @@
     "abilities": [
       {
         "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sand-rush",
+        "name": "Sand Rush",
+        "description": "\tBoosts Speed in \ta sandstorm.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "sand-rush",
+        "name": "Sand Rush",
+        "description": "\tBoosts Speed in \ta sandstorm.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

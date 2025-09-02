@@ -1,5 +1,5 @@
 {
-  "name": "moltres",
+  "name": "Moltres",
   "nationalDex": 146,
   "johtoDex": 275,
   "evolution": {
@@ -29,6 +29,24 @@
       "specialDefense": 85,
       "total": 580
     },
+    "faithfulBaseStats": {
+      "hp": 90,
+      "attack": 100,
+      "defense": 90,
+      "speed": 90,
+      "specialAttack": 125,
+      "specialDefense": 85,
+      "total": 580
+    },
+    "polishedBaseStats": {
+      "hp": 90,
+      "attack": 100,
+      "defense": 90,
+      "speed": 90,
+      "specialAttack": 125,
+      "specialDefense": 85,
+      "total": 580
+    },
     "catchRate": 3,
     "baseExp": 217,
     "heldItems": [
@@ -42,34 +60,68 @@
     "abilities": [
       {
         "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "updatedAbilities": [
       {
         "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "drought",
+        "name": "Drought",
+        "description": "\tSummons sunlight \twhen switched in.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -2458,7 +2510,25 @@
       "evYield": "3 SDf"
     }
   },
-  "locations": [],
+  "locations": [
+    {
+      "area": "Cherrygrove Bay",
+      "method": "static",
+      "conditions": "Special encounter",
+      "eventType": "legendary",
+      "description": "Moltres can be encountered at Cherrygrove Bay.",
+      "level": 65,
+      "form": "galarian"
+    },
+    {
+      "area": "Cinnabar Volcano B2 F",
+      "method": "static",
+      "conditions": "Post-Elite Four access",
+      "eventType": "legendary",
+      "description": "Moltres can be encountered in Cinnabar Volcano.",
+      "level": 65
+    }
+  ],
   "pokedexEntries": {
     "default": {
       "species": "Flame",

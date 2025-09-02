@@ -1,5 +1,5 @@
 {
-  "name": "spinarak",
+  "name": "Spinarak",
   "nationalDex": 167,
   "johtoDex": 32,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 40,
       "total": 250
     },
+    "faithfulBaseStats": {
+      "hp": 40,
+      "attack": 60,
+      "defense": 40,
+      "speed": 30,
+      "specialAttack": 40,
+      "specialDefense": 40,
+      "total": 250
+    },
+    "polishedBaseStats": {
+      "hp": 40,
+      "attack": 60,
+      "defense": 40,
+      "speed": 30,
+      "specialAttack": 40,
+      "specialDefense": 40,
+      "total": 250
+    },
     "catchRate": 255,
     "baseExp": 54,
     "heldItems": [],
@@ -80,22 +98,50 @@
     "abilities": [
       {
         "id": "swarm",
+        "name": "Swarm",
+        "description": "\tBoosts Bug moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "insomnia",
+        "name": "Insomnia",
+        "description": "",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sniper",
+        "name": "Sniper",
+        "description": "\tPowers up critical \thits.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "swarm",
+        "name": "Swarm",
+        "description": "\tBoosts Bug moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "insomnia",
+        "name": "Insomnia",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "sniper",
+        "name": "Sniper",
+        "description": "\tPowers up critical \thits.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Fast",
     "eggGroups": [
       "Bug",

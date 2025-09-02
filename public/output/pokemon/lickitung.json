@@ -1,5 +1,5 @@
 {
-  "name": "lickitung",
+  "name": "Lickitung",
   "nationalDex": 108,
   "johtoDex": 199,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 75,
       "total": 385
     },
+    "faithfulBaseStats": {
+      "hp": 90,
+      "attack": 55,
+      "defense": 75,
+      "speed": 30,
+      "specialAttack": 60,
+      "specialDefense": 75,
+      "total": 385
+    },
+    "polishedBaseStats": {
+      "hp": 90,
+      "attack": 55,
+      "defense": 75,
+      "speed": 30,
+      "specialAttack": 60,
+      "specialDefense": 75,
+      "total": 385
+    },
     "catchRate": 45,
     "baseExp": 127,
     "heldItems": [
@@ -82,22 +100,50 @@
     "abilities": [
       {
         "id": "own-tempo",
+        "name": "Own Tempo",
+        "description": "\tPrevents it from \tbecoming confused.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "oblivious",
+        "name": "Oblivious",
+        "description": "\tPrevents it from \tbeing infatuated.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "cloud-nine",
+        "name": "Cloud Nine",
+        "description": "\tEliminates effects \tof weather.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "own-tempo",
+        "name": "Own Tempo",
+        "description": "\tPrevents it from \tbecoming confused.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "oblivious",
+        "name": "Oblivious",
+        "description": "\tPrevents it from \tbeing infatuated.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "cloud-nine",
+        "name": "Cloud Nine",
+        "description": "\tEliminates effects \tof weather.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Monster",

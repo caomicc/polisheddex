@@ -1,5 +1,5 @@
 {
-  "name": "onix",
+  "name": "Onix",
   "nationalDex": 95,
   "johtoDex": 67,
   "evolution": {
@@ -69,6 +69,15 @@
       "specialDefense": 45,
       "total": 385
     },
+    "faithfulBaseStats": {
+      "hp": 35,
+      "attack": 45,
+      "defense": 160,
+      "speed": 70,
+      "specialAttack": 30,
+      "specialDefense": 45,
+      "total": 385
+    },
     "polishedBaseStats": {
       "hp": 35,
       "attack": 80,
@@ -92,22 +101,50 @@
     "abilities": [
       {
         "id": "rock-head",
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "weak-armor",
+        "name": "Weak Armor",
+        "description": "\tPhysical attacks \ttrade Def for Spe.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "rock-head",
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "weak-armor",
+        "name": "Weak Armor",
+        "description": "\tPhysical attacks \ttrade Def for Spe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Mineral",

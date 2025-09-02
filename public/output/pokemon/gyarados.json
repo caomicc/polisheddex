@@ -1,5 +1,5 @@
 {
-  "name": "gyarados",
+  "name": "Gyarados",
   "nationalDex": 130,
   "johtoDex": 82,
   "evolution": {
@@ -54,6 +54,24 @@
       "specialDefense": 100,
       "total": 540
     },
+    "faithfulBaseStats": {
+      "hp": 95,
+      "attack": 125,
+      "defense": 79,
+      "speed": 81,
+      "specialAttack": 60,
+      "specialDefense": 100,
+      "total": 540
+    },
+    "polishedBaseStats": {
+      "hp": 95,
+      "attack": 125,
+      "defense": 79,
+      "speed": 81,
+      "specialAttack": 60,
+      "specialDefense": 100,
+      "total": 540
+    },
     "catchRate": 45,
     "baseExp": 214,
     "heldItems": [],
@@ -65,22 +83,50 @@
     "abilities": [
       {
         "id": "intimidate",
+        "name": "Intimidate",
+        "description": "\tLowers the foe's \tAttack stat.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "moxie",
+        "name": "Moxie",
+        "description": "\tBoosts Attack when \tknocking out foes.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "mold-breaker",
+        "name": "Mold Breaker",
+        "description": "\tMoves disregard \tthe foe's ability.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "intimidate",
+        "name": "Intimidate",
+        "description": "\tLowers the foe's \tAttack stat.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "moxie",
+        "name": "Moxie",
+        "description": "\tBoosts Attack when \tknocking out foes.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "mold-breaker",
+        "name": "Mold Breaker",
+        "description": "\tMoves disregard \tthe foe's ability.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered"

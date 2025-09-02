@@ -1,5 +1,5 @@
 {
-  "name": "shellder",
+  "name": "Shellder",
   "nationalDex": 90,
   "johtoDex": 189,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 25,
       "total": 305
     },
+    "faithfulBaseStats": {
+      "hp": 30,
+      "attack": 65,
+      "defense": 100,
+      "speed": 40,
+      "specialAttack": 45,
+      "specialDefense": 25,
+      "total": 305
+    },
+    "polishedBaseStats": {
+      "hp": 30,
+      "attack": 65,
+      "defense": 100,
+      "speed": 40,
+      "specialAttack": 45,
+      "specialDefense": 25,
+      "total": 305
+    },
     "catchRate": 190,
     "baseExp": 97,
     "heldItems": [
@@ -83,22 +101,50 @@
     "abilities": [
       {
         "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "skill-link",
+        "name": "Skill Link",
+        "description": "\tIncreases multi- \tstrike move hits.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "overcoat",
+        "name": "Overcoat",
+        "description": "\tProtects it from \tweather damage.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "skill-link",
+        "name": "Skill Link",
+        "description": "\tIncreases multi- \tstrike move hits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "overcoat",
+        "name": "Overcoat",
+        "description": "\tProtects it from \tweather damage.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered"

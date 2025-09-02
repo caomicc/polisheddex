@@ -1,5 +1,5 @@
 {
-  "name": "machoke",
+  "name": "Machoke",
   "nationalDex": 67,
   "johtoDex": 154,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 60,
       "total": 405
     },
+    "faithfulBaseStats": {
+      "hp": 80,
+      "attack": 100,
+      "defense": 70,
+      "speed": 45,
+      "specialAttack": 50,
+      "specialDefense": 60,
+      "total": 405
+    },
+    "polishedBaseStats": {
+      "hp": 80,
+      "attack": 100,
+      "defense": 70,
+      "speed": 45,
+      "specialAttack": 50,
+      "specialDefense": 60,
+      "total": 405
+    },
     "catchRate": 90,
     "baseExp": 146,
     "heldItems": [
@@ -104,22 +122,50 @@
     "abilities": [
       {
         "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "no-guard",
+        "name": "No Guard",
+        "description": "\tEnsures attacks by \tor against it hit.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "steadfast",
+        "name": "Steadfast",
+        "description": "\tBoosts Speed when \tit flinches.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "no-guard",
+        "name": "No Guard",
+        "description": "\tEnsures attacks by \tor against it hit.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "steadfast",
+        "name": "Steadfast",
+        "description": "\tBoosts Speed when \tit flinches.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Human-Like",

@@ -1,5 +1,5 @@
 {
-  "name": "golduck",
+  "name": "Golduck",
   "nationalDex": 55,
   "johtoDex": 152,
   "evolution": {
@@ -51,6 +51,24 @@
       "specialDefense": 80,
       "total": 500
     },
+    "faithfulBaseStats": {
+      "hp": 80,
+      "attack": 82,
+      "defense": 78,
+      "speed": 85,
+      "specialAttack": 95,
+      "specialDefense": 80,
+      "total": 500
+    },
+    "polishedBaseStats": {
+      "hp": 80,
+      "attack": 82,
+      "defense": 78,
+      "speed": 85,
+      "specialAttack": 95,
+      "specialDefense": 80,
+      "total": 500
+    },
     "catchRate": 75,
     "baseExp": 174,
     "heldItems": [],
@@ -62,22 +80,50 @@
     "abilities": [
       {
         "id": "damp",
+        "name": "Damp",
+        "description": "\tPrevents self- \tdestructing moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "cloud-nine",
+        "name": "Cloud Nine",
+        "description": "\tEliminates effects \tof weather.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "swift-swim",
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "damp",
+        "name": "Damp",
+        "description": "\tPrevents self- \tdestructing moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "cloud-nine",
+        "name": "Cloud Nine",
+        "description": "\tEliminates effects \tof weather.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "swift-swim",
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"

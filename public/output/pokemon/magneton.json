@@ -1,5 +1,5 @@
 {
-  "name": "magneton",
+  "name": "Magneton",
   "nationalDex": 82,
   "johtoDex": 126,
   "evolution": {
@@ -151,6 +151,24 @@
       "specialDefense": 70,
       "total": 465
     },
+    "faithfulBaseStats": {
+      "hp": 50,
+      "attack": 60,
+      "defense": 95,
+      "speed": 70,
+      "specialAttack": 120,
+      "specialDefense": 70,
+      "total": 465
+    },
+    "polishedBaseStats": {
+      "hp": 50,
+      "attack": 60,
+      "defense": 95,
+      "speed": 70,
+      "specialAttack": 120,
+      "specialDefense": 70,
+      "total": 465
+    },
     "catchRate": 60,
     "baseExp": 161,
     "heldItems": [
@@ -164,34 +182,68 @@
     "abilities": [
       {
         "id": "magnet-pull",
+        "name": "Magnet Pull",
+        "description": "\tPrevents escape by \tSteel-type foes.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "analytic",
+        "name": "Analytic",
+        "description": "\tBoosts move power \twhen moving last.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "magnet-pull",
+        "name": "Magnet Pull",
+        "description": "\tPrevents escape by \tSteel-type foes.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "analytic",
+        "name": "Analytic",
+        "description": "\tBoosts move power \twhen moving last.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "updatedAbilities": [
       {
         "id": "magnet-pull",
+        "name": "Magnet Pull",
+        "description": "\tPrevents escape by \tSteel-type foes.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "analytic",
+        "name": "Analytic",
+        "description": "\tBoosts move power \twhen moving last.",
         "isHidden": true,
         "abilityType": "hidden"
       }

@@ -1,5 +1,5 @@
 {
-  "name": "charizard",
+  "name": "Charizard",
   "nationalDex": 6,
   "johtoDex": 269,
   "evolution": {
@@ -73,6 +73,15 @@
       "specialDefense": 85,
       "total": 534
     },
+    "faithfulBaseStats": {
+      "hp": 78,
+      "attack": 84,
+      "defense": 78,
+      "speed": 100,
+      "specialAttack": 109,
+      "specialDefense": 85,
+      "total": 534
+    },
     "polishedBaseStats": {
       "hp": 78,
       "attack": 94,
@@ -93,34 +102,68 @@
     "abilities": [
       {
         "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "solar-power",
+        "name": "Solar Power",
+        "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "drought",
+        "name": "Drought",
+        "description": "\tSummons sunlight \twhen switched in.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": [
+    "faithfulAbilities": [
       {
         "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "solar-power",
+        "name": "Solar Power",
+        "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "drought",
+        "name": "Drought",
+        "description": "\tSummons sunlight \twhen switched in.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "solar-power",
+        "name": "Solar Power",
+        "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "tough-claws",
+        "name": "Tough Claws",
+        "description": "\tBoosts moves that \tmakes contact.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1720,6 +1763,5 @@
       "species": "Flame",
       "description": "It uses its wings to fly high. The temperature of its fire increases as it gains experience in battle."
     }
-  },
-  "locations": []
+  }
 }

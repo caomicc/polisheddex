@@ -1,5 +1,5 @@
 {
-  "name": "voltorb",
+  "name": "Voltorb",
   "nationalDex": 100,
   "johtoDex": 128,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 55,
       "total": 330
     },
+    "faithfulBaseStats": {
+      "hp": 40,
+      "attack": 30,
+      "defense": 50,
+      "speed": 100,
+      "specialAttack": 55,
+      "specialDefense": 55,
+      "total": 330
+    },
+    "polishedBaseStats": {
+      "hp": 40,
+      "attack": 30,
+      "defense": 50,
+      "speed": 100,
+      "specialAttack": 55,
+      "specialDefense": 55,
+      "total": 330
+    },
     "catchRate": 190,
     "baseExp": 103,
     "heldItems": [],
@@ -80,22 +98,50 @@
     "abilities": [
       {
         "id": "soundproof",
+        "name": "Soundproof",
+        "description": "\tGives immunity to \tsound-based moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "aftermath",
+        "name": "Aftermath",
+        "description": "\tDamages the foe on \tfainting.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "soundproof",
+        "name": "Soundproof",
+        "description": "\tGives immunity to \tsound-based moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "aftermath",
+        "name": "Aftermath",
+        "description": "\tDamages the foe on \tfainting.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Mineral",

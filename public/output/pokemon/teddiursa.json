@@ -1,5 +1,5 @@
 {
-  "name": "teddiursa",
+  "name": "Teddiursa",
   "nationalDex": 216,
   "johtoDex": 221,
   "evolution": {
@@ -121,6 +121,24 @@
       "specialDefense": 50,
       "total": 330
     },
+    "faithfulBaseStats": {
+      "hp": 60,
+      "attack": 80,
+      "defense": 50,
+      "speed": 40,
+      "specialAttack": 50,
+      "specialDefense": 50,
+      "total": 330
+    },
+    "polishedBaseStats": {
+      "hp": 60,
+      "attack": 80,
+      "defense": 50,
+      "speed": 40,
+      "specialAttack": 50,
+      "specialDefense": 50,
+      "total": 330
+    },
     "catchRate": 120,
     "baseExp": 124,
     "heldItems": [
@@ -134,22 +152,50 @@
     "abilities": [
       {
         "id": "pickup",
+        "name": "Pickup",
+        "description": "\tThe #mon may \tpick up items.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "quick-feet",
+        "name": "Quick Feet",
+        "description": "\tBoosts Speed with \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "honey-gather",
+        "name": "Honey Gather",
+        "description": "\tThe #mon may if DEF(FAITHFUL) \tgather Honey. else \tfind Sweet Honey. endc",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "pickup",
+        "name": "Pickup",
+        "description": "\tThe #mon may \tpick up items.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "quick-feet",
+        "name": "Quick Feet",
+        "description": "\tBoosts Speed with \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "honey-gather",
+        "name": "Honey Gather",
+        "description": "\tThe #mon may if DEF(FAITHFUL) \tgather Honey. else \tfind Sweet Honey. endc",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

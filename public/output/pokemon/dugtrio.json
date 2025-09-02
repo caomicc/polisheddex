@@ -1,5 +1,5 @@
 {
-  "name": "dugtrio",
+  "name": "Dugtrio",
   "nationalDex": 51,
   "johtoDex": 144,
   "evolution": {
@@ -72,6 +72,24 @@
       "specialDefense": 70,
       "total": 425
     },
+    "faithfulBaseStats": {
+      "hp": 35,
+      "attack": 100,
+      "defense": 50,
+      "speed": 120,
+      "specialAttack": 50,
+      "specialDefense": 70,
+      "total": 425
+    },
+    "polishedBaseStats": {
+      "hp": 35,
+      "attack": 100,
+      "defense": 50,
+      "speed": 120,
+      "specialAttack": 50,
+      "specialDefense": 70,
+      "total": 425
+    },
     "catchRate": 50,
     "baseExp": 153,
     "heldItems": [
@@ -85,22 +103,50 @@
     "abilities": [
       {
         "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "arena-trap",
+        "name": "Arena Trap",
+        "description": "\tPrevents the foe \tfrom fleeing.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sand-force",
+        "name": "Sand Force",
+        "description": "\tBoosts some moves \tin a sandstorm.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "arena-trap",
+        "name": "Arena Trap",
+        "description": "\tPrevents the foe \tfrom fleeing.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "sand-force",
+        "name": "Sand Force",
+        "description": "\tBoosts some moves \tin a sandstorm.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

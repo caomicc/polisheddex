@@ -1,5 +1,5 @@
 {
-  "name": "tentacruel",
+  "name": "Tentacruel",
   "nationalDex": 73,
   "johtoDex": 183,
   "evolution": {
@@ -51,6 +51,24 @@
       "specialDefense": 120,
       "total": 515
     },
+    "faithfulBaseStats": {
+      "hp": 80,
+      "attack": 70,
+      "defense": 65,
+      "speed": 100,
+      "specialAttack": 80,
+      "specialDefense": 120,
+      "total": 515
+    },
+    "polishedBaseStats": {
+      "hp": 80,
+      "attack": 70,
+      "defense": 65,
+      "speed": 100,
+      "specialAttack": 80,
+      "specialDefense": 120,
+      "total": 515
+    },
     "catchRate": 60,
     "baseExp": 205,
     "heldItems": [
@@ -64,22 +82,50 @@
     "abilities": [
       {
         "id": "clear-body",
+        "name": "Clear Body",
+        "description": "",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "liquid-ooze",
+        "name": "Liquid Ooze",
+        "description": "\tDamages foes using \tdraining moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "rain-dish",
+        "name": "Rain Dish",
+        "description": "\tGradually regains \tHP in rain.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "clear-body",
+        "name": "Clear Body",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "liquid-ooze",
+        "name": "Liquid Ooze",
+        "description": "\tDamages foes using \tdraining moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "rain-dish",
+        "name": "Rain Dish",
+        "description": "\tGradually regains \tHP in rain.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered"

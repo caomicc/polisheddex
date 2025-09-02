@@ -1,5 +1,5 @@
 {
-  "name": "quilava",
+  "name": "Quilava",
   "nationalDex": 156,
   "johtoDex": 5,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 65,
       "total": 405
     },
+    "faithfulBaseStats": {
+      "hp": 58,
+      "attack": 64,
+      "defense": 58,
+      "speed": 80,
+      "specialAttack": 80,
+      "specialDefense": 65,
+      "total": 405
+    },
+    "polishedBaseStats": {
+      "hp": 58,
+      "attack": 64,
+      "defense": 58,
+      "speed": 80,
+      "specialAttack": 80,
+      "specialDefense": 65,
+      "total": 405
+    },
     "catchRate": 45,
     "baseExp": 142,
     "heldItems": [],
@@ -102,34 +120,68 @@
     "abilities": [
       {
         "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "updatedAbilities": [
       {
         "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1298,6 +1350,5 @@
       "species": "Volcano",
       "description": "Before battle, it turns its back on its opponent to demonstrate how ferociously its fire blazes."
     }
-  },
-  "locations": []
+  }
 }

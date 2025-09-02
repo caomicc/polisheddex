@@ -709,6 +709,7 @@ function buildCompleteEvolutionChain(startMon: string): {
 
   // Add all main evolution data (non-version-specific)
   for (const [key, evos] of Object.entries(evoMap)) {
+    console.log(`DEBUG: Adding evoMap entry for key="${key}", evos=${JSON.stringify(evos)}`);
     if (!key.endsWith('_faithful') && !key.endsWith('_updated')) {
       comprehensiveEvoMap[key] = evos;
     }
@@ -1864,6 +1865,7 @@ function buildCompleteEvolutionFamily(
 
       if (normalizedSourceKey === currentNormalizedMon) {
         for (const evo of evos) {
+          console.log('evo', evo.target, evo);
           const targetKey = standardizePokemonKey(evo.target);
           const normalizedTargetKey = normalizePokemonDisplayName(targetKey);
 

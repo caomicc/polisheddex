@@ -1,5 +1,5 @@
 {
-  "name": "porygon2",
+  "name": "Porygon2",
   "nationalDex": 233,
   "johtoDex": 251,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 95,
       "total": 515
     },
+    "faithfulBaseStats": {
+      "hp": 85,
+      "attack": 80,
+      "defense": 90,
+      "speed": 60,
+      "specialAttack": 105,
+      "specialDefense": 95,
+      "total": 515
+    },
+    "polishedBaseStats": {
+      "hp": 85,
+      "attack": 80,
+      "defense": 90,
+      "speed": 60,
+      "specialAttack": 105,
+      "specialDefense": 95,
+      "total": 515
+    },
     "catchRate": 45,
     "baseExp": 180,
     "heldItems": [
@@ -104,22 +122,50 @@
     "abilities": [
       {
         "id": "trace",
+        "name": "Trace",
+        "description": "\tCopies the foe's \tAbility.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "download",
+        "name": "Download",
+        "description": "\tAdjusts stats based \ton foe's defenses.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "analytic",
+        "name": "Analytic",
+        "description": "\tBoosts move power \twhen moving last.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "trace",
+        "name": "Trace",
+        "description": "\tCopies the foe's \tAbility.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "download",
+        "name": "Download",
+        "description": "\tAdjusts stats based \ton foe's defenses.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "analytic",
+        "name": "Analytic",
+        "description": "\tBoosts move power \twhen moving last.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Mineral",
@@ -1275,6 +1321,5 @@
       "species": "Virtual",
       "description": "This manmade #mon evolved from the latest technology. It may have unprogrammed reactions."
     }
-  },
-  "locations": []
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "ponyta",
+  "name": "Ponyta",
   "nationalDex": 77,
   "johtoDex": 231,
   "evolution": {
@@ -72,6 +72,24 @@
       "specialDefense": 65,
       "total": 410
     },
+    "faithfulBaseStats": {
+      "hp": 50,
+      "attack": 85,
+      "defense": 55,
+      "speed": 90,
+      "specialAttack": 65,
+      "specialDefense": 65,
+      "total": 410
+    },
+    "polishedBaseStats": {
+      "hp": 50,
+      "attack": 85,
+      "defense": 55,
+      "speed": 90,
+      "specialAttack": 65,
+      "specialDefense": 65,
+      "total": 410
+    },
     "catchRate": 190,
     "baseExp": 152,
     "heldItems": [
@@ -85,22 +103,50 @@
     "abilities": [
       {
         "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

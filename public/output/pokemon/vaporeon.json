@@ -1,5 +1,5 @@
 {
-  "name": "vaporeon",
+  "name": "Vaporeon",
   "nationalDex": 134,
   "johtoDex": 204,
   "evolution": {
@@ -244,6 +244,24 @@
       "specialDefense": 95,
       "total": 525
     },
+    "faithfulBaseStats": {
+      "hp": 130,
+      "attack": 65,
+      "defense": 60,
+      "speed": 65,
+      "specialAttack": 110,
+      "specialDefense": 95,
+      "total": 525
+    },
+    "polishedBaseStats": {
+      "hp": 130,
+      "attack": 65,
+      "defense": 60,
+      "speed": 65,
+      "specialAttack": 110,
+      "specialDefense": 95,
+      "total": 525
+    },
     "catchRate": 45,
     "baseExp": 196,
     "heldItems": [],
@@ -255,34 +273,68 @@
     "abilities": [
       {
         "id": "water-absorb",
+        "name": "Water Absorb",
+        "description": "\tRestores HP if hit \tby Water moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "water-absorb",
+        "name": "Water Absorb",
+        "description": "\tRestores HP if hit \tby Water moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "hydration",
+        "name": "Hydration",
+        "description": "\tHeals status \tproblems in rain.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "water-absorb",
+        "name": "Water Absorb",
+        "description": "\tRestores HP if hit \tby Water moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "water-absorb",
+        "name": "Water Absorb",
+        "description": "\tRestores HP if hit \tby Water moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "hydration",
+        "name": "Hydration",
+        "description": "\tHeals status \tproblems in rain.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "updatedAbilities": [
       {
         "id": "water-absorb",
+        "name": "Water Absorb",
+        "description": "\tRestores HP if hit \tby Water moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "drizzle",
+        "name": "Drizzle",
+        "description": "\tSummons rain when \tswitched in.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "hydration",
+        "name": "Hydration",
+        "description": "\tHeals status \tproblems in rain.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1524,6 +1576,5 @@
       "species": "Bubble Jet",
       "description": "As it uses the fins on the tip of its tail to swim, it blends with the water perfectly."
     }
-  },
-  "locations": []
+  }
 }

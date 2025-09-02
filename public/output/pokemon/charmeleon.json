@@ -1,5 +1,5 @@
 {
-  "name": "charmeleon",
+  "name": "Charmeleon",
   "nationalDex": 5,
   "johtoDex": 268,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 65,
       "total": 405
     },
+    "faithfulBaseStats": {
+      "hp": 58,
+      "attack": 64,
+      "defense": 58,
+      "speed": 80,
+      "specialAttack": 80,
+      "specialDefense": 65,
+      "total": 405
+    },
+    "polishedBaseStats": {
+      "hp": 58,
+      "attack": 64,
+      "defense": 58,
+      "speed": 80,
+      "specialAttack": 80,
+      "specialDefense": 65,
+      "total": 405
+    },
     "catchRate": 45,
     "baseExp": 142,
     "heldItems": [],
@@ -102,22 +120,50 @@
     "abilities": [
       {
         "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "solar-power",
+        "name": "Solar Power",
+        "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "solar-power",
+        "name": "Solar Power",
+        "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Monster",
@@ -1246,6 +1292,5 @@
       "species": "Flame",
       "description": "If it becomes agitated during battle, it spouts intense flames, incinerating its surroundings."
     }
-  },
-  "locations": []
+  }
 }

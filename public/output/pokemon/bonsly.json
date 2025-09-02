@@ -1,5 +1,5 @@
 {
-  "name": "bonsly",
+  "name": "Bonsly",
   "nationalDex": 257,
   "johtoDex": 112,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 45,
       "total": 290
     },
+    "faithfulBaseStats": {
+      "hp": 50,
+      "attack": 80,
+      "defense": 95,
+      "speed": 10,
+      "specialAttack": 10,
+      "specialDefense": 45,
+      "total": 290
+    },
+    "polishedBaseStats": {
+      "hp": 50,
+      "attack": 80,
+      "defense": 95,
+      "speed": 10,
+      "specialAttack": 10,
+      "specialDefense": 45,
+      "total": 290
+    },
     "catchRate": 255,
     "baseExp": 68,
     "heldItems": [],
@@ -80,22 +98,50 @@
     "abilities": [
       {
         "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "rock-head",
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "rattled",
+        "name": "Rattled",
+        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "rock-head",
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "rattled",
+        "name": "Rattled",
+        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered",
@@ -1054,6 +1100,5 @@
       "species": "Bonsai",
       "description": "It prefers an arid atmposhere. It leaks water that looks like tears when adjusting its moisture levels."
     }
-  },
-  "locations": []
+  }
 }

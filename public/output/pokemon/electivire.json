@@ -1,5 +1,5 @@
 {
-  "name": "electivire",
+  "name": "Electivire",
   "nationalDex": 267,
   "johtoDex": 171,
   "evolution": {
@@ -73,6 +73,15 @@
       "specialDefense": 85,
       "total": 540
     },
+    "faithfulBaseStats": {
+      "hp": 75,
+      "attack": 123,
+      "defense": 67,
+      "speed": 95,
+      "specialAttack": 95,
+      "specialDefense": 85,
+      "total": 540
+    },
     "polishedBaseStats": {
       "hp": 75,
       "attack": 123,
@@ -96,22 +105,50 @@
     "abilities": [
       {
         "id": "motor-drive",
+        "name": "Motor Drive",
+        "description": "\tElectric moves \tboost Speed.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "motor-drive",
+        "name": "Motor Drive",
+        "description": "\tElectric moves \tboost Speed.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "vital-spirit",
+        "name": "Vital Spirit",
+        "description": "\tPrevents it from \tfalling asleep.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "motor-drive",
+        "name": "Motor Drive",
+        "description": "\tElectric moves \tboost Speed.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "motor-drive",
+        "name": "Motor Drive",
+        "description": "\tElectric moves \tboost Speed.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "vital-spirit",
+        "name": "Vital Spirit",
+        "description": "\tPrevents it from \tfalling asleep.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Human-Like",
@@ -1463,6 +1500,5 @@
       "species": "Thunderbolt",
       "description": "It pushes the tips of its two tails against the foe, then lets loose with over 20,000 volts of power."
     }
-  },
-  "locations": []
+  }
 }

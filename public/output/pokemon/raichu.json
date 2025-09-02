@@ -1,5 +1,5 @@
 {
-  "name": "raichu",
+  "name": "Raichu",
   "nationalDex": 26,
   "johtoDex": 23,
   "evolution": {
@@ -94,6 +94,15 @@
       "specialDefense": 80,
       "total": 485
     },
+    "faithfulBaseStats": {
+      "hp": 60,
+      "attack": 90,
+      "defense": 55,
+      "speed": 110,
+      "specialAttack": 90,
+      "specialDefense": 80,
+      "total": 485
+    },
     "polishedBaseStats": {
       "hp": 60,
       "attack": 100,
@@ -117,22 +126,50 @@
     "abilities": [
       {
         "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "lightning-rod",
+        "name": "Lightning Rod",
+        "description": "\tElectric moves \tboost Sp.Atk.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "lightning-rod",
+        "name": "Lightning Rod",
+        "description": "\tElectric moves \tboost Sp.Atk.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

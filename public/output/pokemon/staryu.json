@@ -1,5 +1,5 @@
 {
-  "name": "staryu",
+  "name": "Staryu",
   "nationalDex": 120,
   "johtoDex": 187,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 55,
       "total": 340
     },
+    "faithfulBaseStats": {
+      "hp": 30,
+      "attack": 45,
+      "defense": 55,
+      "speed": 85,
+      "specialAttack": 70,
+      "specialDefense": 55,
+      "total": 340
+    },
+    "polishedBaseStats": {
+      "hp": 30,
+      "attack": 45,
+      "defense": 55,
+      "speed": 85,
+      "specialAttack": 70,
+      "specialDefense": 55,
+      "total": 340
+    },
     "catchRate": 225,
     "baseExp": 106,
     "heldItems": [
@@ -83,22 +101,50 @@
     "abilities": [
       {
         "id": "illuminate",
+        "name": "Illuminate",
+        "description": "\tRaises the rate \tof wild #mon.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "natural-cure",
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "analytic",
+        "name": "Analytic",
+        "description": "\tBoosts move power \twhen moving last.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "illuminate",
+        "name": "Illuminate",
+        "description": "\tRaises the rate \tof wild #mon.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "natural-cure",
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "analytic",
+        "name": "Analytic",
+        "description": "\tBoosts move power \twhen moving last.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered"

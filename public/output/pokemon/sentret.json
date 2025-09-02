@@ -1,5 +1,5 @@
 {
-  "name": "sentret",
+  "name": "Sentret",
   "nationalDex": 161,
   "johtoDex": 19,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 45,
       "total": 215
     },
+    "faithfulBaseStats": {
+      "hp": 35,
+      "attack": 46,
+      "defense": 34,
+      "speed": 20,
+      "specialAttack": 35,
+      "specialDefense": 45,
+      "total": 215
+    },
+    "polishedBaseStats": {
+      "hp": 35,
+      "attack": 46,
+      "defense": 34,
+      "speed": 20,
+      "specialAttack": 35,
+      "specialDefense": 45,
+      "total": 215
+    },
     "catchRate": 255,
     "baseExp": 57,
     "heldItems": [
@@ -82,22 +100,50 @@
     "abilities": [
       {
         "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "keen-eye",
+        "name": "Keen Eye",
+        "description": "\tPrevents foes from \tlowering accuracy.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "frisk",
+        "name": "Frisk",
+        "description": "\tChecks the foe's \theld item.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "keen-eye",
+        "name": "Keen Eye",
+        "description": "\tPrevents foes from \tlowering accuracy.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "frisk",
+        "name": "Frisk",
+        "description": "\tChecks the foe's \theld item.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

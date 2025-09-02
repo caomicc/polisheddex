@@ -1,5 +1,5 @@
 {
-  "name": "cubone",
+  "name": "Cubone",
   "nationalDex": 104,
   "johtoDex": 233,
   "evolution": {
@@ -111,6 +111,24 @@
       "specialDefense": 50,
       "total": 320
     },
+    "faithfulBaseStats": {
+      "hp": 50,
+      "attack": 50,
+      "defense": 95,
+      "speed": 35,
+      "specialAttack": 40,
+      "specialDefense": 50,
+      "total": 320
+    },
+    "polishedBaseStats": {
+      "hp": 50,
+      "attack": 50,
+      "defense": 95,
+      "speed": 35,
+      "specialAttack": 40,
+      "specialDefense": 50,
+      "total": 320
+    },
     "catchRate": 190,
     "baseExp": 87,
     "heldItems": [
@@ -124,34 +142,68 @@
     "abilities": [
       {
         "id": "rock-head",
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "lightning-rod",
+        "name": "Lightning Rod",
+        "description": "\tElectric moves \tboost Sp.Atk.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "battle-armor",
+        "name": "Battle Armor",
+        "description": "",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "rock-head",
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "lightning-rod",
+        "name": "Lightning Rod",
+        "description": "\tElectric moves \tboost Sp.Atk.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "battle-armor",
+        "name": "Battle Armor",
+        "description": "",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "updatedAbilities": [
       {
         "id": "rock-head",
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "cursed-body",
+        "name": "Cursed Body",
+        "description": "\tMay disable a move \tused on it.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "battle-armor",
+        "name": "Battle Armor",
+        "description": "",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1632,6 +1684,12 @@
       "level": "Badge Level + 0",
       "chance": 30,
       "formName": null
+    },
+    {
+      "area": "Goldenrod Game Corner",
+      "method": "gift",
+      "npc": "Game Corner",
+      "conditions": "Exchange coins"
     }
   ],
   "pokedexEntries": {

@@ -1,5 +1,5 @@
 {
-  "name": "charmander",
+  "name": "Charmander",
   "nationalDex": 4,
   "johtoDex": 267,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 50,
       "total": 309
     },
+    "faithfulBaseStats": {
+      "hp": 39,
+      "attack": 52,
+      "defense": 43,
+      "speed": 65,
+      "specialAttack": 60,
+      "specialDefense": 50,
+      "total": 309
+    },
+    "polishedBaseStats": {
+      "hp": 39,
+      "attack": 52,
+      "defense": 43,
+      "speed": 65,
+      "specialAttack": 60,
+      "specialDefense": 50,
+      "total": 309
+    },
     "catchRate": 45,
     "baseExp": 65,
     "heldItems": [],
@@ -102,22 +120,50 @@
     "abilities": [
       {
         "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "solar-power",
+        "name": "Solar Power",
+        "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "solar-power",
+        "name": "Solar Power",
+        "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Monster",
@@ -1246,6 +1292,5 @@
       "species": "Lizard",
       "description": "If it's healthy, the flame on the tip of its tail will burn vigorously, even if it gets a bit wet."
     }
-  },
-  "locations": []
+  }
 }

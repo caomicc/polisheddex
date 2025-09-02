@@ -1,5 +1,5 @@
 {
-  "name": "cloyster",
+  "name": "Cloyster",
   "nationalDex": 91,
   "johtoDex": 190,
   "evolution": {
@@ -51,6 +51,24 @@
       "specialDefense": 45,
       "total": 525
     },
+    "faithfulBaseStats": {
+      "hp": 50,
+      "attack": 95,
+      "defense": 180,
+      "speed": 70,
+      "specialAttack": 85,
+      "specialDefense": 45,
+      "total": 525
+    },
+    "polishedBaseStats": {
+      "hp": 50,
+      "attack": 95,
+      "defense": 180,
+      "speed": 70,
+      "specialAttack": 85,
+      "specialDefense": 45,
+      "total": 525
+    },
     "catchRate": 60,
     "baseExp": 203,
     "heldItems": [
@@ -65,22 +83,50 @@
     "abilities": [
       {
         "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "skill-link",
+        "name": "Skill Link",
+        "description": "\tIncreases multi- \tstrike move hits.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "overcoat",
+        "name": "Overcoat",
+        "description": "\tProtects it from \tweather damage.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "skill-link",
+        "name": "Skill Link",
+        "description": "\tIncreases multi- \tstrike move hits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "overcoat",
+        "name": "Overcoat",
+        "description": "\tProtects it from \tweather damage.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered"
@@ -1093,6 +1139,5 @@
       "species": "Bivalve",
       "description": "Even a missile can't break the spikes it uses to stab opponents. They're even harder than its shell."
     }
-  },
-  "locations": []
+  }
 }

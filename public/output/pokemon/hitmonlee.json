@@ -1,5 +1,5 @@
 {
-  "name": "hitmonlee",
+  "name": "Hitmonlee",
   "nationalDex": 106,
   "johtoDex": 157,
   "evolution": {
@@ -89,6 +89,24 @@
       "specialDefense": 110,
       "total": 455
     },
+    "faithfulBaseStats": {
+      "hp": 50,
+      "attack": 120,
+      "defense": 53,
+      "speed": 87,
+      "specialAttack": 35,
+      "specialDefense": 110,
+      "total": 455
+    },
+    "polishedBaseStats": {
+      "hp": 50,
+      "attack": 120,
+      "defense": 53,
+      "speed": 87,
+      "specialAttack": 35,
+      "specialDefense": 110,
+      "total": 455
+    },
     "catchRate": 45,
     "baseExp": 139,
     "heldItems": [],
@@ -100,22 +118,50 @@
     "abilities": [
       {
         "id": "limber",
+        "name": "Limber",
+        "description": "\tProtects from \tparalysis.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "reckless",
+        "name": "Reckless",
+        "description": "\tPowers up moves \tthat recoil.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "unburden",
+        "name": "Unburden",
+        "description": "\tBoosts Speed when \theld item is lost.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "limber",
+        "name": "Limber",
+        "description": "\tProtects from \tparalysis.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "reckless",
+        "name": "Reckless",
+        "description": "\tPowers up moves \tthat recoil.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "unburden",
+        "name": "Unburden",
+        "description": "\tBoosts Speed when \theld item is lost.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Human-Like",
@@ -1296,6 +1342,5 @@
       "species": "Kicking",
       "description": "It is also called the Kick Master. It uses its elastic legs to execute every known kick."
     }
-  },
-  "locations": []
+  }
 }

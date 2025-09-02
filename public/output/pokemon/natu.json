@@ -1,5 +1,5 @@
 {
-  "name": "natu",
+  "name": "Natu",
   "nationalDex": 177,
   "johtoDex": 178,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 45,
       "total": 320
     },
+    "faithfulBaseStats": {
+      "hp": 40,
+      "attack": 50,
+      "defense": 45,
+      "speed": 70,
+      "specialAttack": 70,
+      "specialDefense": 45,
+      "total": 320
+    },
+    "polishedBaseStats": {
+      "hp": 40,
+      "attack": 50,
+      "defense": 45,
+      "speed": 70,
+      "specialAttack": 70,
+      "specialDefense": 45,
+      "total": 320
+    },
     "catchRate": 190,
     "baseExp": 73,
     "heldItems": [],
@@ -80,22 +98,50 @@
     "abilities": [
       {
         "id": "synchronize",
+        "name": "Synchronize",
+        "description": "\tPasses Psn, Par, \tor Brn to foes.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "early-bird",
+        "name": "Early Bird",
+        "description": "\tAwakens quickly \tfrom sleep.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "magic-bounce",
+        "name": "Magic Bounce",
+        "description": "\tReflects status- \tchanging moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "synchronize",
+        "name": "Synchronize",
+        "description": "\tPasses Psn, Par, \tor Brn to foes.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "early-bird",
+        "name": "Early Bird",
+        "description": "\tAwakens quickly \tfrom sleep.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "magic-bounce",
+        "name": "Magic Bounce",
+        "description": "\tReflects status- \tchanging moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Flying",

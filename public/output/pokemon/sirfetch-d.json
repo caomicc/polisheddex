@@ -1,5 +1,5 @@
 {
-  "name": "sirfetch-d",
+  "name": "Sirfetch-d",
   "nationalDex": 279,
   "johtoDex": 177,
   "evolution": {
@@ -54,6 +54,24 @@
       "specialDefense": 82,
       "total": 507
     },
+    "faithfulBaseStats": {
+      "hp": 62,
+      "attack": 135,
+      "defense": 95,
+      "speed": 65,
+      "specialAttack": 68,
+      "specialDefense": 82,
+      "total": 507
+    },
+    "polishedBaseStats": {
+      "hp": 62,
+      "attack": 135,
+      "defense": 95,
+      "speed": 65,
+      "specialAttack": 68,
+      "specialDefense": 82,
+      "total": 507
+    },
     "catchRate": 45,
     "baseExp": 178,
     "heldItems": [
@@ -67,22 +85,50 @@
     "abilities": [
       {
         "id": "steadfast",
+        "name": "Steadfast",
+        "description": "\tBoosts Speed when \tit flinches.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "steadfast",
+        "name": "Steadfast",
+        "description": "\tBoosts Speed when \tit flinches.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "scrappy",
+        "name": "Scrappy",
+        "description": "\tEnables moves to \thit Ghost-types.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "steadfast",
+        "name": "Steadfast",
+        "description": "\tBoosts Speed when \tit flinches.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "steadfast",
+        "name": "Steadfast",
+        "description": "\tBoosts Speed when \tit flinches.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "scrappy",
+        "name": "Scrappy",
+        "description": "\tEnables moves to \thit Ghost-types.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Flying",
@@ -1168,6 +1214,5 @@
       "species": "Wild Duck",
       "description": "After deflecting attacks with its hard leaf shield, it strikes back with its sharp leek stalk."
     }
-  },
-  "locations": []
+  }
 }

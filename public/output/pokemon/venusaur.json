@@ -1,5 +1,5 @@
 {
-  "name": "venusaur",
+  "name": "Venusaur",
   "nationalDex": 3,
   "johtoDex": 266,
   "evolution": {
@@ -73,6 +73,24 @@
       "specialDefense": 100,
       "total": 525
     },
+    "faithfulBaseStats": {
+      "hp": 80,
+      "attack": 82,
+      "defense": 83,
+      "speed": 80,
+      "specialAttack": 100,
+      "specialDefense": 100,
+      "total": 525
+    },
+    "polishedBaseStats": {
+      "hp": 80,
+      "attack": 82,
+      "defense": 83,
+      "speed": 80,
+      "specialAttack": 100,
+      "specialDefense": 100,
+      "total": 525
+    },
     "catchRate": 45,
     "baseExp": 208,
     "heldItems": [],
@@ -84,22 +102,50 @@
     "abilities": [
       {
         "id": "overgrow",
+        "name": "Overgrow",
+        "description": "\tBoosts Grass moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "thick-fat",
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "overgrow",
+        "name": "Overgrow",
+        "description": "\tBoosts Grass moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "thick-fat",
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Monster",
@@ -1390,6 +1436,5 @@
       "species": "Seed",
       "description": "As it warms itself and absorbs the sunlight, its flower petals release a pleasant fragrance."
     }
-  },
-  "locations": []
+  }
 }

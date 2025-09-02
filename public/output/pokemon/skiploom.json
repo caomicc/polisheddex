@@ -1,5 +1,5 @@
 {
-  "name": "skiploom",
+  "name": "Skiploom",
   "nationalDex": 188,
   "johtoDex": 73,
   "evolution": {
@@ -91,6 +91,15 @@
       "specialDefense": 65,
       "total": 340
     },
+    "faithfulBaseStats": {
+      "hp": 55,
+      "attack": 45,
+      "defense": 50,
+      "speed": 80,
+      "specialAttack": 45,
+      "specialDefense": 65,
+      "total": 340
+    },
     "polishedBaseStats": {
       "hp": 65,
       "attack": 45,
@@ -111,22 +120,50 @@
     "abilities": [
       {
         "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "leaf-guard",
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "infiltrator",
+        "name": "Infiltrator",
+        "description": "\tAttacks bypass the \tfoe's barriers.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "leaf-guard",
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "infiltrator",
+        "name": "Infiltrator",
+        "description": "\tAttacks bypass the \tfoe's barriers.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Fairy",

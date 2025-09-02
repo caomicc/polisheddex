@@ -1,5 +1,5 @@
 {
-  "name": "kabutops",
+  "name": "Kabutops",
   "nationalDex": 141,
   "johtoDex": 260,
   "evolution": {
@@ -51,6 +51,24 @@
       "specialDefense": 70,
       "total": 495
     },
+    "faithfulBaseStats": {
+      "hp": 60,
+      "attack": 115,
+      "defense": 105,
+      "speed": 80,
+      "specialAttack": 65,
+      "specialDefense": 70,
+      "total": 495
+    },
+    "polishedBaseStats": {
+      "hp": 60,
+      "attack": 115,
+      "defense": 105,
+      "speed": 80,
+      "specialAttack": 65,
+      "specialDefense": 70,
+      "total": 495
+    },
     "catchRate": 45,
     "baseExp": 201,
     "heldItems": [],
@@ -62,22 +80,50 @@
     "abilities": [
       {
         "id": "swift-swim",
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "battle-armor",
+        "name": "Battle Armor",
+        "description": "",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "weak-armor",
+        "name": "Weak Armor",
+        "description": "\tPhysical attacks \ttrade Def for Spe.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "swift-swim",
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "battle-armor",
+        "name": "Battle Armor",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "weak-armor",
+        "name": "Weak Armor",
+        "description": "\tPhysical attacks \ttrade Def for Spe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"
@@ -1409,6 +1455,5 @@
       "species": "Shellfish",
       "description": "It was able to swim quickly through the water by compactly folding up its razorsharp sickles."
     }
-  },
-  "locations": []
+  }
 }

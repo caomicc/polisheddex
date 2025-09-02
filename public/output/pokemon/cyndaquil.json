@@ -1,5 +1,5 @@
 {
-  "name": "cyndaquil",
+  "name": "Cyndaquil",
   "nationalDex": 155,
   "johtoDex": 4,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 50,
       "total": 309
     },
+    "faithfulBaseStats": {
+      "hp": 39,
+      "attack": 52,
+      "defense": 43,
+      "speed": 65,
+      "specialAttack": 60,
+      "specialDefense": 50,
+      "total": 309
+    },
+    "polishedBaseStats": {
+      "hp": 39,
+      "attack": 52,
+      "defense": 43,
+      "speed": 65,
+      "specialAttack": 60,
+      "specialDefense": 50,
+      "total": 309
+    },
     "catchRate": 45,
     "baseExp": 65,
     "heldItems": [],
@@ -102,34 +120,68 @@
     "abilities": [
       {
         "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "updatedAbilities": [
       {
         "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1259,6 +1311,5 @@
       "species": "Fire Mouse",
       "description": "The fire that spouts from its back burns hottest when it is angry. The flaring flames intimidate foes."
     }
-  },
-  "locations": []
+  }
 }

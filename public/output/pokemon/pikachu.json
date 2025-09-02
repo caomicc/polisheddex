@@ -1,5 +1,5 @@
 {
-  "name": "pikachu",
+  "name": "Pikachu",
   "nationalDex": 25,
   "johtoDex": 22,
   "evolution": {
@@ -133,6 +133,15 @@
       "specialDefense": 50,
       "total": 320
     },
+    "faithfulBaseStats": {
+      "hp": 35,
+      "attack": 55,
+      "defense": 40,
+      "speed": 90,
+      "specialAttack": 50,
+      "specialDefense": 50,
+      "total": 320
+    },
     "polishedBaseStats": {
       "hp": 35,
       "attack": 65,
@@ -156,22 +165,50 @@
     "abilities": [
       {
         "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "lightning-rod",
+        "name": "Lightning Rod",
+        "description": "\tElectric moves \tboost Sp.Atk.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "lightning-rod",
+        "name": "Lightning Rod",
+        "description": "\tElectric moves \tboost Sp.Atk.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

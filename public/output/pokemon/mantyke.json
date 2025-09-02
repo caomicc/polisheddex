@@ -1,5 +1,5 @@
 {
-  "name": "mantyke",
+  "name": "Mantyke",
   "nationalDex": 261,
   "johtoDex": 226,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 120,
       "total": 345
     },
+    "faithfulBaseStats": {
+      "hp": 45,
+      "attack": 20,
+      "defense": 50,
+      "speed": 50,
+      "specialAttack": 60,
+      "specialDefense": 120,
+      "total": 345
+    },
+    "polishedBaseStats": {
+      "hp": 45,
+      "attack": 20,
+      "defense": 50,
+      "speed": 50,
+      "specialAttack": 60,
+      "specialDefense": 120,
+      "total": 345
+    },
     "catchRate": 25,
     "baseExp": 108,
     "heldItems": [],
@@ -80,22 +98,50 @@
     "abilities": [
       {
         "id": "swift-swim",
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "water-absorb",
+        "name": "Water Absorb",
+        "description": "\tRestores HP if hit \tby Water moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "water-veil",
+        "name": "Water Veil",
+        "description": "\tPrevents it from \tgetting a burn.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "swift-swim",
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "water-absorb",
+        "name": "Water Absorb",
+        "description": "\tRestores HP if hit \tby Water moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "water-veil",
+        "name": "Water Veil",
+        "description": "\tPrevents it from \tgetting a burn.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered",
@@ -1227,6 +1273,5 @@
       "species": "Kite",
       "description": "People organize tours to see this #mon frolic and skim the tops of the waves with Remoraid."
     }
-  },
-  "locations": []
+  }
 }

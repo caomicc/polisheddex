@@ -1,5 +1,5 @@
 {
-  "name": "metapod",
+  "name": "Metapod",
   "nationalDex": 11,
   "johtoDex": 25,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 25,
       "total": 205
     },
+    "faithfulBaseStats": {
+      "hp": 50,
+      "attack": 20,
+      "defense": 55,
+      "speed": 30,
+      "specialAttack": 25,
+      "specialDefense": 25,
+      "total": 205
+    },
+    "polishedBaseStats": {
+      "hp": 50,
+      "attack": 20,
+      "defense": 55,
+      "speed": 30,
+      "specialAttack": 25,
+      "specialDefense": 25,
+      "total": 205
+    },
     "catchRate": 120,
     "baseExp": 72,
     "heldItems": [],
@@ -102,22 +120,50 @@
     "abilities": [
       {
         "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Bug",

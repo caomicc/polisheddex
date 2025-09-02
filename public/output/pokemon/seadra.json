@@ -1,5 +1,5 @@
 {
-  "name": "seadra",
+  "name": "Seadra",
   "nationalDex": 117,
   "johtoDex": 213,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 45,
       "total": 440
     },
+    "faithfulBaseStats": {
+      "hp": 55,
+      "attack": 65,
+      "defense": 95,
+      "speed": 85,
+      "specialAttack": 95,
+      "specialDefense": 45,
+      "total": 440
+    },
+    "polishedBaseStats": {
+      "hp": 55,
+      "attack": 65,
+      "defense": 95,
+      "speed": 85,
+      "specialAttack": 95,
+      "specialDefense": 45,
+      "total": 440
+    },
     "catchRate": 75,
     "baseExp": 155,
     "heldItems": [
@@ -104,22 +122,50 @@
     "abilities": [
       {
         "id": "poison-point",
+        "name": "Poison Point",
+        "description": "\tContact may poison \tthe foe.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "sniper",
+        "name": "Sniper",
+        "description": "\tPowers up critical \thits.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "damp",
+        "name": "Damp",
+        "description": "\tPrevents self- \tdestructing moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "poison-point",
+        "name": "Poison Point",
+        "description": "\tContact may poison \tthe foe.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sniper",
+        "name": "Sniper",
+        "description": "\tPowers up critical \thits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "damp",
+        "name": "Damp",
+        "description": "\tPrevents self- \tdestructing moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"

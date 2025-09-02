@@ -1,5 +1,5 @@
 {
-  "name": "stantler",
+  "name": "Stantler",
   "nationalDex": 234,
   "johtoDex": 138,
   "evolution": {
@@ -159,6 +159,15 @@
       "specialDefense": 65,
       "total": 465
     },
+    "faithfulBaseStats": {
+      "hp": 73,
+      "attack": 95,
+      "defense": 62,
+      "speed": 85,
+      "specialAttack": 85,
+      "specialDefense": 65,
+      "total": 465
+    },
     "polishedBaseStats": {
       "hp": 73,
       "attack": 100,
@@ -179,22 +188,50 @@
     "abilities": [
       {
         "id": "intimidate",
+        "name": "Intimidate",
+        "description": "\tLowers the foe's \tAttack stat.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "frisk",
+        "name": "Frisk",
+        "description": "\tChecks the foe's \theld item.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sap-sipper",
+        "name": "Sap Sipper",
+        "description": "\tBoosts Attack when \thit by Grass.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "intimidate",
+        "name": "Intimidate",
+        "description": "\tLowers the foe's \tAttack stat.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "frisk",
+        "name": "Frisk",
+        "description": "\tChecks the foe's \theld item.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "sap-sipper",
+        "name": "Sap Sipper",
+        "description": "\tBoosts Attack when \thit by Grass.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Field",

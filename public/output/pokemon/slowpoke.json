@@ -1,5 +1,5 @@
 {
-  "name": "slowpoke",
+  "name": "Slowpoke",
   "nationalDex": 79,
   "johtoDex": 85,
   "evolution": {
@@ -112,6 +112,24 @@
       "specialDefense": 40,
       "total": 315
     },
+    "faithfulBaseStats": {
+      "hp": 90,
+      "attack": 65,
+      "defense": 65,
+      "speed": 15,
+      "specialAttack": 40,
+      "specialDefense": 40,
+      "total": 315
+    },
+    "polishedBaseStats": {
+      "hp": 90,
+      "attack": 65,
+      "defense": 65,
+      "speed": 15,
+      "specialAttack": 40,
+      "specialDefense": 40,
+      "total": 315
+    },
     "catchRate": 190,
     "baseExp": 99,
     "heldItems": [
@@ -125,22 +143,50 @@
     "abilities": [
       {
         "id": "oblivious",
+        "name": "Oblivious",
+        "description": "\tPrevents it from \tbeing infatuated.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "own-tempo",
+        "name": "Own Tempo",
+        "description": "\tPrevents it from \tbecoming confused.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "regenerator",
+        "name": "Regenerator",
+        "description": "\tRestores HP when \twithdrawn.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "oblivious",
+        "name": "Oblivious",
+        "description": "\tPrevents it from \tbeing infatuated.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "own-tempo",
+        "name": "Own Tempo",
+        "description": "\tPrevents it from \tbecoming confused.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "regenerator",
+        "name": "Regenerator",
+        "description": "\tRestores HP when \twithdrawn.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Monster",

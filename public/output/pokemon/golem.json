@@ -1,5 +1,5 @@
 {
-  "name": "golem",
+  "name": "Golem",
   "nationalDex": 76,
   "johtoDex": 36,
   "evolution": {
@@ -115,6 +115,24 @@
       "specialDefense": 65,
       "total": 495
     },
+    "faithfulBaseStats": {
+      "hp": 80,
+      "attack": 120,
+      "defense": 130,
+      "speed": 45,
+      "specialAttack": 55,
+      "specialDefense": 65,
+      "total": 495
+    },
+    "polishedBaseStats": {
+      "hp": 80,
+      "attack": 120,
+      "defense": 130,
+      "speed": 45,
+      "specialAttack": 55,
+      "specialDefense": 65,
+      "total": 495
+    },
     "catchRate": 45,
     "baseExp": 177,
     "heldItems": [
@@ -128,22 +146,50 @@
     "abilities": [
       {
         "id": "rock-head",
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "rock-head",
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Mineral",

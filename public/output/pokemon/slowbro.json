@@ -1,5 +1,5 @@
 {
-  "name": "slowbro",
+  "name": "Slowbro",
   "nationalDex": 80,
   "johtoDex": 86,
   "evolution": {
@@ -112,6 +112,15 @@
       "specialDefense": 80,
       "total": 490
     },
+    "faithfulBaseStats": {
+      "hp": 95,
+      "attack": 75,
+      "defense": 110,
+      "speed": 30,
+      "specialAttack": 100,
+      "specialDefense": 80,
+      "total": 490
+    },
     "polishedBaseStats": {
       "hp": 95,
       "attack": 75,
@@ -134,22 +143,50 @@
     "abilities": [
       {
         "id": "oblivious",
+        "name": "Oblivious",
+        "description": "\tPrevents it from \tbeing infatuated.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "own-tempo",
+        "name": "Own Tempo",
+        "description": "\tPrevents it from \tbecoming confused.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "regenerator",
+        "name": "Regenerator",
+        "description": "\tRestores HP when \twithdrawn.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "oblivious",
+        "name": "Oblivious",
+        "description": "\tPrevents it from \tbeing infatuated.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "own-tempo",
+        "name": "Own Tempo",
+        "description": "\tPrevents it from \tbecoming confused.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "regenerator",
+        "name": "Regenerator",
+        "description": "\tRestores HP when \twithdrawn.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Monster",

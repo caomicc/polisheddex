@@ -1,5 +1,5 @@
 {
-  "name": "azumarill",
+  "name": "Azumarill",
   "nationalDex": 184,
   "johtoDex": 142,
   "evolution": {
@@ -73,6 +73,15 @@
       "specialDefense": 80,
       "total": 420
     },
+    "faithfulBaseStats": {
+      "hp": 100,
+      "attack": 50,
+      "defense": 80,
+      "speed": 50,
+      "specialAttack": 60,
+      "specialDefense": 80,
+      "total": 420
+    },
     "polishedBaseStats": {
       "hp": 100,
       "attack": 50,
@@ -93,22 +102,50 @@
     "abilities": [
       {
         "id": "thick-fat",
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "huge-power",
+        "name": "Huge Power",
+        "description": "\tBoosts its Attack \tstat.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "sap-sipper",
+        "name": "Sap Sipper",
+        "description": "\tBoosts Attack when \thit by Grass.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "thick-fat",
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "huge-power",
+        "name": "Huge Power",
+        "description": "\tBoosts its Attack \tstat.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "sap-sipper",
+        "name": "Sap Sipper",
+        "description": "\tBoosts Attack when \thit by Grass.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Fast",
     "eggGroups": [
       "Undiscovered"

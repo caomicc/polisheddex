@@ -1,5 +1,5 @@
 {
-  "name": "clefable",
+  "name": "Clefable",
   "nationalDex": 36,
   "johtoDex": 42,
   "evolution": {
@@ -73,6 +73,24 @@
       "specialDefense": 90,
       "total": 483
     },
+    "faithfulBaseStats": {
+      "hp": 95,
+      "attack": 70,
+      "defense": 73,
+      "speed": 60,
+      "specialAttack": 95,
+      "specialDefense": 90,
+      "total": 483
+    },
+    "polishedBaseStats": {
+      "hp": 95,
+      "attack": 70,
+      "defense": 73,
+      "speed": 60,
+      "specialAttack": 95,
+      "specialDefense": 90,
+      "total": 483
+    },
     "catchRate": 25,
     "baseExp": 129,
     "heldItems": [
@@ -87,22 +105,50 @@
     "abilities": [
       {
         "id": "cute-charm",
+        "name": "Cute Charm",
+        "description": "\tContact may cause \tinfatuation.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "magic-guard",
+        "name": "Magic Guard",
+        "description": "\tOnly takes damage \tfrom attacks.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "unaware",
+        "name": "Unaware",
+        "description": "\tIgnores the foe's \tstat changes.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "cute-charm",
+        "name": "Cute Charm",
+        "description": "\tContact may cause \tinfatuation.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "magic-guard",
+        "name": "Magic Guard",
+        "description": "\tOnly takes damage \tfrom attacks.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "unaware",
+        "name": "Unaware",
+        "description": "\tIgnores the foe's \tstat changes.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Fast",
     "eggGroups": [
       "Fairy",

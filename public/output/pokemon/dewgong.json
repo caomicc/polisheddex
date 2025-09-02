@@ -1,5 +1,5 @@
 {
-  "name": "dewgong",
+  "name": "Dewgong",
   "nationalDex": 87,
   "johtoDex": 198,
   "evolution": {
@@ -51,6 +51,15 @@
       "specialDefense": 95,
       "total": 475
     },
+    "faithfulBaseStats": {
+      "hp": 90,
+      "attack": 70,
+      "defense": 80,
+      "speed": 70,
+      "specialAttack": 70,
+      "specialDefense": 95,
+      "total": 475
+    },
     "polishedBaseStats": {
       "hp": 90,
       "attack": 70,
@@ -74,22 +83,50 @@
     "abilities": [
       {
         "id": "thick-fat",
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "hydration",
+        "name": "Hydration",
+        "description": "\tHeals status \tproblems in rain.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "ice-body",
+        "name": "Ice Body",
+        "description": "\tGradually regains \tHP in hail.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "thick-fat",
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "hydration",
+        "name": "Hydration",
+        "description": "\tHeals status \tproblems in rain.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "ice-body",
+        "name": "Ice Body",
+        "description": "\tGradually regains \tHP in hail.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"

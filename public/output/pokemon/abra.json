@@ -1,5 +1,5 @@
 {
-  "name": "abra",
+  "name": "Abra",
   "nationalDex": 63,
   "johtoDex": 94,
   "evolution": {
@@ -91,6 +91,24 @@
       "specialDefense": 55,
       "total": 310
     },
+    "faithfulBaseStats": {
+      "hp": 25,
+      "attack": 20,
+      "defense": 15,
+      "speed": 90,
+      "specialAttack": 105,
+      "specialDefense": 55,
+      "total": 310
+    },
+    "polishedBaseStats": {
+      "hp": 25,
+      "attack": 20,
+      "defense": 15,
+      "speed": 90,
+      "specialAttack": 105,
+      "specialDefense": 55,
+      "total": 310
+    },
     "catchRate": 200,
     "baseExp": 73,
     "heldItems": [
@@ -104,22 +122,50 @@
     "abilities": [
       {
         "id": "synchronize",
+        "name": "Synchronize",
+        "description": "\tPasses Psn, Par, \tor Brn to foes.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "magic-guard",
+        "name": "Magic Guard",
+        "description": "\tOnly takes damage \tfrom attacks.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "trace",
+        "name": "Trace",
+        "description": "\tCopies the foe's \tAbility.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "synchronize",
+        "name": "Synchronize",
+        "description": "\tPasses Psn, Par, \tor Brn to foes.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "magic-guard",
+        "name": "Magic Guard",
+        "description": "\tOnly takes damage \tfrom attacks.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "trace",
+        "name": "Trace",
+        "description": "\tCopies the foe's \tAbility.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Human-Like",
@@ -892,6 +938,12 @@
       "level": "10",
       "chance": 10,
       "formName": null
+    },
+    {
+      "area": "Goldenrod Game Corner",
+      "method": "gift",
+      "npc": "Game Corner",
+      "conditions": "Exchange coins"
     }
   ],
   "pokedexEntries": {

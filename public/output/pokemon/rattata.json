@@ -1,5 +1,5 @@
 {
-  "name": "rattata",
+  "name": "Rattata",
   "nationalDex": 19,
   "johtoDex": 17,
   "evolution": {
@@ -69,6 +69,24 @@
       "specialDefense": 35,
       "total": 253
     },
+    "faithfulBaseStats": {
+      "hp": 30,
+      "attack": 56,
+      "defense": 35,
+      "speed": 72,
+      "specialAttack": 25,
+      "specialDefense": 35,
+      "total": 253
+    },
+    "polishedBaseStats": {
+      "hp": 30,
+      "attack": 56,
+      "defense": 35,
+      "speed": 72,
+      "specialAttack": 25,
+      "specialDefense": 35,
+      "total": 253
+    },
     "catchRate": 255,
     "baseExp": 57,
     "heldItems": [
@@ -82,22 +100,50 @@
     "abilities": [
       {
         "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "hustle",
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "hustle",
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
