@@ -3,36 +3,53 @@
 
 export const POKEMON_VARIANTS = {
   // Unown forms (cosmetic variants)
-  UNOWN: [
-    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
-    'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 
-    'exclamation', 'question'
-  ],
-  
+  // UNOWN: [
+  //   'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+  //   'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+  //   'exclamation', 'question'
+  // ],
+
   // Arbok forms removed - these were just cosmetic sprite variants without gameplay differences
-  
+
   // Pikachu forms (cosmetic variants)
-  PIKACHU: ['plain', 'fly', 'surf', 'red', 'yellow', 'spark'],
-  
+  // PIKACHU: ['plain', 'fly', 'surf', 'red', 'yellow', 'spark'],
+
   // Pichu forms (cosmetic variants)
-  PICHU: ['plain', 'spiky-eared'],
-  
+  // PICHU: ['plain', 'spiky-eared'],
+
   // Magikarp forms (cosmetic variants)
-  MAGIKARP: [
-    'plain', 'skelly', 'calico1', 'calico2', 'calico3', 'two-tone', 'orca', 
-    'dapples', 'tiger', 'zebra', 'stripe', 'bubbles', 'diamonds', 'patches', 
-    'forehead1', 'mask1', 'forehead2', 'mask2', 'saucy', 'raindrop'
-  ],
-  
+  // MAGIKARP: [
+  //   'plain',
+  //   'skelly',
+  //   'calico1',
+  //   'calico2',
+  //   'calico3',
+  //   'two-tone',
+  //   'orca',
+  //   'dapples',
+  //   'tiger',
+  //   'zebra',
+  //   'stripe',
+  //   'bubbles',
+  //   'diamonds',
+  //   'patches',
+  //   'forehead1',
+  //   'mask1',
+  //   'forehead2',
+  //   'mask2',
+  //   'saucy',
+  //   'raindrop',
+  // ],
+
   // Gyarados forms (variant forms)
-  GYARADOS: ['plain', 'red'],
-  
+  GYARADOS: ['plain'],
+
   // Mewtwo forms (variant forms)
   MEWTWO: ['plain', 'armored'],
-  
+
   // Dudunsparce forms (variant forms)
-  DUDUNSPARCE: ['two-segment', 'three-segment'],
-  
+  // DUDUNSPARCE: ['two-segment', 'three-segment'],
+
   // Alolan forms (variant forms)
   RATTATA: ['plain', 'alolan'],
   RATICATE: ['plain', 'alolan'],
@@ -52,7 +69,7 @@ export const POKEMON_VARIANTS = {
   MUK: ['plain', 'alolan'],
   EXEGGUTOR: ['plain', 'alolan'],
   MAROWAK: ['plain', 'alolan'],
-  
+
   // Galarian forms (variant forms)
   PONYTA: ['plain', 'galarian'],
   RAPIDASH: ['plain', 'galarian'],
@@ -66,7 +83,7 @@ export const POKEMON_VARIANTS = {
   MOLTRES: ['plain', 'galarian'],
   SLOWKING: ['plain', 'galarian'],
   CORSOLA: ['plain', 'galarian'],
-  
+
   // Hisuian forms (variant forms)
   GROWLITHE: ['plain', 'hisuian'],
   ARCANINE: ['plain', 'hisuian'],
@@ -75,11 +92,11 @@ export const POKEMON_VARIANTS = {
   TYPHLOSION: ['plain', 'hisuian'],
   QWILFISH: ['plain', 'hisuian'],
   SNEASEL: ['plain', 'hisuian'],
-  
+
   // Paldean forms (variant forms)
   WOOPER: ['plain', 'paldean'],
   TAUROS: ['plain', 'paldean-fire', 'paldean-water'],
-  
+
   // Ursaluna forms (variant forms)
   URSALUNA: ['plain', 'bloodmoon'],
 } as const;
@@ -106,7 +123,7 @@ export function hasVariant(pokemonName: string, variantName: string): boolean {
 export const POKEMON_NAME_MAP: Record<string, string> = {
   'mr-mime': 'MR_MIME',
   'farfetch-d': 'FARFETCHD',
-  'farfetchd': 'FARFETCHD',
+  farfetchd: 'FARFETCHD',
   'porygon-z': 'PORYGONZ',
   // Add more mappings as needed
 };
@@ -114,12 +131,12 @@ export const POKEMON_NAME_MAP: Record<string, string> = {
 // Helper function to normalize Pokemon names for constant lookup
 export function normalizePokemonNameForConstants(pokemonName: string): string {
   const name = pokemonName.toLowerCase();
-  
+
   // Check for special mappings first
   if (POKEMON_NAME_MAP[name]) {
     return POKEMON_NAME_MAP[name];
   }
-  
+
   // Default normalization
   return name.toUpperCase().replace(/[^A-Z0-9]/g, '_');
 }

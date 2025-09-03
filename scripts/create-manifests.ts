@@ -351,9 +351,10 @@ async function createPokemonManifest(): Promise<void> {
           // Check for forms in evolution data or other indicators
           if (pokemonData.forms) {
             // Special cases: consolidate purely cosmetic sprite variants to single form
-            if (pokemonId === 'arbok' || pokemonId === 'pikachu' || pokemonId === 'pichu') {
-              // Arbok's forms are just cosmetic sprite variants, consolidate to plain
-              forms.push('plain');
+            if (pokemonId === 'arbok') {
+              // Arbok's forms are just cosmetic sprite variants, use first form as primary
+              const firstForm = Object.keys(pokemonData.forms)[0];
+              forms.push(firstForm);
             } else {
               forms.push(...Object.keys(pokemonData.forms));
             }

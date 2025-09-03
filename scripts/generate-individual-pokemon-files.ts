@@ -314,17 +314,13 @@ function generateFormObjects(
     if (eggMovesData) {
       const pokemonNameLower = pokemonKey.toLowerCase();
       const eggMoves = eggMovesData[pokemonNameLower] || [];
-      if (eggMoves.length > 0) {
-        formsObject['plain'].eggMoves = eggMoves;
-      }
+      formsObject['plain'].eggMoves = eggMoves;
     }
 
     if (tmHmLearnsetData) {
       const pokemonNameLower = pokemonKey.toLowerCase();
       const tmHmMoves = tmHmLearnsetData[pokemonNameLower] || [];
-      if (tmHmMoves.length > 0) {
-        formsObject['plain'].tmHmMoves = tmHmMoves;
-      }
+      formsObject['plain'].tmHmMoves = tmHmMoves;
     }
   }
 
@@ -574,20 +570,24 @@ function createFormDataFromParent(
   // First, try to find form-specific ability data
   const formSpecificKey = `${pokemonKey} ${variant}`;
   let detailedStatsData: Record<string, any>;
-  
+
   // Check if we have form-specific detailed stats data in the global detailed stats file
   // This is where form-specific data would be if the extraction created separate entries
   if (allDetailedStats && typeof allDetailedStats[formSpecificKey] === 'object') {
     console.log(`🎯 Found form-specific detailed stats for ${formSpecificKey}`);
     detailedStatsData = allDetailedStats[formSpecificKey];
-  } else if (typeof pokemonData === 'object' && pokemonData && typeof (pokemonData as any)[formSpecificKey] === 'object') {
+  } else if (
+    typeof pokemonData === 'object' &&
+    pokemonData &&
+    typeof (pokemonData as any)[formSpecificKey] === 'object'
+  ) {
     console.log(`🎯 Found form-specific detailed stats in pokemonData for ${formSpecificKey}`);
     detailedStatsData = (pokemonData as any)[formSpecificKey];
   } else {
     // Fallback to parent detailed stats
     detailedStatsData = pokemonData.detailedStats;
   }
-  
+
   if (detailedStatsData) {
     if (detailedStatsData.abilities) {
       formData.abilities = addAbilityDescriptions(
@@ -621,7 +621,7 @@ function createFormDataFromParent(
     formData.polishedBaseStats =
       formSpecificData?.polishedBaseStats || detailedStatsData?.polishedBaseStats;
   }
-  
+
   // Add shared fields that the frontend expects to be available in form data
   if (detailedStatsData?.catchRate) {
     formData.catchRate = detailedStatsData.catchRate;
@@ -684,7 +684,9 @@ async function generateIndividualPokemonFiles(): Promise<void> {
     const formDetailedStats: Record<string, PokemonData> = JSON.parse(
       fs.readFileSync(formDetailedStatsPath, 'utf8'),
     );
-    console.log(`📊 Merging ${Object.keys(formDetailedStats).length} form-specific detailed stats entries`);
+    console.log(
+      `📊 Merging ${Object.keys(formDetailedStats).length} form-specific detailed stats entries`,
+    );
     // Merge form-specific data into the main detailed stats
     Object.assign(detailedStats, formDetailedStats);
   }
@@ -766,6 +768,7 @@ async function generateIndividualPokemonFiles(): Promise<void> {
   // Filter out form-specific entries from main iteration
   // Form entries have names like "Typhlosion hisuian", "Arcanine hisuian", etc.
   // We want to keep them available for form data but not create separate files
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const baseStatsEntries = Object.entries(detailedStats).filter(([pokemonKey, pokemonData]) => {
     // Skip entries that contain a space (these are form-specific entries)
     const isFormEntry = pokemonKey.includes(' ');
@@ -775,7 +778,9 @@ async function generateIndividualPokemonFiles(): Promise<void> {
     return !isFormEntry;
   });
 
-  console.log(`📝 Processing ${baseStatsEntries.length} base Pokemon entries (filtered from ${Object.keys(detailedStats).length} total)`);
+  console.log(
+    `📝 Processing ${baseStatsEntries.length} base Pokemon entries (filtered from ${Object.keys(detailedStats).length} total)`,
+  );
 
   for (const [pokemonKey, pokemonData] of baseStatsEntries) {
     try {
