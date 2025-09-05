@@ -351,12 +351,12 @@ async function createPokemonManifest(): Promise<void> {
           // Check for forms in evolution data or other indicators
           if (pokemonData.forms) {
             // Special cases: consolidate purely cosmetic sprite variants to single form
-            if (pokemonId === 'arbok') {
-              // Arbok's forms are just cosmetic sprite variants, use first form as primary
+            if (pokemonId === 'arbok' || pokemonId === 'magikarp' || pokemonId === 'unown') {
+              // These Pokemon's forms are just cosmetic sprite variants, use first form as primary
               const firstForm = Object.keys(pokemonData.forms)[0];
               formsSet.add(firstForm);
             } else {
-              Object.keys(pokemonData.forms).forEach(form => formsSet.add(form));
+              Object.keys(pokemonData.forms).forEach((form) => formsSet.add(form));
             }
           }
 
@@ -373,8 +373,8 @@ async function createPokemonManifest(): Promise<void> {
               }
 
               // Exclude cosmetic sprite variants that should be consolidated
-              if (pokemonId === 'arbok') {
-                return; // Skip all arbok sprite variants, they're just cosmetic
+              if (pokemonId === 'arbok' || pokemonId === 'magikarp' || pokemonId === 'unown') {
+                return; // Skip all sprite variants for these Pokemon, they're just cosmetic
               }
 
               // Normalize form name to match Pokemon data conventions (underscores to hyphens)
