@@ -98,6 +98,8 @@ export interface EvolutionMethod {
   parameter: string | number | null;
   target: string;
   form?: string;
+  targetForm?: string;
+  sourceForm?: string;
 }
 
 export interface PokemonDataV2 {

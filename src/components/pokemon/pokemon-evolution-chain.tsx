@@ -7,15 +7,8 @@ import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 import { PokemonSprite } from './pokemon-sprite';
 import { usePokemonType } from '@/contexts/PokemonTypeContext';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
-import { PokemonType } from '@/types/types';
+import { EvolutionMethod, PokemonType } from '@/types/types';
 import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
-
-interface EvolutionMethod {
-  method: string;
-  parameter: string | number | null;
-  target: string;
-  form?: string;
-}
 
 interface EvolutionData {
   methods: EvolutionMethod[];
@@ -62,24 +55,26 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
     Object.entries(currentChainWithMethods).forEach(([sourcePokemon, methods]) => {
       if (!Array.isArray(methods) || methods.length === 0 || methods.every((m) => !m)) return;
 
-      const formRegex = /^(.+?)(?: \((.+)\)|-(.+)-form)$/i;
-      const matches = sourcePokemon.match(formRegex);
-      let sourceIsForm = false;
-      let sourceBaseName = sourcePokemon;
-      let sourceFormName = undefined;
+      console.log('Processing methods for', sourcePokemon, methods);
 
-      if (matches) {
-        sourceIsForm = true;
-        sourceBaseName = matches[1];
-        sourceFormName = matches[2] || matches[3];
-      }
+      // const formRegex = /^(.+?)(?: \((.+)\)|-(.+)-form)$/i;
+      // const matches = sourcePokemon.match(formRegex);
+      // let sourceIsForm = false;
+      // let sourceBaseName = sourcePokemon;
+      // let sourceFormName = undefined;
+
+      // if (matches) {
+      //   sourceIsForm = true;
+      //   sourceBaseName = matches[1];
+      //   sourceFormName = matches[2] || matches[3];
+      // }
 
       methods.forEach((method) => {
         if (!method) return;
 
         evolutionPaths.push({
-          source: sourceIsForm ? sourceBaseName : sourcePokemon,
-          sourceForm: sourceFormName,
+          source: sourcePokemon,
+          sourceForm: method.sourceForm,
           target: method.target.toLowerCase(),
           targetForm: method.form,
           method: formatMethod(method.method),
@@ -149,6 +144,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
       {evolutionPaths.map((path, index) => {
         const sourceName = path.sourceForm ? `${path.source} (${path.sourceForm})` : path.source;
         const targetName = path.targetForm ? `${path.target} (${path.targetForm})` : path.target;
+        console.log(path);
         return (
           <div
             key={`${sourceName}-${targetName}-${index}`}
