@@ -43,7 +43,6 @@ interface OptimizedLocationManifest {
     regions: Record<string, number>;
     flyableLocations: number;
     landmarks: number;
-    lastUpdated: string;
   };
   locations: Record<string, LocationSummary>; // Contains only summary data
 }
@@ -68,7 +67,7 @@ async function createLocationsManifest() {
 
   // Load the existing index
   const indexData: LocationManifest = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
-  
+
   console.log(`📊 Processing ${indexData.totalLocations} locations...`);
 
   // Process locations to create optimized summaries
@@ -79,35 +78,32 @@ async function createLocationsManifest() {
   for (const locationInfo of indexData.locations) {
     try {
       const locationPath = path.join(locationsDir, locationInfo.fileName);
-      
+
       if (fs.existsSync(locationPath)) {
         const locationData = JSON.parse(fs.readFileSync(locationPath, 'utf8'));
-        
+
         // Count pokemon encounters
-        const pokemonCount = locationData.pokemon ? 
-          Object.keys(locationData.pokemon).length : 0;
-        
+        const pokemonCount = locationData.pokemon ? Object.keys(locationData.pokemon).length : 0;
+
         // Count trainers
-        const trainerCount = locationData.trainers ? 
-          locationData.trainers.length : 0;
-        
+        const trainerCount = locationData.trainers ? locationData.trainers.length : 0;
+
         // Count items
-        const itemCount = locationData.items ? 
-          locationData.items.length : 0;
-        
+        const itemCount = locationData.items ? locationData.items.length : 0;
+
         // Count connections
-        const connectionCount = locationData.connections ? 
-          locationData.connections.length : 0;
-        
+        const connectionCount = locationData.connections ? locationData.connections.length : 0;
+
         // Count events
-        const eventCount = locationData.events ? 
-          locationData.events.length : 0;
-        
+        const eventCount = locationData.events ? locationData.events.length : 0;
+
         // Check for hidden grottoes
-        const hasHiddenGrottoes = locationData.pokemon ? 
-          Object.values(locationData.pokemon).some((pokemon: any) =>
-            pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto')
-          ) : false;
+        const hasHiddenGrottoes = locationData.pokemon
+          ? Object.values(locationData.pokemon).some(
+              (pokemon: any) =>
+                pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto'),
+            )
+          : false;
 
         // Create the summary
         optimizedLocationData[locationInfo.name] = {
@@ -122,12 +118,14 @@ async function createLocationsManifest() {
           connectionCount,
           eventCount,
           hasHiddenGrottoes,
-          coordinates: (locationData.x >= 0 && locationData.y >= 0) ? 
-            { x: locationData.x, y: locationData.y } : undefined,
+          coordinates:
+            locationData.x >= 0 && locationData.y >= 0
+              ? { x: locationData.x, y: locationData.y }
+              : undefined,
         };
-        
+
         loadedCount++;
-        
+
         if (loadedCount % 100 === 0) {
           console.log(`📄 Processed ${loadedCount}/${indexData.totalLocations} locations...`);
         }
@@ -148,7 +146,6 @@ async function createLocationsManifest() {
       regions: indexData.regions,
       flyableLocations: indexData.flyableLocations,
       landmarks: indexData.landmarks,
-      lastUpdated: new Date().toISOString(),
     },
     locations: optimizedLocationData,
   };
@@ -158,7 +155,7 @@ async function createLocationsManifest() {
 
   console.log(`✅ Created optimized locations manifest with ${loadedCount} locations`);
   console.log(`📁 Saved to: ${outputPath}`);
-  
+
   if (errorCount > 0) {
     console.log(`⚠️ ${errorCount} locations had errors`);
   }
