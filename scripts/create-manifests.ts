@@ -341,7 +341,7 @@ async function createPokemonManifest(): Promise<void> {
           }
 
           // Determine forms - check if this pokemon has form variations
-          const forms: string[] = [];
+          const formsSet = new Set<string>();
 
           console.log(
             `Checking forms for ${pokemonData.name} (${pokemonId})...`,
@@ -354,17 +354,17 @@ async function createPokemonManifest(): Promise<void> {
             if (pokemonId === 'arbok') {
               // Arbok's forms are just cosmetic sprite variants, use first form as primary
               const firstForm = Object.keys(pokemonData.forms)[0];
-              forms.push(firstForm);
+              formsSet.add(firstForm);
             } else {
-              forms.push(...Object.keys(pokemonData.forms));
+              Object.keys(pokemonData.forms).forEach(form => formsSet.add(form));
             }
           }
 
-          // Check sprite manifest for form variations
+          // Check sprite manifest for form variations (but prioritize Pokemon data forms)
           const baseNamePattern = new RegExp(`^${pokemonId}(_.*)?$`);
           Object.keys(spriteManifest).forEach((key) => {
             if (baseNamePattern.test(key) && key !== pokemonId) {
-              const formName = key.replace(`${pokemonId}_`, '');
+              let formName = key.replace(`${pokemonId}_`, '');
 
               // Exclude known separate evolutions that might be mistaken for forms
               const separateEvolutions = ['z']; // porygon_z should be treated as separate Pokemon, not a form
@@ -377,13 +377,18 @@ async function createPokemonManifest(): Promise<void> {
                 return; // Skip all arbok sprite variants, they're just cosmetic
               }
 
-              if (!forms.includes(formName)) {
-                forms.push(formName);
+              // Normalize form name to match Pokemon data conventions (underscores to hyphens)
+              formName = formName.replace(/_/g, '-');
+
+              // Only add if we don't already have this form from Pokemon data
+              if (!formsSet.has(formName)) {
+                formsSet.add(formName);
               }
             }
           });
 
-          // If no forms found, add 'normal' as default
+          // Convert set to array and ensure at least one form exists
+          const forms = Array.from(formsSet);
           if (forms.length === 0) {
             forms.push('plain');
           }
