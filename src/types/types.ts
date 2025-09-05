@@ -477,7 +477,7 @@ export interface TrainerPokemonVariant {
 
 // Main trainer Pokemon interface
 export interface TrainerPokemon {
-  level: number;
+  level: number | string;
   species: string;
   nickname?: string;
   item?: string;

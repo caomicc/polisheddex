@@ -229,7 +229,6 @@ export default function LocationClient({
             </Card>
           </TableWrapper>
         )}
-        {console.log('comprehensiveInfo?.events', comprehensiveInfo?.events)}
         {comprehensiveInfo?.events &&
           comprehensiveInfo.events.some(
             (event: { type: string }) => event.type === 'phone_call',
