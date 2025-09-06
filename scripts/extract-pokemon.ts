@@ -24,14 +24,14 @@ const pokemonTMCompatibility: Record<string, Record<string, string[]>> = {};
 const evolutionChains: Record<string, Record<string, string[]>> = {};
 
 //Paths
-const namesASM = join(__dirname, 'polishedcrystal/data/pokemon/names.asm');
-const formsASM = join(__dirname, 'polishedcrystal/constants/pokemon_constants.asm');
-const monDIR = join(__dirname, 'polishedcrystal/data/pokemon/base_stats/');
-const movesASM = join(__dirname, 'polishedcrystal/data/moves/moves.asm');
-const moveNamesASM = join(__dirname, 'polishedcrystal/data/moves/names.asm');
-const moveDescriptionsASM = join(__dirname, 'polishedcrystal/data/moves/descriptions.asm');
-const evoAttacksASM = join(__dirname, 'polishedcrystal/data/pokemon/evos_attacks.asm');
-const eggMovesASM = join(__dirname, 'polishedcrystal/data/pokemon/egg_moves.asm');
+const namesASM = join(__dirname, '../polishedcrystal/data/pokemon/names.asm');
+const formsASM = join(__dirname, '../polishedcrystal/constants/pokemon_constants.asm');
+const monDIR = join(__dirname, '../polishedcrystal/data/pokemon/base_stats/');
+const movesASM = join(__dirname, '../polishedcrystal/data/moves/moves.asm');
+const moveNamesASM = join(__dirname, '../polishedcrystal/data/moves/names.asm');
+const moveDescriptionsASM = join(__dirname, '../polishedcrystal/data/moves/descriptions.asm');
+const evoAttacksASM = join(__dirname, '../polishedcrystal/data/pokemon/evos_attacks.asm');
+const eggMovesASM = join(__dirname, '../polishedcrystal/data/pokemon/egg_moves.asm');
 
 const extractMoves = (
   movesData: string[],
@@ -793,8 +793,8 @@ const mergeVersions = () => {
 mergeVersions();
 
 // Create output directories
-const pokemonDir = join(__dirname, 'new', 'pokemon');
-const outputDir = join(__dirname, 'new');
+const pokemonDir = join(__dirname, '..', 'new', 'pokemon');
+const outputDir = join(__dirname, '..', 'new');
 
 try {
   await mkdir(pokemonDir, { recursive: true });
