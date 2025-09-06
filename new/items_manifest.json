@@ -1,0 +1,2766 @@
+[
+  {
+    "id": "pokeball",
+    "name": "Park Ball",
+    "description": "An item for catching Pokemon.",
+    "attributes": {
+      "price": 200,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "greatball",
+    "name": "Poké Ball",
+    "description": "A Ball with a decent success rate.",
+    "attributes": {
+      "price": 600,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "ultraball",
+    "name": "Great Ball",
+    "description": "A Ball with a high rate of success.",
+    "attributes": {
+      "price": 800,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "masterball",
+    "name": "Ultra Ball",
+    "description": "The best Ball. It never misses.",
+    "attributes": {
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "safariball",
+    "name": "Master Ball",
+    "description": "The Safari Game Ball.",
+    "attributes": {
+      "price": 200,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "levelball",
+    "name": "Safari Ball",
+    "description": "A Ball for lowerlevel Pokemon.",
+    "attributes": {
+      "price": 150,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "lureball",
+    "name": "Level Ball",
+    "description": "A Ball for Pokemon hooked by a Rod.",
+    "attributes": {
+      "price": 150,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "moonball",
+    "name": "Lure Ball",
+    "description": "A Ball for Moon Stone evolvers.",
+    "attributes": {
+      "price": 150,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "friendball",
+    "name": "Moon Ball",
+    "description": "A Ball that makes Pokemon friendly.",
+    "attributes": {
+      "price": 150,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "fastball",
+    "name": "Friend Ball",
+    "description": "A Ball for catching fast Pokemon.",
+    "attributes": {
+      "price": 150,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "heavyball",
+    "name": "Fast Ball",
+    "description": "A Ball for catching heavy Pokemon.",
+    "attributes": {
+      "price": 150,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "loveball",
+    "name": "Heavy Ball",
+    "description": "A Ball for the opposite gender.",
+    "attributes": {
+      "price": 150,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "repeatball",
+    "name": "Love Ball",
+    "description": "A Ball for Pokemon caught before.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "timerball",
+    "name": "Repeat Ball",
+    "description": "A Ball for late in a battle.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "nestball",
+    "name": "Timer Ball",
+    "description": "A Ball for weaker Pokemon.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "netball",
+    "name": "Nest Ball",
+    "description": "A Ball for Water or Bug Pokemon.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "diveball",
+    "name": "Net Ball",
+    "description": "A Ball for underwater Pokemon.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "luxuryball",
+    "name": "Dive Ball",
+    "description": "A cozy Ball to befriend Pokemon.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "healball",
+    "name": "Luxury Ball",
+    "description": "A remedial Ball to heal Pokemon.",
+    "attributes": {
+      "price": 300,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "quickball",
+    "name": "Heal Ball",
+    "description": "A Ball for early in a battle.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "duskball",
+    "name": "Quick Ball",
+    "description": "A Ball for nighttime or caves.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "dreamball",
+    "name": "Dusk Ball",
+    "description": "A Ball for sleeping Pokemon.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "premierball",
+    "name": "Dream Ball",
+    "description": "A rare commemorative Ball.",
+    "attributes": {
+      "price": 20,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "cherishball",
+    "name": "Premier Ball",
+    "description": "A quite rare commemorative Ball.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "potion",
+    "name": "Cherish Ball",
+    "description": "Restores Pokemon HP by 20.",
+    "attributes": {
+      "price": 200,
+      "params": "20",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "superpotion",
+    "name": "Potion",
+    "description": "Restores Pokemon HP by 60.",
+    "attributes": {
+      "price": 700,
+      "params": "60",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "hyperpotion",
+    "name": "Super Potion",
+    "description": "Restores Pokemon HP by 120.",
+    "attributes": {
+      "price": 1500,
+      "params": "120",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "maxpotion",
+    "name": "Hyper Potion",
+    "description": "Fully restores Pokemon HP.",
+    "attributes": {
+      "price": 2500,
+      "params": "-1",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "antidote",
+    "name": "Max Potion",
+    "description": "Cures poisoned Pokemon.",
+    "attributes": {
+      "price": 200,
+      "params": "1 << PSN",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "burnheal",
+    "name": "Antidote",
+    "description": "Heals burned Pokemon.",
+    "attributes": {
+      "price": 300,
+      "params": "1 << BRN",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "paralyzeheal",
+    "name": "Burn Heal",
+    "description": "Heals paralyzed Pokemon.",
+    "attributes": {
+      "price": 300,
+      "params": "1 << PAR",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "awakening",
+    "name": "ParalyzeHeal",
+    "description": "Awakens sleeping Pokemon.",
+    "attributes": {
+      "price": 100,
+      "params": "SLP_MASK",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "iceheal",
+    "name": "Awakening",
+    "description": "Defrosts frozen Pokemon.",
+    "attributes": {
+      "price": 100,
+      "params": "1 << FRZ",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "fullheal",
+    "name": "Ice Heal",
+    "description": "Eliminates all status problems.",
+    "attributes": {
+      "price": 400,
+      "params": "-1",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "fullrestore",
+    "name": "Full Heal",
+    "description": "Fully restores HP & status.",
+    "attributes": {
+      "price": 3000,
+      "params": "-1",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "revive",
+    "name": "Full Restore",
+    "description": "Restores a fainted Pokemon to 1/2 HP.",
+    "attributes": {
+      "price": 2000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "maxrevive",
+    "name": "Revive",
+    "description": "Fully restores a fainted Pokemon.",
+    "attributes": {
+      "price": 4000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "ether",
+    "name": "Max Revive",
+    "description": "Restores PP of one move by 10.",
+    "attributes": {
+      "price": 1200,
+      "params": "10",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "maxether",
+    "name": "Ether",
+    "description": "Fully restores PP of one move.",
+    "attributes": {
+      "price": 2000,
+      "params": "-1",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "elixir",
+    "name": "Max Ether",
+    "description": "Restores PP of all moves by 10.",
+    "attributes": {
+      "price": 3000,
+      "params": "10",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "maxelixir",
+    "name": "Elixir",
+    "description": "Fully restores the PP of one Pokemon.",
+    "attributes": {
+      "price": 4500,
+      "params": "-1",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "hpup",
+    "name": "Max Elixir",
+    "description": "Raises the HP of one Pokemon.",
+    "attributes": {
+      "price": 10000,
+      "params": "MON_HP_EV - MON_EVS",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "protein",
+    "name": "HP Up",
+    "description": "Raises Attack of one Pokemon.",
+    "attributes": {
+      "price": 10000,
+      "params": "MON_ATK_EV - MON_EVS",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "iron",
+    "name": "Protein",
+    "description": "Raises Defense of one Pokemon.",
+    "attributes": {
+      "price": 10000,
+      "params": "MON_DEF_EV - MON_EVS",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "carbos",
+    "name": "Iron",
+    "description": "Raises Speed of one Pokemon.",
+    "attributes": {
+      "price": 10000,
+      "params": "MON_SPE_EV - MON_EVS",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "calcium",
+    "name": "Carbos",
+    "description": "Raises Sp.Atk of one Pokemon.",
+    "attributes": {
+      "price": 10000,
+      "params": "MON_SAT_EV - MON_EVS",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "zinc",
+    "name": "Calcium",
+    "description": "Raises Sp.Def of one Pokemon.",
+    "attributes": {
+      "price": 10000,
+      "params": "MON_SDF_EV - MON_EVS",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "rarecandy",
+    "name": "Zinc",
+    "description": "Raises level of a Pokemon by one.",
+    "attributes": {
+      "price": 10000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "ppup",
+    "name": "Rare Candy",
+    "description": "Raises max PP of a selected move.",
+    "attributes": {
+      "price": 10000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "ppmax",
+    "name": "PP Up",
+    "description": "Maximizes PP of a selected move.",
+    "attributes": {
+      "price": 10000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "freshwater",
+    "name": "PP Max",
+    "description": "Restores Pokemon HP by 30.",
+    "attributes": {
+      "price": 200,
+      "params": "30",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "sodapop",
+    "name": "Fresh Water",
+    "description": "Restores Pokemon HP by 50.",
+    "attributes": {
+      "price": 300,
+      "params": "50",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "lemonade",
+    "name": "Soda Pop",
+    "description": "Restores Pokemon HP by 70.",
+    "attributes": {
+      "price": 350,
+      "params": "70",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "moomoomilk",
+    "name": "Lemonade",
+    "description": "Restores Pokemon HP by 100.",
+    "attributes": {
+      "price": 500,
+      "params": "100",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "ragecandybar",
+    "name": "Moomoo Milk",
+    "description": "Eliminates all status problems.",
+    "attributes": {
+      "price": 300,
+      "params": "-1",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "pewtercrunch",
+    "name": "Cake of Rage",
+    "description": "Eliminates all status problems.",
+    "attributes": {
+      "price": 300,
+      "params": "-1",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "energypowder",
+    "name": "PewterCrunch",
+    "description": "Restores Pokemon HP by 60. Bitter.",
+    "attributes": {
+      "price": 500,
+      "params": "60",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "energyroot",
+    "name": "EnergyPowder",
+    "description": "Restores Pokemon HP by 120. Bitter.",
+    "attributes": {
+      "price": 1200,
+      "params": "120",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "healpowder",
+    "name": "Energy Root",
+    "description": "Cures all status problems. Bitter.",
+    "attributes": {
+      "price": 300,
+      "params": "-1",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "revivalherb",
+    "name": "Heal Powder",
+    "description": "Revives fainted Pokemon. Bitter.",
+    "attributes": {
+      "price": 2800,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "sacredash",
+    "name": "Revival Herb",
+    "description": "Fully revives all fainted Pokemon.",
+    "attributes": {
+      "price": 50000,
+      "category": "ITEMMENU_CLOSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "cheriberry",
+    "name": "Sacred Ash",
+    "description": "A self-cure for paralysis. (Hold)",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_HEAL_STATUS",
+      "params": "1 << PAR",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "chestoberry",
+    "name": "Cheri Berry",
+    "description": "A self-awakening for sleep. (Hold)",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_HEAL_STATUS",
+      "params": "SLP_MASK",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "pechaberry",
+    "name": "Chesto Berry",
+    "description": "A self-cure for poison. (Hold)",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_HEAL_STATUS",
+      "params": "1 << PSN",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "rawstberry",
+    "name": "Pecha Berry",
+    "description": "A self-heal for a burn. (Hold)",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_HEAL_STATUS",
+      "params": "1 << BRN",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "aspearberry",
+    "name": "Rawst Berry",
+    "description": "A self-cure for freezing. (Hold)",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_HEAL_STATUS",
+      "params": "1 << FRZ",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "leppaberry",
+    "name": "Aspear Berry",
+    "description": "A self-restore item. (10<BOLDP><BOLDP>, Hold)",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_RESTORE_PP",
+      "params": "-1",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "oranberry",
+    "name": "Leppa Berry",
+    "description": "A self-restore item. (10HP, Hold)",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_BERRY",
+      "params": "10",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "persimberry",
+    "name": "Oran Berry",
+    "description": "A self-cure for confusion. (Hold)",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_HEAL_CONFUSE",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "lumberry",
+    "name": "Persim Berry",
+    "description": "Cures all status problems. (Hold)",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_HEAL_STATUS",
+      "params": "-1",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "sitrusberry",
+    "name": "Lum Berry",
+    "description": "Self-restore item. (1/4 max HP, Hold)",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_BERRY",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "figyberry",
+    "name": "Sitrus Berry",
+    "description": "Self-restore item. (1/3 max HP, Hold)",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_BERRY",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "pomegberry",
+    "name": "Figy Berry",
+    "description": "Raises friendship but lowers HP.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_NO_BUG_BITE",
+      "params": "MON_HP_EV - MON_EVS",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "kelpsyberry",
+    "name": "Pomeg Berry",
+    "description": "Raises friendship but lowers Attack.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_NO_BUG_BITE",
+      "params": "MON_ATK_EV - MON_EVS",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "qualotberry",
+    "name": "Kelpsy Berry",
+    "description": "Raises friendship, lowers Defense.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_NO_BUG_BITE",
+      "params": "MON_DEF_EV - MON_EVS",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "hondewberry",
+    "name": "Qualot Berry",
+    "description": "Raises friendship but lowers Sp.Atk.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_NO_BUG_BITE",
+      "params": "MON_SAT_EV - MON_EVS",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "grepaberry",
+    "name": "Hondew Berry",
+    "description": "Raises friendship but lowers Sp.Def.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_NO_BUG_BITE",
+      "params": "MON_SDF_EV - MON_EVS",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "tamatoberry",
+    "name": "Grepa Berry",
+    "description": "Raises friendship but lowers Speed.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_NO_BUG_BITE",
+      "params": "MON_SPE_EV - MON_EVS",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "liechiberry",
+    "name": "Tamato Berry",
+    "description": "Raises Attack in a pinch.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_RAISE_STAT",
+      "params": "ATTACK",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "ganlonberry",
+    "name": "Liechi Berry",
+    "description": "Raises Defense in a pinch.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_RAISE_STAT",
+      "params": "DEFENSE",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "salacberry",
+    "name": "Ganlon Berry",
+    "description": "Raises Speed in a pinch.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_RAISE_STAT",
+      "params": "SPEED",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "petayaberry",
+    "name": "Salac Berry",
+    "description": "Raises Sp.Atk in a pinch.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_RAISE_STAT",
+      "params": "SP_ATTACK",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "apicotberry",
+    "name": "Petaya Berry",
+    "description": "Raises Sp.Def in a pinch.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_RAISE_STAT",
+      "params": "SP_DEFENSE",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "lansatberry",
+    "name": "Apicot Berry",
+    "description": "Ups critical hit ratio in a pinch.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_RAISE_CRIT",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "starfberry",
+    "name": "Lansat Berry",
+    "description": "Ups a random stat in a pinch.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_RAISE_STAT",
+      "params": "$10 | MULTIPLE_STATS",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "enigmaberry",
+    "name": "Starf Berry",
+    "description": "Restores HP on super-effective hit.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_ENIGMA_BERRY",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "custapberry",
+    "name": "Enigma Berry",
+    "description": "Moves first in a pinch.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_CUSTAP_BERRY",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "jabocaberry",
+    "name": "Custap Berry",
+    "description": "Damages foe on a physical hit.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_OFFEND_HIT",
+      "params": "PHYSICAL",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "rowapberry",
+    "name": "Jaboca Berry",
+    "description": "Damages foe on a special hit.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_OFFEND_HIT",
+      "params": "SPECIAL",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "keeberry",
+    "name": "Rowap Berry",
+    "description": "Raises Defense on a physical hit.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_DEFEND_HIT",
+      "params": "PHYSICAL",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "marangaberry",
+    "name": "Kee Berry",
+    "description": "Raises Sp.Def on a special hit.",
+    "attributes": {
+      "price": 10,
+      "effect": "HELD_DEFEND_HIT",
+      "params": "SPECIAL",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "berryjuice",
+    "name": "MarangaBerry",
+    "description": "A self-restore item. (20HP, Hold)",
+    "attributes": {
+      "price": 100,
+      "effect": "HELD_BERRY",
+      "params": "20",
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "repel",
+    "name": "Berry Juice",
+    "description": "Repels weak Pokemon for 100 steps.",
+    "attributes": {
+      "price": 400,
+      "params": "100",
+      "category": "ITEMMENU_CURRENT"
+    },
+    "locations": []
+  },
+  {
+    "id": "superrepel",
+    "name": "Repel",
+    "description": "Repels weak Pokemon for 200 steps.",
+    "attributes": {
+      "price": 700,
+      "params": "200",
+      "category": "ITEMMENU_CURRENT"
+    },
+    "locations": []
+  },
+  {
+    "id": "maxrepel",
+    "name": "Super Repel",
+    "description": "Repels weak Pokemon for 250 steps.",
+    "attributes": {
+      "price": 900,
+      "params": "250",
+      "category": "ITEMMENU_CURRENT"
+    },
+    "locations": []
+  },
+  {
+    "id": "escaperope",
+    "name": "Max Repel",
+    "description": "Use for escaping from caves, etc.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_CLOSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "pokedoll",
+    "name": "Escape Rope",
+    "description": "Use to escape from a wild Pokemon.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "mulch",
+    "name": "Poké Doll",
+    "description": "Plant fertilizer for Berry trees.",
+    "attributes": {
+      "price": 200,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "sweethoney",
+    "name": "Mulch",
+    "description": "The aroma attracts wild Pokemon.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_CLOSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "xattack",
+    "name": "Sweet Honey",
+    "description": "Raises Attack. (1 battle)",
+    "attributes": {
+      "price": 1000,
+      "params": "$10 | ATTACK",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "xdefend",
+    "name": "X Attack",
+    "description": "Raises Defense. (1 battle)",
+    "attributes": {
+      "price": 2000,
+      "params": "$10 | DEFENSE",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "xspeed",
+    "name": "X Defend",
+    "description": "Raises Speed. (1 battle)",
+    "attributes": {
+      "price": 1000,
+      "params": "$10 | SPEED",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "xspatk",
+    "name": "X Speed",
+    "description": "Raises Sp.Atk. (1 battle)",
+    "attributes": {
+      "price": 1000,
+      "params": "$10 | SP_ATTACK",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "xspdef",
+    "name": "X Sp.Atk",
+    "description": "Raises Sp.Def. (1 battle)",
+    "attributes": {
+      "price": 2000,
+      "params": "$10 | SP_DEFENSE",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "xaccuracy",
+    "name": "X Sp.Def",
+    "description": "Raises accuracy. (1 battle)",
+    "attributes": {
+      "price": 1000,
+      "params": "$10 | ACCURACY",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "direhit",
+    "name": "X Accuracy",
+    "description": "Ups critical hit ratio. (1 battle)",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "guardspec",
+    "name": "Dire Hit",
+    "description": "Prevents stat drops. (1 battle)",
+    "attributes": {
+      "price": 1500,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "abilitycap",
+    "name": "Guard Stats",
+    "description": "Switches a Pokemon's ability.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "abilitypatch",
+    "name": "Ability Cap",
+    "description": "Switches to a rare ability.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "leafstone",
+    "name": "AbilityPatch",
+    "description": "Evolves certain kinds of Pokemon.",
+    "attributes": {
+      "price": 3000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "firestone",
+    "name": "Leaf Stone",
+    "description": "Evolves certain kinds of Pokemon.",
+    "attributes": {
+      "price": 3000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "waterstone",
+    "name": "Fire Stone",
+    "description": "Evolves certain kinds of Pokemon.",
+    "attributes": {
+      "price": 3000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "thunderstone",
+    "name": "Water Stone",
+    "description": "Evolves certain kinds of Pokemon.",
+    "attributes": {
+      "price": 3000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "icestone",
+    "name": "ThunderStone",
+    "description": "Evolves certain kinds of Pokemon.",
+    "attributes": {
+      "price": 3000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "moonstone",
+    "name": "Ice Stone",
+    "description": "Evolves certain kinds of Pokemon.",
+    "attributes": {
+      "price": 3000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "sunstone",
+    "name": "Moon Stone",
+    "description": "Evolves certain kinds of Pokemon.",
+    "attributes": {
+      "price": 3000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "duskstone",
+    "name": "Sun Stone",
+    "description": "Evolves certain kinds of Pokemon.",
+    "attributes": {
+      "price": 3000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "shinystone",
+    "name": "Dusk Stone",
+    "description": "Evolves certain kinds of Pokemon.",
+    "attributes": {
+      "price": 3000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "everstone",
+    "name": "Shiny Stone",
+    "description": "Stops evolution. (Hold)",
+    "attributes": {
+      "price": 3000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "expshare",
+    "name": "Everstone",
+    "description": "Shares battle Exp. Points. (Hold)",
+    "attributes": {
+      "price": 3000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "silkscarf",
+    "name": "Exp.Share",
+    "description": "Powers up Normaltype moves. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_TYPE_BOOST",
+      "params": "NORMAL",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "blackbelt",
+    "name": "Silk Scarf",
+    "description": "Boosts Fightingtype moves. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_TYPE_BOOST",
+      "params": "FIGHTING",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "sharpbeak",
+    "name": "Black Belt",
+    "description": "Powers up Flyingtype moves. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_TYPE_BOOST",
+      "params": "FLYING",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "poisonbarb",
+    "name": "Sharp Beak",
+    "description": "Powers up Poisontype moves. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_TYPE_BOOST",
+      "params": "POISON",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "softsand",
+    "name": "Poison Barb",
+    "description": "Powers up Groundtype moves. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_TYPE_BOOST",
+      "params": "GROUND",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "hardstone",
+    "name": "Soft Sand",
+    "description": "Powers up Rocktype moves. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_TYPE_BOOST",
+      "params": "ROCK",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "silverpowder",
+    "name": "Hard Stone",
+    "description": "Powers up Bug-type moves. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_TYPE_BOOST",
+      "params": "BUG",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "spelltag",
+    "name": "SilverPowder",
+    "description": "Powers up Ghosttype moves. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_TYPE_BOOST",
+      "params": "GHOST",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "metalcoat",
+    "name": "Spell Tag",
+    "description": "Powers up Steeltype moves. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_TYPE_BOOST",
+      "params": "STEEL",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "charcoal",
+    "name": "Metal Coat",
+    "description": "Powers up Firetype moves. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_TYPE_BOOST",
+      "params": "FIRE",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "mysticwater",
+    "name": "Charcoal",
+    "description": "Powers up Watertype moves. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_TYPE_BOOST",
+      "params": "WATER",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "miracleseed",
+    "name": "Mystic Water",
+    "description": "Powers up Grasstype moves. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_TYPE_BOOST",
+      "params": "GRASS",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "magnet",
+    "name": "Miracle Seed",
+    "description": "Boosts Electrictype moves. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_TYPE_BOOST",
+      "params": "ELECTRIC",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "twistedspoon",
+    "name": "Magnet",
+    "description": "Powers up Psychictype moves. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_TYPE_BOOST",
+      "params": "PSYCHIC",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "nevermeltice",
+    "name": "TwistedSpoon",
+    "description": "Powers up Ice-type moves. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_TYPE_BOOST",
+      "params": "ICE",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "dragonfang",
+    "name": "NeverMeltIce",
+    "description": "Powers up Dragontype moves. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_TYPE_BOOST",
+      "params": "DRAGON",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "blackglasses",
+    "name": "Dragon Fang",
+    "description": "Powers up Darktype moves. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_TYPE_BOOST",
+      "params": "DARK",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "pinkbow",
+    "name": "BlackGlasses",
+    "description": "Powers up Fairytype moves. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_TYPE_BOOST",
+      "params": "FAIRY",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "berserkgene",
+    "name": "Pink Bow",
+    "description": "Boosts Attack but causes confusion.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_BERSERK_GENE",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "brightpowder",
+    "name": "Berserk Gene",
+    "description": "Lowers the foe's accuracy. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_BRIGHTPOWDER",
+      "params": "$9a",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "quickclaw",
+    "name": "BrightPowder",
+    "description": "Boosts chances of moving 1st. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_QUICK_CLAW",
+      "params": "20",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "kingsrock",
+    "name": "Quick Claw",
+    "description": "May make the foe flinch. (Hold)",
+    "attributes": {
+      "price": 5000,
+      "effect": "HELD_FLINCH_UP",
+      "params": "10",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "amuletcoin",
+    "name": "King's Rock",
+    "description": "Doubles monetary earnings. (Hold)",
+    "attributes": {
+      "price": 10000,
+      "effect": "HELD_AMULET_COIN",
+      "params": "10",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "cleansetag",
+    "name": "Amulet Coin",
+    "description": "Helps repel wild Pokemon. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_CLEANSE_TAG",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "smokeball",
+    "name": "Cleanse Tag",
+    "description": "Escape from wild Pokemon. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_ESCAPE",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "focusband",
+    "name": "Smoke Ball",
+    "description": "May prevent fainting. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_FOCUS_BAND",
+      "params": "30",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "luckyegg",
+    "name": "Focus Band",
+    "description": "Earns extra Exp. points. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "leftovers",
+    "name": "Lucky Egg",
+    "description": "Restores HP during battle. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_LEFTOVERS",
+      "params": "10",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "soothebell",
+    "name": "Leftovers",
+    "description": "Calms and fosters friendship. (Hold)",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "shellbell",
+    "name": "Soothe Bell",
+    "description": "Self-restore item. (1/8 damage, Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_SHELL_BELL",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "muscleband",
+    "name": "Shell Bell",
+    "description": "Powers up physical moves. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_CATEGORY_BOOST",
+      "params": "PHYSICAL",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "wiseglasses",
+    "name": "Muscle Band",
+    "description": "Powers up special moves. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_CATEGORY_BOOST",
+      "params": "SPECIAL",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "expertbelt",
+    "name": "Wise Glasses",
+    "description": "Ups super effective moves. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_EXPERT_BELT",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "lightclay",
+    "name": "Expert Belt",
+    "description": "Extends duration of barrier moves.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_PROLONG_SCREENS",
+      "params": "8",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "lifeorb",
+    "name": "Light Clay",
+    "description": "Powers up moves with HP. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_LIFE_ORB",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "focussash",
+    "name": "Life Orb",
+    "description": "Endures one OHKO move at full HP.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_FOCUS_SASH",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "metronome",
+    "name": "Focus Sash",
+    "description": "No description available.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_METRONOME",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "ironball",
+    "name": "Metronome",
+    "description": "Lowers Speed and grounds. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_IRON_BALL",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "laggingtail",
+    "name": "Iron Ball",
+    "description": "Always moves last. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_LAGGING_TAIL",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "destinyknot",
+    "name": "Lagging Tail",
+    "description": "Infatuates the foe back. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_DESTINY_KNOT",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "gripclaw",
+    "name": "Destiny Knot",
+    "description": "Extends duration of trapping moves.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_PROLONG_WRAP",
+      "params": "7",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "shedshell",
+    "name": "Grip Claw",
+    "description": "Allows switching out. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_SHED_SHELL",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "bigroot",
+    "name": "Shed Shell",
+    "description": "Powers up draining moves. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_BIG_ROOT",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "eviolite",
+    "name": "Big Root",
+    "description": "Ups Def and Sp.Def of evolvers.",
+    "attributes": {
+      "price": 2000,
+      "effect": "HELD_EVIOLITE",
+      "params": "50",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "rockyhelmet",
+    "name": "Eviolite",
+    "description": "Damages foe on contact. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_ROCKY_HELMET",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "airballoon",
+    "name": "Rocky Helmet",
+    "description": "Avoids Ground attacks until popped.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_AIR_BALLOON",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "redcard",
+    "name": "Air Balloon",
+    "description": "Switches out foe when hit. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_SWITCH_TARGET",
+      "params": "1 << SWITCH_DEFERRED | 1 << SWITCH_FORCED | 1 << SWITCH_OPPITEM",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "bindingband",
+    "name": "Red Card",
+    "description": "Powers up trapping moves. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_BINDING_BAND",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "ejectbutton",
+    "name": "Binding Band",
+    "description": "Switches out when hit. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_SWITCH_TARGET",
+      "params": "1 << SWITCH_DEFERRED | 1 << SWITCH_TARGET | 1 << SWITCH_OPPITEM",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "weakpolicy",
+    "name": "Eject Button",
+    "description": "Super effective hit ups offenses.",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_WEAKNESS_POLICY",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "assaultvest",
+    "name": "Weak Policy",
+    "description": "Boosts Sp.Def, but bans status moves.",
+    "attributes": {
+      "price": 1000,
+      "effect": "HELD_ASSAULT_VEST",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "safegoggles",
+    "name": "Assault Vest",
+    "description": "Protects from weather damage.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_SAFETY_GOGGLES",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "protectpads",
+    "name": "Safe Goggles",
+    "description": "Protects from contact effects.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_PROTECTIVE_PADS",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "throatspray",
+    "name": "Protect Pads",
+    "description": "Raises Sp.Atk on a sound move.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_THROAT_SPRAY",
+      "params": "SP_ATTACK",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "ejectpack",
+    "name": "Throat Spray",
+    "description": "Switches out when stats fall. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_EJECT_PACK",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "heavyboots",
+    "name": "Eject Pack",
+    "description": "Protects from traps. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_HEAVY_BOOTS",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "blundrpolicy",
+    "name": "Heavy Boots",
+    "description": "Raises Speed when a move misses.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_BLUNDER_POLICY",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "roomservice",
+    "name": "BlundrPolicy",
+    "description": "Lowers Speed in Trick Room. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_ROOM_SERVICE",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "clearamulet",
+    "name": "Room Service",
+    "description": "Prevents statlowering by foes.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_CLEAR_AMULET",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "mirrorherb",
+    "name": "Clear Amulet",
+    "description": "Copies foe's statboost once.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_MIRROR_HERB",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "punchinglove",
+    "name": "Mirror Herb",
+    "description": "Powers punch moves with no contact.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_PUNCHING_GLOVE",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "covertcloak",
+    "name": "PunchinGlove",
+    "description": "Blocks additional attack effects.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_COVERT_CLOAK",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "loadeddice",
+    "name": "Covert Cloak",
+    "description": "Multi-hit moves hit more often.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_LOADED_DICE",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "lightball",
+    "name": "Loaded Dice",
+    "description": "Boost Pikachu's Attack and Sp.Atk.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "leek",
+    "name": "Light Ball",
+    "description": "An ordinary leek. Sell low.",
+    "attributes": {
+      "price": 2000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "thickclub",
+    "name": "Leek",
+    "description": "Boost Cubone's and Marowak's Attack.",
+    "attributes": {
+      "price": 5000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "luckypunch",
+    "name": "Thick Club",
+    "description": "Ups critical hit ratio of Chansey.",
+    "attributes": {
+      "price": 100,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "metalpowder",
+    "name": "Lucky Punch",
+    "description": "Raises Defense of Ditto. (Hold)",
+    "attributes": {
+      "price": 100,
+      "effect": "HELD_METAL_POWDER",
+      "params": "10",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "quickpowder",
+    "name": "Metal Powder",
+    "description": "Raises Speed of Ditto. (Hold)",
+    "attributes": {
+      "price": 100,
+      "effect": "HELD_QUICK_POWDER",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "armorsuit",
+    "name": "Quick Powder",
+    "description": "A suit of armor for some Pokemon.",
+    "attributes": {
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "scopelens",
+    "name": "Armor Suit",
+    "description": "Raises critical hit ratio. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_CRITICAL_UP",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "widelens",
+    "name": "Scope Lens",
+    "description": "Slightly boosts accuracy. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_ACCURACY_BOOST",
+      "params": "$ba",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "zoomlens",
+    "name": "Wide Lens",
+    "description": "Boosts accuracy when moving 2nd.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_ZOOM_LENS",
+      "params": "$65",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "mentalherb",
+    "name": "Zoom Lens",
+    "description": "A self-cure for infatuation.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_MENTAL_HERB",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "powerherb",
+    "name": "Mental Herb",
+    "description": "Skips charging of moves. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_POWER_HERB",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "whiteherb",
+    "name": "Power Herb",
+    "description": "A self-cure for lowered stats.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_WHITE_HERB",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "damprock",
+    "name": "White Herb",
+    "description": "Extends duration of rain. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_PROLONG_RAIN",
+      "params": "8",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "heatrock",
+    "name": "Damp Rock",
+    "description": "Extends duration of sun. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_PROLONG_SUN",
+      "params": "8",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "smoothrock",
+    "name": "Heat Rock",
+    "description": "Extends duration of sandstorms.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_PROLONG_SANDSTORM",
+      "params": "8",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "icyrock",
+    "name": "Smooth Rock",
+    "description": "Extends duration of hail. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_PROLONG_HAIL",
+      "params": "8",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "choiceband",
+    "name": "Icy Rock",
+    "description": "Boosts Attack, but allows one move.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_CHOICE",
+      "params": "ATTACK",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "choicescarf",
+    "name": "Choice Band",
+    "description": "Boosts Speed, but allows one move.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_CHOICE",
+      "params": "SPEED",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "choicespecs",
+    "name": "Choice Scarf",
+    "description": "Boosts Sp.Atk, but allows one move.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_CHOICE",
+      "params": "SP_ATTACK",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "flameorb",
+    "name": "Choice Specs",
+    "description": "Causes a burn. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_SELF_BRN",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "toxicorb",
+    "name": "Flame Orb",
+    "description": "Causes bad poison. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_SELF_PSN",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "blacksludge",
+    "name": "Toxic Orb",
+    "description": "Restores HP for Poison Pokemon.",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_BLACK_SLUDGE",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "machobrace",
+    "name": "Black Sludge",
+    "description": "Boosts stat gain, but lowers Speed.",
+    "attributes": {
+      "price": 3000,
+      "effect": "HELD_EV_DOUBLE",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "powerweight",
+    "name": "Macho Brace",
+    "description": "Boosts HP gain, but lowers Speed.",
+    "attributes": {
+      "price": 3000,
+      "effect": "HELD_EV_HP_UP",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "powerbracer",
+    "name": "Power Weight",
+    "description": "Ups Attack gain, but lowers Speed.",
+    "attributes": {
+      "price": 3000,
+      "effect": "HELD_EV_ATK_UP",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "powerbelt",
+    "name": "Power Bracer",
+    "description": "Ups Defense gain, but lowers Speed.",
+    "attributes": {
+      "price": 3000,
+      "effect": "HELD_EV_DEF_UP",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "powerlens",
+    "name": "Power Belt",
+    "description": "Ups Sp.Atk gain, but lowers Speed.",
+    "attributes": {
+      "price": 3000,
+      "effect": "HELD_EV_SAT_UP",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "powerband",
+    "name": "Power Lens",
+    "description": "Ups Sp.Def gain, but lowers Speed.",
+    "attributes": {
+      "price": 3000,
+      "effect": "HELD_EV_SDF_UP",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "poweranklet",
+    "name": "Power Band",
+    "description": "Ups Speed gain, but lowers Speed.",
+    "attributes": {
+      "price": 3000,
+      "effect": "HELD_EV_SPE_UP",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "dragonscale",
+    "name": "Power Anklet",
+    "description": "A rare Dragon-type item.",
+    "attributes": {
+      "price": 2000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "upgrade",
+    "name": "Dragon Scale",
+    "description": "A mysterious box made by Silph Co.",
+    "attributes": {
+      "price": 2000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "dubiousdisc",
+    "name": "Upgrade",
+    "description": "A transparent disc of unknown origin.",
+    "attributes": {
+      "price": 2000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "protector",
+    "name": "Dubious Disc",
+    "description": "A protective item. Stiff and heavy.",
+    "attributes": {
+      "price": 2000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "electirizer",
+    "name": "Protector",
+    "description": "A box packed with electric energy.",
+    "attributes": {
+      "price": 2000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "magmarizer",
+    "name": "Electirizer",
+    "description": "A box packed with magma energy.",
+    "attributes": {
+      "price": 2000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "razorfang",
+    "name": "Magmarizer",
+    "description": "May make the foe flinch. (Hold)",
+    "attributes": {
+      "price": 5000,
+      "effect": "HELD_FLINCH_UP",
+      "params": "10",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "razorclaw",
+    "name": "Razor Fang",
+    "description": "Raises critical hit ratio. (Hold)",
+    "attributes": {
+      "price": 5000,
+      "effect": "HELD_CRITICAL_UP",
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "ovalstone",
+    "name": "Razor Claw",
+    "description": "A stone as round as a Pokemon Egg.",
+    "attributes": {
+      "price": 2000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "oddsouvenir",
+    "name": "Oval Stone",
+    "description": "An ornament from a far-away place.",
+    "attributes": {
+      "price": 3000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "linkingcord",
+    "name": "Odd Souvenir",
+    "description": "Evolves certain kinds of Pokemon.",
+    "attributes": {
+      "price": 3000,
+      "category": "ITEMMENU_PARTY"
+    },
+    "locations": []
+  },
+  {
+    "id": "silverleaf",
+    "name": "Linking Cord",
+    "description": "A strange, silvercolored leaf.",
+    "attributes": {
+      "price": 500,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "goldleaf",
+    "name": "Silver Leaf",
+    "description": "A strange, goldcolored leaf.",
+    "attributes": {
+      "price": 500,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "mintleaf",
+    "name": "Gold Leaf",
+    "description": "A fragrant sprig of mint.",
+    "attributes": {
+      "price": 300,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "bottlecap",
+    "name": "Mint Leaf",
+    "description": "A shiny, rare bottle cap.",
+    "attributes": {
+      "price": 100,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "nugget",
+    "name": "Bottle Cap",
+    "description": "Made of pure gold. Sell high.",
+    "attributes": {
+      "price": 10000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "bignugget",
+    "name": "Nugget",
+    "description": "Made of pure gold. Sell very high.",
+    "attributes": {
+      "price": 20000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "tinymushroom",
+    "name": "Big Nugget",
+    "description": "An ordinary mushroom. Sell low.",
+    "attributes": {
+      "price": 500,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "bigmushroom",
+    "name": "TinyMushroom",
+    "description": "A rare mushroom. Sell high.",
+    "attributes": {
+      "price": 5000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "balmmushroom",
+    "name": "Big Mushroom",
+    "description": "A rare mushroom. Sell very high.",
+    "attributes": {
+      "price": 15000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "pearl",
+    "name": "BalmMushroom",
+    "description": "A beautiful pearl. Sell low.",
+    "attributes": {
+      "price": 2000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "bigpearl",
+    "name": "Pearl",
+    "description": "A big, beautiful pearl. Sell high.",
+    "attributes": {
+      "price": 8000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "pearlstring",
+    "name": "Big Pearl",
+    "description": "Big, shiny pearls. Sell very high.",
+    "attributes": {
+      "price": 16000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "stardust",
+    "name": "Pearl String",
+    "description": "Pretty, red sand. Sell high.",
+    "attributes": {
+      "price": 3000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "starpiece",
+    "name": "Stardust",
+    "description": "A hunk of red gem. Sell very high.",
+    "attributes": {
+      "price": 12000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "brickpiece",
+    "name": "Star Piece",
+    "description": "A chunk of tile. Sell low.",
+    "attributes": {
+      "price": 100,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "rarebone",
+    "name": "Brick Piece",
+    "description": "A rare bone. Sell high.",
+    "attributes": {
+      "price": 5000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "slowpoketail",
+    "name": "Rare Bone",
+    "description": "Very tasty. Sell high.",
+    "attributes": {
+      "price": 9800,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "helixfossil",
+    "name": "SlowpokeTail",
+    "description": "A fossilized Pokemon shell.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "domefossil",
+    "name": "Helix Fossil",
+    "description": "A fossilized Pokemon shell.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "oldamber",
+    "name": "Dome Fossil",
+    "description": "Fossilized resin containing DNA.",
+    "attributes": {
+      "price": 1000,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "flowermail",
+    "name": "Old Amber",
+    "description": "Flower-print Mail. (Hold)",
+    "attributes": {
+      "price": 50,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "surfmail",
+    "name": "Flower Mail",
+    "description": "Lapras-print Mail. (Hold)",
+    "attributes": {
+      "price": 50,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "litebluemail",
+    "name": "Surf Mail",
+    "description": "Dratini-print Mail. (Hold)",
+    "attributes": {
+      "price": 50,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "portraitmail",
+    "name": "LiteBlueMail",
+    "description": "Mail featuring the holder's likeness.",
+    "attributes": {
+      "price": 50,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "lovelymail",
+    "name": "PortraitMail",
+    "description": "Heart-print Mail. (Hold)",
+    "attributes": {
+      "price": 50,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "eonmail",
+    "name": "Lovely Mail",
+    "description": "Eevee-print Mail. (Hold)",
+    "attributes": {
+      "price": 50,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "morphmail",
+    "name": "Eon Mail",
+    "description": "Ditto-print Mail. (Hold)",
+    "attributes": {
+      "price": 50,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "blueskymail",
+    "name": "Morph Mail",
+    "description": "Sky-print Mail. (Hold)",
+    "attributes": {
+      "price": 50,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "musicmail",
+    "name": "BlueSky Mail",
+    "description": "Natu-print Mail. (Hold)",
+    "attributes": {
+      "price": 50,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  },
+  {
+    "id": "miragemail",
+    "name": "Music Mail",
+    "description": "Mew-print Mail. (Hold)",
+    "attributes": {
+      "price": 50,
+      "category": "ITEMMENU_NOUSE"
+    },
+    "locations": []
+  }
+]

@@ -116,6 +116,7 @@ export interface EvolutionData {
 }
 
 export interface ItemsData {
+  id: string;
   name: string;
   description: string;
   attributes: {
@@ -124,15 +125,51 @@ export interface ItemsData {
     params?: number | string | boolean;
     category?: string;
   };
-  locations: {
+  locations?: Array<{
     area: string;
     method: string;
-  };
+  }>;
 }
 
-export interface ItemsManifest {
-  [itemName: string]: {
-    description: ItemsData['description'];
-    locationCount: number;
-  };
+export interface LocationData {
+  id: string;
+  name: string;
+  encounters: {
+    pokemon: PokemonData['name'];
+    formNumber?: number;
+    method: string;
+    version?: string;
+    levelRange: string;
+    rate: number;
+    items?: string[];
+  }[];
+  events?: {
+    name: string;
+    description: string;
+  }[];
+  items?: string[];
+  trainers?: string[];
+}
+
+export interface LocationManifest {
+  name: LocationData['name'];
+  encounterCount: number;
+  eventCount: number;
+  trainerCount: number;
+}
+
+export interface TrainerData {
+  id: string;
+  name: string;
+  class: string;
+  teams: {
+    matchCount: number;
+    pokemon: {
+      pokemonName: PokemonData['name'];
+      formNumber?: number;
+      level: number;
+      item?: string;
+    };
+  }[];
+  sprite?: string;
 }
