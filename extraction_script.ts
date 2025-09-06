@@ -136,9 +136,9 @@ const extractPokemonMovesets = (evoAttacksData: string[], pokemonForm: string | 
       }
       if (!pokemonMovesets[formKey][currentPokemon]) {
         pokemonMovesets[formKey][currentPokemon] = {
-          levelUp: {},
-          tm: [],
-          eggMoves: [],
+          levelUp: {}, // level and name
+          tm: [], // name only
+          eggMoves: [], // name only
         };
       }
     }
@@ -172,7 +172,9 @@ const extractEggMoves = (eggMovesData: string[], pokemonForm: string | number) =
   const lines = eggMovesData;
   let currentPokemon: PokemonData['name'] = '';
   const formKey = String(pokemonForm);
+  const eggMovesByPokemon: Record<string, string[]> = {};
 
+  // First pass: extract all egg moves by Pokemon name
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
 
@@ -180,6 +182,7 @@ const extractEggMoves = (eggMovesData: string[], pokemonForm: string | number) =
     if (line.endsWith('EggSpeciesMoves:')) {
       const pokemonName = line.replace('EggSpeciesMoves:', '');
       currentPokemon = reduce(pokemonName);
+      eggMovesByPokemon[currentPokemon] = [];
       continue;
     }
 
@@ -192,12 +195,66 @@ const extractEggMoves = (eggMovesData: string[], pokemonForm: string | number) =
     if (line.startsWith('db ') && currentPokemon) {
       const moveName = line.replace('db ', '').trim();
       const move = reduce(moveName);
+      eggMovesByPokemon[currentPokemon].push(move);
+    }
+  }
 
-      if (pokemonMovesets[formKey] && pokemonMovesets[formKey][currentPokemon]) {
-        pokemonMovesets[formKey][currentPokemon].eggMoves?.push(move);
+  // Second pass: propagate egg moves to entire evolution families
+  // The key insight: if a Pokemon has egg moves in the ROM, ALL Pokemon in that evolution line should get them
+  for (const [pokemonWithEggMoves, eggMoves] of Object.entries(eggMovesByPokemon)) {
+    if (eggMoves.length === 0) continue;
+
+    // Find the base Pokemon name (remove form suffixes)
+    const baseName = pokemonWithEggMoves.replace(/(plain|alolan|galarian|hisuian|paldean)$/i, '');
+
+    // Apply these egg moves to all forms and evolutions of this Pokemon family
+    for (const [targetPokemon] of Object.entries(pokemonMovesets[formKey] || {})) {
+      const targetBaseName = targetPokemon.replace(/(plain|alolan|galarian|hisuian|paldean)$/i, '');
+
+      // Check if this Pokemon belongs to the same evolution family
+      if (
+        targetBaseName === baseName ||
+        isInSameEvolutionFamily(targetPokemon, pokemonWithEggMoves, formKey)
+      ) {
+        if (pokemonMovesets[formKey][targetPokemon]) {
+          // Only set egg moves if the Pokemon doesn't already have them
+          if (pokemonMovesets[formKey][targetPokemon].eggMoves?.length === 0) {
+            pokemonMovesets[formKey][targetPokemon].eggMoves = [...eggMoves];
+          }
+        }
       }
     }
   }
+};
+
+// Helper function to check if two Pokemon are in the same evolution family
+const isInSameEvolutionFamily = (pokemon1: string, pokemon2: string, formKey: string): boolean => {
+  const chains = evolutionChains[formKey];
+  if (!chains) return false;
+  // Check if pokemon1 evolves from or to pokemon2
+  const findAllConnected = (pokemon: string, visited = new Set<string>()): Set<string> => {
+    if (visited.has(pokemon)) return visited;
+    visited.add(pokemon);
+
+    // Find all Pokemon this one evolves into
+    if (chains[pokemon]) {
+      for (const evolution of chains[pokemon]) {
+        findAllConnected(evolution, visited);
+      }
+    }
+
+    // Find all Pokemon that evolve into this one
+    for (const [basePokemon, evolutions] of Object.entries(chains)) {
+      if (evolutions.includes(pokemon)) {
+        findAllConnected(basePokemon, visited);
+      }
+    }
+
+    return visited;
+  };
+
+  const connectedToPokemon1 = findAllConnected(pokemon1);
+  return connectedToPokemon1.has(pokemon2);
 };
 
 const extractNames = (data: string[], pokemonForm: string) => {
@@ -223,7 +280,7 @@ const extractNames = (data: string[], pokemonForm: string) => {
           types: [],
           abilities: [],
           baseStats: {
-            hp: 323920,
+            hp: 0,
             attack: 0,
             defense: 0,
             specialAttack: 0,
@@ -536,28 +593,7 @@ const eggMovesFiles = splitFile(raw);
 extractEggMoves(eggMovesFiles[0], 'polished');
 extractEggMoves(eggMovesFiles[1], 'faithful');
 
-//#8: Propagate egg moves to evolved forms
-const propagateEggMoves = (formKey: string) => {
-  const chains = evolutionChains[formKey];
-  const movesets = pokemonMovesets[formKey];
-
-  if (!chains || !movesets) return;
-
-  for (const [basePokemon, evolutions] of Object.entries(chains)) {
-    const baseEggMoves = movesets[basePokemon]?.eggMoves || [];
-
-    if (baseEggMoves.length > 0) {
-      for (const evolution of evolutions) {
-        if (movesets[evolution] && movesets[evolution].eggMoves?.length === 0) {
-          movesets[evolution].eggMoves = [...baseEggMoves];
-        }
-      }
-    }
-  }
-};
-
-propagateEggMoves('polished');
-propagateEggMoves('faithful');
+//#8: Egg moves are now propagated within extractEggMoves function
 
 // Merge Pokemon data by combining Polished and Faithful versions
 const mergeVersions = () => {
