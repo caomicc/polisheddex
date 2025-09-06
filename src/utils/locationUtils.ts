@@ -39,6 +39,8 @@ export function normalizeLocationKey(input: string): string {
     .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
     .replace(/([A-Z])([A-Z][a-z])/g, '$1_$2')
     .toLowerCase()
+    // Handle specific word replacements
+    .replace(/pokecenter/g, 'poke_center')
     // Handle route numbers specifically: "route30" -> "route_30"
     .replace(/^route(\d+)(_|$)/g, 'route_$1$2')
     // Convert spaces, hyphens, and other separators to underscores

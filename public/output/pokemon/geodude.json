@@ -15,13 +15,16 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 25,
           "target": "Graveler",
-          "form": "Plain Form"
+          "form": "Plain Form",
+          "targetForm": "Plain Form"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 25,
           "target": "Graveler",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ],
       "Graveler": [
@@ -29,13 +32,16 @@
           "method": "EVOLVE_TRADE",
           "parameter": "LINKING_CORD",
           "target": "Golem",
-          "form": "Plain Form"
+          "form": "Plain Form",
+          "targetForm": "Plain Form"
         },
         {
           "method": "EVOLVE_TRADE",
           "parameter": "LINKING_CORD",
           "target": "Golem",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ],
       "Golem": []
@@ -47,13 +53,16 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 25,
           "target": "Graveler",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 25,
           "target": "Graveler",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ],
       "Graveler": [
@@ -61,13 +70,16 @@
           "method": "EVOLVE_TRADE",
           "parameter": "LINKING_CORD",
           "target": "Golem",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_TRADE",
           "parameter": "LINKING_CORD",
           "target": "Golem",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ],
       "Golem": []
@@ -79,13 +91,16 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 25,
           "target": "Graveler",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 25,
           "target": "Graveler",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ],
       "Graveler": [
@@ -93,13 +108,16 @@
           "method": "EVOLVE_TRADE",
           "parameter": "LINKING_CORD",
           "target": "Golem",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_TRADE",
           "parameter": "LINKING_CORD",
           "target": "Golem",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ],
       "Golem": []
@@ -2503,9 +2521,9 @@
       ],
       "abilities": [
         {
-          "id": "rock-head",
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
+          "id": "magnet-pull",
+          "name": "Magnet Pull",
+          "description": "\tPrevents escape by \tSteel-type foes.",
           "isHidden": false,
           "abilityType": "primary"
         },
@@ -2517,18 +2535,18 @@
           "abilityType": "secondary"
         },
         {
-          "id": "sand-veil",
-          "name": "Sand Veil",
-          "description": "\tBoosts evasion in \ta sandstorm.",
+          "id": "galvanize",
+          "name": "Galvanize",
+          "description": "\tNormal-type moves \tbecome Electric.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
       "faithfulAbilities": [
         {
-          "id": "rock-head",
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
+          "id": "magnet-pull",
+          "name": "Magnet Pull",
+          "description": "\tPrevents escape by \tSteel-type foes.",
           "isHidden": false,
           "abilityType": "primary"
         },
@@ -2540,14 +2558,36 @@
           "abilityType": "secondary"
         },
         {
-          "id": "sand-veil",
-          "name": "Sand Veil",
-          "description": "\tBoosts evasion in \ta sandstorm.",
+          "id": "galvanize",
+          "name": "Galvanize",
+          "description": "\tNormal-type moves \tbecome Electric.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "magnet-pull",
+          "name": "Magnet Pull",
+          "description": "\tPrevents escape by \tSteel-type foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "galvanize",
+          "name": "Galvanize",
+          "description": "\tNormal-type moves \tbecome Electric.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 40,
         "attack": 80,
@@ -3231,6 +3271,10 @@
     "default": {
       "species": "Rock",
       "description": "Proud of their sturdy bodies, they bash against each other in a contest to prove whose is harder."
+    },
+    "Alolan": {
+      "species": "Rock",
+      "description": "Its body is a magnetic stone. Iron sand attaches to the portions of its body that are the most magnetic."
     }
   }
 }

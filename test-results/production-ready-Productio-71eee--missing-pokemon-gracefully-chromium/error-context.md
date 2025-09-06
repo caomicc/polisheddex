@@ -1,0 +1,68 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e5]:
+      - link "Home" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img "PolishedDex Logo" [ref=e9] [cursor=pointer]
+        - generic [ref=e10] [cursor=pointer]: PolishedDex
+      - navigation "Main" [ref=e11]:
+        - list [ref=e13]:
+          - listitem [ref=e14]:
+            - button "Pokedex" [ref=e15]:
+              - text: Pokedex
+              - img
+          - listitem [ref=e16]:
+            - button "Pokéarth" [ref=e17]:
+              - text: Pokéarth
+              - img
+          - listitem [ref=e18]:
+            - link "Items" [ref=e19] [cursor=pointer]:
+              - /url: /items
+          - listitem [ref=e20]:
+            - link "Events" [ref=e21] [cursor=pointer]:
+              - /url: /events
+          - listitem [ref=e22]:
+            - link "FAQ" [ref=e23] [cursor=pointer]:
+              - /url: /faq
+      - generic [ref=e24]:
+        - generic [ref=e26]: Polished
+        - switch "Toggle between faithful and updated Pokémon types" [checked] [ref=e27]
+        - button "Toggle theme" [ref=e28]:
+          - img
+          - generic [ref=e29]: Toggle theme
+    - main [ref=e30]:
+      - generic [ref=e32]:
+        - heading "404" [level=1] [ref=e33]
+        - heading "This page could not be found." [level=2] [ref=e35]
+    - contentinfo [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]: © 2025 PolishedDex. All rights reserved.
+        - generic [ref=e39]:
+          - text: Made by
+          - link "Cammy" [ref=e40] [cursor=pointer]:
+            - /url: https://caomi.cc
+          - text: .
+      - generic [ref=e41]:
+        - link "Bugs & Feature Requests" [ref=e42] [cursor=pointer]:
+          - /url: https://www.notion.so/Polished-Dex-Roadmap-24662146b03a805e88f3c6db6b800837
+          - text: Bugs & Feature Requests
+          - img
+        - generic [ref=e43]: "Updated: 8/22/2025"
+  - alert [ref=e44]
+  - generic [ref=e49] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e50] [cursor=pointer]:
+      - img [ref=e51] [cursor=pointer]
+    - generic [ref=e54] [cursor=pointer]:
+      - button "Open issues overlay" [ref=e55] [cursor=pointer]:
+        - generic [ref=e56] [cursor=pointer]:
+          - generic [ref=e57] [cursor=pointer]: "1"
+          - generic [ref=e58] [cursor=pointer]: "2"
+        - generic [ref=e59] [cursor=pointer]:
+          - text: Issue
+          - generic [ref=e60] [cursor=pointer]: s
+      - button "Collapse issues badge" [ref=e61] [cursor=pointer]:
+        - img [ref=e62] [cursor=pointer]
+```

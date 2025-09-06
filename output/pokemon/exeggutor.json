@@ -15,13 +15,15 @@
           "method": "EVOLVE_ITEM",
           "parameter": "LEAF_STONE",
           "target": "Exeggutor",
-          "form": "Plain Form"
+          "form": "Plain Form",
+          "targetForm": "Plain Form"
         },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ODD_SOUVENIR",
           "target": "Exeggutor",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "targetForm": "alolan"
         }
       ]
     },
@@ -33,13 +35,15 @@
           "method": "EVOLVE_ITEM",
           "parameter": "LEAF_STONE",
           "target": "Exeggutor",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ODD_SOUVENIR",
           "target": "Exeggutor",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "targetForm": "alolan"
         }
       ]
     },
@@ -51,13 +55,15 @@
           "method": "EVOLVE_ITEM",
           "parameter": "LEAF_STONE",
           "target": "Exeggutor",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ODD_SOUVENIR",
           "target": "Exeggutor",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "targetForm": "alolan"
         }
       ]
     }
@@ -1868,16 +1874,16 @@
       ],
       "abilities": [
         {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
+          "id": "frisk",
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
+          "id": "frisk",
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
           "isHidden": false,
           "abilityType": "secondary"
         },
@@ -1891,16 +1897,16 @@
       ],
       "faithfulAbilities": [
         {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
+          "id": "frisk",
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "chlorophyll",
-          "name": "Chlorophyll",
-          "description": "\tBoosts its Speed \tin sunshine.",
+          "id": "frisk",
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
           "isHidden": false,
           "abilityType": "secondary"
         },
@@ -1912,7 +1918,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "frisk",
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "frisk",
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "harvest",
+          "name": "Harvest",
+          "description": "\tMay recreate a \tBerry after use.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 95,
         "attack": 105,
@@ -1943,7 +1971,7 @@
       "catchRate": 45,
       "baseExp": 212,
       "heldItems": [
-        "MARANGABERRY"
+        "SITRUS_BERRY"
       ],
       "genderRatio": {
         "male": 50,
@@ -1997,6 +2025,10 @@
     "default": {
       "species": "Coconut",
       "description": "Living in a good environment makes it grow lots of heads. A head that drops off becomes an Exeggcute."
+    },
+    "Alolan": {
+      "species": "Coconut",
+      "description": "It swings its long neck like a whip and smacks its opponents. This makes Exeggutor itself dizzy, too."
     }
   }
 }

@@ -61,18 +61,22 @@ export function extractFormInfo(fileName: string): {
     return { basePokemonName: 'mr-rime', formName: null };
   }
 
+  // Special case for porygon_z (separate Pokémon, not a form)
+  if (fileName.toLowerCase() === 'porygon_z') {
+    return { basePokemonName: 'porygon-z', formName: null };
+  }
+
   // Special case for farfetch_d and sirfetch_d
   if (
     fileName.toLowerCase().startsWith('farfetch_d') ||
-    fileName.toLowerCase().startsWith('sirfetch_d') ||
-    fileName.toLowerCase().startsWith('porygon_z')
+    fileName.toLowerCase().startsWith('sirfetch_d')
   ) {
     // For these special cases, properly identify the base name and form
     // farfetch_d_plain -> baseName: farfetch-d, form: plain
     // farfetch_d_galarian -> baseName: farfetch-d, form: galarian
     const baseMatch = fileName
       .toLowerCase()
-      .match(/^(farfetch_d|sirfetch_d|porygon_z|pikachu|arbok|unown)(?:_([a-z_]+))?$/);
+      .match(/^(farfetch_d|sirfetch_d|pikachu|arbok|unown)(?:_([a-z_]+))?$/);
 
     if (baseMatch) {
       const baseName = baseMatch[1].replace('_', '-'); // Convert to hyphenated format
@@ -253,7 +257,6 @@ export function extractFormInfo(fileName: string): {
     { pattern: /_red$/, formName: KNOWN_FORMS.PIKACHU_RED_FORM },
     { pattern: /_yellow$/, formName: KNOWN_FORMS.PIKACHU_YELLOW_FORM },
     { pattern: /_spark$/, formName: KNOWN_FORMS.PIKACHU_SPARK_FORM },
-    { pattern: /_plain$/, formName: null }, // Place _plain last as it's a special case
     // Place special forms before plain to ensure correct matching
     // Support both underscore and hyphen format in file names
     { pattern: /_paldean_water$|[-]paldean[-]water$/, formName: KNOWN_FORMS.PALDEAN_WATER },
@@ -269,7 +272,7 @@ export function extractFormInfo(fileName: string): {
     { pattern: /_red$|[-]red$/, formName: KNOWN_FORMS.PIKACHU_RED_FORM },
     { pattern: /_yellow$|[-]yellow$/, formName: KNOWN_FORMS.PIKACHU_YELLOW_FORM },
     { pattern: /_spark$|[-]spark$/, formName: KNOWN_FORMS.PIKACHU_SPARK_FORM },
-    { pattern: /_plain$|[-]plain$/, formName: KNOWN_FORMS.PLAIN }, // Use the constant instead of null
+    { pattern: /_plain$|[-]plain$/, formName: null }, // Plain forms should be base forms without form suffix
   ];
 
   let basePokemonName = fileName;
@@ -279,6 +282,7 @@ export function extractFormInfo(fileName: string): {
     console.log(
       `Checking fileName ${fileName} against pattern ${pattern} for form ${patternFormName}`,
     );
+    
 
     if (pattern.test(fileName)) {
       // Remove the form pattern from the file name to get base name
@@ -290,14 +294,19 @@ export function extractFormInfo(fileName: string): {
     }
   }
 
-  console.log(`Final basePokemonName: ${toTitleCase(basePokemonName).trimEnd()}, formName:`, {
-    basePokemonName: toTitleCase(basePokemonName).trimEnd(),
-    formName: formName ? formName.trimEnd() : null,
+  const finalBaseName = toTitleCase(basePokemonName).trimEnd();
+  const finalFormName = formName ? formName.trimEnd() : null;
+  
+  console.log(`Final basePokemonName: ${finalBaseName}, formName:`, {
+    basePokemonName: finalBaseName,
+    formName: finalFormName,
   });
+  
+  console.log(`🎯 FORM EXTRACTION RETURNING: basePokemonName="${finalBaseName}", formName="${finalFormName}" (from file: ${fileName})`);
 
   return {
-    basePokemonName: toTitleCase(basePokemonName).trimEnd(),
-    formName: formName ? formName.trimEnd() : null,
+    basePokemonName: finalBaseName,
+    formName: finalFormName,
   };
 }
 

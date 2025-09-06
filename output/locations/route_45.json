@@ -32,6 +32,16 @@
       "offset": 0
     }
   ],
+  "events": [
+    {
+      "type": "phone_call",
+      "description": "Parry can give you Iron via phone call",
+      "details": "Parry calls and gives Iron after being contacted.",
+      "npc": "Parry",
+      "reward": "Iron",
+      "conditions": "After registering phone number and receiving call"
+    }
+  ],
   "trainers": [
     {
       "id": "dragon_tamer_aegon",
@@ -44,7 +54,7 @@
       },
       "pokemon": [
         {
-          "level": 28,
+          "level": "Badge Level +8",
           "species": "Dragonite",
           "item": "Focus Sash",
           "gender": "male",
@@ -83,7 +93,7 @@
           }
         },
         {
-          "level": 28,
+          "level": "Badge Level +8",
           "species": "Kingdra",
           "item": "Focus Sash",
           "gender": "male",
@@ -122,7 +132,7 @@
           }
         },
         {
-          "level": 28,
+          "level": "Badge Level +8",
           "species": "Charizard",
           "item": "Focus Sash",
           "gender": "male",

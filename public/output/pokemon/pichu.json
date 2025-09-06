@@ -28,13 +28,15 @@
           "method": "EVOLVE_ITEM",
           "parameter": "THUNDERSTONE",
           "target": "Raichu",
-          "form": "Plain Form"
+          "form": "Plain Form",
+          "targetForm": "Plain Form"
         },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ODD_SOUVENIR",
           "target": "Raichu",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "targetForm": "alolan"
         }
       ],
       "Raichu": []
@@ -59,13 +61,15 @@
           "method": "EVOLVE_ITEM",
           "parameter": "THUNDERSTONE",
           "target": "Raichu",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ODD_SOUVENIR",
           "target": "Raichu",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "targetForm": "alolan"
         }
       ],
       "Raichu": []
@@ -90,13 +94,15 @@
           "method": "EVOLVE_ITEM",
           "parameter": "THUNDERSTONE",
           "target": "Raichu",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ODD_SOUVENIR",
           "target": "Raichu",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "targetForm": "alolan"
         }
       ],
       "Raichu": []
@@ -200,9 +206,15 @@
   "forms": {
     "plain": {
       "name": "plain",
-      "types": [],
-      "faithfulTypes": [],
-      "updatedTypes": [],
+      "types": [
+        "Electric"
+      ],
+      "faithfulTypes": [
+        "Electric"
+      ],
+      "updatedTypes": [
+        "Electric"
+      ],
       "moves": [
         {
           "name": "Thundershock",
@@ -512,6 +524,97 @@
           }
         }
       ],
+      "abilities": [
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "lightning-rod",
+          "name": "Lightning Rod",
+          "description": "\tElectric moves \tboost Sp.Atk.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "lightning-rod",
+          "name": "Lightning Rod",
+          "description": "\tElectric moves \tboost Sp.Atk.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 40,
+        "defense": 15,
+        "speed": 60,
+        "specialAttack": 35,
+        "specialDefense": 35,
+        "total": 205
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 40,
+        "defense": 15,
+        "speed": 60,
+        "specialAttack": 35,
+        "specialDefense": 35,
+        "total": 205
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 40,
+        "defense": 15,
+        "speed": 60,
+        "specialAttack": 35,
+        "specialDefense": 35,
+        "total": 205
+      },
+      "catchRate": 190,
+      "baseExp": 42,
+      "heldItems": [
+        "ORAN_BERRY",
+        "LIGHT_BALL"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Fast (2,560 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe",
       "eggMoves": [
         "Disarm Voice",
         "Double Slap",
@@ -988,981 +1091,7 @@
             "area": "Power Plant"
           }
         }
-      ],
-      "abilities": [
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "lightning-rod",
-          "name": "Lightning Rod",
-          "description": "\tElectric moves \tboost Sp.Atk.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "lightning-rod",
-          "name": "Lightning Rod",
-          "description": "\tElectric moves \tboost Sp.Atk.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 20,
-        "attack": 40,
-        "defense": 15,
-        "speed": 60,
-        "specialAttack": 35,
-        "specialDefense": 35,
-        "total": 205
-      },
-      "faithfulBaseStats": {
-        "hp": 20,
-        "attack": 40,
-        "defense": 15,
-        "speed": 60,
-        "specialAttack": 35,
-        "specialDefense": 35,
-        "total": 205
-      },
-      "polishedBaseStats": {
-        "hp": 20,
-        "attack": 40,
-        "defense": 15,
-        "speed": 60,
-        "specialAttack": 35,
-        "specialDefense": 35,
-        "total": 205
-      },
-      "catchRate": 190,
-      "baseExp": 42,
-      "heldItems": [
-        "ORAN_BERRY",
-        "LIGHT_BALL"
-      ],
-      "genderRatio": {
-        "male": 50,
-        "female": 50
-      },
-      "hatchRate": "Fast (2,560 steps)",
-      "growthRate": "Medium Fast",
-      "eggGroups": [
-        "Undiscovered",
-        "Undiscovered"
-      ],
-      "evYield": "1 Spe"
-    },
-    "spiky-eared": {
-      "name": "spiky-eared",
-      "types": [],
-      "faithfulTypes": [],
-      "updatedTypes": [],
-      "moves": [
-        {
-          "name": "Thundershock",
-          "level": 1,
-          "info": {
-            "description": "An attack that may cause paralysis.",
-            "type": "Electric",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Charm",
-          "level": 1,
-          "info": {
-            "description": "Sharply lowers the foe's Attack.",
-            "type": "Fairy",
-            "pp": 20,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 5,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Sweet Kiss",
-          "level": 10,
-          "info": {
-            "description": "A move that may confuse the foe.",
-            "type": "Fairy",
-            "pp": 10,
-            "accuracy": 75,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Nasty Plot",
-          "level": 13,
-          "info": {
-            "description": "Sharply raises the user's Sp.Atk.",
-            "type": "Dark",
-            "pp": 20,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Thunder Wave",
-          "level": 18,
-          "info": {
-            "description": "paralyzes the foe.@",
-            "type": "Electric",
-            "pp": 20,
-            "accuracy": 90,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Scary Face",
-          "level": 23,
-          "info": {
-            "description": "Sharply lowers the foe's Speed.",
-            "type": "Normal",
-            "pp": 10,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Sing",
-          "level": 28,
-          "info": {
-            "description": "May cause the foe to fall asleep.",
-            "type": "Normal",
-            "pp": 15,
-            "accuracy": 75,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Petal Dance",
-          "level": 38,
-          "info": {
-            "description": "Works 2-3 turns and confuses user.",
-            "type": "Grass",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        }
-      ],
-      "faithfulMoves": [
-        {
-          "name": "Thundershock",
-          "level": 1,
-          "info": {
-            "description": "An attack that may cause paralysis.",
-            "type": "Electric",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Charm",
-          "level": 1,
-          "info": {
-            "description": "Sharply lowers the foe's Attack.",
-            "type": "Fairy",
-            "pp": 20,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 5,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Sweet Kiss",
-          "level": 10,
-          "info": {
-            "description": "A move that may confuse the foe.",
-            "type": "Fairy",
-            "pp": 10,
-            "accuracy": 75,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Nasty Plot",
-          "level": 13,
-          "info": {
-            "description": "Sharply raises the user's Sp.Atk.",
-            "type": "Dark",
-            "pp": 20,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Thunder Wave",
-          "level": 18,
-          "info": {
-            "description": "paralyzes the foe.@",
-            "type": "Electric",
-            "pp": 20,
-            "accuracy": 90,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Scary Face",
-          "level": 23,
-          "info": {
-            "description": "Sharply lowers the foe's Speed.",
-            "type": "Normal",
-            "pp": 10,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Sing",
-          "level": 28,
-          "info": {
-            "description": "May cause the foe to fall asleep.",
-            "type": "Normal",
-            "pp": 15,
-            "accuracy": 75,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Petal Dance",
-          "level": 38,
-          "info": {
-            "description": "Works 2-3 turns and confuses user.",
-            "type": "Grass",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        }
-      ],
-      "updatedMoves": [
-        {
-          "name": "Thundershock",
-          "level": 1,
-          "info": {
-            "description": "An attack that may cause paralysis.",
-            "type": "Electric",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Charm",
-          "level": 1,
-          "info": {
-            "description": "Sharply lowers the foe's Attack.",
-            "type": "Fairy",
-            "pp": 20,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 5,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Sweet Kiss",
-          "level": 10,
-          "info": {
-            "description": "A move that may confuse the foe.",
-            "type": "Fairy",
-            "pp": 10,
-            "accuracy": 75,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Nasty Plot",
-          "level": 13,
-          "info": {
-            "description": "Sharply raises the user's Sp.Atk.",
-            "type": "Dark",
-            "pp": 20,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Thunder Wave",
-          "level": 18,
-          "info": {
-            "description": "paralyzes the foe.@",
-            "type": "Electric",
-            "pp": 20,
-            "accuracy": 90,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Scary Face",
-          "level": 23,
-          "info": {
-            "description": "Sharply lowers the foe's Speed.",
-            "type": "Normal",
-            "pp": 10,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Sing",
-          "level": 28,
-          "info": {
-            "description": "May cause the foe to fall asleep.",
-            "type": "Normal",
-            "pp": 15,
-            "accuracy": 75,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Petal Dance",
-          "level": 38,
-          "info": {
-            "description": "Works 2-3 turns and confuses user.",
-            "type": "Grass",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        }
-      ],
-      "eggMoves": [
-        "Disarm Voice",
-        "Double Slap",
-        "Encore",
-        "Reversal"
-      ],
-      "tmHmMoves": [
-        {
-          "name": "Curse",
-          "description": "Works differently for Ghost-types.",
-          "type": "Ghost",
-          "pp": 10,
-          "power": 0,
-          "category": "Status",
-          "accuracy": "--",
-          "tmNumber": "TM03",
-          "location": {
-            "area": "Celadon Mansion"
-          }
-        },
-        {
-          "name": "Calm Mind",
-          "description": "Raises the user's Sp.Atk and Sp.Def.",
-          "type": "Psychic",
-          "pp": 20,
-          "power": 0,
-          "category": "Status",
-          "accuracy": "--",
-          "tmNumber": "TM04",
-          "location": {
-            "area": "Celadon",
-            "details": "Department Store"
-          }
-        },
-        {
-          "name": "Toxic",
-          "description": "A Poison move with increasing damage.",
-          "type": "Poison",
-          "pp": 10,
-          "power": 0,
-          "category": "Status",
-          "accuracy": 90,
-          "tmNumber": "TM06",
-          "location": {
-            "area": "Celadon",
-            "details": "Game Corner"
-          }
-        },
-        {
-          "name": "Hidden Power",
-          "description": "The type varies with the Pokemon.",
-          "type": "Unknown",
-          "pp": 15,
-          "power": 70,
-          "category": "Special",
-          "accuracy": 100,
-          "tmNumber": "TM10",
-          "location": {
-            "area": "Lake of Rage"
-          }
-        },
-        {
-          "name": "Light Screen",
-          "description": "Raises Sp.Def with a wall of light.",
-          "type": "Psychic",
-          "pp": 30,
-          "power": 0,
-          "category": "Status",
-          "accuracy": "--",
-          "tmNumber": "TM16",
-          "location": {
-            "area": "Goldenrod",
-            "details": "Department Store"
-          }
-        },
-        {
-          "name": "Protect",
-          "description": "Foils attack that turn. It may fail.",
-          "type": "Normal",
-          "pp": 10,
-          "power": 0,
-          "category": "Status",
-          "accuracy": "--",
-          "tmNumber": "TM17",
-          "location": {
-            "area": "Goldenrod",
-            "details": "Department Store"
-          }
-        },
-        {
-          "name": "Rain Dance",
-          "description": "Boosts Water-type moves for 5 turns.",
-          "type": "Water",
-          "pp": 5,
-          "power": 0,
-          "category": "Status",
-          "accuracy": "--",
-          "tmNumber": "TM18",
-          "location": {
-            "area": "Celadon",
-            "details": "Department Store"
-          }
-        },
-        {
-          "name": "Iron Tail",
-          "description": "An attack that may lower Defense.",
-          "type": "Steel",
-          "pp": 15,
-          "power": 100,
-          "category": "Physical",
-          "accuracy": 75,
-          "tmNumber": "TM23",
-          "location": {
-            "area": "Jasmine's Gym",
-            "details": "Gym Leader"
-          }
-        },
-        {
-          "name": "Thunderbolt",
-          "description": "An attack that may cause paralysis.",
-          "type": "Electric",
-          "pp": 15,
-          "power": 90,
-          "category": "Special",
-          "accuracy": 100,
-          "tmNumber": "TM24",
-          "location": {
-            "area": "Goldenrod",
-            "details": "Game Corner"
-          }
-        },
-        {
-          "name": "Thunder",
-          "description": "An attack that may cause paralysis.",
-          "type": "Electric",
-          "pp": 10,
-          "power": 110,
-          "category": "Special",
-          "accuracy": 70,
-          "tmNumber": "TM25",
-          "location": {
-            "area": "Goldenrod",
-            "details": "Department Store"
-          }
-        },
-        {
-          "name": "Return",
-          "description": "An attack that is based on loyalty.",
-          "type": "Normal",
-          "pp": 20,
-          "power": 1,
-          "category": "Physical",
-          "accuracy": 100,
-          "tmNumber": "TM27",
-          "location": {
-            "area": "Goldenrod",
-            "details": "Department Store"
-          }
-        },
-        {
-          "name": "Double Team",
-          "description": "Raises the user's evasiveness.",
-          "type": "Normal",
-          "pp": 15,
-          "power": 0,
-          "category": "Status",
-          "accuracy": "--",
-          "tmNumber": "TM32",
-          "location": {
-            "area": "Celadon",
-            "details": "Game Corner"
-          }
-        },
-        {
-          "name": "Swift",
-          "description": "An attack that never misses.",
-          "type": "Normal",
-          "pp": 20,
-          "power": 60,
-          "category": "Special",
-          "accuracy": "--",
-          "tmNumber": "TM39",
-          "location": {
-            "area": "Union Cave"
-          }
-        },
-        {
-          "name": "Substitute",
-          "description": "Makes a decoy with 1/4 user's max HP.",
-          "type": "Normal",
-          "pp": 10,
-          "power": 0,
-          "category": "Status",
-          "accuracy": "--",
-          "tmNumber": "TM41",
-          "location": {
-            "area": "Lake of Rage"
-          }
-        },
-        {
-          "name": "Facade",
-          "description": "Double damage with Psn, Brn, or Prz.",
-          "type": "Normal",
-          "pp": 20,
-          "power": 70,
-          "category": "Physical",
-          "accuracy": 100,
-          "tmNumber": "TM42",
-          "location": {
-            "area": "Dim Cave"
-          }
-        },
-        {
-          "name": "Rest",
-          "description": "Sleep for 2 turns to fully recover.",
-          "type": "Psychic",
-          "pp": 5,
-          "power": 0,
-          "category": "Status",
-          "accuracy": "--",
-          "tmNumber": "TM44",
-          "location": {
-            "area": "Dim Cave"
-          }
-        },
-        {
-          "name": "Attract",
-          "description": "Makes the opposite gender infatuated.",
-          "type": "Normal",
-          "pp": 15,
-          "power": 0,
-          "category": "Status",
-          "accuracy": 100,
-          "tmNumber": "TM45",
-          "location": {
-            "area": "Whitney's Gym",
-            "details": "Gym Leader"
-          }
-        },
-        {
-          "name": "Wild Charge",
-          "description": "A charge that also hurts the user.",
-          "type": "Electric",
-          "pp": 15,
-          "power": 90,
-          "category": "Physical",
-          "accuracy": 100,
-          "tmNumber": "TM57",
-          "location": {
-            "area": "Lt. Surge's Gym",
-            "details": "Gym Leader"
-          }
-        },
-        {
-          "name": "Flash",
-          "description": "A move that lowers the foe's accuracy.",
-          "type": "Normal",
-          "pp": 20,
-          "power": 0,
-          "category": "Status",
-          "accuracy": 100,
-          "tmNumber": "TM70",
-          "location": {
-            "area": "Sprout Tower"
-          }
-        },
-        {
-          "name": "Volt Switch",
-          "description": "Switches out after making its attack.",
-          "type": "Electric",
-          "pp": 20,
-          "power": 70,
-          "category": "Special",
-          "accuracy": 100,
-          "tmNumber": "TM72",
-          "location": {
-            "area": "Route 10"
-          }
-        },
-        {
-          "name": "Thunder Wave",
-          "description": "paralyzes the foe.@",
-          "type": "Electric",
-          "pp": 20,
-          "power": 0,
-          "category": "Status",
-          "accuracy": 90,
-          "tmNumber": "TM73",
-          "location": {
-            "area": "Rock Tunnel"
-          }
-        },
-        {
-          "name": "Body Slam",
-          "description": "An attack that may cause paralysis.",
-          "type": "Normal",
-          "pp": 15,
-          "power": 85,
-          "category": "Physical",
-          "accuracy": 100,
-          "tmNumber": "MT04",
-          "location": {
-            "area": "Warm Beach"
-          }
-        },
-        {
-          "name": "Charm",
-          "description": "Sharply lowers the foe's Attack.",
-          "type": "Fairy",
-          "pp": 20,
-          "power": 0,
-          "category": "Status",
-          "accuracy": 100,
-          "tmNumber": "MT05",
-          "location": {
-            "area": "Route 35-Natioal Park Gate"
-          }
-        },
-        {
-          "name": "Counter",
-          "description": "Returns a physical attack double.",
-          "type": "Fighting",
-          "pp": 20,
-          "power": 1,
-          "category": "Physical",
-          "accuracy": "--",
-          "tmNumber": "MT06",
-          "location": {
-            "area": "Celadon",
-            "details": "Department Store"
-          }
-        },
-        {
-          "name": "Defense Curl",
-          "description": "Raises the user's Defense.",
-          "type": "Normal",
-          "pp": 40,
-          "power": 0,
-          "category": "Status",
-          "accuracy": "--",
-          "tmNumber": "MT07",
-          "location": {
-            "area": "Mount Mortar"
-          }
-        },
-        {
-          "name": "Double Edge",
-          "description": "A tackle that also hurts the user.",
-          "type": "Normal",
-          "pp": 15,
-          "power": 120,
-          "category": "Physical",
-          "accuracy": 100,
-          "tmNumber": "MT08",
-          "location": {
-            "area": "Safari Zone"
-          }
-        },
-        {
-          "name": "Endure",
-          "description": "Endures any hit with at least 1HP.",
-          "type": "Normal",
-          "pp": 10,
-          "power": 0,
-          "category": "Status",
-          "accuracy": "--",
-          "tmNumber": "MT11",
-          "location": {
-            "area": "Warm Beach"
-          }
-        },
-        {
-          "name": "Headbutt",
-          "description": "An attack that may cause flinching.",
-          "type": "Normal",
-          "pp": 15,
-          "power": 70,
-          "category": "Physical",
-          "accuracy": 100,
-          "tmNumber": "MT13",
-          "location": {
-            "area": "Ilex Forest"
-          }
-        },
-        {
-          "name": "Pay Day",
-          "description": "Throws coins. Gets them back later.",
-          "type": "Normal",
-          "pp": 20,
-          "power": 40,
-          "category": "Physical",
-          "accuracy": 100,
-          "tmNumber": "MT19",
-          "location": {
-            "area": "Goldenrod",
-            "details": "Game Corner"
-          }
-        },
-        {
-          "name": "Rollout",
-          "description": "Attacks 5 turns with rising power.",
-          "type": "Rock",
-          "pp": 20,
-          "power": 30,
-          "category": "Physical",
-          "accuracy": 90,
-          "tmNumber": "MT20",
-          "location": {
-            "area": "Route 46"
-          }
-        },
-        {
-          "name": "Seismic Toss",
-          "description": "Damage equals the user's level.",
-          "type": "Fighting",
-          "pp": 20,
-          "power": 1,
-          "category": "Physical",
-          "accuracy": 100,
-          "tmNumber": "MT22",
-          "location": {
-            "area": "Pewter City"
-          }
-        },
-        {
-          "name": "Sleep Talk",
-          "description": "Randomly attacks while asleep.",
-          "type": "Normal",
-          "pp": 10,
-          "power": 0,
-          "category": "Status",
-          "accuracy": 100,
-          "tmNumber": "MT24",
-          "location": {
-            "area": "Route 31"
-          }
-        },
-        {
-          "name": "Swagger",
-          "description": "Causes confusion but raises Attack.",
-          "type": "Normal",
-          "pp": 15,
-          "power": 0,
-          "category": "Status",
-          "accuracy": 85,
-          "tmNumber": "MT26",
-          "location": {
-            "area": "Celadon City"
-          }
-        },
-        {
-          "name": "Thunderpunch",
-          "description": "An electric punch. It may paralyze.",
-          "type": "Electric",
-          "pp": 15,
-          "power": 75,
-          "category": "Physical",
-          "accuracy": 100,
-          "tmNumber": "MT27",
-          "location": {
-            "area": "Goldenrod City"
-          }
-        },
-        {
-          "name": "Zap Cannon",
-          "description": "An attack that always paralyzes.",
-          "type": "Electric",
-          "pp": 5,
-          "power": 120,
-          "category": "Special",
-          "accuracy": 50,
-          "tmNumber": "MT30",
-          "location": {
-            "area": "Power Plant"
-          }
-        }
-      ],
-      "abilities": [
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "lightning-rod",
-          "name": "Lightning Rod",
-          "description": "\tElectric moves \tboost Sp.Atk.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "id": "static",
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "id": "lightning-rod",
-          "name": "Lightning Rod",
-          "description": "\tElectric moves \tboost Sp.Atk.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "baseStats": {
-        "hp": 20,
-        "attack": 40,
-        "defense": 15,
-        "speed": 60,
-        "specialAttack": 35,
-        "specialDefense": 35,
-        "total": 205
-      },
-      "faithfulBaseStats": {
-        "hp": 20,
-        "attack": 40,
-        "defense": 15,
-        "speed": 60,
-        "specialAttack": 35,
-        "specialDefense": 35,
-        "total": 205
-      },
-      "polishedBaseStats": {
-        "hp": 20,
-        "attack": 40,
-        "defense": 15,
-        "speed": 60,
-        "specialAttack": 35,
-        "specialDefense": 35,
-        "total": 205
-      },
-      "catchRate": 190,
-      "baseExp": 42,
-      "heldItems": [
-        "ORAN_BERRY",
-        "LIGHT_BALL"
-      ],
-      "genderRatio": {
-        "male": 50,
-        "female": 50
-      },
-      "hatchRate": "Fast (2,560 steps)",
-      "growthRate": "Medium Fast",
-      "eggGroups": [
-        "Undiscovered",
-        "Undiscovered"
-      ],
-      "evYield": "1 Spe"
+      ]
     }
   },
   "locations": [

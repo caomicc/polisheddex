@@ -20,7 +20,9 @@
           "method": "EVOLVE_ITEM",
           "parameter": "LEAF_STONE",
           "target": "Electrode",
-          "form": "Hisuian Form"
+          "form": "hisuian",
+          "sourceForm": "hisuian",
+          "targetForm": "hisuian"
         }
       ]
     },
@@ -37,7 +39,9 @@
           "method": "EVOLVE_ITEM",
           "parameter": "LEAF_STONE",
           "target": "Electrode",
-          "form": "Hisuian Form"
+          "form": "hisuian",
+          "sourceForm": "hisuian",
+          "targetForm": "hisuian"
         }
       ]
     },
@@ -54,7 +58,9 @@
           "method": "EVOLVE_ITEM",
           "parameter": "LEAF_STONE",
           "target": "Electrode",
-          "form": "Hisuian Form"
+          "form": "hisuian",
+          "sourceForm": "hisuian",
+          "targetForm": "hisuian"
         }
       ]
     }
@@ -2417,7 +2423,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "soundproof",
+          "name": "Soundproof",
+          "description": "\tGives immunity to \tsound-based moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "aftermath",
+          "name": "Aftermath",
+          "description": "\tDamages the foe on \tfainting.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 60,
         "attack": 50,
@@ -2603,6 +2631,10 @@
     "default": {
       "species": "Ball",
       "description": "The more energy it charges up, the faster it gets. But this also makes it more likely to explode."
+    },
+    "Hisuian": {
+      "species": "Sphere",
+      "description": "The tissue on the surface of its body is curiously similar in composition to an Apricorn."
     }
   }
 }

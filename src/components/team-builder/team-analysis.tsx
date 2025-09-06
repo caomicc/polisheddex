@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { PokemonType } from '@/types/types';
 import typeChartData from '../../../output/type_chart.json';
 import movesData from '../../../output/manifests/moves.json';
+import { MoveData } from '../pokemon-slot';
 
 const TYPE_CHART: Record<string, Record<string, number>> = typeChartData as Record<
   string,
@@ -95,12 +96,12 @@ function calculateTeamTypeCoverage(team: (TeamPokemon | null)[]): TypeCoverage {
 
   // Calculate move type coverage
   const moveTypeCounts: Record<string, number> = {};
-  
+
   activePokemon.forEach((pokemon) => {
     if (pokemon.moves && pokemon.moves.length > 0) {
       pokemon.moves.forEach((moveName) => {
         const moveKey = moveName.toLowerCase().replace(/\s+/g, '-');
-        const moveInfo = (movesData as any)[moveKey];
+        const moveInfo = (movesData as unknown as Record<string, MoveData>)[moveKey];
         if (moveInfo) {
           // Try to get move type from faithful or updated data
           const typeInfo = moveInfo.faithful || moveInfo.updated;
@@ -118,12 +119,14 @@ function calculateTeamTypeCoverage(team: (TeamPokemon | null)[]): TypeCoverage {
     .map(([type, count]) => {
       // Calculate how many types this move type is super effective against
       const typeChart = TYPE_CHART[type.toLowerCase()] || {};
-      const superEffectiveCount = Object.values(typeChart).filter(multiplier => multiplier > 1).length;
-      
+      const superEffectiveCount = Object.values(typeChart).filter(
+        (multiplier) => multiplier > 1,
+      ).length;
+
       return {
         type: type.charAt(0).toUpperCase() + type.slice(1),
         count,
-        coverage: superEffectiveCount
+        coverage: superEffectiveCount,
       };
     })
     .sort((a, b) => b.coverage - a.coverage);
@@ -257,9 +260,7 @@ export function TeamAnalysis({ team }: TeamAnalysisProps) {
                       {count} move{count !== 1 ? 's' : ''}
                     </span>
                   </div>
-                  <span className="text-sm font-medium">
-                    SE vs {typeCoverage}
-                  </span>
+                  <span className="text-sm font-medium">SE vs {typeCoverage}</span>
                 </div>
               ))
             )}

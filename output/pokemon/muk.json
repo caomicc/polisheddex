@@ -15,13 +15,16 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 38,
           "target": "Muk",
-          "form": "Plain Form"
+          "form": "Plain Form",
+          "targetForm": "Plain Form"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 38,
           "target": "Muk",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ]
     },
@@ -33,13 +36,16 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 38,
           "target": "Muk",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 38,
           "target": "Muk",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ]
     },
@@ -51,13 +57,16 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 38,
           "target": "Muk",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 38,
           "target": "Muk",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ]
     }
@@ -2490,51 +2499,73 @@
       ],
       "abilities": [
         {
-          "id": "stench",
-          "name": "Stench",
-          "description": "\tMay cause the foe \tto flinch.",
+          "id": "poison-touch",
+          "name": "Poison Touch",
+          "description": "\tMay poison the foe \ton contact.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "sticky-hold",
-          "name": "Sticky Hold",
-          "description": "\tProtects it from \titem theft.",
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "poison-touch",
-          "name": "Poison Touch",
-          "description": "\tMay poison the foe \ton contact.",
+          "id": "corrosion",
+          "name": "Corrosion",
+          "description": "\tFoes of any type \tcan be poisoned.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
       "faithfulAbilities": [
         {
-          "id": "stench",
-          "name": "Stench",
-          "description": "\tMay cause the foe \tto flinch.",
+          "id": "poison-touch",
+          "name": "Poison Touch",
+          "description": "\tMay poison the foe \ton contact.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "sticky-hold",
-          "name": "Sticky Hold",
-          "description": "\tProtects it from \titem theft.",
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "poison-touch",
-          "name": "Poison Touch",
-          "description": "\tMay poison the foe \ton contact.",
+          "id": "corrosion",
+          "name": "Corrosion",
+          "description": "\tFoes of any type \tcan be poisoned.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "poison-touch",
+          "name": "Poison Touch",
+          "description": "\tMay poison the foe \ton contact.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "corrosion",
+          "name": "Corrosion",
+          "description": "\tFoes of any type \tcan be poisoned.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 105,
         "attack": 105,
@@ -2883,6 +2914,10 @@
     "default": {
       "species": "Sludge",
       "description": "As it moves, a very strong poison leaks from it, making the ground there barren for three years."
+    },
+    "Alolan": {
+      "species": "Sludge",
+      "description": "Muk's coloration becomes increasingly vivid the more it feasts on its favorite dish-trash."
     }
   }
 }

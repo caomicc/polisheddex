@@ -15,13 +15,16 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 22,
           "target": "Sandslash",
-          "form": "Plain Form"
+          "form": "Plain Form",
+          "targetForm": "Plain Form"
         },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ICE_STONE",
           "target": "Sandslash",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ]
     },
@@ -33,13 +36,16 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 22,
           "target": "Sandslash",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ICE_STONE",
           "target": "Sandslash",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ]
     },
@@ -51,13 +57,16 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 22,
           "target": "Sandslash",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ICE_STONE",
           "target": "Sandslash",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ]
     }
@@ -2584,51 +2593,73 @@
       ],
       "abilities": [
         {
-          "id": "sand-veil",
-          "name": "Sand Veil",
-          "description": "\tBoosts evasion in \ta sandstorm.",
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "sand-veil",
-          "name": "Sand Veil",
-          "description": "\tBoosts evasion in \ta sandstorm.",
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "sand-rush",
-          "name": "Sand Rush",
-          "description": "\tBoosts Speed in \ta sandstorm.",
+          "id": "slush-rush",
+          "name": "Slush Rush",
+          "description": "\tBoosts Speed in \ta hailstorm.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
       "faithfulAbilities": [
         {
-          "id": "sand-veil",
-          "name": "Sand Veil",
-          "description": "\tBoosts evasion in \ta sandstorm.",
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "sand-veil",
-          "name": "Sand Veil",
-          "description": "\tBoosts evasion in \ta sandstorm.",
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "sand-rush",
-          "name": "Sand Rush",
-          "description": "\tBoosts Speed in \ta sandstorm.",
+          "id": "slush-rush",
+          "name": "Slush Rush",
+          "description": "\tBoosts Speed in \ta hailstorm.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "slush-rush",
+          "name": "Slush Rush",
+          "description": "\tBoosts Speed in \ta hailstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 75,
         "attack": 100,
@@ -2659,7 +2690,7 @@
       "catchRate": 90,
       "baseExp": 163,
       "heldItems": [
-        "QUICK_CLAW"
+        "GRIP_CLAW"
       ],
       "genderRatio": {
         "male": 50,
@@ -2888,6 +2919,10 @@
     "default": {
       "species": "Mouse",
       "description": "Adept at climbing trees, it rolls into a spiny ball, then attacks its enemies from above."
+    },
+    "Alolan": {
+      "species": "Mouse",
+      "description": "Many people climb snowy mountains, hoping to see the icy spikes of this #mon glisten in the light of dawn."
     }
   }
 }

@@ -32,6 +32,16 @@
       "offset": 0
     }
   ],
+  "events": [
+    {
+      "type": "phone_call",
+      "description": "Joey can give you HP Up via phone call",
+      "details": "Joey calls and gives an HP Up after being contacted.",
+      "npc": "Joey",
+      "reward": "HP Up",
+      "conditions": "After registering phone number and receiving call"
+    }
+  ],
   "trainers": [
     {
       "id": "youngster_joey1",

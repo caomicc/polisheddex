@@ -329,7 +329,7 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
         evoMap[`${evoKey}_faithful`] = faithfulEvoMethods.map((e) => ({
           ...e,
           target: normalizeMoveString(e.target),
-          form: e.form ? normalizeMoveString(e.form) : undefined,
+          form: e.form,
         }));
 
         // If there are no main evolution methods, use faithful for preEvoMap
@@ -348,7 +348,7 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
         evoMap[`${evoKey}_updated`] = updatedEvoMethods.map((e) => ({
           ...e,
           target: normalizeMoveString(e.target),
-          form: e.form ? normalizeMoveString(e.form) : undefined,
+          form: e.form,
         }));
 
         // If there are no main evolution methods, use updated for preEvoMap
@@ -465,11 +465,59 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
           parsedParam = parseInt(param, 10);
         }
 
+        // Fix incorrect form information based on source Pokémon name
+        let correctedForm = form;
+
+        // If form is NO_FORM, exclude the form property entirely
+        if (form && form.startsWith('NO_FORM')) {
+          correctedForm = undefined;
+        } else if (currentMonV2 || form) {
+          switch (true) {
+            case (currentMonV2 && currentMonV2.includes('Galarian')) ||
+              (form && (form.toUpperCase().includes('GALARIAN') || form.includes('Galarian'))):
+              correctedForm = 'galarian';
+              break;
+            case (currentMonV2 && currentMonV2.includes('Hisuian')) ||
+              (form && (form.toUpperCase().includes('HISUIAN') || form.includes('Hisuian'))):
+              correctedForm = 'hisuian';
+              break;
+            case (currentMonV2 && currentMonV2.includes('Alolan')) ||
+              (form && (form.toUpperCase().includes('ALOLAN') || form.includes('Alolan'))):
+              correctedForm = 'alolan';
+              break;
+            case (currentMonV2 &&
+              (currentMonV2.includes('PaldeanFire') || currentMonV2.includes('paldean_fire'))) ||
+              (form &&
+                (form.toUpperCase().includes('PALDEAN_FIRE') || form.includes('PaldeanFire'))):
+              correctedForm = 'paldean_fire';
+              break;
+            case (currentMonV2 &&
+              (currentMonV2.includes('PaldeanWater') || currentMonV2.includes('paldean_water'))) ||
+              (form &&
+                (form.toUpperCase().includes('PALDEAN_WATER') || form.includes('PaldeanWater'))):
+              correctedForm = 'paldean_water';
+              break;
+            case (currentMonV2 && currentMonV2.includes('Paldean')) ||
+              (form && (form.toUpperCase().includes('PALDEAN') || form.includes('Paldean'))):
+              correctedForm = 'paldean';
+              break;
+            case (currentMonV2 &&
+              (currentMonV2.toUpperCase().includes('PLAIN') ||
+                currentMonV2.toUpperCase().includes('NO_FORM'))) ||
+              (form && (form.toUpperCase().includes('PLAIN') || form.includes('Plain'))):
+            default:
+              // No form correction needed
+              break;
+          }
+        }
+
         const evoData = {
           method,
           parameter: parsedParam,
           target: target,
-          ...(form ? { form: form } : {}),
+          ...(correctedForm
+            ? { form: correctedForm, sourceForm: correctedForm, targetForm: correctedForm }
+            : {}),
         };
 
         // Add to appropriate evolution list based on current context
@@ -524,180 +572,6 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
 // Use the new parsing function
 const movesetData = parseMovesetWithFaithfulSupport(lines);
 
-// Add special Pikachu forms programmatically
-// if (movesetData.pikachu) {
-//   if (!movesetData.pikachu.forms) {
-//     movesetData.pikachu.forms = {};
-//   }
-
-//   // Create flying Pikachu form - same moves as regular Pikachu but can also learn Fly
-//   movesetData.pikachu.forms.flying = {
-//     moves: [...movesetData.pikachu.moves, { name: 'Fly' }],
-//     ...(movesetData.pikachu.faithfulMoves
-//       ? {
-//           faithfulMoves: [...movesetData.pikachu.faithfulMoves, { name: 'Fly' }],
-//         }
-//       : {}),
-//     ...(movesetData.pikachu.updatedMoves
-//       ? {
-//           updatedMoves: [...movesetData.pikachu.updatedMoves, { name: 'Fly' }],
-//         }
-//       : {}),
-//   };
-
-//   // Create surfing Pikachu form - same moves as regular Pikachu but can also learn Surf
-//   movesetData.pikachu.forms.surfing = {
-//     moves: [...movesetData.pikachu.moves, { name: 'Surf' }],
-//     ...(movesetData.pikachu.faithfulMoves
-//       ? {
-//           faithfulMoves: [...movesetData.pikachu.faithfulMoves, { name: 'Surf' }],
-//         }
-//       : {}),
-//     ...(movesetData.pikachu.updatedMoves
-//       ? {
-//           updatedMoves: [...movesetData.pikachu.updatedMoves, { name: 'Surf' }],
-//         }
-//       : {}),
-//   };
-
-//   // Create red Pikachu form - same moves as regular Pikachu
-//   movesetData.pikachu.forms.red = {
-//     moves: [...movesetData.pikachu.moves],
-//     ...(movesetData.pikachu.faithfulMoves
-//       ? {
-//           faithfulMoves: [...movesetData.pikachu.faithfulMoves],
-//         }
-//       : {}),
-//     ...(movesetData.pikachu.updatedMoves
-//       ? {
-//           updatedMoves: [...movesetData.pikachu.updatedMoves],
-//         }
-//       : {}),
-//   };
-//   // Create yellow Pikachu form - same moves as regular Pikachu
-//   movesetData.pikachu.forms.yellow = {
-//     moves: [...movesetData.pikachu.moves],
-//     ...(movesetData.pikachu.faithfulMoves
-//       ? {
-//           faithfulMoves: [...movesetData.pikachu.faithfulMoves],
-//         }
-//       : {}),
-//     ...(movesetData.pikachu.updatedMoves
-//       ? {
-//           updatedMoves: [...movesetData.pikachu.updatedMoves],
-//         }
-//       : {}),
-//   };
-//   // Create spark Pikachu form - same moves as regular Pikachu
-//   movesetData.pikachu.forms.spark = {
-//     moves: [...movesetData.pikachu.moves],
-//     ...(movesetData.pikachu.faithfulMoves
-//       ? {
-//           faithfulMoves: [...movesetData.pikachu.faithfulMoves],
-//         }
-//       : {}),
-//     ...(movesetData.pikachu.updatedMoves
-//       ? {
-//           updatedMoves: [...movesetData.pikachu.updatedMoves],
-//         }
-//       : {}),
-//   };
-//   console.log('✅ Added all Pikachu forms: flying, surfing, red, yellow, spark');
-// }
-
-// Non-recursive function to build the complete evolution chain with methods using custom evolution map
-// function buildCompleteEvolutionChainWithMap(
-//   startMon: string,
-//   customEvoMap: Record<string, EvoRaw[]>,
-// ): {
-//   chain: string[];
-//   methodsByPokemon: Record<string, EvolutionMethod[]>;
-// } {
-//   // This map will keep track of which Pokémon we've already processed
-//   const processedMons = new Set<string>();
-//   // This map will store evolution methods for each Pokémon in the chain
-//   const methodsByPokemon: Record<string, EvolutionMethod[]> = {};
-//   // Starting with the requested Pokémon
-//   const standardizedStartMon = standardizePokemonKey(startMon);
-//   const queue: string[] = [standardizedStartMon];
-//   const chain: string[] = [];
-
-//   // Also check for form variations of the starting Pokémon
-//   // This helps with Pokémon like "GrowlithePlain" vs "Growlithe"
-//   for (const key of Object.keys(customEvoMap)) {
-//     const standardKey = standardizePokemonKey(key);
-//     if (standardKey === standardizedStartMon && key !== startMon) {
-//       queue.push(key);
-//     }
-//   }
-
-//   while (queue.length > 0) {
-//     const currentMon = queue.shift()!;
-//     const standardCurrentMon = standardizePokemonKey(currentMon);
-
-//     if (processedMons.has(currentMon)) continue;
-
-//     processedMons.add(currentMon);
-//     // Add to chain
-//     const normalizedCurrentName = normalizePokemonDisplayName(standardCurrentMon);
-//     if (!chain.includes(normalizedCurrentName)) {
-//       chain.push(normalizedCurrentName);
-//     }
-
-//     // Look for evolution data for this Pokémon (check various key formats)
-//     for (const [evoKey, evos] of Object.entries(customEvoMap)) {
-//       const standardEvoKey = standardizePokemonKey(evoKey);
-
-//       if (evoKey === currentMon || standardEvoKey === standardCurrentMon) {
-//         // Found evolution data for this Pokémon
-//         const sourceKey = normalizedCurrentName;
-//         if (!methodsByPokemon[sourceKey]) {
-//           methodsByPokemon[sourceKey] = [];
-//         }
-
-//         // Add all its evolutions to the queue and collect their methods
-//         for (const evo of evos) {
-//           const targetMon = standardizePokemonKey(evo.target);
-//           const normalizedTargetName = normalizePokemonDisplayName(targetMon);
-
-//           // Store evolution method information
-//           methodsByPokemon[sourceKey].push({
-//             method: evo.method,
-//             parameter: evo.parameter,
-//             target: normalizedTargetName,
-//             ...(evo.form ? { form: evo.form } : {}),
-//           });
-
-//           if (!processedMons.has(normalizedTargetName)) {
-//             queue.push(evo.target);
-//           }
-//         }
-//       }
-//     }
-//   }
-
-//   // Sort the chain to put earliest evolutions first
-//   const sortedChain = sortEvolutionChain(chain);
-
-//   // Create a new methodsByPokemon object with the sorted Pokémon names
-//   const sortedMethodsByPokemon: Record<string, EvolutionMethod[]> = {};
-//   for (const pokemon of sortedChain) {
-//     sortedMethodsByPokemon[pokemon] = methodsByPokemon[pokemon] || [];
-
-//     // Also include any form-specific methods for this pokemon
-//     for (const [key, methods] of Object.entries(methodsByPokemon)) {
-//       if (key.startsWith(pokemon + ' (') && !sortedMethodsByPokemon[key]) {
-//         sortedMethodsByPokemon[key] = methods;
-//       }
-//     }
-//   }
-
-//   return {
-//     chain: sortedChain,
-//     methodsByPokemon: sortedMethodsByPokemon,
-//   };
-// }
-
 // Non-recursive function to build the complete evolution chain with methods
 function buildCompleteEvolutionChain(startMon: string): {
   chain: string[];
@@ -709,6 +583,7 @@ function buildCompleteEvolutionChain(startMon: string): {
 
   // Add all main evolution data (non-version-specific)
   for (const [key, evos] of Object.entries(evoMap)) {
+    console.log(`DEBUG: Adding evoMap entry for key="${key}", evos=${JSON.stringify(evos)}`);
     if (!key.endsWith('_faithful') && !key.endsWith('_updated')) {
       comprehensiveEvoMap[key] = evos;
     }
@@ -733,6 +608,8 @@ function buildCompleteEvolutionChain(startMon: string): {
       }
     }
   }
+
+  console.log(`DEBUG: Comprehensive evoMap keys: `, JSON.stringify(comprehensiveEvoMap));
 
   return buildCompleteEvolutionFamily(startMon, comprehensiveEvoMap);
 }
@@ -1859,20 +1736,99 @@ function buildCompleteEvolutionFamily(
 
     // Find forward evolutions (what this Pokemon evolves into)
     for (const [sourceKey, evos] of Object.entries(customEvoMap)) {
+      console.log('sourceKey:', sourceKey, 'evos:', evos);
       const standardSourceKey = standardizePokemonKey(sourceKey);
+      const standardSourceForm = parseFormName(sourceKey); // Placeholder if needed
       const normalizedSourceKey = normalizePokemonDisplayName(standardSourceKey);
+
+      console.log(
+        'Comparing sourceKey:',
+        sourceKey,
+        'currentNormalizedMon:',
+        currentNormalizedMon,
+        'standardSourceKey:',
+        standardSourceKey,
+        'normalizedSourceKey:',
+        normalizedSourceKey,
+        'standardSourceForm:',
+        standardSourceForm,
+      );
 
       if (normalizedSourceKey === currentNormalizedMon) {
         for (const evo of evos) {
+          console.log('evo target:', evo.target, 'evo:', evo);
           const targetKey = standardizePokemonKey(evo.target);
           const normalizedTargetKey = normalizePokemonDisplayName(targetKey);
+
+          // Apply form correction logic (same as in main parsing)
+          let correctedForm = evo.form;
+
+          // If form is NO_FORM, exclude the form property entirely
+          if (evo.form && evo.form.startsWith('NO_FORM')) {
+            correctedForm = undefined;
+          } else if (sourceKey || evo.form) {
+            switch (true) {
+              case (sourceKey && sourceKey.includes('Galarian')) ||
+                (evo.form &&
+                  (evo.form.toUpperCase().includes('GALARIAN') || evo.form.includes('Galarian'))):
+                correctedForm = 'galarian';
+                break;
+              case (sourceKey && sourceKey.includes('Hisuian')) ||
+                (evo.form &&
+                  (evo.form.toUpperCase().includes('HISUIAN') || evo.form.includes('Hisuian'))):
+                correctedForm = 'hisuian';
+                break;
+              case (sourceKey && sourceKey.includes('Alolan')) ||
+                (evo.form &&
+                  (evo.form.toUpperCase().includes('ALOLAN') || evo.form.includes('Alolan'))):
+                correctedForm = 'alolan';
+                break;
+              case (sourceKey &&
+                (sourceKey.includes('PaldeanFire') || sourceKey.includes('paldean_fire'))) ||
+                (evo.form &&
+                  (evo.form.toUpperCase().includes('PALDEAN_FIRE') ||
+                    evo.form.includes('PaldeanFire'))):
+                correctedForm = 'paldean_fire';
+                break;
+              case (sourceKey &&
+                (sourceKey.includes('PaldeanWater') || sourceKey.includes('paldean_water'))) ||
+                (evo.form &&
+                  (evo.form.toUpperCase().includes('PALDEAN_WATER') ||
+                    evo.form.includes('PaldeanWater'))):
+                correctedForm = 'paldean_water';
+                break;
+              case (sourceKey && sourceKey.includes('Paldean')) ||
+                (evo.form &&
+                  (evo.form.toUpperCase().includes('PALDEAN') || evo.form.includes('Paldean'))):
+                correctedForm = 'paldean';
+                break;
+              case (sourceKey &&
+                (sourceKey.toUpperCase().includes('PLAIN') ||
+                  sourceKey.toUpperCase().includes('NO_FORM'))) ||
+                (evo.form && evo.form.toUpperCase().includes('PLAIN')):
+              default:
+                // No form correction needed
+                break;
+            }
+          }
+
+          console.log(
+            `Evolution from ${currentNormalizedMon} to ${normalizedTargetKey} via ${evo.method}`,
+            currentNormalizedMon,
+          );
 
           // Store evolution method
           methodsByPokemon[currentNormalizedMon].push({
             method: evo.method,
             parameter: evo.parameter,
             target: normalizedTargetKey,
-            ...(evo.form ? { form: evo.form } : {}),
+            ...(correctedForm
+              ? {
+                  form: correctedForm,
+                  sourceForm: standardSourceForm.formName || undefined,
+                  targetForm: correctedForm,
+                }
+              : {}),
           });
 
           // Add the evolution target to family

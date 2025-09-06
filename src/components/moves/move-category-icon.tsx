@@ -12,7 +12,7 @@ interface MoveCategoryIconProps {
 
 const MoveCategoryIcon: React.FC<MoveCategoryIconProps> = ({
   category,
-  size = 16,
+  size = 18,
   className,
   showTooltip = true,
 }) => {
@@ -24,20 +24,22 @@ const MoveCategoryIcon: React.FC<MoveCategoryIconProps> = ({
     | 'status';
 
   const icon = (
-    <div
-      className={cn(
-        'inline-flex items-center justify-center rounded-full w-6 h-6 p-[6px] md:w-6 md:h-6 md:p-[5px]',
-        `bg-${normalizedCategory}`,
-        className,
-      )}
-    >
-      <Image
-        src={`/sprites/attack-${normalizedCategory}.svg`}
-        alt={`${category} category`}
-        width={size}
-        height={size}
-        className="object-contain"
-      />
+    <div className={cn('flex items-center justify-center')}>
+      <div
+        className={cn(
+          'inline-flex items-center justify-center px-2 w-auto rounded-sm mt-[1px]',
+          `bg-${normalizedCategory} border-black/20 border-1`,
+          className,
+        )}
+      >
+        <Image
+          src={`/sprites/attack-${normalizedCategory}.png`}
+          alt={`${category} category`}
+          width={size}
+          height={size}
+          className="object-contain aspect-square"
+        />
+      </div>
     </div>
   );
 

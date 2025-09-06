@@ -6,7 +6,6 @@ import PokemonCard from '../pokemon/pokemon-card';
 import { BaseData } from '@/types/types';
 import Link from 'next/link';
 import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
-import { Button } from '../ui/button';
 
 interface TeamSlotProps {
   pokemon: TeamPokemon | null;
@@ -16,7 +15,13 @@ interface TeamSlotProps {
   onMovesClick?: () => void;
 }
 
-export function TeamSlot({ pokemon, slotNumber, onSlotClick, onRemove, onMovesClick }: TeamSlotProps) {
+export function TeamSlot({
+  pokemon,
+  slotNumber,
+  onSlotClick,
+  onRemove,
+  onMovesClick,
+}: TeamSlotProps) {
   if (!pokemon) {
     return (
       <div

@@ -15,13 +15,16 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 40,
           "target": "Rapidash",
-          "form": "Plain Form"
+          "form": "Plain Form",
+          "targetForm": "Plain Form"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 40,
           "target": "Rapidash",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         }
       ]
     },
@@ -33,13 +36,16 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 40,
           "target": "Rapidash",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 40,
           "target": "Rapidash",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         }
       ]
     },
@@ -51,13 +57,16 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 40,
           "target": "Rapidash",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 40,
           "target": "Rapidash",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         }
       ]
     }
@@ -2440,16 +2449,16 @@
           "abilityType": "primary"
         },
         {
-          "id": "flash-fire",
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
+          "id": "pastel-veil",
+          "name": "Pastel Veil",
+          "description": "\tPrevents it from \tgetting poisoned.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "flame-body",
-          "name": "Flame Body",
-          "description": "\tContact may burn \tthe foe.",
+          "id": "anticipation",
+          "name": "Anticipation",
+          "description": "\tSenses the foe's \tdangerous moves.",
           "isHidden": true,
           "abilityType": "hidden"
         }
@@ -2463,21 +2472,43 @@
           "abilityType": "primary"
         },
         {
-          "id": "flash-fire",
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
+          "id": "pastel-veil",
+          "name": "Pastel Veil",
+          "description": "\tPrevents it from \tgetting poisoned.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "flame-body",
-          "name": "Flame Body",
-          "description": "\tContact may burn \tthe foe.",
+          "id": "anticipation",
+          "name": "Anticipation",
+          "description": "\tSenses the foe's \tdangerous moves.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "pastel-veil",
+          "name": "Pastel Veil",
+          "description": "\tPrevents it from \tgetting poisoned.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "anticipation",
+          "name": "Anticipation",
+          "description": "\tSenses the foe's \tdangerous moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 65,
         "attack": 100,
@@ -2625,6 +2656,10 @@
     "default": {
       "species": "Fire Horse",
       "description": "It just loves to gallop. The faster it goes, the longer the swaying flames of its mane will become."
+    },
+    "Galarian": {
+      "species": "Unique Horn",
+      "description": "A psychic attack unleashed from Rapidash's horn can punch a hole right through a thick metal sheet."
     }
   }
 }

@@ -19,7 +19,10 @@
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
-          "target": "Clodsire"
+          "target": "Clodsire",
+          "form": "paldean",
+          "sourceForm": "paldean",
+          "targetForm": "paldean"
         }
       ],
       "Quagsire": [],
@@ -36,7 +39,10 @@
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
-          "target": "Clodsire"
+          "target": "Clodsire",
+          "form": "paldean",
+          "sourceForm": "paldean",
+          "targetForm": "paldean"
         }
       ],
       "Quagsire": [],
@@ -53,7 +59,10 @@
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
-          "target": "Clodsire"
+          "target": "Clodsire",
+          "form": "paldean",
+          "sourceForm": "paldean",
+          "targetForm": "paldean"
         }
       ],
       "Quagsire": [],
@@ -2236,9 +2245,9 @@
       ],
       "abilities": [
         {
-          "id": "damp",
-          "name": "Damp",
-          "description": "\tPrevents self- \tdestructing moves.",
+          "id": "poison-point",
+          "name": "Poison Point",
+          "description": "\tContact may poison \tthe foe.",
           "isHidden": false,
           "abilityType": "primary"
         },
@@ -2259,9 +2268,9 @@
       ],
       "faithfulAbilities": [
         {
-          "id": "damp",
-          "name": "Damp",
-          "description": "\tPrevents self- \tdestructing moves.",
+          "id": "poison-point",
+          "name": "Poison Point",
+          "description": "\tContact may poison \tthe foe.",
           "isHidden": false,
           "abilityType": "primary"
         },
@@ -2280,7 +2289,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "poison-point",
+          "name": "Poison Point",
+          "description": "\tContact may poison \tthe foe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "water-absorb",
+          "name": "Water Absorb",
+          "description": "\tRestores HP if hit \tby Water moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "unaware",
+          "name": "Unaware",
+          "description": "\tIgnores the foe's \tstat changes.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 55,
         "attack": 45,
@@ -2467,6 +2498,10 @@
     "default": {
       "species": "Water Fish",
       "description": "A mucous membrane covers its body. Touching it barehanded will cause a shooting pain."
+    },
+    "Paldean": {
+      "species": "Poison Fish",
+      "description": "They line up in groups of three or four and help each other as they walk across the dangerous wetlands."
     }
   }
 }

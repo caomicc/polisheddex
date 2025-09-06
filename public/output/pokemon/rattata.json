@@ -19,7 +19,9 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
           "target": "Raticate",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ],
       "Raticate": []
@@ -36,7 +38,9 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
           "target": "Raticate",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ],
       "Raticate": []
@@ -53,7 +57,9 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
           "target": "Raticate",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ],
       "Raticate": []
@@ -2220,51 +2226,73 @@
       ],
       "abilities": [
         {
-          "id": "run-away",
-          "name": "Run Away",
-          "description": "\tSure getaway from \twild #mon.",
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
           "isHidden": false,
           "abilityType": "primary"
-        },
-        {
-          "id": "guts",
-          "name": "Guts",
-          "description": "\tBoosts Attack on \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "secondary"
         },
         {
           "id": "hustle",
           "name": "Hustle",
           "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
       "faithfulAbilities": [
         {
-          "id": "run-away",
-          "name": "Run Away",
-          "description": "\tSure getaway from \twild #mon.",
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
           "isHidden": false,
           "abilityType": "primary"
-        },
-        {
-          "id": "guts",
-          "name": "Guts",
-          "description": "\tBoosts Attack on \tstatus problems.",
-          "isHidden": false,
-          "abilityType": "secondary"
         },
         {
           "id": "hustle",
           "name": "Hustle",
           "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "hustle",
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 30,
         "attack": 56,
@@ -2295,7 +2323,7 @@
       "catchRate": 255,
       "baseExp": 57,
       "heldItems": [
-        "LANSAT_BERRY"
+        "PECHA_BERRY"
       ],
       "genderRatio": {
         "male": 50,
@@ -3252,6 +3280,10 @@
     "default": {
       "species": "Rat",
       "description": "This #mon's impressive vitality allows it to live anywhere. It also multiplies very quickly."
+    },
+    "Alolan": {
+      "species": "Mouse",
+      "description": "It has no interest in anything that's not fresh. If you take it shopping with you, it'll help pick ingredients."
     }
   }
 }

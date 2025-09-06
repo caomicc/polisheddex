@@ -62,6 +62,14 @@
         "x": 10,
         "y": 17
       }
+    },
+    {
+      "type": "phone_call",
+      "description": "Gina can give you Leaf Stone via phone call",
+      "details": "Gina calls and gives a Leaf Stone after being contacted.",
+      "npc": "Gina",
+      "reward": "Leaf Stone",
+      "conditions": "After registering phone number and receiving call"
     }
   ],
   "trainers": [
@@ -1087,7 +1095,7 @@
       },
       "pokemon": [
         {
-          "level": 24,
+          "level": "Badge Level +4",
           "species": "Togetic",
           "item": "Kings Rock",
           "gender": "male",
@@ -1124,7 +1132,7 @@
           }
         },
         {
-          "level": 24,
+          "level": "Badge Level +4",
           "species": "Chansey",
           "item": "Kings Rock",
           "gender": "male",
@@ -1161,7 +1169,7 @@
           }
         },
         {
-          "level": 25,
+          "level": "Badge Level +5",
           "species": "Sylveon",
           "item": "Kings Rock",
           "gender": "male",

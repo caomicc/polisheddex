@@ -65,7 +65,7 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
               | 'special'
               | 'status') || 'unknown'
           }
-          className={'w-4 h-4 p-[4px]'}
+          // className={'w-4 h-4 p-[4px]'}
         />
         {/* <Badge
           variant={info?.category?.toLowerCase() as MoveDescription['category']}

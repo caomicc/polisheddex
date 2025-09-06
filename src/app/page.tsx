@@ -156,34 +156,34 @@ const PokemonSkeleton = ({ showFaithful }: { showFaithful: boolean }) => {
   // Use an array of objects for better structure and clarity
   const stats = [
     {
+      label: 'HP',
+      fixedWidth: 53,
+      barColor: 'bg-red-400 dark:bg-red-400 border-transparent',
+    },
+    {
       label: 'Atk',
       fixedWidth: 55,
-      barColor: 'bg-red-400 dark:bg-red-400 border-red-200',
+      barColor: 'bg-orange-400 dark:bg-orange-400 border-transparent',
     },
     {
       label: 'Def',
       fixedWidth: 72,
-      barColor: 'bg-blue-400 dark:bg-blue-400 border-blue-200',
+      barColor: 'bg-yellow-400 dark:bg-yellow-400 border-transparent',
     },
     {
       label: 'Sp. Atk',
       fixedWidth: 54,
-      barColor: 'bg-emerald-400 dark:bg-emerald-400 border-emerald-200',
+      barColor: 'bg-blue-400 dark:bg-blue-400 border-transparent',
     },
     {
       label: 'Sp. Def',
       fixedWidth: 68,
-      barColor: 'bg-yellow-400 dark:bg-yellow-400 border-yellow-200',
+      barColor: 'bg-green-400 dark:bg-green-400 border-transparent',
     },
     {
       label: 'Spe',
       fixedWidth: 87,
-      barColor: 'bg-purple-400 dark:bg-purple-400 border-purple-200',
-    },
-    {
-      label: 'HP',
-      fixedWidth: 53,
-      barColor: 'bg-pink-400 dark:bg-pink-400 border-pink-200',
+      barColor: 'bg-purple-400 dark:bg-purple-400 border-transparent',
     },
   ];
 
@@ -228,7 +228,7 @@ const PokemonSkeleton = ({ showFaithful }: { showFaithful: boolean }) => {
               style={{
                 maxWidth: stat.fixedWidth + '%',
               }}
-              className={`flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] lg:p-2 items-center justify-between space-x-2 optional:bg-neutral-100 dark:bg-black w-full h-3 lg:h-[16px] ${stat.barColor}`}
+              className={`flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] lg:p-2 items-center justify-between space-x-2 optional:bg-neutral-100 dark:bg-black w-full h-2 lg:h-3 ${stat.barColor}`}
             ></motion.div>
           </div>
         ))}
@@ -334,7 +334,7 @@ const HelpSkeleton = () => {
         variants={variants}
         className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2  items-start space-x-2 bg-white dark:bg-black"
       >
-        <img
+        <Image
           src="/sprites/help-avatar.png"
           alt="avatar"
           height="100"
@@ -351,7 +351,7 @@ const HelpSkeleton = () => {
       >
         <p className="text-xs text-neutral-500">Check the FAQ first!</p>
         {/* <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 shrink-0" /> */}
-        <img
+        <Image
           src="/sprites/helper-avatar.png"
           alt="avatar"
           height="100"
@@ -408,32 +408,32 @@ const ItemsSkeleton = () => {
       <div className="grid grid-cols-3 gap-2 flex-1">
         {[
           {
-            bg: 'bg-[#ee7752]',
+            bg: 'bg-red-300',
             src: '/sprites/items/poke_ball.png',
             alt: 'Poké Ball',
           },
           {
-            bg: 'bg-blue-400',
+            bg: 'bg-blue-200',
             src: '/sprites/items/great_ball.png',
             alt: 'Great Ball',
           },
           {
-            bg: 'bg-purple-500',
+            bg: 'bg-purple-200',
             src: '/sprites/items/master_ball.png',
             alt: 'Master Ball',
           },
           {
-            bg: 'bg-orange-400',
+            bg: 'bg-orange-200',
             src: '/sprites/items/potion.png',
             alt: 'Potion',
           },
           {
-            bg: 'bg-teal-400',
+            bg: 'bg-green-200',
             src: '/sprites/items/repel.png',
             alt: 'Repel',
           },
           {
-            bg: 'bg-yellow-400',
+            bg: 'bg-yellow-200',
             src: '/sprites/items/thunderstone.png',
             alt: 'Thunderstone',
           },

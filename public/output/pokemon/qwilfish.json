@@ -13,7 +13,10 @@
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 33,
-          "target": "Overqwil"
+          "target": "Overqwil",
+          "form": "hisuian",
+          "sourceForm": "hisuian",
+          "targetForm": "hisuian"
         }
       ],
       "Overqwil": []
@@ -24,7 +27,10 @@
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 33,
-          "target": "Overqwil"
+          "target": "Overqwil",
+          "form": "hisuian",
+          "sourceForm": "hisuian",
+          "targetForm": "hisuian"
         }
       ],
       "Overqwil": []
@@ -35,7 +41,10 @@
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 33,
-          "target": "Overqwil"
+          "target": "Overqwil",
+          "form": "hisuian",
+          "sourceForm": "hisuian",
+          "targetForm": "hisuian"
         }
       ],
       "Overqwil": []
@@ -2667,7 +2676,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "poison-point",
+          "name": "Poison Point",
+          "description": "\tContact may poison \tthe foe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 65,
         "attack": 95,
@@ -2758,6 +2789,10 @@
     "default": {
       "species": "Balloon",
       "description": "When faced with a larger opponent, it swallows as much water as it can to match the opponent's size."
+    },
+    "Hisuian": {
+      "species": "Balloon",
+      "description": "Fishers detest it because it sprays poison from its spines, getting it everywhere."
     }
   }
 }

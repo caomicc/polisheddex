@@ -227,7 +227,7 @@ export default function Navigation() {
                 <NavigationMenuTrigger
                   className={cn(
                     hasPokemonTheme && 'pokemon-themed-link',
-                    (isActive('/locations') || isActive('/map')) && 'active-link',
+                    (isActive('/team-builder') || isActive('/map')) && 'active-link',
                   )}
                 >
                   Tools

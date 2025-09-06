@@ -1,11 +1,4 @@
-import { LocationTrainer } from '@/types/types';
-
-export interface GroupedTrainer {
-  baseTrainer: LocationTrainer;
-  rematches: LocationTrainer[];
-  isGrouped: boolean;
-  groupType?: 'rematch' | 'starter_variation' | 'double_battle';
-}
+import type { GroupedTrainer, LocationTrainer } from '../types/types.ts';
 
 /**
  * Detect if a group of trainers represents starter variations
@@ -13,31 +6,36 @@ export interface GroupedTrainer {
  */
 function isStarterVariationGroup(group: LocationTrainer[]): boolean {
   if (group.length < 2) return false;
-  
+
   const firstTrainer = group[0];
-  
+
   // Check if this is a known starter-dependent trainer
   const starterTrainers = ['lyra', 'rival', '<rival>'];
-  const isStarterTrainer = starterTrainers.some(name => 
-    firstTrainer.name.toLowerCase().includes(name.toLowerCase()) ||
-    firstTrainer.trainerClass.toLowerCase().includes('lyra') ||
-    firstTrainer.trainerClass.toLowerCase().includes('rival')
+  const isStarterTrainer = starterTrainers.some(
+    (name) =>
+      firstTrainer.name.toLowerCase().includes(name.toLowerCase()) ||
+      firstTrainer.trainerClass.toLowerCase().includes('lyra') ||
+      firstTrainer.trainerClass.toLowerCase().includes('rival'),
   );
-  
+
   if (!isStarterTrainer) return false;
-  
+
   // Check if all trainers have similar levels (starter variations should be at similar levels)
   // Unlike rematches which typically have increasing levels
-  const levels = group.flatMap(trainer => 
-    trainer.pokemon?.map(p => p.level || 0) || []
+  const levels = group.flatMap((trainer) => 
+    trainer.pokemon?.map((p) => {
+      // Convert badge levels to numbers for comparison, default to 25
+      const level = p.level || 0;
+      return typeof level === 'string' ? 25 : level;
+    }) || []
   );
-  
+
   if (levels.length === 0) return false;
-  
+
   const minLevel = Math.min(...levels);
   const maxLevel = Math.max(...levels);
   const levelRange = maxLevel - minLevel;
-  
+
   // If level range is small (≤ 10), likely starter variations
   // If level range is large (> 15), likely rematches
   return levelRange <= 10;
@@ -46,14 +44,16 @@ function isStarterVariationGroup(group: LocationTrainer[]): boolean {
 /**
  * Analyze a trainer group to determine the most likely grouping type
  */
-function determineGroupType(group: LocationTrainer[]): 'rematch' | 'starter_variation' | 'double_battle' {
+function determineGroupType(
+  group: LocationTrainer[],
+): 'rematch' | 'starter_variation' | 'double_battle' {
   const firstTrainer = group[0];
-  
+
   // Check for starter variations first
   if (isStarterVariationGroup(group)) {
     return 'starter_variation';
   }
-  
+
   // Check for trainer pairs/twins (double battles)
   if (group.length === 2) {
     const areTrainerPairs = group.every(
@@ -73,12 +73,12 @@ function determineGroupType(group: LocationTrainer[]): 'rematch' | 'starter_vari
           trainer.coordinates.y === firstTrainer.coordinates.y
         ),
     );
-    
+
     if (areTrainerPairs) {
       return 'double_battle';
     }
   }
-  
+
   // Default to rematch for other grouped trainers
   return 'rematch';
 }
@@ -202,7 +202,7 @@ export function groupRematchTrainers(trainers: LocationTrainer[]): GroupedTraine
         if (hasSequentialIds && allHaveNumbers && group.length > 1) {
           // Determine the type of grouping for this trainer set
           const groupType = determineGroupType(group);
-          
+
           if (groupType === 'starter_variation') {
             // Group as starter variations - sort by ID
             const sortedVariations = group.sort((a, b) => {

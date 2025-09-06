@@ -19,7 +19,9 @@
           "method": "EVOLVE_ITEM",
           "parameter": "LEAF_STONE",
           "target": "Electrode",
-          "form": "Hisuian Form"
+          "form": "hisuian",
+          "sourceForm": "hisuian",
+          "targetForm": "hisuian"
         }
       ],
       "Electrode": []
@@ -36,7 +38,9 @@
           "method": "EVOLVE_ITEM",
           "parameter": "LEAF_STONE",
           "target": "Electrode",
-          "form": "Hisuian Form"
+          "form": "hisuian",
+          "sourceForm": "hisuian",
+          "targetForm": "hisuian"
         }
       ],
       "Electrode": []
@@ -53,7 +57,9 @@
           "method": "EVOLVE_ITEM",
           "parameter": "LEAF_STONE",
           "target": "Electrode",
-          "form": "Hisuian Form"
+          "form": "hisuian",
+          "sourceForm": "hisuian",
+          "targetForm": "hisuian"
         }
       ],
       "Electrode": []
@@ -2361,7 +2367,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "soundproof",
+          "name": "Soundproof",
+          "description": "\tGives immunity to \tsound-based moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "aftermath",
+          "name": "Aftermath",
+          "description": "\tDamages the foe on \tfainting.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 40,
         "attack": 30,
@@ -2467,6 +2495,10 @@
     "default": {
       "species": "Ball",
       "description": "During the study of this #mon, it was discovered that its components are not found in nature."
+    },
+    "Hisuian": {
+      "species": "Sphere",
+      "description": "When excited, it discharges the electric current stored in its belly, then lets out a laugh."
     }
   }
 }

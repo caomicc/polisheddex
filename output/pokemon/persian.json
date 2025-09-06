@@ -16,19 +16,24 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 28,
           "target": "Persian",
-          "form": "Plain Form"
+          "form": "Plain Form",
+          "targetForm": "Plain Form"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 28,
           "target": "Persian",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 28,
           "target": "Perrserker",
-          "form": "Plain Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         }
       ],
       "Perrserker": []
@@ -41,19 +46,24 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 28,
           "target": "Persian",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 28,
           "target": "Persian",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 28,
           "target": "Perrserker",
-          "form": "Plain Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         }
       ],
       "Perrserker": []
@@ -66,19 +76,24 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 28,
           "target": "Persian",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 28,
           "target": "Persian",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 28,
           "target": "Perrserker",
-          "form": "Plain Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         }
       ],
       "Perrserker": []
@@ -2814,9 +2829,9 @@
       ],
       "abilities": [
         {
-          "id": "limber",
-          "name": "Limber",
-          "description": "\tProtects from \tparalysis.",
+          "id": "fur-coat",
+          "name": "Fur Coat",
+          "description": "\tHalves damage from \tphysical moves.",
           "isHidden": false,
           "abilityType": "primary"
         },
@@ -2828,18 +2843,18 @@
           "abilityType": "secondary"
         },
         {
-          "id": "unnerve",
-          "name": "Unnerve",
-          "description": "\tPrevents foes from \teating Berries.",
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
       "faithfulAbilities": [
         {
-          "id": "limber",
-          "name": "Limber",
-          "description": "\tProtects from \tparalysis.",
+          "id": "fur-coat",
+          "name": "Fur Coat",
+          "description": "\tHalves damage from \tphysical moves.",
           "isHidden": false,
           "abilityType": "primary"
         },
@@ -2851,14 +2866,36 @@
           "abilityType": "secondary"
         },
         {
-          "id": "unnerve",
-          "name": "Unnerve",
-          "description": "\tPrevents foes from \teating Berries.",
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "fur-coat",
+          "name": "Fur Coat",
+          "description": "\tHalves damage from \tphysical moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 65,
         "attack": 60,
@@ -2950,6 +2987,10 @@
     "default": {
       "species": "Classy Cat",
       "description": "Behind its lithe, elegant appearance lies a barbaric side. It will tear apart its prey on a mere whim."
+    },
+    "Alolan": {
+      "species": "Classy Cat",
+      "description": "It has the classiest coat. The rippling of its fur in the heat of battle has a beauty all its own."
     }
   }
 }

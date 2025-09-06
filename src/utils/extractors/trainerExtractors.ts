@@ -219,10 +219,13 @@ function loadPokemonLevelMoves(): Record<string, any> {
  */
 function getMostRecentMoves(
   pokemonName: string,
-  level: number,
+  level: number | string,
   levelMovesData: Record<string, any>,
 ): string[] {
   console.log(`🔍 Getting most recent moves for ${pokemonName} at level ${level}`);
+
+  // For badge-based levels, use a default level of 25 for move calculation
+  const numericLevel = typeof level === 'string' ? 25 : level;
 
   // Normalize Mr_Mime to Mr-Mime for lookup
   let species = pokemonName;
@@ -256,7 +259,7 @@ function getMostRecentMoves(
   const moves = levelMovesData[species].moves;
 
   // Filter moves learned at or before the given level
-  const availableMoves = moves.filter((move: any) => move.level <= level);
+  const availableMoves = moves.filter((move: any) => move.level <= numericLevel);
 
   // Sort by level (descending) to get most recent first
   availableMoves.sort((a: any, b: any) => b.level - a.level);
@@ -504,7 +507,7 @@ function parsePokemonLine(
     return null;
   }
 
-  let level: number;
+  let level: number | string;
   let species: string;
   let nickname: string | undefined;
   let item: string | undefined;
@@ -518,15 +521,17 @@ function parsePokemonLine(
     // Handle expressions like "LEVEL_FROM_BADGES + 4"
     const match = levelStr.match(/LEVEL_FROM_BADGES\s*([\+\-]\s*\d+)?/);
     if (match && match[1]) {
-      level = 20 + parseInt(match[1].replace(/\s+/g, ''), 10); // Approximate badge level + modifier
+      const modifier = match[1].replace(/\s+/g, '');
+      level = `Badge Level ${modifier}`; // Use descriptive string like "Badge Level + 4"
     } else {
-      level = 20; // Default badge level approximation
+      level = 'Badge Level'; // Default badge level description
     }
   } else {
-    level = parseInt(levelStr, 10);
-    if (isNaN(level)) {
+    const parsedLevel = parseInt(levelStr, 10);
+    if (isNaN(parsedLevel)) {
       return null;
     }
+    level = parsedLevel;
   }
 
   // Check if next part is a nickname (starts with quote)

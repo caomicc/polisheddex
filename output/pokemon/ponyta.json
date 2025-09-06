@@ -14,13 +14,16 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 40,
           "target": "Rapidash",
-          "form": "Plain Form"
+          "form": "Plain Form",
+          "targetForm": "Plain Form"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 40,
           "target": "Rapidash",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         }
       ],
       "Rapidash": []
@@ -32,13 +35,16 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 40,
           "target": "Rapidash",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 40,
           "target": "Rapidash",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         }
       ],
       "Rapidash": []
@@ -50,13 +56,16 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 40,
           "target": "Rapidash",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 40,
           "target": "Rapidash",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         }
       ],
       "Rapidash": []
@@ -2114,16 +2123,16 @@
           "abilityType": "primary"
         },
         {
-          "id": "flash-fire",
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
+          "id": "pastel-veil",
+          "name": "Pastel Veil",
+          "description": "\tPrevents it from \tgetting poisoned.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "flame-body",
-          "name": "Flame Body",
-          "description": "\tContact may burn \tthe foe.",
+          "id": "anticipation",
+          "name": "Anticipation",
+          "description": "\tSenses the foe's \tdangerous moves.",
           "isHidden": true,
           "abilityType": "hidden"
         }
@@ -2137,21 +2146,43 @@
           "abilityType": "primary"
         },
         {
-          "id": "flash-fire",
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
+          "id": "pastel-veil",
+          "name": "Pastel Veil",
+          "description": "\tPrevents it from \tgetting poisoned.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "flame-body",
-          "name": "Flame Body",
-          "description": "\tContact may burn \tthe foe.",
+          "id": "anticipation",
+          "name": "Anticipation",
+          "description": "\tSenses the foe's \tdangerous moves.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "pastel-veil",
+          "name": "Pastel Veil",
+          "description": "\tPrevents it from \tgetting poisoned.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "anticipation",
+          "name": "Anticipation",
+          "description": "\tSenses the foe's \tdangerous moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 50,
         "attack": 85,
@@ -2299,6 +2330,10 @@
     "default": {
       "species": "Fire Horse",
       "description": "Training by jumping over grass that grows longer every day has made it a worldclass jumper."
+    },
+    "Galarian": {
+      "species": "Unique Horn",
+      "description": "It will look into your eyes and read the contents of your heart. If it finds evil there, it hides away."
     }
   }
 }

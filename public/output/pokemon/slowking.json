@@ -16,25 +16,31 @@
           "method": "EVOLVE_TRADE",
           "parameter": "KINGS_ROCK",
           "target": "Slowking",
-          "form": "Plain Form"
+          "form": "Plain Form",
+          "targetForm": "Plain Form"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 37,
           "target": "Slowbro",
-          "form": "Plain Form"
+          "form": "Plain Form",
+          "targetForm": "Plain Form"
         },
         {
           "method": "EVOLVE_TRADE",
           "parameter": "KINGS_ROCK",
           "target": "Slowking",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 37,
           "target": "Slowbro",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         }
       ],
       "Slowbro": []
@@ -47,25 +53,31 @@
           "method": "EVOLVE_TRADE",
           "parameter": "KINGS_ROCK",
           "target": "Slowking",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 37,
           "target": "Slowbro",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_TRADE",
           "parameter": "KINGS_ROCK",
           "target": "Slowking",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 37,
           "target": "Slowbro",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         }
       ],
       "Slowbro": []
@@ -78,25 +90,31 @@
           "method": "EVOLVE_TRADE",
           "parameter": "KINGS_ROCK",
           "target": "Slowking",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 37,
           "target": "Slowbro",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_TRADE",
           "parameter": "KINGS_ROCK",
           "target": "Slowking",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 37,
           "target": "Slowbro",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         }
       ],
       "Slowbro": []
@@ -3176,9 +3194,9 @@
       ],
       "abilities": [
         {
-          "id": "oblivious",
-          "name": "Oblivious",
-          "description": "\tPrevents it from \tbeing infatuated.",
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
           "isHidden": false,
           "abilityType": "primary"
         },
@@ -3199,9 +3217,9 @@
       ],
       "faithfulAbilities": [
         {
-          "id": "oblivious",
-          "name": "Oblivious",
-          "description": "\tPrevents it from \tbeing infatuated.",
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
           "isHidden": false,
           "abilityType": "primary"
         },
@@ -3220,7 +3238,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "own-tempo",
+          "name": "Own Tempo",
+          "description": "\tPrevents it from \tbecoming confused.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "regenerator",
+          "name": "Regenerator",
+          "description": "\tRestores HP when \twithdrawn.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 95,
         "attack": 65,
@@ -3280,6 +3320,10 @@
     "default": {
       "species": "Royal",
       "description": "Every time it yawns, Shellder injects more poison into it. The poison makes it more intelligent."
+    },
+    "Galarian": {
+      "species": "Hexpert",
+      "description": "A combination of toxins and the shock of evolving has caused Shellder to take control of Slowking."
     }
   }
 }

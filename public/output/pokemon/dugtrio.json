@@ -15,13 +15,16 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 26,
           "target": "Dugtrio",
-          "form": "Plain Form"
+          "form": "Plain Form",
+          "targetForm": "Plain Form"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 26,
           "target": "Dugtrio",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ]
     },
@@ -33,13 +36,16 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 26,
           "target": "Dugtrio",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 26,
           "target": "Dugtrio",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ]
     },
@@ -51,13 +57,16 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 26,
           "target": "Dugtrio",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 26,
           "target": "Dugtrio",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ]
     }
@@ -2478,9 +2487,9 @@
           "abilityType": "primary"
         },
         {
-          "id": "arena-trap",
-          "name": "Arena Trap",
-          "description": "\tPrevents the foe \tfrom fleeing.",
+          "id": "tangling-hair",
+          "name": "Tangling Hair",
+          "description": "\tContact may lower \tthe foe's Speed.",
           "isHidden": false,
           "abilityType": "secondary"
         },
@@ -2501,9 +2510,9 @@
           "abilityType": "primary"
         },
         {
-          "id": "arena-trap",
-          "name": "Arena Trap",
-          "description": "\tPrevents the foe \tfrom fleeing.",
+          "id": "tangling-hair",
+          "name": "Tangling Hair",
+          "description": "\tContact may lower \tthe foe's Speed.",
           "isHidden": false,
           "abilityType": "secondary"
         },
@@ -2515,7 +2524,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "tangling-hair",
+          "name": "Tangling Hair",
+          "description": "\tContact may lower \tthe foe's Speed.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sand-force",
+          "name": "Sand Force",
+          "description": "\tBoosts some moves \tin a sandstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 35,
         "attack": 100,
@@ -2639,6 +2670,10 @@
     "default": {
       "species": "Mole",
       "description": "Its three heads bob separately up and down to loosen the soil nearby, making it easier for it to burrow."
+    },
+    "Alolan": {
+      "species": "Mole",
+      "description": "Its metallic whiskers are heavy, so it's not very fast, but it has the power to dig through bedrock."
     }
   }
 }

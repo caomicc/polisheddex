@@ -98,6 +98,8 @@ export interface EvolutionMethod {
   parameter: string | number | null;
   target: string;
   form?: string;
+  targetForm?: string;
+  sourceForm?: string;
 }
 
 export interface PokemonDataV2 {
@@ -370,7 +372,13 @@ export interface NPCTrade {
 }
 
 export interface LocationEvent {
-  type: 'rival_battle' | 'trainer_battle' | 'special' | 'coordinate_trigger' | 'item' | 'phone_call';
+  type:
+    | 'rival_battle'
+    | 'trainer_battle'
+    | 'special'
+    | 'coordinate_trigger'
+    | 'item'
+    | 'phone_call';
   description: string;
   details?: string;
   eventFlag?: string;
@@ -471,7 +479,7 @@ export interface TrainerPokemonVariant {
 
 // Main trainer Pokemon interface
 export interface TrainerPokemon {
-  level: number;
+  level: number | string;
   species: string;
   nickname?: string;
   item?: string;
@@ -489,7 +497,7 @@ export interface TrainerPokemon {
 }
 
 // Location trainer interface
-export interface LocationTrainer {
+export type LocationTrainer = {
   id: string;
   name: string;
   trainerClass: string;
@@ -513,7 +521,7 @@ export interface LocationTrainer {
       rematchable?: boolean;
     };
   };
-}
+};
 
 // TM/HM location structure
 export interface TMHMLocation {
@@ -604,4 +612,10 @@ export function isRegularItem(item: AnyItemData): item is ItemData {
 
 export function isTMHMItem(item: AnyItemData): item is TMHMData {
   return 'tmNumber' in item && item.tmNumber !== undefined;
+}
+export interface GroupedTrainer {
+  baseTrainer: LocationTrainer;
+  rematches: LocationTrainer[];
+  isGrouped: boolean;
+  groupType?: 'rematch' | 'starter_variation' | 'double_battle';
 }

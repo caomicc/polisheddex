@@ -8,8 +8,13 @@ import { normalizeLocationKey } from './src/utils/locationUtils.ts';
 import { restructureLocationsToIndividualFiles } from './restructure_locations.ts';
 import { extractGymLeaders } from './src/utils/extractors/gymExtractors.ts';
 import { extractTMHMLocations } from './src/utils/extractors/tmHmExtractors.ts';
-import { extractLocationEvents, extractNPCTrades, convertPhoneEventsToLocationEvents } from './src/utils/extractors/eventExtractors.ts';
+import {
+  extractLocationEvents,
+  extractNPCTrades,
+  convertPhoneEventsToLocationEvents,
+} from './src/utils/extractors/eventExtractors.ts';
 import { extractLocationItems } from './src/utils/extractors/itemExtractors.ts';
+import { normalizeLocationDisplayName } from './src/utils/extractors/locationExtractors.ts';
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -218,10 +223,12 @@ export function extractAllLocations(): Record<string, LocationData> {
 
         // Find the target location's display name
         const targetLocationKey = normalizeLocationKey(targetMapConstant);
-        const targetDisplayName = targetMapConstant
-          .split('_')
-          .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-          .join(' ');
+        // const targetDisplayName = targetMapConstant
+        //   .split('_')
+        //   .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        //   .join(' ');
+
+        const targetDisplayName = formatDisplayName(targetLocationKey);
 
         currentConnections.push({
           direction,
@@ -282,10 +289,11 @@ export function extractAllLocations(): Record<string, LocationData> {
           // Only add if this connection doesn't already exist
           const exists = warpConnections.some((conn) => conn.targetLocation === targetLocationKey);
           if (!exists) {
-            const targetDisplayName = targetMapConstant
-              .split('_')
-              .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-              .join(' ');
+            // const targetDisplayName = targetMapConstant
+            //   .split('_')
+            //   .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+            //   .join(' ');
+            const targetDisplayName = formatDisplayName(targetLocationKey);
 
             warpConnections.push({
               direction: 'warp',
@@ -350,7 +358,10 @@ export function extractAllLocations(): Record<string, LocationData> {
       locationData.displayName = displayNameMap[nameConstant];
     } else {
       // Fallback: convert constant name to readable format
-      locationData.displayName = formatDisplayName(normalizeLocationKey(locationKey));
+      // locationData.displayName = formatDisplayName(normalizeLocationKey(locationKey));
+      locationData.displayName = normalizeLocationDisplayName(
+        locationData.displayName.toLowerCase().replace(/\s+/g, '_'),
+      );
     }
   }
 
@@ -359,7 +370,9 @@ export function extractAllLocations(): Record<string, LocationData> {
     for (const connection of location.connections) {
       const targetLocation = locations[connection.targetLocation];
       if (targetLocation && targetLocation.displayName) {
-        connection.targetLocationDisplay = targetLocation.displayName;
+        connection.targetLocationDisplay = normalizeLocationDisplayName(
+          targetLocation.displayName.toLowerCase().replace(/\s+/g, '_'),
+        );
       }
     }
   }

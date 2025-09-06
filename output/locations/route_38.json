@@ -26,6 +26,24 @@
       "offset": 0
     }
   ],
+  "events": [
+    {
+      "type": "phone_call",
+      "description": "Huey can give you Protein via phone call",
+      "details": "Huey calls and gives a Protein after being contacted.",
+      "npc": "Huey",
+      "reward": "Protein",
+      "conditions": "After registering phone number and receiving call"
+    },
+    {
+      "type": "phone_call",
+      "description": "Dana can give you Thunder Stone via phone call",
+      "details": "Dana calls and gives a Thunder Stone after being contacted.",
+      "npc": "Dana",
+      "reward": "Thunder Stone",
+      "conditions": "After registering phone number and receiving call"
+    }
+  ],
   "trainers": [
     {
       "id": "bird_keeper_toby",

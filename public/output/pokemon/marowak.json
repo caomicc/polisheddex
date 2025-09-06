@@ -15,13 +15,15 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 28,
           "target": "Marowak",
-          "form": "Plain Form"
+          "form": "Plain Form",
+          "targetForm": "Plain Form"
         },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ODD_SOUVENIR",
           "target": "Marowak",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "targetForm": "alolan"
         }
       ]
     },
@@ -33,13 +35,15 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 28,
           "target": "Marowak",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ODD_SOUVENIR",
           "target": "Marowak",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "targetForm": "alolan"
         }
       ]
     },
@@ -51,13 +55,15 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 28,
           "target": "Marowak",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ODD_SOUVENIR",
           "target": "Marowak",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "targetForm": "alolan"
         }
       ]
     }
@@ -2768,9 +2774,9 @@
       ],
       "abilities": [
         {
-          "id": "rock-head",
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
+          "id": "cursed-body",
+          "name": "Cursed Body",
+          "description": "\tMay disable a move \tused on it.",
           "isHidden": false,
           "abilityType": "primary"
         },
@@ -2782,18 +2788,18 @@
           "abilityType": "secondary"
         },
         {
-          "id": "battle-armor",
-          "name": "Battle Armor",
-          "description": "",
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
       "faithfulAbilities": [
         {
-          "id": "rock-head",
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
+          "id": "cursed-body",
+          "name": "Cursed Body",
+          "description": "\tMay disable a move \tused on it.",
           "isHidden": false,
           "abilityType": "primary"
         },
@@ -2805,14 +2811,36 @@
           "abilityType": "secondary"
         },
         {
-          "id": "battle-armor",
-          "name": "Battle Armor",
-          "description": "",
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "cursed-body",
+          "name": "Cursed Body",
+          "description": "\tMay disable a move \tused on it.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "lightning-rod",
+          "name": "Lightning Rod",
+          "description": "\tElectric moves \tboost Sp.Atk.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 60,
         "attack": 80,
@@ -3176,6 +3204,10 @@
     "default": {
       "species": "Bone Keeper",
       "description": "Somewhere in the world is a cemetery just for Marowak. It gets its bones from those graves."
+    },
+    "Alolan": {
+      "species": "Bone Keeper",
+      "description": "It sets the bone it holds on fire and dances through through the night as a way to mourn its fallen allies."
     }
   }
 }

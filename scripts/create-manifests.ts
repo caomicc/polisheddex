@@ -341,7 +341,7 @@ async function createPokemonManifest(): Promise<void> {
           }
 
           // Determine forms - check if this pokemon has form variations
-          const forms: string[] = [];
+          const formsSet = new Set<string>();
 
           console.log(
             `Checking forms for ${pokemonData.name} (${pokemonId})...`,
@@ -350,21 +350,55 @@ async function createPokemonManifest(): Promise<void> {
 
           // Check for forms in evolution data or other indicators
           if (pokemonData.forms) {
-            forms.push(...Object.keys(pokemonData.forms));
+            // Special cases: consolidate purely cosmetic sprite variants to single form
+            if (
+              pokemonId === 'arbok' ||
+              pokemonId === 'magikarp' ||
+              pokemonId === 'unown' ||
+              pokemonId === 'dudunsparce'
+            ) {
+              // These Pokemon's forms are just cosmetic sprite variants, use first form as primary
+              const firstForm = Object.keys(pokemonData.forms)[0];
+              formsSet.add(firstForm);
+            } else {
+              Object.keys(pokemonData.forms).forEach((form) => formsSet.add(form));
+            }
           }
 
-          // Check sprite manifest for form variations
+          // Check sprite manifest for form variations (but prioritize Pokemon data forms)
           const baseNamePattern = new RegExp(`^${pokemonId}(_.*)?$`);
           Object.keys(spriteManifest).forEach((key) => {
             if (baseNamePattern.test(key) && key !== pokemonId) {
-              const formName = key.replace(`${pokemonId}_`, '');
-              if (!forms.includes(formName)) {
-                forms.push(formName);
+              let formName = key.replace(`${pokemonId}_`, '');
+
+              // Exclude known separate evolutions that might be mistaken for forms
+              const separateEvolutions = ['z']; // porygon_z should be treated as separate Pokemon, not a form
+              if (pokemonId === 'porygon' && separateEvolutions.includes(formName)) {
+                return; // Skip this, it's a separate evolution
+              }
+
+              // Exclude cosmetic sprite variants that should be consolidated
+              if (
+                pokemonId === 'arbok' ||
+                pokemonId === 'magikarp' ||
+                pokemonId === 'unown' ||
+                pokemonId === 'dudunsparce'
+              ) {
+                return; // Skip all sprite variants for these Pokemon, they're just cosmetic
+              }
+
+              // Normalize form name to match Pokemon data conventions (underscores to hyphens)
+              formName = formName.replace(/_/g, '-');
+
+              // Only add if we don't already have this form from Pokemon data
+              if (!formsSet.has(formName)) {
+                formsSet.add(formName);
               }
             }
           });
 
-          // If no forms found, add 'normal' as default
+          // Convert set to array and ensure at least one form exists
+          const forms = Array.from(formsSet);
           if (forms.length === 0) {
             forms.push('plain');
           }

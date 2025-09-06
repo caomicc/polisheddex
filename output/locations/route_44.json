@@ -26,6 +26,16 @@
       "offset": 0
     }
   ],
+  "events": [
+    {
+      "type": "phone_call",
+      "description": "Vance can give you Carbos via phone call",
+      "details": "Vance calls and gives Carbos after being contacted.",
+      "npc": "Vance",
+      "reward": "Carbos",
+      "conditions": "After registering phone number and receiving call"
+    }
+  ],
   "trainers": [
     {
       "id": "veteranm_barkhorn",
@@ -38,7 +48,7 @@
       },
       "pokemon": [
         {
-          "level": 25,
+          "level": "Badge Level +5",
           "species": "Pupitar",
           "item": "Rocky Helmet",
           "gender": "male",
@@ -80,7 +90,7 @@
           }
         },
         {
-          "level": 26,
+          "level": "Badge Level +6",
           "species": "Forretress",
           "item": "Rocky Helmet",
           "gender": "male",
@@ -119,7 +129,7 @@
           }
         },
         {
-          "level": 26,
+          "level": "Badge Level +6",
           "species": "Skarmory",
           "item": "Rocky Helmet",
           "gender": "male",
@@ -156,7 +166,7 @@
           }
         },
         {
-          "level": 27,
+          "level": "Badge Level +7",
           "species": "Umbreon",
           "item": "Rocky Helmet",
           "gender": "male",

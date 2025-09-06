@@ -16,13 +16,15 @@
           "method": "EVOLVE_ITEM",
           "parameter": "THUNDERSTONE",
           "target": "Raichu",
-          "form": "Plain Form"
+          "form": "Plain Form",
+          "targetForm": "Plain Form"
         },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ODD_SOUVENIR",
           "target": "Raichu",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "targetForm": "alolan"
         }
       ],
       "Pichu": [
@@ -41,13 +43,15 @@
           "method": "EVOLVE_ITEM",
           "parameter": "THUNDERSTONE",
           "target": "Raichu",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ODD_SOUVENIR",
           "target": "Raichu",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "targetForm": "alolan"
         }
       ],
       "Pichu": [
@@ -66,13 +70,15 @@
           "method": "EVOLVE_ITEM",
           "parameter": "THUNDERSTONE",
           "target": "Raichu",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ODD_SOUVENIR",
           "target": "Raichu",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "targetForm": "alolan"
         }
       ],
       "Pichu": [
@@ -1991,9 +1997,9 @@
           "abilityType": "secondary"
         },
         {
-          "id": "lightning-rod",
-          "name": "Lightning Rod",
-          "description": "\tElectric moves \tboost Sp.Atk.",
+          "id": "motor-drive",
+          "name": "Motor Drive",
+          "description": "\tElectric moves \tboost Speed.",
           "isHidden": true,
           "abilityType": "hidden"
         }
@@ -2014,14 +2020,36 @@
           "abilityType": "secondary"
         },
         {
-          "id": "lightning-rod",
-          "name": "Lightning Rod",
-          "description": "\tElectric moves \tboost Sp.Atk.",
+          "id": "motor-drive",
+          "name": "Motor Drive",
+          "description": "\tElectric moves \tboost Speed.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "motor-drive",
+          "name": "Motor Drive",
+          "description": "\tElectric moves \tboost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 60,
         "attack": 95,
@@ -2098,6 +2126,10 @@
     "default": {
       "species": "Mouse",
       "description": "If its electric pouches run empty, it raises its tail to gather electricity from the atmosphere."
+    },
+    "Alolan": {
+      "species": "Mouse",
+      "description": "When you rub its cheeks, a sweet fragrance comes wafting out. However, you'll also get a light shock!"
     }
   }
 }

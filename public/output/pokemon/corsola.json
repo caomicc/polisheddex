@@ -14,7 +14,9 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 38,
           "target": "Cursola",
-          "form": "Plain Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         }
       ],
       "Cursola": []
@@ -26,7 +28,9 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 38,
           "target": "Cursola",
-          "form": "Plain Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         }
       ],
       "Cursola": []
@@ -38,7 +42,9 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 38,
           "target": "Cursola",
-          "form": "Plain Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         }
       ],
       "Cursola": []
@@ -2599,51 +2605,73 @@
       ],
       "abilities": [
         {
-          "id": "hustle",
-          "name": "Hustle",
-          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "natural-cure",
-          "name": "Natural Cure",
-          "description": "\tSwitch-outs heal \tstatus problems.",
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "regenerator",
-          "name": "Regenerator",
-          "description": "\tRestores HP when \twithdrawn.",
+          "id": "cursed-body",
+          "name": "Cursed Body",
+          "description": "\tMay disable a move \tused on it.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
       "faithfulAbilities": [
         {
-          "id": "hustle",
-          "name": "Hustle",
-          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "natural-cure",
-          "name": "Natural Cure",
-          "description": "\tSwitch-outs heal \tstatus problems.",
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "regenerator",
-          "name": "Regenerator",
-          "description": "\tRestores HP when \twithdrawn.",
+          "id": "cursed-body",
+          "name": "Cursed Body",
+          "description": "\tMay disable a move \tused on it.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "weak-armor",
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "cursed-body",
+          "name": "Cursed Body",
+          "description": "\tMay disable a move \tused on it.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 60,
         "attack": 55,
@@ -2673,9 +2701,7 @@
       },
       "catchRate": 60,
       "baseExp": 113,
-      "heldItems": [
-        "HARD_STONE"
-      ],
+      "heldItems": [],
       "genderRatio": {
         "male": 25,
         "female": 75
@@ -3014,6 +3040,10 @@
     "default": {
       "species": "Coral",
       "description": "The points on its head absorb nutrients from clean water. They cannot survive in polluted water."
+    },
+    "Galarian": {
+      "species": "Coral",
+      "description": "Sudden climate change wiped out this #mon. It absorbs others' lifeforce through its branches."
     }
   }
 }

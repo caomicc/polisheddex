@@ -15,13 +15,15 @@
           "method": "EVOLVE_TRADE",
           "parameter": "CHARCOAL",
           "target": "Weezing",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "targetForm": "galarian"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 35,
           "target": "Weezing",
-          "form": "Plain Form"
+          "form": "Plain Form",
+          "targetForm": "Plain Form"
         }
       ]
     },
@@ -33,13 +35,15 @@
           "method": "EVOLVE_TRADE",
           "parameter": "CHARCOAL",
           "target": "Weezing",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "targetForm": "galarian"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 35,
           "target": "Weezing",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         }
       ]
     },
@@ -51,13 +55,15 @@
           "method": "EVOLVE_TRADE",
           "parameter": "CHARCOAL",
           "target": "Weezing",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "targetForm": "galarian"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 35,
           "target": "Weezing",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         }
       ]
     }
@@ -2181,9 +2187,9 @@
           "abilityType": "secondary"
         },
         {
-          "id": "stench",
-          "name": "Stench",
-          "description": "\tMay cause the foe \tto flinch.",
+          "id": "white-smoke",
+          "name": "White Smoke",
+          "description": "\tPrevents foes from \tlowering stats.",
           "isHidden": true,
           "abilityType": "hidden"
         }
@@ -2204,14 +2210,36 @@
           "abilityType": "secondary"
         },
         {
-          "id": "stench",
-          "name": "Stench",
-          "description": "\tMay cause the foe \tto flinch.",
+          "id": "white-smoke",
+          "name": "White Smoke",
+          "description": "\tPrevents foes from \tlowering stats.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "neutralizing-gas",
+          "name": "Neutralizing Gas",
+          "description": "\tSuppresses all \tother Abilities.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "white-smoke",
+          "name": "White Smoke",
+          "description": "\tPrevents foes from \tlowering stats.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 65,
         "attack": 90,
@@ -2359,6 +2387,10 @@
     "default": {
       "species": "Poison Gas",
       "description": "When it inhales poisonous gases from garbage, its body expands, and its insides smell much worse."
+    },
+    "Galarian": {
+      "species": "Poison Gas",
+      "description": "It consumes particles that contaminate the air. Instead of leaving droppings, it expels clean air."
     }
   }
 }

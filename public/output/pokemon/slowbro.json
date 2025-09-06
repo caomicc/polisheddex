@@ -16,25 +16,31 @@
           "method": "EVOLVE_TRADE",
           "parameter": "KINGS_ROCK",
           "target": "Slowking",
-          "form": "Plain Form"
+          "form": "Plain Form",
+          "targetForm": "Plain Form"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 37,
           "target": "Slowbro",
-          "form": "Plain Form"
+          "form": "Plain Form",
+          "targetForm": "Plain Form"
         },
         {
           "method": "EVOLVE_TRADE",
           "parameter": "KINGS_ROCK",
           "target": "Slowking",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 37,
           "target": "Slowbro",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         }
       ],
       "Slowking": []
@@ -47,25 +53,31 @@
           "method": "EVOLVE_TRADE",
           "parameter": "KINGS_ROCK",
           "target": "Slowking",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 37,
           "target": "Slowbro",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_TRADE",
           "parameter": "KINGS_ROCK",
           "target": "Slowking",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 37,
           "target": "Slowbro",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         }
       ],
       "Slowking": []
@@ -78,25 +90,31 @@
           "method": "EVOLVE_TRADE",
           "parameter": "KINGS_ROCK",
           "target": "Slowking",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 37,
           "target": "Slowbro",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_TRADE",
           "parameter": "KINGS_ROCK",
           "target": "Slowking",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 37,
           "target": "Slowbro",
-          "form": "Galarian Form"
+          "form": "galarian",
+          "sourceForm": "galarian",
+          "targetForm": "galarian"
         }
       ],
       "Slowking": []
@@ -3091,9 +3109,9 @@
       ],
       "abilities": [
         {
-          "id": "oblivious",
-          "name": "Oblivious",
-          "description": "\tPrevents it from \tbeing infatuated.",
+          "id": "quick-draw",
+          "name": "Quick Draw",
+          "description": "\tMoves first \toccasionally.",
           "isHidden": false,
           "abilityType": "primary"
         },
@@ -3114,9 +3132,9 @@
       ],
       "faithfulAbilities": [
         {
-          "id": "oblivious",
-          "name": "Oblivious",
-          "description": "\tPrevents it from \tbeing infatuated.",
+          "id": "quick-draw",
+          "name": "Quick Draw",
+          "description": "\tMoves first \toccasionally.",
           "isHidden": false,
           "abilityType": "primary"
         },
@@ -3135,7 +3153,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "quick-draw",
+          "name": "Quick Draw",
+          "description": "\tMoves first \toccasionally.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "own-tempo",
+          "name": "Own Tempo",
+          "description": "\tPrevents it from \tbecoming confused.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "regenerator",
+          "name": "Regenerator",
+          "description": "\tRestores HP when \twithdrawn.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 95,
         "attack": 100,
@@ -3235,6 +3275,10 @@
     "default": {
       "species": "Squatter",
       "description": "An attached Shellder won't let go because of the tasty flavor that oozes out of its tail."
+    },
+    "Galarian": {
+      "species": "Squatter",
+      "description": "A Shellder bite set off a chemical reaction with Slowbro's body, making Slowbro a Poisontype."
     }
   }
 }

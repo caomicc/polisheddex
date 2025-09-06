@@ -19,7 +19,10 @@
         {
           "method": "EVOLVE_HOLDING",
           "parameter": "RAZOR_CLAW",
-          "target": "Sneasler"
+          "target": "Sneasler",
+          "form": "hisuian",
+          "sourceForm": "hisuian",
+          "targetForm": "hisuian"
         }
       ],
       "Weavile": [],
@@ -36,7 +39,10 @@
         {
           "method": "EVOLVE_HOLDING",
           "parameter": "RAZOR_CLAW",
-          "target": "Sneasler"
+          "target": "Sneasler",
+          "form": "hisuian",
+          "sourceForm": "hisuian",
+          "targetForm": "hisuian"
         }
       ],
       "Weavile": [],
@@ -53,7 +59,10 @@
         {
           "method": "EVOLVE_HOLDING",
           "parameter": "RAZOR_CLAW",
-          "target": "Sneasler"
+          "target": "Sneasler",
+          "form": "hisuian",
+          "sourceForm": "hisuian",
+          "targetForm": "hisuian"
         }
       ],
       "Weavile": [],
@@ -2814,7 +2823,29 @@
           "abilityType": "hidden"
         }
       ],
-      "updatedAbilities": [],
+      "updatedAbilities": [
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "keen-eye",
+          "name": "Keen Eye",
+          "description": "\tPrevents foes from \tlowering accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "pickpocket",
+          "name": "Pickpocket",
+          "description": "\tSteals foe's item \twhen contacted.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
       "baseStats": {
         "hp": 55,
         "attack": 95,
@@ -2846,7 +2877,7 @@
       "baseExp": 132,
       "heldItems": [
         "GRIP_CLAW",
-        "RAZOR_CLAW"
+        "QUICK_CLAW"
       ],
       "genderRatio": {
         "male": 50,
@@ -2963,6 +2994,10 @@
     "default": {
       "species": "Sharp Claw",
       "description": "This cunning #mon hides under the cover of darkness, waiting to attack its prey."
+    },
+    "Hisuian": {
+      "species": "Sharp Claw",
+      "description": "Its sturdy claws are ideal for traversing cliffs. These claws drip venom that infiltrates its prey."
     }
   }
 }

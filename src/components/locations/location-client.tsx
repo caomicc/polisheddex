@@ -1,7 +1,7 @@
 'use client';
 import React, { JSX } from 'react';
 import Image from 'next/image';
-import { CardContent, CardHeader } from '../ui/card';
+import { Card, CardContent, CardHeader } from '../ui/card';
 import Link from 'next/link';
 import { LocationConnection, LocationItem, NPCTrade, PokemonEncounter } from '@/types/types';
 import { GroupedPokemon } from '@/types/locationTypes';
@@ -19,6 +19,7 @@ import { groupRematchTrainers } from '@/utils/trainerGrouping';
 import TableWrapper from '../ui/table-wrapper';
 import { BentoGrid, BentoGridItem, BentoGridNoLink } from '../ui/bento-box';
 import {
+  ArrowRight,
   DoorOpen,
   MoveDown,
   MoveDownLeft,
@@ -184,93 +185,117 @@ export default function LocationClient({
         )}
         {comprehensiveInfo?.trades && (
           <TableWrapper className="pt-4 pb-6">
-            <CardHeader>
-              <h3>NPC Trades</h3>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {comprehensiveInfo?.trades?.map((trade: NPCTrade, index: number) => (
-                  <div
-                    key={index}
-                    className="flex items-center justify-between p-4 border rounded-lg"
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="text-center">
-                        <div className="text-sm text-gray-500">You give</div>
-                        <Link
-                          href={formatPokemonUrlWithForm(trade.wantsPokemon, 'plain')}
-                          className="font-semibold text-blue-600 dark:text-blue-400 hover:underline"
-                        >
-                          {trade.wantsPokemon}
-                        </Link>
+            <Card>
+              <CardHeader>
+                <h3>NPC Trades</h3>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  {comprehensiveInfo?.trades?.map((trade: NPCTrade, index: number) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-between p-4 border rounded-lg"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="text-center">
+                          <div className="text-sm text-gray-500">You give</div>
+                          <Link
+                            href={formatPokemonUrlWithForm(trade.wantsPokemon, 'plain')}
+                            className="font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+                          >
+                            {trade.wantsPokemon}
+                          </Link>
+                        </div>
+                        <div className="text-2xl">↔</div>
+                        <div className="text-center">
+                          <div className="text-sm text-gray-500">You get</div>
+                          <Link
+                            href={formatPokemonUrlWithForm(trade.givesPokemon, 'plain')}
+                            className="font-semibold text-green-600 dark:text-green-400 hover:underline"
+                          >
+                            {trade.givesPokemon}
+                          </Link>
+                        </div>
                       </div>
-                      <div className="text-2xl">↔</div>
-                      <div className="text-center">
-                        <div className="text-sm text-gray-500">You get</div>
-                        <Link
-                          href={formatPokemonUrlWithForm(trade.givesPokemon, 'plain')}
-                          className="font-semibold text-green-600 dark:text-green-400 hover:underline"
-                        >
-                          {trade.givesPokemon}
-                        </Link>
-                      </div>
+                      {trade.traderName && (
+                        <div className="text-sm text-gray-600 dark:text-gray-400">
+                          Trader: {trade.traderName}
+                        </div>
+                      )}
                     </div>
-                    {trade.traderName && (
-                      <div className="text-sm text-gray-600 dark:text-gray-400">
-                        Trader: {trade.traderName}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </CardContent>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </TableWrapper>
         )}
-        {console.log('comprehensiveInfo?.events', comprehensiveInfo?.events)}
         {comprehensiveInfo?.events &&
           comprehensiveInfo.events.some(
             (event: { type: string }) => event.type === 'phone_call',
           ) && (
             <TableWrapper className="pt-4 pb-6">
-              <CardHeader>
-                <h3>Phone Call Rewards</h3>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {comprehensiveInfo.events
-                    .filter((event: { type: string }) => event.type === 'phone_call')
-                    .map(
-                      (
-                        event: { npc: string; reward: string; conditions: string },
-                        index: number,
-                      ) => (
+              <h3 className="text-lg font-semibold mb-1 flex items-center gap-2 text-neutral-600 dark:text-neutral-200">
+                Phone Call Rewards
+              </h3>
+              <div className="space-y-4">
+                {comprehensiveInfo.events
+                  .filter((event: { type: string }) => event.type === 'phone_call')
+                  .map(
+                    (event: { npc: string; reward: string; conditions: string }, index: number) => {
+                      const isTM = isTMItem(event.reward);
+                      console.log('event.reward', event.reward, isTM);
+                      const moveName = isTM ? getTMMoveFromItemName(event.reward) : null;
+                      const linkHref =
+                        isTM && moveName
+                          ? `/moves/${getMoveUrlFromName(moveName)}`
+                          : `/items/${getItemIdFromDisplayName(event.reward)}`;
+
+                      const spriteUrl = isTM
+                        ? `/sprites/items/tm_hm.png`
+                        : `/sprites/items/${getItemSpriteName(event.reward)}.png`;
+
+                      return (
                         <div
                           key={index}
-                          className="flex items-center justify-between p-4 border rounded-lg"
+                          className="flex items-center justify-between p-4 border border-border rounded-lg"
                         >
                           <div className="flex items-center gap-4">
+                            <Image
+                              src={spriteUrl}
+                              alt={event.reward}
+                              width={24}
+                              height={24}
+                              className="rounded-sm dark:bg-white"
+                            />
                             <div className="text-center">
-                              <div className="text-sm text-gray-500">Trainer</div>
-                              <div className="font-semibold text-blue-600 dark:text-blue-400">
-                                {event.npc}
+                              <div className="text-sm font-medium text-gray-500 flex gap-1">
+                                Trainer
+                                <span className="font-bold text-gray-700 dark:text-green-400">
+                                  {event.npc}
+                                </span>
                               </div>
                             </div>
-                            <div className="text-2xl">📞</div>
+                            <ArrowRight className="size-4" />
                             <div className="text-center">
-                              <div className="text-sm text-gray-500">Gives</div>
-                              <div className="font-semibold text-green-600 dark:text-green-400">
-                                {event.reward}
+                              <div className="text-sm font-medium text-gray-500 flex gap-1">
+                                Gives
+                                <a
+                                  href={linkHref}
+                                  className="font-bold text-gray-700 dark:text-green-400"
+                                >
+                                  {event.reward}
+                                </a>
                               </div>
                             </div>
                           </div>
-                          <div className="text-sm text-gray-600 dark:text-gray-400 max-w-md">
+                          <div className="text-sm text-gray-600 dark:text-gray-400 max-w-md italic">
                             {event.conditions}
                           </div>
                         </div>
-                      ),
-                    )}
-                </div>
-              </CardContent>
+                      );
+                    },
+                  )}
+              </div>
             </TableWrapper>
           )}
         {(() => {

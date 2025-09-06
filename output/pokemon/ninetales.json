@@ -15,13 +15,16 @@
           "method": "EVOLVE_ITEM",
           "parameter": "FIRE_STONE",
           "target": "Ninetales",
-          "form": "Plain Form"
+          "form": "Plain Form",
+          "targetForm": "Plain Form"
         },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ICE_STONE",
           "target": "Ninetales",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ]
     },
@@ -33,13 +36,16 @@
           "method": "EVOLVE_ITEM",
           "parameter": "FIRE_STONE",
           "target": "Ninetales",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ICE_STONE",
           "target": "Ninetales",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ]
     },
@@ -51,13 +57,16 @@
           "method": "EVOLVE_ITEM",
           "parameter": "FIRE_STONE",
           "target": "Ninetales",
-          "form": "Plain Form"
+          "form": "PLAIN_FORM",
+          "targetForm": "PLAIN_FORM"
         },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ICE_STONE",
           "target": "Ninetales",
-          "form": "Alolan Form"
+          "form": "alolan",
+          "sourceForm": "alolan",
+          "targetForm": "alolan"
         }
       ]
     }
@@ -1784,69 +1793,69 @@
       ],
       "abilities": [
         {
-          "id": "flash-fire",
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "flash-fire",
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "drought",
-          "name": "Drought",
-          "description": "\tSummons sunlight \twhen switched in.",
+          "id": "snow-warning",
+          "name": "Snow Warning",
+          "description": "\tSummons hailstorm \twhen switched in.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
       "faithfulAbilities": [
         {
-          "id": "flash-fire",
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "flash-fire",
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "drought",
-          "name": "Drought",
-          "description": "\tSummons sunlight \twhen switched in.",
+          "id": "snow-warning",
+          "name": "Snow Warning",
+          "description": "\tSummons hailstorm \twhen switched in.",
           "isHidden": true,
           "abilityType": "hidden"
         }
       ],
       "updatedAbilities": [
         {
-          "id": "flash-fire",
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
           "isHidden": false,
           "abilityType": "primary"
         },
         {
-          "id": "forewarn",
-          "name": "Forewarn",
-          "description": "\tDetermines the \tfoe's moves.",
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
           "isHidden": false,
           "abilityType": "secondary"
         },
         {
-          "id": "drought",
-          "name": "Drought",
-          "description": "\tSummons sunlight \twhen switched in.",
+          "id": "snow-warning",
+          "name": "Snow Warning",
+          "description": "\tSummons hailstorm \twhen switched in.",
           "isHidden": true,
           "abilityType": "hidden"
         }
@@ -1926,6 +1935,10 @@
     "default": {
       "species": "Fox",
       "description": "It is said to live a thousand years, and each of its tails is loaded with supernatural powers."
+    },
+    "Alolan": {
+      "species": "Fox",
+      "description": "The reason it guides people all the way down its mountain's base is so that they hurry up and leave."
     }
   }
 }

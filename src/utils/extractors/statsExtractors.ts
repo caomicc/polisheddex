@@ -58,6 +58,7 @@ export function extractDetailedStats(
 
     // Extract the Pokemon name from the file name
     const { basePokemonName, formName } = extractFormInfo(fileName);
+    // For form-specific files, create a unique key that includes the form name
     let pokemonName = formName ? `${basePokemonName} ${formName}`.trim() : basePokemonName.trim();
 
     console.log(`Processing extractFormInfo ${fileName} as ${pokemonName}`);
@@ -483,9 +484,48 @@ export function extractDetailedStats(
               updatedAbilities.push(updatedAbilityData);
             }
           } else {
-            // If the abilities are identical, use an empty array for updatedAbilities
-            // This will signal that the updatedAbilities are the same as faithfulAbilities
-            updatedAbilities.length = 0; // Clear any existing entries
+            // If the abilities are identical, check if this is a form file
+            // For forms (like Alolan variants), we want to use the form's abilities as updatedAbilities
+            // even if there's no conditional block in the ROM
+            if (formName) {
+              // For forms, populate updatedAbilities with the form's abilities
+              if (faithfulPrimaryName) {
+                const updatedAbilityData: Ability = {
+                  id: normalizeId(faithfulPrimaryName),
+                  name: faithfulPrimaryName,
+                  description: getAbilityDescription(normalizeId(faithfulPrimaryName), abilityDescriptions),
+                  isHidden: false,
+                  abilityType: 'primary',
+                };
+                updatedAbilities.push(updatedAbilityData);
+              }
+
+              if (faithfulSecondaryName) {
+                const updatedAbilityData: Ability = {
+                  id: normalizeId(faithfulSecondaryName),
+                  name: faithfulSecondaryName,
+                  description: getAbilityDescription(normalizeId(faithfulSecondaryName), abilityDescriptions),
+                  isHidden: false,
+                  abilityType: 'secondary',
+                };
+                updatedAbilities.push(updatedAbilityData);
+              }
+
+              if (faithfulHiddenName) {
+                const updatedAbilityData: Ability = {
+                  id: normalizeId(faithfulHiddenName),
+                  name: faithfulHiddenName,
+                  description: getAbilityDescription(normalizeId(faithfulHiddenName), abilityDescriptions),
+                  isHidden: true,
+                  abilityType: 'hidden',
+                };
+                updatedAbilities.push(updatedAbilityData);
+              }
+            } else {
+              // If the abilities are identical and it's not a form, use an empty array for updatedAbilities
+              // This will signal that the updatedAbilities are the same as faithfulAbilities
+              updatedAbilities.length = 0; // Clear any existing entries
+            }
           }
         }
       }
@@ -668,9 +708,40 @@ export function extractDetailedStats(
     }
   }
 
-  // Write the detailedStats to a JSON file for use in the app
+  // Separate form entries from base entries
+  const baseStats: Record<string, DetailedStats> = {};
+  const formStats: Record<string, DetailedStats> = {};
+  
+  for (const [key, stats] of Object.entries(detailedStats)) {
+    if (key.includes(' ')) {
+      // This is a form entry (has space in name like "Vulpix alolan")
+      formStats[key] = stats;
+    } else {
+      // This is a base entry
+      baseStats[key] = stats;
+    }
+  }
+
+  // Write the base detailedStats to the main JSON file
   const outputPath = path.join(__dirname, '../../../output/pokemon_detailed_stats.json');
-  fs.writeFileSync(outputPath, JSON.stringify(detailedStats, null, 2));
+  
+  // Debug: Check what Typhlosion keys exist before writing
+  const typhlosionKeys = Object.keys(baseStats).filter(k => k.includes('Typhlosion'));
+  console.log(`🔍 FINAL TYPHLOSION KEYS BEFORE WRITING: ${typhlosionKeys.join(', ')}`);
+  
+  // Debug: Check abilities for both forms
+  for (const key of typhlosionKeys) {
+    const abilities = baseStats[key].updatedAbilities || baseStats[key].abilities || [];
+    const hiddenAbility = abilities.find(a => a.isHidden)?.name || 'None';
+    console.log(`🔍 ${key} hidden ability: ${hiddenAbility}`);
+  }
+  
+  fs.writeFileSync(outputPath, JSON.stringify(baseStats, null, 2));
+  
+  // Write the form detailedStats to a separate JSON file
+  const formOutputPath = path.join(__dirname, '../../../output/pokemon_form_detailed_stats.json');
+  fs.writeFileSync(formOutputPath, JSON.stringify(formStats, null, 2));
+  console.log('Form detailed stats extracted to', formOutputPath);
   console.log('Detailed stats extracted to', outputPath);
 
   // Debug check for Ho-Oh
