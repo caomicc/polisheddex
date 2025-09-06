@@ -1,5 +1,5 @@
-import reduce from './src/lib/reduce.ts';
-import splitFile from './src/lib/split.ts';
+import reduce from '../src/lib/reduce.ts';
+import splitFile from '../src/lib/split.ts';
 import { readFile, readdir, writeFile, mkdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -8,7 +8,7 @@ import {
   MoveData,
   PokemonData,
   PokemonMovesets,
-} from './src/types/new.ts';
+} from '../src/types/new.ts';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 

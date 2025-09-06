@@ -1,20 +1,20 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { LocationData, LocationConnection } from './src/types/types.ts';
-import { extractTrainerData } from './src/utils/extractors/trainerExtractors.ts';
-import { formatDisplayName, inferLocationRegion } from './src/utils/stringUtils.ts';
-import { normalizeLocationKey } from './src/utils/locationUtils.ts';
+import type { LocationData, LocationConnection } from '../types/types.ts';
+import { extractTrainerData } from '../utils/extractors/trainerExtractors.ts';
+import { formatDisplayName, inferLocationRegion } from '../utils/stringUtils.ts';
+import { normalizeLocationKey } from '../utils/locationUtils.ts';
 import { restructureLocationsToIndividualFiles } from './restructure_locations.ts';
-import { extractGymLeaders } from './src/utils/extractors/gymExtractors.ts';
-import { extractTMHMLocations } from './src/utils/extractors/tmHmExtractors.ts';
+import { extractGymLeaders } from '../utils/extractors/gymExtractors.ts';
+import { extractTMHMLocations } from '../utils/extractors/tmHmExtractors.ts';
 import {
   extractLocationEvents,
   extractNPCTrades,
   convertPhoneEventsToLocationEvents,
-} from './src/utils/extractors/eventExtractors.ts';
-import { extractLocationItems } from './src/utils/extractors/itemExtractors.ts';
-import { normalizeLocationDisplayName } from './src/utils/extractors/locationExtractors.ts';
+} from '../utils/extractors/eventExtractors.ts';
+import { extractLocationItems } from '../utils/extractors/itemExtractors.ts';
+import { normalizeLocationDisplayName } from '../utils/extractors/locationExtractors.ts';
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);

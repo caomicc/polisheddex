@@ -1,12 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { evoMap, formTypeMap, preEvoMap, typeMap } from './src/data/constants.ts';
+import { evoMap, formTypeMap, preEvoMap, typeMap } from '../data/constants.ts';
 import {
   getVariants,
   hasVariants,
   normalizePokemonNameForConstants,
-} from './src/data/pokemonVariants.ts';
+} from '../data/pokemonVariants.ts';
 import {
   extractTypeChart,
   mapEncounterRatesToPokemon,
@@ -25,8 +25,8 @@ import {
   extractDetailedStats,
   extractEventData,
   writeEventDataToFile,
-} from './src/utils/extractors/index.ts';
-import { normalizeMoveString } from './src/utils/stringNormalizer/stringNormalizer.ts';
+} from '../utils/extractors/index.ts';
+import { normalizeMoveString } from '../utils/stringNormalizer/stringNormalizer.ts';
 import {
   capitalizeFirstLetter,
   normalizeMonName,
@@ -35,12 +35,12 @@ import {
   standardizePokemonKey,
   toTitleCase,
   typeEnumToName,
-} from './src/utils/stringUtils.ts';
-import { parseDexEntries } from './src/utils/parseDexEntries.node.ts';
+} from '../utils/stringUtils.ts';
+import { parseDexEntries } from '../utils/parseDexEntries.node.ts';
 import {
   normalizePokemonUrlKey,
   normalizePokemonDisplayName,
-} from './src/utils/pokemonUrlNormalizer.ts';
+} from '../utils/pokemonUrlNormalizer.ts';
 import type {
   Evolution,
   EvolutionMethod,
@@ -48,14 +48,14 @@ import type {
   LocationEntry,
   Move,
   PokemonDataV3,
-} from './src/types/types.ts';
-import { normalizeLocationKey } from './src/utils/locationUtils.ts';
+} from '../types/types.ts';
+import { normalizeLocationKey } from '../utils/locationUtils.ts';
 import {
   isDebugPokemon,
   parseFormFromName,
   parseFormName,
   sortEvolutionChain,
-} from './src/utils/helpers.ts';
+} from '../utils/helpers.ts';
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
