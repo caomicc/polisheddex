@@ -29,15 +29,100 @@ const formsASM = join(__dirname, 'polishedcrystal/constants/pokemon_constants.as
 const monDIR = join(__dirname, 'polishedcrystal/data/pokemon/base_stats/');
 const movesASM = join(__dirname, 'polishedcrystal/data/moves/moves.asm');
 const moveNamesASM = join(__dirname, 'polishedcrystal/data/moves/names.asm');
+const moveDescriptionsASM = join(__dirname, 'polishedcrystal/data/moves/descriptions.asm');
 const evoAttacksASM = join(__dirname, 'polishedcrystal/data/pokemon/evos_attacks.asm');
 const eggMovesASM = join(__dirname, 'polishedcrystal/data/pokemon/egg_moves.asm');
 
-const extractMoves = (movesData: string[], moveNamesData: string[]) => {
+const extractMoves = (
+  movesData: string[],
+  moveNamesData: string[],
+  moveDescriptionsData: string[],
+) => {
   const moveLines = movesData.filter(
     (line) => line.trim().startsWith('move ') && !line.includes('MACRO') && !line.includes('ENDM'),
   );
 
   const nameLines = moveNamesData.filter((line) => line.trim().startsWith('li "'));
+
+  // Parse descriptions into a map
+  const descriptions: Record<string, string> = {};
+
+  for (let i = 0; i < moveDescriptionsData.length; i++) {
+    const line = moveDescriptionsData[i].trim();
+
+    // Find description labels (e.g., "AcrobaticsDescription:")
+    if (line.endsWith('Description:')) {
+      const moveLabels = []; // Store all labels that share the same description
+      let currentIndex = i;
+
+      // Collect all consecutive description labels
+      while (
+        currentIndex < moveDescriptionsData.length &&
+        moveDescriptionsData[currentIndex].trim().endsWith('Description:')
+      ) {
+        const labelLine = moveDescriptionsData[currentIndex].trim();
+        const moveDescriptionName = labelLine.replace('Description:', '');
+        const moveId = reduce(moveDescriptionName);
+        moveLabels.push(moveId);
+        currentIndex++;
+      }
+
+      // Parse the description text that follows all the labels
+      let description = '';
+      i = currentIndex; // Start from after all labels
+
+      while (i < moveDescriptionsData.length) {
+        const descLine = moveDescriptionsData[i].trim();
+
+        if (descLine === 'done') {
+          break; // End of this description
+        }
+
+        // Check if we've hit the next description label (stop condition for db format)
+        if (descLine.endsWith('Description:')) {
+          i--; // Step back so outer loop will process this label
+          break;
+        }
+
+        // Extract text from 'text "..."', 'next "..."', or 'db "..."' lines (with flexible spacing)
+        if (
+          descLine.startsWith('text "') ||
+          descLine.startsWith('next "') ||
+          descLine.match(/^db\s+"/) // Allow flexible spacing after db
+        ) {
+          let textContent = descLine.replace(/^(text|next|db)\s*"/, '').replace(/"$/, '');
+
+          // Handle special @ terminator (like in Thunder Wave)
+          let isEndOfDescription = false;
+          if (textContent.endsWith('@')) {
+            textContent = textContent.replace('@', '').trim();
+            isEndOfDescription = true;
+          }
+
+          // Add the text content
+          if (description) {
+            description += ' ' + textContent; // Add space between lines
+          } else {
+            description = textContent;
+          }
+
+          description = description.replace(/-\s+/g, '').replace(/#mon/g, 'Pokemon').trim(); // Clean up extra spaces
+
+          // Break after adding the content if @ was found
+          if (isEndOfDescription) {
+            break; // @ indicates end of description
+          }
+        }
+
+        i++;
+      }
+
+      // Assign the same description to all moves that shared the labels
+      for (const moveId of moveLabels) {
+        descriptions[moveId] = description;
+      }
+    }
+  }
 
   for (let i = 0; i < moveLines.length && i < nameLines.length; i++) {
     const moveLine = moveLines[i].trim();
@@ -63,6 +148,7 @@ const extractMoves = (movesData: string[], moveNamesData: string[]) => {
         accuracy: accuracy,
         pp: pp,
         category: category,
+        description: descriptions[moveId] || '',
       };
     }
   }
@@ -575,7 +661,12 @@ raw = await readFile(movesASM, 'utf-8');
 const movesFiles = splitFile(raw);
 raw = await readFile(moveNamesASM, 'utf-8');
 const moveNamesFiles = splitFile(raw);
-extractMoves(movesFiles[0], moveNamesFiles[0]); // Use Polished version for moves
+raw = await readFile(moveDescriptionsASM, 'utf-8');
+const moveDescriptionsData = raw
+  .trim()
+  .split('\n')
+  .map((line) => line.trim());
+extractMoves(movesFiles[0], moveNamesFiles[0], moveDescriptionsData); // Use Polished version for moves
 
 //#5: Extract Evolution Chains
 raw = await readFile(evoAttacksASM, 'utf-8');
