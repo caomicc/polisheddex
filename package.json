@@ -30,7 +30,7 @@
     "test:e2e:headed": "playwright test --headed",
     "test:quick": "playwright test tests/production-ready.spec.ts --reporter=line",
     "analyze": "ANALYZE=true npm run build",
-    "new-extract": "ts-node extraction_script.ts"
+    "new-extract": "tsx extraction_script.ts"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",

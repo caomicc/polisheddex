@@ -1,17 +1,19 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "../",
     "paths": {
       "@/*": ["./src/*"],
-      "@/output/*": ["./output/*"]
+      "@/types/*": ["./src/types/*"],
+      "@/output/*": ["./output/*"],
+      "@/new/*": ["./new/*"]
     }
   },
   "ts-node": {
-    "esm": false
+    "esm": true
   }
 }

@@ -3,17 +3,23 @@ import splitFile from './src/lib/split.ts';
 import { readFile, readdir, writeFile, mkdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import {
+  ComprehensivePokemonData,
+  MoveData,
+  PokemonData,
+  PokemonMovesets,
+} from './src/types/new.ts';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const pokemonData = {
-  Polished: [],
-  Faithful: [],
+const pokemonData: Record<string, PokemonData[]> = {
+  polished: [],
+  faithful: [],
 };
 
-const mergedPokemon = [];
-const movesManifest = {};
-const pokemonMovesets = {};
+const mergedPokemon: ComprehensivePokemonData[] = [];
+const movesManifest: Record<string, MoveData> = {};
+const pokemonMovesets: Record<string, Record<string, PokemonMovesets>> = {};
 
 //Paths
 const namesASM = join(__dirname, 'polishedcrystal/data/pokemon/names.asm');
@@ -23,78 +29,85 @@ const movesASM = join(__dirname, 'polishedcrystal/data/moves/moves.asm');
 const moveNamesASM = join(__dirname, 'polishedcrystal/data/moves/names.asm');
 const evoAttacksASM = join(__dirname, 'polishedcrystal/data/pokemon/evos_attacks.asm');
 
-const extractMoves = (movesData, moveNamesData) => {
-  const moveLines = movesData.filter(line => 
-    line.trim().startsWith('move ') && 
-    !line.includes('MACRO') && 
-    !line.includes('ENDM')
+const extractMoves = (movesData: string[], moveNamesData: string[]) => {
+  const moveLines = movesData.filter(
+    (line) => line.trim().startsWith('move ') && !line.includes('MACRO') && !line.includes('ENDM'),
   );
-  
-  const nameLines = moveNamesData.filter(line => 
-    line.trim().startsWith('li "')
-  );
-  
+
+  const nameLines = moveNamesData.filter((line) => line.trim().startsWith('li "'));
+
   for (let i = 0; i < moveLines.length && i < nameLines.length; i++) {
     const moveLine = moveLines[i].trim();
     const nameLine = nameLines[i].trim();
-    
+
     // Parse move data: move ACROBATICS, EFFECT_CONDITIONAL_BOOST, 55, FLYING, 100, 15, 0, PHYSICAL
     const parts = moveLine.split(',');
     if (parts.length >= 8) {
-      const moveId = reduce(parts[0].replace('move ', '').trim());
+      const moveId: string = reduce(parts[0].replace('move ', '').trim());
       const power = parseInt(parts[2].trim());
       const type = reduce(parts[3].trim());
       const accuracy = parseInt(parts[4].trim());
       const pp = parseInt(parts[5].trim());
       const category = reduce(parts[7].trim());
-      
+
       // Extract name: li "Acrobatics"
       const name = nameLine.replace('li "', '').replace('"', '').trim();
-      
+
       movesManifest[moveId] = {
         name: name,
         power: power,
         type: type,
         accuracy: accuracy,
         pp: pp,
-        category: category
+        category: category,
       };
     }
   }
 };
 
-const extractPokemonMovesets = (evoAttacksData, PF) => {
+const extractPokemonMovesets = (evoAttacksData: string[], pokemonForm: string | number) => {
   const lines = evoAttacksData;
-  let currentPokemon = null;
-  let inLearnset = false;
-  
+  let currentPokemon: PokemonData['name'] = '';
+  const formKey = String(pokemonForm);
+
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
-    
+
     // Find Pokemon section: evos_attacks PokemonName
     if (line.startsWith('evos_attacks ')) {
       currentPokemon = reduce(line.replace('evos_attacks ', '').trim());
-      if (!pokemonMovesets[PF]) pokemonMovesets[PF] = {};
-      pokemonMovesets[PF][currentPokemon] = [];
-      inLearnset = false;
+      if (!(formKey in pokemonMovesets)) {
+        pokemonMovesets[formKey] = {};
+      }
+      pokemonMovesets[formKey][currentPokemon] = {
+        levelUp: {},
+        tm: [],
+        eggMoves: [],
+      };
     }
-    
+
     // Find learnset entries: learnset level, MOVE_NAME
     if (line.startsWith('learnset ') && currentPokemon) {
       const parts = line.replace('learnset ', '').split(',');
       if (parts.length >= 2) {
         const level = parseInt(parts[0].trim());
         const move = reduce(parts[1].trim());
-        pokemonMovesets[PF][currentPokemon].push({
-          level: level,
-          move: move
-        });
+        if (!pokemonMovesets[formKey][currentPokemon]) {
+          pokemonMovesets[formKey][currentPokemon] = {
+            levelUp: {},
+            tm: [],
+            eggMoves: [],
+          };
+        }
+        if (pokemonMovesets[formKey][currentPokemon]) {
+          pokemonMovesets[formKey][currentPokemon].levelUp![level] = move;
+        }
       }
     }
   }
 };
 
-const extractNames = (data, PF) => {
+const extractNames = (data: string[], pokemonForm: string) => {
   let dexNo = 1;
   for (let lineNo = 0; lineNo < data.length; lineNo++) {
     //Skips undesirable lines
@@ -106,28 +119,32 @@ const extractNames = (data, PF) => {
     ) {
       continue;
     }
-    //TODO SPECIAL CASE: DUDUNSPARCE
-    if (data[lineNo].includes('Dudunsparc')) {
-      pokemonData[PF].push({
-        id: 'dudunsparce',
-        name: 'Dudunsparce',
-        dexNo: dexNo,
-        forms: [],
-      });
-      dexNo++;
-      continue;
-    }
-    pokemonData[PF].push({
+
+    pokemonData[pokemonForm]?.push({
       id: reduce(data[lineNo].slice(9, -1)),
       name: data[lineNo].slice(9, -1),
       dexNo: dexNo,
-      forms: [],
+      forms: {
+        plain: {
+          formNumber: 1,
+          types: [],
+          abilities: [],
+          baseStats: {
+            hp: 0,
+            attack: 0,
+            defense: 0,
+            specialAttack: 0,
+            specialDefense: 0,
+            speed: 0,
+          },
+        },
+      },
     });
     dexNo++;
   }
 };
 
-const extractForms = (data, PF) => {
+const extractForms = (data: string[], pokemonForm: string) => {
   //Has Form
   for (let lineNo = 0; lineNo < data.length; lineNo++) {
     //Non-Regional Forms
@@ -144,18 +161,25 @@ const extractForms = (data, PF) => {
         form[0] = form[0].slice(10);
         form[0] = form[0].slice(form[0].indexOf('_') + 1).trim();
         form[0] = form[0].slice(0, -5).toLowerCase();
-        form[1] = parseInt(form[1].trim().slice(form[1].trim().indexOf('(') + 1, -1), 16);
-        let mon = pokemonData[PF].find((mon) => mon['id'] === reduce(name));
-        mon['forms'].push({
-          id: reduce(form[0]),
-          name: form[0],
-          formNumber: form[1],
-          type: [],
-          abilities: [],
-          baseStats: [],
-          growthRate: [],
-          hasGender: null,
-        });
+        const formNumber = parseInt(form[1].trim().slice(form[1].trim().indexOf('(') + 1, -1), 16);
+        
+        const mon = pokemonData[pokemonForm]?.find((mon) => mon['id'] === reduce(name));
+        
+        if (mon?.forms) {
+          mon.forms[reduce(form[0])] = {
+            formNumber: formNumber,
+            types: [],
+            abilities: [],
+            baseStats: {
+              hp: 0,
+              attack: 0,
+              defense: 0,
+              specialAttack: 0,
+              specialDefense: 0,
+              speed: 0,
+            },
+          };
+        }
         lineNo++;
       }
     }
@@ -175,93 +199,109 @@ const extractForms = (data, PF) => {
         name = name.slice(name.indexOf(' ') + 1);
 
         //Add it in!
-        const mon = pokemonData[PF].find((mon) => mon['id'] === reduce(name));
-        mon['forms'].push({
-          id: reduce(formName),
-          name: formName,
-          formNumber: formNo,
-          type: [],
-          abilities: [],
-          baseStats: [],
-          growthRate: [],
-          hasGender: null,
-        });
+        const mon = pokemonData[pokemonForm]?.find((mon) => mon['id'] === reduce(name));
+        if (mon?.forms) {
+          mon.forms[reduce(formName)] = {
+            formNumber: formNo,
+            types: [],
+            abilities: [],
+            baseStats: {
+              hp: 0,
+              attack: 0,
+              defense: 0,
+              specialAttack: 0,
+              specialDefense: 0,
+              speed: 0,
+            },
+          };
+        }
         lineNo++;
       }
     }
   }
 
   //Plain Form
-  const plain = {
-    id: 'plain',
-    name: 'plain',
+  const plainForm = {
     formNumber: 1,
-    type: [],
+    types: [],
     abilities: [],
-    baseStats: [],
-    growthRate: [],
-    hasGender: null,
+    baseStats: {
+      hp: 0,
+      attack: 0,
+      defense: 0,
+      specialAttack: 0,
+      specialDefense: 0,
+      speed: 0,
+    },
   };
-  pokemonData[PF].forEach((mon) => {
-    //Case #1: Pokemon has no forms
-    if (mon['forms'].length === 0) {
-      mon['forms'].push({ ...plain });
-    }
-    //Case #2: Pokemon with alternate forms, none of which have default
-    else if (mon['forms'].every((form) => form['formNumber'] != 1)) {
-      mon['forms'].unshift({ ...plain });
+  pokemonData[pokemonForm]?.forEach((mon) => {
+    //Case #1: Pokemon has no forms with formNumber 1
+    if (mon?.forms && !Object.values(mon.forms).some((form) => form.formNumber === 1)) {
+      mon.forms.plain = { ...plainForm };
     }
   });
 };
 
-const extractMon = (data, PF) => {
+const extractMon = (data: string[], pokemonForm: string) => {
   //Parse all the data
-  const name_form = data
-    .find((line: string) => line.startsWith('abilities_for'))
-    .split(',')
-    .at(0)
-    .split(' ')
-    .at(-1);
+  const abilitiesLine = data.find((line: string) => line.startsWith('abilities_for'));
+  if (!abilitiesLine) {
+    throw new Error('No abilities_for line found in data');
+  }
 
-  let types = data
-    .find((line: string) => line.endsWith('type'))
+  const firstPart = abilitiesLine.split(',').at(0);
+  if (!firstPart) {
+    throw new Error('Unable to parse abilities_for line');
+  }
+
+  const name_form = firstPart.split(' ').at(-1);
+  if (!name_form) {
+    throw new Error('Unable to extract name_form from abilities_for line');
+  }
+
+  const typeLine = data.find((line: string) => line.endsWith('type'));
+  if (!typeLine) {
+    throw new Error('No type line found in data');
+  }
+  let types: PokemonData['types'] = typeLine
     .slice(3, -7)
-    .split(',');
-  types = types.map((type: string) => reduce(type.trim()));
+    .split(',')
+    .map((type: string) => reduce(type.trim()));
   if (types[0] === types[1]) {
     types = [types[0]];
   }
 
-  let abilities = data
-    .find((line: string) => line.startsWith('abilities_for'))
-    .split(',')
-    .slice(1);
+  let abilities = abilitiesLine.split(',').slice(1);
   abilities = abilities.map((ability) => reduce(ability.trim()));
 
-  let bsts = data
-    .find((line: string) => line.endsWith('BST'))
-    .slice(3, -9)
-    .split(',');
-  bsts = bsts.map((bst) => parseInt(bst.trim()));
+  const bstLine = data.find((line: string) => line.endsWith('BST'));
+  if (!bstLine) {
+    throw new Error('No BST line found in data');
+  }
 
-  const growthRate = reduce(
-    data
-      .find((line: string) => line.includes('db GROWTH'))
-      .slice(3)
-      .split(';')
-      .at(0)
-      .trim(),
-  );
+  const bstStrings = bstLine.slice(3, -9).split(',');
+  const bstValues = bstStrings.map((bst) => parseInt(bst.trim()));
+  const bsts: PokemonData['baseStats'] = {
+    hp: bstValues[0],
+    attack: bstValues[1],
+    defense: bstValues[2],
+    specialAttack: bstValues[3],
+    specialDefense: bstValues[4],
+    speed: bstValues[5],
+  };
 
+  const growthRateLine = data.find((line: string) => line.includes('db GROWTH'));
+  if (!growthRateLine) {
+    throw new Error('No growth rate line found in data');
+  }
+  const growthRate = reduce(growthRateLine.slice(3).split(';').at(0)?.trim() || '');
+
+  const genderLine = data.find((line: string) => line.includes('GENDER'));
+  if (!genderLine) {
+    throw new Error('No gender line found in data');
+  }
   const hasGender =
-    data
-      .find((line: string) => line.includes('GENDER'))
-      .slice(3)
-      .split(',')
-      .at(0)
-      .trim() === 'GENDER_UNKNOWN'
-      ? false
-      : true;
+    genderLine.slice(3).split(',').at(0)?.trim() === 'GENDER_UNKNOWN' ? false : true;
 
   //Add it in!
   //Special Case: Armored Mewtwo (labelled as Mewtwo in file)
@@ -270,22 +310,24 @@ const extractMon = (data, PF) => {
   //Plan of action - if name is Mewtwo and types are Psychic, Steel
   //We must be in the Polished version, so add a special handler
   if (reduce(name_form) === 'mewtwo' && JSON.stringify(types) === '["psychic","steel"]') {
-    const mon = pokemonData['Polished'].find((mon) => mon['id'] === 'mewtwo');
-    const form = mon['forms'].find((form) => form['id'] === 'armored');
-    form['type'] = types;
-    form['abilities'] = abilities;
-    form['baseStats'] = bsts;
-    form['growthRate'] = growthRate;
-    form['hasGender'] = hasGender;
+    const mon = pokemonData['polished'].find((mon) => mon['id'] === 'mewtwo');
+    const form = mon?.forms && mon.forms[reduce('armored')];
+    if (form) {
+      form['types'] = types;
+      form['abilities'] = abilities;
+      form['baseStats'] = bsts;
+      form['growthRate'] = growthRate;
+      form['hasGender'] = hasGender;
+    }
     return;
   }
 
   //Case #1: Adding to plain form
-  let mon = pokemonData[PF].find((mon) => mon['id'] === reduce(name_form));
+  let mon = pokemonData[pokemonForm]?.find((mon) => mon['id'] === reduce(name_form));
   if (mon) {
-    const form = mon?.['forms'].find((form) => form['formNumber'] === 1);
+    const form = Object.values(mon?.['forms'] || {}).find((form) => form['formNumber'] === 1);
     if (form) {
-      form['type'] = types;
+      form['types'] = types;
       form['abilities'] = abilities;
       form['baseStats'] = bsts;
       form['growthRate'] = growthRate;
@@ -295,34 +337,39 @@ const extractMon = (data, PF) => {
   }
 
   //Case #2: Adding to functional form
-  mon = pokemonData[PF].find(
-    (mon) => mon['ID'] === reduce(name_form.split('_').slice(0, -1).join('_')),
+  mon = pokemonData[pokemonForm]?.find(
+    (mon) => mon['id'] === reduce(name_form.split('_').slice(0, -1).join('_')),
   );
   if (mon) {
-    const form = mon['forms'].find((form) => form['id'] === reduce(name_form.split('_').at(-1)));
-    form['type'] = types;
-    form['abilities'] = abilities;
-    form['baseStats'] = bsts;
-    form['growthRate'] = growthRate;
-    form['hasGender'] = hasGender;
+    const formKey = reduce(name_form.split('_').at(-1));
+    const form = mon['forms']?.[formKey];
+    if (form) {
+      form['types'] = types as unknown as PokemonData['types'];
+      form['abilities'] = abilities;
+      form['baseStats'] = bsts;
+      form['growthRate'] = growthRate;
+      form['hasGender'] = hasGender;
+    }
     return;
   }
 };
 
-const extractCosmetic = (PF) => {
+const extractCosmetic = (pokemonForm: string) => {
   //Case #3: Adding to cosmetic form: Can only be done after all files are read.
-  const mons = pokemonData[PF].filter((mon) => {
-    return mon?.['forms'].some((form) => form['hasGender'] === null);
+  const mons = pokemonData[pokemonForm]?.filter((mon) => {
+    return mon?.forms && Object.values(mon.forms).some((form) => form['hasGender'] === null);
   });
+  if (!mons) return;
+
   for (const mon of mons) {
     //Distribute default form data to the rest of the forms
     //TODO: This is predicated on the assumption that a Pokemon cannot have both cosmetic and functional variants
-    for (const form of mon['forms'].slice(1)) {
-      form['type'] = mon['forms'][0]['type'];
-      form['abilities'] = mon['forms'][0]['abilities'];
-      form['baseStats'] = mon['forms'][0]['baseStats'];
-      form['growthRate'] = mon['forms'][0]['growthRate'];
-      form['hasGender'] = mon['forms'][0]['hasGender'];
+    for (const form of Object.values(mon['forms'] || {}).slice(1)) {
+      form['types'] = mon['forms']?.[0]['types'];
+      form['abilities'] = mon['forms']?.[0]['abilities'];
+      form['baseStats'] = mon['forms']?.[0]['baseStats'];
+      form['growthRate'] = mon['forms']?.[0]['growthRate'];
+      form['hasGender'] = mon['forms']?.[0]['hasGender'];
     }
   }
 };
@@ -330,14 +377,14 @@ const extractCosmetic = (PF) => {
 //#1: Names, Dex Numbers
 let raw = await readFile(namesASM, 'utf-8');
 const namesFILES = splitFile(raw);
-extractNames(namesFILES[0], 'Polished');
-extractNames(namesFILES[1], 'Faithful');
+extractNames(namesFILES[0], 'polished');
+extractNames(namesFILES[1], 'faithful');
 
 //#2: Forms
 raw = await readFile(formsASM, 'utf-8');
 const formsFILES = splitFile(raw);
-extractForms(formsFILES[0], 'Polished');
-extractForms(formsFILES[1], 'Faithful');
+extractForms(formsFILES[0], 'polished');
+extractForms(formsFILES[1], 'faithful');
 
 //#3: Type, Abilities, Base Stats, Growth Rate, Gender
 const filenames = await readdir(monDIR);
@@ -369,30 +416,51 @@ extractPokemonMovesets(evoAttacksFiles[1], 'Faithful');
 
 // Merge Pokemon data by combining Polished and Faithful versions
 const mergeVersions = () => {
-  const polishedPokemon = pokemonData.Polished;
-  const faithfulPokemon = pokemonData.Faithful;
+  const polishedPokemon = pokemonData.polished;
+  const faithfulPokemon = pokemonData.faithful;
 
   for (let i = 0; i < polishedPokemon.length; i++) {
-    const polishedMon = polishedPokemon[i];
-    const faithfulMon = faithfulPokemon[i];
+    const polishedMon: PokemonData = polishedPokemon[i];
+    const faithfulMon: PokemonData = faithfulPokemon[i];
+
 
     // Get movesets for this Pokemon
-    const polishedMoves = pokemonMovesets.Polished?.[polishedMon.id] || [];
-    const faithfulMoves = pokemonMovesets.Faithful?.[faithfulMon.id] || [];
-    
+    const polishedMoves = pokemonMovesets.polished?.[polishedMon.id] || [];
+    const faithfulMoves = pokemonMovesets.faithful?.[faithfulMon.id] || [];
+
+    // Add movesets to each form for polished version
+    const polishedFormsWithMovesets = { ...polishedMon.forms };
+    if (polishedFormsWithMovesets) {
+      Object.keys(polishedFormsWithMovesets).forEach((formKey) => {
+        if (polishedFormsWithMovesets[formKey]) {
+        }
+        polishedFormsWithMovesets[formKey].movesets = polishedMoves;
+      });
+    }
+
+    // Add movesets to each form for faithful version
+    const faithfulFormsWithMovesets = { ...faithfulMon.forms };
+    if (faithfulFormsWithMovesets) {
+      Object.keys(faithfulFormsWithMovesets).forEach((formKey) => {
+        if (faithfulFormsWithMovesets[formKey]) {
+          faithfulFormsWithMovesets[formKey].movesets = faithfulMoves;
+        }
+      });
+    }
+
     // Create merged Pokemon structure
-    const mergedMon = {
+    const mergedMon: ComprehensivePokemonData = {
       id: polishedMon.id,
       name: polishedMon.name,
       dexNo: polishedMon.dexNo,
       versions: {
         polished: {
-          forms: polishedMon.forms,
-          moves: polishedMoves.map(m => m.move), // Just store move IDs as strings
+          ...polishedMon,
+          forms: polishedFormsWithMovesets,
         },
         faithful: {
-          forms: faithfulMon.forms,
-          moves: faithfulMoves.map(m => m.move), // Just store move IDs as strings
+          ...faithfulMon,
+          forms: faithfulFormsWithMovesets,
         },
       },
     };
@@ -411,6 +479,9 @@ try {
   await mkdir(pokemonDir, { recursive: true });
   console.log('Created output directories');
 } catch (error) {
+  if (error) {
+    throw error;
+  }
   // Directory might already exist, continue
 }
 
@@ -428,8 +499,8 @@ for (const pokemon of mergedPokemon) {
     dexNo: pokemon.dexNo,
     forms: [
       ...new Set([
-        ...pokemon.versions.polished.forms.map((f) => f.name),
-        ...pokemon.versions.faithful.forms.map((f) => f.name),
+        ...(pokemon.versions.polished.forms ? Object.keys(pokemon.versions.polished.forms) : []),
+        ...(pokemon.versions.faithful.forms ? Object.keys(pokemon.versions.faithful.forms) : []),
       ]),
     ],
   };
