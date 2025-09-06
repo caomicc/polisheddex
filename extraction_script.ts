@@ -593,8 +593,6 @@ const eggMovesFiles = splitFile(raw);
 extractEggMoves(eggMovesFiles[0], 'polished');
 extractEggMoves(eggMovesFiles[1], 'faithful');
 
-//#8: Egg moves are now propagated within extractEggMoves function
-
 // Merge Pokemon data by combining Polished and Faithful versions
 const mergeVersions = () => {
   const polishedPokemon = pokemonData.polished;
