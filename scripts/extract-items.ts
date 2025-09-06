@@ -125,9 +125,12 @@ const extractItemsData = async (
     }
   }
 
-  for (let i = 0; i < itemEntries.length && i < nameLines.length; i++) {
+  // Skip the first name entry ("Park Ball") as it doesn't have a corresponding attribute entry
+  const nameEntries = nameLines.slice(1);
+  
+  for (let i = 0; i < itemEntries.length && i < nameEntries.length; i++) {
     const entry = itemEntries[i];
-    const nameLine = nameLines[i].trim();
+    const nameLine = nameEntries[i].trim();
 
     // Use the comment as the item ID (after applying reduce)
     const itemId: string = reduce(entry.comment);
