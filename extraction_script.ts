@@ -20,6 +20,8 @@ const pokemonData: Record<string, PokemonData[]> = {
 const mergedPokemon: ComprehensivePokemonData[] = [];
 const movesManifest: Record<string, MoveData> = {};
 const pokemonMovesets: Record<string, Record<string, PokemonMovesets>> = {};
+const pokemonTMCompatibility: Record<string, Record<string, string[]>> = {};
+const evolutionChains: Record<string, Record<string, string[]>> = {};
 
 //Paths
 const namesASM = join(__dirname, 'polishedcrystal/data/pokemon/names.asm');
@@ -28,6 +30,7 @@ const monDIR = join(__dirname, 'polishedcrystal/data/pokemon/base_stats/');
 const movesASM = join(__dirname, 'polishedcrystal/data/moves/moves.asm');
 const moveNamesASM = join(__dirname, 'polishedcrystal/data/moves/names.asm');
 const evoAttacksASM = join(__dirname, 'polishedcrystal/data/pokemon/evos_attacks.asm');
+const eggMovesASM = join(__dirname, 'polishedcrystal/data/pokemon/egg_moves.asm');
 
 const extractMoves = (movesData: string[], moveNamesData: string[]) => {
   const moveLines = movesData.filter(
@@ -65,6 +68,55 @@ const extractMoves = (movesData: string[], moveNamesData: string[]) => {
   }
 };
 
+const extractEvolutions = (evoAttacksData: string[], pokemonForm: string | number) => {
+  const lines = evoAttacksData;
+  let currentPokemon: PokemonData['name'] = '';
+  const formKey = String(pokemonForm);
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    // Find Pokemon section: evos_attacks PokemonName
+    if (line.startsWith('evos_attacks ')) {
+      const romName = line.replace('evos_attacks ', '').trim();
+      currentPokemon = reduce(romName);
+    }
+
+    // Parse evolution data: evo_data EVOLVE_TYPE, param, EVOLUTION_NAME[, FORM]
+    if (line.startsWith('evo_data ') && currentPokemon) {
+      const parts = line.split(',');
+      if (parts.length >= 3) {
+        let evolutionName = reduce(parts[2].trim());
+
+        // Handle form-specific evolutions (e.g., ARCANINE, HISUIAN_FORM)
+        if (parts.length >= 4 && parts[3].includes('_FORM')) {
+          const formName = reduce(parts[3].trim().replace('_FORM', ''));
+          evolutionName = evolutionName + formName;
+        } else if (currentPokemon.includes('plain')) {
+          // If base is Plain form, evolution is also Plain
+          evolutionName = evolutionName + 'plain';
+        } else {
+          // Extract form from current pokemon name (e.g., growlithehisuian -> hisuian)
+          const formMatch = currentPokemon.match(
+            /([a-z]+)(plain|alolan|galarian|hisuian|paldean)$/,
+          );
+          if (formMatch) {
+            evolutionName = evolutionName + formMatch[2];
+          }
+        }
+
+        if (!(formKey in evolutionChains)) {
+          evolutionChains[formKey] = {};
+        }
+        if (!evolutionChains[formKey][currentPokemon]) {
+          evolutionChains[formKey][currentPokemon] = [];
+        }
+        evolutionChains[formKey][currentPokemon].push(evolutionName);
+      }
+    }
+  }
+};
+
 const extractPokemonMovesets = (evoAttacksData: string[], pokemonForm: string | number) => {
   const lines = evoAttacksData;
   let currentPokemon: PokemonData['name'] = '';
@@ -75,15 +127,20 @@ const extractPokemonMovesets = (evoAttacksData: string[], pokemonForm: string | 
 
     // Find Pokemon section: evos_attacks PokemonName
     if (line.startsWith('evos_attacks ')) {
-      currentPokemon = reduce(line.replace('evos_attacks ', '').trim());
+      const romName = line.replace('evos_attacks ', '').trim();
+      // Keep the full ROM name as key to preserve form-specific movesets
+      currentPokemon = reduce(romName);
+
       if (!(formKey in pokemonMovesets)) {
         pokemonMovesets[formKey] = {};
       }
-      pokemonMovesets[formKey][currentPokemon] = {
-        levelUp: {},
-        tm: [],
-        eggMoves: [],
-      };
+      if (!pokemonMovesets[formKey][currentPokemon]) {
+        pokemonMovesets[formKey][currentPokemon] = {
+          levelUp: {},
+          tm: [],
+          eggMoves: [],
+        };
+      }
     }
 
     // Find learnset entries: learnset level, MOVE_NAME
@@ -91,7 +148,8 @@ const extractPokemonMovesets = (evoAttacksData: string[], pokemonForm: string | 
       const parts = line.replace('learnset ', '').split(',');
       if (parts.length >= 2) {
         const level = parseInt(parts[0].trim());
-        const move = reduce(parts[1].trim());
+        const movePart = parts[1].trim();
+        const move = reduce(movePart.split(';')[0]);
         if (!pokemonMovesets[formKey][currentPokemon]) {
           pokemonMovesets[formKey][currentPokemon] = {
             levelUp: {},
@@ -100,8 +158,43 @@ const extractPokemonMovesets = (evoAttacksData: string[], pokemonForm: string | 
           };
         }
         if (pokemonMovesets[formKey][currentPokemon]) {
-          pokemonMovesets[formKey][currentPokemon].levelUp![level] = move;
+          // Only add the move if this level doesn't already have a move
+          if (!pokemonMovesets[formKey][currentPokemon].levelUp![level]) {
+            pokemonMovesets[formKey][currentPokemon].levelUp![level] = move;
+          }
         }
+      }
+    }
+  }
+};
+
+const extractEggMoves = (eggMovesData: string[], pokemonForm: string | number) => {
+  const lines = eggMovesData;
+  let currentPokemon: PokemonData['name'] = '';
+  const formKey = String(pokemonForm);
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    // Find Pokemon section: PokemonNameEggSpeciesMoves:
+    if (line.endsWith('EggSpeciesMoves:')) {
+      const pokemonName = line.replace('EggSpeciesMoves:', '');
+      currentPokemon = reduce(pokemonName);
+      continue;
+    }
+
+    // Skip non-move lines (dp lines, $ff terminators, etc.)
+    if (!line.startsWith('db ') || line.includes('$ff')) {
+      continue;
+    }
+
+    // Extract move name
+    if (line.startsWith('db ') && currentPokemon) {
+      const moveName = line.replace('db ', '').trim();
+      const move = reduce(moveName);
+
+      if (pokemonMovesets[formKey] && pokemonMovesets[formKey][currentPokemon]) {
+        pokemonMovesets[formKey][currentPokemon].eggMoves?.push(move);
       }
     }
   }
@@ -130,7 +223,7 @@ const extractNames = (data: string[], pokemonForm: string) => {
           types: [],
           abilities: [],
           baseStats: {
-            hp: 0,
+            hp: 323920,
             attack: 0,
             defense: 0,
             specialAttack: 0,
@@ -162,9 +255,9 @@ const extractForms = (data: string[], pokemonForm: string) => {
         form[0] = form[0].slice(form[0].indexOf('_') + 1).trim();
         form[0] = form[0].slice(0, -5).toLowerCase();
         const formNumber = parseInt(form[1].trim().slice(form[1].trim().indexOf('(') + 1, -1), 16);
-        
+
         const mon = pokemonData[pokemonForm]?.find((mon) => mon['id'] === reduce(name));
-        
+
         if (mon?.forms) {
           mon.forms[reduce(form[0])] = {
             formNumber: formNumber,
@@ -303,6 +396,20 @@ const extractMon = (data: string[], pokemonForm: string) => {
   const hasGender =
     genderLine.slice(3).split(',').at(0)?.trim() === 'GENDER_UNKNOWN' ? false : true;
 
+  // Extract TM/HM moves
+  const tmLine = data.find((line: string) => line.trim().startsWith('tmhm '));
+  let tmMoves: string[] = [];
+  if (tmLine) {
+    const movesText = tmLine.replace('tmhm ', '').trim();
+    tmMoves = movesText.split(',').map((move) => reduce(move.trim()));
+
+    // Store TM compatibility
+    if (!(pokemonForm in pokemonTMCompatibility)) {
+      pokemonTMCompatibility[pokemonForm] = {};
+    }
+    pokemonTMCompatibility[pokemonForm][reduce(name_form)] = tmMoves;
+  }
+
   //Add it in!
   //Special Case: Armored Mewtwo (labelled as Mewtwo in file)
   //If Polished, Armored Mewtwo is a functional variant
@@ -357,19 +464,24 @@ const extractMon = (data: string[], pokemonForm: string) => {
 const extractCosmetic = (pokemonForm: string) => {
   //Case #3: Adding to cosmetic form: Can only be done after all files are read.
   const mons = pokemonData[pokemonForm]?.filter((mon) => {
-    return mon?.forms && Object.values(mon.forms).some((form) => form['hasGender'] === null);
+    return mon?.forms && Object.values(mon.forms).some((form) => form['hasGender'] === undefined);
   });
   if (!mons) return;
 
   for (const mon of mons) {
     //Distribute default form data to the rest of the forms
     //TODO: This is predicated on the assumption that a Pokemon cannot have both cosmetic and functional variants
-    for (const form of Object.values(mon['forms'] || {}).slice(1)) {
-      form['types'] = mon['forms']?.[0]['types'];
-      form['abilities'] = mon['forms']?.[0]['abilities'];
-      form['baseStats'] = mon['forms']?.[0]['baseStats'];
-      form['growthRate'] = mon['forms']?.[0]['growthRate'];
-      form['hasGender'] = mon['forms']?.[0]['hasGender'];
+    const plainForm = Object.values(mon['forms'] || {}).find((form) => form['formNumber'] === 1);
+    if (plainForm) {
+      for (const form of Object.values(mon['forms'] || {})) {
+        if (form['hasGender'] === undefined && form['formNumber'] !== 1) {
+          form['types'] = plainForm['types'];
+          form['abilities'] = plainForm['abilities'];
+          form['baseStats'] = plainForm['baseStats'];
+          form['growthRate'] = plainForm['growthRate'];
+          form['hasGender'] = plainForm['hasGender'];
+        }
+      }
     }
   }
 };
@@ -392,14 +504,14 @@ await Promise.all(
   filenames.map(async (filename) => {
     raw = await readFile(join(monDIR, filename), 'utf-8');
     const monFILES = splitFile(raw);
-    extractMon(monFILES[0], 'Polished');
-    extractMon(monFILES[1], 'Faithful');
+    extractMon(monFILES[0], 'polished');
+    extractMon(monFILES[1], 'faithful');
   }),
 );
 
 //#3: Special Case: Cosmetic Forms
-extractCosmetic('Polished');
-extractCosmetic('Faithful');
+extractCosmetic('polished');
+extractCosmetic('faithful');
 
 //#4: Extract Moves
 raw = await readFile(movesASM, 'utf-8');
@@ -408,11 +520,44 @@ raw = await readFile(moveNamesASM, 'utf-8');
 const moveNamesFiles = splitFile(raw);
 extractMoves(movesFiles[0], moveNamesFiles[0]); // Use Polished version for moves
 
-//#5: Extract Pokemon Movesets
+//#5: Extract Evolution Chains
 raw = await readFile(evoAttacksASM, 'utf-8');
 const evoAttacksFiles = splitFile(raw);
-extractPokemonMovesets(evoAttacksFiles[0], 'Polished');
-extractPokemonMovesets(evoAttacksFiles[1], 'Faithful');
+extractEvolutions(evoAttacksFiles[0], 'polished');
+extractEvolutions(evoAttacksFiles[1], 'faithful');
+
+//#6: Extract Pokemon Movesets
+extractPokemonMovesets(evoAttacksFiles[0], 'polished');
+extractPokemonMovesets(evoAttacksFiles[1], 'faithful');
+
+//#7: Extract Egg Moves
+raw = await readFile(eggMovesASM, 'utf-8');
+const eggMovesFiles = splitFile(raw);
+extractEggMoves(eggMovesFiles[0], 'polished');
+extractEggMoves(eggMovesFiles[1], 'faithful');
+
+//#8: Propagate egg moves to evolved forms
+const propagateEggMoves = (formKey: string) => {
+  const chains = evolutionChains[formKey];
+  const movesets = pokemonMovesets[formKey];
+
+  if (!chains || !movesets) return;
+
+  for (const [basePokemon, evolutions] of Object.entries(chains)) {
+    const baseEggMoves = movesets[basePokemon]?.eggMoves || [];
+
+    if (baseEggMoves.length > 0) {
+      for (const evolution of evolutions) {
+        if (movesets[evolution] && movesets[evolution].eggMoves?.length === 0) {
+          movesets[evolution].eggMoves = [...baseEggMoves];
+        }
+      }
+    }
+  }
+};
+
+propagateEggMoves('polished');
+propagateEggMoves('faithful');
 
 // Merge Pokemon data by combining Polished and Faithful versions
 const mergeVersions = () => {
@@ -423,18 +568,42 @@ const mergeVersions = () => {
     const polishedMon: PokemonData = polishedPokemon[i];
     const faithfulMon: PokemonData = faithfulPokemon[i];
 
-
-    // Get movesets for this Pokemon
-    const polishedMoves = pokemonMovesets.polished?.[polishedMon.id] || [];
-    const faithfulMoves = pokemonMovesets.faithful?.[faithfulMon.id] || [];
+    const defaultMovesets = { levelUp: {}, tm: [], eggMoves: [] };
 
     // Add movesets to each form for polished version
     const polishedFormsWithMovesets = { ...polishedMon.forms };
     if (polishedFormsWithMovesets) {
       Object.keys(polishedFormsWithMovesets).forEach((formKey) => {
         if (polishedFormsWithMovesets[formKey]) {
+          // Map form to ROM naming pattern
+          const pokemonName = polishedMon.name;
+          let romFormName =
+            pokemonName +
+            (formKey === 'plain' ? 'Plain' : formKey.charAt(0).toUpperCase() + formKey.slice(1));
+          romFormName = reduce(romFormName);
+
+          // Get form-specific movesets
+          const formMovesets =
+            pokemonMovesets.polished?.[romFormName] ||
+            pokemonMovesets.faithful?.[romFormName] ||
+            pokemonMovesets.polished?.[reduce(pokemonName)] ||
+            pokemonMovesets.faithful?.[reduce(pokemonName)] ||
+            defaultMovesets;
+
+          // Get form-specific TM moves
+          const formTMMoves =
+            pokemonTMCompatibility.polished?.[romFormName] ||
+            pokemonTMCompatibility.faithful?.[romFormName] ||
+            pokemonTMCompatibility.polished?.[reduce(pokemonName)] ||
+            pokemonTMCompatibility.faithful?.[reduce(pokemonName)] ||
+            [];
+
+          // Merge TM moves into movesets
+          const finalMovesets = { ...formMovesets };
+          finalMovesets.tm = formTMMoves;
+
+          polishedFormsWithMovesets[formKey].movesets = finalMovesets;
         }
-        polishedFormsWithMovesets[formKey].movesets = polishedMoves;
       });
     }
 
@@ -443,7 +612,34 @@ const mergeVersions = () => {
     if (faithfulFormsWithMovesets) {
       Object.keys(faithfulFormsWithMovesets).forEach((formKey) => {
         if (faithfulFormsWithMovesets[formKey]) {
-          faithfulFormsWithMovesets[formKey].movesets = faithfulMoves;
+          // Map form to ROM naming pattern
+          const pokemonName = faithfulMon.name;
+          let romFormName =
+            pokemonName +
+            (formKey === 'plain' ? 'Plain' : formKey.charAt(0).toUpperCase() + formKey.slice(1));
+          romFormName = reduce(romFormName);
+
+          // Get form-specific movesets
+          const formMovesets =
+            pokemonMovesets.faithful?.[romFormName] ||
+            pokemonMovesets.polished?.[romFormName] ||
+            pokemonMovesets.faithful?.[reduce(pokemonName)] ||
+            pokemonMovesets.polished?.[reduce(pokemonName)] ||
+            defaultMovesets;
+
+          // Get form-specific TM moves
+          const formTMMoves =
+            pokemonTMCompatibility.faithful?.[romFormName] ||
+            pokemonTMCompatibility.polished?.[romFormName] ||
+            pokemonTMCompatibility.faithful?.[reduce(pokemonName)] ||
+            pokemonTMCompatibility.polished?.[reduce(pokemonName)] ||
+            [];
+
+          // Merge TM moves into movesets
+          const finalMovesets = { ...formMovesets };
+          finalMovesets.tm = formTMMoves;
+
+          faithfulFormsWithMovesets[formKey].movesets = finalMovesets;
         }
       });
     }
