@@ -135,6 +135,7 @@ export interface ItemsData {
 export interface LocationData {
   id: string;
   name: string;
+  connectionCount?: number;
   encounters?: {
     pokemon: PokemonData['name'];
     formNumber?: number;
@@ -143,6 +144,11 @@ export interface LocationData {
     levelRange: string;
     rate: number;
     items?: string[];
+  }[];
+  connections?: {
+    direction: string;
+    to: LocationData['name'];
+    toId: LocationData['id'];
   }[];
   events?: {
     name: string;

@@ -12,7 +12,7 @@ const __dirname = dirname(__filename);
 const attributesASM = join(__dirname, '../polishedcrystal/data/maps/attributes.asm');
 // const landmarksASM = join(__dirname, '../polishedcrystal/data/maps/landmarks.asm');
 
-const locationsManifest: LocationManifest[] = [];
+// const locationsManifest: LocationManifest[] = [];
 const locations: LocationData[] = [];
 
 const extractLocationsData = async (attributesData: string[]) => {
@@ -68,17 +68,17 @@ const extractLocationsData = async (attributesData: string[]) => {
     const locationId = reduce(locationKey);
     const locationName = displayName(locationKey);
     // Try to find a matching landmark name
-    locationsManifest.push({
+    locations.push({
       id: locationId,
       name: locationName,
-      connections: connections,
+      connectionCount: connections,
     });
   }
 
-  console.log(`Extracted ${locationsManifest.length} locations.`);
+  console.log(`Extracted ${locations.length} locations.`);
 
   // Sort by name for better organization
-  locationsManifest.sort((a, b) => a.name.localeCompare(b.name));
+  locations.sort((a, b) => a.name.localeCompare(b.name));
 };
 
 //#1: Map Attributes
@@ -102,7 +102,7 @@ try {
 
 // Write individual Location files
 const manifest: LocationManifest[] = [];
-for (const location of locationsManifest) {
+for (const location of locations) {
   // Create individual Location file
   const locationPath = join(locationsDir, `${location.id}.json`);
   await writeFile(locationPath, JSON.stringify(location, null, 2), 'utf-8');
