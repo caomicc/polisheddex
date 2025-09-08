@@ -1,4 +1,5 @@
 export type PokemonType = {
+  trim(): string;
   normal: 'normal';
   fire: 'fire';
   water: 'water';
@@ -86,7 +87,7 @@ export interface PokemonManifest {
   id: PokemonData['id'];
   name: PokemonData['name'];
   dexNo: PokemonData['dexNo'];
-  forms: Forms | null;
+  forms: string[] | Forms | null; // forms might be overkill here, re-eval late
 }
 
 export interface AbilityData {
@@ -134,7 +135,7 @@ export interface ItemsData {
 export interface LocationData {
   id: string;
   name: string;
-  encounters: {
+  encounters?: {
     pokemon: PokemonData['name'];
     formNumber?: number;
     method: string;
@@ -152,10 +153,12 @@ export interface LocationData {
 }
 
 export interface LocationManifest {
+  id: LocationData['id'];
   name: LocationData['name'];
-  encounterCount: number;
-  eventCount: number;
-  trainerCount: number;
+  connections?: number;
+  encounterCount?: number;
+  eventCount?: number;
+  trainerCount?: number;
 }
 
 export interface TrainerData {

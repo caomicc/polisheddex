@@ -151,7 +151,7 @@ const extractItemsData = async (
     // Extract name: li "Poke Ball"
     const name = nameLine.replace('li "', '').replace('"', '').trim();
 
-    console.log(`🛍️ Extracted item: ${name} (${itemId})`);
+    // console.log(`🛍️ Extracted item: ${name} (${itemId})`);
 
     if (parts.length >= 6) {
       itemsManifest.push({
@@ -223,7 +223,7 @@ const extractItemsData = async (
     // Extract name: li "Bicycle"
     const name = nameLine.replace('li "', '').replace('"', '').trim();
 
-    console.log(`🔑 Extracted key item: ${name} (${itemId})`);
+    // console.log(`🔑 Extracted key item: ${name} (${itemId})`);
 
     if (parts.length >= 3) {
       itemsManifest.push({
@@ -260,7 +260,7 @@ const extractItemsData = async (
     const name = nameLine.replace('li "', '').replace('"', '').trim();
     const itemId = reduce(name);
 
-    console.log(`🌰 Extracted apricorn: ${name} (${itemId})`);
+    // console.log(`🌰 Extracted apricorn: ${name} (${itemId})`);
 
     itemsManifest.push({
       id: itemId,
@@ -282,11 +282,11 @@ const extractItemsData = async (
 
   // Define exp candy descriptions and properties
   const expCandyDescriptions: Record<string, string> = {
-    expcandyxs: 'Increases a Pokémon\'s Exp. Points by 100.',
-    expcandys: 'Increases a Pokémon\'s Exp. Points by 800.',
-    expcandym: 'Increases a Pokémon\'s Exp. Points by 3000.',
-    expcandyl: 'Increases a Pokémon\'s Exp. Points by 10000.',
-    expcandyxl: 'Increases a Pokémon\'s Exp. Points by 30000.',
+    expcandyxs: "Increases a Pokémon's Exp. Points by 100.",
+    expcandys: "Increases a Pokémon's Exp. Points by 800.",
+    expcandym: "Increases a Pokémon's Exp. Points by 3000.",
+    expcandyl: "Increases a Pokémon's Exp. Points by 10000.",
+    expcandyxl: "Increases a Pokémon's Exp. Points by 30000.",
   };
 
   for (let i = 0; i < expCandyNameEntries.length; i++) {
@@ -294,7 +294,7 @@ const extractItemsData = async (
     const name = nameLine.replace('li "', '').replace('"', '').trim();
     const itemId = reduce(name);
 
-    console.log(`🍬 Extracted exp candy: ${name} (${itemId})`);
+    // console.log(`🍬 Extracted exp candy: ${name} (${itemId})`);
 
     itemsManifest.push({
       id: itemId,
@@ -302,7 +302,7 @@ const extractItemsData = async (
       description:
         expCandyDescriptions[itemId] ||
         descriptions[itemId] ||
-        'A candy that increases a Pokémon\'s experience points.',
+        "A candy that increases a Pokémon's experience points.",
       attributes: {
         price: undefined,
         category: 'CANDY',
@@ -316,12 +316,12 @@ const extractItemsData = async (
 
   // Define wing descriptions and properties
   const wingDescriptions: Record<string, string> = {
-    healthwing: 'Slightly increases a Pokémon\'s HP base points.',
-    musclewing: 'Slightly increases a Pokémon\'s Attack base points.',
-    resistwing: 'Slightly increases a Pokémon\'s Defense base points.',
-    swiftwing: 'Slightly increases a Pokémon\'s Speed base points.',
-    geniuswing: 'Slightly increases a Pokémon\'s Sp. Attack base points.',
-    cleverwing: 'Slightly increases a Pokémon\'s Sp. Defense base points.',
+    healthwing: "Slightly increases a Pokémon's HP base points.",
+    musclewing: "Slightly increases a Pokémon's Attack base points.",
+    resistwing: "Slightly increases a Pokémon's Defense base points.",
+    swiftwing: "Slightly increases a Pokémon's Speed base points.",
+    geniuswing: "Slightly increases a Pokémon's Sp. Attack base points.",
+    cleverwing: "Slightly increases a Pokémon's Sp. Defense base points.",
   };
 
   for (let i = 0; i < wingNameEntries.length; i++) {
@@ -329,7 +329,7 @@ const extractItemsData = async (
     const name = nameLine.replace('li "', '').replace('"', '').trim();
     const itemId = reduce(name);
 
-    console.log(`🪶 Extracted wing: ${name} (${itemId})`);
+    // console.log(`🪶 Extracted wing: ${name} (${itemId})`);
 
     itemsManifest.push({
       id: itemId,
@@ -337,7 +337,7 @@ const extractItemsData = async (
       description:
         wingDescriptions[itemId] ||
         descriptions[itemId] ||
-        'A feather that slightly increases a Pokémon\'s base points.',
+        "A feather that slightly increases a Pokémon's base points.",
       attributes: {
         price: undefined,
         category: 'Medicine',
@@ -363,7 +363,7 @@ const extractItemsData = async (
     const name = nameLine.replace('li "', '').replace('"', '').trim();
     const itemId = reduce(name);
 
-    console.log(`⚙️ Extracted special item: ${name} (${itemId})`);
+    // console.log(`⚙️ Extracted special item: ${name} (${itemId})`);
 
     itemsManifest.push({
       id: itemId,
@@ -382,7 +382,7 @@ const extractItemsData = async (
 };
 
 export default async function extractItems() {
-  console.log('🛍️  Starting item extraction...');
+  // console.log('🛍️  Starting item extraction...');
 
   //#1: Extract Items
   let raw = await readFile(itemsASM, 'utf-8');

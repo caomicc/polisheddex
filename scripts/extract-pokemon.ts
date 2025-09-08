@@ -7,6 +7,7 @@ import {
   ComprehensivePokemonData,
   MoveData,
   PokemonData,
+  PokemonManifest,
   PokemonMovesets,
 } from '../src/types/new.ts';
 const __filename = fileURLToPath(import.meta.url);
@@ -591,7 +592,7 @@ const extractMon = (data: string[], pokemonForm: string) => {
     (mon) => mon['id'] === reduce(name_form.split('_').slice(0, -1).join('_')),
   );
   if (mon) {
-    const formKey = reduce(name_form.split('_').at(-1));
+    const formKey = reduce(name_form.split('_').at(-1) as syt);
     const form = mon['forms']?.[formKey];
     if (form) {
       form['types'] = types as unknown as PokemonData['types'];
@@ -807,7 +808,7 @@ try {
 }
 
 // Write individual Pokemon files
-const manifest = [];
+const manifest: PokemonManifest[] = [];
 for (const pokemon of mergedPokemon) {
   // Create individual Pokemon file
   const pokemonPath = join(pokemonDir, `${pokemon.id}.json`);

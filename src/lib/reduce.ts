@@ -3,7 +3,7 @@
 //Removes underscores, dashes, apostrophes, periods
 //Replaces Jupiter and Venus with m and f
 
-const reduce = (str) => {
+const reduce = (str: string) => {
   return str
     .toLowerCase()
     .replaceAll(' ', '')
