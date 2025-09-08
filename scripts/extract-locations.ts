@@ -289,22 +289,17 @@ const processTrainerData = async (trainerData: string[], version: string) => {
     // Start of a new trainer
     if (line.startsWith('def_trainer ')) {
       // Save previous trainer if exists
-      if (currentTrainer) {
-        // Save any remaining Pokemon and team
-        if (currentPokemon && currentTeam) {
-          currentTeam.pokemon.push(currentPokemon);
-        }
+      if (currentTrainer && currentTrainer.teams.length > 0) {
+        // Save any remaining team
         if (currentTeam && currentTeam.pokemon.length > 0) {
           currentTrainer.teams.push(currentTeam);
         }
-        
-        if (currentTrainer.teams.length > 0) {
-          const trainerKey = reduce(currentTrainer.id);
-          if (!trainers[version][trainerKey]) {
-            trainers[version][trainerKey] = [];
-          }
-          trainers[version][trainerKey].push(currentTrainer);
+
+        const trainerKey = reduce(currentTrainer.id);
+        if (!trainers[version][trainerKey]) {
+          trainers[version][trainerKey] = [];
         }
+        trainers[version][trainerKey].push(currentTrainer);
       }
 
       // Parse: def_trainer 1, "Falkner"
@@ -328,13 +323,13 @@ const processTrainerData = async (trainerData: string[], version: string) => {
         }
 
         currentTrainer = {
-          id: trainerId,
-          name: trainerName,
+          id: trainerId + 'eeee',
+          name: trainerName, // changes file name
           constantName: trainerConstantName,
           class: trainerClass, // Use the current trainer class
           teams: [],
         };
-        
+
         // Start first team for this trainer
         currentTeam = {
           matchCount: currentTrainerMatchCount,
@@ -452,7 +447,7 @@ const processTrainerData = async (trainerData: string[], version: string) => {
     if (currentTeam && currentTeam.pokemon.length > 0) {
       currentTrainer.teams.push(currentTeam);
     }
-    
+
     if (currentTrainer.teams.length > 0) {
       const trainerKey = currentTrainer.class.toLowerCase() + '_' + currentTrainer.id;
       if (!trainers[version][trainerKey]) {
@@ -588,11 +583,11 @@ await Promise.all(
   }),
 );
 
+locationManifest.sort((a, b) => a.name.localeCompare(b.name));
+
 // Write manifest file
 const locationManifestPath = join(outputDir, 'locations_manifest.json');
 await writeFile(locationManifestPath, JSON.stringify(locationManifest, null, 2), 'utf-8');
-
-console.log('Location extraction complete!');
 
 // Consolidate trainers before writing files
 const consolidatedTrainers = consolidateTrainers();
@@ -618,6 +613,8 @@ await Promise.all(
     });
   }),
 );
+
+trainerManifest.sort((a, b) => a.name.localeCompare(b.name));
 
 // Write trainer manifest file
 const trainerManifestPath = join(outputDir, 'trainer_manifest.json');
