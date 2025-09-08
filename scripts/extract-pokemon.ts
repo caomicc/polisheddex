@@ -503,7 +503,7 @@ const extractMon = (data: string[], pokemonForm: string) => {
   let types: PokemonData['types'] = typeLine
     .slice(3, -7)
     .split(',')
-    .map((type: string) => reduce(type.trim()));
+    .map((type) => reduce(type.trim()));
   if (types[0] === types[1]) {
     types = [types[0]];
   }
@@ -592,7 +592,7 @@ const extractMon = (data: string[], pokemonForm: string) => {
     (mon) => mon['id'] === reduce(name_form.split('_').slice(0, -1).join('_')),
   );
   if (mon) {
-    const formKey = reduce(name_form.split('_').at(-1) as syt);
+    const formKey = reduce(name_form.split('_').at(-1) as string);
     const form = mon['forms']?.[formKey];
     if (form) {
       form['types'] = types as unknown as PokemonData['types'];

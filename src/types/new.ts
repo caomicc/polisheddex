@@ -1,25 +1,3 @@
-export type PokemonType = {
-  trim(): string;
-  normal: 'normal';
-  fire: 'fire';
-  water: 'water';
-  electric: 'electric';
-  grass: 'grass';
-  ice: 'ice';
-  fighting: 'fighting';
-  poison: 'poison';
-  ground: 'ground';
-  flying: 'flying';
-  psychic: 'psychic';
-  bug: 'bug';
-  rock: 'rock';
-  ghost: 'ghost';
-  dragon: 'dragon';
-  dark: 'dark';
-  steel: 'steel';
-  fairy: 'fairy';
-};
-
 interface BaseStats {
   hp: number;
   attack: number;
@@ -32,7 +10,7 @@ interface BaseStats {
 interface Forms {
   [formName: string]: {
     formNumber: number;
-    types?: PokemonType[];
+    types?: string[];
     abilities?: AbilityData['name'][];
     baseStats?: Partial<BaseStats>;
     growthRate?: string;
@@ -45,7 +23,7 @@ export interface PokemonData {
   id: string;
   name: string;
   dexNo: number;
-  types?: PokemonType[];
+  types?: string[];
   abilities?: AbilityData['name'][];
   baseStats?: BaseStats;
   forms?: Forms;
@@ -67,7 +45,7 @@ export interface MoveManifest {
 
 export interface MoveData {
   name: string;
-  type: PokemonType;
+  type: string;
   category: string;
   power: number | null;
   accuracy: number | null;
@@ -77,7 +55,7 @@ export interface MoveData {
 
 export interface PokemonMovesets {
   levelUp?: {
-    [level: number]: MoveData['name'][];
+    [level: number]: MoveData['name'][] | MoveData['name'];
   };
   tm?: MoveData['name'][];
   eggMoves?: MoveData['name'][];

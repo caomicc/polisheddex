@@ -1,14 +1,5 @@
 [
   {
-    "id": "azaleamart",
-    "constantName": "AZALEA_MART",
-    "name": "Azalea Mart",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "azaleapokecenter1f",
     "constantName": "AZALEA_POKECENTER_1F",
     "name": "Azalea PokéCenter 1F",
@@ -27,18 +18,20 @@
     "trainerCount": 0
   },
   {
-    "id": "battlefactory1f",
-    "constantName": "BATTLE_FACTORY_1F",
-    "name": "Battle Factory 1F",
-    "isLandmark": false,
-    "connections": 0,
+    "id": "azaleatown",
+    "constantName": "AZALEA_TOWN",
+    "name": "Azalea Town",
+    "isLandmark": true,
+    "region": "Johto",
+    "order": 15,
+    "connections": 2,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "battletower2f",
-    "constantName": "BATTLE_TOWER_2F",
-    "name": "Battle Tower 2F",
+    "id": "azaleamart",
+    "constantName": "AZALEA_MART",
+    "name": "Azalea Mart",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -54,13 +47,11 @@
     "trainerCount": 0
   },
   {
-    "id": "azaleatown",
-    "constantName": "AZALEA_TOWN",
-    "name": "Azalea Town",
-    "isLandmark": true,
-    "region": "Johto",
-    "order": 15,
-    "connections": 2,
+    "id": "battletower2f",
+    "constantName": "BATTLE_TOWER_2F",
+    "name": "Battle Tower 2F",
+    "isLandmark": false,
+    "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
@@ -74,9 +65,9 @@
     "trainerCount": 0
   },
   {
-    "id": "battletowerbattleroom",
-    "constantName": "BATTLE_TOWER_BATTLE_ROOM",
-    "name": "Battle Tower Battle Room",
+    "id": "battlefactory1f",
+    "constantName": "BATTLE_FACTORY_1F",
+    "name": "Battle Factory 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -89,26 +80,6 @@
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "battletowerhallway",
-    "constantName": "BATTLE_TOWER_HALLWAY",
-    "name": "Battle Tower Hallway",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "beautifulbeach",
-    "constantName": "BEAUTIFUL_BEACH",
-    "name": "Beautiful Beach",
-    "isLandmark": true,
-    "region": "Orange",
-    "order": 131,
-    "connections": 1,
-    "encounterCount": 21,
     "trainerCount": 0
   },
   {
@@ -130,9 +101,18 @@
     "trainerCount": 0
   },
   {
-    "id": "billshouse",
-    "constantName": "BILLS_HOUSE",
-    "name": "Bills House",
+    "id": "battletowerbattleroom",
+    "constantName": "BATTLE_TOWER_BATTLE_ROOM",
+    "name": "Battle Tower Battle Room",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "battletowerhallway",
+    "constantName": "BATTLE_TOWER_HALLWAY",
+    "name": "Battle Tower Hallway",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -159,15 +139,6 @@
     "trainerCount": 0
   },
   {
-    "id": "blackthorngym2f",
-    "constantName": "BLACKTHORN_GYM_2F",
-    "name": "Blackthorn Gym 2F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "blackthorncity",
     "constantName": "BLACKTHORN_CITY",
     "name": "Blackthorn City",
@@ -179,9 +150,9 @@
     "trainerCount": 0
   },
   {
-    "id": "blackthornmart",
-    "constantName": "BLACKTHORN_MART",
-    "name": "Blackthorn Mart",
+    "id": "blackthorndragonspeechhouse",
+    "constantName": "BLACKTHORN_DRAGON_SPEECH_HOUSE",
+    "name": "Blackthorn Dragon Speech House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -197,9 +168,65 @@
     "trainerCount": 0
   },
   {
+    "id": "blackthorngym1f",
+    "constantName": "BLACKTHORN_GYM_1F",
+    "name": "Blackthorn Gym 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "blackthorngym2f",
+    "constantName": "BLACKTHORN_GYM_2F",
+    "name": "Blackthorn Gym 2F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "beautifulbeach",
+    "constantName": "BEAUTIFUL_BEACH",
+    "name": "Beautiful Beach",
+    "isLandmark": true,
+    "region": "Orange",
+    "order": 131,
+    "connections": 1,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "billshouse",
+    "constantName": "BILLS_HOUSE",
+    "name": "Bills House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "blackthornpokecenter1f",
+    "constantName": "BLACKTHORN_POKECENTER_1F",
+    "name": "Blackthorn PokéCenter 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
     "id": "blueshouse2f",
     "constantName": "BLUES_HOUSE_2F",
     "name": "Blues House 2F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "blackthornmart",
+    "constantName": "BLACKTHORN_MART",
+    "name": "Blackthorn Mart",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -224,24 +251,6 @@
     "trainerCount": 0
   },
   {
-    "id": "blackthorngym1f",
-    "constantName": "BLACKTHORN_GYM_1F",
-    "name": "Blackthorn Gym 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "blackthornpokecenter1f",
-    "constantName": "BLACKTHORN_POKECENTER_1F",
-    "name": "Blackthorn PokéCenter 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "burnedtower1f",
     "constantName": "BURNED_TOWER_1F",
     "name": "Burned Tower 1F",
@@ -251,27 +260,18 @@
     "trainerCount": 0
   },
   {
-    "id": "celadoncafe",
-    "constantName": "CELADON_CAFE",
-    "name": "Celadon Cafe",
+    "id": "burnedtowerb1f",
+    "constantName": "BURNED_TOWER_B1F",
+    "name": "Burned Tower B1F",
     "isLandmark": false,
     "connections": 0,
-    "encounterCount": 0,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
     "id": "celadonchiefhouse",
     "constantName": "CELADON_CHIEF_HOUSE",
     "name": "Celadon Chief House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "blackthorndragonspeechhouse",
-    "constantName": "BLACKTHORN_DRAGON_SPEECH_HOUSE",
-    "name": "Blackthorn Dragon Speech House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -289,45 +289,18 @@
     "trainerCount": 0
   },
   {
-    "id": "burnedtowerb1f",
-    "constantName": "BURNED_TOWER_B1F",
-    "name": "Burned Tower B1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "celadondeptstore1f",
-    "constantName": "CELADON_DEPT_STORE_1F",
-    "name": "Celadon Dept Store 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "celadondeptstoreelevator",
-    "constantName": "CELADON_DEPT_STORE_ELEVATOR",
-    "name": "Celadon Dept Store Elevator",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "celadondeptstore2f",
-    "constantName": "CELADON_DEPT_STORE_2F",
-    "name": "Celadon Dept Store 2F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "celadondeptstore3f",
     "constantName": "CELADON_DEPT_STORE_3F",
     "name": "Celadon Dept Store 3F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "celadondeptstore6f",
+    "constantName": "CELADON_DEPT_STORE_6F",
+    "name": "Celadon Dept Store 6F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -352,15 +325,6 @@
     "trainerCount": 0
   },
   {
-    "id": "celadongamecornerprizeroom",
-    "constantName": "CELADON_GAME_CORNER_PRIZE_ROOM",
-    "name": "Celadon Game Corner Prize Room",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "celadongamecorner",
     "constantName": "CELADON_GAME_CORNER",
     "name": "Celadon Game Corner",
@@ -370,18 +334,63 @@
     "trainerCount": 0
   },
   {
-    "id": "celadondeptstore6f",
-    "constantName": "CELADON_DEPT_STORE_6F",
-    "name": "Celadon Dept Store 6F",
+    "id": "celadondevelopmentspeechhouse",
+    "constantName": "CELADON_DEVELOPMENT_SPEECH_HOUSE",
+    "name": "Celadon Development Speech House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "celadondevelopmentspeechhouse",
-    "constantName": "CELADON_DEVELOPMENT_SPEECH_HOUSE",
-    "name": "Celadon Development Speech House",
+    "id": "celadondeptstoreelevator",
+    "constantName": "CELADON_DEPT_STORE_ELEVATOR",
+    "name": "Celadon Dept Store Elevator",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "celadongamecornerprizeroom",
+    "constantName": "CELADON_GAME_CORNER_PRIZE_ROOM",
+    "name": "Celadon Game Corner Prize Room",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "celadondeptstore2f",
+    "constantName": "CELADON_DEPT_STORE_2F",
+    "name": "Celadon Dept Store 2F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "celadondeptstore1f",
+    "constantName": "CELADON_DEPT_STORE_1F",
+    "name": "Celadon Dept Store 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "celadoncafe",
+    "constantName": "CELADON_CAFE",
+    "name": "Celadon Cafe",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "celadongym",
+    "constantName": "CELADON_GYM",
+    "name": "Celadon Gym",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -406,18 +415,9 @@
     "trainerCount": 0
   },
   {
-    "id": "celadonhomedecorstore1f",
-    "constantName": "CELADON_HOME_DECOR_STORE_1F",
-    "name": "Celadon Home Decor Store 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "celadongym",
-    "constantName": "CELADON_GYM",
-    "name": "Celadon Gym",
+    "id": "celadonhomedecorstore4f",
+    "constantName": "CELADON_HOME_DECOR_STORE_4F",
+    "name": "Celadon Home Decor Store 4F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -427,15 +427,6 @@
     "id": "celadonhotel2f",
     "constantName": "CELADON_HOTEL_2F",
     "name": "Celadon Hotel 2F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "celadonhomedecorstore4f",
-    "constantName": "CELADON_HOME_DECOR_STORE_4F",
-    "name": "Celadon Home Decor Store 4F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -460,18 +451,9 @@
     "trainerCount": 0
   },
   {
-    "id": "celadonmansion1f",
-    "constantName": "CELADON_MANSION_1F",
-    "name": "Celadon Mansion 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "celadonhotelroom1",
-    "constantName": "CELADON_HOTEL_ROOM_1",
-    "name": "Celadon Hotel Room1",
+    "id": "celadonhomedecorstore1f",
+    "constantName": "CELADON_HOME_DECOR_STORE_1F",
+    "name": "Celadon Home Decor Store 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -487,24 +469,6 @@
     "trainerCount": 0
   },
   {
-    "id": "celadonmansion2f",
-    "constantName": "CELADON_MANSION_2F",
-    "name": "Celadon Mansion 2F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "celadonmansionroofhouse",
-    "constantName": "CELADON_MANSION_ROOF_HOUSE",
-    "name": "Celadon Mansion Roof House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "celadonhotelroom3",
     "constantName": "CELADON_HOTEL_ROOM_3",
     "name": "Celadon Hotel Room3",
@@ -514,9 +478,9 @@
     "trainerCount": 0
   },
   {
-    "id": "celadonmansion3f",
-    "constantName": "CELADON_MANSION_3F",
-    "name": "Celadon Mansion 3F",
+    "id": "celadonmansion1f",
+    "constantName": "CELADON_MANSION_1F",
+    "name": "Celadon Mansion 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -532,9 +496,18 @@
     "trainerCount": 0
   },
   {
-    "id": "celadonuniversity1f",
-    "constantName": "CELADON_UNIVERSITY_1F",
-    "name": "Celadon University 1F",
+    "id": "celadonmansion3f",
+    "constantName": "CELADON_MANSION_3F",
+    "name": "Celadon Mansion 3F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "celadonmansionroofhouse",
+    "constantName": "CELADON_MANSION_ROOF_HOUSE",
+    "name": "Celadon Mansion Roof House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -550,27 +523,27 @@
     "trainerCount": 0
   },
   {
+    "id": "celadonpokecenter1f",
+    "constantName": "CELADON_POKECENTER_1F",
+    "name": "Celadon PokéCenter 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "celadonuniversity1f",
+    "constantName": "CELADON_UNIVERSITY_1F",
+    "name": "Celadon University 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
     "id": "celadonuniversity2f",
     "constantName": "CELADON_UNIVERSITY_2F",
     "name": "Celadon University 2F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "celadonuniversityclassroom4",
-    "constantName": "CELADON_UNIVERSITY_CLASSROOM_4",
-    "name": "Celadon University Classroom4",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "celadonuniversitycafeteria",
-    "constantName": "CELADON_UNIVERSITY_CAFETERIA",
-    "name": "Celadon University Cafeteria",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -586,27 +559,9 @@
     "trainerCount": 0
   },
   {
-    "id": "celadonpokecenter1f",
-    "constantName": "CELADON_POKECENTER_1F",
-    "name": "Celadon PokéCenter 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "celadonuniversityhypertestroom",
-    "constantName": "CELADON_UNIVERSITY_HYPER_TEST_ROOM",
-    "name": "Celadon University Hyper Test Room",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "celadonuniversitylibrary1f",
-    "constantName": "CELADON_UNIVERSITY_LIBRARY_1F",
-    "name": "Celadon University Library 1F",
+    "id": "celadonuniversitycafeteria",
+    "constantName": "CELADON_UNIVERSITY_CAFETERIA",
+    "name": "Celadon University Cafeteria",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -622,15 +577,6 @@
     "trainerCount": 0
   },
   {
-    "id": "celadonuniversitylibrary2f",
-    "constantName": "CELADON_UNIVERSITY_LIBRARY_2F",
-    "name": "Celadon University Library 2F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "celadonuniversityclassroom3",
     "constantName": "CELADON_UNIVERSITY_CLASSROOM_3",
     "name": "Celadon University Classroom3",
@@ -640,18 +586,18 @@
     "trainerCount": 0
   },
   {
-    "id": "celadonuniversityprincipalsoffice",
-    "constantName": "CELADON_UNIVERSITY_PRINCIPALS_OFFICE",
-    "name": "Celadon University Principals Office",
+    "id": "celadonuniversityhypertestroom",
+    "constantName": "CELADON_UNIVERSITY_HYPER_TEST_ROOM",
+    "name": "Celadon University Hyper Test Room",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "celadonuniversitynursesoffice",
-    "constantName": "CELADON_UNIVERSITY_NURSES_OFFICE",
-    "name": "Celadon University Nurses Office",
+    "id": "celadonuniversityclassroom4",
+    "constantName": "CELADON_UNIVERSITY_CLASSROOM_4",
+    "name": "Celadon University Classroom4",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -667,6 +613,24 @@
     "trainerCount": 0
   },
   {
+    "id": "celadonuniversitylibrary2f",
+    "constantName": "CELADON_UNIVERSITY_LIBRARY_2F",
+    "name": "Celadon University Library 2F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "celadonuniversitynursesoffice",
+    "constantName": "CELADON_UNIVERSITY_NURSES_OFFICE",
+    "name": "Celadon University Nurses Office",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
     "id": "celadonuniversitypool",
     "constantName": "CELADON_UNIVERSITY_POOL",
     "name": "Celadon University Pool",
@@ -676,9 +640,18 @@
     "trainerCount": 0
   },
   {
-    "id": "celadonuniversitywillowsoffice",
-    "constantName": "CELADON_UNIVERSITY_WILLOWS_OFFICE",
-    "name": "Celadon University Willows Office",
+    "id": "celadonuniversitywestwoodsoffice",
+    "constantName": "CELADON_UNIVERSITY_WESTWOODS_OFFICE",
+    "name": "Celadon University Westwoods Office",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "celadonuniversityprincipalsoffice",
+    "constantName": "CELADON_UNIVERSITY_PRINCIPALS_OFFICE",
+    "name": "Celadon University Principals Office",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -694,27 +667,27 @@
     "trainerCount": 0
   },
   {
-    "id": "ceruleancave1f",
-    "constantName": "CERULEAN_CAVE_1F",
-    "name": "Cerulean Cave 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "celadonuniversitywestwoodsoffice",
-    "constantName": "CELADON_UNIVERSITY_WESTWOODS_OFFICE",
-    "name": "Celadon University Westwoods Office",
+    "id": "celadonuniversitywillowsoffice",
+    "constantName": "CELADON_UNIVERSITY_WILLOWS_OFFICE",
+    "name": "Celadon University Willows Office",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "ceruleancave2f",
-    "constantName": "CERULEAN_CAVE_2F",
-    "name": "Cerulean Cave 2F",
+    "id": "ceruleanbikeshop",
+    "constantName": "CERULEAN_BIKE_SHOP",
+    "name": "Cerulean Bike Shop",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "ceruleancave1f",
+    "constantName": "CERULEAN_CAVE_1F",
+    "name": "Cerulean Cave 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
@@ -732,9 +705,38 @@
     "trainerCount": 0
   },
   {
-    "id": "ceruleanbikeshop",
-    "constantName": "CERULEAN_BIKE_SHOP",
-    "name": "Cerulean Bike Shop",
+    "id": "ceruleancave2f",
+    "constantName": "CERULEAN_CAVE_2F",
+    "name": "Cerulean Cave 2F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "ceruleancaveb1f",
+    "constantName": "CERULEAN_CAVE_B1F",
+    "name": "Cerulean Cave B1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "ceruleancity",
+    "constantName": "CERULEAN_CITY",
+    "name": "Cerulean City",
+    "isLandmark": true,
+    "region": "Kanto",
+    "order": 77,
+    "connections": 4,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "celadonhotelroom1",
+    "constantName": "CELADON_HOTEL_ROOM_1",
+    "name": "Celadon Hotel Room1",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -750,31 +752,20 @@
     "trainerCount": 0
   },
   {
-    "id": "ceruleancaveb1f",
-    "constantName": "CERULEAN_CAVE_B1F",
-    "name": "Cerulean Cave B1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "ceruleanmart",
-    "constantName": "CERULEAN_MART",
-    "name": "Cerulean Mart",
+    "id": "celadonmansion2f",
+    "constantName": "CELADON_MANSION_2F",
+    "name": "Celadon Mansion 2F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "ceruleancity",
-    "constantName": "CERULEAN_CITY",
-    "name": "Cerulean City",
-    "isLandmark": true,
-    "region": "Kanto",
-    "order": 77,
-    "connections": 4,
+    "id": "celadonuniversitylibrary1f",
+    "constantName": "CELADON_UNIVERSITY_LIBRARY_1F",
+    "name": "Celadon University Library 1F",
+    "isLandmark": false,
+    "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
@@ -788,9 +779,9 @@
     "trainerCount": 0
   },
   {
-    "id": "ceruleangymbadgespeechhouse",
-    "constantName": "CERULEAN_GYM_BADGE_SPEECH_HOUSE",
-    "name": "Cerulean Gym Badge Speech House",
+    "id": "ceruleanmart",
+    "constantName": "CERULEAN_MART",
+    "name": "Cerulean Mart",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -806,9 +797,9 @@
     "trainerCount": 0
   },
   {
-    "id": "ceruleanwatershowspeechhouse",
-    "constantName": "CERULEAN_WATER_SHOW_SPEECH_HOUSE",
-    "name": "Cerulean Water Show Speech House",
+    "id": "ceruleantradespeechhouse",
+    "constantName": "CERULEAN_TRADE_SPEECH_HOUSE",
+    "name": "Cerulean Trade Speech House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -824,9 +815,9 @@
     "trainerCount": 0
   },
   {
-    "id": "ceruleantradespeechhouse",
-    "constantName": "CERULEAN_TRADE_SPEECH_HOUSE",
-    "name": "Cerulean Trade Speech House",
+    "id": "ceruleanwatershowspeechhouse",
+    "constantName": "CERULEAN_WATER_SHOW_SPEECH_HOUSE",
+    "name": "Cerulean Water Show Speech House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -853,9 +844,20 @@
     "trainerCount": 0
   },
   {
-    "id": "cherrygrovegymspeechhouse",
-    "constantName": "CHERRYGROVE_GYM_SPEECH_HOUSE",
-    "name": "Cherrygrove Gym Speech House",
+    "id": "cherrygrovecity",
+    "constantName": "CHERRYGROVE_CITY",
+    "name": "Cherrygrove City",
+    "isLandmark": true,
+    "region": "Johto",
+    "order": 3,
+    "connections": 3,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "cherrygroveevolutionspeechhouse",
+    "constantName": "CHERRYGROVE_EVOLUTION_SPEECH_HOUSE",
+    "name": "Cherrygrove Evolution Speech House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -871,6 +873,24 @@
     "trainerCount": 0
   },
   {
+    "id": "cherrygrovemart",
+    "constantName": "CHERRYGROVE_MART",
+    "name": "Cherrygrove Mart",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "cherrygrovegymspeechhouse",
+    "constantName": "CHERRYGROVE_GYM_SPEECH_HOUSE",
+    "name": "Cherrygrove Gym Speech House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
     "id": "cianwoodcity",
     "constantName": "CIANWOOD_CITY",
     "name": "Cianwood City",
@@ -878,35 +898,6 @@
     "region": "Johto",
     "order": 45,
     "connections": 1,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "cherrygrovecity",
-    "constantName": "CHERRYGROVE_CITY",
-    "name": "Cherrygrove City",
-    "isLandmark": true,
-    "region": "Johto",
-    "order": 3,
-    "connections": 3,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "cianwoodcityphotostudio",
-    "constantName": "CIANWOOD_CITY_PHOTO_STUDIO",
-    "name": "Cianwood City Photo Studio",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "cherrygrovemart",
-    "constantName": "CHERRYGROVE_MART",
-    "name": "Cherrygrove Mart",
-    "isLandmark": false,
-    "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
@@ -929,19 +920,39 @@
     "trainerCount": 0
   },
   {
-    "id": "cherrygroveevolutionspeechhouse",
-    "constantName": "CHERRYGROVE_EVOLUTION_SPEECH_HOUSE",
-    "name": "Cherrygrove Evolution Speech House",
+    "id": "cianwoodpharmacy",
+    "constantName": "CIANWOOD_PHARMACY",
+    "name": "Cianwood Pharmacy",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "cianwoodpharmacy",
-    "constantName": "CIANWOOD_PHARMACY",
-    "name": "Cianwood Pharmacy",
+    "id": "cianwoodcityphotostudio",
+    "constantName": "CIANWOOD_CITY_PHOTO_STUDIO",
+    "name": "Cianwood City Photo Studio",
     "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "cianwoodpokecenter1f",
+    "constantName": "CIANWOOD_POKECENTER_1F",
+    "name": "Cianwood PokéCenter 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "cinnabarlab",
+    "constantName": "CINNABAR_LAB",
+    "name": "Cinnabar Lab",
+    "isLandmark": true,
+    "region": "Kanto",
+    "order": 129,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
@@ -958,30 +969,10 @@
     "trainerCount": 0
   },
   {
-    "id": "cianwoodpokecenter1f",
-    "constantName": "CIANWOOD_POKECENTER_1F",
-    "name": "Cianwood PokéCenter 1F",
+    "id": "cinnabarpokecenter1f",
+    "constantName": "CINNABAR_POKECENTER_1F",
+    "name": "Cinnabar PokéCenter 1F",
     "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "cinnabarvolcanob1f",
-    "constantName": "CINNABAR_VOLCANO_B1F",
-    "name": "Cinnabar Volcano B1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "cinnabarlab",
-    "constantName": "CINNABAR_LAB",
-    "name": "Cinnabar Lab",
-    "isLandmark": true,
-    "region": "Kanto",
-    "order": 129,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
@@ -996,9 +987,18 @@
     "trainerCount": 0
   },
   {
-    "id": "cinnabarpokecenter1f",
-    "constantName": "CINNABAR_POKECENTER_1F",
-    "name": "Cinnabar PokéCenter 1F",
+    "id": "cinnabarvolcanob1f",
+    "constantName": "CINNABAR_VOLCANO_B1F",
+    "name": "Cinnabar Volcano B1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "ceruleangymbadgespeechhouse",
+    "constantName": "CERULEAN_GYM_BADGE_SPEECH_HOUSE",
+    "name": "Cerulean Gym Badge Speech House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1014,14 +1014,14 @@
     "trainerCount": 0
   },
   {
-    "id": "cliffcave",
-    "constantName": "CLIFF_CAVE",
-    "name": "Cliff Cave",
+    "id": "cliffedgegate",
+    "constantName": "CLIFF_EDGE_GATE",
+    "name": "Cliff Edge Gate",
     "isLandmark": true,
     "region": "Johto",
-    "order": 48,
+    "order": 46,
     "connections": 0,
-    "encounterCount": 21,
+    "encounterCount": 0,
     "trainerCount": 0
   },
   {
@@ -1034,14 +1034,14 @@
     "trainerCount": 0
   },
   {
-    "id": "cliffedgegate",
-    "constantName": "CLIFF_EDGE_GATE",
-    "name": "Cliff Edge Gate",
+    "id": "cliffcave",
+    "constantName": "CLIFF_CAVE",
+    "name": "Cliff Cave",
     "isLandmark": true,
     "region": "Johto",
-    "order": 46,
+    "order": 48,
     "connections": 0,
-    "encounterCount": 0,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
@@ -1054,21 +1054,21 @@
     "trainerCount": 0
   },
   {
-    "id": "darkcavevioletentrance",
-    "constantName": "DARK_CAVE_VIOLET_ENTRANCE",
-    "name": "Dark Cave Violet Entrance",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 42,
-    "trainerCount": 0
-  },
-  {
     "id": "copycatshouse1f",
     "constantName": "COPYCATS_HOUSE_1F",
     "name": "Copycats House 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "darkcaveblackthornentrance",
+    "constantName": "DARK_CAVE_BLACKTHORN_ENTRANCE",
+    "name": "Dark Cave Blackthorn Entrance",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
@@ -1090,15 +1090,6 @@
     "trainerCount": 0
   },
   {
-    "id": "dimcave1f",
-    "constantName": "DIM_CAVE_1F",
-    "name": "Dim Cave 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
     "id": "diglettscave",
     "constantName": "DIGLETTS_CAVE",
     "name": "Digletts Cave",
@@ -1110,18 +1101,18 @@
     "trainerCount": 0
   },
   {
-    "id": "dimcave2f",
-    "constantName": "DIM_CAVE_2F",
-    "name": "Dim Cave 2F",
+    "id": "dimcave1f",
+    "constantName": "DIM_CAVE_1F",
+    "name": "Dim Cave 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
     "trainerCount": 0
   },
   {
-    "id": "darkcaveblackthornentrance",
-    "constantName": "DARK_CAVE_BLACKTHORN_ENTRANCE",
-    "name": "Dark Cave Blackthorn Entrance",
+    "id": "dimcave2f",
+    "constantName": "DIM_CAVE_2F",
+    "name": "Dim Cave 2F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
@@ -1146,30 +1137,21 @@
     "trainerCount": 0
   },
   {
-    "id": "dimcave4f",
-    "constantName": "DIM_CAVE_4F",
-    "name": "Dim Cave 4F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "dragonshrine",
-    "constantName": "DRAGON_SHRINE",
-    "name": "Dragon Shrine",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "dragonsden1f",
     "constantName": "DRAGONS_DEN_1F",
     "name": "Dragons Den 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "dimcave4f",
+    "constantName": "DIM_CAVE_4F",
+    "name": "Dim Cave 4F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
@@ -1182,27 +1164,9 @@
     "trainerCount": 0
   },
   {
-    "id": "earlspokemonacademy",
-    "constantName": "EARLS_POKEMON_ACADEMY",
-    "name": "Earls Pokémon Academy",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "ecruteakdestinyknothouse",
-    "constantName": "ECRUTEAK_DESTINY_KNOT_HOUSE",
-    "name": "Ecruteak Destiny Knot House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "ecruteakcherishballhouse",
-    "constantName": "ECRUTEAK_CHERISH_BALL_HOUSE",
-    "name": "Ecruteak Cherish Ball House",
+    "id": "dragonshrine",
+    "constantName": "DRAGON_SHRINE",
+    "name": "Dragon Shrine",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1220,9 +1184,9 @@
     "trainerCount": 0
   },
   {
-    "id": "ecruteakhouse",
-    "constantName": "ECRUTEAK_HOUSE",
-    "name": "Ecruteak House",
+    "id": "earlspokemonacademy",
+    "constantName": "EARLS_POKEMON_ACADEMY",
+    "name": "Earls Pokémon Academy",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1238,18 +1202,18 @@
     "trainerCount": 0
   },
   {
-    "id": "ecruteakitemfinderhouse",
-    "constantName": "ECRUTEAK_ITEMFINDER_HOUSE",
-    "name": "Ecruteak Itemfinder House",
+    "id": "ecruteakdestinyknothouse",
+    "constantName": "ECRUTEAK_DESTINY_KNOT_HOUSE",
+    "name": "Ecruteak Destiny Knot House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "ecruteakpokecenter1f",
-    "constantName": "ECRUTEAK_POKECENTER_1F",
-    "name": "Ecruteak PokéCenter 1F",
+    "id": "ecruteakhouse",
+    "constantName": "ECRUTEAK_HOUSE",
+    "name": "Ecruteak House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1274,12 +1238,39 @@
     "trainerCount": 0
   },
   {
-    "id": "ecruteakshrineinside",
-    "constantName": "ECRUTEAK_SHRINE_INSIDE",
-    "name": "Ecruteak Shrine Inside",
+    "id": "ecruteakcherishballhouse",
+    "constantName": "ECRUTEAK_CHERISH_BALL_HOUSE",
+    "name": "Ecruteak Cherish Ball House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "ecruteakitemfinderhouse",
+    "constantName": "ECRUTEAK_ITEMFINDER_HOUSE",
+    "name": "Ecruteak Itemfinder House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "ecruteakpokecenter1f",
+    "constantName": "ECRUTEAK_POKECENTER_1F",
+    "name": "Ecruteak PokéCenter 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "darkcavevioletentrance",
+    "constantName": "DARK_CAVE_VIOLET_ENTRANCE",
+    "name": "Dark Cave Violet Entrance",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 42,
     "trainerCount": 0
   },
   {
@@ -1292,9 +1283,9 @@
     "trainerCount": 0
   },
   {
-    "id": "elmshouse",
-    "constantName": "ELMS_HOUSE",
-    "name": "Elms House",
+    "id": "ecruteakshrineinside",
+    "constantName": "ECRUTEAK_SHRINE_INSIDE",
+    "name": "Ecruteak Shrine Inside",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1310,9 +1301,9 @@
     "trainerCount": 0
   },
   {
-    "id": "elmslab",
-    "constantName": "ELMS_LAB",
-    "name": "Elms Lab",
+    "id": "elmshouse",
+    "constantName": "ELMS_HOUSE",
+    "name": "Elms House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1322,6 +1313,24 @@
     "id": "eusineshouse",
     "constantName": "EUSINES_HOUSE",
     "name": "Eusines House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "elmslab",
+    "constantName": "ELMS_LAB",
+    "name": "Elms Lab",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "farawayjungle",
+    "constantName": "FARAWAY_JUNGLE",
+    "name": "Faraway Jungle",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1339,18 +1348,9 @@
     "trainerCount": 0
   },
   {
-    "id": "farawayjungle",
-    "constantName": "FARAWAY_JUNGLE",
-    "name": "Faraway Jungle",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "fastship1f",
-    "constantName": "FAST_SHIP_1F",
-    "name": "Fast Ship 1F",
+    "id": "fastshipcabinsnnwnnene",
+    "constantName": "FAST_SHIP_CABINS_NNW_NNE_NE",
+    "name": "Fast Ship Cabins NNW NNE NE",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1366,18 +1366,9 @@
     "trainerCount": 0
   },
   {
-    "id": "fightingdojo",
-    "constantName": "FIGHTING_DOJO",
-    "name": "Fighting Dojo",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "fastshipcabinsswsswnw",
-    "constantName": "FAST_SHIP_CABINS_SW_SSW_NW",
-    "name": "Fast Ship Cabins SW SSW NW",
+    "id": "fastship1f",
+    "constantName": "FAST_SHIP_1F",
+    "name": "Fast Ship 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1393,18 +1384,18 @@
     "trainerCount": 0
   },
   {
-    "id": "fastshipcabinsnnwnnene",
-    "constantName": "FAST_SHIP_CABINS_NNW_NNE_NE",
-    "name": "Fast Ship Cabins NNW NNE NE",
+    "id": "fireislandroof",
+    "constantName": "FIRE_ISLAND_ROOF",
+    "name": "Fire Island Roof",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "fireislandroof",
-    "constantName": "FIRE_ISLAND_ROOF",
-    "name": "Fire Island Roof",
+    "id": "fastshipcabinsswsswnw",
+    "constantName": "FAST_SHIP_CABINS_SW_SSW_NW",
+    "name": "Fast Ship Cabins SW SSW NW",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1431,9 +1422,36 @@
     "trainerCount": 0
   },
   {
+    "id": "fuchsiagym",
+    "constantName": "FUCHSIA_GYM",
+    "name": "Fuchsia Gym",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "fightingdojo",
+    "constantName": "FIGHTING_DOJO",
+    "name": "Fighting Dojo",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
     "id": "fuchsiamart",
     "constantName": "FUCHSIA_MART",
     "name": "Fuchsia Mart",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "fuchsiapokecenter1f",
+    "constantName": "FUCHSIA_POKECENTER_1F",
+    "name": "Fuchsia PokéCenter 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1447,15 +1465,6 @@
     "region": "Kanto",
     "order": 109,
     "connections": 3,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "fuchsiagym",
-    "constantName": "FUCHSIA_GYM",
-    "name": "Fuchsia Gym",
-    "isLandmark": false,
-    "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
@@ -1478,9 +1487,9 @@
     "trainerCount": 0
   },
   {
-    "id": "fuchsiapokecenter1f",
-    "constantName": "FUCHSIA_POKECENTER_1F",
-    "name": "Fuchsia PokéCenter 1F",
+    "id": "goldenrodbikeshop",
+    "constantName": "GOLDENROD_BIKE_SHOP",
+    "name": "Goldenrod Bike Shop",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1496,20 +1505,22 @@
     "trainerCount": 0
   },
   {
-    "id": "goldenrodbikeshop",
-    "constantName": "GOLDENROD_BIKE_SHOP",
-    "name": "Goldenrod Bike Shop",
+    "id": "goldenrodbillshouse",
+    "constantName": "GOLDENROD_BILLS_HOUSE",
+    "name": "Goldenrod Bills House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "goldenrodbillshouse",
-    "constantName": "GOLDENROD_BILLS_HOUSE",
-    "name": "Goldenrod Bills House",
-    "isLandmark": false,
-    "connections": 0,
+    "id": "goldenrodcity",
+    "constantName": "GOLDENROD_CITY",
+    "name": "Goldenrod City",
+    "isLandmark": true,
+    "region": "Johto",
+    "order": 22,
+    "connections": 3,
     "encounterCount": 0,
     "trainerCount": 0
   },
@@ -1532,26 +1543,6 @@
     "trainerCount": 0
   },
   {
-    "id": "goldenrodcity",
-    "constantName": "GOLDENROD_CITY",
-    "name": "Goldenrod City",
-    "isLandmark": true,
-    "region": "Johto",
-    "order": 22,
-    "connections": 3,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "goldenroddeptstore5f",
-    "constantName": "GOLDENROD_DEPT_STORE_5F",
-    "name": "Goldenrod Dept Store 5F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "goldenroddeptstore2f",
     "constantName": "GOLDENROD_DEPT_STORE_2F",
     "name": "Goldenrod Dept Store 2F",
@@ -1561,9 +1552,9 @@
     "trainerCount": 0
   },
   {
-    "id": "goldenroddeptstore4f",
-    "constantName": "GOLDENROD_DEPT_STORE_4F",
-    "name": "Goldenrod Dept Store 4F",
+    "id": "goldenroddeptstore5f",
+    "constantName": "GOLDENROD_DEPT_STORE_5F",
+    "name": "Goldenrod Dept Store 5F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1597,9 +1588,18 @@
     "trainerCount": 0
   },
   {
-    "id": "goldenrodgamecorner",
-    "constantName": "GOLDENROD_GAME_CORNER",
-    "name": "Goldenrod Game Corner",
+    "id": "goldenroddeptstore4f",
+    "constantName": "GOLDENROD_DEPT_STORE_4F",
+    "name": "Goldenrod Dept Store 4F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "goldenroddeptstoreelevator",
+    "constantName": "GOLDENROD_DEPT_STORE_ELEVATOR",
+    "name": "Goldenrod Dept Store Elevator",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1615,11 +1615,22 @@
     "trainerCount": 0
   },
   {
-    "id": "goldenroddeptstoreelevator",
-    "constantName": "GOLDENROD_DEPT_STORE_ELEVATOR",
-    "name": "Goldenrod Dept Store Elevator",
+    "id": "goldenrodgamecorner",
+    "constantName": "GOLDENROD_GAME_CORNER",
+    "name": "Goldenrod Game Corner",
     "isLandmark": false,
     "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "goldenrodharbor",
+    "constantName": "GOLDENROD_HARBOR",
+    "name": "Goldenrod Harbor",
+    "isLandmark": true,
+    "region": "Johto",
+    "order": 24,
+    "connections": 2,
     "encounterCount": 0,
     "trainerCount": 0
   },
@@ -1651,13 +1662,11 @@
     "trainerCount": 0
   },
   {
-    "id": "goldenrodharbor",
-    "constantName": "GOLDENROD_HARBOR",
-    "name": "Goldenrod Harbor",
-    "isLandmark": true,
-    "region": "Johto",
-    "order": 24,
-    "connections": 2,
+    "id": "goldenrodhoneyhouse",
+    "constantName": "GOLDENROD_HONEY_HOUSE",
+    "name": "Goldenrod Honey House",
+    "isLandmark": false,
+    "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
@@ -1665,6 +1674,15 @@
     "id": "goldenrodmagnettrainstation",
     "constantName": "GOLDENROD_MAGNET_TRAIN_STATION",
     "name": "Goldenrod Magnet Train Station",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "goldenrodmuseum2f",
+    "constantName": "GOLDENROD_MUSEUM_2F",
+    "name": "Goldenrod Museum 2F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1680,9 +1698,9 @@
     "trainerCount": 0
   },
   {
-    "id": "goldenrodhoneyhouse",
-    "constantName": "GOLDENROD_HONEY_HOUSE",
-    "name": "Goldenrod Honey House",
+    "id": "goldenrodpokecomcenter1f",
+    "constantName": "GOLDENROD_POKECOM_CENTER_1F",
+    "name": "Goldenrod Pokécom Center 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1692,24 +1710,6 @@
     "id": "goldenrodnamerater",
     "constantName": "GOLDENROD_NAME_RATER",
     "name": "Goldenrod Name Rater",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "goldenrodnetballhouse",
-    "constantName": "GOLDENROD_NET_BALL_HOUSE",
-    "name": "Goldenrod Net Ball House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "goldenrodmuseum2f",
-    "constantName": "GOLDENROD_MUSEUM_2F",
-    "name": "Goldenrod Museum 2F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1734,9 +1734,18 @@
     "trainerCount": 0
   },
   {
-    "id": "halloffame",
-    "constantName": "HALL_OF_FAME",
-    "name": "Hall Of Fame",
+    "id": "goldenrodnetballhouse",
+    "constantName": "GOLDENROD_NET_BALL_HOUSE",
+    "name": "Goldenrod Net Ball House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "guidegentshouse",
+    "constantName": "GUIDE_GENTS_HOUSE",
+    "name": "Guide Gents House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1761,6 +1770,24 @@
     "trainerCount": 0
   },
   {
+    "id": "halloffame",
+    "constantName": "HALL_OF_FAME",
+    "name": "Hall Of Fame",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "hauntedradiotower6f",
+    "constantName": "HAUNTED_RADIO_TOWER_6F",
+    "name": "Haunted Radio Tower 6F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
     "id": "hauntedradiotower5f",
     "constantName": "HAUNTED_RADIO_TOWER_5F",
     "name": "Haunted Radio Tower 5F",
@@ -1779,18 +1806,27 @@
     "trainerCount": 0
   },
   {
-    "id": "hiddencavegrotto",
-    "constantName": "HIDDEN_CAVE_GROTTO",
-    "name": "Hidden Cave Grotto",
+    "id": "hiddentreegrotto",
+    "constantName": "HIDDEN_TREE_GROTTO",
+    "name": "Hidden Tree Grotto",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "hiddentreegrotto",
-    "constantName": "HIDDEN_TREE_GROTTO",
-    "name": "Hidden Tree Grotto",
+    "id": "icepath1f",
+    "constantName": "ICE_PATH_1F",
+    "name": "Ice Path 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "hiddencavegrotto",
+    "constantName": "HIDDEN_CAVE_GROTTO",
+    "name": "Hidden Cave Grotto",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1808,19 +1844,21 @@
     "trainerCount": 0
   },
   {
-    "id": "hauntedradiotower6f",
-    "constantName": "HAUNTED_RADIO_TOWER_6F",
-    "name": "Haunted Radio Tower 6F",
+    "id": "iceislandroof",
+    "constantName": "ICE_ISLAND_ROOF",
+    "name": "Ice Island Roof",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "icepath1f",
-    "constantName": "ICE_PATH_1F",
-    "name": "Ice Path 1F",
-    "isLandmark": false,
+    "id": "ilexforest",
+    "constantName": "ILEX_FOREST",
+    "name": "Ilex Forest",
+    "isLandmark": true,
+    "region": "Johto",
+    "order": 17,
     "connections": 0,
     "encounterCount": 21,
     "trainerCount": 0
@@ -1835,9 +1873,9 @@
     "trainerCount": 0
   },
   {
-    "id": "icepathb2fblackthornside",
-    "constantName": "ICE_PATH_B2F_BLACKTHORN_SIDE",
-    "name": "Ice Path B2 FBlackthorn Side",
+    "id": "icepathb2fmahoganyside",
+    "constantName": "ICE_PATH_B2F_MAHOGANY_SIDE",
+    "name": "Ice Path B2 FMahogany Side",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
@@ -1853,23 +1891,21 @@
     "trainerCount": 0
   },
   {
-    "id": "ilexforest",
-    "constantName": "ILEX_FOREST",
-    "name": "Ilex Forest",
-    "isLandmark": true,
-    "region": "Johto",
-    "order": 17,
+    "id": "icepathb2fblackthornside",
+    "constantName": "ICE_PATH_B2F_BLACKTHORN_SIDE",
+    "name": "Ice Path B2 FBlackthorn Side",
+    "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
     "trainerCount": 0
   },
   {
-    "id": "icepathb2fmahoganyside",
-    "constantName": "ICE_PATH_B2F_MAHOGANY_SIDE",
-    "name": "Ice Path B2 FMahogany Side",
+    "id": "indigoplateaupokecenter1f",
+    "constantName": "INDIGO_PLATEAU_POKECENTER_1F",
+    "name": "Indigo Plateau Pokécenter 1F",
     "isLandmark": false,
     "connections": 0,
-    "encounterCount": 21,
+    "encounterCount": 0,
     "trainerCount": 0
   },
   {
@@ -1893,45 +1929,9 @@
     "trainerCount": 0
   },
   {
-    "id": "iceislandroof",
-    "constantName": "ICE_ISLAND_ROOF",
-    "name": "Ice Island Roof",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "ivyshouse",
-    "constantName": "IVYS_HOUSE",
-    "name": "Ivys House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "karensroom",
-    "constantName": "KARENS_ROOM",
-    "name": "Karens Room",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "ivyslab",
     "constantName": "IVYS_LAB",
     "name": "Ivys Lab",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "kogasroom",
-    "constantName": "KOGAS_ROOM",
-    "name": "Kogas Room",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1958,18 +1958,18 @@
     "trainerCount": 0
   },
   {
-    "id": "indigoplateaupokecenter1f",
-    "constantName": "INDIGO_PLATEAU_POKECENTER_1F",
-    "name": "Indigo Plateau Pokécenter 1F",
+    "id": "kogasroom",
+    "constantName": "KOGAS_ROOM",
+    "name": "Kogas Room",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "lakeofragemagikarphouse",
-    "constantName": "LAKE_OF_RAGE_MAGIKARP_HOUSE",
-    "name": "Lake Of Rage Magikarp House",
+    "id": "ivyshouse",
+    "constantName": "IVYS_HOUSE",
+    "name": "Ivys House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -1985,18 +1985,27 @@
     "trainerCount": 0
   },
   {
-    "id": "lancesroom",
-    "constantName": "LANCES_ROOM",
-    "name": "Lances Room",
+    "id": "lakeofragemagikarphouse",
+    "constantName": "LAKE_OF_RAGE_MAGIKARP_HOUSE",
+    "name": "Lake Of Rage Magikarp House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "lavradiotower1f",
-    "constantName": "LAV_RADIO_TOWER_1F",
-    "name": "Lav Radio Tower 1F",
+    "id": "karensroom",
+    "constantName": "KARENS_ROOM",
+    "name": "Karens Room",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "lancesroom",
+    "constantName": "LANCES_ROOM",
+    "name": "Lances Room",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -2021,6 +2030,15 @@
     "trainerCount": 0
   },
   {
+    "id": "lavradiotower5f",
+    "constantName": "LAV_RADIO_TOWER_5F",
+    "name": "Lav Radio Tower 5F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
     "id": "lavradiotower4f",
     "constantName": "LAV_RADIO_TOWER_3F",
     "name": "Lav Radio Tower 4F",
@@ -2030,9 +2048,54 @@
     "trainerCount": 0
   },
   {
+    "id": "lavradiotower1f",
+    "constantName": "LAV_RADIO_TOWER_1F",
+    "name": "Lav Radio Tower 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "lavendernamerater",
+    "constantName": "LAVENDER_NAME_RATER",
+    "name": "Lavender Name Rater",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "lavenderpokecenter1f",
+    "constantName": "LAVENDER_POKECENTER_1F",
+    "name": "Lavender PokéCenter 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
     "id": "lavendermart",
     "constantName": "LAVENDER_MART",
     "name": "Lavender Mart",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "lavendertownspeechhouse",
+    "constantName": "LAVENDER_TOWN_SPEECH_HOUSE",
+    "name": "Lavender Town Speech House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "lyrashouse1f",
+    "constantName": "LYRAS_HOUSE_1F",
+    "name": "Lyras House 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -2050,94 +2113,9 @@
     "trainerCount": 0
   },
   {
-    "id": "lavradiotower5f",
-    "constantName": "LAV_RADIO_TOWER_5F",
-    "name": "Lav Radio Tower 5F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "lavendertownspeechhouse",
-    "constantName": "LAVENDER_TOWN_SPEECH_HOUSE",
-    "name": "Lavender Town Speech House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "lavenderpokecenter1f",
-    "constantName": "LAVENDER_POKECENTER_1F",
-    "name": "Lavender PokéCenter 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "lavendernamerater",
-    "constantName": "LAVENDER_NAME_RATER",
-    "name": "Lavender Name Rater",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "lightningislandroof",
-    "constantName": "LIGHTNING_ISLAND_ROOF",
-    "name": "Lightning Island Roof",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "lightningisland",
-    "constantName": "LIGHTNING_ISLAND",
-    "name": "Lightning Island",
-    "isLandmark": true,
-    "region": "Orange",
-    "order": 140,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "luckyisland",
-    "constantName": "LUCKY_ISLAND",
-    "name": "Lucky Island",
-    "isLandmark": true,
-    "region": "Kanto",
-    "order": 105,
-    "connections": 2,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "lyrashouse1f",
-    "constantName": "LYRAS_HOUSE_1F",
-    "name": "Lyras House 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "magnettunnelinside",
-    "constantName": "MAGNET_TUNNEL_INSIDE",
-    "name": "Magnet Tunnel Inside",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "goldenrodpokecomcenter1f",
-    "constantName": "GOLDENROD_POKECOM_CENTER_1F",
-    "name": "Goldenrod Pokécom Center 1F",
+    "id": "lyrashouse2f",
+    "constantName": "LYRAS_HOUSE_2F",
+    "name": "Lyras House 2F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -2180,12 +2158,52 @@
     "trainerCount": 0
   },
   {
+    "id": "lightningisland",
+    "constantName": "LIGHTNING_ISLAND",
+    "name": "Lightning Island",
+    "isLandmark": true,
+    "region": "Orange",
+    "order": 140,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "magnettunnelinside",
+    "constantName": "MAGNET_TUNNEL_INSIDE",
+    "name": "Magnet Tunnel Inside",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
     "id": "mahoganyredgyaradosspeechhouse",
     "constantName": "MAHOGANY_RED_GYARADOS_SPEECH_HOUSE",
     "name": "Mahogany Red Gyarados Speech House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "mahoganypokecenter1f",
+    "constantName": "MAHOGANY_POKECENTER_1F",
+    "name": "Mahogany PokéCenter 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "luckyisland",
+    "constantName": "LUCKY_ISLAND",
+    "name": "Lucky Island",
+    "isLandmark": true,
+    "region": "Kanto",
+    "order": 105,
+    "connections": 2,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
@@ -2200,36 +2218,27 @@
     "trainerCount": 0
   },
   {
-    "id": "mahoganypokecenter1f",
-    "constantName": "MAHOGANY_POKECENTER_1F",
-    "name": "Mahogany PokéCenter 1F",
+    "id": "mountmoongiftshop",
+    "constantName": "MOUNT_MOON_GIFT_SHOP",
+    "name": "Mount Moon Gift Shop",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "maniashouse",
-    "constantName": "MANIAS_HOUSE",
-    "name": "Manias House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "mountmoonb1f",
-    "constantName": "MOUNT_MOON_B1F",
-    "name": "Mount Moon B1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
     "trainerCount": 0
   },
   {
     "id": "mountmoon1f",
     "constantName": "MOUNT_MOON_1F",
     "name": "Mount Moon 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "mountmoonb1f",
+    "constantName": "MOUNT_MOON_B1F",
+    "name": "Mount Moon B1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
@@ -2245,66 +2254,12 @@
     "trainerCount": 0
   },
   {
-    "id": "mountmoongiftshop",
-    "constantName": "MOUNT_MOON_GIFT_SHOP",
-    "name": "Mount Moon Gift Shop",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "mountmortarb1f",
-    "constantName": "MOUNT_MORTAR_B1F",
-    "name": "Mount Mortar B1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "mountmortar1finside",
-    "constantName": "MOUNT_MORTAR_1F_INSIDE",
-    "name": "Mount Mortar1 FInside",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
     "id": "mountmortar1foutside",
     "constantName": "MOUNT_MORTAR_1F_OUTSIDE",
     "name": "Mount Mortar1 FOutside",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "mountmoonsquare",
-    "constantName": "MOUNT_MOON_SQUARE",
-    "name": "Mount Moon Square",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "mountmortar2finside",
-    "constantName": "MOUNT_MORTAR_2F_INSIDE",
-    "name": "Mount Mortar2 FInside",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "mrfujishouse",
-    "constantName": "MR_FUJIS_HOUSE",
-    "name": "Mr Fujis House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
     "trainerCount": 0
   },
   {
@@ -2317,23 +2272,57 @@
     "trainerCount": 0
   },
   {
-    "id": "mrpokemonshouse",
-    "constantName": "MR_POKEMONS_HOUSE",
-    "name": "Mr Pokémons House",
+    "id": "mountmortar1finside",
+    "constantName": "MOUNT_MORTAR_1F_INSIDE",
+    "name": "Mount Mortar1 FInside",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "mountmortarb1f",
+    "constantName": "MOUNT_MORTAR_B1F",
+    "name": "Mount Mortar B1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "mountmortar2finside",
+    "constantName": "MOUNT_MORTAR_2F_INSIDE",
+    "name": "Mount Mortar2 FInside",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "movemaniacshouse",
+    "constantName": "MOVE_MANIACS_HOUSE",
+    "name": "Move Maniacs House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "murkyswamp",
-    "constantName": "MURKY_SWAMP",
-    "name": "Murky Swamp",
-    "isLandmark": true,
-    "region": "Johto",
-    "order": 21,
+    "id": "lightningislandroof",
+    "constantName": "LIGHTNING_ISLAND_ROOF",
+    "name": "Lightning Island Roof",
+    "isLandmark": false,
     "connections": 0,
-    "encounterCount": 21,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "mrfujishouse",
+    "constantName": "MR_FUJIS_HOUSE",
+    "name": "Mr Fujis House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
     "trainerCount": 0
   },
   {
@@ -2357,18 +2346,20 @@
     "trainerCount": 0
   },
   {
-    "id": "lyrashouse2f",
-    "constantName": "LYRAS_HOUSE_2F",
-    "name": "Lyras House 2F",
-    "isLandmark": false,
+    "id": "murkyswamp",
+    "constantName": "MURKY_SWAMP",
+    "name": "Murky Swamp",
+    "isLandmark": true,
+    "region": "Johto",
+    "order": 21,
     "connections": 0,
-    "encounterCount": 0,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
-    "id": "nationalparkbugcontest",
-    "constantName": "NATIONAL_PARK_BUG_CONTEST",
-    "name": "National Park Bug Contest",
+    "id": "navelrockoutside",
+    "constantName": "NAVEL_ROCK_OUTSIDE",
+    "name": "Navel Rock Outside",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -2386,12 +2377,21 @@
     "trainerCount": 0
   },
   {
-    "id": "navelrockinside",
-    "constantName": "NAVEL_ROCK_INSIDE",
-    "name": "Navel Rock Inside",
+    "id": "maniashouse",
+    "constantName": "MANIAS_HOUSE",
+    "name": "Manias House",
     "isLandmark": false,
     "connections": 0,
-    "encounterCount": 21,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "navelrockroof",
+    "constantName": "NAVEL_ROCK_ROOF",
+    "name": "Navel Rock Roof",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
     "trainerCount": 0
   },
   {
@@ -2406,18 +2406,36 @@
     "trainerCount": 0
   },
   {
-    "id": "navelrockoutside",
-    "constantName": "NAVEL_ROCK_OUTSIDE",
-    "name": "Navel Rock Outside",
+    "id": "nationalparkbugcontest",
+    "constantName": "NATIONAL_PARK_BUG_CONTEST",
+    "name": "National Park Bug Contest",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "navelrockroof",
-    "constantName": "NAVEL_ROCK_ROOF",
-    "name": "Navel Rock Roof",
+    "id": "oakslab",
+    "constantName": "OAKS_LAB",
+    "name": "Oaks Lab",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "navelrockinside",
+    "constantName": "NAVEL_ROCK_INSIDE",
+    "name": "Navel Rock Inside",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "mountmoonsquare",
+    "constantName": "MOUNT_MOON_SQUARE",
+    "name": "Mount Moon Square",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -2435,20 +2453,9 @@
     "trainerCount": 0
   },
   {
-    "id": "noisyforest",
-    "constantName": "NOISY_FOREST",
-    "name": "Noisy Forest",
-    "isLandmark": true,
-    "region": "Orange",
-    "order": 133,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "oakslab",
-    "constantName": "OAKS_LAB",
-    "name": "Oaks Lab",
+    "id": "olivinecafe",
+    "constantName": "OLIVINE_CAFE",
+    "name": "Olivine Cafe",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -2473,27 +2480,29 @@
     "trainerCount": 0
   },
   {
-    "id": "olivinegym",
-    "constantName": "OLIVINE_GYM",
-    "name": "Olivine Gym",
+    "id": "olivinegoodrodhouse",
+    "constantName": "OLIVINE_GOOD_ROD_HOUSE",
+    "name": "Olivine Good Rod House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "noisyforest",
+    "constantName": "NOISY_FOREST",
+    "name": "Noisy Forest",
+    "isLandmark": true,
+    "region": "Orange",
+    "order": 133,
+    "connections": 0,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
     "id": "olivinelighthouse1f",
     "constantName": "OLIVINE_LIGHTHOUSE_1F",
     "name": "Olivine Lighthouse 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "olivinegoodrodhouse",
-    "constantName": "OLIVINE_GOOD_ROD_HOUSE",
-    "name": "Olivine Good Rod House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -2509,18 +2518,18 @@
     "trainerCount": 0
   },
   {
-    "id": "olivinelighthouse5f",
-    "constantName": "OLIVINE_LIGHTHOUSE_5F",
-    "name": "Olivine Lighthouse 5F",
+    "id": "olivinelighthouse6f",
+    "constantName": "OLIVINE_LIGHTHOUSE_6F",
+    "name": "Olivine Lighthouse 6F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "olivinelighthouse4f",
-    "constantName": "OLIVINE_LIGHTHOUSE_4F",
-    "name": "Olivine Lighthouse 4F",
+    "id": "olivinegym",
+    "constantName": "OLIVINE_GYM",
+    "name": "Olivine Gym",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -2536,36 +2545,18 @@
     "trainerCount": 0
   },
   {
-    "id": "guidegentshouse",
-    "constantName": "GUIDE_GENTS_HOUSE",
-    "name": "Guide Gents House",
+    "id": "olivinelighthouse4f",
+    "constantName": "OLIVINE_LIGHTHOUSE_4F",
+    "name": "Olivine Lighthouse 4F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "olivinelighthouse6f",
-    "constantName": "OLIVINE_LIGHTHOUSE_6F",
-    "name": "Olivine Lighthouse 6F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "olivineport",
-    "constantName": "OLIVINE_PORT",
-    "name": "Olivine Port",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "olivinepunishmentspeechhouse",
-    "constantName": "OLIVINE_PUNISHMENT_SPEECH_HOUSE",
-    "name": "Olivine Punishment Speech House",
+    "id": "olivinelighthouse5f",
+    "constantName": "OLIVINE_LIGHTHOUSE_5F",
+    "name": "Olivine Lighthouse 5F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -2581,18 +2572,9 @@
     "trainerCount": 0
   },
   {
-    "id": "pewtergym",
-    "constantName": "PEWTER_GYM",
-    "name": "Pewter Gym",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "pewtermart",
-    "constantName": "PEWTER_MART",
-    "name": "Pewter Mart",
+    "id": "olivineport",
+    "constantName": "OLIVINE_PORT",
+    "name": "Olivine Port",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -2610,29 +2592,27 @@
     "trainerCount": 0
   },
   {
-    "id": "pewtercity",
-    "constantName": "PEWTER_CITY",
-    "name": "Pewter City",
-    "isLandmark": true,
-    "region": "Kanto",
-    "order": 73,
-    "connections": 2,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "pewtermuseumofscience1f",
-    "constantName": "PEWTER_MUSEUM_OF_SCIENCE_1F",
-    "name": "Pewter Museum Of Science 1F",
+    "id": "pewtergym",
+    "constantName": "PEWTER_GYM",
+    "name": "Pewter Gym",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "pewtermuseumofscience2f",
-    "constantName": "PEWTER_MUSEUM_OF_SCIENCE_2F",
-    "name": "Pewter Museum Of Science 2F",
+    "id": "mrpokemonshouse",
+    "constantName": "MR_POKEMONS_HOUSE",
+    "name": "Mr Pokémons House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "olivinepokecenter1f",
+    "constantName": "OLIVINE_POKECENTER_1F",
+    "name": "Olivine PokéCenter 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -2648,15 +2628,6 @@
     "trainerCount": 0
   },
   {
-    "id": "pewtersnoozespeechhouse",
-    "constantName": "PEWTER_SNOOZE_SPEECH_HOUSE",
-    "name": "Pewter Snooze Speech House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "pewterpokecenter1f",
     "constantName": "PEWTER_POKECENTER_1F",
     "name": "Pewter PokéCenter 1F",
@@ -2666,9 +2637,20 @@
     "trainerCount": 0
   },
   {
-    "id": "playershouse2f",
-    "constantName": "PLAYERS_HOUSE_2F",
-    "name": "Players House 2F",
+    "id": "pewtercity",
+    "constantName": "PEWTER_CITY",
+    "name": "Pewter City",
+    "isLandmark": true,
+    "region": "Kanto",
+    "order": 73,
+    "connections": 2,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "pewtersnoozespeechhouse",
+    "constantName": "PEWTER_SNOOZE_SPEECH_HOUSE",
+    "name": "Pewter Snooze Speech House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -2693,18 +2675,9 @@
     "trainerCount": 0
   },
   {
-    "id": "pokemonfanclub",
-    "constantName": "POKEMON_FAN_CLUB",
-    "name": "Pokémon Fan Club",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "pokecenter2f",
-    "constantName": "POKECENTER_2F",
-    "name": "PokéCenter 2F",
+    "id": "pewtermart",
+    "constantName": "PEWTER_MART",
+    "name": "Pewter Mart",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -2720,6 +2693,24 @@
     "trainerCount": 0
   },
   {
+    "id": "pokemonmansion1f",
+    "constantName": "POKEMON_MANSION_1F",
+    "name": "Pokémon Mansion 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "pokemonfanclub",
+    "constantName": "POKEMON_FAN_CLUB",
+    "name": "Pokémon Fan Club",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
     "id": "pokemonmansionb1f",
     "constantName": "POKEMON_MANSION_B1F",
     "name": "Pokémon Mansion B1F",
@@ -2729,12 +2720,12 @@
     "trainerCount": 0
   },
   {
-    "id": "psychicinvershouse",
-    "constantName": "PSYCHIC_INVERS_HOUSE",
-    "name": "Psychic Invers House",
+    "id": "quietcave1f",
+    "constantName": "QUIET_CAVE_1F",
+    "name": "Quiet Cave 1F",
     "isLandmark": false,
     "connections": 0,
-    "encounterCount": 0,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
@@ -2744,15 +2735,6 @@
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "pokemonmansion1f",
-    "constantName": "POKEMON_MANSION_1F",
-    "name": "Pokémon Mansion 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
     "trainerCount": 0
   },
   {
@@ -2767,9 +2749,18 @@
     "trainerCount": 0
   },
   {
-    "id": "quietcave1f",
-    "constantName": "QUIET_CAVE_1F",
-    "name": "Quiet Cave 1F",
+    "id": "psychicinvershouse",
+    "constantName": "PSYCHIC_INVERS_HOUSE",
+    "name": "Psychic Invers House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "quietcaveb3f",
+    "constantName": "QUIET_CAVE_B3F",
+    "name": "Quiet Cave B3F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
@@ -2785,18 +2776,36 @@
     "trainerCount": 0
   },
   {
-    "id": "quietcaveb2f",
-    "constantName": "QUIET_CAVE_B2F",
-    "name": "Quiet Cave B2F",
+    "id": "pewtermuseumofscience1f",
+    "constantName": "PEWTER_MUSEUM_OF_SCIENCE_1F",
+    "name": "Pewter Museum Of Science 1F",
     "isLandmark": false,
     "connections": 0,
-    "encounterCount": 21,
+    "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "quietcaveb3f",
-    "constantName": "QUIET_CAVE_B3F",
-    "name": "Quiet Cave B3F",
+    "id": "pewtermuseumofscience2f",
+    "constantName": "PEWTER_MUSEUM_OF_SCIENCE_2F",
+    "name": "Pewter Museum Of Science 2F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "pokecenter2f",
+    "constantName": "POKECENTER_2F",
+    "name": "PokéCenter 2F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "quietcaveb2f",
+    "constantName": "QUIET_CAVE_B2F",
+    "name": "Quiet Cave B2F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
@@ -2812,9 +2821,9 @@
     "trainerCount": 0
   },
   {
-    "id": "radiotower1f",
-    "constantName": "RADIO_TOWER_1F",
-    "name": "Radio Tower 1F",
+    "id": "radiotower3f",
+    "constantName": "RADIO_TOWER_3F",
+    "name": "Radio Tower 3F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -2830,18 +2839,9 @@
     "trainerCount": 0
   },
   {
-    "id": "radiotower3f",
-    "constantName": "RADIO_TOWER_3F",
-    "name": "Radio Tower 3F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "radiotower5f",
-    "constantName": "RADIO_TOWER_5F",
-    "name": "Radio Tower 5F",
+    "id": "redshouse1f",
+    "constantName": "REDS_HOUSE_1F",
+    "name": "Reds House 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -2857,24 +2857,6 @@
     "trainerCount": 0
   },
   {
-    "id": "rocktunnel2f",
-    "constantName": "ROCK_TUNNEL_2F",
-    "name": "Rock Tunnel 2F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "redshouse1f",
-    "constantName": "REDS_HOUSE_1F",
-    "name": "Reds House 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "redshouse2f",
     "constantName": "REDS_HOUSE_2F",
     "name": "Reds House 2F",
@@ -2884,30 +2866,21 @@
     "trainerCount": 0
   },
   {
-    "id": "rocktunnelb1f",
-    "constantName": "ROCK_TUNNEL_B1F",
-    "name": "Rock Tunnel B1F",
+    "id": "rocktunnel2f",
+    "constantName": "ROCK_TUNNEL_2F",
+    "name": "Rock Tunnel 2F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
     "trainerCount": 0
   },
   {
-    "id": "rockethideoutb3f",
-    "constantName": "ROCKET_HIDEOUT_B3F",
-    "name": "Rocket Hideout B3F",
+    "id": "rocktunnelb1f",
+    "constantName": "ROCK_TUNNEL_B1F",
+    "name": "Rock Tunnel B1F",
     "isLandmark": false,
     "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "rockethideoutb1f",
-    "constantName": "ROCKET_HIDEOUT_B1F",
-    "name": "Rocket Hideout B1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
@@ -2929,18 +2902,18 @@
     "trainerCount": 0
   },
   {
-    "id": "rockethideoutb4f",
-    "constantName": "ROCKET_HIDEOUT_B4F",
-    "name": "Rocket Hideout B4F",
+    "id": "rockethideoutb3f",
+    "constantName": "ROCKET_HIDEOUT_B3F",
+    "name": "Rocket Hideout B3F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "rockybeachhouse",
-    "constantName": "ROCKY_BEACH_HOUSE",
-    "name": "Rocky Beach House",
+    "id": "rockethideoutb4f",
+    "constantName": "ROCKET_HIDEOUT_B4F",
+    "name": "Rocket Hideout B4F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -2955,6 +2928,15 @@
     "order": 132,
     "connections": 1,
     "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "rockybeachhouse",
+    "constantName": "ROCKY_BEACH_HOUSE",
+    "name": "Rocky Beach House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
     "trainerCount": 0
   },
   {
@@ -2978,20 +2960,20 @@
     "trainerCount": 0
   },
   {
-    "id": "route10pokecenter1f",
-    "constantName": "ROUTE_10_POKECENTER_1F",
-    "name": "Route 10 PokéCenter 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "route10south",
     "constantName": "ROUTE_10_SOUTH",
     "name": "Route 10 South",
     "isLandmark": false,
     "connections": 2,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "route1viridiangate",
+    "constantName": "ROUTE_1_VIRIDIAN_GATE",
+    "name": "Route 1 Viridian Gate",
+    "isLandmark": false,
+    "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
@@ -3007,27 +2989,9 @@
     "trainerCount": 0
   },
   {
-    "id": "route1viridiangate",
-    "constantName": "ROUTE_1_VIRIDIAN_GATE",
-    "name": "Route 1 Viridian Gate",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "route11gate2f",
-    "constantName": "ROUTE_11_GATE_2F",
-    "name": "Route 11 Gate 2F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "route11gate",
-    "constantName": "ROUTE_11_GATE",
-    "name": "Route 11 Gate",
+    "id": "route10pokecenter1f",
+    "constantName": "ROUTE_10_POKECENTER_1F",
+    "name": "Route 10 PokéCenter 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -3043,9 +3007,27 @@
     "trainerCount": 0
   },
   {
-    "id": "olivinepokecenter1f",
-    "constantName": "OLIVINE_POKECENTER_1F",
-    "name": "Olivine PokéCenter 1F",
+    "id": "route11gate2f",
+    "constantName": "ROUTE_11_GATE_2F",
+    "name": "Route 11 Gate 2F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "route12gate2f",
+    "constantName": "ROUTE_12_GATE_2F",
+    "name": "Route 12 Gate 2F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "route11gate",
+    "constantName": "ROUTE_11_GATE",
+    "name": "Route 11 Gate",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -3061,18 +3043,9 @@
     "trainerCount": 0
   },
   {
-    "id": "movemaniacshouse",
-    "constantName": "MOVE_MANIACS_HOUSE",
-    "name": "Move Maniacs House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "route13east",
-    "constantName": "ROUTE_13_EAST",
-    "name": "Route 13 East",
+    "id": "route12south",
+    "constantName": "ROUTE_12_SOUTH",
+    "name": "Route 12 South",
     "isLandmark": false,
     "connections": 3,
     "encounterCount": 21,
@@ -3088,6 +3061,24 @@
     "trainerCount": 0
   },
   {
+    "id": "route13west",
+    "constantName": "ROUTE_13_WEST",
+    "name": "Route 13 West",
+    "isLandmark": false,
+    "connections": 2,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "route13east",
+    "constantName": "ROUTE_13_EAST",
+    "name": "Route 13 East",
+    "isLandmark": false,
+    "connections": 3,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
     "id": "route14",
     "constantName": "ROUTE_14",
     "name": "Route 14",
@@ -3096,15 +3087,6 @@
     "order": 103,
     "connections": 3,
     "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "route13west",
-    "constantName": "ROUTE_13_WEST",
-    "name": "Route 13 West",
-    "isLandmark": false,
-    "connections": 2,
-    "encounterCount": 0,
     "trainerCount": 0
   },
   {
@@ -3119,18 +3101,9 @@
     "trainerCount": 0
   },
   {
-    "id": "route16fuchsiaspeechhouse",
-    "constantName": "ROUTE_16_FUCHSIA_SPEECH_HOUSE",
-    "name": "Route 16 Fuchsia Speech House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "route16gate",
-    "constantName": "ROUTE_16_GATE",
-    "name": "Route 16 Gate",
+    "id": "olivinepunishmentspeechhouse",
+    "constantName": "OLIVINE_PUNISHMENT_SPEECH_HOUSE",
+    "name": "Olivine Punishment Speech House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -3146,9 +3119,27 @@
     "trainerCount": 0
   },
   {
-    "id": "olivinecafe",
-    "constantName": "OLIVINE_CAFE",
-    "name": "Olivine Cafe",
+    "id": "route15fuchsiagate",
+    "constantName": "ROUTE_15_FUCHSIA_GATE",
+    "name": "Route 15 Fuchsia Gate",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "route16gate",
+    "constantName": "ROUTE_16_GATE",
+    "name": "Route 16 Gate",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "playershouse2f",
+    "constantName": "PLAYERS_HOUSE_2F",
+    "name": "Players House 2F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -3173,24 +3164,6 @@
     "trainerCount": 0
   },
   {
-    "id": "route16south",
-    "constantName": "ROUTE_16_SOUTH",
-    "name": "Route 16 South",
-    "isLandmark": false,
-    "connections": 1,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "route12gate2f",
-    "constantName": "ROUTE_12_GATE_2F",
-    "name": "Route 12 Gate 2F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "route16west",
     "constantName": "ROUTE_16_WEST",
     "name": "Route 16 West",
@@ -3200,12 +3173,28 @@
     "trainerCount": 0
   },
   {
-    "id": "route17",
-    "constantName": "ROUTE_17",
-    "name": "Route 17",
-    "isLandmark": true,
-    "region": "Kanto",
-    "order": 107,
+    "id": "route16south",
+    "constantName": "ROUTE_16_SOUTH",
+    "name": "Route 16 South",
+    "isLandmark": false,
+    "connections": 1,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "route16fuchsiaspeechhouse",
+    "constantName": "ROUTE_16_FUCHSIA_SPEECH_HOUSE",
+    "name": "Route 16 Fuchsia Speech House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "route18east",
+    "constantName": "ROUTE_18_EAST",
+    "name": "Route 18 East",
+    "isLandmark": false,
     "connections": 2,
     "encounterCount": 21,
     "trainerCount": 0
@@ -3220,9 +3209,20 @@
     "trainerCount": 0
   },
   {
-    "id": "route1617gate2f",
-    "constantName": "ROUTE_16_17_GATE_2F",
-    "name": "Route 1617 Gate 2F",
+    "id": "route17",
+    "constantName": "ROUTE_17",
+    "name": "Route 17",
+    "isLandmark": true,
+    "region": "Kanto",
+    "order": 107,
+    "connections": 2,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "route18gate",
+    "constantName": "ROUTE_18_GATE",
+    "name": "Route 18 Gate",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -3238,21 +3238,12 @@
     "trainerCount": 0
   },
   {
-    "id": "route12south",
-    "constantName": "ROUTE_12_SOUTH",
-    "name": "Route 12 South",
+    "id": "route1617gate2f",
+    "constantName": "ROUTE_16_17_GATE_2F",
+    "name": "Route 1617 Gate 2F",
     "isLandmark": false,
-    "connections": 3,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "route18east",
-    "constantName": "ROUTE_18_EAST",
-    "name": "Route 18 East",
-    "isLandmark": false,
-    "connections": 2,
-    "encounterCount": 21,
+    "connections": 0,
+    "encounterCount": 0,
     "trainerCount": 0
   },
   {
@@ -3267,9 +3258,27 @@
     "trainerCount": 0
   },
   {
-    "id": "route18gate",
-    "constantName": "ROUTE_18_GATE",
-    "name": "Route 18 Gate",
+    "id": "radiotower1f",
+    "constantName": "RADIO_TOWER_1F",
+    "name": "Radio Tower 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "radiotower5f",
+    "constantName": "RADIO_TOWER_5F",
+    "name": "Radio Tower 5F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "rockethideoutb1f",
+    "constantName": "ROCKET_HIDEOUT_B1F",
+    "name": "Rocket Hideout B1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -3285,27 +3294,18 @@
     "trainerCount": 0
   },
   {
-    "id": "route19beachhouse",
-    "constantName": "ROUTE_19_BEACH_HOUSE",
-    "name": "Route 19 Beach House",
+    "id": "route2north",
+    "constantName": "ROUTE_2_NORTH",
+    "name": "Route 2 North",
     "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "route18west",
-    "constantName": "ROUTE_18_WEST",
-    "name": "Route 18 West",
-    "isLandmark": false,
-    "connections": 3,
+    "connections": 2,
     "encounterCount": 21,
     "trainerCount": 0
   },
   {
-    "id": "route2gate",
-    "constantName": "ROUTE_2_GATE",
-    "name": "Route 2 Gate",
+    "id": "route19beachhouse",
+    "constantName": "ROUTE_19_BEACH_HOUSE",
+    "name": "Route 19 Beach House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -3321,14 +3321,12 @@
     "trainerCount": 0
   },
   {
-    "id": "route20",
-    "constantName": "ROUTE_20",
-    "name": "Route 20",
-    "isLandmark": true,
-    "region": "Kanto",
-    "order": 114,
-    "connections": 2,
-    "encounterCount": 0,
+    "id": "route18west",
+    "constantName": "ROUTE_18_WEST",
+    "name": "Route 18 West",
+    "isLandmark": false,
+    "connections": 3,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
@@ -3336,35 +3334,6 @@
     "constantName": "ROUTE_2_SOUTH",
     "name": "Route 2 South",
     "isLandmark": false,
-    "connections": 3,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "route2north",
-    "constantName": "ROUTE_2_NORTH",
-    "name": "Route 2 North",
-    "isLandmark": false,
-    "connections": 2,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "route22past",
-    "constantName": "ROUTE_22_PAST",
-    "name": "Route 22 Past",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "route21",
-    "constantName": "ROUTE_21",
-    "name": "Route 21",
-    "isLandmark": true,
-    "region": "Kanto",
-    "order": 119,
     "connections": 3,
     "encounterCount": 21,
     "trainerCount": 0
@@ -3381,6 +3350,17 @@
     "trainerCount": 0
   },
   {
+    "id": "route23",
+    "constantName": "ROUTE_23",
+    "name": "Route 23",
+    "isLandmark": true,
+    "region": "Kanto",
+    "order": 125,
+    "connections": 1,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
     "id": "route24",
     "constantName": "ROUTE_24",
     "name": "Route 24",
@@ -3392,23 +3372,34 @@
     "trainerCount": 0
   },
   {
+    "id": "route20",
+    "constantName": "ROUTE_20",
+    "name": "Route 20",
+    "isLandmark": true,
+    "region": "Kanto",
+    "order": 114,
+    "connections": 2,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "route25",
+    "constantName": "ROUTE_25",
+    "name": "Route 25",
+    "isLandmark": true,
+    "region": "Kanto",
+    "order": 80,
+    "connections": 2,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
     "id": "route26",
     "constantName": "ROUTE_26",
     "name": "Route 26",
     "isLandmark": true,
     "region": "Kanto",
     "order": 123,
-    "connections": 1,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "route23",
-    "constantName": "ROUTE_23",
-    "name": "Route 23",
-    "isLandmark": true,
-    "region": "Kanto",
-    "order": 125,
     "connections": 1,
     "encounterCount": 21,
     "trainerCount": 0
@@ -3434,12 +3425,14 @@
     "trainerCount": 0
   },
   {
-    "id": "route26dayofweeksiblingshouse",
-    "constantName": "ROUTE_26_DAY_OF_WEEK_SIBLINGS_HOUSE",
-    "name": "Route 26 Dayof Week Siblings House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
+    "id": "route21",
+    "constantName": "ROUTE_21",
+    "name": "Route 21",
+    "isLandmark": true,
+    "region": "Kanto",
+    "order": 119,
+    "connections": 3,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
@@ -3452,40 +3445,9 @@
     "trainerCount": 0
   },
   {
-    "id": "route28",
-    "constantName": "ROUTE_28",
-    "name": "Route 28",
-    "isLandmark": true,
-    "region": "Kanto",
-    "order": 128,
-    "connections": 1,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
     "id": "route28famousspeechhouse",
     "constantName": "ROUTE_28_FAMOUS_SPEECH_HOUSE",
     "name": "Route 28 Famous Speech House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "route29",
-    "constantName": "ROUTE_29",
-    "name": "Route 29",
-    "isLandmark": true,
-    "region": "Johto",
-    "order": 2,
-    "connections": 3,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "route2946gate",
-    "constantName": "ROUTE_29_46_GATE",
-    "name": "Route 2946 Gate",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -3514,27 +3476,9 @@
     "trainerCount": 0
   },
   {
-    "id": "route3pokecenter1f",
-    "constantName": "ROUTE_3_POKECENTER_1F",
-    "name": "Route 3 PokéCenter 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "route30berryspeechhouse",
     "constantName": "ROUTE_30_BERRY_SPEECH_HOUSE",
     "name": "Route 30 Berry Speech House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "route31violetgate",
-    "constantName": "ROUTE_31_VIOLET_GATE",
-    "name": "Route 31 Violet Gate",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -3552,6 +3496,33 @@
     "trainerCount": 0
   },
   {
+    "id": "route3pokecenter1f",
+    "constantName": "ROUTE_3_POKECENTER_1F",
+    "name": "Route 3 PokéCenter 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "route31violetgate",
+    "constantName": "ROUTE_31_VIOLET_GATE",
+    "name": "Route 31 Violet Gate",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "route32coasthouse",
+    "constantName": "ROUTE_32_COAST_HOUSE",
+    "name": "Route 32 Coast House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
     "id": "route32coast",
     "constantName": "ROUTE_32_COAST",
     "name": "Route 32 Coast",
@@ -3560,6 +3531,15 @@
     "order": 12,
     "connections": 1,
     "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "route32pokecenter1f",
+    "constantName": "ROUTE_32_POKECENTER_1F",
+    "name": "Route 32 PokéCenter 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
     "trainerCount": 0
   },
   {
@@ -3574,17 +3554,6 @@
     "trainerCount": 0
   },
   {
-    "id": "route33",
-    "constantName": "ROUTE_33",
-    "name": "Route 33",
-    "isLandmark": true,
-    "region": "Johto",
-    "order": 14,
-    "connections": 2,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
     "id": "route32ruinsofalphgate",
     "constantName": "ROUTE_32_RUINS_OF_ALPH_GATE",
     "name": "Route 32 Ruins Of Alph Gate",
@@ -3594,12 +3563,14 @@
     "trainerCount": 0
   },
   {
-    "id": "route32pokecenter1f",
-    "constantName": "ROUTE_32_POKECENTER_1F",
-    "name": "Route 32 PokéCenter 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
+    "id": "route33",
+    "constantName": "ROUTE_33",
+    "name": "Route 33",
+    "isLandmark": true,
+    "region": "Johto",
+    "order": 14,
+    "connections": 2,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
@@ -3634,14 +3605,21 @@
     "trainerCount": 0
   },
   {
-    "id": "route35",
-    "constantName": "ROUTE_35",
-    "name": "Route 35",
-    "isLandmark": true,
-    "region": "Johto",
-    "order": 26,
+    "id": "route35coastsouth",
+    "constantName": "ROUTE_35_COAST_SOUTH",
+    "name": "Route 35 Coast South",
+    "isLandmark": false,
     "connections": 2,
-    "encounterCount": 42,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "route2gate",
+    "constantName": "ROUTE_2_GATE",
+    "name": "Route 2 Gate",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
     "trainerCount": 0
   },
   {
@@ -3654,38 +3632,47 @@
     "trainerCount": 0
   },
   {
-    "id": "route35coastsouth",
-    "constantName": "ROUTE_35_COAST_SOUTH",
-    "name": "Route 35 Coast South",
-    "isLandmark": false,
-    "connections": 2,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "route35nationalparkgate",
-    "constantName": "ROUTE_35_NATIONAL_PARK_GATE",
-    "name": "Route 35 National Park Gate",
+    "id": "route22past",
+    "constantName": "ROUTE_22_PAST",
+    "name": "Route 22 Past",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "route36",
-    "constantName": "ROUTE_36",
-    "name": "Route 36",
-    "isLandmark": true,
-    "region": "Johto",
-    "order": 29,
-    "connections": 3,
-    "encounterCount": 21,
+    "id": "route26dayofweeksiblingshouse",
+    "constantName": "ROUTE_26_DAY_OF_WEEK_SIBLINGS_HOUSE",
+    "name": "Route 26 Dayof Week Siblings House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
     "trainerCount": 0
   },
   {
     "id": "route35goldenrodgate",
     "constantName": "ROUTE_35_GOLDENROD_GATE",
     "name": "Route 35 Goldenrod Gate",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "route28",
+    "constantName": "ROUTE_28",
+    "name": "Route 28",
+    "isLandmark": true,
+    "region": "Kanto",
+    "order": 128,
+    "connections": 1,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "route36ruinsofalphgate",
+    "constantName": "ROUTE_36_RUINS_OF_ALPH_GATE",
+    "name": "Route 36 Ruins Of Alph Gate",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -3701,18 +3688,20 @@
     "trainerCount": 0
   },
   {
-    "id": "route36ruinsofalphgate",
-    "constantName": "ROUTE_36_RUINS_OF_ALPH_GATE",
-    "name": "Route 36 Ruins Of Alph Gate",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
+    "id": "route29",
+    "constantName": "ROUTE_29",
+    "name": "Route 29",
+    "isLandmark": true,
+    "region": "Johto",
+    "order": 2,
+    "connections": 3,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
-    "id": "route36violetgate",
-    "constantName": "ROUTE_36_VIOLET_GATE",
-    "name": "Route 36 Violet Gate",
+    "id": "route35nationalparkgate",
+    "constantName": "ROUTE_35_NATIONAL_PARK_GATE",
+    "name": "Route 35 National Park Gate",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -3741,23 +3730,23 @@
     "trainerCount": 0
   },
   {
-    "id": "route39",
-    "constantName": "ROUTE_39",
-    "name": "Route 39",
-    "isLandmark": true,
-    "region": "Johto",
-    "order": 36,
-    "connections": 2,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "route38ecruteakgate",
-    "constantName": "ROUTE_38_ECRUTEAK_GATE",
-    "name": "Route 38 Ecruteak Gate",
+    "id": "route36violetgate",
+    "constantName": "ROUTE_36_VIOLET_GATE",
+    "name": "Route 36 Violet Gate",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "route36",
+    "constantName": "ROUTE_36",
+    "name": "Route 36",
+    "isLandmark": true,
+    "region": "Johto",
+    "order": 29,
+    "connections": 3,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
@@ -3770,18 +3759,31 @@
     "trainerCount": 0
   },
   {
-    "id": "route39ruggedroadgate",
-    "constantName": "ROUTE_39_RUGGED_ROAD_GATE",
-    "name": "Route 39 Rugged Road Gate",
-    "isLandmark": false,
-    "connections": 0,
+    "id": "route39",
+    "constantName": "ROUTE_39",
+    "name": "Route 39",
+    "isLandmark": true,
+    "region": "Johto",
+    "order": 36,
+    "connections": 2,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "route40",
+    "constantName": "ROUTE_40",
+    "name": "Route 40",
+    "isLandmark": true,
+    "region": "Johto",
+    "order": 41,
+    "connections": 2,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "route39farmhouse",
-    "constantName": "ROUTE_39_FARMHOUSE",
-    "name": "Route 39 Farmhouse",
+    "id": "route39ruggedroadgate",
+    "constantName": "ROUTE_39_RUGGED_ROAD_GATE",
+    "name": "Route 39 Rugged Road Gate",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -3799,17 +3801,6 @@
     "trainerCount": 0
   },
   {
-    "id": "route40",
-    "constantName": "ROUTE_40",
-    "name": "Route 40",
-    "isLandmark": true,
-    "region": "Johto",
-    "order": 41,
-    "connections": 2,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "route40battletowergate",
     "constantName": "ROUTE_40_BATTLE_TOWER_GATE",
     "name": "Route 40 Battle Tower Gate",
@@ -3819,14 +3810,14 @@
     "trainerCount": 0
   },
   {
-    "id": "route41",
-    "constantName": "ROUTE_41",
-    "name": "Route 41",
+    "id": "route43",
+    "constantName": "ROUTE_43",
+    "name": "Route 43",
     "isLandmark": true,
     "region": "Johto",
-    "order": 44,
-    "connections": 3,
-    "encounterCount": 0,
+    "order": 55,
+    "connections": 2,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
@@ -3850,34 +3841,14 @@
     "trainerCount": 0
   },
   {
-    "id": "route43mahoganygate",
-    "constantName": "ROUTE_43_MAHOGANY_GATE",
-    "name": "Route 43 Mahogany Gate",
-    "isLandmark": false,
-    "connections": 0,
+    "id": "route41",
+    "constantName": "ROUTE_41",
+    "name": "Route 41",
+    "isLandmark": true,
+    "region": "Johto",
+    "order": 44,
+    "connections": 3,
     "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "route43",
-    "constantName": "ROUTE_43",
-    "name": "Route 43",
-    "isLandmark": true,
-    "region": "Johto",
-    "order": 55,
-    "connections": 2,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "route44",
-    "constantName": "ROUTE_44",
-    "name": "Route 44",
-    "isLandmark": true,
-    "region": "Johto",
-    "order": 57,
-    "connections": 1,
-    "encounterCount": 21,
     "trainerCount": 0
   },
   {
@@ -3890,13 +3861,42 @@
     "trainerCount": 0
   },
   {
-    "id": "route45",
-    "constantName": "ROUTE_45",
-    "name": "Route 45",
+    "id": "route2946gate",
+    "constantName": "ROUTE_29_46_GATE",
+    "name": "Route 2946 Gate",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "route43mahoganygate",
+    "constantName": "ROUTE_43_MAHOGANY_GATE",
+    "name": "Route 43 Mahogany Gate",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "route47",
+    "constantName": "ROUTE_47",
+    "name": "Route 47",
     "isLandmark": true,
     "region": "Johto",
-    "order": 61,
-    "connections": 2,
+    "order": 47,
+    "connections": 1,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "route44",
+    "constantName": "ROUTE_44",
+    "name": "Route 44",
+    "isLandmark": true,
+    "region": "Johto",
+    "order": 57,
+    "connections": 1,
     "encounterCount": 21,
     "trainerCount": 0
   },
@@ -3923,37 +3923,6 @@
     "trainerCount": 0
   },
   {
-    "id": "route5",
-    "constantName": "ROUTE_5",
-    "name": "Route 5",
-    "isLandmark": true,
-    "region": "Kanto",
-    "order": 82,
-    "connections": 2,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "route5cleansetagspeechhouse",
-    "constantName": "ROUTE_5_CLEANSE_TAG_SPEECH_HOUSE",
-    "name": "Route 5 Cleanse Tag Speech House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "route47",
-    "constantName": "ROUTE_47",
-    "name": "Route 47",
-    "isLandmark": true,
-    "region": "Johto",
-    "order": 47,
-    "connections": 1,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
     "id": "route49",
     "constantName": "ROUTE_49",
     "name": "Route 49",
@@ -3965,9 +3934,29 @@
     "trainerCount": 0
   },
   {
+    "id": "route5",
+    "constantName": "ROUTE_5",
+    "name": "Route 5",
+    "isLandmark": true,
+    "region": "Kanto",
+    "order": 82,
+    "connections": 2,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
     "id": "route5saffroncitygate",
     "constantName": "ROUTE_5_SAFFRON_CITY_GATE",
     "name": "Route 5 Saffron City Gate",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "route5cleansetagspeechhouse",
+    "constantName": "ROUTE_5_CLEANSE_TAG_SPEECH_HOUSE",
+    "name": "Route 5 Cleanse Tag Speech House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -3983,29 +3972,38 @@
     "trainerCount": 0
   },
   {
-    "id": "route6",
-    "constantName": "ROUTE_6",
-    "name": "Route 6",
+    "id": "route35",
+    "constantName": "ROUTE_35",
+    "name": "Route 35",
     "isLandmark": true,
-    "region": "Kanto",
-    "order": 84,
+    "region": "Johto",
+    "order": 26,
     "connections": 2,
-    "encounterCount": 21,
+    "encounterCount": 42,
     "trainerCount": 0
   },
   {
-    "id": "route6undergroundentrance",
-    "constantName": "ROUTE_6_UNDERGROUND_ENTRANCE",
-    "name": "Route 6 Underground Entrance",
+    "id": "route38ecruteakgate",
+    "constantName": "ROUTE_38_ECRUTEAK_GATE",
+    "name": "Route 38 Ecruteak Gate",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "route6saffrongate",
-    "constantName": "ROUTE_6_SAFFRON_GATE",
-    "name": "Route 6 Saffron Gate",
+    "id": "route39farmhouse",
+    "constantName": "ROUTE_39_FARMHOUSE",
+    "name": "Route 39 Farmhouse",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "route6undergroundentrance",
+    "constantName": "ROUTE_6_UNDERGROUND_ENTRANCE",
+    "name": "Route 6 Underground Entrance",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -4023,41 +4021,12 @@
     "trainerCount": 0
   },
   {
-    "id": "route8saffrongate",
-    "constantName": "ROUTE_8_SAFFRON_GATE",
-    "name": "Route 8 Saffron Gate",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "route7saffrongate",
-    "constantName": "ROUTE_7_SAFFRON_GATE",
-    "name": "Route 7 Saffron Gate",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "route8",
     "constantName": "ROUTE_8",
     "name": "Route 8",
     "isLandmark": true,
     "region": "Kanto",
     "order": 88,
-    "connections": 2,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "route9",
-    "constantName": "ROUTE_9",
-    "name": "Route 9",
-    "isLandmark": true,
-    "region": "Kanto",
-    "order": 89,
     "connections": 2,
     "encounterCount": 21,
     "trainerCount": 0
@@ -4099,11 +4068,13 @@
     "trainerCount": 0
   },
   {
-    "id": "ruinsofalphentrancechamber",
-    "constantName": "RUINS_OF_ALPH_ENTRANCE_CHAMBER",
-    "name": "Ruins Of Alph Entrance Chamber",
-    "isLandmark": false,
-    "connections": 0,
+    "id": "route9",
+    "constantName": "ROUTE_9",
+    "name": "Route 9",
+    "isLandmark": true,
+    "region": "Kanto",
+    "order": 89,
+    "connections": 2,
     "encounterCount": 21,
     "trainerCount": 0
   },
@@ -4111,15 +4082,6 @@
     "id": "ruinsofalphaerodactylwordroom",
     "constantName": "RUINS_OF_ALPH_AERODACTYL_WORD_ROOM",
     "name": "Ruins Of Alph Aerodactyl Word Room",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "ruinsofalphhoohitemroom",
-    "constantName": "RUINS_OF_ALPH_HO_OH_ITEM_ROOM",
-    "name": "Ruins Of Alph Ho Oh Item Room",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -4144,6 +4106,15 @@
     "trainerCount": 0
   },
   {
+    "id": "route6saffrongate",
+    "constantName": "ROUTE_6_SAFFRON_GATE",
+    "name": "Route 6 Saffron Gate",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
     "id": "ruinsofalphinnerchamber",
     "constantName": "RUINS_OF_ALPH_INNER_CHAMBER",
     "name": "Ruins Of Alph Inner Chamber",
@@ -4153,18 +4124,18 @@
     "trainerCount": 0
   },
   {
-    "id": "ruinsofalphkabutochamber",
-    "constantName": "RUINS_OF_ALPH_KABUTO_CHAMBER",
-    "name": "Ruins Of Alph Kabuto Chamber",
+    "id": "ruinsofalphkabutoitemroom",
+    "constantName": "RUINS_OF_ALPH_KABUTO_ITEM_ROOM",
+    "name": "Ruins Of Alph Kabuto Item Room",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "ruinsofalphkabutowordroom",
-    "constantName": "RUINS_OF_ALPH_KABUTO_WORD_ROOM",
-    "name": "Ruins Of Alph Kabuto Word Room",
+    "id": "route8saffrongate",
+    "constantName": "ROUTE_8_SAFFRON_GATE",
+    "name": "Route 8 Saffron Gate",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -4180,9 +4151,38 @@
     "trainerCount": 0
   },
   {
-    "id": "ruinsofalphkabutoitemroom",
-    "constantName": "RUINS_OF_ALPH_KABUTO_ITEM_ROOM",
-    "name": "Ruins Of Alph Kabuto Item Room",
+    "id": "route6",
+    "constantName": "ROUTE_6",
+    "name": "Route 6",
+    "isLandmark": true,
+    "region": "Kanto",
+    "order": 84,
+    "connections": 2,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "ruinsofalphhoohitemroom",
+    "constantName": "RUINS_OF_ALPH_HO_OH_ITEM_ROOM",
+    "name": "Ruins Of Alph Ho Oh Item Room",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "ruinsofalphkabutochamber",
+    "constantName": "RUINS_OF_ALPH_KABUTO_CHAMBER",
+    "name": "Ruins Of Alph Kabuto Chamber",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "ruinsofalphomanytewordroom",
+    "constantName": "RUINS_OF_ALPH_OMANYTE_WORD_ROOM",
+    "name": "Ruins Of Alph Omanyte Word Room",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -4198,24 +4198,6 @@
     "trainerCount": 0
   },
   {
-    "id": "ruinsofalphomanytewordroom",
-    "constantName": "RUINS_OF_ALPH_OMANYTE_WORD_ROOM",
-    "name": "Ruins Of Alph Omanyte Word Room",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "ruinsofalphomanyteitemroom",
-    "constantName": "RUINS_OF_ALPH_OMANYTE_ITEM_ROOM",
-    "name": "Ruins Of Alph Omanyte Item Room",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "ruinsofalphresearchcenter",
     "constantName": "RUINS_OF_ALPH_RESEARCH_CENTER",
     "name": "Ruins Of Alph Research Center",
@@ -4225,9 +4207,9 @@
     "trainerCount": 0
   },
   {
-    "id": "ruinsofalphsinjohchamber",
-    "constantName": "RUINS_OF_ALPH_SINJOH_CHAMBER",
-    "name": "Ruins Of Alph Sinjoh Chamber",
+    "id": "ruinsofalphomanyteitemroom",
+    "constantName": "RUINS_OF_ALPH_OMANYTE_ITEM_ROOM",
+    "name": "Ruins Of Alph Omanyte Item Room",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -4261,39 +4243,32 @@
     "trainerCount": 0
   },
   {
-    "id": "safarizonehub",
-    "constantName": "SAFARI_ZONE_HUB",
-    "name": "Safari Zone Hub",
+    "id": "route45",
+    "constantName": "ROUTE_45",
+    "name": "Route 45",
+    "isLandmark": true,
+    "region": "Johto",
+    "order": 61,
+    "connections": 2,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "ruinsofalphentrancechamber",
+    "constantName": "RUINS_OF_ALPH_ENTRANCE_CHAMBER",
+    "name": "Ruins Of Alph Entrance Chamber",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
     "trainerCount": 0
   },
   {
-    "id": "safarizonehubresthouse",
-    "constantName": "SAFARI_ZONE_HUB_REST_HOUSE",
-    "name": "Safari Zone Hub Rest House",
+    "id": "ruinsofalphkabutowordroom",
+    "constantName": "RUINS_OF_ALPH_KABUTO_WORD_ROOM",
+    "name": "Ruins Of Alph Kabuto Word Room",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "safarizonewardenshome",
-    "constantName": "SAFARI_ZONE_WARDENS_HOME",
-    "name": "Safari Zone Wardens Home",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "safarizonenorth",
-    "constantName": "SAFARI_ZONE_NORTH",
-    "name": "Safari Zone North",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
     "trainerCount": 0
   },
   {
@@ -4315,6 +4290,15 @@
     "trainerCount": 0
   },
   {
+    "id": "route7saffrongate",
+    "constantName": "ROUTE_7_SAFFRON_GATE",
+    "name": "Route 7 Saffron Gate",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
     "id": "safarizonewestresthouse1",
     "constantName": "SAFARI_ZONE_WEST_REST_HOUSE_1",
     "name": "Safari Zone West Rest House1",
@@ -4333,15 +4317,6 @@
     "trainerCount": 0
   },
   {
-    "id": "saffronbookspeechhouse",
-    "constantName": "SAFFRON_BOOK_SPEECH_HOUSE",
-    "name": "Saffron Book Speech House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "saffroncity",
     "constantName": "SAFFRON_CITY",
     "name": "Saffron City",
@@ -4349,15 +4324,6 @@
     "region": "Kanto",
     "order": 99,
     "connections": 4,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "saffrongym",
-    "constantName": "SAFFRON_GYM",
-    "name": "Saffron Gym",
-    "isLandmark": false,
-    "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
@@ -4371,18 +4337,27 @@
     "trainerCount": 0
   },
   {
-    "id": "saffronorrespeechhouse",
-    "constantName": "SAFFRON_ORRE_SPEECH_HOUSE",
-    "name": "Saffron Orre Speech House",
+    "id": "saffronmart",
+    "constantName": "SAFFRON_MART",
+    "name": "Saffron Mart",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "saffronmart",
-    "constantName": "SAFFRON_MART",
-    "name": "Saffron Mart",
+    "id": "saffrongym",
+    "constantName": "SAFFRON_GYM",
+    "name": "Saffron Gym",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "saffronorrespeechhouse",
+    "constantName": "SAFFRON_ORRE_SPEECH_HOUSE",
+    "name": "Saffron Orre Speech House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -4407,15 +4382,6 @@
     "trainerCount": 0
   },
   {
-    "id": "saffrontrainstation",
-    "constantName": "SAFFRON_TRAIN_STATION",
-    "name": "Saffron Train Station",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "scarycave1f",
     "constantName": "SCARY_CAVE_1F",
     "name": "Scary Cave 1F",
@@ -4425,21 +4391,30 @@
     "trainerCount": 0
   },
   {
-    "id": "scarycaveb1f",
-    "constantName": "SCARY_CAVE_B1F",
-    "name": "Scary Cave B1F",
+    "id": "safarizonehub",
+    "constantName": "SAFARI_ZONE_HUB",
+    "name": "Safari Zone Hub",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
     "trainerCount": 0
   },
   {
-    "id": "scarycaveshipwreck",
-    "constantName": "SCARY_CAVE_SHIPWRECK",
-    "name": "Scary Cave Shipwreck",
+    "id": "safarizonehubresthouse",
+    "constantName": "SAFARI_ZONE_HUB_REST_HOUSE",
+    "name": "Safari Zone Hub Rest House",
     "isLandmark": false,
     "connections": 0,
-    "encounterCount": 21,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "saffronbookspeechhouse",
+    "constantName": "SAFFRON_BOOK_SPEECH_HOUSE",
+    "name": "Saffron Book Speech House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
     "trainerCount": 0
   },
   {
@@ -4452,12 +4427,30 @@
     "trainerCount": 0
   },
   {
-    "id": "seafoamislandsb2f",
-    "constantName": "SEAFOAM_ISLANDS_B2F",
-    "name": "Seafoam Islands B2F",
+    "id": "seafoamislands1f",
+    "constantName": "SEAFOAM_ISLANDS_1F",
+    "name": "Seafoam Islands 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "ruinsofalphsinjohchamber",
+    "constantName": "RUINS_OF_ALPH_SINJOH_CHAMBER",
+    "name": "Ruins Of Alph Sinjoh Chamber",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "safarizonewardenshome",
+    "constantName": "SAFARI_ZONE_WARDENS_HOME",
+    "name": "Safari Zone Wardens Home",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
     "trainerCount": 0
   },
   {
@@ -4470,9 +4463,9 @@
     "trainerCount": 0
   },
   {
-    "id": "seafoamislands1f",
-    "constantName": "SEAFOAM_ISLANDS_1F",
-    "name": "Seafoam Islands 1F",
+    "id": "seafoamislandsb2f",
+    "constantName": "SEAFOAM_ISLANDS_B2F",
+    "name": "Seafoam Islands B2F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
@@ -4506,11 +4499,13 @@
     "trainerCount": 0
   },
   {
-    "id": "seagallopferryvermiliongate",
-    "constantName": "SEAGALLOP_FERRY_VERMILION_GATE",
-    "name": "Seagallop Ferry Vermilion Gate",
-    "isLandmark": false,
-    "connections": 0,
+    "id": "shamouticoast",
+    "constantName": "SHAMOUTI_COAST",
+    "name": "Shamouti Coast",
+    "isLandmark": true,
+    "region": "Orange",
+    "order": 137,
+    "connections": 1,
     "encounterCount": 0,
     "trainerCount": 0
   },
@@ -4524,38 +4519,45 @@
     "trainerCount": 0
   },
   {
-    "id": "shamouticoast",
-    "constantName": "SHAMOUTI_COAST",
-    "name": "Shamouti Coast",
-    "isLandmark": true,
-    "region": "Orange",
-    "order": 137,
-    "connections": 1,
+    "id": "seagallopferryvermiliongate",
+    "constantName": "SEAGALLOP_FERRY_VERMILION_GATE",
+    "name": "Seagallop Ferry Vermilion Gate",
+    "isLandmark": false,
+    "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "shamoutihotel2f",
-    "constantName": "SHAMOUTI_HOTEL_2F",
-    "name": "Shamouti Hotel 2F",
+    "id": "saffrontrainstation",
+    "constantName": "SAFFRON_TRAIN_STATION",
+    "name": "Saffron Train Station",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "scarycaveshipwreck",
+    "constantName": "SCARY_CAVE_SHIPWRECK",
+    "name": "Scary Cave Shipwreck",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "scarycaveb1f",
+    "constantName": "SCARY_CAVE_B1F",
+    "name": "Scary Cave B1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
     "id": "shamoutihotel1f",
     "constantName": "SHAMOUTI_HOTEL_1F",
     "name": "Shamouti Hotel 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "shamoutihotelroom2a",
-    "constantName": "SHAMOUTI_HOTEL_ROOM_2A",
-    "name": "Shamouti Hotel Room2 A",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -4580,31 +4582,11 @@
     "trainerCount": 0
   },
   {
-    "id": "shamoutihotelrestaurant",
-    "constantName": "SHAMOUTI_HOTEL_RESTAURANT",
-    "name": "Shamouti Hotel Restaurant",
+    "id": "shamoutihotelroom2a",
+    "constantName": "SHAMOUTI_HOTEL_ROOM_2A",
+    "name": "Shamouti Hotel Room2 A",
     "isLandmark": false,
     "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "shamoutimerchant",
-    "constantName": "SHAMOUTI_MERCHANT",
-    "name": "Shamouti Merchant",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "shamoutiisland",
-    "constantName": "SHAMOUTI_ISLAND",
-    "name": "Shamouti Island",
-    "isLandmark": true,
-    "region": "Orange",
-    "order": 130,
-    "connections": 2,
     "encounterCount": 0,
     "trainerCount": 0
   },
@@ -4612,15 +4594,6 @@
     "id": "shamoutihotelroom3b",
     "constantName": "SHAMOUTI_HOTEL_ROOM_3B",
     "name": "Shamouti Hotel Room3 B",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "shamoutihouse",
-    "constantName": "SHAMOUTI_HOUSE",
-    "name": "Shamouti House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -4636,9 +4609,45 @@
     "trainerCount": 0
   },
   {
-    "id": "shamoutipokecenter1f",
-    "constantName": "SHAMOUTI_POKECENTER_1F",
-    "name": "Shamouti PokéCenter 1F",
+    "id": "shamoutihotel2f",
+    "constantName": "SHAMOUTI_HOTEL_2F",
+    "name": "Shamouti Hotel 2F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "shamoutihotelrestaurant",
+    "constantName": "SHAMOUTI_HOTEL_RESTAURANT",
+    "name": "Shamouti Hotel Restaurant",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "safarizonenorth",
+    "constantName": "SAFARI_ZONE_NORTH",
+    "name": "Safari Zone North",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "shamoutihouse",
+    "constantName": "SHAMOUTI_HOUSE",
+    "name": "Shamouti House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "shamoutimerchant",
+    "constantName": "SHAMOUTI_MERCHANT",
+    "name": "Shamouti Merchant",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -4674,18 +4683,18 @@
     "trainerCount": 0
   },
   {
-    "id": "silvercaveitemrooms",
-    "constantName": "SILVER_CAVE_ITEM_ROOMS",
-    "name": "Silver Cave Item Rooms",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
     "id": "silphco1f",
     "constantName": "SILPH_CO_1F",
     "name": "Silph Co 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "shamoutipokecenter1f",
+    "constantName": "SHAMOUTI_POKECENTER_1F",
+    "name": "Shamouti PokéCenter 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -4719,21 +4728,23 @@
     "trainerCount": 0
   },
   {
-    "id": "silvercavepokecenter1f",
-    "constantName": "SILVER_CAVE_POKECENTER_1F",
-    "name": "Silver Cave PokéCenter 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "silvercaveroom1",
-    "constantName": "SILVER_CAVE_ROOM_1",
-    "name": "Silver Cave Room1",
+    "id": "silvercaveitemrooms",
+    "constantName": "SILVER_CAVE_ITEM_ROOMS",
+    "name": "Silver Cave Item Rooms",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "shamoutiisland",
+    "constantName": "SHAMOUTI_ISLAND",
+    "name": "Shamouti Island",
+    "isLandmark": true,
+    "region": "Orange",
+    "order": 130,
+    "connections": 2,
+    "encounterCount": 0,
     "trainerCount": 0
   },
   {
@@ -4746,29 +4757,9 @@
     "trainerCount": 0
   },
   {
-    "id": "silvercaveroom3",
-    "constantName": "SILVER_CAVE_ROOM_3",
-    "name": "Silver Cave Room3",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "sinjohruins",
-    "constantName": "SINJOH_RUINS",
-    "name": "Sinjoh Ruins",
-    "isLandmark": true,
-    "region": "Johto",
-    "order": 66,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "sinjohruinshouse",
-    "constantName": "SINJOH_RUINS_HOUSE",
-    "name": "Sinjoh Ruins House",
+    "id": "silvercavepokecenter1f",
+    "constantName": "SILVER_CAVE_POKECENTER_1F",
+    "name": "Silver Cave PokéCenter 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -4784,21 +4775,41 @@
     "trainerCount": 0
   },
   {
-    "id": "slowpokewellb2f",
-    "constantName": "SLOWPOKE_WELL_B2F",
-    "name": "Slowpoke Well B2F",
+    "id": "silvercaveroom3",
+    "constantName": "SILVER_CAVE_ROOM_3",
+    "name": "Silver Cave Room3",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
     "trainerCount": 0
   },
   {
-    "id": "snowtopmountaininside",
-    "constantName": "SNOWTOP_MOUNTAIN_INSIDE",
-    "name": "Snowtop Mountain Inside",
+    "id": "silvercaveroom1",
+    "constantName": "SILVER_CAVE_ROOM_1",
+    "name": "Silver Cave Room1",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "sinjohruinshouse",
+    "constantName": "SINJOH_RUINS_HOUSE",
+    "name": "Sinjoh Ruins House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "sinjohruins",
+    "constantName": "SINJOH_RUINS",
+    "name": "Sinjoh Ruins",
+    "isLandmark": true,
+    "region": "Johto",
+    "order": 66,
+    "connections": 0,
+    "encounterCount": 0,
     "trainerCount": 0
   },
   {
@@ -4811,36 +4822,9 @@
     "trainerCount": 0
   },
   {
-    "id": "slowpokewellentrance",
-    "constantName": "SLOWPOKE_WELL_ENTRANCE",
-    "name": "Slowpoke Well Entrance",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "snowtoppokecenter1f",
-    "constantName": "SNOWTOP_POKECENTER_1F",
-    "name": "Snowtop PokéCenter 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "soulhouseb1f",
-    "constantName": "SOUL_HOUSE_B1F",
-    "name": "Soul House B1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "soulhouseb2f",
-    "constantName": "SOUL_HOUSE_B2F",
-    "name": "Soul House B2F",
+    "id": "snowtopmountaininside",
+    "constantName": "SNOWTOP_MOUNTAIN_INSIDE",
+    "name": "Snowtop Mountain Inside",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
@@ -4858,27 +4842,18 @@
     "trainerCount": 0
   },
   {
+    "id": "snowtoppokecenter1f",
+    "constantName": "SNOWTOP_POKECENTER_1F",
+    "name": "Snowtop PokéCenter 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
     "id": "soulhouseb3f",
     "constantName": "SOUL_HOUSE_B3F",
     "name": "Soul House B3F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "sprouttower2f",
-    "constantName": "SPROUT_TOWER_2F",
-    "name": "Sprout Tower 2F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "sprouttower3f",
-    "constantName": "SPROUT_TOWER_3F",
-    "name": "Sprout Tower 3F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
@@ -4905,21 +4880,39 @@
     "trainerCount": 0
   },
   {
-    "id": "teamrocketbaseb1f",
-    "constantName": "TEAM_ROCKET_BASE_B1F",
-    "name": "Team Rocket Base B1F",
+    "id": "sprouttower3f",
+    "constantName": "SPROUT_TOWER_3F",
+    "name": "Sprout Tower 3F",
     "isLandmark": false,
     "connections": 0,
-    "encounterCount": 0,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
-    "id": "teamrocketbaseb2f",
-    "constantName": "TEAM_ROCKET_BASE_B2F",
-    "name": "Team Rocket Base B2F",
+    "id": "slowpokewellb2f",
+    "constantName": "SLOWPOKE_WELL_B2F",
+    "name": "Slowpoke Well B2F",
     "isLandmark": false,
     "connections": 0,
-    "encounterCount": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "soulhouseb1f",
+    "constantName": "SOUL_HOUSE_B1F",
+    "name": "Soul House B1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "sprouttower2f",
+    "constantName": "SPROUT_TOWER_2F",
+    "name": "Sprout Tower 2F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
@@ -4941,6 +4934,33 @@
     "trainerCount": 0
   },
   {
+    "id": "teamrocketbaseb2f",
+    "constantName": "TEAM_ROCKET_BASE_B2F",
+    "name": "Team Rocket Base B2F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "teamrocketbaseb1f",
+    "constantName": "TEAM_ROCKET_BASE_B1F",
+    "name": "Team Rocket Base B1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "soulhouseb2f",
+    "constantName": "SOUL_HOUSE_B2F",
+    "name": "Soul House B2F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
     "id": "tintower1f",
     "constantName": "TIN_TOWER_1F",
     "name": "Tin Tower 1F",
@@ -4950,9 +4970,9 @@
     "trainerCount": 0
   },
   {
-    "id": "tintower2f",
-    "constantName": "TIN_TOWER_2F",
-    "name": "Tin Tower 2F",
+    "id": "slowpokewellentrance",
+    "constantName": "SLOWPOKE_WELL_ENTRANCE",
+    "name": "Slowpoke Well Entrance",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
@@ -4977,6 +4997,33 @@
     "trainerCount": 0
   },
   {
+    "id": "tintower7f",
+    "constantName": "TIN_TOWER_7F",
+    "name": "Tin Tower 7F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "tintower2f",
+    "constantName": "TIN_TOWER_2F",
+    "name": "Tin Tower 2F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "tintower9f",
+    "constantName": "TIN_TOWER_9F",
+    "name": "Tin Tower 9F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
     "id": "tintower5f",
     "constantName": "TIN_TOWER_5F",
     "name": "Tin Tower 5F",
@@ -4995,30 +5042,59 @@
     "trainerCount": 0
   },
   {
-    "id": "tintower7f",
-    "constantName": "TIN_TOWER_7F",
-    "name": "Tin Tower 7F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "tintower9f",
-    "constantName": "TIN_TOWER_9F",
-    "name": "Tin Tower 9F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
     "id": "tintowerroof",
     "constantName": "TIN_TOWER_ROOF",
     "name": "Tin Tower Roof",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "underground",
+    "constantName": "UNDERGROUND",
+    "name": "Underground",
+    "isLandmark": true,
+    "region": "Kanto",
+    "order": 83,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "trainerhouseb1f",
+    "constantName": "TRAINER_HOUSE_B1F",
+    "name": "Trainer House B1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "undergroundwarehouse",
+    "constantName": "UNDERGROUND_WAREHOUSE",
+    "name": "Underground Warehouse",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "undergroundpathswitchroomentrances",
+    "constantName": "UNDERGROUND_PATH_SWITCH_ROOM_ENTRANCES",
+    "name": "Underground Path Switch Room Entrances",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "unioncaveb2f",
+    "constantName": "UNION_CAVE_B2F",
+    "name": "Union Cave B2F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
@@ -5040,67 +5116,18 @@
     "trainerCount": 0
   },
   {
-    "id": "tohjofalls",
-    "constantName": "TOHJO_FALLS",
-    "name": "Tohjo Falls",
-    "isLandmark": true,
-    "region": "Kanto",
-    "order": 122,
+    "id": "unioncave1f",
+    "constantName": "UNION_CAVE_1F",
+    "name": "Union Cave 1F",
+    "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
     "trainerCount": 0
   },
   {
-    "id": "trainerhouseb1f",
-    "constantName": "TRAINER_HOUSE_B1F",
-    "name": "Trainer House B1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "underground",
-    "constantName": "UNDERGROUND",
-    "name": "Underground",
-    "isLandmark": true,
-    "region": "Kanto",
-    "order": 83,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "undergroundwarehouse",
-    "constantName": "UNDERGROUND_WAREHOUSE",
-    "name": "Underground Warehouse",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "trainerhouse1f",
-    "constantName": "TRAINER_HOUSE_1F",
-    "name": "Trainer House 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "undergroundpathswitchroomentrances",
-    "constantName": "UNDERGROUND_PATH_SWITCH_ROOM_ENTRANCES",
-    "name": "Underground Path Switch Room Entrances",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "unioncave1f",
-    "constantName": "UNION_CAVE_1F",
-    "name": "Union Cave 1F",
+    "id": "unioncaveb1fsouth",
+    "constantName": "UNION_CAVE_B1F_SOUTH",
+    "name": "Union Cave B1F South",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
@@ -5125,42 +5152,6 @@
     "trainerCount": 0
   },
   {
-    "id": "unioncaveb2f",
-    "constantName": "UNION_CAVE_B2F",
-    "name": "Union Cave B2F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "valenciahouse",
-    "constantName": "VALENCIA_HOUSE",
-    "name": "Valencia House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "unioncaveb1fsouth",
-    "constantName": "UNION_CAVE_B1F_SOUTH",
-    "name": "Union Cave B1F South",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "valenciaport",
-    "constantName": "VALENCIA_PORT",
-    "name": "Valencia Port",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "valenciaisland",
     "constantName": "VALENCIA_ISLAND",
     "name": "Valencia Island",
@@ -5177,6 +5168,15 @@
     "name": "Uraga Channel West",
     "isLandmark": false,
     "connections": 2,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "valenciahouse",
+    "constantName": "VALENCIA_HOUSE",
+    "name": "Valencia House",
+    "isLandmark": false,
+    "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
@@ -5199,20 +5199,9 @@
     "trainerCount": 0
   },
   {
-    "id": "vermilioncity",
-    "constantName": "VERMILION_CITY",
-    "name": "Vermilion City",
-    "isLandmark": true,
-    "region": "Kanto",
-    "order": 85,
-    "connections": 2,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "vermilionmart",
-    "constantName": "VERMILION_MART",
-    "name": "Vermilion Mart",
+    "id": "trainerhouse1f",
+    "constantName": "TRAINER_HOUSE_1F",
+    "name": "Trainer House 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -5228,9 +5217,29 @@
     "trainerCount": 0
   },
   {
-    "id": "vermilionmagnettrainspeechhouse",
-    "constantName": "VERMILION_MAGNET_TRAIN_SPEECH_HOUSE",
-    "name": "Vermilion Magnet Train Speech House",
+    "id": "vermilioncity",
+    "constantName": "VERMILION_CITY",
+    "name": "Vermilion City",
+    "isLandmark": true,
+    "region": "Kanto",
+    "order": 85,
+    "connections": 2,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "vermilionhousediglettscavespeechhouse",
+    "constantName": "VERMILION_HOUSE_DIGLETTS_CAVE_SPEECH_HOUSE",
+    "name": "Vermilion House Digletts Cave Speech House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "vermilionmart",
+    "constantName": "VERMILION_MART",
+    "name": "Vermilion Mart",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -5246,18 +5255,9 @@
     "trainerCount": 0
   },
   {
-    "id": "vermilionhousediglettscavespeechhouse",
-    "constantName": "VERMILION_HOUSE_DIGLETTS_CAVE_SPEECH_HOUSE",
-    "name": "Vermilion House Digletts Cave Speech House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "vermilionpollutionspeechhouse",
-    "constantName": "VERMILION_POLLUTION_SPEECH_HOUSE",
-    "name": "Vermilion Pollution Speech House",
+    "id": "vermilionmagnettrainspeechhouse",
+    "constantName": "VERMILION_MAGNET_TRAIN_SPEECH_HOUSE",
+    "name": "Vermilion Magnet Train Speech House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -5282,54 +5282,9 @@
     "trainerCount": 0
   },
   {
-    "id": "victoryroad1f",
-    "constantName": "VICTORY_ROAD_1F",
-    "name": "Victory Road 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
     "id": "vermilionssannespeechhouse",
     "constantName": "VERMILION_S_S_ANNE_SPEECH_HOUSE",
     "name": "Vermilion SSAnne Speech House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "victoryroad3f",
-    "constantName": "VICTORY_ROAD_3F",
-    "name": "Victory Road 3F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "violetgym",
-    "constantName": "VIOLET_GYM",
-    "name": "Violet Gym",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "violetonixtradehouse",
-    "constantName": "VIOLET_ONIX_TRADE_HOUSE",
-    "name": "Violet Onix Trade House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "violetmart",
-    "constantName": "VIOLET_MART",
-    "name": "Violet Mart",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -5347,53 +5302,29 @@
     "trainerCount": 0
   },
   {
-    "id": "violetoutskirts",
-    "constantName": "VIOLET_OUTSKIRTS",
-    "name": "Violet Outskirts",
-    "isLandmark": true,
-    "region": "Johto",
-    "order": 9,
-    "connections": 2,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "violetpokecenter1f",
-    "constantName": "VIOLET_POKECENTER_1F",
-    "name": "Violet PokéCenter 1F",
+    "id": "victoryroad3f",
+    "constantName": "VICTORY_ROAD_3F",
+    "name": "Victory Road 3F",
     "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "violetoutskirtshouse",
-    "constantName": "VIOLET_OUTSKIRTS_HOUSE",
-    "name": "Violet Outskirts House",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "viridianforest",
-    "constantName": "VIRIDIAN_FOREST",
-    "name": "Viridian Forest",
-    "isLandmark": true,
-    "region": "Kanto",
-    "order": 72,
     "connections": 0,
     "encounterCount": 21,
     "trainerCount": 0
   },
   {
-    "id": "viridiancity",
-    "constantName": "VIRIDIAN_CITY",
-    "name": "Viridian City",
-    "isLandmark": true,
-    "region": "Kanto",
-    "order": 70,
-    "connections": 3,
+    "id": "victoryroad1f",
+    "constantName": "VICTORY_ROAD_1F",
+    "name": "Victory Road 1F",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "violetgym",
+    "constantName": "VIOLET_GYM",
+    "name": "Violet Gym",
+    "isLandmark": false,
+    "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
@@ -5407,9 +5338,47 @@
     "trainerCount": 0
   },
   {
-    "id": "viridianforestviridiangate",
-    "constantName": "VIRIDIAN_FOREST_VIRIDIAN_GATE",
-    "name": "Viridian Forest Viridian Gate",
+    "id": "violetonixtradehouse",
+    "constantName": "VIOLET_ONIX_TRADE_HOUSE",
+    "name": "Violet Onix Trade House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "tohjofalls",
+    "constantName": "TOHJO_FALLS",
+    "name": "Tohjo Falls",
+    "isLandmark": true,
+    "region": "Kanto",
+    "order": 122,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "valenciaport",
+    "constantName": "VALENCIA_PORT",
+    "name": "Valencia Port",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "violetmart",
+    "constantName": "VIOLET_MART",
+    "name": "Violet Mart",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "vermilionpollutionspeechhouse",
+    "constantName": "VERMILION_POLLUTION_SPEECH_HOUSE",
+    "name": "Vermilion Pollution Speech House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -5425,27 +5394,9 @@
     "trainerCount": 0
   },
   {
-    "id": "viridianpokecenter1f",
-    "constantName": "VIRIDIAN_POKECENTER_1F",
-    "name": "Viridian PokéCenter 1F",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "viridianmart",
-    "constantName": "VIRIDIAN_MART",
-    "name": "Viridian Mart",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
-    "id": "viridianschoolhouse",
-    "constantName": "VIRIDIAN_SCHOOL_HOUSE",
-    "name": "Viridian School House",
+    "id": "viridianforestviridiangate",
+    "constantName": "VIRIDIAN_FOREST_VIRIDIAN_GATE",
+    "name": "Viridian Forest Viridian Gate",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -5461,6 +5412,15 @@
     "trainerCount": 0
   },
   {
+    "id": "viridianmart",
+    "constantName": "VIRIDIAN_MART",
+    "name": "Viridian Mart",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
     "id": "viridiannicknamespeechhouse",
     "constantName": "VIRIDIAN_NICKNAME_SPEECH_HOUSE",
     "name": "Viridian Nickname Speech House",
@@ -5470,9 +5430,40 @@
     "trainerCount": 0
   },
   {
-    "id": "warehouseentrance",
-    "constantName": "WAREHOUSE_ENTRANCE",
-    "name": "Warehouse Entrance",
+    "id": "viridianschoolhouse",
+    "constantName": "VIRIDIAN_SCHOOL_HOUSE",
+    "name": "Viridian School House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "violetoutskirts",
+    "constantName": "VIOLET_OUTSKIRTS",
+    "name": "Violet Outskirts",
+    "isLandmark": true,
+    "region": "Johto",
+    "order": 9,
+    "connections": 2,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "viridianforest",
+    "constantName": "VIRIDIAN_FOREST",
+    "name": "Viridian Forest",
+    "isLandmark": true,
+    "region": "Kanto",
+    "order": 72,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "viridianpokecenter1f",
+    "constantName": "VIRIDIAN_POKECENTER_1F",
+    "name": "Viridian PokéCenter 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -5490,9 +5481,9 @@
     "trainerCount": 0
   },
   {
-    "id": "warmbeachhouse",
-    "constantName": "WARM_BEACH_HOUSE",
-    "name": "Warm Beach House",
+    "id": "warmbeachshack",
+    "constantName": "WARM_BEACH_SHACK",
+    "name": "Warm Beach Shack",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -5508,15 +5499,6 @@
     "trainerCount": 0
   },
   {
-    "id": "warmbeachshack",
-    "constantName": "WARM_BEACH_SHACK",
-    "name": "Warm Beach Shack",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 0,
-    "trainerCount": 0
-  },
-  {
     "id": "whirlislandb2f",
     "constantName": "WHIRL_ISLAND_B2F",
     "name": "Whirl Island B2F",
@@ -5526,36 +5508,27 @@
     "trainerCount": 0
   },
   {
+    "id": "warehouseentrance",
+    "constantName": "WAREHOUSE_ENTRANCE",
+    "name": "Warehouse Entrance",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "warmbeachhouse",
+    "constantName": "WARM_BEACH_HOUSE",
+    "name": "Warm Beach House",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
     "id": "whirlislandcave",
     "constantName": "WHIRL_ISLAND_CAVE",
     "name": "Whirl Island Cave",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "whirlislandne",
-    "constantName": "WHIRL_ISLAND_NE",
-    "name": "Whirl Island NE",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "whirlislandnw",
-    "constantName": "WHIRL_ISLAND_NW",
-    "name": "Whirl Island NW",
-    "isLandmark": false,
-    "connections": 0,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "whirlislandse",
-    "constantName": "WHIRL_ISLAND_SE",
-    "name": "Whirl Island SE",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 21,
@@ -5571,18 +5544,27 @@
     "trainerCount": 0
   },
   {
-    "id": "willsroom",
-    "constantName": "WILLS_ROOM",
-    "name": "Wills Room",
+    "id": "whirlislandnw",
+    "constantName": "WHIRL_ISLAND_NW",
+    "name": "Whirl Island NW",
     "isLandmark": false,
     "connections": 0,
-    "encounterCount": 0,
+    "encounterCount": 21,
     "trainerCount": 0
   },
   {
-    "id": "wisetriosroom",
-    "constantName": "WISE_TRIOS_ROOM",
-    "name": "Wise Trios Room",
+    "id": "whirlislandne",
+    "constantName": "WHIRL_ISLAND_NE",
+    "name": "Whirl Island NE",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "willsroom",
+    "constantName": "WILLS_ROOM",
+    "name": "Wills Room",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
@@ -5598,14 +5580,12 @@
     "trainerCount": 0
   },
   {
-    "id": "yellowforest",
-    "constantName": "YELLOW_FOREST",
-    "name": "Yellow Forest",
-    "isLandmark": true,
-    "region": "Johto",
-    "order": 50,
+    "id": "wisetriosroom",
+    "constantName": "WISE_TRIOS_ROOM",
+    "name": "Wise Trios Room",
+    "isLandmark": false,
     "connections": 0,
-    "encounterCount": 21,
+    "encounterCount": 0,
     "trainerCount": 0
   },
   {
@@ -5618,29 +5598,49 @@
     "trainerCount": 0
   },
   {
-    "id": "route32coasthouse",
-    "constantName": "ROUTE_32_COAST_HOUSE",
-    "name": "Route 32 Coast House",
+    "id": "yellowforest",
+    "constantName": "YELLOW_FOREST",
+    "name": "Yellow Forest",
+    "isLandmark": true,
+    "region": "Johto",
+    "order": 50,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "whirlislandse",
+    "constantName": "WHIRL_ISLAND_SE",
+    "name": "Whirl Island SE",
+    "isLandmark": false,
+    "connections": 0,
+    "encounterCount": 21,
+    "trainerCount": 0
+  },
+  {
+    "id": "viridiancity",
+    "constantName": "VIRIDIAN_CITY",
+    "name": "Viridian City",
+    "isLandmark": true,
+    "region": "Kanto",
+    "order": 70,
+    "connections": 3,
+    "encounterCount": 0,
+    "trainerCount": 0
+  },
+  {
+    "id": "violetpokecenter1f",
+    "constantName": "VIOLET_POKECENTER_1F",
+    "name": "Violet PokéCenter 1F",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
     "trainerCount": 0
   },
   {
-    "id": "route25",
-    "constantName": "ROUTE_25",
-    "name": "Route 25",
-    "isLandmark": true,
-    "region": "Kanto",
-    "order": 80,
-    "connections": 2,
-    "encounterCount": 21,
-    "trainerCount": 0
-  },
-  {
-    "id": "route15fuchsiagate",
-    "constantName": "ROUTE_15_FUCHSIA_GATE",
-    "name": "Route 15 Fuchsia Gate",
+    "id": "violetoutskirtshouse",
+    "constantName": "VIOLET_OUTSKIRTS_HOUSE",
+    "name": "Violet Outskirts House",
     "isLandmark": false,
     "connections": 0,
     "encounterCount": 0,
