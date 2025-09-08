@@ -344,7 +344,7 @@ const isInSameEvolutionFamily = (pokemon1: string, pokemon2: string, formKey: st
   return connectedToPokemon1.has(pokemon2);
 };
 
-const extractNames = (data: string[], pokemonForm: string) => {
+const extractNames = (data: string[], version: string) => {
   let dexNo = 1;
   for (let lineNo = 0; lineNo < data.length; lineNo++) {
     //Skips undesirable lines
@@ -357,7 +357,7 @@ const extractNames = (data: string[], pokemonForm: string) => {
       continue;
     }
 
-    pokemonData[pokemonForm]?.push({
+    pokemonData[version]?.push({
       id: reduce(data[lineNo].slice(9, -1)),
       name: data[lineNo].slice(9, -1),
       dexNo: dexNo,

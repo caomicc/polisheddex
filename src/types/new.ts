@@ -135,7 +135,11 @@ export interface ItemsData {
 export interface LocationData {
   id: string;
   name: string;
+  constantName?: string;
   connectionCount?: number;
+  isLandmark?: boolean;
+  order?: number;
+  region?: string;
   encounters?: {
     pokemon: PokemonData['name'];
     formNumber?: number;
@@ -153,6 +157,7 @@ export interface LocationData {
   events?: {
     name: string;
     description: string;
+    type: string; // itemball, fruit tree, trainer, rock smash,
   }[];
   items?: string[];
   trainers?: string[];
@@ -161,6 +166,10 @@ export interface LocationData {
 export interface LocationManifest {
   id: LocationData['id'];
   name: LocationData['name'];
+  constantName?: LocationData['constantName'];
+  isLandmark?: LocationData['isLandmark'];
+  region?: LocationData['region'];
+  order?: number;
   connections?: number;
   encounterCount?: number;
   eventCount?: number;
@@ -170,6 +179,7 @@ export interface LocationManifest {
 export interface TrainerData {
   id: string;
   name: string;
+  constantName?: string;
   class: string;
   teams: {
     matchCount: number;
@@ -178,7 +188,37 @@ export interface TrainerData {
       formNumber?: number;
       level: number;
       item?: string;
-    };
+      moves?: MoveData['name'][];
+      nature?: string;
+      ability?: string;
+      gender?: string;
+      shiny?: boolean;
+      dvs?: string;
+      evs?: string;
+    }[];
   }[];
+  items?: string[];
   sprite?: string;
+}
+
+export interface ComprehensiveTrainerData {
+  id: TrainerData['id'];
+  name: TrainerData['name'];
+  class: TrainerData['class'];
+  constantName?: TrainerData['constantName'];
+  sprite?: TrainerData['sprite'];
+  items?: TrainerData['items'];
+  versions: {
+    [versionName: string]: Omit<
+      TrainerData,
+      'id' | 'name' | 'class' | 'constantName' | 'sprite' | 'items'
+    >;
+  };
+}
+
+export interface TrainerManifest {
+  id: TrainerData['id'];
+  name: TrainerData['name'];
+  class: TrainerData['class'];
+  constantName?: TrainerData['constantName'];
 }
