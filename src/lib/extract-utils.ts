@@ -60,7 +60,10 @@ export const createTrainerConstantName = (
   trainerIdPart: string,
   specialClasses: string[],
 ): string => {
-  return specialClasses.includes(trainerClass) ? trainerIdPart : `${trainerClass}_${trainerIdPart}`;
+  const trainerConstantName = removeNumericSuffix(
+    specialClasses.includes(trainerClass) ? trainerIdPart : `${trainerClass}_${trainerIdPart}`,
+  );
+  return trainerConstantName;
 };
 
 /**
@@ -131,6 +134,8 @@ export const reduce = (str: string) => {
   return str
     .toLowerCase()
     .replaceAll(' ', '')
+    .replaceAll('<', '')
+    .replaceAll('>', '')
     .replaceAll('_', '')
     .replaceAll('-', '')
     .replaceAll("'", '')

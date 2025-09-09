@@ -57,7 +57,7 @@ export interface MoveData {
 
 export interface PokemonMovesets {
   levelUp?: {
-    [level: number]: MoveData['name'][] | MoveData['name'];
+    [level: number]: MoveData['name'][];
   };
   tm?: MoveData['name'][];
   eggMoves?: MoveData['name'][];

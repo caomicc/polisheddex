@@ -245,9 +245,12 @@ const extractPokemonMovesets = (evoAttacksData: string[], pokemonForm: string | 
           };
         }
         if (pokemonMovesets[formKey][currentPokemon]) {
-          // Only add the move if this level doesn't already have a move
+          // Add the move to the level, creating array if it doesn't exist
           if (!pokemonMovesets[formKey][currentPokemon].levelUp![level]) {
-            pokemonMovesets[formKey][currentPokemon].levelUp![level] = move;
+            pokemonMovesets[formKey][currentPokemon].levelUp![level] = [move];
+          } else {
+            // Push additional moves to the existing array for this level
+            pokemonMovesets[formKey][currentPokemon].levelUp![level].push(move);
           }
         }
       }
