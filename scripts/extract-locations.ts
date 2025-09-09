@@ -8,9 +8,20 @@ import {
   ComprehensiveTrainerData,
   TrainerManifest,
 } from '../src/types/new.ts';
+import {
+  reduce,
+  normalizeString,
+  removeNumericSuffix,
+  parseLineWithPrefix,
+  ensureArrayExists,
+  parseTrainerDefinition,
+  createTrainerConstantName,
+  createBaseTrainerKey,
+  parsePokemonWithItem,
+  countConnections,
+  displayName,
+} from '../src/lib/extract-utils.ts';
 import splitFile from '@/lib/split.ts';
-import reduce from '@/lib/reduce.ts';
-import displayName from '@/lib/displayName.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -33,7 +44,7 @@ const landmarks: {
   regionMap: new Map(),
 };
 
-const specialTrainerClasses = ['GIOVANNI', 'LYRA1', 'RIVAL1', 'ARCHER'];
+const specialTrainerClasses = ['GIOVANNI', 'LYRA1', 'RIVAL1', 'ARCHER', 'ARIANA'];
 
 // File paths
 const attributesASM = join(__dirname, '../polishedcrystal/data/maps/attributes.asm');
@@ -60,10 +71,7 @@ const treeFiles = [join(wildDir, 'treemons.asm')];
 // Extract landmark data (order, region, landmark status)
 const extractLandmarks = async () => {
   const raw = await readFile(landmarkConstantsASM, 'utf-8');
-  const landmarkConstantsData = raw
-    .trim()
-    .split('\n')
-    .map((line) => line.trim());
+  const landmarkConstantsData = splitFile(raw, false)[0] as string[]; // Use splitFile without @ replacement
 
   let currentRegion = 'Johto';
   let landmarkOrder = 0;
@@ -130,13 +138,7 @@ const extractConnections = async () => {
         // Store the constant name mapping
         locationConstants[currentLocation] = constantName;
 
-        connectionCount = 0;
-
-        // Count each direction mentioned
-        if (connectionsStr.includes('NORTH')) connectionCount++;
-        if (connectionsStr.includes('SOUTH')) connectionCount++;
-        if (connectionsStr.includes('EAST')) connectionCount++;
-        if (connectionsStr.includes('WEST')) connectionCount++;
+        connectionCount = countConnections(connectionsStr);
       }
     }
   }
@@ -156,23 +158,17 @@ const extractEncounters = async (filePaths: string[], encounterType: string) => 
 
   for (const filePath of filePaths) {
     const raw = await readFile(filePath, 'utf-8');
-    const encounterData = raw
-      .trim()
-      .split('\n')
-      .map((line) => line.trim());
+    const encounterData = splitFile(raw, false)[0] as string[]; // Use splitFile without @ replacement
 
     for (let i = 0; i < encounterData.length; i++) {
       const line = encounterData[i];
 
       // Find location definitions: def_grass_wildmons LOCATION_NAME
       if (line.startsWith(defPrefix + ' ')) {
-        const locationConstant = line.replace(defPrefix + ' ', '').trim();
+        const locationConstant = parseLineWithPrefix(line, defPrefix + ' ');
 
         // Initialize or get existing encounters for this location
-        if (!encounters[locationConstant]) {
-          encounters[locationConstant] = [];
-        }
-        const locationEncounters = encounters[locationConstant];
+        const locationEncounters = ensureArrayExists(encounters, locationConstant);
 
         // Skip the encounter rate line
         i++;
@@ -190,10 +186,10 @@ const extractEncounters = async (filePaths: string[], encounterType: string) => 
 
           if (encounterLine.startsWith('wildmon ')) {
             // Parse: wildmon 12, NIDORAN_M
-            const parts = encounterLine.replace('wildmon ', '').split(',');
+            const parts = parseLineWithPrefix(encounterLine, 'wildmon ').split(',');
             if (parts.length >= 2) {
               const level = parseInt(parts[0].trim());
-              const pokemon = parts[1].trim().toLowerCase().replace(/_/g, '');
+              const pokemon = normalizeString(parts[1]);
 
               locationEncounters.push({
                 pokemon: pokemon,
@@ -284,7 +280,7 @@ const processTrainerData = async (trainerData: string[], version: string) => {
 
     // Set trainer class (applies to subsequent trainers)
     if (line.startsWith('def_trainer_class ')) {
-      currentTrainerClass = line.replace('def_trainer_class ', '').trim();
+      currentTrainerClass = parseLineWithPrefix(line, 'def_trainer_class ');
       continue;
     }
 
@@ -298,22 +294,22 @@ const processTrainerData = async (trainerData: string[], version: string) => {
         }
 
         const trainerKey = reduce(currentTrainer.id);
-        if (!trainers[version][trainerKey]) {
-          trainers[version][trainerKey] = [];
-        }
-        trainers[version][trainerKey].push(currentTrainer);
+        const trainerList = ensureArrayExists(trainers[version], trainerKey);
+        trainerList.push(currentTrainer);
       }
 
       // Parse: def_trainer 1, "Falkner"
-      const parts = line.replace('def_trainer ', '').split(';')[0].split(',');
+      const parts = parseTrainerDefinition(line, 'def_trainer ');
       if (parts.length >= 2) {
         const trainerName = parts[1].trim().replace(/"/g, '');
         const trainerClass = currentTrainerClass;
         const trainerIdPart = parts[0].trim();
 
-        const trainerConstantName = specialTrainerClasses!.includes(trainerClass)
-          ? trainerIdPart
-          : `${trainerClass}_${trainerIdPart}`;
+        const trainerConstantName = createTrainerConstantName(
+          trainerClass,
+          trainerIdPart,
+          specialTrainerClasses,
+        );
 
         // Track trainer name changes and increment match count
         currentTrainerName = trainerName;
@@ -350,21 +346,15 @@ const processTrainerData = async (trainerData: string[], version: string) => {
 
       // Parse: tr_mon 60, MEGANIUM @ SITRUS_BERRY
       // Or: tr_mon 10, NATU
-      const parts = line.replace('tr_mon ', '').split(',');
+      const parts = parseLineWithPrefix(line, 'tr_mon ').split(',');
       if (parts.length >= 2) {
         const level = parseInt(parts[0].trim());
-        let pokemonPart = parts[1].trim(); // Add trim() here!
-        let item: string | undefined;
+        const pokemonPart = parts[1].trim();
 
-        // Check for held item - format should be "NINETALES @ LEFTOVERS"
-        if (pokemonPart.includes('@')) {
-          const [pokemon, heldItem] = pokemonPart.split('@');
-          pokemonPart = pokemon.trim();
-          item = heldItem.trim().toLowerCase().replace(/_/g, '');
-        }
+        const { pokemon, item } = parsePokemonWithItem(pokemonPart);
 
         currentPokemon = {
-          pokemonName: pokemonPart.trim().toLowerCase().replace(/_/g, ''),
+          pokemonName: pokemon,
           level: level,
           item: item,
           moves: [],
@@ -376,10 +366,10 @@ const processTrainerData = async (trainerData: string[], version: string) => {
     // Parse move data
     if (line.startsWith('tr_moves ')) {
       if (currentPokemon) {
-        const movesStr = line.replace('tr_moves ', '').trim();
+        const movesStr = parseLineWithPrefix(line, 'tr_moves ');
         const moves = movesStr
           .split(',')
-          .map((move) => move.trim().toLowerCase().replace(/_/g, ''))
+          .map((move) => normalizeString(move))
           .filter((move) => move.length > 0);
 
         currentPokemon.moves = moves;
@@ -391,7 +381,7 @@ const processTrainerData = async (trainerData: string[], version: string) => {
     if (line.startsWith('tr_extra ')) {
       if (currentPokemon) {
         // Parse: tr_extra [ABILITY], [NATURE], [SHINY]
-        const extraData = line.replace('tr_extra ', '').trim();
+        const extraData = parseLineWithPrefix(line, 'tr_extra ');
 
         if (extraData.includes('SHINY')) {
           currentPokemon.shiny = true;
@@ -399,10 +389,10 @@ const processTrainerData = async (trainerData: string[], version: string) => {
           // Handle comma-separated format: [ABILITY], [NATURE], [SHINY]
           const parts = extraData.split(',');
           if (parts.length > 0 && parts[0].trim()) {
-            currentPokemon.ability = parts[0].trim().toLowerCase().replace(/_/g, '');
+            currentPokemon.ability = normalizeString(parts[0]);
           }
           if (parts.length > 1 && parts[1].trim()) {
-            currentPokemon.nature = parts[1].trim().toLowerCase().replace(/_/g, '');
+            currentPokemon.nature = normalizeString(parts[1]);
           }
           if (parts.length > 2 && parts[2].trim()) {
             currentPokemon.shiny = parts[2].trim().toLowerCase() === 'shiny';
@@ -414,14 +404,14 @@ const processTrainerData = async (trainerData: string[], version: string) => {
 
     if (line.startsWith('tr_dvs ')) {
       if (currentPokemon) {
-        currentPokemon.dvs = line.replace('tr_dvs ', '').trim();
+        currentPokemon.dvs = parseLineWithPrefix(line, 'tr_dvs ');
       }
       continue;
     }
 
     if (line.startsWith('tr_evs ')) {
       if (currentPokemon) {
-        currentPokemon.evs = line.replace('tr_evs ', '').trim();
+        currentPokemon.evs = parseLineWithPrefix(line, 'tr_evs ');
       }
       continue;
     }
@@ -452,10 +442,8 @@ const processTrainerData = async (trainerData: string[], version: string) => {
 
     if (currentTrainer.teams.length > 0) {
       const trainerKey = currentTrainer.class.toLowerCase() + '_' + currentTrainer.id;
-      if (!trainers[version][trainerKey]) {
-        trainers[version][trainerKey] = [];
-      }
-      trainers[version][trainerKey].push(currentTrainer);
+      const trainerList = ensureArrayExists(trainers[version], trainerKey);
+      trainerList.push(currentTrainer);
     }
   }
 
@@ -476,18 +464,21 @@ const consolidateTrainers = () => {
         // Extract base trainer info (remove _1, _2, _3 suffixes)
         const baseTrainerName = trainer.name;
         const baseTrainerClass = trainer.class;
-        const baseTrainerKey = specialTrainerClasses!.includes(baseTrainerClass)
-          ? `${baseTrainerClass.toLowerCase()}_${baseTrainerName.toLowerCase().replace(/\s+/g, '')}`
-          : `${baseTrainerName.toLowerCase().replace(/\s+/g, '')}`;
+        const baseTrainerKey = createBaseTrainerKey(
+          baseTrainerClass,
+          baseTrainerName,
+          specialTrainerClasses,
+        );
 
         console.log('Base Trainer Key:', baseTrainerKey, reduce(baseTrainerName));
 
         if (!consolidatedTrainers[baseTrainerKey]) {
+          const cleanConstantName = removeNumericSuffix(trainer.constantName || '');
           consolidatedTrainers[baseTrainerKey] = {
-            id: reduce(trainer.constantName?.replace(/_\d+$/, '') || baseTrainerKey),
+            id: reduce(cleanConstantName),
             name: baseTrainerName,
             class: baseTrainerClass,
-            constantName: trainer.constantName?.replace(/_\d+$/, ''), // Remove numeric suffix from constant name
+            constantName: cleanConstantName,
             versions: {
               polished: { teams: [] },
               faithful: { teams: [] },
@@ -609,7 +600,7 @@ await Promise.all(
 
     // Add to manifest
     trainerManifest.push({
-      id: reduce(trainer.constantName),
+      id: trainer.id,
       name: trainer.name,
       class: trainer.class,
       constantName: trainer.constantName,

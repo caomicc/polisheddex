@@ -1,0 +1,141 @@
+// Utility functions for common patterns in data extraction
+
+/**
+ * Normalizes a string by trimming, lowercasing, and removing underscores
+ * Used for Pokemon names, moves, items, abilities, etc.
+ */
+export const normalizeString = (str: string): string => {
+  return str.trim().toLowerCase().replace(/_/g, '');
+};
+
+/**
+ * Normalizes a string by lowercasing and removing spaces
+ * Used for trainer names and location keys
+ */
+export const normalizeSpaces = (str: string): string => {
+  return str.toLowerCase().replace(/\s+/g, '');
+};
+
+/**
+ * Removes numeric suffixes from constant names
+ * Handles both "_1" and "1" patterns at the end of strings
+ */
+export const removeNumericSuffix = (str: string): string => {
+  return str.replace(/(_?\d+)$/, '');
+};
+
+/**
+ * Parses a line by removing a prefix and trimming
+ * Used for parsing various ASM directives
+ */
+export const parseLineWithPrefix = (line: string, prefix: string): string => {
+  return line.replace(prefix, '').trim();
+};
+
+/**
+ * Ensures an array exists in an object and returns it
+ * Prevents repeated null checking and initialization
+ */
+export const ensureArrayExists = <T>(obj: Record<string, T[] | undefined>, key: string): T[] => {
+  if (!obj[key]) {
+    obj[key] = [];
+  }
+  return obj[key]!;
+};
+
+/**
+ * Parses trainer definition lines that have comma-separated values
+ * Handles comments (semicolons) and splits properly
+ */
+export const parseTrainerDefinition = (line: string, prefix: string): string[] => {
+  return line.replace(prefix, '').split(';')[0].split(',');
+};
+
+/**
+ * Creates a trainer constant name based on class and ID
+ * Handles special trainer classes differently
+ */
+export const createTrainerConstantName = (
+  trainerClass: string,
+  trainerIdPart: string,
+  specialClasses: string[],
+): string => {
+  return specialClasses.includes(trainerClass) ? trainerIdPart : `${trainerClass}_${trainerIdPart}`;
+};
+
+/**
+ * Creates a base trainer key for consolidation
+ * Handles special trainer classes with different naming
+ */
+export const createBaseTrainerKey = (
+  trainerClass: string,
+  trainerName: string,
+  specialClasses: string[],
+): string => {
+  return specialClasses.includes(trainerClass)
+    ? `${normalizeSpaces(trainerClass)}_${normalizeSpaces(trainerName)}`
+    : normalizeSpaces(trainerName);
+};
+
+/**
+ * Parses Pokemon name and held item from trainer data
+ * Handles the "POKEMON @ ITEM" format
+ */
+export const parsePokemonWithItem = (pokemonPart: string): { pokemon: string; item?: string } => {
+  if (pokemonPart.includes('@')) {
+    const [pokemon, heldItem] = pokemonPart.split('@');
+    return {
+      pokemon: normalizeString(pokemon),
+      item: normalizeString(heldItem),
+    };
+  }
+  return {
+    pokemon: normalizeString(pokemonPart),
+  };
+};
+
+/**
+ * Counts direction connections from a connections string
+ * Used for map attributes parsing
+ */
+export const countConnections = (connectionsStr: string): number => {
+  let count = 0;
+  if (connectionsStr.includes('NORTH')) count++;
+  if (connectionsStr.includes('SOUTH')) count++;
+  if (connectionsStr.includes('EAST')) count++;
+  if (connectionsStr.includes('WEST')) count++;
+  return count;
+};
+
+//This function converts keys for in-game data to a
+//display-friendly format by removing underscores, dashes, apostrophes, and periods.
+
+export const displayName = (str: string) => {
+  // Handle floor suffixes like B1F, B2F, 1F, 2F, etc.
+  return str
+    .replace(/^Route(\d)/g, 'Route $1')
+    .replace(/([a-zA-Z])Gate$/g, '$1 Gate')
+    .replace(/F(North|South)$/g, 'F $1')
+    .replace(/([a-zA-Z])([B]?\d+F)$/g, '$1 $2')
+    .replace(/(\d)(?!F(?![a-zA-Z])|$)([a-zA-Z])/g, '$1 $2')
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replaceAll('_', ' ');
+};
+
+//This function stores the reduce function, which converts in-game data to its simplest form.
+//It decapitalizes everything
+//Removes underscores, dashes, apostrophes, periods
+//Replaces Jupiter and Venus with m and f
+
+export const reduce = (str: string) => {
+  return str
+    .toLowerCase()
+    .replaceAll(' ', '')
+    .replaceAll('_', '')
+    .replaceAll('-', '')
+    .replaceAll("'", '')
+    .replaceAll('.', '')
+    .replaceAll('♂', 'm')
+    .replaceAll('♀', 'f')
+    .replaceAll('é', 'e');
+};
