@@ -139,3 +139,93 @@ export const reduce = (str: string) => {
     .replaceAll('♀', 'f')
     .replaceAll('é', 'e');
 };
+
+// Item extraction utilities
+
+/**
+ * Parses an itemball_event line
+ * Format: itemball_event x, y, ITEM_NAME, quantity, EVENT_NAME
+ */
+export const parseItemballEvent = (line: string) => {
+  const match = line.match(/itemball_event\s+(\d+),\s*(\d+),\s*([A-Z_]+),\s*\d+,\s*([A-Z_]+)/);
+  if (match) {
+    const [, x, y, itemName] = match;
+    return {
+      name: reduce(itemName),
+      type: 'item' as const,
+      coordinates: {
+        x: parseInt(x),
+        y: parseInt(y),
+      },
+    };
+  }
+  return null;
+};
+
+/**
+ * Parses a bg_event line with BGEVENT_ITEM
+ * Format: bg_event x, y, BGEVENT_ITEM + ITEM_NAME, EVENT_NAME
+ */
+export const parseHiddenItemEvent = (line: string) => {
+  const match = line.match(
+    /bg_event\s+(\d+),\s*(\d+),\s*BGEVENT_ITEM\s*\+\s*([A-Z_]+),\s*([A-Z_]+)/,
+  );
+  if (match) {
+    const [, x, y, itemName] = match;
+    return {
+      name: reduce(itemName),
+      type: 'hiddenItem' as const,
+      coordinates: {
+        x: parseInt(x),
+        y: parseInt(y),
+      },
+    };
+  }
+  return null;
+};
+
+/**
+ * Parses a fruittree_event line
+ * Format: fruittree_event x, y, FRUITTREE_ID, BERRY_NAME, PAL_COLOR
+ */
+export const parseFruitTreeEvent = (line: string) => {
+  if (line.match(/fruittree_event\s+/)) {
+    const parts = line.split(/fruittree_event\s+/)[1].split(',');
+    if (parts.length >= 4) {
+      const [x, y, , itemName] = parts;
+      return {
+        name: reduce(itemName),
+        type: 'berry' as const,
+        coordinates: {
+          x: parseInt(x.trim()),
+          y: parseInt(y.trim()),
+        },
+      };
+    }
+  }
+  return null;
+};
+
+/**
+ * Parses a trainer line
+ * Format: generictrainer SWIMMERF, KENDRA, EVENT_BEAT_SWIMMERF_KENDRA, .SeenText, .BeatenText or
+ * Format: 	loadtrainer KAREN, 1
+ */
+
+export const parseTrainerLine = (line: string): string | null => {
+  // Handle generictrainer format: generictrainer SWIMMERF, KENDRA, EVENT_BEAT_SWIMMERF_KENDRA, .SeenText, .BeatenText
+  const genericMatch = line.match(/generictrainer\s+([A-Z_]+),\s*([A-Z_]+),\s*(.+)/);
+  if (genericMatch) {
+    const [, className, name] = genericMatch;
+    return reduce(className + '_' + name);
+  }
+
+  // Handle loadtrainer format: loadtrainer KAREN, 1
+  const loadMatch = line.match(/loadtrainer\s+([A-Z_]+),\s*(\d+)/);
+  if (loadMatch) {
+    const [, name] = loadMatch;
+    return reduce(name);
+  }
+
+  return null;
+};

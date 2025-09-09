@@ -20,8 +20,13 @@ import {
   parsePokemonWithItem,
   countConnections,
   displayName,
+  parseItemballEvent,
+  parseHiddenItemEvent,
+  parseFruitTreeEvent,
+  parseTrainerLine,
 } from '../src/lib/extract-utils.ts';
 import splitFile from '@/lib/split.ts';
+import { LocationItem } from '@/types/types.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -34,6 +39,8 @@ const trainers: Record<string, Record<string, TrainerData[]>> = {
   faithful: {},
 };
 const connections: Record<string, number> = {};
+const items: Record<string, LocationItem[]> = {}; // Store items by location name
+const locationTrainerNames: Record<string, string[]> = {}; // Store trainer names by location
 const landmarks: {
   locationRefs: Set<string>;
   orderMap: Map<string, number>;
@@ -50,6 +57,7 @@ const specialTrainerClasses = ['GIOVANNI', 'LYRA1', 'RIVAL1', 'ARCHER', 'ARIANA'
 const attributesASM = join(__dirname, '../polishedcrystal/data/maps/attributes.asm');
 const landmarkConstantsASM = join(__dirname, '../polishedcrystal/constants/landmark_constants.asm');
 const partiesASM = join(__dirname, '../polishedcrystal/data/trainers/parties.asm');
+const mapsDir = join(__dirname, '../polishedcrystal/maps');
 
 // Wild encounter files
 const wildDir = join(__dirname, '../polishedcrystal/data/wild');
@@ -214,6 +222,102 @@ const extractEncounters = async (filePaths: string[], encounterType: string) => 
   console.log(
     `Extracted ${encounterType} encounters for ${Object.keys(encounters).length} total locations`,
   );
+};
+
+/**
+ * Extracts all items from a map file's content
+ */
+export const extractItemsFromMapData = (mapData: string[]): LocationItem[] => {
+  const items: LocationItem[] = [];
+
+  for (const line of mapData) {
+    const trimmedLine = line.trim();
+
+    // Parse visible items (itemball_event)
+    if (trimmedLine.startsWith('itemball_event ')) {
+      const item = parseItemballEvent(trimmedLine);
+      if (item) items.push(item);
+    }
+
+    // Parse hidden items (bg_event with BGEVENT_ITEM)
+    else if (trimmedLine.includes('BGEVENT_ITEM +')) {
+      const item = parseHiddenItemEvent(trimmedLine);
+      if (item) items.push(item);
+    }
+
+    // Parse fruit trees (fruittree_event)
+    else if (trimmedLine.startsWith('fruittree_event ')) {
+      const item = parseFruitTreeEvent(trimmedLine);
+      if (item) items.push(item);
+    }
+  }
+
+  return items;
+};
+
+/**
+ * Extracts all items from a map file's content
+ */
+export const extractTrainerFromMapData = (mapData: string[]): string[] => {
+  const trainers: string[] = [];
+
+  for (const line of mapData) {
+    const trimmedLine = line.trim();
+
+    // Parse generic trainers
+    if (trimmedLine.startsWith('generictrainer ')) {
+      const trainer = parseTrainerLine(trimmedLine);
+      if (trainer) trainers.push(trainer);
+    }
+    if (trimmedLine.startsWith('loadtrainer ')) {
+      const trainer = parseTrainerLine(trimmedLine);
+      if (trainer) trainers.push(trainer);
+    }
+  }
+
+  return trainers;
+};
+
+// Extract items from all map files
+const extractItems = async () => {
+  const { readdir } = await import('fs/promises');
+
+  try {
+    const mapFiles = await readdir(mapsDir);
+    let totalItemsFound = 0;
+
+    for (const mapFile of mapFiles) {
+      if (!mapFile.endsWith('.asm')) continue;
+
+      const mapFilePath = join(mapsDir, mapFile);
+      const mapName = mapFile.replace('.asm', '');
+
+      try {
+        const raw = await readFile(mapFilePath, 'utf-8');
+        const mapData = splitFile(raw, false)[0] as string[]; // Don't remove @ symbols
+
+        const mapItems = extractItemsFromMapData(mapData);
+        const mapTrainers = extractTrainerFromMapData(mapData);
+
+        if (mapItems.length > 0) {
+          items[mapName] = mapItems;
+          totalItemsFound += mapItems.length;
+        }
+
+        if (mapTrainers.length > 0) {
+          locationTrainerNames[mapName] = mapTrainers;
+        }
+      } catch (error) {
+        console.warn(`Could not read map file: ${mapFilePath}`, error);
+        // Skip files that can't be read - some might be binary or have permissions issues
+        continue;
+      }
+    }
+
+    console.log(`Extracted ${totalItemsFound} items from ${Object.keys(items).length} maps`);
+  } catch (error) {
+    console.error('Error reading maps directory:', error);
+  }
 };
 
 const extractTrainers = async () => {
@@ -470,8 +574,6 @@ const consolidateTrainers = () => {
           specialTrainerClasses,
         );
 
-        console.log('Base Trainer Key:', baseTrainerKey, reduce(baseTrainerName));
-
         if (!consolidatedTrainers[baseTrainerKey]) {
           const cleanConstantName = removeNumericSuffix(trainer.constantName || '');
           consolidatedTrainers[baseTrainerKey] = {
@@ -508,8 +610,13 @@ const mergeLocationData = () => {
     // Find encounters for this location using the actual constant name
     const locationConstant = locationConstants[locationKey];
     const locationEncounters = encounters[locationConstant];
-    // Note: trainer-location mapping will be handled separately
-    // since trainers are now organized by version
+
+    // Find items for this location
+    const locationItems = items[locationKey];
+    const itemNames = locationItems?.map((item) => item) || undefined;
+
+    // Find trainers for this location
+    const locationTrainers = locationTrainerNames[locationKey] || undefined;
 
     locations.push({
       id: locationId,
@@ -520,7 +627,8 @@ const mergeLocationData = () => {
       order: order,
       region: region,
       encounters: locationEncounters,
-      trainers: [], // TODO: implement trainer-location mapping with versioned data
+      items: itemNames,
+      trainers: locationTrainers,
     });
   }
 
@@ -533,6 +641,7 @@ await Promise.all([
   extractLandmarks(),
   extractConnections(),
   extractTrainers(),
+  extractItems(),
   extractEncounters(grassFiles, 'grass'),
   extractEncounters(waterFiles, 'surfing'),
   extractEncounters(fishFiles, 'fishing'),

@@ -1,3 +1,5 @@
+import { LocationItem } from './types';
+
 interface BaseStats {
   hp: number;
   attack: number;
@@ -137,7 +139,7 @@ export interface LocationData {
     description: string;
     type: string; // itemball, fruit tree, trainer, rock smash,
   }[];
-  items?: string[];
+  items?: LocationItem[];
   trainers?: string[];
 }
 
