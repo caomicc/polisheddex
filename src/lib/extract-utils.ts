@@ -22,7 +22,10 @@ export const normalizeSpaces = (str: string): string => {
  * Removes numeric suffixes from constant names
  * Handles both "_1" and "1" patterns at the end of strings
  */
-export const removeNumericSuffix = (str: string): string => {
+export const removeNumericSuffix = (str: string, trimUnderScoreOnly: boolean = false): string => {
+  if (trimUnderScoreOnly) {
+    return str.replace(/(_?\d+)$/, '');
+  }
   return str.replace(/(_?\d+)$/, '').replace(/\d+$/, '');
 };
 
@@ -62,6 +65,7 @@ export const createTrainerConstantName = (trainerClass: string, trainerIdPart: s
     specialTrainerClasses.includes(trainerClass)
       ? trainerIdPart
       : `${trainerClass}_${trainerIdPart}`,
+    true,
   );
   return trainerConstantName;
 };
@@ -242,7 +246,10 @@ export const parseTrainerLine = (line: string): string | null => {
   if (loadNameMatch) {
     const [, className, name] = loadNameMatch;
     return reduce(
-      removeNumericSuffix(specialTrainerClasses.includes(className) ? name : className + name),
+      removeNumericSuffix(
+        specialTrainerClasses.includes(className) ? name : className + name,
+        false,
+      ),
     );
   }
 

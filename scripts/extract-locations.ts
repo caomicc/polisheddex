@@ -326,11 +326,6 @@ const mergeLocationData = () => {
     // Find trainers for this location
     const locationTrainers = locationTrainerNames[locationKey] || undefined;
 
-    console.log({
-      locationNameForDebug: locationName,
-      trainers: locationTrainers,
-    });
-
     locations.push({
       id: locationId,
       name: locationName,
