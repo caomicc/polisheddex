@@ -1,23 +1,12 @@
 import { readFile, writeFile, mkdir, rm } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import {
-  LocationData,
-  LocationManifest,
-  TrainerData,
-  ComprehensiveTrainerData,
-  TrainerManifest,
-} from '../src/types/new.ts';
+import { LocationData, LocationManifest } from '../src/types/new.ts';
 import {
   reduce,
   normalizeString,
-  removeNumericSuffix,
   parseLineWithPrefix,
   ensureArrayExists,
-  parseTrainerDefinition,
-  createTrainerConstantName,
-  createBaseTrainerKey,
-  parsePokemonWithItem,
   countConnections,
   displayName,
   parseItemballEvent,
@@ -27,6 +16,7 @@ import {
 } from '../src/lib/extract-utils.ts';
 import splitFile from '@/lib/split.ts';
 import { LocationItem } from '@/types/types.ts';
+import extractTrainers from './extract-trainers.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -34,10 +24,6 @@ const __dirname = dirname(__filename);
 // Data storage
 const locations: LocationData[] = [];
 const encounters: Record<string, LocationData['encounters']> = {};
-const trainers: Record<string, Record<string, TrainerData[]>> = {
-  polished: {},
-  faithful: {},
-};
 const connections: Record<string, number> = {};
 const items: Record<string, LocationItem[]> = {}; // Store items by location name
 const locationTrainerNames: Record<string, string[]> = {}; // Store trainer names by location
@@ -51,12 +37,10 @@ const landmarks: {
   regionMap: new Map(),
 };
 
-const specialTrainerClasses = ['GIOVANNI', 'LYRA1', 'RIVAL1', 'ARCHER', 'ARIANA'];
-
 // File paths
 const attributesASM = join(__dirname, '../polishedcrystal/data/maps/attributes.asm');
 const landmarkConstantsASM = join(__dirname, '../polishedcrystal/constants/landmark_constants.asm');
-const partiesASM = join(__dirname, '../polishedcrystal/data/trainers/parties.asm');
+// const partiesASM = join(__dirname, '../polishedcrystal/data/trainers/parties.asm');
 const mapsDir = join(__dirname, '../polishedcrystal/maps');
 
 // Wild encounter files
@@ -320,282 +304,6 @@ const extractItems = async () => {
   }
 };
 
-const extractTrainers = async () => {
-  const raw = await readFile(partiesASM, 'utf-8');
-
-  // Custom version splitting that preserves @ symbols (unlike the global splitFile)
-  const splitTrainerFile = (file: string) => {
-    const polished: string[] = [];
-    const faithful: string[] = [];
-    const data = file
-      .trim()
-      .split('\n')
-      .map((line) => line.trim());
-
-    for (let i = 0; i < data.length; i++) {
-      const line = data[i];
-
-      // Handle version splits like Pokemon extraction does
-      if (line.toLowerCase().startsWith('if ') && line.toLowerCase().includes('faithful')) {
-        i++; // Jump to next line
-
-        // Add faithful lines until we hit 'else'
-        while (i < data.length && data[i] !== 'else') {
-          faithful.push(data[i]);
-          i++;
-        }
-
-        i++; // Skip 'else'
-
-        // Add polished lines until we hit 'endc'
-        while (i < data.length && data[i] !== 'endc') {
-          polished.push(data[i]);
-          i++;
-        }
-      } else {
-        // Add to both versions if no version split
-        polished.push(line);
-        faithful.push(line);
-      }
-    }
-
-    return [polished, faithful];
-  };
-
-  const [polishedData, faithfulData] = splitTrainerFile(raw);
-
-  // Process both versions
-  await processTrainerData(polishedData, 'polished');
-  await processTrainerData(faithfulData, 'faithful');
-};
-
-// Extract trainer processing into separate function
-const processTrainerData = async (trainerData: string[], version: string) => {
-  let currentTrainer: TrainerData | null = null;
-  let currentPokemon: TrainerData['teams'][0]['pokemon'][0] | null = null;
-  let currentTrainerClass = 'TRAINER'; // Track the current trainer class
-  let currentTrainerMatchCount = 1;
-  let currentTrainerName = '';
-  let lastTrainerName = '';
-  let currentTeam: TrainerData['teams'][0] | null = null;
-
-  for (let i = 0; i < trainerData.length; i++) {
-    const line = trainerData[i].trim();
-
-    // Set trainer class (applies to subsequent trainers)
-    if (line.startsWith('def_trainer_class ')) {
-      currentTrainerClass = parseLineWithPrefix(line, 'def_trainer_class ');
-      continue;
-    }
-
-    // Start of a new trainer
-    if (line.startsWith('def_trainer ')) {
-      // Save previous trainer if exists
-      if (currentTrainer && currentTrainer.teams.length > 0) {
-        // Save any remaining team
-        if (currentTeam && currentTeam.pokemon.length > 0) {
-          currentTrainer.teams.push(currentTeam);
-        }
-
-        const trainerKey = reduce(currentTrainer.id);
-        const trainerList = ensureArrayExists(trainers[version], trainerKey);
-        trainerList.push(currentTrainer);
-      }
-
-      // Parse: def_trainer 1, "Falkner"
-      const parts = parseTrainerDefinition(line, 'def_trainer ');
-      if (parts.length >= 2) {
-        const trainerName = parts[1].trim().replace(/"/g, '');
-        const trainerClass = currentTrainerClass;
-        const trainerIdPart = parts[0].trim();
-
-        const trainerConstantName = createTrainerConstantName(
-          trainerClass,
-          trainerIdPart,
-          specialTrainerClasses,
-        );
-
-        // Track trainer name changes and increment match count
-        currentTrainerName = trainerName;
-        if (currentTrainerName !== lastTrainerName) {
-          currentTrainerMatchCount = 1; // Reset to 1 for new trainer
-          lastTrainerName = currentTrainerName;
-        } else {
-          currentTrainerMatchCount++; // Increment for rematch
-        }
-
-        currentTrainer = {
-          id: trainerIdPart,
-          name: trainerName, // changes file name
-          constantName: trainerConstantName,
-          class: trainerClass, // Use the current trainer class
-          teams: [],
-        };
-
-        // Start first team for this trainer
-        currentTeam = {
-          matchCount: currentTrainerMatchCount,
-          pokemon: [],
-        };
-      }
-      continue;
-    }
-
-    // New Pokemon in the trainer's team
-    if (line.startsWith('tr_mon ')) {
-      // Save previous pokemon if exists
-      if (currentPokemon && currentTeam) {
-        currentTeam.pokemon.push(currentPokemon);
-      }
-
-      // Parse: tr_mon 60, MEGANIUM @ SITRUS_BERRY
-      // Or: tr_mon 10, NATU
-      const parts = parseLineWithPrefix(line, 'tr_mon ').split(',');
-      if (parts.length >= 2) {
-        const level = parseInt(parts[0].trim());
-        const pokemonPart = parts[1].trim();
-
-        const { pokemon, item } = parsePokemonWithItem(pokemonPart);
-
-        currentPokemon = {
-          pokemonName: pokemon,
-          level: level,
-          item: item,
-          moves: [],
-        };
-      }
-      continue;
-    }
-
-    // Parse move data
-    if (line.startsWith('tr_moves ')) {
-      if (currentPokemon) {
-        const movesStr = parseLineWithPrefix(line, 'tr_moves ');
-        const moves = movesStr
-          .split(',')
-          .map((move) => normalizeString(move))
-          .filter((move) => move.length > 0);
-
-        currentPokemon.moves = moves;
-      }
-      continue;
-    }
-
-    // Parse other trainer data (for future use)
-    if (line.startsWith('tr_extra ')) {
-      if (currentPokemon) {
-        // Parse: tr_extra [ABILITY], [NATURE], [SHINY]
-        const extraData = parseLineWithPrefix(line, 'tr_extra ');
-
-        if (extraData.includes('SHINY')) {
-          currentPokemon.shiny = true;
-        } else {
-          // Handle comma-separated format: [ABILITY], [NATURE], [SHINY]
-          const parts = extraData.split(',');
-          if (parts.length > 0 && parts[0].trim()) {
-            currentPokemon.ability = normalizeString(parts[0]);
-          }
-          if (parts.length > 1 && parts[1].trim()) {
-            currentPokemon.nature = normalizeString(parts[1]);
-          }
-          if (parts.length > 2 && parts[2].trim()) {
-            currentPokemon.shiny = parts[2].trim().toLowerCase() === 'shiny';
-          }
-        }
-      }
-      continue;
-    }
-
-    if (line.startsWith('tr_dvs ')) {
-      if (currentPokemon) {
-        currentPokemon.dvs = parseLineWithPrefix(line, 'tr_dvs ');
-      }
-      continue;
-    }
-
-    if (line.startsWith('tr_evs ')) {
-      if (currentPokemon) {
-        currentPokemon.evs = parseLineWithPrefix(line, 'tr_evs ');
-      }
-      continue;
-    }
-
-    // End of trainer definition
-    if (line === 'end_trainer') {
-      if (currentPokemon && currentTeam) {
-        currentTeam.pokemon.push(currentPokemon);
-        currentPokemon = null;
-      }
-      if (currentTeam && currentTrainer && currentTeam.pokemon.length > 0) {
-        currentTrainer.teams.push(currentTeam);
-        currentTeam = null;
-      }
-      continue;
-    }
-  }
-
-  // Don't forget the last trainer
-  if (currentTrainer) {
-    // Save any remaining Pokemon and team
-    if (currentPokemon && currentTeam) {
-      currentTeam.pokemon.push(currentPokemon);
-    }
-    if (currentTeam && currentTeam.pokemon.length > 0) {
-      currentTrainer.teams.push(currentTeam);
-    }
-
-    if (currentTrainer.teams.length > 0) {
-      const trainerKey = currentTrainer.class.toLowerCase() + '_' + currentTrainer.id;
-      const trainerList = ensureArrayExists(trainers[version], trainerKey);
-      trainerList.push(currentTrainer);
-    }
-  }
-
-  console.log(
-    `Extracted ${Object.keys(trainers[version]).length} trainer definitions for version ${version}`,
-  );
-};
-
-// Consolidate rematchable trainers into single trainer objects
-const consolidateTrainers = () => {
-  const consolidatedTrainers: Record<string, ComprehensiveTrainerData> = {};
-
-  // Process both versions
-  for (const version of ['polished', 'faithful'] as const) {
-    // Group trainers by base name (remove numeric suffix)
-    for (const [, trainerList] of Object.entries(trainers[version])) {
-      for (const trainer of trainerList) {
-        // Extract base trainer info (remove _1, _2, _3 suffixes)
-        const baseTrainerName = trainer.name;
-        const baseTrainerClass = trainer.class;
-        const baseTrainerKey = createBaseTrainerKey(
-          baseTrainerClass,
-          baseTrainerName,
-          specialTrainerClasses,
-        );
-
-        if (!consolidatedTrainers[baseTrainerKey]) {
-          const cleanConstantName = removeNumericSuffix(trainer.constantName || '');
-          consolidatedTrainers[baseTrainerKey] = {
-            id: reduce(cleanConstantName),
-            name: baseTrainerName,
-            class: baseTrainerClass,
-            constantName: cleanConstantName,
-            versions: {
-              polished: { teams: [] },
-              faithful: { teams: [] },
-            },
-          };
-        }
-
-        // Add this trainer's teams to the correct version
-        consolidatedTrainers[baseTrainerKey].versions[version].teams.push(...trainer.teams);
-      }
-    }
-  }
-
-  return consolidatedTrainers;
-};
 // Merge all data into final location objects
 const mergeLocationData = () => {
   for (const [locationKey, connectionCount] of Object.entries(connections)) {
@@ -696,34 +404,6 @@ locationManifest.sort((a, b) => a.name.localeCompare(b.name));
 // Write manifest file
 const locationManifestPath = join(outputDir, 'locations_manifest.json');
 await writeFile(locationManifestPath, JSON.stringify(locationManifest, null, 2), 'utf-8');
-
-// Consolidate trainers before writing files
-const consolidatedTrainers = consolidateTrainers();
-
-// Write individual trainer files
-const trainerManifest: TrainerManifest[] = [];
-
-await Promise.all(
-  Object.values(consolidatedTrainers).map(async (trainer) => {
-    const trainerPath = join(trainersDir, `${trainer.id.toLowerCase()}.json`);
-    // Write the full consolidated trainer data to individual files
-    await writeFile(trainerPath, JSON.stringify(trainer, null, 2), 'utf-8');
-
-    // Add to manifest
-    trainerManifest.push({
-      id: trainer.id,
-      name: trainer.name,
-      class: trainer.class,
-      constantName: trainer.constantName,
-    });
-  }),
-);
-
-trainerManifest.sort((a, b) => a.name.localeCompare(b.name));
-
-// Write trainer manifest file
-const trainerManifestPath = join(outputDir, 'trainer_manifest.json');
-await writeFile(trainerManifestPath, JSON.stringify(trainerManifest, null, 2), 'utf-8');
 
 console.log('Location extraction complete!');
 

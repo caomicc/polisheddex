@@ -68,16 +68,12 @@ export const createTrainerConstantName = (
 
 /**
  * Creates a base trainer key for consolidation
- * Handles special trainer classes with different naming
+ * Always includes both class and name to prevent collisions
  */
-export const createBaseTrainerKey = (
-  trainerClass: string,
-  trainerName: string,
-  specialClasses: string[],
-): string => {
-  return specialClasses.includes(trainerClass)
-    ? `${normalizeSpaces(trainerClass)}_${normalizeSpaces(trainerName)}`
-    : normalizeSpaces(trainerName);
+export const createBaseTrainerKey = (trainerClass: string, trainerName: string): string => {
+  // Always include both class and name to prevent collisions between trainers
+  // with the same name but different classes
+  return `${normalizeSpaces(trainerClass)}_${normalizeSpaces(trainerName)}`;
 };
 
 /**

@@ -1,7 +1,22 @@
 import { readFile, writeFile, rm, mkdir } from 'fs/promises';
 import { join, dirname } from 'path';
-import { TrainerData, ComprehensiveTrainerData } from '../src/types/new';
-import { normalizeString, parseTrainerLine } from '../src/lib/extract-utils';
+import {
+  TrainerData,
+  ComprehensiveTrainerData,
+  ComprehensivePokemonData,
+  TrainerManifest,
+} from '../src/types/new';
+import {
+  createBaseTrainerKey,
+  createTrainerConstantName,
+  ensureArrayExists,
+  normalizeString,
+  parseLineWithPrefix,
+  parsePokemonWithItem,
+  parseTrainerDefinition,
+  parseTrainerLine,
+  reduce,
+} from '../src/lib/extract-utils';
 import splitFile from '../src/lib/split';
 import { fileURLToPath } from 'url';
 
@@ -13,6 +28,10 @@ const outputDir = join(baseDir, 'new');
 const trainerDir = join(outputDir, 'trainers');
 const polishedcrystalDir = join(baseDir, 'polishedcrystal');
 const mapsDir = join(polishedcrystalDir, 'maps');
+
+const partiesASM = join(__dirname, '../polishedcrystal/data/trainers/parties.asm');
+
+const specialTrainerClasses = ['GIOVANNI', 'LYRA1', 'RIVAL1', 'ARCHER', 'ARIANA'];
 
 // Data structures
 const trainers: Record<string, Record<string, TrainerData[]>> = {
@@ -50,84 +69,108 @@ const extractTrainerFromMapData = (mapData: string[]): string[] => {
 const extractTrainerData = async () => {
   console.log('Starting trainer data extraction...');
 
-  // Read trainer data files
-  const polishedPath = join(polishedcrystalDir, 'data/trainers/parties.asm');
-  const faithfulPath = join(polishedcrystalDir, 'data/trainers/parties.asm');
+  const raw = await readFile(partiesASM, 'utf-8');
 
-  const [polishedRaw, faithfulRaw] = await Promise.all([
-    readFile(polishedPath, 'utf-8'),
-    readFile(faithfulPath, 'utf-8'),
-  ]);
-
-  const polishedData = splitFile(polishedRaw, true)[0] as string[];
-  const faithfulData = splitFile(faithfulRaw, true)[1] as string[];
+  const partyFiles = splitFile(raw, false);
 
   // Process both versions
-  await processTrainerData(polishedData, 'polished');
-  await processTrainerData(faithfulData, 'faithful');
+  await processTrainerData(partyFiles[0], 'polished');
+  await processTrainerData(partyFiles[1], 'faithful');
 
   console.log('Trainer data extraction completed');
 };
 
-/**
- * Process trainer data for a specific version
- */
 const processTrainerData = async (trainerData: string[], version: string) => {
   let currentTrainer: TrainerData | null = null;
   let currentPokemon: TrainerData['teams'][0]['pokemon'][0] | null = null;
-  let currentAbility: string | null = null;
-  let currentGender: string | null = null;
-  let currentItem: string | null = null;
+  let currentTrainerClass = 'TRAINER'; // Track the current trainer class
+  let currentTrainerMatchCount = 1;
+  let currentTrainerName = '';
+  let lastTrainerName = '';
   let currentTeam: TrainerData['teams'][0] | null = null;
 
   for (let i = 0; i < trainerData.length; i++) {
     const line = trainerData[i].trim();
 
-    // Skip empty lines and comments
-    if (!line || line.startsWith(';')) continue;
+    // Set trainer class (applies to subsequent trainers)
+    if (line.startsWith('def_trainer_class ')) {
+      currentTrainerClass = parseLineWithPrefix(line, 'def_trainer_class ');
+      continue;
+    }
 
-    // Trainer definition
-    if (line.includes('Trainer')) {
+    // Start of a new trainer
+    if (line.startsWith('def_trainer ')) {
       // Save previous trainer if exists
-      if (currentTrainer && currentTeam) {
-        if (currentPokemon) {
-          // Add the last Pokemon to the current team
+      if (currentTrainer) {
+        // Finalize any remaining Pokemon
+        if (currentPokemon && currentTeam) {
+          // Generate moves if empty
+          if (!currentPokemon.moves || currentPokemon.moves.length === 0) {
+            currentPokemon.moves = await generateMovesetForPokemon(
+              currentPokemon.pokemonName,
+              currentPokemon.level,
+            );
+          }
           currentTeam.pokemon.push(currentPokemon);
           currentPokemon = null;
         }
-        currentTrainer.teams.push(currentTeam);
 
-        // Store trainer
-        const key = `${currentTrainer.class}_${currentTrainer.name}`;
-        if (!trainers[version][key]) {
-          trainers[version][key] = [];
+        // Save any remaining team
+        if (currentTeam && currentTeam.pokemon.length > 0) {
+          currentTrainer.teams.push(currentTeam);
         }
-        trainers[version][key].push(currentTrainer);
+
+        // Save the trainer (even if it has 0 teams)
+        const trainerKey = reduce(`${currentTrainer.class}_${currentTrainer.name}`);
+        const trainerList = ensureArrayExists(trainers[version], trainerKey);
+        trainerList.push(currentTrainer);
       }
 
-      // Parse trainer name and class
-      const parts = line.split(/\s+/);
-      const trainerName = parts[0].replace('Trainer', '');
-      const [className, name] = trainerName.split(/(?=[A-Z][a-z])/);
+      // Parse: def_trainer 1, "Falkner"
+      const parts = parseTrainerDefinition(line, 'def_trainer ');
+      // console.log('Parsed trainer definition parts:', parts);
+      if (parts.length >= 2) {
+        const trainerName = parts[1].trim().replace(/"/g, '');
+        const trainerClass = currentTrainerClass;
+        const trainerIdPart = parts[0].trim();
 
-      const trainerId = normalizeString(`${className || ''}_${name || trainerName}`);
-      currentTrainer = {
-        id: trainerId,
-        name: normalizeString(name || trainerName),
-        constantName: `${className || ''}${name || trainerName}`.toUpperCase(),
-        class: normalizeString(className || ''),
-        teams: [],
-      };
-      currentTeam = {
-        matchCount: 0,
-        pokemon: [],
-      };
+        const trainerConstantName = createTrainerConstantName(
+          trainerClass,
+          trainerIdPart,
+          specialTrainerClasses,
+        );
+
+        // Track trainer name changes and increment match count
+        currentTrainerName = reduce(trainerConstantName);
+
+        if (currentTrainerName !== lastTrainerName) {
+          currentTrainerMatchCount = 1; // Reset to 1 for new trainer
+          lastTrainerName = currentTrainerName;
+        } else {
+          currentTrainerMatchCount++; // Increment for rematch
+        }
+
+        currentTrainer = {
+          id: currentTrainerName,
+          name: trainerName, // changes file name
+          constantName: trainerConstantName,
+          class: trainerClass, // Use the current trainer class
+          teams: [],
+        };
+
+        // Start first team for this trainer
+        currentTeam = {
+          matchCount: currentTrainerMatchCount,
+          pokemon: [],
+        };
+      }
+      continue;
     }
 
-    // Pokemon definition
-    else if (line.includes('db') && currentTrainer && currentTeam) {
-      // Save previous Pokemon if exists
-      if (currentPokemon) {
+    // New Pokemon in the trainer's team
+    if (line.startsWith('tr_mon ')) {
+      // Save previous pokemon if exists
+      if (currentPokemon && currentTeam) {
         // Generate moves if empty
         if (!currentPokemon.moves || currentPokemon.moves.length === 0) {
           currentPokemon.moves = await generateMovesetForPokemon(
@@ -138,54 +181,117 @@ const processTrainerData = async (trainerData: string[], version: string) => {
         currentTeam.pokemon.push(currentPokemon);
       }
 
-      // Parse new Pokemon
-      const parts = line.split(',').map((p) => p.trim());
+      // Parse: tr_mon 60, MEGANIUM @ SITRUS_BERRY
+      // Or: tr_mon 10, NATU
+      // or: tr_mon 20, "Blossom", BELLOSSOM, FEMALE
+
+      const parts = parseLineWithPrefix(line, 'tr_mon ').split(',');
       if (parts.length >= 2) {
-        const level = parseInt(parts[0].replace('db', '').trim());
-        const pokemonName = normalizeString(parts[1]);
+        const level = parseInt(parts[0].trim());
+
+        let pokemonPart: string;
+        let nickname: string | undefined;
+
+        // Check if this has a nickname format: level, "nickname", POKEMON, [GENDER]
+        if (parts.length >= 3 && parts[1].trim().startsWith('"') && parts[1].trim().endsWith('"')) {
+          nickname = parts[1].trim().replace(/"/g, '');
+          pokemonPart = parts[2].trim();
+        } else {
+          // Standard format: level, POKEMON [@ ITEM]
+          pokemonPart = parts[1].trim();
+        }
+
+        const { pokemon, item } = parsePokemonWithItem(pokemonPart);
 
         currentPokemon = {
-          pokemonName: pokemonName,
+          pokemonName: pokemon,
+          nickname: nickname,
           level: level,
-          gender: currentGender || undefined,
-          ability: currentAbility || undefined,
-          item: currentItem || undefined,
+          item: item,
           moves: [],
         };
-
-        // Reset temporary values
-        currentGender = null;
-        currentAbility = null;
-        currentItem = null;
       }
+      continue;
     }
 
-    // Ability
-    else if (line.includes('ability') && currentPokemon) {
-      currentAbility = normalizeString(line.split('ability')[1].trim());
+    // Parse move data
+    if (line.startsWith('tr_moves ')) {
+      if (currentPokemon) {
+        const movesStr = parseLineWithPrefix(line, 'tr_moves ');
+        const moves = movesStr
+          .split(',')
+          .map((move) => normalizeString(move))
+          .filter((move) => move.length > 0);
+
+        currentPokemon.moves = moves;
+      }
+      continue;
     }
 
-    // Gender
-    else if (line.includes('gender') && currentPokemon) {
-      currentGender = line.split('gender')[1].trim().toLowerCase();
+    // Parse other trainer data (for future use)
+    if (line.startsWith('tr_extra ')) {
+      if (currentPokemon) {
+        // Parse: tr_extra [ABILITY], [NATURE], [SHINY]
+        const extraData = parseLineWithPrefix(line, 'tr_extra ');
+
+        if (extraData.includes('SHINY')) {
+          currentPokemon.shiny = true;
+        } else {
+          // Handle comma-separated format: [ABILITY], [NATURE], [SHINY]
+          const parts = extraData.split(',');
+          if (parts.length > 0 && parts[0].trim()) {
+            currentPokemon.ability = normalizeString(parts[0]);
+          }
+          if (parts.length > 1 && parts[1].trim()) {
+            currentPokemon.nature = normalizeString(parts[1]);
+          }
+          if (parts.length > 2 && parts[2].trim()) {
+            currentPokemon.shiny = parts[2].trim().toLowerCase() === 'shiny';
+          }
+        }
+      }
+      continue;
     }
 
-    // Item
-    else if (line.includes('item') && currentPokemon) {
-      currentItem = normalizeString(line.split('item')[1].trim());
+    if (line.startsWith('tr_dvs ')) {
+      if (currentPokemon) {
+        currentPokemon.dvs = parseLineWithPrefix(line, 'tr_dvs ');
+      }
+      continue;
     }
 
-    // Moves
-    else if (line.includes('move') && currentPokemon) {
-      const moveName = normalizeString(line.split('move')[1].trim());
-      if (!currentPokemon.moves) currentPokemon.moves = [];
-      currentPokemon.moves.push(moveName);
+    if (line.startsWith('tr_evs ')) {
+      if (currentPokemon) {
+        currentPokemon.evs = parseLineWithPrefix(line, 'tr_evs ');
+      }
+      continue;
+    }
+
+    // End of trainer definition
+    if (line === 'end_trainer') {
+      if (currentPokemon && currentTeam) {
+        // Generate moves if empty
+        if (!currentPokemon.moves || currentPokemon.moves.length === 0) {
+          currentPokemon.moves = await generateMovesetForPokemon(
+            currentPokemon.pokemonName,
+            currentPokemon.level,
+          );
+        }
+        currentTeam.pokemon.push(currentPokemon);
+        currentPokemon = null;
+      }
+      if (currentTeam && currentTrainer && currentTeam.pokemon.length > 0) {
+        currentTrainer.teams.push(currentTeam);
+        currentTeam = null;
+      }
+      continue;
     }
   }
 
-  // Save final trainer
-  if (currentTrainer && currentTeam) {
-    if (currentPokemon) {
+  // Don't forget the last trainer
+  if (currentTrainer) {
+    // Save any remaining Pokemon and team
+    if (currentPokemon && currentTeam) {
       // Generate moves if empty
       if (!currentPokemon.moves || currentPokemon.moves.length === 0) {
         currentPokemon.moves = await generateMovesetForPokemon(
@@ -195,35 +301,51 @@ const processTrainerData = async (trainerData: string[], version: string) => {
       }
       currentTeam.pokemon.push(currentPokemon);
     }
-    currentTrainer.teams.push(currentTeam);
-
-    const key = `${currentTrainer.class}_${currentTrainer.name}`;
-    if (!trainers[version][key]) {
-      trainers[version][key] = [];
+    if (currentTeam && currentTeam.pokemon.length > 0) {
+      currentTrainer.teams.push(currentTeam);
     }
-    trainers[version][key].push(currentTrainer);
-  }
-};
 
+    if (currentTrainer.teams.length > 0) {
+      const trainerKey = reduce(`${currentTrainer.class}_${currentTrainer.name}`);
+      const trainerList = ensureArrayExists(trainers[version], trainerKey);
+      trainerList.push(currentTrainer);
+    }
+  }
+
+  console.log(
+    `Extracted ${Object.keys(trainers[version]).length} trainer definitions for version ${version}`,
+  );
+};
 /**
  * Generate the most recent 4 moves that a Pokemon can learn at a given level
  */
-const generateMovesetForPokemon = async (pokemonName: string, level: number): Promise<string[]> => {
+const generateMovesetForPokemon = async (
+  pokemonName: string,
+  pokemonLevel: number,
+): Promise<string[]> => {
   try {
     // Read Pokemon data to get movesets
     const pokemonDataPath = join(outputDir, 'pokemon', `${pokemonName}.json`);
-    const pokemonData = JSON.parse(await readFile(pokemonDataPath, 'utf-8'));
+    const pokemonData: ComprehensivePokemonData = JSON.parse(
+      await readFile(pokemonDataPath, 'utf-8'),
+    );
 
     // Get all moves the Pokemon can learn up to the given level
     const availableMoves: Array<{ move: string; level: number }> = [];
 
-    // Add level-up moves
-    if (pokemonData.moves?.levelUp) {
-      for (const [moveLevel, moves] of Object.entries(pokemonData.moves.levelUp)) {
-        const moveNum = parseInt(moveLevel);
-        if (moveNum <= level && Array.isArray(moves)) {
-          moves.forEach((move: string) => {
-            availableMoves.push({ move: normalizeString(move), level: moveNum });
+    // Try both polished and faithful versions, prefer polished
+    // i'm only curious in level-up moves for now because thats what trainers use
+    const polishedMoves = pokemonData.versions?.polished?.forms?.plain?.movesets?.levelUp;
+    const faithfulMoves = pokemonData.versions?.faithful?.forms?.plain?.movesets?.levelUp;
+    const levelUpMoves = polishedMoves || faithfulMoves;
+
+    if (levelUpMoves) {
+      for (const [, move] of Object.entries(levelUpMoves)) {
+        const { name, level } = move;
+        if (level && name && level <= pokemonLevel) {
+          availableMoves.push({
+            move: name,
+            level: level,
           });
         }
       }
@@ -231,11 +353,21 @@ const generateMovesetForPokemon = async (pokemonName: string, level: number): Pr
 
     // Sort by level (newest first) and take the most recent 4
     availableMoves.sort((a, b) => b.level - a.level);
-    return availableMoves.slice(0, 4).map((m) => m.move);
-  } catch (error) {
-    console.warn(`Could not generate moveset for ${pokemonName}:`, error);
-    // Return some default moves if we can't load Pokemon data
-    return ['tackle', 'growl', 'scratch', 'leer'];
+    const lastFourMoves = availableMoves.slice(0, 4).map((m) => m.move);
+
+    // Ensure we have exactly 4 moves, pad with earlier moves if needed
+    if (lastFourMoves.length < 4 && availableMoves.length > 0) {
+      // Get all available moves sorted by level (oldest first)
+      const allMoves = availableMoves.sort((a, b) => a.level - b.level);
+      const uniqueMoves = Array.from(new Set(allMoves.map((m) => m.move)));
+      return uniqueMoves.slice(-4); // Take last 4 unique moves
+    }
+
+    return lastFourMoves.length > 0 ? lastFourMoves : [];
+  } catch {
+    // Silently handle missing Pokemon files - this is expected for some Pokemon
+    // that may not have been extracted yet
+    return [];
   }
 };
 
@@ -286,31 +418,63 @@ const saveTrainerData = async () => {
   const consolidatedTrainers: Record<string, ComprehensiveTrainerData> = {};
 
   for (const version of ['polished', 'faithful']) {
-    for (const [trainerKey, trainerList] of Object.entries(trainers[version])) {
-      if (!consolidatedTrainers[trainerKey]) {
-        consolidatedTrainers[trainerKey] = {
-          id: trainerKey,
-          class: trainerList[0].class,
-          name: trainerList[0].name,
-          constantName: trainerList[0].constantName,
-          versions: {},
+    for (const [, trainerList] of Object.entries(trainers[version])) {
+      for (const trainer of trainerList) {
+        // Extract base trainer info (remove _1, _2, _3 suffixes)
+        const baseTrainerName = trainer.name;
+        const baseTrainerClass = trainer.class;
+        const baseTrainerKey = createBaseTrainerKey(baseTrainerClass, baseTrainerName);
+        const baseTrainerId = trainer.constantName;
+        if (!consolidatedTrainers[baseTrainerKey]) {
+          consolidatedTrainers[baseTrainerKey] = {
+            id: reduce(baseTrainerId),
+            name: baseTrainerName,
+            class: baseTrainerClass,
+            constantName: baseTrainerId,
+            versions: {},
+          };
+        }
+        // Combine all teams from all trainers with the same base key
+        const allTeams = trainerList.flatMap((t) => t.teams);
+        consolidatedTrainers[baseTrainerKey].versions[version] = {
+          teams: allTeams,
         };
       }
-      consolidatedTrainers[trainerKey].versions[version] = {
-        teams: trainerList[0].teams,
-      };
     }
   }
 
   // Save individual trainer files
-  for (const [trainerKey, trainerData] of Object.entries(consolidatedTrainers)) {
-    const filePath = join(trainerDir, `${trainerKey}.json`);
-    await writeFile(filePath, JSON.stringify(trainerData, null, 2));
+  for (const [, trainerData] of Object.entries(consolidatedTrainers)) {
+    const trainerPath = join(trainerDir, `${trainerData.id.toLowerCase()}.json`);
+    await writeFile(trainerPath, JSON.stringify(trainerData, null, 2));
   }
 
-  // Save trainer manifest
+  // Consolidate trainers before writing files
+
+  // Write individual trainer files
+  const trainerManifest: TrainerManifest[] = [];
+
+  await Promise.all(
+    Object.values(consolidatedTrainers).map(async (trainer) => {
+      const trainerPath = join(trainerDir, `${trainer.id.toLowerCase()}.json`);
+      // Write the full consolidated trainer data to individual files
+      await writeFile(trainerPath, JSON.stringify(trainer, null, 2), 'utf-8');
+
+      // Add to manifest
+      trainerManifest.push({
+        id: trainer.id,
+        name: trainer.name,
+        class: trainer.class,
+        constantName: trainer.constantName,
+      });
+    }),
+  );
+
+  trainerManifest.sort((a, b) => a.name.localeCompare(b.name));
+
+  // Write trainer manifest file
   const trainerManifestPath = join(outputDir, 'trainer_manifest.json');
-  await writeFile(trainerManifestPath, JSON.stringify(consolidatedTrainers, null, 2));
+  await writeFile(trainerManifestPath, JSON.stringify(trainerManifest, null, 2), 'utf-8');
 
   // Save trainer-location mapping
   const trainerLocationsPath = join(outputDir, 'trainer_locations.json');
@@ -339,6 +503,7 @@ const clearTrainersDirectory = async () => {
 export default async function extractTrainers() {
   try {
     await clearTrainersDirectory();
+
     await Promise.all([extractTrainerData(), extractTrainerLocations()]);
 
     await saveTrainerData();
