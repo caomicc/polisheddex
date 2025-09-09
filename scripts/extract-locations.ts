@@ -243,7 +243,7 @@ export const extractItemsFromMapData = (mapData: string[]): LocationItem[] => {
  * Extracts all items from a map file's content
  */
 export const extractTrainerFromMapData = (mapData: string[]): string[] => {
-  const trainers: string[] = [];
+  const trainers: Set<string> = new Set();
 
   for (const line of mapData) {
     const trimmedLine = line.trim();
@@ -251,15 +251,15 @@ export const extractTrainerFromMapData = (mapData: string[]): string[] => {
     // Parse generic trainers
     if (trimmedLine.startsWith('generictrainer ')) {
       const trainer = parseTrainerLine(trimmedLine);
-      if (trainer) trainers.push(trainer);
+      if (trainer) trainers.add(trainer);
     }
     if (trimmedLine.startsWith('loadtrainer ')) {
       const trainer = parseTrainerLine(trimmedLine);
-      if (trainer) trainers.push(trainer);
+      if (trainer) trainers.add(trainer);
     }
   }
 
-  return trainers;
+  return Array.from(trainers);
 };
 
 // Extract items from all map files
@@ -325,6 +325,11 @@ const mergeLocationData = () => {
 
     // Find trainers for this location
     const locationTrainers = locationTrainerNames[locationKey] || undefined;
+
+    console.log({
+      locationNameForDebug: locationName,
+      trainers: locationTrainers,
+    });
 
     locations.push({
       id: locationId,

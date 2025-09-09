@@ -1,5 +1,7 @@
 // Utility functions for common patterns in data extraction
 
+export const specialTrainerClasses = ['GIOVANNI', 'LYRA1', 'RIVAL1', 'ARCHER', 'ARIANA'];
+
 /**
  * Normalizes a string by trimming, lowercasing, and removing underscores
  * Used for Pokemon names, moves, items, abilities, etc.
@@ -21,7 +23,7 @@ export const normalizeSpaces = (str: string): string => {
  * Handles both "_1" and "1" patterns at the end of strings
  */
 export const removeNumericSuffix = (str: string): string => {
-  return str.replace(/(_?\d+)$/, '');
+  return str.replace(/(_?\d+)$/, '').replace(/\d+$/, '');
 };
 
 /**
@@ -55,13 +57,11 @@ export const parseTrainerDefinition = (line: string, prefix: string): string[] =
  * Creates a trainer constant name based on class and ID
  * Handles special trainer classes differently
  */
-export const createTrainerConstantName = (
-  trainerClass: string,
-  trainerIdPart: string,
-  specialClasses: string[],
-): string => {
+export const createTrainerConstantName = (trainerClass: string, trainerIdPart: string): string => {
   const trainerConstantName = removeNumericSuffix(
-    specialClasses.includes(trainerClass) ? trainerIdPart : `${trainerClass}_${trainerIdPart}`,
+    specialTrainerClasses.includes(trainerClass)
+      ? trainerIdPart
+      : `${trainerClass}_${trainerIdPart}`,
   );
   return trainerConstantName;
 };
@@ -218,21 +218,32 @@ export const parseFruitTreeEvent = (line: string) => {
  * Parses a trainer line
  * Format: generictrainer SWIMMERF, KENDRA, EVENT_BEAT_SWIMMERF_KENDRA, .SeenText, .BeatenText or
  * Format: 	loadtrainer KAREN, 1
+ * Format: 	loadtrainer CHAMPION, LANCE
+ * Format: 	loadtrainer CHAMPION, LANCE2
  */
 
 export const parseTrainerLine = (line: string): string | null => {
-  // Handle generictrainer format: generictrainer SWIMMERF, KENDRA, EVENT_BEAT_SWIMMERF_KENDRA, .SeenText, .BeatenText
+  // Handle generictrainer format: generictrainer CLASS, NAME, EVENT, .SeenText, .BeatenText
   const genericMatch = line.match(/generictrainer\s+([A-Z_]+),\s*([A-Z_]+),\s*(.+)/);
   if (genericMatch) {
     const [, className, name] = genericMatch;
-    return reduce(className + '_' + name);
+    return reduce(className + name);
   }
 
-  // Handle loadtrainer format: loadtrainer KAREN, 1
-  const loadMatch = line.match(/loadtrainer\s+([A-Z_]+),\s*(\d+)/);
-  if (loadMatch) {
-    const [, name] = loadMatch;
-    return reduce(name);
+  // Handle loadtrainer with numeric ID: loadtrainer CLASS, NUMBER
+  const loadNumericMatch = line.match(/loadtrainer\s+([A-Z_]+),\s*(\d+)/);
+  if (loadNumericMatch) {
+    const [, className] = loadNumericMatch;
+    return reduce(className);
+  }
+
+  // Handle loadtrainer with name: loadtrainer CLASS, NAME
+  const loadNameMatch = line.match(/loadtrainer\s+([A-Z_]+),\s*([A-Z_0-9]+)/);
+  if (loadNameMatch) {
+    const [, className, name] = loadNameMatch;
+    return reduce(
+      removeNumericSuffix(specialTrainerClasses.includes(className) ? name : className + name),
+    );
   }
 
   return null;

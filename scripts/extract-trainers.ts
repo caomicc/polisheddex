@@ -17,6 +17,8 @@ import {
   parseTrainerDefinition,
   parseTrainerLine,
   reduce,
+  removeNumericSuffix,
+  specialTrainerClasses,
 } from '../src/lib/extract-utils';
 import splitFile from '../src/lib/split';
 import { fileURLToPath } from 'url';
@@ -32,8 +34,6 @@ const mapsDir = join(polishedcrystalDir, 'maps');
 
 const partiesASM = join(__dirname, '../polishedcrystal/data/trainers/parties.asm');
 const classNamesASM = join(__dirname, '../polishedcrystal/data/trainers/class_names.asm');
-
-const specialTrainerClasses = ['GIOVANNI', 'LYRA1', 'RIVAL1', 'ARCHER', 'ARIANA'];
 
 // Data structures
 const trainers: Record<string, Record<string, TrainerData[]>> = {
@@ -76,23 +76,39 @@ const extractClassNames = async (): Promise<Record<string, string>> => {
  * Extract trainer names from map data
  */
 const extractTrainerFromMapData = (mapData: string[]): string[] => {
-  const trainers: string[] = [];
+  const seenTrainers = new Set<string>();
 
   for (const line of mapData) {
     const trimmedLine = line.trim();
 
-    // Parse generic trainers
+    // Look for trainer definition lines: trainer BUG_CATCHER, WADE1, EVENT_BEAT_BUG_CATCHER_WADE, ...
+    if (trimmedLine.startsWith('loadtrainer ')) {
+      const parts = trimmedLine.split(',');
+      console.log('Loadtrainer parts:', parts);
+      if (parts.length >= 2) {
+        // Extract class and name: "trainer BUG_CATCHER, WADE1" -> ["BUG_CATCHER", "WADE1"]
+        const trainerClass = parts[0].replace('loadtrainer ', '').trim();
+        const trainerName = parts[1].trim();
+
+        // Create trainer identifier using same logic as parseTrainerLine
+        const trainer = reduce(
+          removeNumericSuffix(
+            specialTrainerClasses.includes(trainerClass) ? trainerName : trainerClass + trainerName,
+          ),
+        );
+
+        seenTrainers.add(trainer);
+      }
+    }
+
+    // Also handle generictrainer lines
     if (trimmedLine.startsWith('generictrainer ')) {
       const trainer = parseTrainerLine(trimmedLine);
-      if (trainer) trainers.push(trainer);
-    }
-    if (trimmedLine.startsWith('loadtrainer ')) {
-      const trainer = parseTrainerLine(trimmedLine);
-      if (trainer) trainers.push(trainer);
+      seenTrainers.add(trainer!);
     }
   }
 
-  return trainers;
+  return Array.from(seenTrainers);
 };
 
 /**
@@ -167,11 +183,7 @@ const processTrainerData = async (trainerData: string[], version: string) => {
         const trainerClass = currentTrainerClass;
         const trainerIdPart = parts[0].trim();
 
-        const trainerConstantName = createTrainerConstantName(
-          trainerClass,
-          trainerIdPart,
-          specialTrainerClasses,
-        );
+        const trainerConstantName = createTrainerConstantName(trainerClass, trainerIdPart);
 
         // Track trainer name changes and increment match count
         currentTrainerName = reduce(trainerConstantName);
@@ -443,6 +455,10 @@ const extractTrainerLocations = async () => {
   const mapFiles = await readdir(mapsDir);
   let totalTrainersFound = 0;
 
+  // Elite Four room mappings - aggregate these trainers under "Elite Four" location
+  const eliteFourRooms = ['willsroom', 'kogasroom', 'brunosroom', 'karensroom', 'lancesroom'];
+  const eliteFourTrainers: string[] = [];
+
   for (const mapFile of mapFiles) {
     if (!mapFile.endsWith('.asm')) continue;
 
@@ -456,13 +472,26 @@ const extractTrainerLocations = async () => {
       const mapTrainers = extractTrainerFromMapData(mapData);
 
       if (mapTrainers.length > 0) {
-        locationTrainerNames[mapName] = mapTrainers;
+        // Check if this is an Elite Four room
+        if (eliteFourRooms.includes(mapName)) {
+          // Add trainers to Elite Four collection instead of individual room
+          eliteFourTrainers.push(...mapTrainers);
+        } else {
+          // Regular location mapping
+          locationTrainerNames[mapName] = mapTrainers;
+        }
         totalTrainersFound += mapTrainers.length;
       }
     } catch (error) {
       console.warn(`Could not read map file: ${mapFilePath}`, error);
       continue;
     }
+  }
+
+  // Add Elite Four as a single location if we found any trainers
+  if (eliteFourTrainers.length > 0) {
+    locationTrainerNames['elitefour'] = eliteFourTrainers;
+    console.log(`Added ${eliteFourTrainers.length} trainers to Elite Four location`);
   }
 
   console.log(
