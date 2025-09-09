@@ -323,7 +323,7 @@ const saveTrainerData = async () => {
 /**
  * Main extraction function
  */
-export const extractTrainers = async () => {
+export default async function extractTrainers() {
   try {
     await Promise.all([extractTrainerData(), extractTrainerLocations()]);
 
@@ -334,7 +334,7 @@ export const extractTrainers = async () => {
     console.error('Error during trainer extraction:', error);
     throw error;
   }
-};
+}
 
 // Export trainer location data for use in extract-locations.ts
 export const getTrainerLocationData = () => locationTrainerNames;
