@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'fs/promises';
+import { readFile, writeFile, rm, mkdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { TrainerData, ComprehensiveTrainerData } from '../src/types/new';
 import { normalizeString, parseTrainerLine } from '../src/lib/extract-utils';
@@ -321,10 +321,24 @@ const saveTrainerData = async () => {
 };
 
 /**
+ * Clear and recreate the trainers directory
+ */
+const clearTrainersDirectory = async () => {
+  try {
+    await rm(trainerDir, { recursive: true, force: true });
+    await mkdir(trainerDir, { recursive: true });
+    console.log('Cleared trainers directory');
+  } catch (error) {
+    console.warn('Could not clear trainers directory:', error);
+  }
+};
+
+/**
  * Main extraction function
  */
 export default async function extractTrainers() {
   try {
+    await clearTrainersDirectory();
     await Promise.all([extractTrainerData(), extractTrainerLocations()]);
 
     await saveTrainerData();
@@ -334,6 +348,11 @@ export default async function extractTrainers() {
     console.error('Error during trainer extraction:', error);
     throw error;
   }
+}
+
+// Allow running this script directly
+if (import.meta.url === new URL(process.argv[1], 'file://').href) {
+  extractTrainers();
 }
 
 // Export trainer location data for use in extract-locations.ts

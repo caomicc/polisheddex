@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir } from 'fs/promises';
+import { readFile, writeFile, mkdir, rm } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import {
@@ -656,10 +656,12 @@ const locationsDir = join(__dirname, '..', 'new', 'locations');
 const trainersDir = join(__dirname, '..', 'new', 'trainers');
 const outputDir = join(__dirname, '..', 'new');
 
+// Clear and recreate locations directory
 try {
+  await rm(locationsDir, { recursive: true, force: true });
   await mkdir(locationsDir, { recursive: true });
   await mkdir(trainersDir, { recursive: true });
-  console.log('Created output directories');
+  console.log('Cleared and created output directories');
 } catch (error) {
   if (error) {
     throw error;

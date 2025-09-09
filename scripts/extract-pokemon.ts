@@ -1,4 +1,4 @@
-import { readFile, readdir, writeFile, mkdir } from 'fs/promises';
+import { readFile, readdir, writeFile, mkdir, rm } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import {
@@ -797,9 +797,11 @@ mergeVersions();
 const pokemonDir = join(__dirname, '..', 'new', 'pokemon');
 const outputDir = join(__dirname, '..', 'new');
 
+// Clear and recreate pokemon directory
 try {
+  await rm(pokemonDir, { recursive: true, force: true });
   await mkdir(pokemonDir, { recursive: true });
-  console.log('Created output directories');
+  console.log('Cleared and created pokemon directory');
 } catch (error) {
   if (error) {
     throw error;
