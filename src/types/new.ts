@@ -165,6 +165,7 @@ export interface TrainerData {
     matchCount: number;
     pokemon: {
       pokemonName: PokemonData['name'];
+      nickname?: string;
       formNumber?: number;
       level: number;
       item?: string;

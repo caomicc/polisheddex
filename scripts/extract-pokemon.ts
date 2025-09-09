@@ -697,10 +697,10 @@ const mergeVersions = () => {
     const defaultMovesets = { levelUp: {}, tm: [], eggMoves: [] };
 
     // Add movesets to each form for polished version
-    const polishedFormsWithMovesets = { ...polishedMon.forms };
-    if (polishedFormsWithMovesets) {
-      Object.keys(polishedFormsWithMovesets).forEach((formKey) => {
-        if (polishedFormsWithMovesets[formKey]) {
+    const polishedFormsWithRest = { ...polishedMon.forms };
+    if (polishedFormsWithRest) {
+      Object.keys(polishedFormsWithRest).forEach((formKey) => {
+        if (polishedFormsWithRest[formKey]) {
           // Map form to ROM naming pattern
           const pokemonName = polishedMon.name;
           let romFormName =
@@ -728,16 +728,16 @@ const mergeVersions = () => {
           const finalMovesets = { ...formMovesets };
           finalMovesets.tm = formTMMoves;
 
-          polishedFormsWithMovesets[formKey].movesets = finalMovesets;
+          polishedFormsWithRest[formKey].movesets = finalMovesets;
         }
       });
     }
 
     // Add movesets to each form for faithful version
-    const faithfulFormsWithMovesets = { ...faithfulMon.forms };
-    if (faithfulFormsWithMovesets) {
-      Object.keys(faithfulFormsWithMovesets).forEach((formKey) => {
-        if (faithfulFormsWithMovesets[formKey]) {
+    const faithfulFormsWithRest = { ...faithfulMon.forms };
+    if (faithfulFormsWithRest) {
+      Object.keys(faithfulFormsWithRest).forEach((formKey) => {
+        if (faithfulFormsWithRest[formKey]) {
           // Map form to ROM naming pattern
           const pokemonName = faithfulMon.name;
           let romFormName =
@@ -765,7 +765,7 @@ const mergeVersions = () => {
           const finalMovesets = { ...formMovesets };
           finalMovesets.tm = formTMMoves;
 
-          faithfulFormsWithMovesets[formKey].movesets = finalMovesets;
+          faithfulFormsWithRest[formKey].movesets = finalMovesets;
         }
       });
     }
@@ -777,12 +777,12 @@ const mergeVersions = () => {
       dexNo: polishedMon.dexNo,
       versions: {
         polished: {
-          ...polishedMon,
-          forms: polishedFormsWithMovesets,
+          // ...polishedMon,
+          forms: polishedFormsWithRest,
         },
         faithful: {
-          ...faithfulMon,
-          forms: faithfulFormsWithMovesets,
+          // ...faithfulMon,
+          forms: faithfulFormsWithRest,
         },
       },
     };
