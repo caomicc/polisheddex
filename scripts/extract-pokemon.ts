@@ -357,6 +357,30 @@ const extractNames = (data: string[], version: string) => {
     ) {
       continue;
     }
+    if (data[lineNo].includes('Dudunsparc')) {
+      pokemonData[version].push({
+        id: 'dudunsparce',
+        name: 'Dudunsparce',
+        dexNo: dexNo,
+        forms: {
+          plain: {
+            formNumber: 1,
+            types: [],
+            abilities: [],
+            baseStats: {
+              hp: 0,
+              attack: 0,
+              defense: 0,
+              specialAttack: 0,
+              specialDefense: 0,
+              speed: 0,
+            },
+          },
+        },
+      });
+      dexNo++;
+      continue;
+    }
 
     pokemonData[version]?.push({
       id: reduce(data[lineNo].slice(9, -1)),
@@ -389,6 +413,7 @@ const extractForms = (data: string[], pokemonForm: string) => {
     if (data[lineNo].startsWith('ext_const_def')) {
       //Get the name of the Pokemon
       const name = data[lineNo - 1].slice(2);
+      console.log('Extracting forms for ' + name);
       while (data[lineNo].startsWith('ext_const')) {
         //Skip undesirable lines
         if (!data[lineNo].includes(';')) {
@@ -400,6 +425,13 @@ const extractForms = (data: string[], pokemonForm: string) => {
         form[0] = form[0].slice(form[0].indexOf('_') + 1).trim();
         form[0] = form[0].slice(0, -5).toLowerCase();
         const formNumber = parseInt(form[1].trim().slice(form[1].trim().indexOf('(') + 1, -1), 16);
+
+        //Skip non-plain forms with formNumber 1 to avoid duplicates
+        if (formNumber === 1 && form[0] !== 'plain') {
+          console.log(`Skipping form ${form[0]} with formNumber 1`);
+          lineNo++;
+          continue;
+        }
 
         const mon = pokemonData[pokemonForm]?.find((mon) => mon['id'] === reduce(name));
 
@@ -424,10 +456,6 @@ const extractForms = (data: string[], pokemonForm: string) => {
 
     //Regional Forms
     if (data[lineNo].includes('FORM EQU ')) {
-      //IGNORE NO_FORM 0, PLAIN_FORM 1
-      if (data[lineNo].includes('NO_FORM') || data[lineNo].includes('PLAIN_FORM')) {
-        continue;
-      }
       const formName = data[lineNo].slice(4, data[lineNo].indexOf('_')).toLowerCase();
       const formNo = parseInt(data[lineNo].slice(-1));
       //Run through all the Pokemon that have that Regional Form
@@ -457,27 +485,6 @@ const extractForms = (data: string[], pokemonForm: string) => {
       }
     }
   }
-
-  //Plain Form
-  const plainForm = {
-    formNumber: 1,
-    types: [],
-    abilities: [],
-    baseStats: {
-      hp: 0,
-      attack: 0,
-      defense: 0,
-      specialAttack: 0,
-      specialDefense: 0,
-      speed: 0,
-    },
-  };
-  pokemonData[pokemonForm]?.forEach((mon) => {
-    //Case #1: Pokemon has no forms with formNumber 1
-    if (mon?.forms && !Object.values(mon.forms).some((form) => form.formNumber === 1)) {
-      mon.forms.plain = { ...plainForm };
-    }
-  });
 };
 
 const extractMon = (data: string[], pokemonForm: string) => {
