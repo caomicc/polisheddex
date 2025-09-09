@@ -344,17 +344,19 @@ const mergeLocationData = () => {
   locations.sort((a, b) => a.name.localeCompare(b.name));
 };
 
-// Main execution using Promise.all pattern
+// Main execution using Promise.all pattern for operations that don't depend on Pokemon data
 await Promise.all([
   extractLandmarks(),
   extractConnections(),
-  extractTrainers(),
   extractItems(),
   extractEncounters(grassFiles, 'grass'),
   extractEncounters(waterFiles, 'surfing'),
   extractEncounters(fishFiles, 'fishing'),
   extractEncounters(treeFiles, 'headbutt'),
 ]);
+
+// Run trainer extraction after other operations since it depends on Pokemon data
+await extractTrainers();
 
 // Merge all extracted data
 mergeLocationData();

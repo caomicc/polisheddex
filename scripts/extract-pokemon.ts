@@ -818,16 +818,69 @@ for (const pokemon of mergedPokemon) {
   await writeFile(pokemonPath, JSON.stringify(pokemon, null, 2), 'utf-8');
 
   // Add to manifest with compact data
-  const manifestEntry = {
+  const formsWithTypes: Record<
+    string,
+    { polished: { types: string[] }; faithful: { types: string[] } }
+  > = {};
+
+  // Get all unique form names from both versions
+  const allFormNames = new Set([
+    ...(pokemon.versions.polished.forms ? Object.keys(pokemon.versions.polished.forms) : []),
+    ...(pokemon.versions.faithful.forms ? Object.keys(pokemon.versions.faithful.forms) : []),
+  ]);
+
+  // Build forms object with types for each version
+  for (const formName of allFormNames) {
+    const polishedForm = pokemon.versions.polished.forms?.[formName];
+    const faithfulForm = pokemon.versions.faithful.forms?.[formName];
+
+    //init
+    if (!formsWithTypes[formName]) {
+      formsWithTypes[formName] = {
+        polished: {
+          types: [],
+        },
+        faithful: {
+          types: [],
+        },
+      };
+    }
+
+    if (polishedForm) {
+      formsWithTypes[formName].polished = {
+        types: polishedForm.types || [],
+      };
+    }
+
+    if (faithfulForm) {
+      formsWithTypes[formName].faithful = {
+        types: faithfulForm.types || [],
+      };
+    }
+  }
+
+  const manifestEntry: PokemonManifest = {
     id: pokemon.id,
     name: pokemon.name,
     dexNo: pokemon.dexNo,
-    forms: [
-      ...new Set([
-        ...(pokemon.versions.polished.forms ? Object.keys(pokemon.versions.polished.forms) : []),
-        ...(pokemon.versions.faithful.forms ? Object.keys(pokemon.versions.faithful.forms) : []),
-      ]),
-    ],
+    versions: {
+      polished: {
+        ...Object.fromEntries(
+          Object.entries(formsWithTypes).map(([formName, formData]) => [
+            formName,
+            { types: formData.polished.types },
+          ]),
+        ),
+      },
+      faithful: {
+        ...Object.fromEntries(
+          Object.entries(formsWithTypes).map(([formName, formData]) => [
+            formName,
+            { types: formData.faithful.types },
+          ]),
+        ),
+      },
+    },
   };
   manifest.push(manifestEntry);
 }

@@ -11,6 +11,7 @@ import {
   createTrainerConstantName,
   ensureArrayExists,
   normalizeString,
+  parseForm,
   parseLineWithPrefix,
   parsePokemonWithItem,
   parseTrainerDefinition,
@@ -109,6 +110,7 @@ const processTrainerData = async (trainerData: string[], version: string) => {
             currentPokemon.moves = await generateMovesetForPokemon(
               currentPokemon.pokemonName,
               currentPokemon.level,
+              currentPokemon.formName,
             );
           }
           currentTeam.pokemon.push(currentPokemon);
@@ -176,6 +178,8 @@ const processTrainerData = async (trainerData: string[], version: string) => {
           currentPokemon.moves = await generateMovesetForPokemon(
             currentPokemon.pokemonName,
             currentPokemon.level,
+            currentPokemon.formName,
+            version,
           );
         }
         currentTeam.pokemon.push(currentPokemon);
@@ -184,21 +188,43 @@ const processTrainerData = async (trainerData: string[], version: string) => {
       // Parse: tr_mon 60, MEGANIUM @ SITRUS_BERRY
       // Or: tr_mon 10, NATU
       // or: tr_mon 20, "Blossom", BELLOSSOM, FEMALE
+      // or: 	tr_mon 71, MAROWAK @ THICK_CLUB, MALE | ALOLAN_FORM
 
-      const parts = parseLineWithPrefix(line, 'tr_mon ').split(',');
-      if (parts.length >= 2) {
-        const level = parseInt(parts[0].trim());
+      // Handle form specification first by checking for | separator in the whole line
+      const lineContent = parseLineWithPrefix(line, 'tr_mon ');
+      let formName = 'plain';
+      let processLine = lineContent;
+
+      if (lineContent.includes('|')) {
+        const formSplit = lineContent.split('|');
+        processLine = formSplit[0].trim();
+
+        // Parse form from the part after | (e.g., "ALOLAN_FORM" -> "alolan")
+        const formPart = formSplit[1].trim();
+        if (formPart.includes('_FORM')) {
+          formName = parseForm(formPart);
+        }
+      }
+
+      // Now split by comma to get main parts (without the form part)
+      const mainParts = processLine.split(',');
+      if (mainParts.length >= 2) {
+        const level = parseInt(mainParts[0].trim());
 
         let pokemonPart: string;
         let nickname: string | undefined;
 
         // Check if this has a nickname format: level, "nickname", POKEMON, [GENDER]
-        if (parts.length >= 3 && parts[1].trim().startsWith('"') && parts[1].trim().endsWith('"')) {
-          nickname = parts[1].trim().replace(/"/g, '');
-          pokemonPart = parts[2].trim();
+        if (
+          mainParts.length >= 3 &&
+          mainParts[1].trim().startsWith('"') &&
+          mainParts[1].trim().endsWith('"')
+        ) {
+          nickname = mainParts[1].trim().replace(/"/g, '');
+          pokemonPart = mainParts[2].trim();
         } else {
-          // Standard format: level, POKEMON [@ ITEM]
-          pokemonPart = parts[1].trim();
+          // Standard format: level, POKEMON [@ ITEM], [GENDER]
+          pokemonPart = mainParts[1].trim();
         }
 
         const { pokemon, item } = parsePokemonWithItem(pokemonPart);
@@ -208,6 +234,7 @@ const processTrainerData = async (trainerData: string[], version: string) => {
           nickname: nickname,
           level: level,
           item: item,
+          formName: formName,
           moves: [],
         };
       }
@@ -275,6 +302,8 @@ const processTrainerData = async (trainerData: string[], version: string) => {
           currentPokemon.moves = await generateMovesetForPokemon(
             currentPokemon.pokemonName,
             currentPokemon.level,
+            currentPokemon.formName,
+            version,
           );
         }
         currentTeam.pokemon.push(currentPokemon);
@@ -297,6 +326,7 @@ const processTrainerData = async (trainerData: string[], version: string) => {
         currentPokemon.moves = await generateMovesetForPokemon(
           currentPokemon.pokemonName,
           currentPokemon.level,
+          currentPokemon.formName,
         );
       }
       currentTeam.pokemon.push(currentPokemon);
@@ -322,6 +352,8 @@ const processTrainerData = async (trainerData: string[], version: string) => {
 const generateMovesetForPokemon = async (
   pokemonName: string,
   pokemonLevel: number,
+  formName: string = 'plain',
+  version: string = 'polished',
 ): Promise<string[]> => {
   try {
     // Read Pokemon data to get movesets
@@ -333,11 +365,10 @@ const generateMovesetForPokemon = async (
     // Get all moves the Pokemon can learn up to the given level
     const availableMoves: Array<{ move: string; level: number }> = [];
 
-    // Try both polished and faithful versions, prefer polished
+    // Use the correct version's moveset based on the version parameter
     // i'm only curious in level-up moves for now because thats what trainers use
-    const polishedMoves = pokemonData.versions?.polished?.forms?.plain?.movesets?.levelUp;
-    const faithfulMoves = pokemonData.versions?.faithful?.forms?.plain?.movesets?.levelUp;
-    const levelUpMoves = polishedMoves || faithfulMoves;
+    const versionMoves = pokemonData.versions?.[version]?.forms?.[formName]?.movesets?.levelUp;
+    const levelUpMoves = versionMoves;
 
     if (levelUpMoves) {
       for (const [, move] of Object.entries(levelUpMoves)) {

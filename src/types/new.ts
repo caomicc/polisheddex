@@ -68,7 +68,13 @@ export interface PokemonManifest {
   id: PokemonData['id'];
   name: PokemonData['name'];
   dexNo: PokemonData['dexNo'];
-  forms: string[] | Forms | null; // forms might be overkill here, re-eval late
+  versions: {
+    [versionName: string]: {
+      [formName: string]: {
+        types: string[];
+      };
+    };
+  };
 }
 
 export interface AbilityData {
@@ -166,8 +172,8 @@ export interface TrainerData {
     matchCount: number;
     pokemon: {
       pokemonName: PokemonData['name'];
+      formName?: string;
       nickname?: string;
-      formNumber?: number;
       level: number;
       item?: string;
       moves?: MoveData['name'][];
