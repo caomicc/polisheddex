@@ -33,6 +33,8 @@ const landmarks: {
   regionMap: new Map(),
 };
 
+const specialTrainerClasses = ['GIOVANNI', 'LYRA1', 'RIVAL1', 'ARCHER'];
+
 // File paths
 const attributesASM = join(__dirname, '../polishedcrystal/data/maps/attributes.asm');
 const landmarkConstantsASM = join(__dirname, '../polishedcrystal/constants/landmark_constants.asm');
@@ -307,11 +309,11 @@ const processTrainerData = async (trainerData: string[], version: string) => {
       if (parts.length >= 2) {
         const trainerName = parts[1].trim().replace(/"/g, '');
         const trainerClass = currentTrainerClass;
-        const trainerIdValue = parts[0].trim();
+        const trainerIdPart = parts[0].trim();
 
-        const trainerId = parts[0].trim();
-
-        const trainerConstantName = `${trainerClass}_${trainerIdValue}`;
+        const trainerConstantName = specialTrainerClasses!.includes(trainerClass)
+          ? trainerIdPart
+          : `${trainerClass}_${trainerIdPart}`;
 
         // Track trainer name changes and increment match count
         currentTrainerName = trainerName;
@@ -323,7 +325,7 @@ const processTrainerData = async (trainerData: string[], version: string) => {
         }
 
         currentTrainer = {
-          id: trainerId + 'eeee',
+          id: trainerIdPart,
           name: trainerName, // changes file name
           constantName: trainerConstantName,
           class: trainerClass, // Use the current trainer class
@@ -474,11 +476,15 @@ const consolidateTrainers = () => {
         // Extract base trainer info (remove _1, _2, _3 suffixes)
         const baseTrainerName = trainer.name;
         const baseTrainerClass = trainer.class;
-        const baseTrainerKey = `${baseTrainerClass.toLowerCase()}_${baseTrainerName.toLowerCase().replace(/\s+/g, '')}`;
+        const baseTrainerKey = specialTrainerClasses!.includes(baseTrainerClass)
+          ? `${baseTrainerClass.toLowerCase()}_${baseTrainerName.toLowerCase().replace(/\s+/g, '')}`
+          : `${baseTrainerName.toLowerCase().replace(/\s+/g, '')}`;
+
+        console.log('Base Trainer Key:', baseTrainerKey, reduce(baseTrainerName));
 
         if (!consolidatedTrainers[baseTrainerKey]) {
           consolidatedTrainers[baseTrainerKey] = {
-            id: reduce(baseTrainerName),
+            id: reduce(trainer.constantName?.replace(/_\d+$/, '') || baseTrainerKey),
             name: baseTrainerName,
             class: baseTrainerClass,
             constantName: trainer.constantName?.replace(/_\d+$/, ''), // Remove numeric suffix from constant name
@@ -597,16 +603,13 @@ const trainerManifest: TrainerManifest[] = [];
 
 await Promise.all(
   Object.values(consolidatedTrainers).map(async (trainer) => {
-    const trainerPath = join(
-      trainersDir,
-      `${trainer.class.toLowerCase()}_${trainer.id.toLowerCase()}.json`,
-    );
+    const trainerPath = join(trainersDir, `${trainer.id.toLowerCase()}.json`);
     // Write the full consolidated trainer data to individual files
     await writeFile(trainerPath, JSON.stringify(trainer, null, 2), 'utf-8');
 
     // Add to manifest
     trainerManifest.push({
-      id: trainer.id,
+      id: reduce(trainer.constantName),
       name: trainer.name,
       class: trainer.class,
       constantName: trainer.constantName,

@@ -157,7 +157,7 @@ export interface LocationManifest {
 export interface TrainerData {
   id: string;
   name: string;
-  constantName?: string;
+  constantName: string;
   class: string;
   teams: {
     matchCount: number;
@@ -183,7 +183,7 @@ export interface ComprehensiveTrainerData {
   id: TrainerData['id'];
   name: TrainerData['name'];
   class: TrainerData['class'];
-  constantName?: TrainerData['constantName'];
+  constantName: TrainerData['constantName'];
   sprite?: TrainerData['sprite'];
   items?: TrainerData['items'];
   versions: {
