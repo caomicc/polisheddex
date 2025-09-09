@@ -413,7 +413,6 @@ const extractForms = (data: string[], pokemonForm: string) => {
     if (data[lineNo].startsWith('ext_const_def')) {
       //Get the name of the Pokemon
       const name = data[lineNo - 1].slice(2);
-      console.log('Extracting forms for ' + name);
       while (data[lineNo].startsWith('ext_const')) {
         //Skip undesirable lines
         if (!data[lineNo].includes(';')) {
@@ -428,7 +427,6 @@ const extractForms = (data: string[], pokemonForm: string) => {
 
         //Skip non-plain forms with formNumber 1 to avoid duplicates
         if (formNumber === 1 && form[0] !== 'plain') {
-          console.log(`Skipping form ${form[0]} with formNumber 1`);
           lineNo++;
           continue;
         }

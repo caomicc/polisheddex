@@ -31,6 +31,7 @@ const polishedcrystalDir = join(baseDir, 'polishedcrystal');
 const mapsDir = join(polishedcrystalDir, 'maps');
 
 const partiesASM = join(__dirname, '../polishedcrystal/data/trainers/parties.asm');
+const classNamesASM = join(__dirname, '../polishedcrystal/data/trainers/class_names.asm');
 
 const specialTrainerClasses = ['GIOVANNI', 'LYRA1', 'RIVAL1', 'ARCHER', 'ARIANA'];
 
@@ -40,6 +41,36 @@ const trainers: Record<string, Record<string, TrainerData[]>> = {
   faithful: {},
 };
 const locationTrainerNames: Record<string, string[]> = {}; // Store trainer names by location
+
+const extractClassNames = async (): Promise<Record<string, string>> => {
+  const classNames: Record<string, string> = {};
+  const raw = await readFile(classNamesASM, 'utf-8');
+  const lines = splitFile(raw, false)[0] as string[];
+
+  for (const line of lines) {
+    if (line.trim().startsWith('li ') && line.includes(';')) {
+      // Parse: li "Class Name" ; CLASS_CONSTANT
+      const [liPart, constantPart] = line.split(';');
+
+      if (liPart && constantPart) {
+        // Extract class name from li "Class Name" part
+        const className = liPart
+          .replace('li ', '')
+          .trim()
+          .replace(/"/g, '')
+          .replace(/<PK><MN>/g, 'Pokémon');
+
+        // Extract constant from ; CLASS_CONSTANT part
+        const classConstant = constantPart.trim();
+
+        if (className && classConstant) {
+          classNames[classConstant] = className;
+        }
+      }
+    }
+  }
+  return classNames;
+};
 
 /**
  * Extract trainer names from map data
@@ -132,7 +163,7 @@ const processTrainerData = async (trainerData: string[], version: string) => {
       const parts = parseTrainerDefinition(line, 'def_trainer ');
       // console.log('Parsed trainer definition parts:', parts);
       if (parts.length >= 2) {
-        const trainerName = parts[1].trim().replace(/"/g, '');
+        const trainerName = parts[1].trim().replace(/"/g, '').replace(/</g, '').replace(/>/g, '');
         const trainerClass = currentTrainerClass;
         const trainerIdPart = parts[0].trim();
 
@@ -443,6 +474,8 @@ const extractTrainerLocations = async () => {
  * Save trainer data and trainer-location mappings
  */
 const saveTrainerData = async () => {
+  // Extract class names mapping
+  const classNames = await extractClassNames();
   console.log('Saving trainer data...');
 
   // Consolidate trainers across versions
@@ -494,7 +527,7 @@ const saveTrainerData = async () => {
       // Add to manifest
       trainerManifest.push({
         id: trainer.id,
-        name: trainer.name,
+        name: `${classNames[trainer.class]} ${trainer.name}`,
         class: trainer.class,
         constantName: trainer.constantName,
       });
