@@ -7,11 +7,15 @@
 //#2. Replaces all Poke with Poké
 //#3. Removes all @
 
-const splitFile = (file) => {
-  let files = [[], []];
+const splitFile = (file: string, replaceAt: boolean = true) => {
+  const files = [[], []];
   let data = file.trim().split('\n');
   data = data.map((line) =>
-    line.trim().replaceAll('#', 'Poké').replaceAll('Poke', 'Poké').replaceAll('@', ''),
+    line
+      .trim()
+      .replaceAll('#', 'Poké')
+      .replaceAll('Poke', 'Poké')
+      .replaceAll(replaceAt ? '@' : '', ''),
   );
 
   for (let lineNo = 0; lineNo < data.length; lineNo++) {
