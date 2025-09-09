@@ -223,7 +223,7 @@ const extractPokemonMovesets = (evoAttacksData: string[], pokemonForm: string | 
       }
       if (!pokemonMovesets[formKey][currentPokemon]) {
         pokemonMovesets[formKey][currentPokemon] = {
-          levelUp: {}, // level and name
+          levelUp: [], // level and name
           tm: [], // name only
           eggMoves: [], // name only
         };
@@ -239,19 +239,17 @@ const extractPokemonMovesets = (evoAttacksData: string[], pokemonForm: string | 
         const move = reduce(movePart.split(';')[0]);
         if (!pokemonMovesets[formKey][currentPokemon]) {
           pokemonMovesets[formKey][currentPokemon] = {
-            levelUp: {},
+            levelUp: [],
             tm: [],
             eggMoves: [],
           };
         }
         if (pokemonMovesets[formKey][currentPokemon]) {
-          // Add the move to the level, creating array if it doesn't exist
-          if (!pokemonMovesets[formKey][currentPokemon].levelUp![level]) {
-            pokemonMovesets[formKey][currentPokemon].levelUp![level] = [move];
-          } else {
-            // Push additional moves to the existing array for this level
-            pokemonMovesets[formKey][currentPokemon].levelUp![level].push(move);
-          }
+          // Add the move to the levelUp array
+          pokemonMovesets[formKey][currentPokemon].levelUp!.push({
+            name: move,
+            level,
+          });
         }
       }
     }
