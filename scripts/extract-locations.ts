@@ -11,6 +11,7 @@ import {
   displayName,
   parseTrainerLine,
 } from '../src/lib/extract-utils.ts';
+import { mapEncounterRatesToPokemon } from '../src/utils/encounterRates.ts';
 import splitFile from '@/lib/split.ts';
 import extractTrainers from './extract-trainers.ts';
 import { extractItemsFromMapData } from './extract-items.ts';
@@ -161,9 +162,16 @@ const extractEncounters = async (filePaths: string[], encounterType: string) => 
         // Skip the encounter rate line
         i++;
 
-        // Parse encounters for morn, day, nite
+        // Parse encounters for morn, day, nite - collect all encounters first
         const timeSlots = ['morning', 'day', 'night'];
         let currentTimeSlot = 0;
+        const currentLocationEncounters: Array<{
+          pokemon: string;
+          method: string;
+          version: string;
+          levelRange: string;
+          rate: number;
+        }> = [];
 
         while (i < encounterData.length) {
           const encounterLine = encounterData[i].trim();
@@ -176,15 +184,19 @@ const extractEncounters = async (filePaths: string[], encounterType: string) => 
             // Parse: wildmon 12, NIDORAN_M
             const parts = parseLineWithPrefix(encounterLine, 'wildmon ').split(',');
             if (parts.length >= 2) {
-              const level = parseInt(parts[0].trim());
+              const level = parts[0]
+                .replace('LEVEL_FROM_BADGES', '')
+                .replace('- ', '-')
+                .replace('+ ', '+')
+                .trim();
               const pokemon = normalizeString(parts[1]);
 
-              locationEncounters.push({
+              currentLocationEncounters.push({
                 pokemon: pokemon,
                 method: encounterType,
                 version: timeSlots[currentTimeSlot],
-                levelRange: level.toString(),
-                rate: 10, // Default rate
+                levelRange: level,
+                rate: 0, // Will be calculated later
               });
             }
           } else if (encounterLine.includes('; day')) {
@@ -194,6 +206,50 @@ const extractEncounters = async (filePaths: string[], encounterType: string) => 
           }
 
           i++;
+        }
+
+        // Now calculate proper encounter rates for each time slot
+        const timeSlotGroups = new Map<string, typeof currentLocationEncounters>();
+
+        // Group encounters by time slot
+        for (const encounter of currentLocationEncounters) {
+          const timeSlot = encounter.version;
+          if (!timeSlotGroups.has(timeSlot)) {
+            timeSlotGroups.set(timeSlot, []);
+          }
+          timeSlotGroups.get(timeSlot)!.push(encounter);
+        }
+
+        // Calculate rates for each time slot group and add to location encounters
+        for (const [, timeSlotEncounters] of timeSlotGroups) {
+          const pokemonNames = timeSlotEncounters.map((enc) => enc.pokemon);
+          const ratedPokemon = mapEncounterRatesToPokemon(pokemonNames, encounterType);
+
+          // Apply calculated rates to encounters and combine duplicates
+          const encounterMap = new Map<string, (typeof timeSlotEncounters)[0]>();
+
+          for (let j = 0; j < timeSlotEncounters.length; j++) {
+            const encounter = timeSlotEncounters[j];
+            const rate = ratedPokemon[j]?.rate || 0;
+
+            // Create unique key for pokemon + level + method + time
+            const key = `${encounter.pokemon}_${encounter.levelRange}_${encounter.method}_${encounter.version}`;
+
+            if (encounterMap.has(key)) {
+              // Add rate to existing encounter
+              const existing = encounterMap.get(key)!;
+              existing.rate += rate;
+            } else {
+              // Add new encounter with calculated rate
+              encounterMap.set(key, {
+                ...encounter,
+                rate: rate,
+              });
+            }
+          }
+
+          // Add all combined encounters to location encounters
+          locationEncounters.push(...encounterMap.values());
         }
       }
     }
@@ -280,12 +336,14 @@ const mergeLocationData = async () => {
     // Find items for this location by reading the map file
     let itemNames = undefined;
     try {
-      const mapFilePath = join(mapsDir, `${locationKey}.asm`);
+      // prevent issues with special characters in filenames
+      const mapFilePath = join(mapsDir, `${locationKey.replace('é', 'e')}.asm`);
       const raw = await readFile(mapFilePath, 'utf-8');
       const mapData = splitFile(raw, false)[0] as string[];
       const locationItems = extractItemsFromMapData(mapData);
       itemNames = locationItems.length > 0 ? locationItems : undefined;
     } catch (error) {
+      console.warn(`Could not read map file for items: ${locationKey}.asm`, error);
       // Map file doesn't exist or can't be read, no items for this location
     }
 
@@ -361,7 +419,9 @@ await Promise.all(
       region: location.region,
       order: location.order,
       connections: location.connectionCount,
-      encounterCount: location.encounters?.length || 0,
+      encounterCount: location.encounters
+        ? new Set(location.encounters.map((e) => e.pokemon)).size
+        : 0,
       trainerCount: location.trainers?.length || 0,
     });
   }),
