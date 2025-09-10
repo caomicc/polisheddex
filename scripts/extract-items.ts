@@ -10,6 +10,7 @@ import {
   parseHiddenItemEvent,
   parseFruitTreeEvent,
   parseVerboseGiveItemEvent,
+  parseMartItem,
 } from '@/lib/extract-utils.ts';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -22,6 +23,7 @@ const expCandyNamesASM = join(__dirname, '../polishedcrystal/data/items/exp_cand
 const wingNamesASM = join(__dirname, '../polishedcrystal/data/items/wing_names.asm');
 const specialNamesASM = join(__dirname, '../polishedcrystal/data/items/special_names.asm');
 const itemDescriptionsASM = join(__dirname, '../polishedcrystal/data/items/descriptions.asm');
+const martsASM = join(__dirname, '../polishedcrystal/data/items/marts.asm');
 
 // Maps directory for extracting item locations
 const mapsDir = join(__dirname, '../polishedcrystal/maps');
@@ -67,6 +69,72 @@ export const extractItemsFromMapData = (mapData: string[]): LocationItem[] => {
   return items;
 };
 
+const extractMartData = (data: string[]) => {
+  // Parse marts.asm file structure following the same pattern as move descriptions
+  // Multiple mart labels can share the same item list
+
+  for (let i = 0; i < data.length; i++) {
+    const line = data[i].trim();
+
+    // Find mart labels (e.g., "Goldenrod4FMart:", "Celadon5FMart1:")
+    if (line.endsWith(':') && !line.startsWith('db') && !line.startsWith(';')) {
+      const martLabels = []; // Store all labels that share the same item list
+      let currentIndex = i;
+
+      // Collect all consecutive mart labels
+      while (
+        currentIndex < data.length &&
+        data[currentIndex].trim().endsWith(':') &&
+        !data[currentIndex].trim().startsWith('db') &&
+        !data[currentIndex].trim().startsWith(';')
+      ) {
+        const labelLine = data[currentIndex].trim();
+        const martName = reduce(labelLine.replace(':', ''));
+        martLabels.push(martName);
+        currentIndex++;
+      }
+
+      // Parse the item list that follows all the labels
+      const items: string[] = [];
+      i = currentIndex; // Start from after all labels
+
+      // Look for the item count line (db #)
+      if (i < data.length) {
+        const itemCountLine = data[i].trim();
+        if (itemCountLine.startsWith('db ')) {
+          const parts = itemCountLine.split(' ');
+          if (parts.length >= 2 && !isNaN(parseInt(parts[1]))) {
+            const itemCount = parseInt(parts[1]);
+
+            if (itemCount > 0) {
+              // Collect the next itemCount lines
+              for (let j = i + 1; j < i + 1 + itemCount && j < data.length; j++) {
+                const itemLine = data[j].trim();
+                const item = parseMartItem(itemLine);
+                if (item) items.push(item.name);
+              }
+            }
+          }
+        }
+      }
+
+      // Assign the same item list to all marts that shared the labels
+      for (const martName of martLabels) {
+        if (!itemsByLocation[martName]) {
+          itemsByLocation[martName] = [];
+        }
+
+        for (const itemName of items) {
+          itemsByLocation[martName].push({
+            name: itemName,
+            type: 'purchase',
+          });
+        }
+      }
+    }
+  }
+};
+
 /**
  * Extracts item locations from all map files
  */
@@ -75,6 +143,8 @@ const extractItemLocations = async () => {
 
   try {
     const mapFiles = await readdir(mapsDir);
+    const martRaw = await readFile(martsASM, 'utf-8');
+    const martData = splitFile(martRaw);
     let totalItemsFound = 0;
 
     for (const mapFile of mapFiles) {
@@ -99,6 +169,8 @@ const extractItemLocations = async () => {
         continue;
       }
     }
+
+    extractMartData(martData[0]);
 
     console.log(
       `Extracted ${totalItemsFound} items from ${Object.keys(itemsByLocation).length} maps`,

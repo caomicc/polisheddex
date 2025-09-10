@@ -214,6 +214,18 @@ export const parseHiddenItemEvent = (line: string) => {
   return null;
 };
 
+export const parseMartItem = (line: string) => {
+  const match = line.match(/db\s+([A-Z_]+)/);
+  if (match) {
+    const [, itemName] = match;
+    return {
+      name: reduce(itemName),
+      type: 'purchase' as const,
+    };
+  }
+  return null;
+};
+
 /**
  * Parses a fruittree_event line
  * Format: fruittree_event x, y, FRUITTREE_ID, BERRY_NAME, PAL_COLOR
