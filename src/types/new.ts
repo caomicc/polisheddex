@@ -103,6 +103,15 @@ export interface EvolutionData {
   };
 }
 
+export interface EvolutionManifest {
+  [pokemonName: string]: {
+    [formName: string]: {
+      name: string;
+      form: string;
+    }[];
+  };
+}
+
 export interface ItemData {
   id: string;
   name: string;

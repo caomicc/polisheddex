@@ -2,6 +2,16 @@
 
 export const specialTrainerClasses = ['GIOVANNI', 'LYRA1', 'RIVAL1', 'ARCHER', 'ARIANA'];
 
+export const formNumberMap: Record<string, number> = {
+  plain: 1,
+  alolan: 2,
+  galarian: 3,
+  hisuian: 4,
+  paldean: 5,
+  paldeanfire: 2,
+  paldeanwater: 3,
+};
+
 /**
  * Normalizes a string by trimming, lowercasing, and removing underscores
  * Used for Pokemon names, moves, items, abilities, etc.
