@@ -9,6 +9,7 @@ import {
   parseItemballEvent,
   parseHiddenItemEvent,
   parseFruitTreeEvent,
+  parseVerboseGiveItemEvent,
 } from '@/lib/extract-utils.ts';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -56,6 +57,9 @@ export const extractItemsFromMapData = (mapData: string[]): LocationItem[] => {
     // Parse fruit trees (fruittree_event)
     else if (trimmedLine.startsWith('fruittree_event ')) {
       const item = parseFruitTreeEvent(trimmedLine);
+      if (item) items.push(item);
+    } else if (trimmedLine.startsWith('verbosegiveitem ')) {
+      const item = parseVerboseGiveItemEvent(trimmedLine);
       if (item) items.push(item);
     }
   }

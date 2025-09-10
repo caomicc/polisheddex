@@ -389,7 +389,7 @@ export interface LocationEvent {
 }
 
 export interface LocationItem {
-  type: 'item' | 'hiddenItem' | 'tmHm' | 'berry';
+  type: 'item' | 'hiddenItem' | 'tmHm' | 'berry' | 'gift' | 'purchase';
   name: string;
   coordinates?: {
     x: number;

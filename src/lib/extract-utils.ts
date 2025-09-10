@@ -237,6 +237,22 @@ export const parseFruitTreeEvent = (line: string) => {
 };
 
 /**
+ * Parses a verbosegiveitem line
+ * Format: verbosegiveitem ITEM_NAME
+ */
+export const parseVerboseGiveItemEvent = (line: string) => {
+  if (line.match(/verbosegiveitem\s+/)) {
+    const parts = line.split(/verbosegiveitem\s+/)[1].split(',');
+    const [itemName] = parts;
+    return {
+      name: reduce(itemName),
+      type: 'gift' as const,
+    };
+  }
+  return null;
+};
+
+/**
  * Parses a trainer line
  * Format: generictrainer SWIMMERF, KENDRA, EVENT_BEAT_SWIMMERF_KENDRA, .SeenText, .BeatenText or
  * Format: 	loadtrainer KAREN, 1
