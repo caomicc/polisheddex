@@ -231,12 +231,15 @@ const processTrainerData = async (trainerData: string[], version: string) => {
       // Or: tr_mon 10, NATU
       // or: tr_mon 20, "Blossom", BELLOSSOM, FEMALE
       // or: 	tr_mon 71, MAROWAK @ THICK_CLUB, MALE | ALOLAN_FORM
+      // or: 	tr_mon 17, MUK, ALOLAN_FORM
+      // or:	tr_mon 8, TAUROS, TAUROS_PALDEAN_FIRE_FORM
 
-      // Handle form specification first by checking for | separator in the whole line
+      // Handle form specification with comprehensive parsing
       const lineContent = parseLineWithPrefix(line, 'tr_mon ');
       let formName = 'plain';
       let processLine = lineContent;
 
+      // Check for | separator form first (highest priority)
       if (lineContent.includes('|')) {
         const formSplit = lineContent.split('|');
         processLine = formSplit[0].trim();
@@ -269,12 +272,15 @@ const processTrainerData = async (trainerData: string[], version: string) => {
           pokemonPart = mainParts[1].trim();
         }
 
+        if (mainParts[2] && mainParts[2].includes('_FORM')) {
+          formName = parseForm(mainParts[2].trim());
+        }
         const { pokemon, item } = parsePokemonWithItem(pokemonPart);
 
         currentPokemon = {
           pokemonName: pokemon,
           nickname: nickname,
-          level: level,
+          level: level || -1,
           item: item,
           formName: formName,
           moves: [],
@@ -398,7 +404,7 @@ const generateMovesetForPokemon = async (
   version: string = 'polished',
 ): Promise<string[]> => {
   try {
-    // Read Pokemon data to get movesets
+    // Read Pokemon data to get movesets - use base pokemon name, not form-specific name
     const pokemonDataPath = join(outputDir, 'pokemon', `${pokemonName}.json`);
     const pokemonData: ComprehensivePokemonData = JSON.parse(
       await readFile(pokemonDataPath, 'utf-8'),
@@ -408,9 +414,13 @@ const generateMovesetForPokemon = async (
     const availableMoves: Array<{ move: string; level: number }> = [];
 
     // Use the correct version's moveset based on the version parameter
-    // i'm only curious in level-up moves for now because thats what trainers use
-    const versionMoves = pokemonData.versions?.[version]?.forms?.[formName]?.movesets?.levelUp;
-    const levelUpMoves = versionMoves;
+    // Try the specific form first, then fall back to 'plain' if the form doesn't exist
+    let levelUpMoves = pokemonData.versions?.[version]?.forms?.[formName]?.movesets?.levelUp;
+
+    // If the specific form doesn't exist or doesn't have movesets, try 'plain' form
+    if (!levelUpMoves && formName !== 'plain') {
+      levelUpMoves = pokemonData.versions?.[version]?.forms?.['plain']?.movesets?.levelUp;
+    }
 
     if (levelUpMoves) {
       for (const [, move] of Object.entries(levelUpMoves)) {
@@ -436,7 +446,7 @@ const generateMovesetForPokemon = async (
       return uniqueMoves.slice(-4); // Take last 4 unique moves
     }
 
-    return lastFourMoves.length > 0 ? lastFourMoves : [];
+    return lastFourMoves.length > 0 ? lastFourMoves : ['badge dependant'];
   } catch {
     // Silently handle missing Pokemon files - this is expected for some Pokemon
     // that may not have been extracted yet

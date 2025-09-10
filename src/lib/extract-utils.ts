@@ -148,10 +148,18 @@ export const reduce = (str: string) => {
 export const parseForm = (str: string) => {
   // Handle formats like "ALOLAN_FORM", "GALARIAN_FORM", etc.
   if (str.endsWith('_FORM')) {
-    return str.replace('_FORM', '').toLowerCase();
+    return reduce(
+      str
+        .replace('_FORM', '')
+        .replace('TAUROS_', '')
+        .replace('MAGIKARP_', '')
+        .replace('PIKACHU_', '')
+        .replace('MEWTWO_', '')
+        .replace('ARBOK_', ''),
+    );
   }
   // Fallback for other formats
-  return str.slice(4, str.indexOf('_')).toLowerCase();
+  return reduce(str.slice(4, str.indexOf('_')));
 };
 
 /**

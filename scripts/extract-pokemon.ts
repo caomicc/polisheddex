@@ -155,10 +155,10 @@ const extractMoves = (
   }
 };
 
-const extractEvolutions = (evoAttacksData: string[], pokemonForm: string | number) => {
+const extractEvolutions = (evoAttacksData: string[], version: string | number) => {
   const lines = evoAttacksData;
   let currentPokemon: PokemonData['name'] = '';
-  const formKey = String(pokemonForm);
+  const versionKey = String(version);
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
@@ -192,22 +192,22 @@ const extractEvolutions = (evoAttacksData: string[], pokemonForm: string | numbe
           }
         }
 
-        if (!(formKey in evolutionChains)) {
-          evolutionChains[formKey] = {};
+        if (!(versionKey in evolutionChains)) {
+          evolutionChains[versionKey] = {};
         }
-        if (!evolutionChains[formKey][currentPokemon]) {
-          evolutionChains[formKey][currentPokemon] = [];
+        if (!evolutionChains[versionKey][currentPokemon]) {
+          evolutionChains[versionKey][currentPokemon] = [];
         }
-        evolutionChains[formKey][currentPokemon].push(evolutionName);
+        evolutionChains[versionKey][currentPokemon].push(evolutionName);
       }
     }
   }
 };
 
-const extractPokemonMovesets = (evoAttacksData: string[], pokemonForm: string | number) => {
+const extractPokemonMovesets = (evoAttacksData: string[], version: string | number) => {
   const lines = evoAttacksData;
   let currentPokemon: PokemonData['name'] = '';
-  const formKey = String(pokemonForm);
+  const versionKey = String(version);
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
@@ -218,11 +218,11 @@ const extractPokemonMovesets = (evoAttacksData: string[], pokemonForm: string | 
       // Keep the full ROM name as key to preserve form-specific movesets
       currentPokemon = reduce(romName);
 
-      if (!(formKey in pokemonMovesets)) {
-        pokemonMovesets[formKey] = {};
+      if (!(versionKey in pokemonMovesets)) {
+        pokemonMovesets[versionKey] = {};
       }
-      if (!pokemonMovesets[formKey][currentPokemon]) {
-        pokemonMovesets[formKey][currentPokemon] = {
+      if (!pokemonMovesets[versionKey][currentPokemon]) {
+        pokemonMovesets[versionKey][currentPokemon] = {
           levelUp: [], // level and name
           tm: [], // name only
           eggMoves: [], // name only
@@ -237,16 +237,16 @@ const extractPokemonMovesets = (evoAttacksData: string[], pokemonForm: string | 
         const level = parseInt(parts[0].trim());
         const movePart = parts[1].trim();
         const move = reduce(movePart.split(';')[0]);
-        if (!pokemonMovesets[formKey][currentPokemon]) {
-          pokemonMovesets[formKey][currentPokemon] = {
+        if (!pokemonMovesets[versionKey][currentPokemon]) {
+          pokemonMovesets[versionKey][currentPokemon] = {
             levelUp: [],
             tm: [],
             eggMoves: [],
           };
         }
-        if (pokemonMovesets[formKey][currentPokemon]) {
+        if (pokemonMovesets[versionKey][currentPokemon]) {
           // Add the move to the levelUp array
-          pokemonMovesets[formKey][currentPokemon].levelUp!.push({
+          pokemonMovesets[versionKey][currentPokemon].levelUp!.push({
             name: move,
             level,
           });
@@ -254,12 +254,53 @@ const extractPokemonMovesets = (evoAttacksData: string[], pokemonForm: string | 
       }
     }
   }
+
+  // After processing all movesets, handle inheritance for forms without explicit movesets
+  handleMovesetInheritance(versionKey);
 };
 
-const extractEggMoves = (eggMovesData: string[], pokemonForm: string | number) => {
+// Helper function to handle moveset inheritance for forms without explicit movesets
+// literally only raticate and raticatealolan
+const handleMovesetInheritance = (versionKey: string) => {
+  const currentPokemonData = pokemonData[versionKey];
+
+  for (const pokemon of currentPokemonData) {
+    const baseName = pokemon.name;
+    const plainFormKey = reduce(baseName + 'Plain');
+    const plainMovesets = pokemonMovesets[versionKey]?.[plainFormKey];
+
+    if (plainMovesets && pokemon.forms) {
+      // Check each form of this Pokemon
+      for (const [formName] of Object.entries(pokemon.forms)) {
+        if (formName === 'plain') continue; // Skip plain form as it's the source
+
+        const formKey = reduce(baseName + (formName.charAt(0).toUpperCase() + formName.slice(1)));
+
+        // If this form doesn't have movesets defined, inherit from plain form
+        if (
+          !pokemonMovesets[versionKey]?.[formKey] ||
+          pokemonMovesets[versionKey][formKey].levelUp?.length === 0
+        ) {
+          if (!pokemonMovesets[versionKey]) {
+            pokemonMovesets[versionKey] = {};
+          }
+
+          // Deeeeeep copy the plain form's movesets
+          pokemonMovesets[versionKey][formKey] = {
+            levelUp: plainMovesets.levelUp ? [...plainMovesets.levelUp] : [],
+            tm: plainMovesets.tm ? [...plainMovesets.tm] : [],
+            eggMoves: plainMovesets.eggMoves ? [...plainMovesets.eggMoves] : [],
+          };
+        }
+      }
+    }
+  }
+};
+
+const extractEggMoves = (eggMovesData: string[], version: string | number) => {
   const lines = eggMovesData;
   let currentPokemon: PokemonData['name'] = '';
-  const formKey = String(pokemonForm);
+  const versionKey = String(version);
   const eggMovesByPokemon: Record<string, string[]> = {};
 
   // First pass: extract all egg moves by Pokemon name
@@ -296,18 +337,18 @@ const extractEggMoves = (eggMovesData: string[], pokemonForm: string | number) =
     const baseName = pokemonWithEggMoves.replace(/(plain|alolan|galarian|hisuian|paldean)$/i, '');
 
     // Apply these egg moves to all forms and evolutions of this Pokemon family
-    for (const [targetPokemon] of Object.entries(pokemonMovesets[formKey] || {})) {
+    for (const [targetPokemon] of Object.entries(pokemonMovesets[versionKey] || {})) {
       const targetBaseName = targetPokemon.replace(/(plain|alolan|galarian|hisuian|paldean)$/i, '');
 
       // Check if this Pokemon belongs to the same evolution family
       if (
         targetBaseName === baseName ||
-        isInSameEvolutionFamily(targetPokemon, pokemonWithEggMoves, formKey)
+        isInSameEvolutionFamily(targetPokemon, pokemonWithEggMoves, versionKey)
       ) {
-        if (pokemonMovesets[formKey][targetPokemon]) {
+        if (pokemonMovesets[versionKey][targetPokemon]) {
           // Only set egg moves if the Pokemon doesn't already have them
-          if (pokemonMovesets[formKey][targetPokemon].eggMoves?.length === 0) {
-            pokemonMovesets[formKey][targetPokemon].eggMoves = [...eggMoves];
+          if (pokemonMovesets[versionKey][targetPokemon].eggMoves?.length === 0) {
+            pokemonMovesets[versionKey][targetPokemon].eggMoves = [...eggMoves];
           }
         }
       }
