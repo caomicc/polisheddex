@@ -1,0 +1,27 @@
+{
+  "id": "ejectbutton",
+  "versions": {
+    "polished": {
+      "name": "Eject Button",
+      "description": "Switches out when hit. (Hold)",
+      "attributes": {
+        "price": 4000,
+        "effect": "HELD_SWITCH_TARGET",
+        "params": "1 << SWITCH_DEFERRED | 1 << SWITCH_TARGET | 1 << SWITCH_OPPITEM",
+        "category": "ITEMMENU_NOUSE"
+      },
+      "locations": []
+    },
+    "faithful": {
+      "name": "Eject Button",
+      "description": "Switches out when hit. (Hold)",
+      "attributes": {
+        "price": 4000,
+        "effect": "HELD_SWITCH_TARGET",
+        "params": "1 << SWITCH_DEFERRED | 1 << SWITCH_TARGET | 1 << SWITCH_OPPITEM",
+        "category": "ITEMMENU_NOUSE"
+      },
+      "locations": []
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "redcard",
+  "versions": {
+    "polished": {
+      "name": "Red Card",
+      "description": "Switches out foe when hit. (Hold)",
+      "attributes": {
+        "price": 4000,
+        "effect": "HELD_SWITCH_TARGET",
+        "params": "1 << SWITCH_DEFERRED | 1 << SWITCH_FORCED | 1 << SWITCH_OPPITEM",
+        "category": "ITEMMENU_NOUSE"
+      },
+      "locations": []
+    },
+    "faithful": {
+      "name": "Red Card",
+      "description": "Switches out foe when hit. (Hold)",
+      "attributes": {
+        "price": 4000,
+        "effect": "HELD_SWITCH_TARGET",
+        "params": "1 << SWITCH_DEFERRED | 1 << SWITCH_FORCED | 1 << SWITCH_OPPITEM",
+        "category": "ITEMMENU_NOUSE"
+      },
+      "locations": []
+    }
+  }
+}

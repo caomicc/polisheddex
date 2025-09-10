@@ -84,7 +84,6 @@ const extractTrainerFromMapData = (mapData: string[]): string[] => {
     // Look for trainer definition lines: trainer BUG_CATCHER, WADE1, EVENT_BEAT_BUG_CATCHER_WADE, ...
     if (trimmedLine.startsWith('loadtrainer ')) {
       const parts = trimmedLine.split(',');
-      console.log('Loadtrainer parts:', parts);
       if (parts.length >= 2) {
         // Extract class and name: "trainer BUG_CATCHER, WADE1" -> ["BUG_CATCHER", "WADE1"]
         const trainerClass = parts[0].replace('loadtrainer ', '').trim();

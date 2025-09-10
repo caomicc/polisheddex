@@ -1,9 +1,15 @@
 import splitFile from '../src/lib/split.ts';
-import { readFile, writeFile, mkdir } from 'fs/promises';
+import { readFile, writeFile, mkdir, rm } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { ItemsData } from '../src/types/new.ts';
-import { reduce } from '@/lib/extract-utils.ts';
+import { ItemData, ItemsManifest, ComprehensiveItemsData } from '../src/types/new.ts';
+import { LocationItem } from '@/types/types.ts';
+import {
+  reduce,
+  parseItemballEvent,
+  parseHiddenItemEvent,
+  parseFruitTreeEvent,
+} from '@/lib/extract-utils.ts';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -16,7 +22,106 @@ const wingNamesASM = join(__dirname, '../polishedcrystal/data/items/wing_names.a
 const specialNamesASM = join(__dirname, '../polishedcrystal/data/items/special_names.asm');
 const itemDescriptionsASM = join(__dirname, '../polishedcrystal/data/items/descriptions.asm');
 
-const itemsManifest: ItemsData[] = [];
+// Maps directory for extracting item locations
+const mapsDir = join(__dirname, '../polishedcrystal/maps');
+
+const itemData: Record<string, ItemData[]> = {
+  polished: [],
+  faithful: [],
+};
+// Store items by location name
+const itemsByLocation: Record<string, LocationItem[]> = {};
+
+/**
+ * Extracts all items from a map file's content
+ */
+export const extractItemsFromMapData = (mapData: string[]): LocationItem[] => {
+  const items: LocationItem[] = [];
+
+  for (const line of mapData) {
+    const trimmedLine = line.trim();
+
+    // Parse visible items (itemball_event)
+    if (trimmedLine.startsWith('itemball_event ')) {
+      const item = parseItemballEvent(trimmedLine);
+      if (item) items.push(item);
+    }
+
+    // Parse hidden items (bg_event with BGEVENT_ITEM)
+    else if (trimmedLine.includes('BGEVENT_ITEM +')) {
+      const item = parseHiddenItemEvent(trimmedLine);
+      if (item) items.push(item);
+    }
+
+    // Parse fruit trees (fruittree_event)
+    else if (trimmedLine.startsWith('fruittree_event ')) {
+      const item = parseFruitTreeEvent(trimmedLine);
+      if (item) items.push(item);
+    }
+  }
+
+  return items;
+};
+
+/**
+ * Extracts item locations from all map files
+ */
+const extractItemLocations = async () => {
+  const { readdir } = await import('fs/promises');
+
+  try {
+    const mapFiles = await readdir(mapsDir);
+    let totalItemsFound = 0;
+
+    for (const mapFile of mapFiles) {
+      if (!mapFile.endsWith('.asm')) continue;
+
+      const mapFilePath = join(mapsDir, mapFile);
+      const mapName = mapFile.replace('.asm', '');
+
+      try {
+        const raw = await readFile(mapFilePath, 'utf-8');
+        const mapData = splitFile(raw, false)[0] as string[]; // Don't remove @ symbols
+
+        const mapItems = extractItemsFromMapData(mapData);
+
+        if (mapItems.length > 0) {
+          itemsByLocation[mapName] = mapItems;
+          totalItemsFound += mapItems.length;
+        }
+      } catch (error) {
+        console.warn(`Could not read map file: ${mapFilePath}`, error);
+        // Skip files that can't be read - some might be binary or have permissions issues
+        continue;
+      }
+    }
+
+    console.log(
+      `Extracted ${totalItemsFound} items from ${Object.keys(itemsByLocation).length} maps`,
+    );
+  } catch (error) {
+    console.error('Error reading maps directory:', error);
+  }
+};
+
+/**
+ * Gets all locations where an item can be found
+ */
+const getItemLocations = (itemId: string): Array<{ area: string; method: string }> => {
+  const locations: Array<{ area: string; method: string }> = [];
+
+  for (const [locationName, locationItems] of Object.entries(itemsByLocation)) {
+    const itemsFound = locationItems.filter((item) => item.name === itemId);
+    for (const item of itemsFound) {
+      locations.push({
+        area: reduce(locationName),
+        method: item.type || 'unknown',
+      });
+    }
+  }
+
+  return locations;
+};
 
 const extractItemsData = async (
   itemsData: string[],
@@ -27,6 +132,7 @@ const extractItemsData = async (
   wingNamesData: string[],
   specialNamesData: string[],
   itemDescriptionsData: string[],
+  version: 'polished' | 'faithful',
 ) => {
   // Find item attribute lines and their preceding comments
   const itemEntries: Array<{ comment: string; attributes: string }> = [];
@@ -154,7 +260,7 @@ const extractItemsData = async (
     // console.log(`🛍️ Extracted item: ${name} (${itemId})`);
 
     if (parts.length >= 6) {
-      itemsManifest.push({
+      itemData[version].push({
         id: itemId,
         name: name,
         description: descriptions[itemId] || 'No description available.',
@@ -164,7 +270,7 @@ const extractItemsData = async (
           params: parts[2].trim() !== '0' ? parts[2].trim() : undefined,
           category: parts[4].trim() !== '0' ? parts[4].trim() : undefined,
         },
-        locations: [],
+        locations: getItemLocations(itemId),
       });
     }
   }
@@ -226,7 +332,7 @@ const extractItemsData = async (
     // console.log(`🔑 Extracted key item: ${name} (${itemId})`);
 
     if (parts.length >= 3) {
-      itemsManifest.push({
+      itemData[version].push({
         id: itemId,
         name: name,
         description: descriptions[itemId] || 'No description available.',
@@ -236,7 +342,7 @@ const extractItemsData = async (
           params: undefined,
           category: parts[1].trim() !== '0' ? parts[1].trim() : 'KEY', // Use KEY as default category
         },
-        locations: [],
+        locations: getItemLocations(itemId),
       });
     }
   }
@@ -262,7 +368,7 @@ const extractItemsData = async (
 
     // console.log(`🌰 Extracted apricorn: ${name} (${itemId})`);
 
-    itemsManifest.push({
+    itemData[version].push({
       id: itemId,
       name: name,
       description:
@@ -296,7 +402,7 @@ const extractItemsData = async (
 
     // console.log(`🍬 Extracted exp candy: ${name} (${itemId})`);
 
-    itemsManifest.push({
+    itemData[version].push({
       id: itemId,
       name: name,
       description:
@@ -331,7 +437,7 @@ const extractItemsData = async (
 
     // console.log(`🪶 Extracted wing: ${name} (${itemId})`);
 
-    itemsManifest.push({
+    itemData[version].push({
       id: itemId,
       name: name,
       description:
@@ -365,7 +471,7 @@ const extractItemsData = async (
 
     // console.log(`⚙️ Extracted special item: ${name} (${itemId})`);
 
-    itemsManifest.push({
+    itemData[version].push({
       id: itemId,
       name: name,
       description:
@@ -383,6 +489,9 @@ const extractItemsData = async (
 
 export default async function extractItems() {
   // console.log('🛍️  Starting item extraction...');
+
+  // First, extract item locations from map files
+  await extractItemLocations();
 
   //#1: Extract Items
   let raw = await readFile(itemsASM, 'utf-8');
@@ -405,6 +514,7 @@ export default async function extractItems() {
     .split('\n')
     .map((line) => line.trim());
 
+  // Extract items for both versions
   await extractItemsData(
     itemsFiles[0],
     itemNamesFiles[0],
@@ -414,25 +524,111 @@ export default async function extractItems() {
     wingNamesFiles[0],
     specialNamesFiles[0],
     itemDescriptionsData,
-  ); // Use Polished version for items
+    'polished',
+  );
+
+  await extractItemsData(
+    itemsFiles[1],
+    itemNamesFiles[1],
+    keyItemNamesFiles[1],
+    apricornNamesFiles[1],
+    expCandyNamesFiles[1],
+    wingNamesFiles[1],
+    specialNamesFiles[1],
+    itemDescriptionsData,
+    'faithful',
+  );
 
   const outputDir = join(__dirname, '..', 'new');
+  const itemsDir = join(outputDir, 'items');
 
+  // Clear and recreate items directory
   try {
+    await rm(itemsDir, { recursive: true, force: true });
+    await mkdir(itemsDir, { recursive: true });
     await mkdir(outputDir, { recursive: true });
-    console.log('Created output directories');
+    console.log('Cleared and created items directory');
   } catch (error) {
-    console.warn('Output directory already exists', error);
-    // Directory might already exist, continue
+    if (error) {
+      throw error;
+    }
   }
+
+  // Consolidate items from both versions into comprehensive format
+  const consolidatedItems: ComprehensiveItemsData[] = [];
+  const seenItems = new Set<string>();
+
+  // Process polished items
+  for (const item of itemData.polished) {
+    consolidatedItems.push({
+      id: item.id,
+      versions: {
+        polished: {
+          name: item.name,
+          description: item.description,
+          attributes: item.attributes,
+          locations: item.locations,
+        },
+      },
+    });
+    seenItems.add(item.id);
+  }
+
+  // Add faithful items (merge if already exists)
+  for (const item of itemData.faithful) {
+    const existingIndex = consolidatedItems.findIndex((ci) => ci.id === item.id);
+    if (existingIndex >= 0) {
+      // Add faithful version to existing item
+      consolidatedItems[existingIndex].versions.faithful = {
+        name: item.name,
+        description: item.description,
+        attributes: item.attributes,
+        locations: item.locations,
+      };
+    } else {
+      // Create new item with only faithful version
+      consolidatedItems.push({
+        id: item.id,
+        versions: {
+          faithful: {
+            name: item.name,
+            description: item.description,
+            attributes: item.attributes,
+            locations: item.locations,
+          },
+        },
+      });
+    }
+  }
+
+  // Write individual item files
+  await Promise.all(
+    consolidatedItems.map(async (item) => {
+      const itemPath = join(itemsDir, `${item.id}.json`);
+      await writeFile(itemPath, JSON.stringify(item, null, 2), 'utf-8');
+    }),
+  );
+
+  // Create items manifest with proper format (using polished version for manifest)
+  const itemsManifest: ItemsManifest[] = consolidatedItems.map((item) => {
+    const polishedVersion = item.versions.polished || item.versions.faithful;
+    return {
+      id: item.id,
+      name: polishedVersion!.name,
+      locationCount: polishedVersion!.locations?.length,
+    };
+  });
 
   // Write items manifest file
   const itemsManifestPath = join(outputDir, 'items_manifest.json');
   await writeFile(itemsManifestPath, JSON.stringify(itemsManifest, null, 2), 'utf-8');
 
   console.log(`✅ Items extraction completed successfully!`);
-  console.log(`   • ${itemsManifest.length} items extracted`);
-  console.log(`   • Manifest written to ${itemsManifestPath}`);
+  console.log(`   • ${consolidatedItems.length} items extracted`);
+  console.log(`   • Polished version: ${itemData.polished.length} items`);
+  console.log(`   • Faithful version: ${itemData.faithful.length} items`);
+  console.log(`   • Individual files written to ${itemsDir}`);
+  console.log(`   • Manifest with ${itemsManifest.length} items written to ${itemsManifestPath}`);
 }
 
 // Allow running this script directly

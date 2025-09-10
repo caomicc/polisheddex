@@ -1,0 +1,45 @@
+{
+  "id": "cheriberry",
+  "versions": {
+    "polished": {
+      "name": "Cheri Berry",
+      "description": "A self-cure for paralysis. (Hold)",
+      "attributes": {
+        "price": 10,
+        "effect": "HELD_HEAL_STATUS",
+        "params": "1 << PAR",
+        "category": "ITEMMENU_PARTY"
+      },
+      "locations": [
+        {
+          "area": "route46",
+          "method": "berry"
+        },
+        {
+          "area": "violetcity",
+          "method": "berry"
+        }
+      ]
+    },
+    "faithful": {
+      "name": "Cheri Berry",
+      "description": "A self-cure for paralysis. (Hold)",
+      "attributes": {
+        "price": 10,
+        "effect": "HELD_HEAL_STATUS",
+        "params": "1 << PAR",
+        "category": "ITEMMENU_PARTY"
+      },
+      "locations": [
+        {
+          "area": "route46",
+          "method": "berry"
+        },
+        {
+          "area": "violetcity",
+          "method": "berry"
+        }
+      ]
+    }
+  }
+}

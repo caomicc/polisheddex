@@ -103,7 +103,7 @@ export interface EvolutionData {
   };
 }
 
-export interface ItemsData {
+export interface ItemData {
   id: string;
   name: string;
   description: string;
@@ -117,6 +117,19 @@ export interface ItemsData {
     area: string;
     method: string;
   }>;
+}
+
+export interface ComprehensiveItemsData {
+  id: ItemData['id'];
+  versions: {
+    [versionName: string]: Omit<ItemData, 'id'>;
+  };
+}
+
+export interface ItemsManifest {
+  id: ItemData['id'];
+  name: ItemData['name'];
+  locationCount?: number;
 }
 
 export interface LocationData {
