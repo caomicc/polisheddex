@@ -1,5 +1,3 @@
-import { LocationItem } from './types';
-
 interface BaseStats {
   hp: number;
   attack: number;
@@ -141,6 +139,15 @@ export interface ItemsManifest {
   locationCount?: number;
 }
 
+export interface ItemLocation {
+  type: 'item' | 'hiddenItem' | 'tmHm' | 'berry' | 'gift' | 'purchase';
+  name: string;
+  coordinates?: {
+    x: number;
+    y: number;
+  };
+}
+
 export interface LocationData {
   id: string;
   name: string;
@@ -168,7 +175,7 @@ export interface LocationData {
     description: string;
     type: string; // itemball, fruit tree, trainer, rock smash,
   }[];
-  items?: LocationItem[];
+  items?: ItemLocation[];
   trainers?: string[];
 }
 

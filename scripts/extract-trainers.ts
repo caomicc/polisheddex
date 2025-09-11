@@ -5,7 +5,7 @@ import {
   ComprehensiveTrainerData,
   ComprehensivePokemonData,
   TrainerManifest,
-} from '../src/types/new';
+} from '@/types/new';
 import {
   createBaseTrainerKey,
   createTrainerConstantName,
@@ -19,8 +19,8 @@ import {
   reduce,
   removeNumericSuffix,
   specialTrainerClasses,
-} from '../src/lib/extract-utils';
-import splitFile from '../src/lib/split';
+} from '@/lib/extract-utils';
+import splitFile from '@/lib/split';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);

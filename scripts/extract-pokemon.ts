@@ -8,9 +8,9 @@ import {
   PokemonData,
   PokemonManifest,
   PokemonMovesets,
-} from '../src/types/new.ts';
-import { reduce } from '@/lib/extract-utils.ts';
-import splitFile from '@/lib/split.ts';
+} from '@/types/new';
+import { reduce } from '@/lib/extract-utils';
+import splitFile from '@/lib/split';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -388,9 +388,11 @@ const extractEggMoves = (eggMovesData: string[], version: string | number) => {
   // Third pass: inherit egg moves from plain form for Pokemon forms that don't have specific egg moves
   for (const [targetPokemon, movesets] of Object.entries(pokemonMovesets[versionKey] || {})) {
     if (!movesets.eggMoves || movesets.eggMoves.length === 0) {
-      const targetBaseNameMatch = targetPokemon.match(/^([a-z]+?)(plain|alolan|galarian|hisuian|paldean)?$/i);
+      const targetBaseNameMatch = targetPokemon.match(
+        /^([a-z]+?)(plain|alolan|galarian|hisuian|paldean)?$/i,
+      );
       const targetBaseName = targetBaseNameMatch ? targetBaseNameMatch[1] : targetPokemon;
-      const targetForm = targetBaseNameMatch ? (targetBaseNameMatch[2] || 'plain') : 'plain';
+      const targetForm = targetBaseNameMatch ? targetBaseNameMatch[2] || 'plain' : 'plain';
 
       // Skip if this is already the plain form
       if (targetForm === 'plain') continue;
@@ -399,8 +401,15 @@ const extractEggMoves = (eggMovesData: string[], version: string | number) => {
       const plainFormKey = reduce(targetBaseName + 'Plain');
       const plainFormMovesets = pokemonMovesets[versionKey][plainFormKey];
 
-      if (plainFormMovesets && plainFormMovesets.eggMoves && plainFormMovesets.eggMoves.length > 0) {
-        console.log(`  -> Inheriting egg moves from ${plainFormKey} to ${targetPokemon}:`, plainFormMovesets.eggMoves);
+      if (
+        plainFormMovesets &&
+        plainFormMovesets.eggMoves &&
+        plainFormMovesets.eggMoves.length > 0
+      ) {
+        console.log(
+          `  -> Inheriting egg moves from ${plainFormKey} to ${targetPokemon}:`,
+          plainFormMovesets.eggMoves,
+        );
         movesets.eggMoves = [...plainFormMovesets.eggMoves];
       }
     }

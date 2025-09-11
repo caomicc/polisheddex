@@ -1,7 +1,7 @@
 import { readFile, writeFile, mkdir, rm } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { LocationData, LocationManifest } from '../src/types/new.ts';
+import { LocationData, LocationManifest } from '@/types/new';
 import {
   reduce,
   normalizeString,
@@ -10,11 +10,11 @@ import {
   countConnections,
   displayName,
   parseTrainerLine,
-} from '../src/lib/extract-utils.ts';
-import { mapEncounterRatesToPokemon } from '../src/utils/encounterRates.ts';
-import splitFile from '@/lib/split.ts';
-import extractTrainers from './extract-trainers.ts';
-import { extractItemsFromMapData } from './extract-items.ts';
+} from '@/lib/extract-utils';
+import { mapEncounterRatesToPokemon } from '@/utils/encounterRates';
+import splitFile from '@/lib/split';
+import extractTrainers from './extract-trainers';
+import { extractItemsFromMapData } from './extract-items';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -37,7 +37,6 @@ const landmarks: {
 // File paths
 const attributesASM = join(__dirname, '../polishedcrystal/data/maps/attributes.asm');
 const landmarkConstantsASM = join(__dirname, '../polishedcrystal/constants/landmark_constants.asm');
-// const partiesASM = join(__dirname, '../polishedcrystal/data/trainers/parties.asm');
 const mapsDir = join(__dirname, '../polishedcrystal/maps');
 
 // Wild encounter files

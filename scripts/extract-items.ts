@@ -1,9 +1,8 @@
-import splitFile from '../src/lib/split.ts';
+import splitFile from '@/lib/split';
 import { readFile, writeFile, mkdir, rm } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { ItemData, ItemsManifest, ComprehensiveItemsData } from '../src/types/new.ts';
-import { LocationItem } from '@/types/types.ts';
+import { ItemData, ItemsManifest, ComprehensiveItemsData, ItemLocation } from '@/types/new';
 import {
   reduce,
   parseItemballEvent,
@@ -11,7 +10,7 @@ import {
   parseFruitTreeEvent,
   parseVerboseGiveItemEvent,
   parseMartItem,
-} from '@/lib/extract-utils.ts';
+} from '@/lib/extract-utils';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -33,13 +32,13 @@ const itemData: Record<string, ItemData[]> = {
   faithful: [],
 };
 // Store items by location name
-const itemsByLocation: Record<string, LocationItem[]> = {};
+const itemsByLocation: Record<string, ItemLocation[]> = {};
 
 /**
  * Extracts all items from a map file's content
  */
-export const extractItemsFromMapData = (mapData: string[]): LocationItem[] => {
-  const items: LocationItem[] = [];
+export const extractItemsFromMapData = (mapData: string[]): ItemLocation[] => {
+  const items: ItemLocation[] = [];
 
   for (const line of mapData) {
     const trimmedLine = line.trim();
