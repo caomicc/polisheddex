@@ -156,11 +156,10 @@ const extractMoves = (
   }
 };
 
-const extractEvolutions = (evoAttacksData: string[], version: string | number) => {
+const extractEvolutions = (evoAttacksData: string[], version: string) => {
   const lines = evoAttacksData;
   let currentPokemon: PokemonData['name'] = '';
   let currentPokemonForm: string = 'plain';
-  const versionKey = String(version);
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
@@ -185,30 +184,22 @@ const extractEvolutions = (evoAttacksData: string[], version: string | number) =
         if (parts.length >= 4 && parts[3].includes('_FORM') && !parts[3].includes('NO_FORM')) {
           const formName = reduce(parts[3].trim().replace('_FORM', ''));
           evolutionForm = formName;
-        } else {
-          // Extract form from current pokemon name (e.g., growlithehisuian -> hisuian)
-          // const formMatch = currentPokemon.match(
-          //   /([a-z]+)(plain|alolan|galarian|hisuian|paldean)$/,
-          // );
-          // if (formMatch) {
-          //   evolutionForm = formMatch[2];
-          // }
         }
 
         const basePokemon = currentPokemon.replace(/(plain|alolan|galarian|hisuian|paldean)$/i, '');
 
         // evolutionName = evolutionName + evolutionForm;
 
-        if (!(versionKey in evolutionChains)) {
-          evolutionChains[versionKey] = {};
+        if (!(version in evolutionChains)) {
+          evolutionChains[version] = {};
         }
-        if (!evolutionChains[versionKey][basePokemon]) {
-          evolutionChains[versionKey][basePokemon] = {};
+        if (!evolutionChains[version][basePokemon]) {
+          evolutionChains[version][basePokemon] = {};
         }
-        if (!evolutionChains[versionKey][basePokemon][currentPokemonForm]) {
-          evolutionChains[versionKey][basePokemon][currentPokemonForm] = [];
+        if (!evolutionChains[version][basePokemon][currentPokemonForm]) {
+          evolutionChains[version][basePokemon][currentPokemonForm] = [];
         }
-        evolutionChains[versionKey][basePokemon][currentPokemonForm].push({
+        evolutionChains[version][basePokemon][currentPokemonForm].push({
           name: evolutionName,
           form: evolutionForm,
         });
@@ -353,11 +344,6 @@ const extractEggMoves = (eggMovesData: string[], version: string | number) => {
     const baseName = baseNameMatch ? baseNameMatch[1] : pokemonWithEggMoves;
     const sourceForm = baseNameMatch ? baseNameMatch[2] || 'plain' : 'plain';
 
-    console.log(
-      `Applying egg moves for ${pokemonWithEggMoves} (base: ${baseName}, form: ${sourceForm}) in version ${versionKey}:`,
-      eggMoves,
-    );
-
     // Apply these egg moves to all forms and evolutions of this Pokemon family
     for (const [targetPokemon] of Object.entries(pokemonMovesets[versionKey] || {})) {
       const targetBaseNameMatch = targetPokemon.match(
@@ -372,9 +358,6 @@ const extractEggMoves = (eggMovesData: string[], version: string | number) => {
       const inEvolutionFamily = isInSameEvolutionFamily(targetBaseName, baseName, versionKey);
 
       if (sameForm && (sameBaseFamily || inEvolutionFamily)) {
-        console.log(
-          `  -> Applying to ${targetPokemon} (base: ${targetBaseName}, form: ${targetForm})`,
-        );
         if (pokemonMovesets[versionKey][targetPokemon]) {
           // Only set egg moves if the Pokemon doesn't already have them
           if (pokemonMovesets[versionKey][targetPokemon].eggMoves?.length === 0) {
@@ -406,10 +389,6 @@ const extractEggMoves = (eggMovesData: string[], version: string | number) => {
         plainFormMovesets.eggMoves &&
         plainFormMovesets.eggMoves.length > 0
       ) {
-        console.log(
-          `  -> Inheriting egg moves from ${plainFormKey} to ${targetPokemon}:`,
-          plainFormMovesets.eggMoves,
-        );
         movesets.eggMoves = [...plainFormMovesets.eggMoves];
       }
     }
