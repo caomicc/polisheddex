@@ -3,13 +3,13 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import {
   ComprehensivePokemonData,
-  EvolutionManifest,
+  EvolutionData,
   MoveData,
   PokemonData,
   PokemonManifest,
   PokemonMovesets,
 } from '@/types/new';
-import { reduce } from '@/lib/extract-utils';
+import { parseEvolutionParameter, reduce } from '@/lib/extract-utils';
 import splitFile from '@/lib/split';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -23,7 +23,7 @@ const mergedPokemon: ComprehensivePokemonData[] = [];
 const movesManifest: Record<string, MoveData> = {};
 const pokemonMovesets: Record<string, Record<string, PokemonMovesets>> = {};
 const pokemonTMCompatibility: Record<string, Record<string, string[]>> = {};
-const evolutionChains: Record<string, EvolutionManifest> = {};
+const evolutionChains: Record<string, Record<string, EvolutionData[]>> = {};
 
 //Paths
 const namesASM = join(__dirname, '../polishedcrystal/data/pokemon/names.asm');
@@ -177,7 +177,7 @@ const extractEvolutions = (evoAttacksData: string[], version: string) => {
     if (line.startsWith('evo_data ') && currentPokemon) {
       const parts = line.split(',');
       if (parts.length >= 3) {
-        const evolutionName = reduce(parts[2].trim());
+        const evolutionName = reduce(parts[2].includes('TR_') ? parts[3].trim() : parts[2].trim());
         let evolutionForm = 'plain';
 
         // Handle form-specific evolutions (e.g., ARCANINE, HISUIAN_FORM)
@@ -194,14 +194,22 @@ const extractEvolutions = (evoAttacksData: string[], version: string) => {
           evolutionChains[version] = {};
         }
         if (!evolutionChains[version][basePokemon]) {
-          evolutionChains[version][basePokemon] = {};
+          evolutionChains[version][basePokemon] = [];
         }
-        if (!evolutionChains[version][basePokemon][currentPokemonForm]) {
-          evolutionChains[version][basePokemon][currentPokemonForm] = [];
-        }
-        evolutionChains[version][basePokemon][currentPokemonForm].push({
-          name: evolutionName,
-          form: evolutionForm,
+
+        evolutionChains[version][basePokemon].push({
+          from: {
+            name: basePokemon,
+            formName: currentPokemonForm,
+          },
+          to: {
+            name: evolutionName,
+            formName: evolutionForm,
+          },
+          method: {
+            action: reduce(parts[0].replace('evo_data ', '').trim().split('EVOLVE_')[1]),
+            parameter: parseEvolutionParameter(parts[1].trim()),
+          },
         });
       }
     }
@@ -405,18 +413,14 @@ const isInSameEvolutionFamily = (pokemon1: string, pokemon2: string, formKey: st
     visited.add(pokemon);
 
     if (chains[pokemon]) {
-      for (const evolutions of Object.values(chains[pokemon])) {
-        for (const evolution of evolutions) {
-          findAllConnected(evolution.name, visited);
-        }
+      for (const evolution of chains[pokemon]) {
+        findAllConnected(evolution.to.name, visited);
       }
     }
     // Find all Pokemon that evolve into this one
-    for (const [basePokemon, formEvolutions] of Object.entries(chains)) {
-      for (const evolutions of Object.values(formEvolutions)) {
-        if (evolutions.some((evolution) => evolution.name === pokemon)) {
-          findAllConnected(basePokemon, visited);
-        }
+    for (const [basePokemon, evolutions] of Object.entries(chains)) {
+      if (evolutions.some((evolution) => evolution.to.name === pokemon)) {
+        findAllConnected(basePokemon, visited);
       }
     }
 

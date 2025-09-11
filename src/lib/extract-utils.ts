@@ -301,3 +301,12 @@ export const parseTrainerLine = (line: string): string | null => {
 
   return null;
 };
+
+export const parseEvolutionParameter = (line: string): number | string | undefined => {
+  const parameter = line.includes('TR_') ? line.replace('TR_', '') : line;
+  return isNaN(Number(parameter))
+    ? reduce(parameter)
+    : Number(parameter) < 0
+      ? undefined
+      : Number(parameter);
+};

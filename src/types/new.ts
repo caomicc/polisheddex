@@ -89,11 +89,11 @@ export interface AbilityManifest {
 export interface EvolutionData {
   from: {
     name: PokemonData['name'];
-    formNumber?: number;
+    formName?: string;
   };
   to: {
     name: PokemonData['name'];
-    formNumber?: number;
+    formName?: string;
   };
   method: {
     action: string;
