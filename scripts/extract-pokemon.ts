@@ -2,6 +2,7 @@ import { readFile, readdir, writeFile, mkdir, rm } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import {
+  AbilityManifest,
   ComprehensivePokemonData,
   EvolutionData,
   MoveData,
@@ -20,10 +21,11 @@ const pokemonData: Record<string, PokemonData[]> = {
 };
 
 const mergedPokemon: ComprehensivePokemonData[] = [];
-const movesManifest: Record<string, MoveData> = {};
 const pokemonMovesets: Record<string, Record<string, PokemonMovesets>> = {};
+const movesManifest: Record<string, MoveData> = {};
 const pokemonTMCompatibility: Record<string, Record<string, string[]>> = {};
 const evolutionChains: Record<string, Record<string, EvolutionData[]>> = {};
+const abilitiesManifest: Record<string, Record<string, AbilityManifest>> = {};
 
 //Paths
 const namesASM = join(__dirname, '../polishedcrystal/data/pokemon/names.asm');
@@ -34,6 +36,11 @@ const moveNamesASM = join(__dirname, '../polishedcrystal/data/moves/names.asm');
 const moveDescriptionsASM = join(__dirname, '../polishedcrystal/data/moves/descriptions.asm');
 const evoAttacksASM = join(__dirname, '../polishedcrystal/data/pokemon/evos_attacks.asm');
 const eggMovesASM = join(__dirname, '../polishedcrystal/data/pokemon/egg_moves.asm');
+const abilityNamesASM = join(__dirname, '../polishedcrystal/data/abilities/names.asm');
+const abilityDescriptionsASM = join(
+  __dirname,
+  '../polishedcrystal/data/abilities/descriptions.asm',
+);
 
 const extractMoves = (
   movesData: string[],
@@ -151,6 +158,116 @@ const extractMoves = (
         pp: pp,
         category: category,
         description: descriptions[moveId] || '',
+      };
+    }
+  }
+};
+
+const extractAbilities = (
+  abilityNamesData: string[],
+  abilityDescriptionsData: string[],
+  version: string,
+) => {
+  // Parse descriptions into a map
+  const descriptions: Record<string, string> = {};
+
+  for (let i = 0; i < abilityDescriptionsData.length; i++) {
+    const line = abilityDescriptionsData[i].trim();
+
+    // Find description labels (e.g., "StenchDescription:")
+    if (line.endsWith('Description:')) {
+      const abilityLabels = []; // Store all labels that share the same description
+      let currentIndex = i;
+
+      // Collect all consecutive description labels
+      while (
+        currentIndex < abilityDescriptionsData.length &&
+        abilityDescriptionsData[currentIndex].trim().endsWith('Description:')
+      ) {
+        const labelLine = abilityDescriptionsData[currentIndex].trim();
+        const abilityDescriptionName = labelLine.replace('Description:', '');
+        const abilityId = reduce(abilityDescriptionName);
+        abilityLabels.push(abilityId);
+        currentIndex++;
+      }
+
+      // Parse the description text that follows all the labels
+      let description = '';
+      i = currentIndex; // Start from after all labels
+
+      while (i < abilityDescriptionsData.length) {
+        const descLine = abilityDescriptionsData[i].trim();
+
+        if (descLine === 'done') {
+          break; // End of this description
+        }
+
+        // Check if we've hit the next description label (stop condition for db format)
+        if (descLine.endsWith('Description:')) {
+          i--; // Step back so outer loop will process this label
+          break;
+        }
+
+        // Extract text from 'text "..."', 'next "..."', or 'db "..."' lines (with flexible spacing)
+        if (
+          descLine.startsWith('text "') ||
+          descLine.startsWith('next "') ||
+          descLine.match(/^db\s+"/) // Allow flexible spacing after db
+        ) {
+          let textContent = descLine.replace(/^(text|next|db)\s*"/, '').replace(/"$/, '');
+
+          // Handle special @ terminator
+          let isEndOfDescription = false;
+          if (textContent.endsWith('@')) {
+            textContent = textContent.replace('@', '').trim();
+            isEndOfDescription = true;
+          }
+
+          // Add the text content
+          if (description) {
+            description += ' ' + textContent; // Add space between lines
+          } else {
+            description = textContent;
+          }
+
+          description = description.replace(/-\s+/g, '').replace(/#mon/g, 'Pokemon').trim(); // Clean up extra spaces
+
+          // Break after adding the content if @ was found
+          if (isEndOfDescription) {
+            break; // @ indicates end of description
+          }
+        }
+
+        i++;
+      }
+
+      // Assign the same description to all abilities that shared the labels
+      for (const abilityId of abilityLabels) {
+        descriptions[abilityId] = description;
+      }
+    }
+  }
+
+  // Parse ability names and create the manifest
+  const abilityNameLines = abilityNamesData.filter((line) => 
+    line.trim().includes('rawchar "') && !line.includes('NoAbility')
+  );
+
+  if (!abilitiesManifest[version]) {
+    abilitiesManifest[version] = {};
+  }
+
+  for (const nameLine of abilityNameLines) {
+    const line = nameLine.trim();
+    
+    // Parse ability name: AbilityName: rawchar "Ability Name@"
+    const abilityId = reduce(line.split(':')[0]);
+    const name = line.split('rawchar "')[1]?.replace('"', '').replace('@', '').trim();
+
+    if (abilityId && name) {
+      abilitiesManifest[version][abilityId] = {
+        name: name,
+        description: descriptions[abilityId] || 'No description available.',
       };
     }
   }
@@ -777,6 +894,14 @@ const eggMovesFiles = splitFile(raw);
 extractEggMoves(eggMovesFiles[0], 'polished');
 extractEggMoves(eggMovesFiles[1], 'faithful');
 
+//#8: Extract Abilities
+raw = await readFile(abilityNamesASM, 'utf-8');
+const abilityNamesFiles = splitFile(raw);
+raw = await readFile(abilityDescriptionsASM, 'utf-8');
+const abilityDescriptionsFiles = splitFile(raw);
+extractAbilities(abilityNamesFiles[0], abilityDescriptionsFiles[0], 'polished');
+extractAbilities(abilityNamesFiles[1], abilityDescriptionsFiles[1], 'faithful');
+
 // Merge Pokemon data by combining Polished and Faithful versions
 const mergeVersions = () => {
   const polishedPokemon = pokemonData.polished;
@@ -983,6 +1108,10 @@ await writeFile(manifestPath, JSON.stringify(manifest, null, 2), 'utf-8');
 // Write moves manifest file
 const movesManifestPath = join(outputDir, 'moves_manifest.json');
 await writeFile(movesManifestPath, JSON.stringify(movesManifest, null, 2), 'utf-8');
+
+// Write moves manifest file
+const abilitiesManifestPath = join(outputDir, 'abilities_manifest.json');
+await writeFile(abilitiesManifestPath, JSON.stringify(abilitiesManifest, null, 2), 'utf-8');
 
 // Write Evolution Chains file
 const evolutionChainsPath = join(outputDir, 'evolution_chains.json');
