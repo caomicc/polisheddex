@@ -170,6 +170,7 @@ const extractEncounters = async (filePaths: string[], encounterType: string) => 
           version: string;
           levelRange: string;
           rate: number;
+          formName: string;
         }> = [];
 
         while (i < encounterData.length) {
@@ -189,6 +190,7 @@ const extractEncounters = async (filePaths: string[], encounterType: string) => 
                 .replace('+ ', '+')
                 .trim();
               const pokemon = normalizeString(parts[1]);
+              const formMatch = reduce(parts[2] ? parts[2]?.replace('_FORM', '') : 'plain');
 
               currentLocationEncounters.push({
                 pokemon: pokemon,
@@ -196,6 +198,7 @@ const extractEncounters = async (filePaths: string[], encounterType: string) => 
                 version: timeSlots[currentTimeSlot],
                 levelRange: level,
                 rate: 0, // Will be calculated later
+                formName: formMatch, // Will be determined later
               });
             }
           } else if (encounterLine.includes('; day')) {
