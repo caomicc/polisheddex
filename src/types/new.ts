@@ -153,7 +153,9 @@ export interface LocationData {
   name: string;
   constantName?: string;
   connectionCount?: number;
-  isLandmark?: boolean;
+  type?: string[]; // gate, pokemon center, mart, gym, building, landmark.. etc
+  isMart?: boolean;
+  isPokemonCenter?: boolean;
   order?: number;
   region?: string;
   encounters?: {
@@ -183,7 +185,7 @@ export interface LocationManifest {
   id: LocationData['id'];
   name: LocationData['name'];
   constantName?: LocationData['constantName'];
-  isLandmark?: LocationData['isLandmark'];
+  type?: LocationData['type'];
   region?: LocationData['region'];
   order?: number;
   connections?: number;

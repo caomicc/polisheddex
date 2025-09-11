@@ -319,12 +319,124 @@ const extractMapTrainers = async () => {
 
 // Merge all data into final location objects
 const mergeLocationData = async () => {
+  const buildingStrings = [
+    'house',
+    'charcoalkiln',
+    'daycare',
+    'academy',
+    'university',
+    'mansion',
+    'villa',
+    'gamecorner',
+    'tower',
+    'factory',
+    'hideout',
+    'trainstation',
+    'museum',
+    'hotel',
+    'rater',
+    'chamber',
+    'room',
+    'cafe',
+    'slab', // ivyslab, oakslab
+    'shack',
+    'policestation',
+    'center',
+    'photostudio',
+    'pharmacy',
+    'shop',
+    'dojo',
+    'club',
+    'inside',
+    'theatre',
+    'ship',
+    'colosseum',
+    'hall',
+    'merchant',
+    'silph',
+  ];
+  const caveStrings = [
+    'cave',
+    'mountmoon',
+    'whirlisland',
+    'volcano',
+    'mount',
+    'rock',
+    'seafoamisland',
+    'dragonshrine',
+    'dragonsden',
+    'victoryroad',
+    'icepath',
+    'tunnel',
+    'slowpokewell',
+  ];
+  const outsideStrings = [
+    'outside',
+    'beach',
+    'jungle',
+    'forest',
+    'roof',
+    'port',
+    'grotto',
+    'park',
+    'road',
+    'shrineruins',
+    'channel',
+  ];
+
   for (const [locationKey, connectionCount] of Object.entries(connections)) {
     const locationId = reduce(locationKey);
     const locationName = displayName(locationKey);
 
-    // Check landmark data
-    const isLandmark = landmarks.locationRefs.has(locationId);
+    const locationType = [];
+    if (landmarks.locationRefs.has(locationId)) {
+      locationType.push('landmark');
+    }
+    if (locationId.includes('mart') || locationId.includes('store')) {
+      locationType.push('mart');
+    }
+    if (
+      locationId.includes('route') &&
+      !locationId.includes('gate') &&
+      !locationId.includes('house') &&
+      !locationId.includes('pokecenter')
+    ) {
+      locationType.push('route');
+    }
+    if (locationId.includes('gate')) {
+      locationType.push('gate');
+    }
+    if (
+      buildingStrings.some((str) => locationId.includes(str)) &&
+      !caveStrings.some((str) => locationId.includes(str)) &&
+      !locationId.includes('pokecenter')
+    ) {
+      locationType.push('building');
+    }
+    if (locationId.includes('pokecenter')) {
+      locationType.push('pokecenter');
+    }
+    if (locationId.includes('gym') && !locationId.includes('house')) {
+      locationType.push('gym');
+    }
+    if (locationId.includes('safari')) {
+      locationType.push('safarizone');
+    }
+    if (
+      caveStrings.some((str) => locationId.includes(str)) &&
+      !outsideStrings.every((str) => locationId.includes(str))
+    ) {
+      locationType.push('cave');
+    }
+    if (
+      outsideStrings.some(
+        (str) =>
+          locationId.includes(str) && !locationId.includes('cave') && !locationId.includes('gate'),
+      )
+    ) {
+      locationType.push('outside');
+    }
+
     const order = landmarks.orderMap.get(locationId);
     const region = landmarks.regionMap.get(locationId);
 
@@ -354,7 +466,7 @@ const mergeLocationData = async () => {
       name: locationName,
       constantName: locationConstant,
       connectionCount: connectionCount,
-      isLandmark: isLandmark,
+      type: locationType,
       order: order,
       region: region,
       encounters: locationEncounters,
@@ -412,16 +524,15 @@ await Promise.all(
     // Add to manifest (excluding trainerData, only including trainer names)
     locationManifest.push({
       id: location.id,
-      constantName: location.constantName || '',
       name: location.name,
-      isLandmark: location.isLandmark || false,
+      type: location.type,
       region: location.region,
       order: location.order,
-      connections: location.connectionCount,
-      encounterCount: location.encounters
-        ? new Set(location.encounters.map((e) => e.pokemon)).size
-        : 0,
-      trainerCount: location.trainers?.length || 0,
+      encounterCount:
+        location.encounters && location.encounters.length > 0
+          ? new Set(location.encounters.map((e) => e.pokemon)).size
+          : undefined,
+      trainerCount: location.trainers?.length,
     });
   }),
 );
