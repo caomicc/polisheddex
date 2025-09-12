@@ -1,23 +1,66 @@
 {
   "id": "transform",
   "name": "Transform",
-  "description": "The user assumes the foe's guise.",
   "versions": {
     "faithful": {
+      "name": "TRANSFORM",
+      "description": "The user assumes the foe's guise.",
       "power": 0,
       "type": "normal",
       "accuracy": 100,
       "pp": 10,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "ditto",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "mew",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "TRANSFORM",
+      "description": "The user assumes the foe's guise.",
       "power": 0,
       "type": "normal",
       "accuracy": 100,
       "pp": 10,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "ditto",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "mew",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        }
+      ]
     }
   }
 }

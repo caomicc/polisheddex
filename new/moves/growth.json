@@ -1,23 +1,452 @@
 {
   "id": "growth",
   "name": "Growth",
-  "description": "Raises the user's Atk and Sp.Atk.",
   "versions": {
     "faithful": {
+      "name": "GROWTH",
+      "description": "Raises the user's Atk and Sp.Atk.",
       "power": 0,
       "type": "normal",
       "accuracy": 100,
       "pp": 20,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "ariados",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "id": "bellossom",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "id": "bellsprout",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ]
+        },
+        {
+          "id": "bulbasaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "id": "eevee",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "id": "gloom",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 54
+            }
+          ]
+        },
+        {
+          "id": "ivysaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "oddish",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ]
+        },
+        {
+          "id": "paras",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "id": "parasect",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "id": "poliwag",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 35
+            }
+          ]
+        },
+        {
+          "id": "poliwhirl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "id": "porygon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "porygon2",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "porygonz",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "spinarak",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "id": "sunflora",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "sunkern",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "tangela",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "tangrowth",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "venusaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "vileplume",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "id": "weepinbell",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "GROWTH",
+      "description": "Raises the user's Atk and Sp.Atk.",
       "power": 0,
       "type": "normal",
       "accuracy": 100,
       "pp": 20,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "ariados",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "id": "bellossom",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "id": "bellsprout",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ]
+        },
+        {
+          "id": "bulbasaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "id": "eevee",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "id": "gloom",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 54
+            }
+          ]
+        },
+        {
+          "id": "ivysaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "oddish",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ]
+        },
+        {
+          "id": "paras",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "id": "parasect",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "id": "poliwag",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 35
+            }
+          ]
+        },
+        {
+          "id": "poliwhirl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "id": "porygon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "porygon2",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "porygonz",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "spinarak",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "id": "sunflora",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "sunkern",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "tangela",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "tangrowth",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "venusaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "vileplume",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "id": "weepinbell",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ]
+        }
+      ]
     }
   }
 }

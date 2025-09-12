@@ -1,23 +1,716 @@
 {
   "id": "bubblebeam",
   "name": "Bubble Beam",
-  "description": "An attack that may lower Speed.",
   "versions": {
     "faithful": {
+      "name": "BUBBLE BEAM",
+      "description": "An attack that may lower Speed.",
       "power": 65,
       "type": "water",
       "accuracy": 100,
       "pp": 20,
       "effectChance": 10,
-      "category": "special"
+      "category": "special",
+      "learners": [
+        {
+          "id": "azumarill",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "id": "azurill",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "id": "chinchou",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ]
+        },
+        {
+          "id": "cloyster",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "corsola",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "id": "dewgong",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "id": "horsea",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "id": "kabuto",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "kabutops",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "kingdra",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "id": "kingler",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "id": "krabby",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "id": "lanturn",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ]
+        },
+        {
+          "id": "mantine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ]
+        },
+        {
+          "id": "mantyke",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ]
+        },
+        {
+          "id": "marill",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "id": "octillery",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "id": "omanyte",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "omastar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "overqwil",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "persian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "persian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "politoed",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "poliwag",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "poliwhirl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "poliwrath",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "qwilfish",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "qwilfish",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "remoraid",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "id": "seadra",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "id": "seel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "id": "shellder",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 32
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "staryu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "id": "suicune",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "tentacool",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "id": "tentacruel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "BUBBLE BEAM",
+      "description": "An attack that may lower Speed.",
       "power": 65,
       "type": "water",
       "accuracy": 100,
       "pp": 20,
       "effectChance": 10,
-      "category": "special"
+      "category": "special",
+      "learners": [
+        {
+          "id": "azumarill",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "id": "azurill",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "id": "chinchou",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ]
+        },
+        {
+          "id": "cloyster",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "corsola",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "id": "dewgong",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "id": "horsea",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "id": "kabuto",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "kabutops",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "kingdra",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "id": "kingler",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "id": "krabby",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "id": "lanturn",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ]
+        },
+        {
+          "id": "mantine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ]
+        },
+        {
+          "id": "mantyke",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ]
+        },
+        {
+          "id": "marill",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "id": "octillery",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "id": "omanyte",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "omastar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "overqwil",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "persian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "persian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "politoed",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "poliwag",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "poliwhirl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "poliwrath",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "qwilfish",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "qwilfish",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "remoraid",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "id": "seadra",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "id": "seel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "id": "shellder",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 32
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "staryu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "id": "suicune",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "tentacool",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "id": "tentacruel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        }
+      ]
     }
   }
 }

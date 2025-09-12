@@ -1,23 +1,658 @@
 {
   "id": "barrier",
   "name": "Barrier",
-  "description": "Sharply raises the user's Defense.",
   "versions": {
     "faithful": {
+      "name": "BARRIER",
+      "description": "Sharply raises the user's Defense.",
       "power": 0,
       "type": "psychic",
       "accuracy": 100,
       "pp": 20,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "abra",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "alakazam",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "cloyster",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "corsola",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "corsola",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "cursola",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "dragonair",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ]
+        },
+        {
+          "id": "dragonite",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ]
+        },
+        {
+          "id": "dratini",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "id": "drowzee",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "electabuzz",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "electivire",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "elekid",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "glaceon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "id": "hypno",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "kadabra",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ledian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "ledyba",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "id": "magby",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "magmar",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "magmortar",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "magnezone",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "mew",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "id": "mewtwo",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "id": "mewtwo",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "id": "mimejr",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "porygon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "id": "porygon2",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "id": "porygonz",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "id": "shellder",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "tentacool",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "tentacruel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "vaporeon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "BARRIER",
+      "description": "Sharply raises the user's Defense.",
       "power": 0,
       "type": "psychic",
       "accuracy": 100,
       "pp": 20,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "abra",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "alakazam",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "cloyster",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "corsola",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "corsola",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "cursola",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "dragonair",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ]
+        },
+        {
+          "id": "dragonite",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ]
+        },
+        {
+          "id": "dratini",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "id": "drowzee",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "electabuzz",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "electivire",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "elekid",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "glaceon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "id": "hypno",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "kadabra",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ledian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "ledyba",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "id": "magby",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "magmar",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "magmortar",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "magnezone",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "mew",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "id": "mewtwo",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "id": "mewtwo",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "id": "mimejr",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "porygon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "id": "porygon2",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "id": "porygonz",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "id": "shellder",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "tentacool",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "tentacruel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "vaporeon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            }
+          ]
+        }
+      ]
     }
   }
 }

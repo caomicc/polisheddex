@@ -1,23 +1,358 @@
 {
   "id": "iceshard",
   "name": "Ice Shard",
-  "description": "Hurls icy shards. Always goes first.",
   "versions": {
     "faithful": {
+      "name": "ICE SHARD",
+      "description": "Hurls icy shards. Always goes first.",
       "power": 40,
       "type": "ice",
       "accuracy": 100,
       "pp": 30,
       "effectChance": 0,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "articuno",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "dewgong",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "id": "donphan",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "glaceon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "lapras",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "id": "mamoswine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "ninetales",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "phanpy",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "piloswine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "seel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "id": "shellder",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "sneasel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "sneasel",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "sneasler",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "swinub",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "vulpix",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "id": "weavile",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "ICE SHARD",
+      "description": "Hurls icy shards. Always goes first.",
       "power": 40,
       "type": "ice",
       "accuracy": 100,
       "pp": 30,
       "effectChance": 0,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "articuno",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "dewgong",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "id": "donphan",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "glaceon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "lapras",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "id": "mamoswine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "ninetales",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "phanpy",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "piloswine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "seel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "id": "shellder",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "sneasel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "sneasel",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "sneasler",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "swinub",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "vulpix",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "id": "weavile",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        }
+      ]
     }
   }
 }

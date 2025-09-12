@@ -1,23 +1,350 @@
 {
   "id": "metronome",
   "name": "Metronome",
-  "description": "Randomly uses any Pokémon move.",
   "versions": {
     "faithful": {
+      "name": "METRONOME",
+      "description": "Randomly uses any Pokémon move.",
       "power": 0,
       "type": "normal",
       "accuracy": 100,
       "pp": 10,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "blissey",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "celebi",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "chansey",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "clefable",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "clefairy",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            }
+          ]
+        },
+        {
+          "id": "cleffa",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "granbull",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "happiny",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "jynx",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "mew",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "mimejr",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "id": "munchlax",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "smoochum",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "snubbull",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "togepi",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "togetic",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "METRONOME",
+      "description": "Randomly uses any Pokémon move.",
       "power": 0,
       "type": "unknownt",
       "accuracy": 100,
       "pp": 20,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "blissey",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "celebi",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "chansey",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "clefable",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "clefairy",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            }
+          ]
+        },
+        {
+          "id": "cleffa",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "granbull",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "happiny",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "jynx",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "mew",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "mimejr",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "id": "munchlax",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "smoochum",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "snubbull",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "togepi",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "togetic",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        }
+      ]
     }
   }
 }

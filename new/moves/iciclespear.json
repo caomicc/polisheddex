@@ -1,23 +1,280 @@
 {
   "id": "iciclespear",
   "name": "Icicle Spear",
-  "description": "Fires icicles to hit 2-5 times.",
   "versions": {
     "faithful": {
+      "name": "ICICLE SPEAR",
+      "description": "Fires icicles to hit 2-5 times.",
       "power": 25,
       "type": "ice",
       "accuracy": 100,
       "pp": 30,
       "effectChance": 0,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "cloyster",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "corsola",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "corsola",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "cursola",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "dewgong",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mamoswine",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "omastar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "piloswine",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "sandshrew",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "sandslash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "seel",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "shellder",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "swinub",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "ICICLE SPEAR",
+      "description": "Fires icicles to hit 2-5 times.",
       "power": 25,
       "type": "ice",
       "accuracy": 100,
       "pp": 30,
       "effectChance": 0,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "cloyster",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "corsola",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "corsola",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "cursola",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "dewgong",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mamoswine",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "omastar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "piloswine",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "sandshrew",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "sandslash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "seel",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "shellder",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "swinub",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        }
+      ]
     }
   }
 }

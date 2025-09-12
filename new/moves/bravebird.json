@@ -1,23 +1,452 @@
 {
   "id": "bravebird",
   "name": "Brave Bird",
-  "description": "A charge that also hurts the user.",
   "versions": {
     "faithful": {
+      "name": "BRAVE BIRD",
+      "description": "A charge that also hurts the user.",
       "power": 120,
       "type": "flying",
       "accuracy": 100,
       "pp": 15,
       "effectChance": 0,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "aerodactyl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            }
+          ]
+        },
+        {
+          "id": "articuno",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 78
+            }
+          ]
+        },
+        {
+          "id": "articuno",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 78
+            }
+          ]
+        },
+        {
+          "id": "crobat",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "dodrio",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "doduo",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 55
+            }
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 65
+            }
+          ]
+        },
+        {
+          "id": "golbat",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "honchkrow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 65
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "hooh",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 99
+            }
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "moltres",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 78
+            }
+          ]
+        },
+        {
+          "id": "moltres",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 78
+            }
+          ]
+        },
+        {
+          "id": "murkrow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 65
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "noctowl",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "pidgeot",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "pidgeotto",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "pidgey",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "sirfetchd",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 65
+            }
+          ]
+        },
+        {
+          "id": "skarmory",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "zapdos",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 78
+            }
+          ]
+        },
+        {
+          "id": "zapdos",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 78
+            }
+          ]
+        },
+        {
+          "id": "zubat",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "BRAVE BIRD",
+      "description": "A charge that also hurts the user.",
       "power": 120,
       "type": "flying",
       "accuracy": 100,
       "pp": 15,
       "effectChance": 0,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "aerodactyl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            }
+          ]
+        },
+        {
+          "id": "articuno",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 78
+            }
+          ]
+        },
+        {
+          "id": "articuno",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 78
+            }
+          ]
+        },
+        {
+          "id": "crobat",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "dodrio",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "doduo",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 55
+            }
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 65
+            }
+          ]
+        },
+        {
+          "id": "golbat",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "honchkrow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 65
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "hooh",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 99
+            }
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "moltres",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 78
+            }
+          ]
+        },
+        {
+          "id": "moltres",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 78
+            }
+          ]
+        },
+        {
+          "id": "murkrow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 65
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "noctowl",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "pidgeot",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "pidgeotto",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "pidgey",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "sirfetchd",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 65
+            }
+          ]
+        },
+        {
+          "id": "skarmory",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "zapdos",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 78
+            }
+          ]
+        },
+        {
+          "id": "zapdos",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 78
+            }
+          ]
+        },
+        {
+          "id": "zubat",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        }
+      ]
     }
   }
 }

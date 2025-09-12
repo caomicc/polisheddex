@@ -1,23 +1,214 @@
 {
   "id": "dragonclaw",
   "name": "Dragon Claw",
-  "description": "Slashes the foe with sharp claws.",
   "versions": {
     "faithful": {
+      "name": "DRAGON CLAW",
+      "description": "Slashes the foe with sharp claws.",
       "power": 80,
       "type": "dragon",
       "accuracy": 100,
       "pp": 15,
       "effectChance": 0,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "aerodactyl",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "charizard",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "charmander",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "charmeleon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "croconaw",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "dragonite",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "feraligatr",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mew",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "totodile",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "tyranitar",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "yanmega",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "DRAGON CLAW",
+      "description": "Slashes the foe with sharp claws.",
       "power": 80,
       "type": "dragon",
       "accuracy": 100,
       "pp": 15,
       "effectChance": 0,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "aerodactyl",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "charizard",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "charmander",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "charmeleon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "croconaw",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "dragonite",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "feraligatr",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mew",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "totodile",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "tyranitar",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "yanmega",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        }
+      ]
     }
   },
   "tm": {

@@ -1,23 +1,1524 @@
 {
   "id": "growl",
   "name": "Growl",
-  "description": "A move that lowers the foe's Attack.",
   "versions": {
     "faithful": {
+      "name": "GROWL",
+      "description": "A move that lowers the foe's Attack.",
       "power": 0,
       "type": "normal",
       "accuracy": 100,
       "pp": 40,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "ampharos",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "arcanine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "arcanine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "azumarill",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 2
+            }
+          ]
+        },
+        {
+          "id": "azurill",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 2
+            }
+          ]
+        },
+        {
+          "id": "bayleef",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "blissey",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "bulbasaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 3
+            }
+          ]
+        },
+        {
+          "id": "chansey",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "charizard",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "charmander",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "charmeleon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "chikorita",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "clefairy",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "cubone",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "delibird",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "dewgong",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 3
+            }
+          ]
+        },
+        {
+          "id": "diglett",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "diglett",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "dodrio",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "doduo",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "donphan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "eevee",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "espeon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "fearow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "flaaffy",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "flareon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "girafarig",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "glaceon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "ivysaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 3
+            }
+          ]
+        },
+        {
+          "id": "jolteon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "lapras",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "leafeon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "mareep",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "marill",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 2
+            }
+          ]
+        },
+        {
+          "id": "marowak",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "marowak",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "meganium",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "meowth",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "meowth",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "meowth",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "miltank",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 3
+            }
+          ]
+        },
+        {
+          "id": "misdreavus",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "mismagius",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "nidoranf",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "nidorina",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "noctowl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "perrserker",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "persian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "persian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "phanpy",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "seel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 3
+            }
+          ]
+        },
+        {
+          "id": "slowbro",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "slowbro",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "slowking",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "slowking",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "spearow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "sylveon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "teddiursa",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "togepi",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "togetic",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "umbreon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "vaporeon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "venusaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 3
+            }
+          ]
+        },
+        {
+          "id": "vulpix",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "vulpix",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "GROWL",
+      "description": "A move that lowers the foe's Attack.",
       "power": 0,
       "type": "normal",
       "accuracy": 100,
       "pp": 40,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "ampharos",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "arcanine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "arcanine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "azumarill",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 2
+            }
+          ]
+        },
+        {
+          "id": "azurill",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 2
+            }
+          ]
+        },
+        {
+          "id": "bayleef",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "blissey",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "bulbasaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 3
+            }
+          ]
+        },
+        {
+          "id": "chansey",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "charizard",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "charmander",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "charmeleon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "chikorita",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "clefairy",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "cubone",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "delibird",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "dewgong",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 3
+            }
+          ]
+        },
+        {
+          "id": "diglett",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "diglett",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "dodrio",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "doduo",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "donphan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "eevee",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "espeon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "fearow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "flaaffy",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "flareon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "girafarig",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "glaceon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "ivysaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 3
+            }
+          ]
+        },
+        {
+          "id": "jolteon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "lapras",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "leafeon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "mareep",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "marill",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 2
+            }
+          ]
+        },
+        {
+          "id": "marowak",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "marowak",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "meganium",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "meowth",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "meowth",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "meowth",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "miltank",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 3
+            }
+          ]
+        },
+        {
+          "id": "misdreavus",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "mismagius",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "nidoranf",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "nidorina",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "noctowl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "perrserker",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "persian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "persian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "phanpy",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "seel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 3
+            }
+          ]
+        },
+        {
+          "id": "slowbro",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "slowbro",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "slowking",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "slowking",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "spearow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "sylveon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "teddiursa",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "togepi",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "togetic",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "umbreon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "vaporeon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "venusaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 3
+            }
+          ]
+        },
+        {
+          "id": "vulpix",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "vulpix",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        }
+      ]
     }
   }
 }

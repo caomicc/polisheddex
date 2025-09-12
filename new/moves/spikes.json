@@ -1,23 +1,214 @@
 {
   "id": "spikes",
   "name": "Spikes",
-  "description": "Hurts foes when they switch in.",
   "versions": {
     "faithful": {
+      "name": "SPIKES",
+      "description": "Hurts foes when they switch in.",
       "power": 0,
       "type": "ground",
       "accuracy": 100,
       "pp": 20,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "cloyster",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "forretress",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "omanyte",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "omastar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 48
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "overqwil",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "pineco",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "qwilfish",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "qwilfish",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "skarmory",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "sudowoodo",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 26
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "SPIKES",
+      "description": "Hurts foes when they switch in.",
       "power": 0,
       "type": "ground",
       "accuracy": 100,
       "pp": 20,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "cloyster",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "forretress",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "omanyte",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "omastar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 48
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "overqwil",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "pineco",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "qwilfish",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "qwilfish",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "skarmory",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "sudowoodo",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 26
+            }
+          ]
+        }
+      ]
     }
   }
 }

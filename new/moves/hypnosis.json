@@ -1,23 +1,818 @@
 {
   "id": "hypnosis",
   "name": "Hypnosis",
-  "description": "May cause the foe to fall asleep.",
   "versions": {
     "faithful": {
+      "name": "HYPNOSIS",
+      "description": "May cause the foe to fall asleep.",
       "power": 0,
       "type": "psychic",
       "accuracy": 60,
       "pp": 20,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "articuno",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "id": "butterfree",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "id": "crobat",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "drowzee",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "exeggcute",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "exeggutor",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "exeggutor",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "gastly",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "gengar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "golbat",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "golduck",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "haunter",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "hypno",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "meowth",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "meowth",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "meowth",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mimejr",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 32
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "natu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "id": "ninetales",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ninetales",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "noctowl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "perrserker",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "persian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "persian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "politoed",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "poliwag",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "poliwhirl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "poliwrath",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "psyduck",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "stantler",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "id": "staryu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "id": "vulpix",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "vulpix",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "wyrdeer",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "id": "xatu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "id": "yanma",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 38
+            }
+          ]
+        },
+        {
+          "id": "zubat",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "HYPNOSIS",
+      "description": "May cause the foe to fall asleep.",
       "power": 0,
       "type": "psychic",
       "accuracy": 60,
       "pp": 20,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "articuno",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "id": "butterfree",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "id": "crobat",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "drowzee",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "exeggcute",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "exeggutor",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "exeggutor",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "gastly",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "gengar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "golbat",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "golduck",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "haunter",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "hypno",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "meowth",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "meowth",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "meowth",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mimejr",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 32
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "natu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "id": "ninetales",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ninetales",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "noctowl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "perrserker",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "persian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "persian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "politoed",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "poliwag",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "poliwhirl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "poliwrath",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "psyduck",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "stantler",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "id": "staryu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "id": "vulpix",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "vulpix",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "wyrdeer",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "id": "xatu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "id": "yanma",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 38
+            }
+          ]
+        },
+        {
+          "id": "zubat",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        }
+      ]
     }
   }
 }

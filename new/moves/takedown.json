@@ -1,23 +1,1208 @@
 {
   "id": "takedown",
   "name": "Take Down",
-  "description": "A tackle that also hurts the user.",
   "versions": {
     "faithful": {
+      "name": "TAKE DOWN",
+      "description": "A tackle that also hurts the user.",
       "power": 90,
       "type": "normal",
       "accuracy": 85,
       "pp": 20,
       "effectChance": 0,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "aerodactyl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "id": "ampharos",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "arcanine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "arcanine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "blissey",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "id": "bulbasaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "chansey",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "id": "chinchou",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "id": "cloyster",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "dewgong",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "dunsparce",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "eevee",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "id": "flaaffy",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "forretress",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "girafarig",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "heracross",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "id": "ivysaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "kabuto",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "kabutops",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "kangaskhan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "id": "lanturn",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "id": "mamoswine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mantine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "id": "mantyke",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "id": "mareep",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "munchlax",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "nidoking",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "nidoqueen",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "nidoranf",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "nidoranm",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "nidorina",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "nidorino",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "noctowl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "id": "overqwil",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "id": "phanpy",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            }
+          ]
+        },
+        {
+          "id": "piloswine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "pineco",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "id": "qwilfish",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "id": "qwilfish",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "id": "rhydon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "id": "rhyhorn",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "id": "rhyperior",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "id": "seel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "id": "shellder",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "snorlax",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "stantler",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "id": "swinub",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "tauros",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 35
+            }
+          ]
+        },
+        {
+          "id": "tauros",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 35
+            }
+          ]
+        },
+        {
+          "id": "tauros",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 35
+            }
+          ]
+        },
+        {
+          "id": "tauros",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 35
+            }
+          ]
+        },
+        {
+          "id": "teddiursa",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ursaring",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "venusaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "wyrdeer",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "TAKE DOWN",
+      "description": "A tackle that also hurts the user.",
       "power": 90,
       "type": "normal",
       "accuracy": 100,
       "pp": 15,
       "effectChance": 0,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "aerodactyl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "id": "ampharos",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "arcanine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "arcanine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "blissey",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "id": "bulbasaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "chansey",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "id": "chinchou",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "id": "cloyster",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "dewgong",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "dunsparce",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "eevee",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "id": "flaaffy",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "forretress",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "girafarig",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "heracross",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "id": "ivysaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "kabuto",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "kabutops",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "kangaskhan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "id": "lanturn",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "id": "mamoswine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mantine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "id": "mantyke",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "id": "mareep",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "munchlax",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "nidoking",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "nidoqueen",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "nidoranf",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "nidoranm",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "nidorina",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "nidorino",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "noctowl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "id": "overqwil",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "id": "phanpy",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            }
+          ]
+        },
+        {
+          "id": "piloswine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "pineco",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "id": "qwilfish",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "id": "qwilfish",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "id": "rhydon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "id": "rhyhorn",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "id": "rhyperior",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "id": "seel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "id": "shellder",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "snorlax",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "stantler",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "id": "swinub",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "tauros",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 35
+            }
+          ]
+        },
+        {
+          "id": "tauros",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 35
+            }
+          ]
+        },
+        {
+          "id": "tauros",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 35
+            }
+          ]
+        },
+        {
+          "id": "tauros",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 35
+            }
+          ]
+        },
+        {
+          "id": "teddiursa",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ursaring",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "venusaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "wyrdeer",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        }
+      ]
     }
   }
 }

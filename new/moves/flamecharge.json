@@ -1,23 +1,674 @@
 {
   "id": "flamecharge",
   "name": "Flame Charge",
-  "description": "An attack that may up user's Speed.",
   "versions": {
     "faithful": {
+      "name": "FLAME CHARGE",
+      "description": "An attack that may up user's Speed.",
       "power": 50,
       "type": "fire",
       "accuracy": 100,
       "pp": 20,
       "effectChance": 100,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "arcanine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "arcanine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "charizard",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 32
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "charmander",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "charmeleon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 32
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "cyndaquil",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "entei",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "flareon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "hooh",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "houndoom",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "houndour",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "magby",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "magcargo",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "magmar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "magmortar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "marowak",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mew",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "moltres",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ninetales",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "quilava",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "slugma",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "tauros",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "vulpix",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "FLAME CHARGE",
+      "description": "An attack that may up user's Speed.",
       "power": 50,
       "type": "fire",
       "accuracy": 100,
       "pp": 20,
       "effectChance": 100,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "arcanine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "arcanine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "charizard",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 32
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "charmander",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "charmeleon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 32
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "cyndaquil",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "entei",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "flareon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "hooh",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "houndoom",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "houndour",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "magby",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "magcargo",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "magmar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "magmortar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "marowak",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mew",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "moltres",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ninetales",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "quilava",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "slugma",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "tauros",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "vulpix",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        }
+      ]
     }
   },
   "tm": {

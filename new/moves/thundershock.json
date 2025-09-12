@@ -1,23 +1,588 @@
 {
   "id": "thundershock",
   "name": "ThunderShock",
-  "description": "An attack that may cause paralysis.",
   "versions": {
     "faithful": {
+      "name": "THUNDERSHOCK",
+      "description": "An attack that may cause paralysis.",
       "power": 40,
       "type": "electric",
       "accuracy": 100,
       "pp": 30,
       "effectChance": 10,
-      "category": "special"
+      "category": "special",
+      "learners": [
+        {
+          "id": "ampharos",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "chinchou",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "id": "electabuzz",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "electivire",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "electrode",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "electrode",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "elekid",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "flaaffy",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "geodude",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "golem",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "graveler",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "jolteon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "lanturn",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "id": "magnemite",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "magneton",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "magnezone",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "mareep",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "pichu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "pichu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "raichu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "raichu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "raikou",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "voltorb",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "voltorb",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "zapdos",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "THUNDERSHOCK",
+      "description": "An attack that may cause paralysis.",
       "power": 40,
       "type": "electric",
       "accuracy": 100,
       "pp": 30,
       "effectChance": 10,
-      "category": "special"
+      "category": "special",
+      "learners": [
+        {
+          "id": "ampharos",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "chinchou",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "id": "electabuzz",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "electivire",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "electrode",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "electrode",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "elekid",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "flaaffy",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "geodude",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "golem",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "graveler",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "jolteon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "lanturn",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "id": "magnemite",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "magneton",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "magnezone",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ]
+        },
+        {
+          "id": "mareep",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "pichu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "pichu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "raichu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "raichu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "raikou",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "id": "voltorb",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "voltorb",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "zapdos",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        }
+      ]
     }
   }
 }

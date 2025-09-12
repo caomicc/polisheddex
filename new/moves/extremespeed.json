@@ -1,23 +1,438 @@
 {
   "id": "extremespeed",
   "name": "ExtremeSpeed",
-  "description": "A powerful firststrike attack.",
   "versions": {
     "faithful": {
+      "name": "EXTREMESPEED",
+      "description": "A powerful firststrike attack.",
       "power": 80,
       "type": "normal",
       "accuracy": 100,
       "pp": 5,
       "effectChance": 0,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "arcanine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "arcanine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "dragonair",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "dragonite",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "dratini",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "entei",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ]
+        },
+        {
+          "id": "pidgeot",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "pidgeotto",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "pidgey",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "raikou",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "suicune",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ]
+        },
+        {
+          "id": "togekiss",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "EXTREMESPEED",
+      "description": "A powerful firststrike attack.",
       "power": 80,
       "type": "normal",
       "accuracy": 100,
       "pp": 5,
       "effectChance": 0,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "arcanine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "arcanine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "dragonair",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "dragonite",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "dratini",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "entei",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ]
+        },
+        {
+          "id": "pidgeot",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "pidgeotto",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "pidgey",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "raikou",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "suicune",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ]
+        },
+        {
+          "id": "togekiss",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        }
+      ]
     }
   }
 }

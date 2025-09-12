@@ -1,23 +1,84 @@
 {
   "id": "aeroblast",
   "name": "Aeroblast",
-  "description": "Has a high critical hit ratio.",
   "versions": {
     "faithful": {
+      "name": "AEROBLAST",
+      "description": "Has a high critical hit ratio.",
       "power": 100,
       "type": "flying",
       "accuracy": 95,
       "pp": 5,
       "effectChance": 0,
-      "category": "special"
+      "category": "special",
+      "learners": [
+        {
+          "id": "articuno",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 99
+            }
+          ]
+        },
+        {
+          "id": "articuno",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 99
+            }
+          ]
+        },
+        {
+          "id": "lugia",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "AEROBLAST",
+      "description": "Has a high critical hit ratio.",
       "power": 100,
       "type": "flying",
       "accuracy": 95,
       "pp": 5,
       "effectChance": 0,
-      "category": "special"
+      "category": "special",
+      "learners": [
+        {
+          "id": "articuno",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 99
+            }
+          ]
+        },
+        {
+          "id": "articuno",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 99
+            }
+          ]
+        },
+        {
+          "id": "lugia",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ]
+        }
+      ]
     }
   }
 }

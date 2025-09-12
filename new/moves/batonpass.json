@@ -1,23 +1,1404 @@
 {
   "id": "batonpass",
   "name": "Baton Pass",
-  "description": "Switches while keeping effects.",
   "versions": {
     "faithful": {
+      "name": "BATON PASS",
+      "description": "Switches while keeping effects.",
       "power": 0,
       "type": "normal",
       "accuracy": 100,
       "pp": 40,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "aipom",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "alakazam",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 36
+            }
+          ]
+        },
+        {
+          "id": "ambipom",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ariados",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "beedrill",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "bellossom",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "butterfree",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "celebi",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "clefable",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "clefairy",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "delibird",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "dodrio",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "doduo",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "dunsparce",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "eevee",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "espeon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "farigiraf",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "fearow",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "flareon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "furret",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "girafarig",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "glaceon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "gligar",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "gliscor",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ]
+        },
+        {
+          "id": "hoppip",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "hypno",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "jigglypuff",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "jolteon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "jumpluff",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "kadabra",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 36
+            }
+          ]
+        },
+        {
+          "id": "kleavor",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "leafeon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ledian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ledyba",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 26
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mew",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 60
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mimejr",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mrrime",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "murkrow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            }
+          ]
+        },
+        {
+          "id": "natu",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ninetales",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ninetales",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "perrserker",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "poliwrath",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "scizor",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "scyther",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "sentret",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "skiploom",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "spearow",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "spinarak",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "tangela",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 48
+            }
+          ]
+        },
+        {
+          "id": "tangrowth",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ]
+        },
+        {
+          "id": "togekiss",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "togepi",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "togetic",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "umbreon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "vaporeon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "venomoth",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            },
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "venonat",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            },
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "vulpix",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "vulpix",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "wigglytuff",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "xatu",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "zapdos",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "BATON PASS",
+      "description": "Switches while keeping effects.",
       "power": 0,
       "type": "normal",
       "accuracy": 100,
       "pp": 40,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "aipom",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "alakazam",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 36
+            }
+          ]
+        },
+        {
+          "id": "ambipom",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ariados",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "beedrill",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "bellossom",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "butterfree",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "celebi",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "clefable",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "clefairy",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "delibird",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "dodrio",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "doduo",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "dunsparce",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "eevee",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "espeon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "farigiraf",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "fearow",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "flareon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "furret",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "girafarig",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "glaceon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "gligar",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "gliscor",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ]
+        },
+        {
+          "id": "hoppip",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "hypno",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "jigglypuff",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "jolteon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "jumpluff",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "kadabra",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 36
+            }
+          ]
+        },
+        {
+          "id": "kleavor",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "leafeon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ledian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ledyba",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 26
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mew",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 60
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mimejr",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mrrime",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "murkrow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            }
+          ]
+        },
+        {
+          "id": "natu",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ninetales",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ninetales",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "perrserker",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "poliwrath",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "scizor",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "scyther",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "sentret",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "skiploom",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "spearow",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "spinarak",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "tangela",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 48
+            }
+          ]
+        },
+        {
+          "id": "tangrowth",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ]
+        },
+        {
+          "id": "togekiss",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "togepi",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "togetic",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "umbreon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "vaporeon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "venomoth",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            },
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "venonat",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            },
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "vulpix",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "vulpix",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "wigglytuff",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "xatu",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "zapdos",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        }
+      ]
     }
   }
 }

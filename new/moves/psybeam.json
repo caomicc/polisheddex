@@ -1,23 +1,710 @@
 {
   "id": "psybeam",
   "name": "Psybeam",
-  "description": "An attack that may confuse the foe.",
   "versions": {
     "faithful": {
+      "name": "PSYBEAM",
+      "description": "An attack that may confuse the foe.",
       "power": 65,
       "type": "psychic",
       "accuracy": 100,
       "pp": 20,
       "effectChance": 10,
-      "category": "special"
+      "category": "special",
+      "learners": [
+        {
+          "id": "alakazam",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "ariados",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "butterfree",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "id": "chinchou",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "drowzee",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "id": "espeon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "exeggcute",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "id": "girafarig",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "id": "goldeen",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "golduck",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 36
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "hypno",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "id": "jynx",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "id": "kadabra",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "koffing",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "lanturn",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ledian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ledyba",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mimejr",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "id": "misdreavus",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "octillery",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "id": "paras",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "parasect",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "porygon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ]
+        },
+        {
+          "id": "porygon2",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ]
+        },
+        {
+          "id": "porygonz",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ]
+        },
+        {
+          "id": "psyduck",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "remoraid",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "id": "seaking",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "spinarak",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "venomoth",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "id": "venonat",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "id": "weezing",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "weezing",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "PSYBEAM",
+      "description": "An attack that may confuse the foe.",
       "power": 65,
       "type": "psychic",
       "accuracy": 100,
       "pp": 20,
       "effectChance": 10,
-      "category": "special"
+      "category": "special",
+      "learners": [
+        {
+          "id": "alakazam",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "ariados",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "butterfree",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "id": "chinchou",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "drowzee",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "id": "espeon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "exeggcute",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "id": "girafarig",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "id": "goldeen",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "golduck",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 36
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "hypno",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "id": "jynx",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "id": "kadabra",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "koffing",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "lanturn",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ledian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ledyba",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mimejr",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "id": "misdreavus",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "octillery",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "id": "paras",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "parasect",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ponyta",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "porygon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ]
+        },
+        {
+          "id": "porygon2",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ]
+        },
+        {
+          "id": "porygonz",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ]
+        },
+        {
+          "id": "psyduck",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "rapidash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "remoraid",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "id": "seaking",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "spinarak",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "venomoth",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "id": "venonat",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "id": "weezing",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "weezing",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        }
+      ]
     }
   }
 }

@@ -1,23 +1,498 @@
 {
   "id": "wingattack",
   "name": "Wing Attack",
-  "description": "Strikes the foe with wings.",
   "versions": {
     "faithful": {
+      "name": "WING ATTACK",
+      "description": "Strikes the foe with wings.",
       "power": 60,
       "type": "flying",
       "accuracy": 100,
       "pp": 35,
       "effectChance": 0,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "aerodactyl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "charizard",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "crobat",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "id": "delibird",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "dragonite",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "gligar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "gliscor",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "golbat",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "id": "honchkrow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mantine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ]
+        },
+        {
+          "id": "mantyke",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ]
+        },
+        {
+          "id": "moltres",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "moltres",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ]
+        },
+        {
+          "id": "murkrow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "noctowl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "pidgeot",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 38
+            }
+          ]
+        },
+        {
+          "id": "pidgeotto",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "id": "pidgey",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "id": "scizor",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "scyther",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "yanma",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "id": "yanmega",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "id": "zubat",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "WING ATTACK",
+      "description": "Strikes the foe with wings.",
       "power": 60,
       "type": "flying",
       "accuracy": 100,
       "pp": 35,
       "effectChance": 0,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "aerodactyl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "charizard",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "crobat",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "id": "delibird",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "dragonite",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "gligar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "gliscor",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "golbat",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "id": "honchkrow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mantine",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ]
+        },
+        {
+          "id": "mantyke",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ]
+        },
+        {
+          "id": "moltres",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "moltres",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ]
+        },
+        {
+          "id": "murkrow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "noctowl",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "pidgeot",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 38
+            }
+          ]
+        },
+        {
+          "id": "pidgeotto",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "id": "pidgey",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "id": "scizor",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "scyther",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "yanma",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "id": "yanmega",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "id": "zubat",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ]
+        }
+      ]
     }
   }
 }

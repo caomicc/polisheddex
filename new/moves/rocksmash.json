@@ -1,25 +1,17 @@
 {
-  "id": "irontail",
-  "name": "Iron Tail",
+  "id": "rocksmash",
+  "name": "Rock Smash",
   "versions": {
     "faithful": {
-      "name": "IRON TAIL",
+      "name": "ROCK SMASH",
       "description": "An attack that may lower Defense.",
-      "power": 100,
-      "type": "steel",
-      "accuracy": 75,
+      "power": 40,
+      "type": "fighting",
+      "accuracy": 100,
       "pp": 15,
-      "effectChance": 30,
+      "effectChance": 50,
       "category": "physical",
       "learners": [
-        {
-          "id": "abra",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
         {
           "id": "aerodactyl",
           "methods": [
@@ -30,14 +22,6 @@
         },
         {
           "id": "aipom",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "alakazam",
           "methods": [
             {
               "method": "tm"
@@ -69,66 +53,6 @@
           ]
         },
         {
-          "id": "arbok",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 48
-            },
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "arbok",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 48
-            },
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "arbok",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 48
-            },
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "arbok",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 48
-            },
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "arbok",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 48
-            },
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
           "id": "arcanine",
           "methods": [
             {
@@ -138,6 +62,14 @@
         },
         {
           "id": "arcanine",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "articuno",
           "methods": [
             {
               "method": "tm"
@@ -153,7 +85,7 @@
           ]
         },
         {
-          "id": "azurill",
+          "id": "bayleef",
           "methods": [
             {
               "method": "tm"
@@ -161,7 +93,7 @@
           ]
         },
         {
-          "id": "bayleef",
+          "id": "beedrill",
           "methods": [
             {
               "method": "tm"
@@ -178,6 +110,22 @@
         },
         {
           "id": "blissey",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "bonsly",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "bulbasaur",
           "methods": [
             {
               "method": "tm"
@@ -217,14 +165,6 @@
           ]
         },
         {
-          "id": "chikorita",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
           "id": "clefable",
           "methods": [
             {
@@ -241,7 +181,7 @@
           ]
         },
         {
-          "id": "cleffa",
+          "id": "clodsire",
           "methods": [
             {
               "method": "tm"
@@ -249,7 +189,7 @@
           ]
         },
         {
-          "id": "clodsire",
+          "id": "corsola",
           "methods": [
             {
               "method": "tm"
@@ -268,12 +208,16 @@
           "id": "cubone",
           "methods": [
             {
+              "method": "levelUp",
+              "level": 41
+            },
+            {
               "method": "tm"
             }
           ]
         },
         {
-          "id": "cyndaquil",
+          "id": "diglett",
           "methods": [
             {
               "method": "tm"
@@ -281,7 +225,7 @@
           ]
         },
         {
-          "id": "dewgong",
+          "id": "diglett",
           "methods": [
             {
               "method": "tm"
@@ -290,18 +234,6 @@
         },
         {
           "id": "donphan",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 30
-            },
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "dragonair",
           "methods": [
             {
               "method": "tm"
@@ -317,7 +249,7 @@
           ]
         },
         {
-          "id": "dratini",
+          "id": "drowzee",
           "methods": [
             {
               "method": "tm"
@@ -334,6 +266,22 @@
         },
         {
           "id": "dudunsparce",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "dugtrio",
           "methods": [
             {
               "method": "tm"
@@ -343,26 +291,6 @@
         {
           "id": "dunsparce",
           "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "eevee",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "ekans",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 38
-            },
             {
               "method": "tm"
             }
@@ -385,6 +313,14 @@
           ]
         },
         {
+          "id": "elekid",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
           "id": "entei",
           "methods": [
             {
@@ -393,7 +329,7 @@
           ]
         },
         {
-          "id": "espeon",
+          "id": "exeggutor",
           "methods": [
             {
               "method": "tm"
@@ -403,6 +339,18 @@
         {
           "id": "farfetchd",
           "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            },
             {
               "method": "tm"
             }
@@ -441,7 +389,39 @@
           ]
         },
         {
+          "id": "forretress",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
           "id": "furret",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "gengar",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "geodude",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "geodude",
           "methods": [
             {
               "method": "tm"
@@ -489,6 +469,22 @@
           ]
         },
         {
+          "id": "golem",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "golem",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
           "id": "granbull",
           "methods": [
             {
@@ -497,6 +493,22 @@
           ]
         },
         {
+          "id": "graveler",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "graveler",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
           "id": "growlithe",
           "methods": [
             {
@@ -522,6 +534,46 @@
         },
         {
           "id": "gyarados",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "heracross",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "hitmonchan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "hitmonlee",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "hitmontop",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "hooh",
           "methods": [
             {
               "method": "tm"
@@ -545,6 +597,30 @@
           ]
         },
         {
+          "id": "hypno",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ivysaur",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "jigglypuff",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
           "id": "jolteon",
           "methods": [
             {
@@ -553,7 +629,23 @@
           ]
         },
         {
-          "id": "kadabra",
+          "id": "jynx",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "kabuto",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "kabutops",
           "methods": [
             {
               "method": "tm"
@@ -562,6 +654,30 @@
         },
         {
           "id": "kangaskhan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "kingler",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "kleavor",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "krabby",
           "methods": [
             {
               "method": "tm"
@@ -593,6 +709,22 @@
           ]
         },
         {
+          "id": "ledian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ledyba",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
           "id": "lickilicky",
           "methods": [
             {
@@ -617,7 +749,39 @@
           ]
         },
         {
+          "id": "machamp",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "machoke",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "machop",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
           "id": "magby",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "magcargo",
           "methods": [
             {
               "method": "tm"
@@ -641,7 +805,7 @@
           ]
         },
         {
-          "id": "mankey",
+          "id": "mamoswine",
           "methods": [
             {
               "method": "tm"
@@ -649,7 +813,7 @@
           ]
         },
         {
-          "id": "mareep",
+          "id": "mankey",
           "methods": [
             {
               "method": "tm"
@@ -668,6 +832,10 @@
           "id": "marowak",
           "methods": [
             {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
               "method": "tm"
             }
           ]
@@ -676,36 +844,16 @@
           "id": "marowak",
           "methods": [
             {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
               "method": "tm"
             }
           ]
         },
         {
           "id": "meganium",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "meowth",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "meowth",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "meowth",
           "methods": [
             {
               "method": "tm"
@@ -738,6 +886,70 @@
         },
         {
           "id": "miltank",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mimejr",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "moltres",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mrrime",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "muk",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "muk",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "munchlax",
           "methods": [
             {
               "method": "tm"
@@ -793,7 +1005,7 @@
           ]
         },
         {
-          "id": "ninetales",
+          "id": "omanyte",
           "methods": [
             {
               "method": "tm"
@@ -801,7 +1013,7 @@
           ]
         },
         {
-          "id": "ninetales",
+          "id": "omastar",
           "methods": [
             {
               "method": "tm"
@@ -812,16 +1024,12 @@
           "id": "onix",
           "methods": [
             {
-              "method": "levelUp",
-              "level": 40
-            },
-            {
               "method": "tm"
             }
           ]
         },
         {
-          "id": "perrserker",
+          "id": "paras",
           "methods": [
             {
               "method": "tm"
@@ -829,15 +1037,7 @@
           ]
         },
         {
-          "id": "persian",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "persian",
+          "id": "parasect",
           "methods": [
             {
               "method": "tm"
@@ -853,15 +1053,7 @@
           ]
         },
         {
-          "id": "pichu",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "pichu",
+          "id": "pikachu",
           "methods": [
             {
               "method": "tm"
@@ -872,9 +1064,13 @@
           "id": "pikachu",
           "methods": [
             {
-              "method": "levelUp",
-              "level": 29
-            },
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
             {
               "method": "tm"
             }
@@ -884,9 +1080,13 @@
           "id": "pikachu",
           "methods": [
             {
-              "method": "levelUp",
-              "level": 29
-            },
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
             {
               "method": "tm"
             }
@@ -896,8 +1096,32 @@
           "id": "pikachu",
           "methods": [
             {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "piloswine",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "pineco",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "pinsir",
+          "methods": [
+            {
               "method": "levelUp",
-              "level": 29
+              "level": 26
             },
             {
               "method": "tm"
@@ -905,43 +1129,7 @@
           ]
         },
         {
-          "id": "pikachu",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 29
-            },
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "pikachu",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 29
-            },
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "pikachu",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 29
-            },
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "ponyta",
+          "id": "politoed",
           "methods": [
             {
               "method": "tm"
@@ -949,7 +1137,7 @@
           ]
         },
         {
-          "id": "ponyta",
+          "id": "poliwhirl",
           "methods": [
             {
               "method": "tm"
@@ -957,23 +1145,7 @@
           ]
         },
         {
-          "id": "porygon",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "porygon2",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "porygonz",
+          "id": "poliwrath",
           "methods": [
             {
               "method": "tm"
@@ -1038,22 +1210,6 @@
         },
         {
           "id": "raikou",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "rapidash",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "rapidash",
           "methods": [
             {
               "method": "tm"
@@ -1149,7 +1305,15 @@
           ]
         },
         {
-          "id": "seel",
+          "id": "scizor",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "scyther",
           "methods": [
             {
               "method": "tm"
@@ -1165,6 +1329,34 @@
           ]
         },
         {
+          "id": "shuckle",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "sirfetchd",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "skarmory",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
           "id": "slowbro",
           "methods": [
             {
@@ -1197,15 +1389,7 @@
           ]
         },
         {
-          "id": "slowpoke",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "slowpoke",
+          "id": "slugma",
           "methods": [
             {
               "method": "tm"
@@ -1237,7 +1421,7 @@
           ]
         },
         {
-          "id": "squirtle",
+          "id": "snorlax",
           "methods": [
             {
               "method": "tm"
@@ -1245,7 +1429,15 @@
           ]
         },
         {
-          "id": "stantler",
+          "id": "snubbull",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "squirtle",
           "methods": [
             {
               "method": "tm"
@@ -1256,9 +1448,13 @@
           "id": "steelix",
           "methods": [
             {
-              "method": "levelUp",
-              "level": 1
-            },
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "sudowoodo",
+          "methods": [
             {
               "method": "tm"
             }
@@ -1273,7 +1469,23 @@
           ]
         },
         {
-          "id": "sylveon",
+          "id": "swinub",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "tangela",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "tangrowth",
           "methods": [
             {
               "method": "tm"
@@ -1306,6 +1518,38 @@
         },
         {
           "id": "tauros",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "teddiursa",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "togekiss",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "togepi",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "togetic",
           "methods": [
             {
               "method": "tm"
@@ -1345,7 +1589,31 @@
           ]
         },
         {
-          "id": "umbreon",
+          "id": "tyrogue",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ursaring",
           "methods": [
             {
               "method": "tm"
@@ -1361,15 +1629,7 @@
           ]
         },
         {
-          "id": "vulpix",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "vulpix",
+          "id": "venusaur",
           "methods": [
             {
               "method": "tm"
@@ -1393,7 +1653,7 @@
           ]
         },
         {
-          "id": "wooper",
+          "id": "wigglytuff",
           "methods": [
             {
               "method": "tm"
@@ -1409,8 +1669,28 @@
           ]
         },
         {
-          "id": "wyrdeer",
+          "id": "wooper",
           "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "zapdos",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "zapdos",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            },
             {
               "method": "tm"
             }
@@ -1419,23 +1699,15 @@
       ]
     },
     "polished": {
-      "name": "IRON TAIL",
-      "description": "An attack that may lower Defense.",
-      "power": 100,
-      "type": "steel",
-      "accuracy": 75,
+      "name": "BRICK BREAK",
+      "description": "Removes Reflect and Light Screen.",
+      "power": 75,
+      "type": "fighting",
+      "accuracy": 100,
       "pp": 15,
-      "effectChance": 30,
+      "effectChance": 0,
       "category": "physical",
       "learners": [
-        {
-          "id": "abra",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
         {
           "id": "aerodactyl",
           "methods": [
@@ -1446,14 +1718,6 @@
         },
         {
           "id": "aipom",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "alakazam",
           "methods": [
             {
               "method": "tm"
@@ -1485,66 +1749,6 @@
           ]
         },
         {
-          "id": "arbok",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 48
-            },
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "arbok",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 48
-            },
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "arbok",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 48
-            },
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "arbok",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 48
-            },
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "arbok",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 48
-            },
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
           "id": "arcanine",
           "methods": [
             {
@@ -1554,6 +1758,14 @@
         },
         {
           "id": "arcanine",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "articuno",
           "methods": [
             {
               "method": "tm"
@@ -1569,7 +1781,7 @@
           ]
         },
         {
-          "id": "azurill",
+          "id": "bayleef",
           "methods": [
             {
               "method": "tm"
@@ -1577,7 +1789,7 @@
           ]
         },
         {
-          "id": "bayleef",
+          "id": "beedrill",
           "methods": [
             {
               "method": "tm"
@@ -1594,6 +1806,22 @@
         },
         {
           "id": "blissey",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "bonsly",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "bulbasaur",
           "methods": [
             {
               "method": "tm"
@@ -1633,14 +1861,6 @@
           ]
         },
         {
-          "id": "chikorita",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
           "id": "clefable",
           "methods": [
             {
@@ -1657,7 +1877,7 @@
           ]
         },
         {
-          "id": "cleffa",
+          "id": "clodsire",
           "methods": [
             {
               "method": "tm"
@@ -1665,7 +1885,7 @@
           ]
         },
         {
-          "id": "clodsire",
+          "id": "corsola",
           "methods": [
             {
               "method": "tm"
@@ -1684,12 +1904,16 @@
           "id": "cubone",
           "methods": [
             {
+              "method": "levelUp",
+              "level": 41
+            },
+            {
               "method": "tm"
             }
           ]
         },
         {
-          "id": "cyndaquil",
+          "id": "diglett",
           "methods": [
             {
               "method": "tm"
@@ -1697,7 +1921,7 @@
           ]
         },
         {
-          "id": "dewgong",
+          "id": "diglett",
           "methods": [
             {
               "method": "tm"
@@ -1706,18 +1930,6 @@
         },
         {
           "id": "donphan",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 30
-            },
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "dragonair",
           "methods": [
             {
               "method": "tm"
@@ -1733,7 +1945,7 @@
           ]
         },
         {
-          "id": "dratini",
+          "id": "drowzee",
           "methods": [
             {
               "method": "tm"
@@ -1750,6 +1962,22 @@
         },
         {
           "id": "dudunsparce",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "dugtrio",
           "methods": [
             {
               "method": "tm"
@@ -1759,26 +1987,6 @@
         {
           "id": "dunsparce",
           "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "eevee",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "ekans",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 38
-            },
             {
               "method": "tm"
             }
@@ -1801,6 +2009,14 @@
           ]
         },
         {
+          "id": "elekid",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
           "id": "entei",
           "methods": [
             {
@@ -1809,7 +2025,7 @@
           ]
         },
         {
-          "id": "espeon",
+          "id": "exeggutor",
           "methods": [
             {
               "method": "tm"
@@ -1819,6 +2035,18 @@
         {
           "id": "farfetchd",
           "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            },
             {
               "method": "tm"
             }
@@ -1857,7 +2085,39 @@
           ]
         },
         {
+          "id": "forretress",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
           "id": "furret",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "gengar",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "geodude",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "geodude",
           "methods": [
             {
               "method": "tm"
@@ -1905,6 +2165,22 @@
           ]
         },
         {
+          "id": "golem",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "golem",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
           "id": "granbull",
           "methods": [
             {
@@ -1913,6 +2189,22 @@
           ]
         },
         {
+          "id": "graveler",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "graveler",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
           "id": "growlithe",
           "methods": [
             {
@@ -1938,6 +2230,50 @@
         },
         {
           "id": "gyarados",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "heracross",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "hitmonchan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "hitmonlee",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "hitmontop",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "hooh",
           "methods": [
             {
               "method": "tm"
@@ -1961,6 +2297,30 @@
           ]
         },
         {
+          "id": "hypno",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ivysaur",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "jigglypuff",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
           "id": "jolteon",
           "methods": [
             {
@@ -1969,7 +2329,23 @@
           ]
         },
         {
-          "id": "kadabra",
+          "id": "jynx",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "kabuto",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "kabutops",
           "methods": [
             {
               "method": "tm"
@@ -1978,6 +2354,30 @@
         },
         {
           "id": "kangaskhan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "kingler",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "kleavor",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "krabby",
           "methods": [
             {
               "method": "tm"
@@ -2009,6 +2409,22 @@
           ]
         },
         {
+          "id": "ledian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ledyba",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
           "id": "lickilicky",
           "methods": [
             {
@@ -2033,7 +2449,39 @@
           ]
         },
         {
+          "id": "machamp",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "machoke",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "machop",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
           "id": "magby",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "magcargo",
           "methods": [
             {
               "method": "tm"
@@ -2057,7 +2505,7 @@
           ]
         },
         {
-          "id": "mankey",
+          "id": "mamoswine",
           "methods": [
             {
               "method": "tm"
@@ -2065,7 +2513,7 @@
           ]
         },
         {
-          "id": "mareep",
+          "id": "mankey",
           "methods": [
             {
               "method": "tm"
@@ -2084,6 +2532,10 @@
           "id": "marowak",
           "methods": [
             {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
               "method": "tm"
             }
           ]
@@ -2092,36 +2544,16 @@
           "id": "marowak",
           "methods": [
             {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
               "method": "tm"
             }
           ]
         },
         {
           "id": "meganium",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "meowth",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "meowth",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "meowth",
           "methods": [
             {
               "method": "tm"
@@ -2154,6 +2586,70 @@
         },
         {
           "id": "miltank",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mimejr",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "moltres",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mrmime",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "mrrime",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "muk",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "muk",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "munchlax",
           "methods": [
             {
               "method": "tm"
@@ -2209,7 +2705,7 @@
           ]
         },
         {
-          "id": "ninetales",
+          "id": "omanyte",
           "methods": [
             {
               "method": "tm"
@@ -2217,7 +2713,7 @@
           ]
         },
         {
-          "id": "ninetales",
+          "id": "omastar",
           "methods": [
             {
               "method": "tm"
@@ -2228,16 +2724,12 @@
           "id": "onix",
           "methods": [
             {
-              "method": "levelUp",
-              "level": 40
-            },
-            {
               "method": "tm"
             }
           ]
         },
         {
-          "id": "perrserker",
+          "id": "paras",
           "methods": [
             {
               "method": "tm"
@@ -2245,15 +2737,7 @@
           ]
         },
         {
-          "id": "persian",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "persian",
+          "id": "parasect",
           "methods": [
             {
               "method": "tm"
@@ -2269,15 +2753,7 @@
           ]
         },
         {
-          "id": "pichu",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "pichu",
+          "id": "pikachu",
           "methods": [
             {
               "method": "tm"
@@ -2288,9 +2764,13 @@
           "id": "pikachu",
           "methods": [
             {
-              "method": "levelUp",
-              "level": 29
-            },
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
             {
               "method": "tm"
             }
@@ -2300,9 +2780,13 @@
           "id": "pikachu",
           "methods": [
             {
-              "method": "levelUp",
-              "level": 29
-            },
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "pikachu",
+          "methods": [
             {
               "method": "tm"
             }
@@ -2312,8 +2796,32 @@
           "id": "pikachu",
           "methods": [
             {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "piloswine",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "pineco",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "pinsir",
+          "methods": [
+            {
               "method": "levelUp",
-              "level": 29
+              "level": 26
             },
             {
               "method": "tm"
@@ -2321,43 +2829,7 @@
           ]
         },
         {
-          "id": "pikachu",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 29
-            },
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "pikachu",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 29
-            },
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "pikachu",
-          "methods": [
-            {
-              "method": "levelUp",
-              "level": 29
-            },
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "ponyta",
+          "id": "politoed",
           "methods": [
             {
               "method": "tm"
@@ -2365,7 +2837,7 @@
           ]
         },
         {
-          "id": "ponyta",
+          "id": "poliwhirl",
           "methods": [
             {
               "method": "tm"
@@ -2373,23 +2845,7 @@
           ]
         },
         {
-          "id": "porygon",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "porygon2",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "porygonz",
+          "id": "poliwrath",
           "methods": [
             {
               "method": "tm"
@@ -2454,22 +2910,6 @@
         },
         {
           "id": "raikou",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "rapidash",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "rapidash",
           "methods": [
             {
               "method": "tm"
@@ -2565,7 +3005,15 @@
           ]
         },
         {
-          "id": "seel",
+          "id": "scizor",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "scyther",
           "methods": [
             {
               "method": "tm"
@@ -2581,6 +3029,34 @@
           ]
         },
         {
+          "id": "shuckle",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "sirfetchd",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            },
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "skarmory",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
           "id": "slowbro",
           "methods": [
             {
@@ -2613,15 +3089,7 @@
           ]
         },
         {
-          "id": "slowpoke",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "slowpoke",
+          "id": "slugma",
           "methods": [
             {
               "method": "tm"
@@ -2653,7 +3121,7 @@
           ]
         },
         {
-          "id": "squirtle",
+          "id": "snorlax",
           "methods": [
             {
               "method": "tm"
@@ -2661,7 +3129,15 @@
           ]
         },
         {
-          "id": "stantler",
+          "id": "snubbull",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "squirtle",
           "methods": [
             {
               "method": "tm"
@@ -2672,9 +3148,13 @@
           "id": "steelix",
           "methods": [
             {
-              "method": "levelUp",
-              "level": 1
-            },
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "sudowoodo",
+          "methods": [
             {
               "method": "tm"
             }
@@ -2689,7 +3169,23 @@
           ]
         },
         {
-          "id": "sylveon",
+          "id": "swinub",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "tangela",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "tangrowth",
           "methods": [
             {
               "method": "tm"
@@ -2722,6 +3218,38 @@
         },
         {
           "id": "tauros",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "teddiursa",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "togekiss",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "togepi",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "togetic",
           "methods": [
             {
               "method": "tm"
@@ -2761,7 +3289,31 @@
           ]
         },
         {
-          "id": "umbreon",
+          "id": "tyrogue",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "ursaring",
           "methods": [
             {
               "method": "tm"
@@ -2777,15 +3329,7 @@
           ]
         },
         {
-          "id": "vulpix",
-          "methods": [
-            {
-              "method": "tm"
-            }
-          ]
-        },
-        {
-          "id": "vulpix",
+          "id": "venusaur",
           "methods": [
             {
               "method": "tm"
@@ -2809,7 +3353,7 @@
           ]
         },
         {
-          "id": "wooper",
+          "id": "wigglytuff",
           "methods": [
             {
               "method": "tm"
@@ -2825,8 +3369,28 @@
           ]
         },
         {
-          "id": "wyrdeer",
+          "id": "wooper",
           "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "zapdos",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ]
+        },
+        {
+          "id": "zapdos",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            },
             {
               "method": "tm"
             }
@@ -2836,7 +3400,7 @@
     }
   },
   "tm": {
-    "number": "tm23",
-    "location": "jasmine"
+    "number": "tm31",
+    "location": "route36"
   }
 }

@@ -1,23 +1,930 @@
 {
   "id": "outrage",
   "name": "Outrage",
-  "description": "Works 2-3 turns and confuses user.",
   "versions": {
     "faithful": {
+      "name": "OUTRAGE",
+      "description": "Works 2-3 turns and confuses user.",
       "power": 120,
       "type": "dragon",
       "accuracy": 100,
       "pp": 10,
       "effectChance": 0,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "ampharos",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 71
+            }
+          ]
+        },
+        {
+          "id": "annihilape",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "levelUp",
+              "level": 53
+            }
+          ]
+        },
+        {
+          "id": "bayleef",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 58
+            }
+          ]
+        },
+        {
+          "id": "beedrill",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 44
+            }
+          ]
+        },
+        {
+          "id": "blastoise",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "charizard",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "charmander",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "charmeleon",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "chikorita",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 51
+            }
+          ]
+        },
+        {
+          "id": "cubone",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 51
+            }
+          ]
+        },
+        {
+          "id": "dragonair",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 67
+            }
+          ]
+        },
+        {
+          "id": "dragonite",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 67
+            }
+          ]
+        },
+        {
+          "id": "dratini",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 55
+            }
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 58
+            }
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 58
+            }
+          ]
+        },
+        {
+          "id": "dunsparce",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 53
+            }
+          ]
+        },
+        {
+          "id": "exeggutor",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ]
+        },
+        {
+          "id": "feraligatr",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 68
+            }
+          ]
+        },
+        {
+          "id": "granbull",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 67
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "id": "gyarados",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ]
+        },
+        {
+          "id": "gyarados",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ]
+        },
+        {
+          "id": "horsea",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            }
+          ]
+        },
+        {
+          "id": "kangaskhan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ]
+        },
+        {
+          "id": "kingdra",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            }
+          ]
+        },
+        {
+          "id": "lapras",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ]
+        },
+        {
+          "id": "larvitar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 55
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mankey",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ]
+        },
+        {
+          "id": "marowak",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 65
+            }
+          ]
+        },
+        {
+          "id": "marowak",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 65
+            }
+          ]
+        },
+        {
+          "id": "meganium",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 72
+            }
+          ]
+        },
+        {
+          "id": "munchlax",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "id": "nidoking",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "nidoqueen",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "pinsir",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 36
+            }
+          ]
+        },
+        {
+          "id": "primeape",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "levelUp",
+              "level": 53
+            }
+          ]
+        },
+        {
+          "id": "pupitar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 67
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "rhydon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "rhyperior",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "seadra",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            }
+          ]
+        },
+        {
+          "id": "snorlax",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "id": "tauros",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 80
+            }
+          ]
+        },
+        {
+          "id": "tauros",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 80
+            }
+          ]
+        },
+        {
+          "id": "tauros",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 80
+            }
+          ]
+        },
+        {
+          "id": "tauros",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 80
+            }
+          ]
+        },
+        {
+          "id": "tyranitar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 73
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "venusaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "OUTRAGE",
+      "description": "Works 2-3 turns and confuses user.",
       "power": 120,
       "type": "dragon",
       "accuracy": 100,
       "pp": 10,
       "effectChance": 0,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "ampharos",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 71
+            }
+          ]
+        },
+        {
+          "id": "annihilape",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "levelUp",
+              "level": 53
+            }
+          ]
+        },
+        {
+          "id": "bayleef",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 58
+            }
+          ]
+        },
+        {
+          "id": "beedrill",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 44
+            }
+          ]
+        },
+        {
+          "id": "blastoise",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "charizard",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "charmander",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "charmeleon",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "chikorita",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 51
+            }
+          ]
+        },
+        {
+          "id": "cubone",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 51
+            }
+          ]
+        },
+        {
+          "id": "dragonair",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 67
+            }
+          ]
+        },
+        {
+          "id": "dragonite",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 67
+            }
+          ]
+        },
+        {
+          "id": "dratini",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 55
+            }
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 58
+            }
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 58
+            }
+          ]
+        },
+        {
+          "id": "dunsparce",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 53
+            }
+          ]
+        },
+        {
+          "id": "exeggutor",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ]
+        },
+        {
+          "id": "feraligatr",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 68
+            }
+          ]
+        },
+        {
+          "id": "granbull",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 67
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "id": "growlithe",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "id": "gyarados",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ]
+        },
+        {
+          "id": "gyarados",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ]
+        },
+        {
+          "id": "horsea",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            }
+          ]
+        },
+        {
+          "id": "kangaskhan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ]
+        },
+        {
+          "id": "kingdra",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            }
+          ]
+        },
+        {
+          "id": "lapras",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ]
+        },
+        {
+          "id": "larvitar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 55
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mankey",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ]
+        },
+        {
+          "id": "marowak",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 65
+            }
+          ]
+        },
+        {
+          "id": "marowak",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 65
+            }
+          ]
+        },
+        {
+          "id": "meganium",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 72
+            }
+          ]
+        },
+        {
+          "id": "munchlax",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "id": "nidoking",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "nidoqueen",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "pinsir",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 36
+            }
+          ]
+        },
+        {
+          "id": "primeape",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "levelUp",
+              "level": 53
+            }
+          ]
+        },
+        {
+          "id": "pupitar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 67
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "rhydon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "rhyperior",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "seadra",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            }
+          ]
+        },
+        {
+          "id": "snorlax",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "id": "tauros",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 80
+            }
+          ]
+        },
+        {
+          "id": "tauros",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 80
+            }
+          ]
+        },
+        {
+          "id": "tauros",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 80
+            }
+          ]
+        },
+        {
+          "id": "tauros",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 80
+            }
+          ]
+        },
+        {
+          "id": "tyranitar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 73
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "venusaur",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        }
+      ]
     }
   }
 }

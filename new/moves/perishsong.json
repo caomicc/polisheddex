@@ -1,23 +1,468 @@
 {
   "id": "perishsong",
   "name": "Perish Song",
-  "description": "Both user and foe faint in 3 turns.",
   "versions": {
     "faithful": {
+      "name": "PERISH SONG",
+      "description": "Both user and foe faint in 3 turns.",
       "power": 0,
       "type": "normal",
       "accuracy": 100,
       "pp": 5,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "azumarill",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "azurill",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "celebi",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 91
+            }
+          ]
+        },
+        {
+          "id": "cubone",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "cursola",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "dewgong",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "gastly",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "gengar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 61
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "haunter",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 61
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "honchkrow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 55
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "igglybuff",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "jigglypuff",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "jynx",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 55
+            }
+          ]
+        },
+        {
+          "id": "lapras",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "id": "marill",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "marowak",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "marowak",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "misdreavus",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ]
+        },
+        {
+          "id": "murkrow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 61
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "politoed",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "seel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "smoochum",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 44
+            }
+          ]
+        },
+        {
+          "id": "wigglytuff",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "PERISH SONG",
+      "description": "Both user and foe faint in 3 turns.",
       "power": 0,
       "type": "normal",
       "accuracy": 100,
       "pp": 5,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "azumarill",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "azurill",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "celebi",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 91
+            }
+          ]
+        },
+        {
+          "id": "cubone",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "cursola",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "dewgong",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "gastly",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "gengar",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 61
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "haunter",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 61
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "honchkrow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 55
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "igglybuff",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "jigglypuff",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "jynx",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 55
+            }
+          ]
+        },
+        {
+          "id": "lapras",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "id": "marill",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "marowak",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "marowak",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "misdreavus",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ]
+        },
+        {
+          "id": "murkrow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 61
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "politoed",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "seel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "smoochum",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 44
+            }
+          ]
+        },
+        {
+          "id": "wigglytuff",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        }
+      ]
     }
   }
 }

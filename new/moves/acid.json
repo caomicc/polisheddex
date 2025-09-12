@@ -1,23 +1,432 @@
 {
   "id": "acid",
   "name": "Acid",
-  "description": "An attack that may lower Sp.Def.",
   "versions": {
     "faithful": {
+      "name": "ACID",
+      "description": "An attack that may lower Sp.Def.",
       "power": 40,
       "type": "poison",
       "accuracy": 100,
       "pp": 30,
       "effectChance": 10,
-      "category": "special"
+      "category": "special",
+      "learners": [
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "bellsprout",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "ekans",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "gloom",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "id": "grimer",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "grimer",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "koffing",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "muk",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "muk",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "oddish",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "id": "shuckle",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "slowbro",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "id": "slowking",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "id": "tentacool",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "id": "tentacruel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "id": "weepinbell",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            }
+          ]
+        },
+        {
+          "id": "weezing",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "ACID",
+      "description": "An attack that may lower Sp.Def.",
       "power": 40,
       "type": "poison",
       "accuracy": 100,
       "pp": 30,
       "effectChance": 10,
-      "category": "special"
+      "category": "special",
+      "learners": [
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "bellsprout",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "id": "ekans",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "id": "gloom",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "id": "grimer",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "grimer",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "koffing",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "id": "muk",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "muk",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "oddish",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "id": "shuckle",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "slowbro",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "id": "slowking",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "id": "tentacool",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "id": "tentacruel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "id": "weepinbell",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            }
+          ]
+        },
+        {
+          "id": "weezing",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ]
+        }
+      ]
     }
   }
 }

@@ -1,9 +1,9 @@
-import { readFile, writeFile, mkdir, rm } from 'fs/promises';
+import { readFile, writeFile, mkdir, rm, readdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { parseMoveDescription, reduce } from '@/lib/extract-utils';
+import { displayName, parseMoveDescription, reduce } from '@/lib/extract-utils';
 import splitFile from '@/lib/split';
-import { MoveData, MovesManifest, MoveStats } from '@/types/new';
+import { MoveData, MoveLearner, MovesManifest, MoveStats } from '@/types/new';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -42,8 +42,9 @@ const extractMoveNames = async () => {
     `Extracted ${polishedNames.length} polished move names, ${faithfulNames.length} faithful move names`,
   );
 
-  // Use polished as the master list (should be the same anyway)
-  return polishedNames;
+  // Use faithful names as primary for root data. Rock smash and Brick Break are the same move however have different names.
+  // We'll use faithful names but replace Brick Break with Rock Smash to avoid duplication as pokemon learn "ROCK_SMASH".
+  return faithfulNames;
 };
 const extractDescriptionsFromData = (data: string[]) => {
   const descriptions: Record<string, string> = {};
@@ -52,9 +53,11 @@ const extractDescriptionsFromData = (data: string[]) => {
 
   for (const line of data) {
     const trimmedLine = line.trim();
+    // console.log('Processing line:', trimmedLine);
 
     // Find description labels (e.g., "MoveNameDescription:")
     if (trimmedLine.endsWith('Description:')) {
+      // console.log('Found description label line:', trimmedLine);
       // If we already have labels but no description text yet, add this label to the group
       if (currentLabels.length > 0 && buffer.length === 0) {
         currentLabels.push(trimmedLine.replace('Description:', ''));
@@ -63,6 +66,7 @@ const extractDescriptionsFromData = (data: string[]) => {
         if (currentLabels.length && buffer.length) {
           const description = parseMoveDescription(buffer.join(' '));
           for (const label of currentLabels) {
+            console.log('Parsed description for', label, ':', description);
             const moveId = reduce(label);
             descriptions[moveId] = description;
           }
@@ -70,6 +74,7 @@ const extractDescriptionsFromData = (data: string[]) => {
 
         // Start new label group
         currentLabels = [trimmedLine.replace('Description:', '')];
+        // console.log('Found new description label:', currentLabels);
         buffer = [];
       }
     }
@@ -123,26 +128,28 @@ const extractDescriptionsFromData = (data: string[]) => {
   return descriptions;
 };
 
-// Extract move descriptions for both versions
-const extractMoveDescriptions = async () => {
-  const raw = await readFile(moveDescriptionsASM, 'utf-8');
-  const [polishedData, faithfulData] = splitFile(raw, false);
+// // Extract move descriptions for both versions
+// const extractMoveDescriptions = async () => {
+//   const raw = await readFile(moveDescriptionsASM, 'utf-8');
+//   const [polishedData, faithfulData] = splitFile(raw, false);
 
-  const polishedDescriptions = extractDescriptionsFromData(polishedData);
-  const faithfulDescriptions = extractDescriptionsFromData(faithfulData);
+//   const polishedDescriptions = extractDescriptionsFromData(polishedData);
+//   const faithfulDescriptions = extractDescriptionsFromData(faithfulData);
 
-  console.log(
-    `Extracted ${Object.keys(polishedDescriptions).length} polished descriptions, ${Object.keys(faithfulDescriptions).length} faithful descriptions`,
-  );
+//   console.log(
+//     `Extracted ${Object.keys(polishedDescriptions).length} polished descriptions, ${Object.keys(faithfulDescriptions).length} faithful descriptions`,
+//   );
 
-  // Use polished descriptions as primary (descriptions should be the same)
-  return polishedDescriptions;
-};
+//   // Use polished descriptions as primary (descriptions should be the same)
+//   return polishedDescriptions;
+// };
 
 // Extract move stats for both versions
-const extractMoveStats = async () => {
-  const raw = await readFile(moveStatsASM, 'utf-8');
-  const [polishedStatData, faithfulStatData] = splitFile(raw, false);
+const extractMoveData = async () => {
+  const statsFile = await readFile(moveStatsASM, 'utf-8');
+  const descriptionFile = await readFile(moveDescriptionsASM, 'utf-8');
+  const [polishedStatData, faithfulStatData] = splitFile(statsFile, false);
+  const [polishedDescData, faithfulDescData] = splitFile(descriptionFile, false);
 
   const extractStatsFromData = (data: string[]) => {
     const stats: Record<string, MoveStats> = {};
@@ -155,7 +162,16 @@ const extractMoveStats = async () => {
         const parts = trimmedLine.split(/\s*,\s*/);
         if (parts.length >= 8) {
           // Extract move name (first part after 'move ')
-          const moveNamePart = parts[0].replace('move ', '').trim();
+          let moveNamePart = parts[0].replace('move ', '').trim();
+
+          // fake brick break
+          if (
+            moveNamePart.toLowerCase().includes('brick_break') ||
+            moveNamePart.toLowerCase().includes('rock_smash')
+          ) {
+            moveNamePart = 'rock_smash';
+          }
+
           const moveId = reduce(moveNamePart);
 
           // Parse the stats
@@ -167,6 +183,8 @@ const extractMoveStats = async () => {
           const category = parts[7].trim();
 
           stats[moveId] = {
+            name: displayName(parts[0].replace('move ', '')),
+            description: '',
             power,
             type: reduce(type),
             accuracy,
@@ -181,8 +199,24 @@ const extractMoveStats = async () => {
     return stats;
   };
 
-  const polishedStats = extractStatsFromData(polishedStatData as string[]);
-  const faithfulStats = extractStatsFromData(faithfulStatData as string[]);
+  const polishedDescriptions = extractDescriptionsFromData(polishedDescData);
+  const faithfulDescriptions = extractDescriptionsFromData(faithfulDescData);
+
+  const polishedStats = extractStatsFromData(polishedStatData);
+  const faithfulStats = extractStatsFromData(faithfulStatData);
+
+  // Add descriptions to the stats objects
+  for (const moveId of Object.keys(polishedStats)) {
+    if (polishedDescriptions[moveId]) {
+      polishedStats[moveId].description = polishedDescriptions[moveId];
+    }
+  }
+
+  for (const moveId of Object.keys(faithfulStats)) {
+    if (faithfulDescriptions[moveId]) {
+      faithfulStats[moveId].description = faithfulDescriptions[moveId];
+    }
+  }
 
   console.log(
     `Extracted stats for ${Object.keys(polishedStats).length} polished moves, ${Object.keys(faithfulStats).length} faithful moves`,
@@ -256,15 +290,147 @@ const extractTMHMInfo = async () => {
   return tmhmInfo;
 };
 
-// Main extraction
+// Extract Pokemon that can learn each move
+const extractPokemonLearners = async () => {
+  const pokemonDir = join(__dirname, '..', 'new', 'pokemon');
+  const moveLearners: Record<string, Record<string, Record<string, MoveLearner>>> = {
+    polished: {},
+    faithful: {},
+  };
+
+  try {
+    const pokemonFiles = await readdir(pokemonDir);
+
+    for (const pokemonFile of pokemonFiles) {
+      if (!pokemonFile.endsWith('.json')) continue;
+
+      const pokemonPath = join(pokemonDir, pokemonFile);
+      const pokemonRaw = await readFile(pokemonPath, 'utf-8');
+      const pokemonData = JSON.parse(pokemonRaw);
+
+      // Process both versions
+      for (const version of ['polished', 'faithful'] as const) {
+        const versionData = pokemonData.versions?.[version];
+        if (!versionData) continue;
+
+        // Process all forms of this Pokemon
+        const forms = versionData.forms || {};
+        for (const [formName, formData] of Object.entries(forms)) {
+          const movesets = (
+            formData as {
+              movesets?: {
+                levelUp?: Array<{ name: string; level: number }>;
+                tm?: Array<string>;
+                eggMoves?: Array<string>;
+              };
+            }
+          )?.movesets;
+          if (!movesets) continue;
+
+          // Process level-up moves
+          if (movesets.levelUp && Array.isArray(movesets.levelUp)) {
+            for (const move of movesets.levelUp) {
+              if (!move || !move.name) continue; // Skip invalid moves
+
+              const moveId = move.name;
+              if (!moveLearners[version][moveId]) {
+                moveLearners[version][moveId] = {};
+              }
+
+              const learnerKey = `${pokemonData.id}_${formName || 'plain'}`;
+              if (!moveLearners[version][moveId][learnerKey]) {
+                moveLearners[version][moveId][learnerKey] = {
+                  id: pokemonData.id,
+                  form: formName || 'plain',
+                  methods: [],
+                };
+              }
+
+              moveLearners[version][moveId][learnerKey].methods.push({
+                method: 'levelUp',
+                level: move.level || 1,
+              });
+            }
+          } else if (movesets.levelUp) {
+            console.warn(
+              `Invalid levelUp movesets for ${pokemonData.name}: not an array`,
+              typeof movesets.levelUp,
+            );
+          }
+
+          // Process TM moves
+          if (movesets.tm && Array.isArray(movesets.tm)) {
+            for (const tmMove of movesets.tm) {
+              // TM moves are stored as strings
+              const moveId = tmMove;
+              if (!moveId) continue; // Skip invalid moves
+
+              if (!moveLearners[version][moveId]) {
+                moveLearners[version][moveId] = {};
+              }
+
+              const learnerKey = `${pokemonData.id}_${formName || 'plain'}`;
+              if (!moveLearners[version][moveId][learnerKey]) {
+                moveLearners[version][moveId][learnerKey] = {
+                  id: pokemonData.id,
+                  name: pokemonData.name,
+                  form: formName || 'plain',
+                  methods: [],
+                };
+              }
+
+              moveLearners[version][moveId][learnerKey].methods.push({
+                method: 'tm',
+              });
+            }
+          }
+
+          // Process egg moves
+          if (movesets.eggMoves && Array.isArray(movesets.eggMoves)) {
+            for (const eggMove of movesets.eggMoves) {
+              // Egg moves are stored as strings
+              const moveId = eggMove;
+              if (!moveId) continue; // Skip invalid moves
+
+              if (!moveLearners[version][moveId]) {
+                moveLearners[version][moveId] = {};
+              }
+
+              const learnerKey = `${pokemonData.id}_${formName || 'plain'}`;
+              if (!moveLearners[version][moveId][learnerKey]) {
+                moveLearners[version][moveId][learnerKey] = {
+                  id: pokemonData.id,
+                  name: pokemonData.name,
+                  form: formName || 'plain',
+                  methods: [],
+                };
+              }
+
+              moveLearners[version][moveId][learnerKey].methods.push({
+                method: 'eggMove',
+              });
+            }
+          }
+        }
+      }
+    }
+
+    console.log(`Extracted Pokemon learners for moves from ${pokemonFiles.length} Pokemon files`);
+    return moveLearners;
+  } catch (error) {
+    console.warn('Could not extract Pokemon learners:', error);
+    return { polished: {}, faithful: {} };
+  }
+}; // Main extraction
 const extractMovesData = async () => {
   console.log('Starting move extraction...');
 
-  const [moveNames, descriptions, moveStats, tmhmInfo] = await Promise.all([
+  const [moveNames, moveStats, tmhmInfo, pokemonLearners] = await Promise.all([
     extractMoveNames(),
-    extractMoveDescriptions(),
-    extractMoveStats(),
+    // extractMoveDescriptions(),
+    extractMoveData(),
     extractTMHMInfo(),
+    extractPokemonLearners(),
   ]);
 
   // Process each move
@@ -272,15 +438,52 @@ const extractMovesData = async () => {
     const moveId = reduce(moveName);
     const stats = moveStats[moveId] || {};
 
-    // Use polished stats as default, fall back to faithful
+    // Get Pokemon learners for this move
+    const learnersData: Record<
+      string,
+      Array<{
+        id: string;
+        methods: Array<{ method: 'levelUp' | 'tm' | 'eggMove'; level?: number }>;
+      }>
+    > = {};
+
+    for (const version of ['polished', 'faithful'] as const) {
+      const versionLearners = pokemonLearners[version][moveId];
+      if (versionLearners) {
+        learnersData[version] = Object.entries(versionLearners).map(([, data]) => ({
+          id: data.id,
+          methods: data.methods,
+        }));
+      }
+    }
+
+    // Build versions object with TM and learners data included in each version
+    const versions: Record<
+      string,
+      MoveStats & {
+        tm?: { number: string; location?: string };
+        learners?: MoveLearner[];
+      }
+    > = {};
+
+    if (stats.faithful) {
+      versions.faithful = {
+        ...stats.faithful,
+        ...(learnersData.faithful && { learners: learnersData.faithful }),
+      };
+    }
+
+    if (stats.polished) {
+      versions.polished = {
+        ...stats.polished,
+        ...(learnersData.polished && { learners: learnersData.polished }),
+      };
+    }
+
     moves.push({
       id: moveId,
       name: moveName,
-      description: descriptions[moveId] || 'No description available.',
-      versions: {
-        ...(stats.faithful && { faithful: stats.faithful }),
-        ...(stats.polished && { polished: stats.polished }),
-      },
+      versions,
       ...(tmhmInfo[moveId] && { tm: tmhmInfo[moveId] }),
     });
   }
@@ -322,13 +525,12 @@ export default async function extractMoves() {
   const movesManifest: MovesManifest[] = moves.map((move) => {
     // Use polished version for manifest, fall back to faithful
     const primaryVersion = move.versions.polished || move.versions.faithful;
-
     return {
       id: move.id,
-      name: move.name,
+      name: move.name || primaryVersion?.name || 'Unknown',
       type: primaryVersion?.type || 'None',
       category: primaryVersion?.category || 'Unknown',
-      description: move.description,
+      description: primaryVersion?.description || 'No description available.',
       hasTM: !!move.tm,
     };
   });

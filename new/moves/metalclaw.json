@@ -1,23 +1,568 @@
 {
   "id": "metalclaw",
   "name": "Metal Claw",
-  "description": "An attack that may up user's Attack.",
   "versions": {
     "faithful": {
+      "name": "METAL CLAW",
+      "description": "An attack that may up user's Attack.",
       "power": 50,
       "type": "steel",
       "accuracy": 95,
       "pp": 35,
       "effectChance": 10,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "charizard",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "id": "charmander",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "id": "charmeleon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "id": "croconaw",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "diglett",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "feraligatr",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "gligar",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "gliscor",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "kingler",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "krabby",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "meowth",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "id": "paras",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "parasect",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "perrserker",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "id": "sandshrew",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "sandshrew",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ]
+        },
+        {
+          "id": "sandslash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "sandslash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "scizor",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "skarmory",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ]
+        },
+        {
+          "id": "sneasel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ]
+        },
+        {
+          "id": "sneasel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ]
+        },
+        {
+          "id": "sneasler",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ]
+        },
+        {
+          "id": "teddiursa",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "totodile",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ursaring",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "weavile",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "METAL CLAW",
+      "description": "An attack that may up user's Attack.",
       "power": 50,
       "type": "steel",
       "accuracy": 95,
       "pp": 35,
       "effectChance": 10,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "charizard",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "id": "charmander",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "id": "charmeleon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "id": "croconaw",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "diglett",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "feraligatr",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "gligar",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "gliscor",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "kingler",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "krabby",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "meowth",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "id": "paras",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "parasect",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "perrserker",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "id": "sandshrew",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "sandshrew",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ]
+        },
+        {
+          "id": "sandslash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "sandslash",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "scizor",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "skarmory",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ]
+        },
+        {
+          "id": "sneasel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ]
+        },
+        {
+          "id": "sneasel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ]
+        },
+        {
+          "id": "sneasler",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ]
+        },
+        {
+          "id": "teddiursa",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "totodile",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ursaring",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "weavile",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ]
+        }
+      ]
     }
   }
 }

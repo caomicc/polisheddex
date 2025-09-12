@@ -1,23 +1,630 @@
 {
   "id": "gunkshot",
   "name": "Gunk Shot",
-  "description": "An attack that may poison the foe.",
   "versions": {
     "faithful": {
+      "name": "GUNK SHOT",
+      "description": "An attack that may poison the foe.",
       "power": 120,
       "type": "poison",
       "accuracy": 80,
       "pp": 5,
       "effectChance": 30,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "annihilape",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 48
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 63
+            }
+          ]
+        },
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 63
+            }
+          ]
+        },
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 63
+            }
+          ]
+        },
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 63
+            }
+          ]
+        },
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 63
+            }
+          ]
+        },
+        {
+          "id": "clodsire",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 53
+            }
+          ]
+        },
+        {
+          "id": "donphan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ekans",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            }
+          ]
+        },
+        {
+          "id": "grimer",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "id": "grimer",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "id": "mankey",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mantine",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mantyke",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "muk",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "id": "muk",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "id": "munchlax",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "octillery",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 52
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "phanpy",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "primeape",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 48
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "remoraid",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 42
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "slowbro",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "sneasel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ]
+        },
+        {
+          "id": "sneasler",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ]
+        },
+        {
+          "id": "snorlax",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "teddiursa",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "levelUp",
+              "level": 85
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "levelUp",
+              "level": 85
+            }
+          ]
+        },
+        {
+          "id": "ursaring",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "wooper",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "GUNK SHOT",
+      "description": "An attack that may poison the foe.",
       "power": 120,
       "type": "poison",
       "accuracy": 80,
       "pp": 5,
       "effectChance": 30,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "annihilape",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 48
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 63
+            }
+          ]
+        },
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 63
+            }
+          ]
+        },
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 63
+            }
+          ]
+        },
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 63
+            }
+          ]
+        },
+        {
+          "id": "arbok",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 63
+            }
+          ]
+        },
+        {
+          "id": "clodsire",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 53
+            }
+          ]
+        },
+        {
+          "id": "donphan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ekans",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            }
+          ]
+        },
+        {
+          "id": "grimer",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "id": "grimer",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "id": "mankey",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mantine",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "mantyke",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "muk",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "id": "muk",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "id": "munchlax",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "octillery",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 52
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "phanpy",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "primeape",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 48
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "remoraid",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 42
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "slowbro",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "sneasel",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ]
+        },
+        {
+          "id": "sneasler",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ]
+        },
+        {
+          "id": "snorlax",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "teddiursa",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "levelUp",
+              "level": 85
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "levelUp",
+              "level": 85
+            }
+          ]
+        },
+        {
+          "id": "ursaring",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "wooper",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ]
+        }
+      ]
     }
   }
 }

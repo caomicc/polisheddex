@@ -1,23 +1,118 @@
 {
   "id": "octazooka",
   "name": "Octazooka",
-  "description": "An attack that may lower accuracy.",
   "versions": {
     "faithful": {
+      "name": "OCTAZOOKA",
+      "description": "An attack that may lower accuracy.",
       "power": 65,
       "type": "water",
       "accuracy": 85,
       "pp": 10,
       "effectChance": 50,
-      "category": "special"
+      "category": "special",
+      "learners": [
+        {
+          "id": "horsea",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "kingdra",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "octillery",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "remoraid",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "seadra",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "OCTAZOOKA",
+      "description": "An attack that may lower accuracy.",
       "power": 75,
       "type": "water",
       "accuracy": 95,
       "pp": 10,
       "effectChance": 30,
-      "category": "special"
+      "category": "special",
+      "learners": [
+        {
+          "id": "horsea",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "kingdra",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "octillery",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "remoraid",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        },
+        {
+          "id": "seadra",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ]
+        }
+      ]
     }
   }
 }

@@ -1,23 +1,84 @@
 {
   "id": "bonemerang",
   "name": "Bonemerang",
-  "description": "An attack that strikes twice.",
   "versions": {
     "faithful": {
+      "name": "BONEMERANG",
+      "description": "An attack that strikes twice.",
       "power": 50,
       "type": "ground",
       "accuracy": 90,
       "pp": 10,
       "effectChance": 0,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "cubone",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "marowak",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "marowak",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "BONEMERANG",
+      "description": "An attack that strikes twice.",
       "power": 50,
       "type": "ground",
       "accuracy": 90,
       "pp": 10,
       "effectChance": 0,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "cubone",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "marowak",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "id": "marowak",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ]
+        }
+      ]
     }
   }
 }

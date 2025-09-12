@@ -1,23 +1,84 @@
 {
   "id": "drainingkiss",
   "name": "DrainingKiss",
-  "description": "No description available.",
   "versions": {
     "faithful": {
+      "name": "DRAINING KISS",
+      "description": "",
       "power": 50,
       "type": "fairy",
       "accuracy": 100,
       "pp": 10,
       "effectChance": 0,
-      "category": "special"
+      "category": "special",
+      "learners": [
+        {
+          "id": "clefairy",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "jynx",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "sylveon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "DRAINING KISS",
+      "description": "",
       "power": 50,
       "type": "fairy",
       "accuracy": 100,
       "pp": 10,
       "effectChance": 0,
-      "category": "special"
+      "category": "special",
+      "learners": [
+        {
+          "id": "clefairy",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "jynx",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "id": "sylveon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ]
+        }
+      ]
     }
   }
 }

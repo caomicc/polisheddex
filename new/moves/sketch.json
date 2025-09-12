@@ -1,23 +1,138 @@
 {
   "id": "sketch",
   "name": "Sketch",
-  "description": "Copies the foe's move permanently.",
   "versions": {
     "faithful": {
+      "name": "SKETCH",
+      "description": "Copies the foe's move permanently.",
       "power": 0,
       "type": "normal",
       "accuracy": 100,
       "pp": 1,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "mew",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "smeargle",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "levelUp",
+              "level": 11
+            },
+            {
+              "method": "levelUp",
+              "level": 21
+            },
+            {
+              "method": "levelUp",
+              "level": 31
+            },
+            {
+              "method": "levelUp",
+              "level": 41
+            },
+            {
+              "method": "levelUp",
+              "level": 51
+            },
+            {
+              "method": "levelUp",
+              "level": 61
+            },
+            {
+              "method": "levelUp",
+              "level": 71
+            },
+            {
+              "method": "levelUp",
+              "level": 81
+            },
+            {
+              "method": "levelUp",
+              "level": 91
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "SKETCH",
+      "description": "Copies the foe's move permanently.",
       "power": 0,
       "type": "normal",
       "accuracy": 100,
       "pp": 1,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "mew",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "smeargle",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "levelUp",
+              "level": 11
+            },
+            {
+              "method": "levelUp",
+              "level": 21
+            },
+            {
+              "method": "levelUp",
+              "level": 31
+            },
+            {
+              "method": "levelUp",
+              "level": 41
+            },
+            {
+              "method": "levelUp",
+              "level": 51
+            },
+            {
+              "method": "levelUp",
+              "level": 61
+            },
+            {
+              "method": "levelUp",
+              "level": 71
+            },
+            {
+              "method": "levelUp",
+              "level": 81
+            },
+            {
+              "method": "levelUp",
+              "level": 91
+            }
+          ]
+        }
+      ]
     }
   }
 }

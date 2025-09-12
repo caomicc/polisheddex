@@ -1,23 +1,84 @@
 {
   "id": "conversion",
   "name": "Conversion",
-  "description": "Change user's type to a move's type.",
   "versions": {
     "faithful": {
+      "name": "CONVERSION",
+      "description": "Change user's type to a move's type.",
       "power": 0,
       "type": "normal",
       "accuracy": 100,
       "pp": 30,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "porygon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "porygon2",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "porygonz",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "CONVERSION",
+      "description": "Change user's type to a move's type.",
       "power": 0,
       "type": "normal",
       "accuracy": 100,
       "pp": 30,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "porygon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "porygon2",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "id": "porygonz",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ]
+        }
+      ]
     }
   }
 }

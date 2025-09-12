@@ -1,23 +1,66 @@
 {
   "id": "sacredfire",
   "name": "Sacred Fire",
-  "description": "An attack that may inflict a burn.",
   "versions": {
     "faithful": {
+      "name": "SACRED FIRE",
+      "description": "An attack that may inflict a burn.",
       "power": 100,
       "type": "fire",
       "accuracy": 95,
       "pp": 5,
       "effectChance": 50,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "entei",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 92
+            }
+          ]
+        },
+        {
+          "id": "hooh",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "SACRED FIRE",
+      "description": "An attack that may inflict a burn.",
       "power": 100,
       "type": "fire",
       "accuracy": 95,
       "pp": 5,
       "effectChance": 50,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "entei",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 92
+            }
+          ]
+        },
+        {
+          "id": "hooh",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ]
+        }
+      ]
     }
   }
 }

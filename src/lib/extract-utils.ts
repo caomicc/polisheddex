@@ -135,6 +135,14 @@ export const displayName = (str: string) => {
     .replaceAll('_', ' ');
 };
 
+export const toTitleCase = (str: string) => {
+  return str
+    .toLowerCase()
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
+
 //This function stores the reduce function, which converts in-game data to its simplest form.
 //It decapitalizes everything
 //Removes underscores, dashes, apostrophes, periods

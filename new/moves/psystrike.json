@@ -1,23 +1,66 @@
 {
   "id": "psystrike",
   "name": "Psystrike",
-  "description": "A wave that does physical damage.",
   "versions": {
     "faithful": {
+      "name": "PSYSTRIKE",
+      "description": "A wave that does physical damage.",
       "power": 100,
       "type": "psychic",
       "accuracy": 100,
       "pp": 10,
       "effectChance": 0,
-      "category": "special"
+      "category": "special",
+      "learners": [
+        {
+          "id": "mewtwo",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 100
+            }
+          ]
+        },
+        {
+          "id": "mewtwo",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 100
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "PSYSTRIKE",
+      "description": "A wave that does physical damage.",
       "power": 100,
       "type": "psychic",
       "accuracy": 100,
       "pp": 10,
       "effectChance": 0,
-      "category": "special"
+      "category": "special",
+      "learners": [
+        {
+          "id": "mewtwo",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 100
+            }
+          ]
+        },
+        {
+          "id": "mewtwo",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 100
+            }
+          ]
+        }
+      ]
     }
   }
 }

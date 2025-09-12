@@ -1,23 +1,66 @@
 {
   "id": "spore",
   "name": "Spore",
-  "description": "A move that puts the foe to sleep.",
   "versions": {
     "faithful": {
+      "name": "SPORE",
+      "description": "A move that puts the foe to sleep.",
       "power": 0,
       "type": "grass",
       "accuracy": 100,
       "pp": 15,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "paras",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ]
+        },
+        {
+          "id": "parasect",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "SPORE",
+      "description": "A move that puts the foe to sleep.",
       "power": 0,
       "type": "grass",
       "accuracy": 100,
       "pp": 15,
       "effectChance": 0,
-      "category": "status"
+      "category": "status",
+      "learners": [
+        {
+          "id": "paras",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ]
+        },
+        {
+          "id": "parasect",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ]
+        }
+      ]
     }
   }
 }

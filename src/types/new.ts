@@ -47,18 +47,20 @@ export interface MovesManifest {
 }
 
 export interface MoveStats {
+  name: string; // Added name property for brick break vs rock smash distinction
   power: number;
   type: string;
   accuracy: number | string;
   pp: number;
   effectChance: number;
   category: string;
+  description: string;
 }
 
 export interface MoveData {
   id: string;
-  name: string;
-  description: string;
+  name?: string;
+  description?: string;
   versions: {
     [versionName: string]: MoveStats;
   };
@@ -68,13 +70,24 @@ export interface MoveData {
   };
 }
 
+export interface MoveLearner {
+  id: string;
+  name?: string;
+  form?: string;
+  methods: Array<{
+    method: 'levelUp' | 'tm' | 'eggMove';
+    level?: number;
+    tmNumber?: string;
+  }>;
+}
+
 export interface PokemonMovesets {
   levelUp?: {
-    name: MoveData['name'];
+    name: string;
     level: number;
   }[];
-  tm?: MoveData['name'][];
-  eggMoves?: MoveData['name'][];
+  tm?: string[]; // TM move names
+  eggMoves?: string[];
 }
 
 export interface PokemonManifest {
@@ -134,7 +147,7 @@ export interface ItemData {
     effect?: string;
     params?: number | string | boolean;
     category?: string;
-    moveName?: MoveData['name'];
+    moveName?: string;
   };
   locations?: Array<{
     area: string;
@@ -225,7 +238,7 @@ export interface TrainerData {
       nickname?: string;
       level: number;
       item?: string;
-      moves?: MoveData['name'][];
+      moves?: string[];
       nature?: string;
       ability?: string;
       gender?: string;

@@ -1,23 +1,102 @@
 {
   "id": "hyperfang",
   "name": "Hyper Fang",
-  "description": "An attack that may cause flinching.",
   "versions": {
     "faithful": {
+      "name": "HYPER FANG",
+      "description": "An attack that may cause flinching.",
       "power": 80,
       "type": "normal",
       "accuracy": 90,
       "pp": 15,
       "effectChance": 10,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "raticate",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "id": "raticate",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "id": "rattata",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "id": "rattata",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ]
+        }
+      ]
     },
     "polished": {
+      "name": "HYPER FANG",
+      "description": "An attack that may cause flinching.",
       "power": 80,
       "type": "normal",
       "accuracy": 90,
       "pp": 15,
       "effectChance": 10,
-      "category": "physical"
+      "category": "physical",
+      "learners": [
+        {
+          "id": "raticate",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "id": "raticate",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "id": "rattata",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "id": "rattata",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ]
+        }
+      ]
     }
   }
 }
