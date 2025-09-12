@@ -33,8 +33,11 @@ const itemData: Record<string, ItemData[]> = {
   polished: [],
   faithful: [],
 };
-// Store items by location name
-const itemsByLocation: Record<string, ItemLocation[]> = {};
+// Store items by location name - separate for each version
+const itemsByLocation: Record<'polished' | 'faithful', Record<string, ItemLocation[]>> = {
+  polished: {},
+  faithful: {},
+};
 
 /**
  * Extracts all items from a map file's content
@@ -73,7 +76,7 @@ export const extractItemsFromMapData = (mapData: string[]): ItemLocation[] => {
   return items;
 };
 
-const extractMartData = (data: string[]) => {
+const extractMartData = (data: string[], version: 'polished' | 'faithful') => {
   // Parse marts.asm file structure following the same pattern as move descriptions
   // Multiple mart labels can share the same item list
 
@@ -124,12 +127,12 @@ const extractMartData = (data: string[]) => {
 
       // Assign the same item list to all marts that shared the labels
       for (const martName of martLabels) {
-        if (!itemsByLocation[martName]) {
-          itemsByLocation[martName] = [];
+        if (!itemsByLocation[version][martName]) {
+          itemsByLocation[version][martName] = [];
         }
 
         for (const itemName of items) {
-          itemsByLocation[martName].push({
+          itemsByLocation[version][martName].push({
             name: itemName,
             type: 'purchase',
           });
@@ -164,7 +167,10 @@ const extractItemLocations = async () => {
         const mapItems = extractItemsFromMapData(mapData);
 
         if (mapItems.length > 0) {
-          itemsByLocation[mapName] = mapItems;
+          // For now, assume map items are the same in both versions
+          // This might need refinement later if maps differ between versions
+          itemsByLocation.polished[mapName] = mapItems;
+          itemsByLocation.faithful[mapName] = [...mapItems]; // copy for faithful
           totalItemsFound += mapItems.length;
         }
       } catch (error) {
@@ -174,10 +180,12 @@ const extractItemLocations = async () => {
       }
     }
 
-    extractMartData(martData[0]);
+    // Extract mart data for both versions
+    extractMartData(martData[0], 'polished');
+    extractMartData(martData[1], 'faithful');
 
     console.log(
-      `Extracted ${totalItemsFound} items from ${Object.keys(itemsByLocation).length} maps`,
+      `Extracted ${totalItemsFound} items from ${Object.keys(itemsByLocation.polished).length} maps`,
     );
   } catch (error) {
     console.error('Error reading maps directory:', error);
@@ -187,10 +195,13 @@ const extractItemLocations = async () => {
 /**
  * Gets all locations where an item can be found
  */
-const getItemLocations = (itemId: string): Array<{ area: string; method: string }> => {
+const getItemLocations = (
+  itemId: string,
+  version: 'polished' | 'faithful',
+): Array<{ area: string; method: string }> => {
   const locations: Array<{ area: string; method: string }> = [];
 
-  for (const [locationName, locationItems] of Object.entries(itemsByLocation)) {
+  for (const [locationName, locationItems] of Object.entries(itemsByLocation[version])) {
     const itemsFound = locationItems.filter((item) => item.name === itemId);
     for (const item of itemsFound) {
       locations.push({
@@ -209,7 +220,8 @@ const getItemLocations = (itemId: string): Array<{ area: string; method: string 
 const extractTMHMData = async (version: 'polished' | 'faithful') => {
   // Read the moves file
   const movesRaw = await readFile(tmhmMovesASM, 'utf-8');
-  const movesData = splitFile(movesRaw, false)[0] as string[];
+  const movesFiles = splitFile(movesRaw, false);
+  const movesData = (version === 'polished' ? movesFiles[0] : movesFiles[1]) as string[];
 
   for (const line of movesData) {
     const trimmedLine = line.trim();
@@ -407,7 +419,7 @@ const extractItemsData = async (
           params: parts[2].trim() !== '0' ? parts[2].trim() : undefined,
           category: parts[4].trim() !== '0' ? parts[4].trim() : undefined,
         },
-        locations: getItemLocations(itemId),
+        locations: getItemLocations(itemId, version),
       });
     }
   }
@@ -479,7 +491,7 @@ const extractItemsData = async (
           params: undefined,
           category: parts[1].trim() !== '0' ? parts[1].trim() : 'KEY', // Use KEY as default category
         },
-        locations: getItemLocations(itemId),
+        locations: getItemLocations(itemId, version),
       });
     }
   }

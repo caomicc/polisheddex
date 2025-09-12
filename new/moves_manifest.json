@@ -1,2297 +1,2042 @@
-{
-  "acrobatics": {
-    "name": "Acrobatics",
-    "power": 55,
-    "type": "flying",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "Damage doubles if user has no item."
-  },
-  "karatechop": {
-    "name": "Karate Chop",
-    "power": 50,
-    "type": "fighting",
-    "accuracy": 100,
-    "pp": 25,
-    "category": "physical",
-    "description": "Has a high critical hit ratio."
-  },
-  "doubleslap": {
-    "name": "DoubleSlap",
-    "power": 15,
-    "type": "normal",
-    "accuracy": 85,
-    "pp": 10,
-    "category": "physical",
-    "description": "Repeatedly slaps 2-5 times."
-  },
-  "aerialace": {
-    "name": "Aerial Ace",
-    "power": 60,
-    "type": "flying",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "physical",
-    "description": "An attack that never misses."
-  },
-  "dragonclaw": {
-    "name": "Dragon Claw",
-    "power": 80,
-    "type": "dragon",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "Slashes the foe with sharp claws."
-  },
-  "payday": {
-    "name": "Pay Day",
-    "power": 40,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "Throws coins. Gets them back later."
-  },
-  "firepunch": {
-    "name": "Fire Punch",
-    "power": 75,
-    "type": "fire",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "A fiery punch. May cause a burn."
-  },
-  "icepunch": {
-    "name": "Ice Punch",
-    "power": 75,
-    "type": "ice",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "An icy punch. May cause freezing."
-  },
-  "thunderpunch": {
-    "name": "ThunderPunch",
-    "power": 75,
-    "type": "electric",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "An electric punch. It may paralyze."
-  },
-  "scratch": {
-    "name": "Scratch",
-    "power": 40,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 35,
-    "category": "physical",
-    "description": "Scratches with sharp claws."
-  },
-  "xscissor": {
-    "name": "X-Scissor",
-    "power": 80,
-    "type": "bug",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "Slashes foe with scythes or claws."
-  },
-  "nightslash": {
-    "name": "Night Slash",
-    "power": 70,
-    "type": "dark",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "Has a high critical hit ratio."
-  },
-  "airslash": {
-    "name": "Air Slash",
-    "power": 75,
-    "type": "flying",
-    "accuracy": 95,
-    "pp": 15,
-    "category": "special",
-    "description": "An attack that may cause flinching."
-  },
-  "swordsdance": {
-    "name": "Swords Dance",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "status",
-    "description": "Sharply raises the user's Attack."
-  },
-  "cut": {
-    "name": "Cut",
-    "power": 60,
-    "type": "steel",
-    "accuracy": 100,
-    "pp": 30,
-    "category": "physical",
-    "description": "Cuts using claws, scythes, etc."
-  },
-  "gust": {
-    "name": "Gust",
-    "power": 40,
-    "type": "flying",
-    "accuracy": 100,
-    "pp": 35,
-    "category": "special",
-    "description": "Whips up a strong gust of wind."
-  },
-  "wingattack": {
-    "name": "Wing Attack",
-    "power": 60,
-    "type": "flying",
-    "accuracy": 100,
-    "pp": 35,
-    "category": "physical",
-    "description": "Strikes the foe with wings."
-  },
-  "suckerpunch": {
-    "name": "Sucker Punch",
-    "power": 70,
-    "type": "dark",
-    "accuracy": 100,
-    "pp": 5,
-    "category": "physical",
-    "description": "Attacks before the foe does."
-  },
-  "fly": {
-    "name": "Fly",
-    "power": 90,
-    "type": "flying",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "1st turn: Fly 2nd turn: Attack"
-  },
-  "dazzlingleam": {
-    "name": "DazzlinGleam",
-    "power": 80,
-    "type": "fairy",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "Dazzles with a powerful flash."
-  },
-  "voltswitch": {
-    "name": "Volt Switch",
-    "power": 70,
-    "type": "electric",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "special",
-    "description": "Switches out after making its attack."
-  },
-  "vinewhip": {
-    "name": "Vine Whip",
-    "power": 45,
-    "type": "grass",
-    "accuracy": 100,
-    "pp": 25,
-    "category": "physical",
-    "description": "Whips the foe with slender vines."
-  },
-  "stomp": {
-    "name": "Stomp",
-    "power": 65,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "An attack that may cause flinching."
-  },
-  "doublekick": {
-    "name": "Double Kick",
-    "power": 30,
-    "type": "fighting",
-    "accuracy": 100,
-    "pp": 30,
-    "category": "physical",
-    "description": "A double kicking attack."
-  },
-  "flareblitz": {
-    "name": "Flare Blitz",
-    "power": 120,
-    "type": "fire",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "A charge that also hurts the user."
-  },
-  "stoneedge": {
-    "name": "Stone Edge",
-    "power": 100,
-    "type": "rock",
-    "accuracy": 80,
-    "pp": 5,
-    "category": "physical",
-    "description": "Has a high critical hit ratio."
-  },
-  "focusblast": {
-    "name": "Focus Blast",
-    "power": 120,
-    "type": "fighting",
-    "accuracy": 70,
-    "pp": 5,
-    "category": "special",
-    "description": "An attack that may lower Sp.Def."
-  },
-  "toxicspikes": {
-    "name": "Toxic Spikes",
-    "power": 0,
-    "type": "poison",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "status",
-    "description": "Poisons foes when they switch in."
-  },
-  "headbutt": {
-    "name": "Headbutt",
-    "power": 70,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "An attack that may cause flinching."
-  },
-  "hornattack": {
-    "name": "Horn Attack",
-    "power": 65,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 25,
-    "category": "physical",
-    "description": "An attack using a horn to jab."
-  },
-  "trick": {
-    "name": "Trick",
-    "power": 0,
-    "type": "psychic",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "status",
-    "description": "Swaps held items with the foe."
-  },
-  "hex": {
-    "name": "Hex",
-    "power": 65,
-    "type": "ghost",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "Damage doubles if foe has status."
-  },
-  "tackle": {
-    "name": "Tackle",
-    "power": 40,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 35,
-    "category": "physical",
-    "description": "A full-body charge attack."
-  },
-  "bodyslam": {
-    "name": "Body Slam",
-    "power": 85,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "An attack that may cause paralysis."
-  },
-  "wrap": {
-    "name": "Wrap",
-    "power": 15,
-    "type": "normal",
-    "accuracy": 90,
-    "pp": 20,
-    "category": "physical",
-    "description": "Traps the foe for 2-5 turns."
-  },
-  "takedown": {
-    "name": "Take Down",
-    "power": 90,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "A tackle that also hurts the user."
-  },
-  "thrash": {
-    "name": "Thrash",
-    "power": 120,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "physical",
-    "description": "Works 2-3 turns and confuses user."
-  },
-  "doubleedge": {
-    "name": "Double-Edge",
-    "power": 120,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "A tackle that also hurts the user."
-  },
-  "hail": {
-    "name": "Hail",
-    "power": 0,
-    "type": "ice",
-    "accuracy": -1,
-    "pp": 10,
-    "category": "status",
-    "description": "Inflicts damage every turn."
-  },
-  "poisonsting": {
-    "name": "Poison Sting",
-    "power": 15,
-    "type": "poison",
-    "accuracy": 100,
-    "pp": 35,
-    "category": "physical",
-    "description": "An attack that may poison the foe."
-  },
-  "uturn": {
-    "name": "U-turn",
-    "power": 70,
-    "type": "bug",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "Switches out after making its attack."
-  },
-  "pinmissile": {
-    "name": "Pin Missile",
-    "power": 25,
-    "type": "bug",
-    "accuracy": 95,
-    "pp": 20,
-    "category": "physical",
-    "description": "Fires pins that strike 2-5 times."
-  },
-  "leer": {
-    "name": "Leer",
-    "power": 0,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 30,
-    "category": "status",
-    "description": "A move that lowers the foe's Defense."
-  },
-  "bite": {
-    "name": "Bite",
-    "power": 60,
-    "type": "dark",
-    "accuracy": 100,
-    "pp": 25,
-    "category": "physical",
-    "description": "An attack that may cause flinching."
-  },
-  "growl": {
-    "name": "Growl",
-    "power": 0,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 40,
-    "category": "status",
-    "description": "A move that lowers the foe's Attack."
-  },
-  "roar": {
-    "name": "Roar",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "status",
-    "description": "Scares wild foes to end battle."
-  },
-  "sing": {
-    "name": "Sing",
-    "power": 0,
-    "type": "normal",
-    "accuracy": 75,
-    "pp": 15,
-    "category": "status",
-    "description": "May cause the foe to fall asleep."
-  },
-  "supersonic": {
-    "name": "Supersonic",
-    "power": 0,
-    "type": "normal",
-    "accuracy": 65,
-    "pp": 20,
-    "category": "status",
-    "description": "A move that may confuse the foe."
-  },
-  "sonicboom": {
-    "name": "Sonic Boom",
-    "power": 20,
-    "type": "normal",
-    "accuracy": 90,
-    "pp": 20,
-    "category": "special",
-    "description": "Always inflicts 20HP damage."
-  },
-  "disable": {
-    "name": "Disable",
-    "power": 0,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "status",
-    "description": "Disables the foe's most recent move."
-  },
-  "acid": {
-    "name": "Acid",
-    "power": 40,
-    "type": "poison",
-    "accuracy": 100,
-    "pp": 30,
-    "category": "special",
-    "description": "An attack that may lower Sp.Def."
-  },
-  "ember": {
-    "name": "Ember",
-    "power": 40,
-    "type": "fire",
-    "accuracy": 100,
-    "pp": 25,
-    "category": "special",
-    "description": "An attack that may inflict a burn."
-  },
-  "flamethrower": {
-    "name": "Flamethrower",
-    "power": 90,
-    "type": "fire",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "special",
-    "description": "An attack that may inflict a burn."
-  },
-  "calmmind": {
-    "name": "Calm Mind",
-    "power": 0,
-    "type": "psychic",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "status",
-    "description": "Raises the user's Sp.Atk and Sp.Def."
-  },
-  "watergun": {
-    "name": "Water Gun",
-    "power": 40,
-    "type": "water",
-    "accuracy": 100,
-    "pp": 25,
-    "category": "special",
-    "description": "Squirts water to attack."
-  },
-  "hydropump": {
-    "name": "Hydro Pump",
-    "power": 110,
-    "type": "water",
-    "accuracy": 80,
-    "pp": 5,
-    "category": "special",
-    "description": "A powerful Watertype attack."
-  },
-  "surf": {
-    "name": "Surf",
-    "power": 90,
-    "type": "water",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "special",
-    "description": "A strong Watertype attack."
-  },
-  "icebeam": {
-    "name": "Ice Beam",
-    "power": 90,
-    "type": "ice",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "An attack that may freeze the foe."
-  },
-  "blizzard": {
-    "name": "Blizzard",
-    "power": 110,
-    "type": "ice",
-    "accuracy": 70,
-    "pp": 5,
-    "category": "special",
-    "description": "An attack that may freeze the foe."
-  },
-  "psybeam": {
-    "name": "Psybeam",
-    "power": 65,
-    "type": "psychic",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "special",
-    "description": "An attack that may confuse the foe."
-  },
-  "bubblebeam": {
-    "name": "Bubble Beam",
-    "power": 65,
-    "type": "water",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "special",
-    "description": "An attack that may lower Speed."
-  },
-  "aurorabeam": {
-    "name": "Aurora Beam",
-    "power": 65,
-    "type": "ice",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "special",
-    "description": "An attack that may lower Attack."
-  },
-  "hyperbeam": {
-    "name": "Hyper Beam",
-    "power": 150,
-    "type": "normal",
-    "accuracy": 90,
-    "pp": 5,
-    "category": "special",
-    "description": "1st turn: Attack 2nd turn: Rest"
-  },
-  "peck": {
-    "name": "Peck",
-    "power": 35,
-    "type": "flying",
-    "accuracy": 100,
-    "pp": 35,
-    "category": "physical",
-    "description": "Jabs the foe with a beak, etc."
-  },
-  "drillpeck": {
-    "name": "Drill Peck",
-    "power": 80,
-    "type": "flying",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "A strong, spinning-peck attack."
-  },
-  "closecombat": {
-    "name": "Close Combat",
-    "power": 120,
-    "type": "fighting",
-    "accuracy": 100,
-    "pp": 5,
-    "category": "physical",
-    "description": "Lowers the user's Def and Sp.Def."
-  },
-  "lowkick": {
-    "name": "Low Kick",
-    "power": 1,
-    "type": "fighting",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "Deals more damage to heavier foes."
-  },
-  "counter": {
-    "name": "Counter",
-    "power": 1,
-    "type": "fighting",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "physical",
-    "description": "Returns a physical attack double."
-  },
-  "seismictoss": {
-    "name": "Seismic Toss",
-    "power": 1,
-    "type": "fighting",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "Damage equals the user's level."
-  },
-  "strength": {
-    "name": "Strength",
-    "power": 80,
-    "type": "fighting",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "A powerful physical attack."
-  },
-  "absorb": {
+[
+  {
+    "id": "absorb",
     "name": "Absorb",
-    "power": 20,
     "type": "grass",
-    "accuracy": 100,
-    "pp": 25,
     "category": "special",
-    "description": "Steals 1/2 of the damage inflicted."
+    "description": "Steals 1/2 of the damage inflicted.",
+    "hasTM": false
   },
-  "megadrain": {
-    "name": "Mega Drain",
-    "power": 40,
-    "type": "grass",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "special",
-    "description": "Steals 1/2 of the damage inflicted."
-  },
-  "leechseed": {
-    "name": "Leech Seed",
-    "power": 0,
-    "type": "grass",
-    "accuracy": 90,
-    "pp": 10,
-    "category": "status",
-    "description": "Steals HP from the foe on every turn."
-  },
-  "growth": {
-    "name": "Growth",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "status",
-    "description": "Raises the user's Atk and Sp.Atk."
-  },
-  "razorleaf": {
-    "name": "Razor Leaf",
-    "power": 55,
-    "type": "grass",
-    "accuracy": 95,
-    "pp": 25,
-    "category": "physical",
-    "description": "Has a high critical hit ratio."
-  },
-  "solarbeam": {
-    "name": "Solar Beam",
-    "power": 120,
-    "type": "grass",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "1st turn: Prepare 2nd turn: Attack"
-  },
-  "poisonpowder": {
-    "name": "PoisonPowder",
-    "power": 0,
+  {
+    "id": "acid",
+    "name": "Acid",
     "type": "poison",
-    "accuracy": 75,
-    "pp": 35,
-    "category": "status",
-    "description": "A move that may poison the foe."
-  },
-  "stunspore": {
-    "name": "Stun Spore",
-    "power": 0,
-    "type": "grass",
-    "accuracy": 75,
-    "pp": 30,
-    "category": "status",
-    "description": "A move that may paralyze the foe."
-  },
-  "sleeppowder": {
-    "name": "Sleep Powder",
-    "power": 0,
-    "type": "grass",
-    "accuracy": 75,
-    "pp": 15,
-    "category": "status",
-    "description": "May cause the foe to fall asleep."
-  },
-  "petaldance": {
-    "name": "Petal Dance",
-    "power": 120,
-    "type": "grass",
-    "accuracy": 100,
-    "pp": 10,
     "category": "special",
-    "description": "Works 2-3 turns and confuses user."
+    "description": "An attack that may lower Sp.Def.",
+    "hasTM": false
   },
-  "stringshot": {
-    "name": "String Shot",
-    "power": 0,
-    "type": "bug",
-    "accuracy": 95,
-    "pp": 40,
-    "category": "status",
-    "description": "A move that lowers the foe's Speed."
-  },
-  "dragonrage": {
-    "name": "Dragon Rage",
-    "power": 40,
-    "type": "dragon",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "Always inflicts 40HP damage."
-  },
-  "firespin": {
-    "name": "Fire Spin",
-    "power": 40,
-    "type": "fire",
-    "accuracy": 90,
-    "pp": 15,
-    "category": "special",
-    "description": "Traps the foe for 2-5 turns."
-  },
-  "thundershock": {
-    "name": "ThunderShock",
-    "power": 40,
-    "type": "electric",
-    "accuracy": 100,
-    "pp": 30,
-    "category": "special",
-    "description": "An attack that may cause paralysis."
-  },
-  "thunderbolt": {
-    "name": "Thunderbolt",
-    "power": 90,
-    "type": "electric",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "special",
-    "description": "An attack that may cause paralysis."
-  },
-  "thunderwave": {
-    "name": "Thunder Wave",
-    "power": 0,
-    "type": "electric",
-    "accuracy": 90,
-    "pp": 20,
-    "category": "status",
-    "description": "A move that paralyzes the foe."
-  },
-  "thunder": {
-    "name": "Thunder",
-    "power": 110,
-    "type": "electric",
-    "accuracy": 70,
-    "pp": 10,
-    "category": "special",
-    "description": "An attack that may cause paralysis."
-  },
-  "rockthrow": {
-    "name": "Rock Throw",
-    "power": 50,
-    "type": "rock",
-    "accuracy": 90,
-    "pp": 15,
-    "category": "physical",
-    "description": "Drops rocks on the enemy."
-  },
-  "earthquake": {
-    "name": "Earthquake",
-    "power": 100,
-    "type": "ground",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "physical",
-    "description": "Tough but useless vs. flying foes."
-  },
-  "avalanche": {
-    "name": "Avalanche",
-    "power": 60,
-    "type": "ice",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "physical",
-    "description": "Damage doubles if user is hit first."
-  },
-  "dig": {
-    "name": "Dig",
-    "power": 90,
-    "type": "ground",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "physical",
-    "description": "1st turn: Burrow 2nd turn: Attack"
-  },
-  "toxic": {
-    "name": "Toxic",
-    "power": 0,
-    "type": "poison",
-    "accuracy": 90,
-    "pp": 10,
-    "category": "status",
-    "description": "A Poison move with increasing damage."
-  },
-  "confusion": {
-    "name": "Confusion",
-    "power": 50,
-    "type": "psychic",
-    "accuracy": 100,
-    "pp": 25,
-    "category": "special",
-    "description": "An attack that may confuse the foe."
-  },
-  "psychicm": {
-    "name": "Psychic",
-    "power": 90,
-    "type": "psychic",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "An attack that may lower Sp.Def."
-  },
-  "hypnosis": {
-    "name": "Hypnosis",
-    "power": 0,
-    "type": "psychic",
-    "accuracy": 60,
-    "pp": 20,
-    "category": "status",
-    "description": "May cause the foe to fall asleep."
-  },
-  "honeclaws": {
-    "name": "Hone Claws",
-    "power": 0,
-    "type": "dark",
-    "accuracy": -1,
-    "pp": 40,
-    "category": "status",
-    "description": "Raises the user's Atk and accuracy."
-  },
-  "agility": {
-    "name": "Agility",
-    "power": 0,
-    "type": "psychic",
-    "accuracy": -1,
-    "pp": 30,
-    "category": "status",
-    "description": "Sharply raises the user's Speed."
-  },
-  "quickattack": {
-    "name": "Quick Attack",
-    "power": 40,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 30,
-    "category": "physical",
-    "description": "Lets the user get in the first hit."
-  },
-  "rage": {
-    "name": "Rage",
-    "power": 20,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "Raises Attack if the user is hit."
-  },
-  "teleport": {
-    "name": "Teleport",
-    "power": 0,
-    "type": "psychic",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "status",
-    "description": "A move for fleeing from battle."
-  },
-  "nightshade": {
-    "name": "Night Shade",
-    "power": 1,
-    "type": "ghost",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "special",
-    "description": "Damage equals the user's level."
-  },
-  "dragonpulse": {
-    "name": "Dragon Pulse",
-    "power": 85,
-    "type": "dragon",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "Attacks foe with a shock wave."
-  },
-  "screech": {
-    "name": "Screech",
-    "power": 0,
-    "type": "normal",
-    "accuracy": 85,
-    "pp": 40,
-    "category": "status",
-    "description": "Sharply lowers the foe's Defense."
-  },
-  "doubleteam": {
-    "name": "Double Team",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 15,
-    "category": "status",
-    "description": "Raises the user's evasiveness."
-  },
-  "recover": {
-    "name": "Recover",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 5,
-    "category": "status",
-    "description": "Restores HP by 1/2 the max HP."
-  },
-  "rockblast": {
-    "name": "Rock Blast",
-    "power": 25,
-    "type": "rock",
-    "accuracy": 90,
-    "pp": 25,
-    "category": "physical",
-    "description": "Hurls boulders to hit 2-5 times."
-  },
-  "minimize": {
-    "name": "Minimize",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 10,
-    "category": "status",
-    "description": "Sharply raises the user's evasiveness."
-  },
-  "smokescreen": {
-    "name": "Smokescreen",
-    "power": 0,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "status",
-    "description": "A move that lowers the foe's accuracy."
-  },
-  "confuseray": {
-    "name": "Confuse Ray",
-    "power": 0,
-    "type": "ghost",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "status",
-    "description": "A move that may confuse the foe."
-  },
-  "aquatail": {
-    "name": "Aqua Tail",
-    "power": 90,
-    "type": "water",
-    "accuracy": 90,
-    "pp": 10,
-    "category": "physical",
-    "description": "Swings tail like a wave in a storm."
-  },
-  "defensecurl": {
-    "name": "Defense Curl",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 40,
-    "category": "status",
-    "description": "Raises the user's Defense."
-  },
-  "barrier": {
-    "name": "Barrier",
-    "power": 0,
-    "type": "psychic",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "status",
-    "description": "Sharply raises the user's Defense."
-  },
-  "lightscreen": {
-    "name": "Light Screen",
-    "power": 0,
-    "type": "psychic",
-    "accuracy": -1,
-    "pp": 30,
-    "category": "status",
-    "description": "Raises Sp.Def with a wall of light."
-  },
-  "haze": {
-    "name": "Haze",
-    "power": 0,
-    "type": "ice",
-    "accuracy": -1,
-    "pp": 30,
-    "category": "status",
-    "description": "Eliminates all stat changes."
-  },
-  "reflect": {
-    "name": "Reflect",
-    "power": 0,
-    "type": "psychic",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "status",
-    "description": "Raises Defense with a barrier."
-  },
-  "focusenergy": {
-    "name": "Focus Energy",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 30,
-    "category": "status",
-    "description": "Raises the critical hit ratio."
-  },
-  "flashcannon": {
-    "name": "Flash Cannon",
-    "power": 80,
-    "type": "steel",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "An attack that may lower Sp.Def."
-  },
-  "metronome": {
-    "name": "Metronome",
-    "power": 0,
-    "type": "unknownt",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "status",
-    "description": "Randomly uses any Pokemon move."
-  },
-  "scald": {
-    "name": "Scald",
-    "power": 70,
-    "type": "water",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "special",
-    "description": "An attack that may inflict a burn."
-  },
-  "trickroom": {
-    "name": "Trick Room",
-    "power": 0,
-    "type": "psychic",
-    "accuracy": -1,
-    "pp": 5,
-    "category": "status",
-    "description": "Slow Pokemon move first for 5 turns."
-  },
-  "skillswap": {
-    "name": "Skill Swap",
-    "power": 0,
-    "type": "psychic",
-    "accuracy": -1,
-    "pp": 10,
-    "category": "status",
-    "description": "Swaps abilities with the foe."
-  },
-  "lick": {
-    "name": "Lick",
-    "power": 30,
-    "type": "ghost",
-    "accuracy": 100,
-    "pp": 30,
-    "category": "physical",
-    "description": "An attack that may cause paralysis."
-  },
-  "gunkshot": {
-    "name": "Gunk Shot",
-    "power": 120,
-    "type": "poison",
-    "accuracy": 80,
-    "pp": 5,
-    "category": "physical",
-    "description": "An attack that may poison the foe."
-  },
-  "venoshock": {
-    "name": "Venoshock",
-    "power": 65,
-    "type": "poison",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "Damage doubles if foe is poisoned."
-  },
-  "earthpower": {
-    "name": "Earth Power",
-    "power": 90,
-    "type": "ground",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "An attack that may lower Sp.Def."
-  },
-  "fireblast": {
-    "name": "Fire Blast",
-    "power": 110,
-    "type": "fire",
-    "accuracy": 85,
-    "pp": 5,
-    "category": "special",
-    "description": "An attack that may inflict a burn."
-  },
-  "waterfall": {
-    "name": "Waterfall",
-    "power": 80,
-    "type": "water",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "An attack that may cause flinching."
-  },
-  "iciclecrash": {
-    "name": "Icicle Crash",
-    "power": 85,
-    "type": "ice",
-    "accuracy": 90,
-    "pp": 10,
-    "category": "physical",
-    "description": "An attack that may cause flinching."
-  },
-  "swift": {
-    "name": "Swift",
-    "power": 60,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "special",
-    "description": "An attack that never misses."
-  },
-  "ironhead": {
-    "name": "Iron Head",
-    "power": 80,
-    "type": "steel",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "An attack that may cause flinching."
-  },
-  "iciclespear": {
-    "name": "Icicle Spear",
-    "power": 25,
-    "type": "ice",
-    "accuracy": 100,
-    "pp": 30,
-    "category": "physical",
-    "description": "Fires icicles to hit 2-5 times."
-  },
-  "bulldoze": {
-    "name": "Bulldoze",
-    "power": 60,
-    "type": "ground",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "A Ground attack that lowers Speed."
-  },
-  "amnesia": {
-    "name": "Amnesia",
-    "power": 0,
-    "type": "psychic",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "status",
-    "description": "Sharply raises the user's Sp.Def."
-  },
-  "roost": {
-    "name": "Roost",
-    "power": 0,
+  {
+    "id": "acrobatics",
+    "name": "Acrobatics",
     "type": "flying",
-    "accuracy": -1,
-    "pp": 5,
-    "category": "status",
-    "description": "Lands to restore 1/2 the max HP."
-  },
-  "freshsnack": {
-    "name": "Fresh Snack",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 10,
-    "category": "status",
-    "description": "Restores HP by 1/2 the user's max HP."
-  },
-  "hijumpkick": {
-    "name": "Hi Jump Kick",
-    "power": 130,
-    "type": "fighting",
-    "accuracy": 90,
-    "pp": 10,
     "category": "physical",
-    "description": "May miss and hurt the user."
+    "description": "Damage doubles if user has no item.",
+    "hasTM": true
   },
-  "glare": {
-    "name": "Glare",
-    "power": 0,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 30,
-    "category": "status",
-    "description": "A move that may paralyze the foe."
-  },
-  "dreameater": {
-    "name": "Dream Eater",
-    "power": 100,
-    "type": "psychic",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "special",
-    "description": "Steals HP from a sleeping victim."
-  },
-  "poisonjab": {
-    "name": "Poison Jab",
-    "power": 80,
-    "type": "poison",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "An attack that may poison the foe."
-  },
-  "bulletpunch": {
-    "name": "Bullet Punch",
-    "power": 40,
-    "type": "steel",
-    "accuracy": 100,
-    "pp": 30,
-    "category": "physical",
-    "description": "A tough punch that always goes first."
-  },
-  "leechlife": {
-    "name": "Leech Life",
-    "power": 80,
-    "type": "bug",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "physical",
-    "description": "Steals 1/2 of the damage inflicted."
-  },
-  "drainingkiss": {
-    "name": "DrainingKiss",
-    "power": 50,
-    "type": "fairy",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": ""
-  },
-  "bravebird": {
-    "name": "Brave Bird",
-    "power": 120,
+  {
+    "id": "aerialace",
+    "name": "Aerial Ace",
     "type": "flying",
-    "accuracy": 100,
-    "pp": 15,
     "category": "physical",
-    "description": "A charge that also hurts the user."
+    "description": "An attack that never misses.",
+    "hasTM": true
   },
-  "transform": {
-    "name": "Transform",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 10,
-    "category": "status",
-    "description": "The user assumes the foe's guise."
-  },
-  "waterpulse": {
-    "name": "Water Pulse",
-    "power": 60,
-    "type": "water",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "special",
-    "description": "An attack that may confuse the foe."
-  },
-  "dizzypunch": {
-    "name": "Dizzy Punch",
-    "power": 70,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "physical",
-    "description": "An attack that may confuse the foe."
-  },
-  "spore": {
-    "name": "Spore",
-    "power": 0,
-    "type": "grass",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "status",
-    "description": "A move that puts the foe to sleep."
-  },
-  "flash": {
-    "name": "Flash",
-    "power": 0,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "status",
-    "description": "A move that lowers the foe's accuracy."
-  },
-  "extrasensory": {
-    "name": "Extrasensory",
-    "power": 80,
-    "type": "psychic",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "special",
-    "description": "An attack that may cause flinching."
-  },
-  "splash": {
-    "name": "Splash",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 40,
-    "category": "status",
-    "description": "Has no effect whatsoever."
-  },
-  "dragondance": {
-    "name": "Dragon Dance",
-    "power": 0,
-    "type": "dragon",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "status",
-    "description": "Raises the user's Attack and Speed."
-  },
-  "crabhammer": {
-    "name": "Crabhammer",
-    "power": 100,
-    "type": "water",
-    "accuracy": 95,
-    "pp": 10,
-    "category": "physical",
-    "description": "Has a high critical hit ratio."
-  },
-  "explosion": {
-    "name": "Explosion",
-    "power": 250,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 5,
-    "category": "physical",
-    "description": "Very powerful but makes user faint."
-  },
-  "furystrikes": {
-    "name": "Fury Strikes",
-    "power": 20,
-    "type": "normal",
-    "accuracy": 85,
-    "pp": 15,
-    "category": "physical",
-    "description": "Scratches or jabs 2-5 times."
-  },
-  "bonemerang": {
-    "name": "Bonemerang",
-    "power": 50,
-    "type": "ground",
-    "accuracy": 90,
-    "pp": 10,
-    "category": "physical",
-    "description": "An attack that strikes twice."
-  },
-  "rest": {
-    "name": "Rest",
-    "power": 0,
-    "type": "psychic",
-    "accuracy": -1,
-    "pp": 5,
-    "category": "status",
-    "description": "Sleep for 2 turns to fully recover."
-  },
-  "rockslide": {
-    "name": "Rock Slide",
-    "power": 75,
-    "type": "rock",
-    "accuracy": 90,
-    "pp": 10,
-    "category": "physical",
-    "description": "An attack that may cause flinching."
-  },
-  "hyperfang": {
-    "name": "Hyper Fang",
-    "power": 80,
-    "type": "normal",
-    "accuracy": 90,
-    "pp": 15,
-    "category": "physical",
-    "description": "An attack that may cause flinching."
-  },
-  "bulkup": {
-    "name": "Bulk Up",
-    "power": 0,
-    "type": "fighting",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "status",
-    "description": "Raises the user's Atk and Def."
-  },
-  "conversion": {
-    "name": "Conversion",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 30,
-    "category": "status",
-    "description": "Change user's type to a move's type."
-  },
-  "triattack": {
-    "name": "Tri Attack",
-    "power": 80,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "Fires three kinds of beams at once."
-  },
-  "superfang": {
-    "name": "Super Fang",
-    "power": 1,
-    "type": "normal",
-    "accuracy": 90,
-    "pp": 10,
-    "category": "physical",
-    "description": "Cuts the foe's HP by 1/2."
-  },
-  "slash": {
-    "name": "Slash",
-    "power": 70,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "Has a high critical hit ratio."
-  },
-  "substitute": {
-    "name": "Substitute",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 10,
-    "category": "status",
-    "description": "Makes a decoy with 1/4 user's max HP."
-  },
-  "gigaimpact": {
-    "name": "Giga Impact",
-    "power": 150,
-    "type": "normal",
-    "accuracy": 90,
-    "pp": 5,
-    "category": "physical",
-    "description": "1st turn: Attack 2nd turn: Rest"
-  },
-  "sketch": {
-    "name": "Sketch",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 1,
-    "category": "status",
-    "description": "Copies the foe's move permanently."
-  },
-  "drainpunch": {
-    "name": "Drain Punch",
-    "power": 75,
-    "type": "fighting",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "physical",
-    "description": "Steals 1/2 of the damage inflicted."
-  },
-  "thief": {
-    "name": "Thief",
-    "power": 60,
-    "type": "dark",
-    "accuracy": 100,
-    "pp": 25,
-    "category": "physical",
-    "description": "An attack that may steal a held item."
-  },
-  "willowisp": {
-    "name": "Will-O-Wisp",
-    "power": 0,
-    "type": "fire",
-    "accuracy": 85,
-    "pp": 15,
-    "category": "status",
-    "description": "A move that may burn the foe."
-  },
-  "zenheadbutt": {
-    "name": "Zen Headbutt",
-    "power": 80,
-    "type": "psychic",
-    "accuracy": 90,
-    "pp": 15,
-    "category": "physical",
-    "description": "An attack that may cause flinching."
-  },
-  "facade": {
-    "name": "Facade",
-    "power": 70,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "Double damage with Psn, Brn, or Prz."
-  },
-  "flamecharge": {
-    "name": "Flame Charge",
-    "power": 50,
-    "type": "fire",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "An attack that may up user's Speed."
-  },
-  "hypervoice": {
-    "name": "Hyper Voice",
-    "power": 90,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "Attack the foe with sound waves."
-  },
-  "curse": {
-    "name": "Curse",
-    "power": 0,
-    "type": "ghost",
-    "accuracy": -1,
-    "pp": 10,
-    "category": "status",
-    "description": "Works differently for Ghost-types."
-  },
-  "gyroball": {
-    "name": "Gyro Ball",
-    "power": 1,
-    "type": "steel",
-    "accuracy": 100,
-    "pp": 5,
-    "category": "physical",
-    "description": "Does more damage at lower speed."
-  },
-  "energyball": {
-    "name": "Energy Ball",
-    "power": 90,
-    "type": "grass",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "An attack that may lower Sp.Def."
-  },
-  "aeroblast": {
+  {
+    "id": "aeroblast",
     "name": "Aeroblast",
-    "power": 100,
     "type": "flying",
-    "accuracy": 95,
-    "pp": 5,
     "category": "special",
-    "description": "Has a high critical hit ratio."
+    "description": "Has a high critical hit ratio.",
+    "hasTM": false
   },
-  "seedbomb": {
-    "name": "Seed Bomb",
-    "power": 80,
-    "type": "grass",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "Slams a barrage of seeds at the foe."
-  },
-  "reversal": {
-    "name": "Reversal",
-    "power": 1,
-    "type": "fighting",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "Stronger if the user's HP is low."
-  },
-  "astonish": {
-    "name": "Astonish",
-    "power": 30,
-    "type": "ghost",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "An attack that may cause flinching."
-  },
-  "iceshard": {
-    "name": "Ice Shard",
-    "power": 40,
-    "type": "ice",
-    "accuracy": 100,
-    "pp": 30,
-    "category": "physical",
-    "description": "Hurls icy shards. Always goes first."
-  },
-  "protect": {
-    "name": "Protect",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 10,
-    "category": "status",
-    "description": "Foils attack that turn. It may fail."
-  },
-  "machpunch": {
-    "name": "Mach Punch",
-    "power": 40,
-    "type": "fighting",
-    "accuracy": 100,
-    "pp": 30,
-    "category": "physical",
-    "description": "A fast punch that always goes first."
-  },
-  "scaryface": {
-    "name": "Scary Face",
-    "power": 0,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "status",
-    "description": "Sharply lowers the foe's Speed."
-  },
-  "feintattack": {
-    "name": "Feint Attack",
-    "power": 60,
-    "type": "dark",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "physical",
-    "description": "An attack that never misses."
-  },
-  "sweetkiss": {
-    "name": "Sweet Kiss",
-    "power": 0,
-    "type": "fairy",
-    "accuracy": 75,
-    "pp": 10,
-    "category": "status",
-    "description": "A move that may confuse the foe."
-  },
-  "bellydrum": {
-    "name": "Belly Drum",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 10,
-    "category": "status",
-    "description": "Sacrifices HP to maximize Attack."
-  },
-  "sludgebomb": {
-    "name": "Sludge Bomb",
-    "power": 90,
-    "type": "poison",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "An attack that may poison the foe."
-  },
-  "mudslap": {
-    "name": "Mud-Slap",
-    "power": 20,
-    "type": "ground",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "An attack that lowers accuracy."
-  },
-  "octazooka": {
-    "name": "Octazooka",
-    "power": 75,
-    "type": "water",
-    "accuracy": 95,
-    "pp": 10,
-    "category": "special",
-    "description": "An attack that may lower accuracy."
-  },
-  "spikes": {
-    "name": "Spikes",
-    "power": 0,
-    "type": "ground",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "status",
-    "description": "Hurts foes when they switch in."
-  },
-  "zapcannon": {
-    "name": "Zap Cannon",
-    "power": 120,
-    "type": "electric",
-    "accuracy": 50,
-    "pp": 5,
-    "category": "special",
-    "description": "An attack that always paralyzes."
-  },
-  "foresight": {
-    "name": "Foresight",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 40,
-    "category": "status",
-    "description": "Negates foe's evasion and immunity."
-  },
-  "destinybond": {
-    "name": "Destiny Bond",
-    "power": 0,
-    "type": "ghost",
-    "accuracy": -1,
-    "pp": 5,
-    "category": "status",
-    "description": "The foe faints if the user does."
-  },
-  "perishsong": {
-    "name": "Perish Song",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 5,
-    "category": "status",
-    "description": "Both user and foe faint in 3 turns."
-  },
-  "icywind": {
-    "name": "Icy Wind",
-    "power": 55,
-    "type": "ice",
-    "accuracy": 95,
-    "pp": 15,
-    "category": "special",
-    "description": "An icy attack that lowers Speed."
-  },
-  "powergem": {
-    "name": "Power Gem",
-    "power": 80,
-    "type": "rock",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "special",
-    "description": "Attacks with a ray of gem-like light."
-  },
-  "wildcharge": {
-    "name": "Wild Charge",
-    "power": 90,
-    "type": "electric",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "A charge that also hurts the user."
-  },
-  "powerwhip": {
-    "name": "Power Whip",
-    "power": 120,
-    "type": "grass",
-    "accuracy": 85,
-    "pp": 10,
-    "category": "physical",
-    "description": "A violent lash attack."
-  },
-  "outrage": {
-    "name": "Outrage",
-    "power": 120,
-    "type": "dragon",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "physical",
-    "description": "Works 2-3 turns and confuses user."
-  },
-  "sandstorm": {
-    "name": "Sandstorm",
-    "power": 0,
-    "type": "rock",
-    "accuracy": -1,
-    "pp": 10,
-    "category": "status",
-    "description": "Inflicts damage every turn."
-  },
-  "gigadrain": {
-    "name": "Giga Drain",
-    "power": 75,
-    "type": "grass",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "Steals 1/2 of the damage inflicted."
-  },
-  "endure": {
-    "name": "Endure",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 10,
-    "category": "status",
-    "description": "Endures any hit with at least 1HP."
-  },
-  "charm": {
-    "name": "Charm",
-    "power": 0,
-    "type": "fairy",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "status",
-    "description": "Sharply lowers the foe's Attack."
-  },
-  "rollout": {
-    "name": "Rollout",
-    "power": 30,
-    "type": "rock",
-    "accuracy": 90,
-    "pp": 20,
-    "category": "physical",
-    "description": "Attacks 5 turns with rising power."
-  },
-  "falseswipe": {
-    "name": "False Swipe",
-    "power": 40,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 40,
-    "category": "physical",
-    "description": "Leaves the foe with at least 1HP."
-  },
-  "swagger": {
-    "name": "Swagger",
-    "power": 0,
-    "type": "normal",
-    "accuracy": 85,
-    "pp": 15,
-    "category": "status",
-    "description": "Causes confusion but raises Attack."
-  },
-  "shellsmash": {
-    "name": "Shell Smash",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 15,
-    "category": "status",
-    "description": "Lowers defenses, raises offenses."
-  },
-  "spark": {
-    "name": "Spark",
-    "power": 65,
-    "type": "electric",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "An attack that may cause paralysis."
-  },
-  "bugbite": {
-    "name": "Bug Bite",
-    "power": 60,
-    "type": "bug",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "Bites the foe and eats a held Berry."
-  },
-  "steelwing": {
-    "name": "Steel Wing",
-    "power": 70,
-    "type": "steel",
-    "accuracy": 90,
-    "pp": 25,
-    "category": "physical",
-    "description": "An attack that may up user's Defense."
-  },
-  "meanlook": {
-    "name": "Mean Look",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 5,
-    "category": "status",
-    "description": "Prevents fleeing or switching."
-  },
-  "attract": {
-    "name": "Attract",
-    "power": 0,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "status",
-    "description": "Makes the opposite gender infatuated."
-  },
-  "sleeptalk": {
-    "name": "Sleep Talk",
-    "power": 0,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "status",
-    "description": "Randomly attacks while asleep."
-  },
-  "healbell": {
-    "name": "Heal Bell",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 5,
-    "category": "status",
-    "description": "Eliminates all status problems."
-  },
-  "return": {
-    "name": "Return",
-    "power": 1,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "An attack that is based on loyalty."
-  },
-  "psystrike": {
-    "name": "Psystrike",
-    "power": 100,
+  {
+    "id": "agility",
+    "name": "Agility",
     "type": "psychic",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "A wave that does physical damage."
-  },
-  "bugbuzz": {
-    "name": "Bug Buzz",
-    "power": 90,
-    "type": "bug",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "An attack that may lower Sp.Def."
-  },
-  "safeguard": {
-    "name": "Safeguard",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 25,
     "category": "status",
-    "description": "Prevents all status problems."
+    "description": "Sharply raises the user's Speed.",
+    "hasTM": false
   },
-  "painsplit": {
-    "name": "Pain Split",
-    "power": 0,
-    "type": "ghost",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "status",
-    "description": "Adds user & foe's HPs. Shares total."
-  },
-  "sacredfire": {
-    "name": "Sacred Fire",
-    "power": 100,
-    "type": "fire",
-    "accuracy": 95,
-    "pp": 5,
-    "category": "physical",
-    "description": "An attack that may inflict a burn."
-  },
-  "magnitude": {
-    "name": "Magnitude",
-    "power": 1,
-    "type": "ground",
-    "accuracy": 100,
-    "pp": 30,
-    "category": "physical",
-    "description": "A Ground attack with random power."
-  },
-  "dynamicpunch": {
-    "name": "DynamicPunch",
-    "power": 100,
-    "type": "fighting",
-    "accuracy": 50,
-    "pp": 5,
-    "category": "physical",
-    "description": "An attack that confuses the foe."
-  },
-  "megahorn": {
-    "name": "Megahorn",
-    "power": 120,
-    "type": "bug",
-    "accuracy": 85,
-    "pp": 10,
-    "category": "physical",
-    "description": "A powerful charge attack."
-  },
-  "dragonbreath": {
-    "name": "DragonBreath",
-    "power": 60,
-    "type": "dragon",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "special",
-    "description": "A strong breath attack."
-  },
-  "batonpass": {
-    "name": "Baton Pass",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 40,
-    "category": "status",
-    "description": "Switches while keeping effects."
-  },
-  "encore": {
-    "name": "Encore",
-    "power": 0,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 5,
-    "category": "status",
-    "description": "Makes the foe repeat 2-6 times."
-  },
-  "pursuit": {
-    "name": "Pursuit",
-    "power": 40,
-    "type": "dark",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "Heavily strikes switching Pokemon."
-  },
-  "rapidspin": {
-    "name": "Rapid Spin",
-    "power": 50,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "A high-speed spinning attack."
-  },
-  "shadowclaw": {
-    "name": "Shadow Claw",
-    "power": 70,
-    "type": "ghost",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "Has a high critical hit ratio."
-  },
-  "irontail": {
-    "name": "Iron Tail",
-    "power": 100,
-    "type": "steel",
-    "accuracy": 75,
-    "pp": 15,
-    "category": "physical",
-    "description": "An attack that may lower Defense."
-  },
-  "metalclaw": {
-    "name": "Metal Claw",
-    "power": 50,
-    "type": "steel",
-    "accuracy": 95,
-    "pp": 35,
-    "category": "physical",
-    "description": "An attack that may up user's Attack."
-  },
-  "aurasphere": {
-    "name": "Aura Sphere",
-    "power": 80,
-    "type": "fighting",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "special",
-    "description": "An attack that never misses."
-  },
-  "healinglight": {
-    "name": "HealingLight",
-    "power": 0,
-    "type": "normal",
-    "accuracy": -1,
-    "pp": 5,
-    "category": "status",
-    "description": "Restores HP based on weather."
-  },
-  "hurricane": {
-    "name": "Hurricane",
-    "power": 110,
+  {
+    "id": "airslash",
+    "name": "Air Slash",
     "type": "flying",
-    "accuracy": 70,
-    "pp": 10,
     "category": "special",
-    "description": "An attack that may confuse the foe."
+    "description": "An attack that may cause flinching.",
+    "hasTM": false
   },
-  "knockoff": {
-    "name": "Knock Off",
-    "power": 65,
-    "type": "dark",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "Slaps down the foe's held item."
-  },
-  "hiddenpower": {
-    "name": "Hidden Power",
-    "power": 70,
-    "type": "unknownt",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "special",
-    "description": "The type varies with the Pokemon."
-  },
-  "crosschop": {
-    "name": "Cross Chop",
-    "power": 100,
-    "type": "fighting",
-    "accuracy": 80,
-    "pp": 5,
-    "category": "physical",
-    "description": "Has a high critical hit ratio."
-  },
-  "aquajet": {
-    "name": "Aqua Jet",
-    "power": 40,
-    "type": "water",
-    "accuracy": 100,
-    "pp": 20,
-    "category": "physical",
-    "description": "A speedy lunge. Always goes first."
-  },
-  "raindance": {
-    "name": "Rain Dance",
-    "power": 0,
-    "type": "water",
-    "accuracy": -1,
-    "pp": 5,
-    "category": "status",
-    "description": "Boosts Water-type moves for 5 turns."
-  },
-  "sunnyday": {
-    "name": "Sunny Day",
-    "power": 0,
-    "type": "fire",
-    "accuracy": -1,
-    "pp": 5,
-    "category": "status",
-    "description": "Boosts Fire-type moves for 5 turns."
-  },
-  "crunch": {
-    "name": "Crunch",
-    "power": 80,
-    "type": "dark",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": "An attack that may lower Defense."
-  },
-  "mirrorcoat": {
-    "name": "Mirror Coat",
-    "power": 1,
+  {
+    "id": "amnesia",
+    "name": "Amnesia",
     "type": "psychic",
-    "accuracy": -1,
-    "pp": 20,
-    "category": "special",
-    "description": "Returns a special attack double."
-  },
-  "nastyplot": {
-    "name": "Nasty Plot",
-    "power": 0,
-    "type": "dark",
-    "accuracy": -1,
-    "pp": 20,
     "category": "status",
-    "description": "Sharply raises the user's Sp.Atk."
+    "description": "Sharply raises the user's Sp.Def.",
+    "hasTM": false
   },
-  "extremespeed": {
-    "name": "ExtremeSpeed",
-    "power": 80,
-    "type": "normal",
-    "accuracy": 100,
-    "pp": 5,
-    "category": "physical",
-    "description": "A powerful firststrike attack."
-  },
-  "ancientpower": {
+  {
+    "id": "ancientpower",
     "name": "AncientPower",
-    "power": 60,
     "type": "rock",
-    "accuracy": 100,
-    "pp": 5,
     "category": "special",
-    "description": "An attack that may raise all stats."
+    "description": "An attack that may raise all stats.",
+    "hasTM": false
   },
-  "shadowball": {
-    "name": "Shadow Ball",
-    "power": 80,
-    "type": "ghost",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "special",
-    "description": "An attack that may lower Sp.Def."
-  },
-  "futuresight": {
-    "name": "Future Sight",
-    "power": 120,
-    "type": "psychic",
-    "accuracy": 100,
-    "pp": 10,
-    "category": "special",
-    "description": "An attack that hits on 3rd turn."
-  },
-  "brickbreak": {
-    "name": "Brick Break",
-    "power": 75,
-    "type": "fighting",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "physical",
-    "description": ""
-  },
-  "whirlpool": {
-    "name": "Whirlpool",
-    "power": 40,
+  {
+    "id": "aquajet",
+    "name": "Aqua Jet",
     "type": "water",
-    "accuracy": 90,
-    "pp": 15,
-    "category": "special",
-    "description": "Traps the foe for 2-5 turns."
+    "category": "physical",
+    "description": "A speedy lunge. Always goes first.",
+    "hasTM": false
   },
-  "darkpulse": {
-    "name": "Dark Pulse",
-    "power": 80,
+  {
+    "id": "aquatail",
+    "name": "Aqua Tail",
+    "type": "water",
+    "category": "physical",
+    "description": "Swings tail like a wave in a storm.",
+    "hasTM": false
+  },
+  {
+    "id": "astonish",
+    "name": "Astonish",
+    "type": "ghost",
+    "category": "physical",
+    "description": "An attack that may cause flinching.",
+    "hasTM": false
+  },
+  {
+    "id": "attract",
+    "name": "Attract",
+    "type": "normal",
+    "category": "status",
+    "description": "Makes the opposite gender infatuated.",
+    "hasTM": true
+  },
+  {
+    "id": "aurasphere",
+    "name": "Aura Sphere",
+    "type": "fighting",
+    "category": "special",
+    "description": "An attack that never misses.",
+    "hasTM": false
+  },
+  {
+    "id": "aurorabeam",
+    "name": "Aurora Beam",
+    "type": "ice",
+    "category": "special",
+    "description": "An attack that may lower Attack.",
+    "hasTM": false
+  },
+  {
+    "id": "avalanche",
+    "name": "Avalanche",
+    "type": "ice",
+    "category": "physical",
+    "description": "Damage doubles if user is hit first.",
+    "hasTM": true
+  },
+  {
+    "id": "barrier",
+    "name": "Barrier",
+    "type": "psychic",
+    "category": "status",
+    "description": "Sharply raises the user's Defense.",
+    "hasTM": false
+  },
+  {
+    "id": "batonpass",
+    "name": "Baton Pass",
+    "type": "normal",
+    "category": "status",
+    "description": "Switches while keeping effects.",
+    "hasTM": false
+  },
+  {
+    "id": "bellydrum",
+    "name": "Belly Drum",
+    "type": "normal",
+    "category": "status",
+    "description": "Sacrifices HP to maximize Attack.",
+    "hasTM": false
+  },
+  {
+    "id": "bite",
+    "name": "Bite",
     "type": "dark",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "special",
-    "description": "An attack that may cause flinching."
-  },
-  "moonblast": {
-    "name": "Moonblast",
-    "power": 95,
-    "type": "fairy",
-    "accuracy": 100,
-    "pp": 15,
-    "category": "special",
-    "description": "An attack that may lower Sp.Atk."
-  },
-  "playrough": {
-    "name": "Play Rough",
-    "power": 90,
-    "type": "fairy",
-    "accuracy": 90,
-    "pp": 10,
     "category": "physical",
-    "description": "An attack that may lower Attack."
+    "description": "An attack that may cause flinching.",
+    "hasTM": false
   },
-  "disarmvoice": {
+  {
+    "id": "blizzard",
+    "name": "Blizzard",
+    "type": "ice",
+    "category": "special",
+    "description": "An attack that may freeze the foe.",
+    "hasTM": true
+  },
+  {
+    "id": "bodyslam",
+    "name": "Body Slam",
+    "type": "normal",
+    "category": "physical",
+    "description": "An attack that may cause paralysis.",
+    "hasTM": false
+  },
+  {
+    "id": "bonemerang",
+    "name": "Bonemerang",
+    "type": "ground",
+    "category": "physical",
+    "description": "An attack that strikes twice.",
+    "hasTM": false
+  },
+  {
+    "id": "bravebird",
+    "name": "Brave Bird",
+    "type": "flying",
+    "category": "physical",
+    "description": "A charge that also hurts the user.",
+    "hasTM": false
+  },
+  {
+    "id": "brickbreak",
+    "name": "Brick Break",
+    "type": "fighting",
+    "category": "physical",
+    "description": "No description available.",
+    "hasTM": false
+  },
+  {
+    "id": "bubblebeam",
+    "name": "Bubble Beam",
+    "type": "water",
+    "category": "special",
+    "description": "An attack that may lower Speed.",
+    "hasTM": false
+  },
+  {
+    "id": "bugbite",
+    "name": "Bug Bite",
+    "type": "bug",
+    "category": "physical",
+    "description": "Bites the foe and eats a held Berry.",
+    "hasTM": false
+  },
+  {
+    "id": "bugbuzz",
+    "name": "Bug Buzz",
+    "type": "bug",
+    "category": "special",
+    "description": "An attack that may lower Sp.Def.",
+    "hasTM": false
+  },
+  {
+    "id": "bulkup",
+    "name": "Bulk Up",
+    "type": "fighting",
+    "category": "status",
+    "description": "Raises the user's Atk and Def.",
+    "hasTM": true
+  },
+  {
+    "id": "bulldoze",
+    "name": "Bulldoze",
+    "type": "ground",
+    "category": "physical",
+    "description": "A Ground attack that lowers Speed.",
+    "hasTM": true
+  },
+  {
+    "id": "bulletpunch",
+    "name": "Bullet Punch",
+    "type": "steel",
+    "category": "physical",
+    "description": "A tough punch that always goes first.",
+    "hasTM": false
+  },
+  {
+    "id": "calmmind",
+    "name": "Calm Mind",
+    "type": "psychic",
+    "category": "status",
+    "description": "Raises the user's Sp.Atk and Sp.Def.",
+    "hasTM": true
+  },
+  {
+    "id": "charm",
+    "name": "Charm",
+    "type": "fairy",
+    "category": "status",
+    "description": "Sharply lowers the foe's Attack.",
+    "hasTM": false
+  },
+  {
+    "id": "closecombat",
+    "name": "Close Combat",
+    "type": "fighting",
+    "category": "physical",
+    "description": "Lowers the user's Def and Sp.Def.",
+    "hasTM": false
+  },
+  {
+    "id": "confuseray",
+    "name": "Confuse Ray",
+    "type": "ghost",
+    "category": "status",
+    "description": "A move that may confuse the foe.",
+    "hasTM": false
+  },
+  {
+    "id": "confusion",
+    "name": "Confusion",
+    "type": "psychic",
+    "category": "special",
+    "description": "An attack that may confuse the foe.",
+    "hasTM": false
+  },
+  {
+    "id": "conversion",
+    "name": "Conversion",
+    "type": "normal",
+    "category": "status",
+    "description": "Change user's type to a move's type.",
+    "hasTM": false
+  },
+  {
+    "id": "counter",
+    "name": "Counter",
+    "type": "fighting",
+    "category": "physical",
+    "description": "Returns a physical attack double.",
+    "hasTM": false
+  },
+  {
+    "id": "crabhammer",
+    "name": "Crabhammer",
+    "type": "water",
+    "category": "physical",
+    "description": "Has a high critical hit ratio.",
+    "hasTM": false
+  },
+  {
+    "id": "crosschop",
+    "name": "Cross Chop",
+    "type": "fighting",
+    "category": "physical",
+    "description": "Has a high critical hit ratio.",
+    "hasTM": false
+  },
+  {
+    "id": "crunch",
+    "name": "Crunch",
+    "type": "dark",
+    "category": "physical",
+    "description": "An attack that may lower Defense.",
+    "hasTM": false
+  },
+  {
+    "id": "curse",
+    "name": "Curse",
+    "type": "ghost",
+    "category": "status",
+    "description": "Works differently for Ghost-types.",
+    "hasTM": true
+  },
+  {
+    "id": "cut",
+    "name": "Cut",
+    "type": "steel",
+    "category": "physical",
+    "description": "Cuts using claws, scythes, etc.",
+    "hasTM": true
+  },
+  {
+    "id": "darkpulse",
+    "name": "Dark Pulse",
+    "type": "dark",
+    "category": "special",
+    "description": "An attack that may cause flinching.",
+    "hasTM": true
+  },
+  {
+    "id": "dazzlingleam",
+    "name": "DazzlinGleam",
+    "type": "fairy",
+    "category": "special",
+    "description": "Dazzles with a powerful flash.",
+    "hasTM": true
+  },
+  {
+    "id": "defensecurl",
+    "name": "Defense Curl",
+    "type": "normal",
+    "category": "status",
+    "description": "Raises the user's Defense.",
+    "hasTM": false
+  },
+  {
+    "id": "destinybond",
+    "name": "Destiny Bond",
+    "type": "ghost",
+    "category": "status",
+    "description": "The foe faints if the user does.",
+    "hasTM": false
+  },
+  {
+    "id": "dig",
+    "name": "Dig",
+    "type": "ground",
+    "category": "physical",
+    "description": "1st turn: Burrow 2nd turn: Attack",
+    "hasTM": true
+  },
+  {
+    "id": "disable",
+    "name": "Disable",
+    "type": "normal",
+    "category": "status",
+    "description": "Disables the foe's most recent move.",
+    "hasTM": false
+  },
+  {
+    "id": "disarmvoice",
     "name": "Disarm Voice",
-    "power": 40,
     "type": "fairy",
-    "accuracy": -1,
-    "pp": 15,
     "category": "special",
-    "description": "An attack that never misses."
+    "description": "An attack that never misses.",
+    "hasTM": false
   },
-  "struggle": {
-    "name": "Struggle",
-    "power": 50,
-    "type": "unknownt",
-    "accuracy": -1,
-    "pp": 1,
+  {
+    "id": "dizzypunch",
+    "name": "Dizzy Punch",
+    "type": "normal",
     "category": "physical",
-    "description": "Used only if all PP are exhausted."
+    "description": "An attack that may confuse the foe.",
+    "hasTM": false
+  },
+  {
+    "id": "doublekick",
+    "name": "Double Kick",
+    "type": "fighting",
+    "category": "physical",
+    "description": "A double kicking attack.",
+    "hasTM": false
+  },
+  {
+    "id": "doubleteam",
+    "name": "Double Team",
+    "type": "normal",
+    "category": "status",
+    "description": "Raises the user's evasiveness.",
+    "hasTM": true
+  },
+  {
+    "id": "doubleedge",
+    "name": "Double-Edge",
+    "type": "normal",
+    "category": "physical",
+    "description": "A tackle that also hurts the user.",
+    "hasTM": false
+  },
+  {
+    "id": "doubleslap",
+    "name": "DoubleSlap",
+    "type": "normal",
+    "category": "physical",
+    "description": "Repeatedly slaps 2-5 times.",
+    "hasTM": false
+  },
+  {
+    "id": "dragonclaw",
+    "name": "Dragon Claw",
+    "type": "dragon",
+    "category": "physical",
+    "description": "Slashes the foe with sharp claws.",
+    "hasTM": true
+  },
+  {
+    "id": "dragondance",
+    "name": "Dragon Dance",
+    "type": "dragon",
+    "category": "status",
+    "description": "Raises the user's Attack and Speed.",
+    "hasTM": false
+  },
+  {
+    "id": "dragonpulse",
+    "name": "Dragon Pulse",
+    "type": "dragon",
+    "category": "special",
+    "description": "Attacks foe with a shock wave.",
+    "hasTM": true
+  },
+  {
+    "id": "dragonrage",
+    "name": "Dragon Rage",
+    "type": "dragon",
+    "category": "special",
+    "description": "Always inflicts 40HP damage.",
+    "hasTM": false
+  },
+  {
+    "id": "dragonbreath",
+    "name": "DragonBreath",
+    "type": "dragon",
+    "category": "special",
+    "description": "A strong breath attack.",
+    "hasTM": false
+  },
+  {
+    "id": "drainpunch",
+    "name": "Drain Punch",
+    "type": "fighting",
+    "category": "physical",
+    "description": "Steals 1/2 of the damage inflicted.",
+    "hasTM": true
+  },
+  {
+    "id": "drainingkiss",
+    "name": "DrainingKiss",
+    "type": "fairy",
+    "category": "special",
+    "description": "No description available.",
+    "hasTM": false
+  },
+  {
+    "id": "dreameater",
+    "name": "Dream Eater",
+    "type": "psychic",
+    "category": "special",
+    "description": "Steals HP from a sleeping victim.",
+    "hasTM": false
+  },
+  {
+    "id": "drillpeck",
+    "name": "Drill Peck",
+    "type": "flying",
+    "category": "physical",
+    "description": "A strong, spinning-peck attack.",
+    "hasTM": false
+  },
+  {
+    "id": "dynamicpunch",
+    "name": "DynamicPunch",
+    "type": "fighting",
+    "category": "physical",
+    "description": "An attack that confuses the foe.",
+    "hasTM": true
+  },
+  {
+    "id": "earthpower",
+    "name": "Earth Power",
+    "type": "ground",
+    "category": "special",
+    "description": "An attack that may lower Sp.Def.",
+    "hasTM": false
+  },
+  {
+    "id": "earthquake",
+    "name": "Earthquake",
+    "type": "ground",
+    "category": "physical",
+    "description": "Tough but useless vs. flying foes.",
+    "hasTM": true
+  },
+  {
+    "id": "ember",
+    "name": "Ember",
+    "type": "fire",
+    "category": "special",
+    "description": "An attack that may inflict a burn.",
+    "hasTM": false
+  },
+  {
+    "id": "encore",
+    "name": "Encore",
+    "type": "normal",
+    "category": "status",
+    "description": "Makes the foe repeat 2-6 times.",
+    "hasTM": false
+  },
+  {
+    "id": "endure",
+    "name": "Endure",
+    "type": "normal",
+    "category": "status",
+    "description": "Endures any hit with at least 1HP.",
+    "hasTM": false
+  },
+  {
+    "id": "energyball",
+    "name": "Energy Ball",
+    "type": "grass",
+    "category": "special",
+    "description": "An attack that may lower Sp.Def.",
+    "hasTM": true
+  },
+  {
+    "id": "explosion",
+    "name": "Explosion",
+    "type": "normal",
+    "category": "physical",
+    "description": "Very powerful but makes user faint.",
+    "hasTM": true
+  },
+  {
+    "id": "extrasensory",
+    "name": "Extrasensory",
+    "type": "psychic",
+    "category": "special",
+    "description": "An attack that may cause flinching.",
+    "hasTM": false
+  },
+  {
+    "id": "extremespeed",
+    "name": "ExtremeSpeed",
+    "type": "normal",
+    "category": "physical",
+    "description": "A powerful firststrike attack.",
+    "hasTM": false
+  },
+  {
+    "id": "facade",
+    "name": "Facade",
+    "type": "normal",
+    "category": "physical",
+    "description": "Double damage with Psn, Brn, or Prz.",
+    "hasTM": true
+  },
+  {
+    "id": "falseswipe",
+    "name": "False Swipe",
+    "type": "normal",
+    "category": "physical",
+    "description": "Leaves the foe with at least 1HP.",
+    "hasTM": true
+  },
+  {
+    "id": "feintattack",
+    "name": "Feint Attack",
+    "type": "dark",
+    "category": "physical",
+    "description": "An attack that never misses.",
+    "hasTM": false
+  },
+  {
+    "id": "fireblast",
+    "name": "Fire Blast",
+    "type": "fire",
+    "category": "special",
+    "description": "An attack that may inflict a burn.",
+    "hasTM": true
+  },
+  {
+    "id": "firepunch",
+    "name": "Fire Punch",
+    "type": "fire",
+    "category": "physical",
+    "description": "A fiery punch. May cause a burn.",
+    "hasTM": false
+  },
+  {
+    "id": "firespin",
+    "name": "Fire Spin",
+    "type": "fire",
+    "category": "special",
+    "description": "Traps the foe for 2-5 turns.",
+    "hasTM": false
+  },
+  {
+    "id": "flamecharge",
+    "name": "Flame Charge",
+    "type": "fire",
+    "category": "physical",
+    "description": "An attack that may up user's Speed.",
+    "hasTM": true
+  },
+  {
+    "id": "flamethrower",
+    "name": "Flamethrower",
+    "type": "fire",
+    "category": "special",
+    "description": "An attack that may inflict a burn.",
+    "hasTM": true
+  },
+  {
+    "id": "flareblitz",
+    "name": "Flare Blitz",
+    "type": "fire",
+    "category": "physical",
+    "description": "A charge that also hurts the user.",
+    "hasTM": false
+  },
+  {
+    "id": "flash",
+    "name": "Flash",
+    "type": "normal",
+    "category": "status",
+    "description": "A move that lowers the foe's accuracy.",
+    "hasTM": true
+  },
+  {
+    "id": "flashcannon",
+    "name": "Flash Cannon",
+    "type": "steel",
+    "category": "special",
+    "description": "An attack that may lower Sp.Def.",
+    "hasTM": true
+  },
+  {
+    "id": "fly",
+    "name": "Fly",
+    "type": "flying",
+    "category": "physical",
+    "description": "1st turn: Fly 2nd turn: Attack",
+    "hasTM": true
+  },
+  {
+    "id": "focusblast",
+    "name": "Focus Blast",
+    "type": "fighting",
+    "category": "special",
+    "description": "An attack that may lower Sp.Def.",
+    "hasTM": true
+  },
+  {
+    "id": "focusenergy",
+    "name": "Focus Energy",
+    "type": "normal",
+    "category": "status",
+    "description": "Raises the critical hit ratio.",
+    "hasTM": false
+  },
+  {
+    "id": "foresight",
+    "name": "Foresight",
+    "type": "normal",
+    "category": "status",
+    "description": "Negates foe's evasion and immunity.",
+    "hasTM": false
+  },
+  {
+    "id": "freshsnack",
+    "name": "Fresh Snack",
+    "type": "normal",
+    "category": "status",
+    "description": "Restores HP by 1/2 the user's max HP.",
+    "hasTM": false
+  },
+  {
+    "id": "furystrikes",
+    "name": "Fury Strikes",
+    "type": "normal",
+    "category": "physical",
+    "description": "Scratches or jabs 2-5 times.",
+    "hasTM": false
+  },
+  {
+    "id": "futuresight",
+    "name": "Future Sight",
+    "type": "psychic",
+    "category": "special",
+    "description": "An attack that hits on 3rd turn.",
+    "hasTM": false
+  },
+  {
+    "id": "gigadrain",
+    "name": "Giga Drain",
+    "type": "grass",
+    "category": "special",
+    "description": "Steals 1/2 of the damage inflicted.",
+    "hasTM": true
+  },
+  {
+    "id": "gigaimpact",
+    "name": "Giga Impact",
+    "type": "normal",
+    "category": "physical",
+    "description": "1st turn: Attack 2nd turn: Rest",
+    "hasTM": true
+  },
+  {
+    "id": "glare",
+    "name": "Glare",
+    "type": "normal",
+    "category": "status",
+    "description": "A move that may paralyze the foe.",
+    "hasTM": false
+  },
+  {
+    "id": "growl",
+    "name": "Growl",
+    "type": "normal",
+    "category": "status",
+    "description": "A move that lowers the foe's Attack.",
+    "hasTM": false
+  },
+  {
+    "id": "growth",
+    "name": "Growth",
+    "type": "normal",
+    "category": "status",
+    "description": "Raises the user's Atk and Sp.Atk.",
+    "hasTM": false
+  },
+  {
+    "id": "gunkshot",
+    "name": "Gunk Shot",
+    "type": "poison",
+    "category": "physical",
+    "description": "An attack that may poison the foe.",
+    "hasTM": false
+  },
+  {
+    "id": "gust",
+    "name": "Gust",
+    "type": "flying",
+    "category": "special",
+    "description": "Whips up a strong gust of wind.",
+    "hasTM": false
+  },
+  {
+    "id": "gyroball",
+    "name": "Gyro Ball",
+    "type": "steel",
+    "category": "physical",
+    "description": "Does more damage at lower speed.",
+    "hasTM": true
+  },
+  {
+    "id": "hail",
+    "name": "Hail",
+    "type": "ice",
+    "category": "status",
+    "description": "Inflicts damage every turn.",
+    "hasTM": true
+  },
+  {
+    "id": "haze",
+    "name": "Haze",
+    "type": "ice",
+    "category": "status",
+    "description": "Eliminates all stat changes.",
+    "hasTM": false
+  },
+  {
+    "id": "headbutt",
+    "name": "Headbutt",
+    "type": "normal",
+    "category": "physical",
+    "description": "An attack that may cause flinching.",
+    "hasTM": false
+  },
+  {
+    "id": "healbell",
+    "name": "Heal Bell",
+    "type": "normal",
+    "category": "status",
+    "description": "Eliminates all status problems.",
+    "hasTM": false
+  },
+  {
+    "id": "healinglight",
+    "name": "HealingLight",
+    "type": "normal",
+    "category": "status",
+    "description": "Restores HP based on weather.",
+    "hasTM": false
+  },
+  {
+    "id": "hex",
+    "name": "Hex",
+    "type": "ghost",
+    "category": "special",
+    "description": "Damage doubles if foe has status.",
+    "hasTM": false
+  },
+  {
+    "id": "hijumpkick",
+    "name": "Hi Jump Kick",
+    "type": "fighting",
+    "category": "physical",
+    "description": "May miss and hurt the user.",
+    "hasTM": false
+  },
+  {
+    "id": "hiddenpower",
+    "name": "Hidden Power",
+    "type": "unknownt",
+    "category": "special",
+    "description": "The type varies with the Pokémon.",
+    "hasTM": true
+  },
+  {
+    "id": "honeclaws",
+    "name": "Hone Claws",
+    "type": "dark",
+    "category": "status",
+    "description": "Raises the user's Atk and accuracy.",
+    "hasTM": true
+  },
+  {
+    "id": "hornattack",
+    "name": "Horn Attack",
+    "type": "normal",
+    "category": "physical",
+    "description": "An attack using a horn to jab.",
+    "hasTM": false
+  },
+  {
+    "id": "hurricane",
+    "name": "Hurricane",
+    "type": "flying",
+    "category": "special",
+    "description": "An attack that may confuse the foe.",
+    "hasTM": false
+  },
+  {
+    "id": "hydropump",
+    "name": "Hydro Pump",
+    "type": "water",
+    "category": "special",
+    "description": "A powerful Watertype attack.",
+    "hasTM": false
+  },
+  {
+    "id": "hyperbeam",
+    "name": "Hyper Beam",
+    "type": "normal",
+    "category": "special",
+    "description": "1st turn: Attack 2nd turn: Rest",
+    "hasTM": true
+  },
+  {
+    "id": "hyperfang",
+    "name": "Hyper Fang",
+    "type": "normal",
+    "category": "physical",
+    "description": "An attack that may cause flinching.",
+    "hasTM": false
+  },
+  {
+    "id": "hypervoice",
+    "name": "Hyper Voice",
+    "type": "normal",
+    "category": "special",
+    "description": "Attack the foe with sound waves.",
+    "hasTM": false
+  },
+  {
+    "id": "hypnosis",
+    "name": "Hypnosis",
+    "type": "psychic",
+    "category": "status",
+    "description": "May cause the foe to fall asleep.",
+    "hasTM": false
+  },
+  {
+    "id": "icebeam",
+    "name": "Ice Beam",
+    "type": "ice",
+    "category": "special",
+    "description": "An attack that may freeze the foe.",
+    "hasTM": true
+  },
+  {
+    "id": "icepunch",
+    "name": "Ice Punch",
+    "type": "ice",
+    "category": "physical",
+    "description": "An icy punch. May cause freezing.",
+    "hasTM": false
+  },
+  {
+    "id": "iceshard",
+    "name": "Ice Shard",
+    "type": "ice",
+    "category": "physical",
+    "description": "Hurls icy shards. Always goes first.",
+    "hasTM": false
+  },
+  {
+    "id": "iciclecrash",
+    "name": "Icicle Crash",
+    "type": "ice",
+    "category": "physical",
+    "description": "An attack that may cause flinching.",
+    "hasTM": false
+  },
+  {
+    "id": "iciclespear",
+    "name": "Icicle Spear",
+    "type": "ice",
+    "category": "physical",
+    "description": "Fires icicles to hit 2-5 times.",
+    "hasTM": false
+  },
+  {
+    "id": "icywind",
+    "name": "Icy Wind",
+    "type": "ice",
+    "category": "special",
+    "description": "An icy attack that lowers Speed.",
+    "hasTM": false
+  },
+  {
+    "id": "ironhead",
+    "name": "Iron Head",
+    "type": "steel",
+    "category": "physical",
+    "description": "An attack that may cause flinching.",
+    "hasTM": false
+  },
+  {
+    "id": "irontail",
+    "name": "Iron Tail",
+    "type": "steel",
+    "category": "physical",
+    "description": "An attack that may lower Defense.",
+    "hasTM": true
+  },
+  {
+    "id": "karatechop",
+    "name": "Karate Chop",
+    "type": "fighting",
+    "category": "physical",
+    "description": "Has a high critical hit ratio.",
+    "hasTM": false
+  },
+  {
+    "id": "knockoff",
+    "name": "Knock Off",
+    "type": "dark",
+    "category": "physical",
+    "description": "Slaps down the foe's held item.",
+    "hasTM": false
+  },
+  {
+    "id": "leechlife",
+    "name": "Leech Life",
+    "type": "bug",
+    "category": "physical",
+    "description": "Steals 1/2 of the damage inflicted.",
+    "hasTM": true
+  },
+  {
+    "id": "leechseed",
+    "name": "Leech Seed",
+    "type": "grass",
+    "category": "status",
+    "description": "Steals HP from the foe on every turn.",
+    "hasTM": false
+  },
+  {
+    "id": "leer",
+    "name": "Leer",
+    "type": "normal",
+    "category": "status",
+    "description": "A move that lowers the foe's Defense.",
+    "hasTM": false
+  },
+  {
+    "id": "lick",
+    "name": "Lick",
+    "type": "ghost",
+    "category": "physical",
+    "description": "An attack that may cause paralysis.",
+    "hasTM": false
+  },
+  {
+    "id": "lightscreen",
+    "name": "Light Screen",
+    "type": "psychic",
+    "category": "status",
+    "description": "Raises Sp.Def with a wall of light.",
+    "hasTM": true
+  },
+  {
+    "id": "lowkick",
+    "name": "Low Kick",
+    "type": "fighting",
+    "category": "physical",
+    "description": "Deals more damage to heavier foes.",
+    "hasTM": false
+  },
+  {
+    "id": "machpunch",
+    "name": "Mach Punch",
+    "type": "fighting",
+    "category": "physical",
+    "description": "A fast punch that always goes first.",
+    "hasTM": false
+  },
+  {
+    "id": "magnitude",
+    "name": "Magnitude",
+    "type": "ground",
+    "category": "physical",
+    "description": "A Ground attack with random power.",
+    "hasTM": false
+  },
+  {
+    "id": "meanlook",
+    "name": "Mean Look",
+    "type": "normal",
+    "category": "status",
+    "description": "Prevents fleeing or switching.",
+    "hasTM": false
+  },
+  {
+    "id": "megadrain",
+    "name": "Mega Drain",
+    "type": "grass",
+    "category": "special",
+    "description": "Steals 1/2 of the damage inflicted.",
+    "hasTM": false
+  },
+  {
+    "id": "megahorn",
+    "name": "Megahorn",
+    "type": "bug",
+    "category": "physical",
+    "description": "A powerful charge attack.",
+    "hasTM": false
+  },
+  {
+    "id": "metalclaw",
+    "name": "Metal Claw",
+    "type": "steel",
+    "category": "physical",
+    "description": "An attack that may up user's Attack.",
+    "hasTM": false
+  },
+  {
+    "id": "metronome",
+    "name": "Metronome",
+    "type": "unknownt",
+    "category": "status",
+    "description": "Randomly uses any Pokémon move.",
+    "hasTM": false
+  },
+  {
+    "id": "minimize",
+    "name": "Minimize",
+    "type": "normal",
+    "category": "status",
+    "description": "Sharply raises the user's evasiveness.",
+    "hasTM": false
+  },
+  {
+    "id": "mirrorcoat",
+    "name": "Mirror Coat",
+    "type": "psychic",
+    "category": "special",
+    "description": "Returns a special attack double.",
+    "hasTM": false
+  },
+  {
+    "id": "moonblast",
+    "name": "Moonblast",
+    "type": "fairy",
+    "category": "special",
+    "description": "An attack that may lower Sp.Atk.",
+    "hasTM": false
+  },
+  {
+    "id": "mudslap",
+    "name": "Mud-Slap",
+    "type": "ground",
+    "category": "special",
+    "description": "An attack that lowers accuracy.",
+    "hasTM": false
+  },
+  {
+    "id": "nastyplot",
+    "name": "Nasty Plot",
+    "type": "dark",
+    "category": "status",
+    "description": "Sharply raises the user's Sp.Atk.",
+    "hasTM": false
+  },
+  {
+    "id": "nightshade",
+    "name": "Night Shade",
+    "type": "ghost",
+    "category": "special",
+    "description": "Damage equals the user's level.",
+    "hasTM": false
+  },
+  {
+    "id": "nightslash",
+    "name": "Night Slash",
+    "type": "dark",
+    "category": "physical",
+    "description": "Has a high critical hit ratio.",
+    "hasTM": false
+  },
+  {
+    "id": "octazooka",
+    "name": "Octazooka",
+    "type": "water",
+    "category": "special",
+    "description": "An attack that may lower accuracy.",
+    "hasTM": false
+  },
+  {
+    "id": "outrage",
+    "name": "Outrage",
+    "type": "dragon",
+    "category": "physical",
+    "description": "Works 2-3 turns and confuses user.",
+    "hasTM": false
+  },
+  {
+    "id": "painsplit",
+    "name": "Pain Split",
+    "type": "ghost",
+    "category": "status",
+    "description": "Adds user & foe's HPs. Shares total.",
+    "hasTM": false
+  },
+  {
+    "id": "payday",
+    "name": "Pay Day",
+    "type": "normal",
+    "category": "physical",
+    "description": "Throws coins. Gets them back later.",
+    "hasTM": false
+  },
+  {
+    "id": "peck",
+    "name": "Peck",
+    "type": "flying",
+    "category": "physical",
+    "description": "Jabs the foe with a beak, etc.",
+    "hasTM": false
+  },
+  {
+    "id": "perishsong",
+    "name": "Perish Song",
+    "type": "normal",
+    "category": "status",
+    "description": "Both user and foe faint in 3 turns.",
+    "hasTM": false
+  },
+  {
+    "id": "petaldance",
+    "name": "Petal Dance",
+    "type": "grass",
+    "category": "special",
+    "description": "Works 2-3 turns and confuses user.",
+    "hasTM": false
+  },
+  {
+    "id": "pinmissile",
+    "name": "Pin Missile",
+    "type": "bug",
+    "category": "physical",
+    "description": "Fires pins that strike 2-5 times.",
+    "hasTM": false
+  },
+  {
+    "id": "playrough",
+    "name": "Play Rough",
+    "type": "fairy",
+    "category": "physical",
+    "description": "An attack that may lower Attack.",
+    "hasTM": false
+  },
+  {
+    "id": "poisonjab",
+    "name": "Poison Jab",
+    "type": "poison",
+    "category": "physical",
+    "description": "An attack that may poison the foe.",
+    "hasTM": true
+  },
+  {
+    "id": "poisonsting",
+    "name": "Poison Sting",
+    "type": "poison",
+    "category": "physical",
+    "description": "An attack that may poison the foe.",
+    "hasTM": false
+  },
+  {
+    "id": "poisonpowder",
+    "name": "PoisonPowder",
+    "type": "poison",
+    "category": "status",
+    "description": "A move that may poison the foe.",
+    "hasTM": false
+  },
+  {
+    "id": "powergem",
+    "name": "Power Gem",
+    "type": "rock",
+    "category": "special",
+    "description": "Attacks with a ray of gem-like light.",
+    "hasTM": false
+  },
+  {
+    "id": "powerwhip",
+    "name": "Power Whip",
+    "type": "grass",
+    "category": "physical",
+    "description": "A violent lash attack.",
+    "hasTM": false
+  },
+  {
+    "id": "protect",
+    "name": "Protect",
+    "type": "normal",
+    "category": "status",
+    "description": "Foils attack that turn. It may fail.",
+    "hasTM": true
+  },
+  {
+    "id": "psybeam",
+    "name": "Psybeam",
+    "type": "psychic",
+    "category": "special",
+    "description": "An attack that may confuse the foe.",
+    "hasTM": false
+  },
+  {
+    "id": "psychic",
+    "name": "Psychic",
+    "type": "None",
+    "category": "Unknown",
+    "description": "No description available.",
+    "hasTM": false
+  },
+  {
+    "id": "psystrike",
+    "name": "Psystrike",
+    "type": "psychic",
+    "category": "special",
+    "description": "A wave that does physical damage.",
+    "hasTM": false
+  },
+  {
+    "id": "pursuit",
+    "name": "Pursuit",
+    "type": "dark",
+    "category": "physical",
+    "description": "Heavily strikes switching Pokémon.",
+    "hasTM": false
+  },
+  {
+    "id": "quickattack",
+    "name": "Quick Attack",
+    "type": "normal",
+    "category": "physical",
+    "description": "Lets the user get in the first hit.",
+    "hasTM": false
+  },
+  {
+    "id": "rage",
+    "name": "Rage",
+    "type": "normal",
+    "category": "physical",
+    "description": "Raises Attack if the user is hit.",
+    "hasTM": false
+  },
+  {
+    "id": "raindance",
+    "name": "Rain Dance",
+    "type": "water",
+    "category": "status",
+    "description": "Boosts Water-type moves for 5 turns.",
+    "hasTM": true
+  },
+  {
+    "id": "rapidspin",
+    "name": "Rapid Spin",
+    "type": "normal",
+    "category": "physical",
+    "description": "A high-speed spinning attack.",
+    "hasTM": false
+  },
+  {
+    "id": "razorleaf",
+    "name": "Razor Leaf",
+    "type": "grass",
+    "category": "physical",
+    "description": "Has a high critical hit ratio.",
+    "hasTM": false
+  },
+  {
+    "id": "recover",
+    "name": "Recover",
+    "type": "normal",
+    "category": "status",
+    "description": "Restores HP by 1/2 the max HP.",
+    "hasTM": false
+  },
+  {
+    "id": "reflect",
+    "name": "Reflect",
+    "type": "psychic",
+    "category": "status",
+    "description": "Raises Defense with a barrier.",
+    "hasTM": true
+  },
+  {
+    "id": "rest",
+    "name": "Rest",
+    "type": "psychic",
+    "category": "status",
+    "description": "Sleep for 2 turns to fully recover.",
+    "hasTM": true
+  },
+  {
+    "id": "return",
+    "name": "Return",
+    "type": "normal",
+    "category": "physical",
+    "description": "An attack that is based on loyalty.",
+    "hasTM": true
+  },
+  {
+    "id": "reversal",
+    "name": "Reversal",
+    "type": "fighting",
+    "category": "physical",
+    "description": "Stronger if the user's HP is low.",
+    "hasTM": false
+  },
+  {
+    "id": "roar",
+    "name": "Roar",
+    "type": "normal",
+    "category": "status",
+    "description": "Scares wild foes to end battle.",
+    "hasTM": true
+  },
+  {
+    "id": "rockblast",
+    "name": "Rock Blast",
+    "type": "rock",
+    "category": "physical",
+    "description": "Hurls boulders to hit 2-5 times.",
+    "hasTM": false
+  },
+  {
+    "id": "rockslide",
+    "name": "Rock Slide",
+    "type": "rock",
+    "category": "physical",
+    "description": "An attack that may cause flinching.",
+    "hasTM": true
+  },
+  {
+    "id": "rockthrow",
+    "name": "Rock Throw",
+    "type": "rock",
+    "category": "physical",
+    "description": "Drops rocks on the enemy.",
+    "hasTM": false
+  },
+  {
+    "id": "rollout",
+    "name": "Rollout",
+    "type": "rock",
+    "category": "physical",
+    "description": "Attacks 5 turns with rising power.",
+    "hasTM": false
+  },
+  {
+    "id": "roost",
+    "name": "Roost",
+    "type": "flying",
+    "category": "status",
+    "description": "Lands to restore 1/2 the max HP.",
+    "hasTM": true
+  },
+  {
+    "id": "sacredfire",
+    "name": "Sacred Fire",
+    "type": "fire",
+    "category": "physical",
+    "description": "An attack that may inflict a burn.",
+    "hasTM": false
+  },
+  {
+    "id": "safeguard",
+    "name": "Safeguard",
+    "type": "normal",
+    "category": "status",
+    "description": "Prevents all status problems.",
+    "hasTM": true
+  },
+  {
+    "id": "sandstorm",
+    "name": "Sandstorm",
+    "type": "rock",
+    "category": "status",
+    "description": "Inflicts damage every turn.",
+    "hasTM": true
+  },
+  {
+    "id": "scald",
+    "name": "Scald",
+    "type": "water",
+    "category": "special",
+    "description": "An attack that may inflict a burn.",
+    "hasTM": true
+  },
+  {
+    "id": "scaryface",
+    "name": "Scary Face",
+    "type": "normal",
+    "category": "status",
+    "description": "Sharply lowers the foe's Speed.",
+    "hasTM": false
+  },
+  {
+    "id": "scratch",
+    "name": "Scratch",
+    "type": "normal",
+    "category": "physical",
+    "description": "Scratches with sharp claws.",
+    "hasTM": false
+  },
+  {
+    "id": "screech",
+    "name": "Screech",
+    "type": "normal",
+    "category": "status",
+    "description": "Sharply lowers the foe's Defense.",
+    "hasTM": false
+  },
+  {
+    "id": "seedbomb",
+    "name": "Seed Bomb",
+    "type": "grass",
+    "category": "physical",
+    "description": "Slams a barrage of seeds at the foe.",
+    "hasTM": false
+  },
+  {
+    "id": "seismictoss",
+    "name": "Seismic Toss",
+    "type": "fighting",
+    "category": "physical",
+    "description": "Damage equals the user's level.",
+    "hasTM": false
+  },
+  {
+    "id": "shadowball",
+    "name": "Shadow Ball",
+    "type": "ghost",
+    "category": "special",
+    "description": "An attack that may lower Sp.Def.",
+    "hasTM": true
+  },
+  {
+    "id": "shadowclaw",
+    "name": "Shadow Claw",
+    "type": "ghost",
+    "category": "physical",
+    "description": "Has a high critical hit ratio.",
+    "hasTM": true
+  },
+  {
+    "id": "shellsmash",
+    "name": "Shell Smash",
+    "type": "normal",
+    "category": "status",
+    "description": "Lowers defenses, raises offenses.",
+    "hasTM": false
+  },
+  {
+    "id": "sing",
+    "name": "Sing",
+    "type": "normal",
+    "category": "status",
+    "description": "May cause the foe to fall asleep.",
+    "hasTM": false
+  },
+  {
+    "id": "sketch",
+    "name": "Sketch",
+    "type": "normal",
+    "category": "status",
+    "description": "Copies the foe's move permanently.",
+    "hasTM": false
+  },
+  {
+    "id": "skillswap",
+    "name": "Skill Swap",
+    "type": "psychic",
+    "category": "status",
+    "description": "Swaps abilities with the foe.",
+    "hasTM": false
+  },
+  {
+    "id": "slash",
+    "name": "Slash",
+    "type": "normal",
+    "category": "physical",
+    "description": "Has a high critical hit ratio.",
+    "hasTM": false
+  },
+  {
+    "id": "sleeppowder",
+    "name": "Sleep Powder",
+    "type": "grass",
+    "category": "status",
+    "description": "May cause the foe to fall asleep.",
+    "hasTM": false
+  },
+  {
+    "id": "sleeptalk",
+    "name": "Sleep Talk",
+    "type": "normal",
+    "category": "status",
+    "description": "Randomly attacks while asleep.",
+    "hasTM": false
+  },
+  {
+    "id": "sludgebomb",
+    "name": "Sludge Bomb",
+    "type": "poison",
+    "category": "special",
+    "description": "An attack that may poison the foe.",
+    "hasTM": true
+  },
+  {
+    "id": "smokescreen",
+    "name": "Smokescreen",
+    "type": "normal",
+    "category": "status",
+    "description": "A move that lowers the foe's accuracy.",
+    "hasTM": false
+  },
+  {
+    "id": "solarbeam",
+    "name": "Solar Beam",
+    "type": "grass",
+    "category": "special",
+    "description": "1st turn: Prepare 2nd turn: Attack",
+    "hasTM": true
+  },
+  {
+    "id": "sonicboom",
+    "name": "Sonic Boom",
+    "type": "normal",
+    "category": "special",
+    "description": "Always inflicts 20HP damage.",
+    "hasTM": false
+  },
+  {
+    "id": "spark",
+    "name": "Spark",
+    "type": "electric",
+    "category": "physical",
+    "description": "An attack that may cause paralysis.",
+    "hasTM": false
+  },
+  {
+    "id": "spikes",
+    "name": "Spikes",
+    "type": "ground",
+    "category": "status",
+    "description": "Hurts foes when they switch in.",
+    "hasTM": false
+  },
+  {
+    "id": "splash",
+    "name": "Splash",
+    "type": "normal",
+    "category": "status",
+    "description": "Has no effect whatsoever.",
+    "hasTM": false
+  },
+  {
+    "id": "spore",
+    "name": "Spore",
+    "type": "grass",
+    "category": "status",
+    "description": "A move that puts the foe to sleep.",
+    "hasTM": false
+  },
+  {
+    "id": "steelwing",
+    "name": "Steel Wing",
+    "type": "steel",
+    "category": "physical",
+    "description": "An attack that may up user's Defense.",
+    "hasTM": true
+  },
+  {
+    "id": "stomp",
+    "name": "Stomp",
+    "type": "normal",
+    "category": "physical",
+    "description": "An attack that may cause flinching.",
+    "hasTM": false
+  },
+  {
+    "id": "stoneedge",
+    "name": "Stone Edge",
+    "type": "rock",
+    "category": "physical",
+    "description": "Has a high critical hit ratio.",
+    "hasTM": true
+  },
+  {
+    "id": "strength",
+    "name": "Strength",
+    "type": "fighting",
+    "category": "physical",
+    "description": "A powerful physical attack.",
+    "hasTM": true
+  },
+  {
+    "id": "stringshot",
+    "name": "String Shot",
+    "type": "bug",
+    "category": "status",
+    "description": "A move that lowers the foe's Speed.",
+    "hasTM": false
+  },
+  {
+    "id": "struggle",
+    "name": "Struggle",
+    "type": "unknownt",
+    "category": "physical",
+    "description": "Used only if all PP are exhausted.",
+    "hasTM": false
+  },
+  {
+    "id": "stunspore",
+    "name": "Stun Spore",
+    "type": "grass",
+    "category": "status",
+    "description": "A move that may paralyze the foe.",
+    "hasTM": false
+  },
+  {
+    "id": "substitute",
+    "name": "Substitute",
+    "type": "normal",
+    "category": "status",
+    "description": "Makes a decoy with 1/4 user's max HP.",
+    "hasTM": true
+  },
+  {
+    "id": "suckerpunch",
+    "name": "Sucker Punch",
+    "type": "dark",
+    "category": "physical",
+    "description": "Attacks before the foe does.",
+    "hasTM": false
+  },
+  {
+    "id": "sunnyday",
+    "name": "Sunny Day",
+    "type": "fire",
+    "category": "status",
+    "description": "Boosts Fire-type moves for 5 turns.",
+    "hasTM": true
+  },
+  {
+    "id": "superfang",
+    "name": "Super Fang",
+    "type": "normal",
+    "category": "physical",
+    "description": "Cuts the foe's HP by 1/2.",
+    "hasTM": false
+  },
+  {
+    "id": "supersonic",
+    "name": "Supersonic",
+    "type": "normal",
+    "category": "status",
+    "description": "A move that may confuse the foe.",
+    "hasTM": false
+  },
+  {
+    "id": "surf",
+    "name": "Surf",
+    "type": "water",
+    "category": "special",
+    "description": "A strong Watertype attack.",
+    "hasTM": true
+  },
+  {
+    "id": "swagger",
+    "name": "Swagger",
+    "type": "normal",
+    "category": "status",
+    "description": "Causes confusion but raises Attack.",
+    "hasTM": false
+  },
+  {
+    "id": "sweetkiss",
+    "name": "Sweet Kiss",
+    "type": "fairy",
+    "category": "status",
+    "description": "A move that may confuse the foe.",
+    "hasTM": false
+  },
+  {
+    "id": "swift",
+    "name": "Swift",
+    "type": "normal",
+    "category": "special",
+    "description": "An attack that never misses.",
+    "hasTM": true
+  },
+  {
+    "id": "swordsdance",
+    "name": "Swords Dance",
+    "type": "normal",
+    "category": "status",
+    "description": "Sharply raises the user's Attack.",
+    "hasTM": true
+  },
+  {
+    "id": "tackle",
+    "name": "Tackle",
+    "type": "normal",
+    "category": "physical",
+    "description": "A full-body charge attack.",
+    "hasTM": false
+  },
+  {
+    "id": "takedown",
+    "name": "Take Down",
+    "type": "normal",
+    "category": "physical",
+    "description": "A tackle that also hurts the user.",
+    "hasTM": false
+  },
+  {
+    "id": "teleport",
+    "name": "Teleport",
+    "type": "psychic",
+    "category": "status",
+    "description": "A move for fleeing from battle.",
+    "hasTM": false
+  },
+  {
+    "id": "thief",
+    "name": "Thief",
+    "type": "dark",
+    "category": "physical",
+    "description": "An attack that may steal a held item.",
+    "hasTM": true
+  },
+  {
+    "id": "thrash",
+    "name": "Thrash",
+    "type": "normal",
+    "category": "physical",
+    "description": "Works 2-3 turns and confuses user.",
+    "hasTM": false
+  },
+  {
+    "id": "thunder",
+    "name": "Thunder",
+    "type": "electric",
+    "category": "special",
+    "description": "An attack that may cause paralysis.",
+    "hasTM": true
+  },
+  {
+    "id": "thunderwave",
+    "name": "Thunder Wave",
+    "type": "electric",
+    "category": "status",
+    "description": "paralyzes the foe.",
+    "hasTM": true
+  },
+  {
+    "id": "thunderbolt",
+    "name": "Thunderbolt",
+    "type": "electric",
+    "category": "special",
+    "description": "An attack that may cause paralysis.",
+    "hasTM": true
+  },
+  {
+    "id": "thunderpunch",
+    "name": "ThunderPunch",
+    "type": "electric",
+    "category": "physical",
+    "description": "An electric punch. It may paralyze.",
+    "hasTM": false
+  },
+  {
+    "id": "thundershock",
+    "name": "ThunderShock",
+    "type": "electric",
+    "category": "special",
+    "description": "An attack that may cause paralysis.",
+    "hasTM": false
+  },
+  {
+    "id": "toxic",
+    "name": "Toxic",
+    "type": "poison",
+    "category": "status",
+    "description": "A Poison move with increasing damage.",
+    "hasTM": true
+  },
+  {
+    "id": "toxicspikes",
+    "name": "Toxic Spikes",
+    "type": "poison",
+    "category": "status",
+    "description": "Poisons foes when they switch in.",
+    "hasTM": false
+  },
+  {
+    "id": "transform",
+    "name": "Transform",
+    "type": "normal",
+    "category": "status",
+    "description": "The user assumes the foe's guise.",
+    "hasTM": false
+  },
+  {
+    "id": "triattack",
+    "name": "Tri Attack",
+    "type": "normal",
+    "category": "special",
+    "description": "Fires three kinds of beams at once.",
+    "hasTM": false
+  },
+  {
+    "id": "trick",
+    "name": "Trick",
+    "type": "psychic",
+    "category": "status",
+    "description": "Swaps held items with the foe.",
+    "hasTM": false
+  },
+  {
+    "id": "trickroom",
+    "name": "Trick Room",
+    "type": "psychic",
+    "category": "status",
+    "description": "Slow Pokémon move first for 5 turns.",
+    "hasTM": false
+  },
+  {
+    "id": "uturn",
+    "name": "U-turn",
+    "type": "bug",
+    "category": "physical",
+    "description": "Switches out after making its attack.",
+    "hasTM": true
+  },
+  {
+    "id": "venoshock",
+    "name": "Venoshock",
+    "type": "poison",
+    "category": "special",
+    "description": "Damage doubles if foe is poisoned.",
+    "hasTM": true
+  },
+  {
+    "id": "vinewhip",
+    "name": "Vine Whip",
+    "type": "grass",
+    "category": "physical",
+    "description": "Whips the foe with slender vines.",
+    "hasTM": false
+  },
+  {
+    "id": "voltswitch",
+    "name": "Volt Switch",
+    "type": "electric",
+    "category": "special",
+    "description": "Switches out after making its attack.",
+    "hasTM": true
+  },
+  {
+    "id": "watergun",
+    "name": "Water Gun",
+    "type": "water",
+    "category": "special",
+    "description": "Squirts water to attack.",
+    "hasTM": false
+  },
+  {
+    "id": "waterpulse",
+    "name": "Water Pulse",
+    "type": "water",
+    "category": "special",
+    "description": "An attack that may confuse the foe.",
+    "hasTM": true
+  },
+  {
+    "id": "waterfall",
+    "name": "Waterfall",
+    "type": "water",
+    "category": "physical",
+    "description": "An attack that may cause flinching.",
+    "hasTM": true
+  },
+  {
+    "id": "whirlpool",
+    "name": "Whirlpool",
+    "type": "water",
+    "category": "special",
+    "description": "Traps the foe for 2-5 turns.",
+    "hasTM": true
+  },
+  {
+    "id": "wildcharge",
+    "name": "Wild Charge",
+    "type": "electric",
+    "category": "physical",
+    "description": "A charge that also hurts the user.",
+    "hasTM": true
+  },
+  {
+    "id": "willowisp",
+    "name": "Will-O-Wisp",
+    "type": "fire",
+    "category": "status",
+    "description": "A move that may burn the foe.",
+    "hasTM": true
+  },
+  {
+    "id": "wingattack",
+    "name": "Wing Attack",
+    "type": "flying",
+    "category": "physical",
+    "description": "Strikes the foe with wings.",
+    "hasTM": false
+  },
+  {
+    "id": "wrap",
+    "name": "Wrap",
+    "type": "normal",
+    "category": "physical",
+    "description": "Traps the foe for 2-5 turns.",
+    "hasTM": false
+  },
+  {
+    "id": "xscissor",
+    "name": "X-Scissor",
+    "type": "bug",
+    "category": "physical",
+    "description": "Slashes foe with scythes or claws.",
+    "hasTM": true
+  },
+  {
+    "id": "zapcannon",
+    "name": "Zap Cannon",
+    "type": "electric",
+    "category": "special",
+    "description": "An attack that always paralyzes.",
+    "hasTM": false
+  },
+  {
+    "id": "zenheadbutt",
+    "name": "Zen Headbutt",
+    "type": "psychic",
+    "category": "physical",
+    "description": "An attack that may cause flinching.",
+    "hasTM": false
   }
-}
+]

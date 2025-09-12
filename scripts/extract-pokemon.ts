@@ -5,7 +5,6 @@ import {
   AbilityManifest,
   ComprehensivePokemonData,
   EvolutionData,
-  MoveData,
   PokemonData,
   PokemonManifest,
   PokemonMovesets,
@@ -22,7 +21,6 @@ const pokemonData: Record<string, PokemonData[]> = {
 
 const mergedPokemon: ComprehensivePokemonData[] = [];
 const pokemonMovesets: Record<string, Record<string, PokemonMovesets>> = {};
-const movesManifest: Record<string, MoveData> = {};
 const pokemonTMCompatibility: Record<string, Record<string, string[]>> = {};
 const evolutionChains: Record<string, Record<string, EvolutionData[]>> = {};
 const abilitiesManifest: Record<string, Record<string, AbilityManifest>> = {};
@@ -31,9 +29,6 @@ const abilitiesManifest: Record<string, Record<string, AbilityManifest>> = {};
 const namesASM = join(__dirname, '../polishedcrystal/data/pokemon/names.asm');
 const formsASM = join(__dirname, '../polishedcrystal/constants/pokemon_constants.asm');
 const monDIR = join(__dirname, '../polishedcrystal/data/pokemon/base_stats/');
-const movesASM = join(__dirname, '../polishedcrystal/data/moves/moves.asm');
-const moveNamesASM = join(__dirname, '../polishedcrystal/data/moves/names.asm');
-const moveDescriptionsASM = join(__dirname, '../polishedcrystal/data/moves/descriptions.asm');
 const evoAttacksASM = join(__dirname, '../polishedcrystal/data/pokemon/evos_attacks.asm');
 const eggMovesASM = join(__dirname, '../polishedcrystal/data/pokemon/egg_moves.asm');
 const abilityNamesASM = join(__dirname, '../polishedcrystal/data/abilities/names.asm');
@@ -41,127 +36,6 @@ const abilityDescriptionsASM = join(
   __dirname,
   '../polishedcrystal/data/abilities/descriptions.asm',
 );
-
-const extractMoves = (
-  movesData: string[],
-  moveNamesData: string[],
-  moveDescriptionsData: string[],
-) => {
-  const moveLines = movesData.filter(
-    (line) => line.trim().startsWith('move ') && !line.includes('MACRO') && !line.includes('ENDM'),
-  );
-
-  const nameLines = moveNamesData.filter((line) => line.trim().startsWith('li "'));
-
-  // Parse descriptions into a map
-  const descriptions: Record<string, string> = {};
-
-  for (let i = 0; i < moveDescriptionsData.length; i++) {
-    const line = moveDescriptionsData[i].trim();
-
-    // Find description labels (e.g., "AcrobaticsDescription:")
-    if (line.endsWith('Description:')) {
-      const moveLabels = []; // Store all labels that share the same description
-      let currentIndex = i;
-
-      // Collect all consecutive description labels
-      while (
-        currentIndex < moveDescriptionsData.length &&
-        moveDescriptionsData[currentIndex].trim().endsWith('Description:')
-      ) {
-        const labelLine = moveDescriptionsData[currentIndex].trim();
-        const moveDescriptionName = labelLine.replace('Description:', '');
-        const moveId = reduce(moveDescriptionName);
-        moveLabels.push(moveId);
-        currentIndex++;
-      }
-
-      // Parse the description text that follows all the labels
-      let description = '';
-      i = currentIndex; // Start from after all labels
-
-      while (i < moveDescriptionsData.length) {
-        const descLine = moveDescriptionsData[i].trim();
-
-        if (descLine === 'done') {
-          break; // End of this description
-        }
-
-        // Check if we've hit the next description label (stop condition for db format)
-        if (descLine.endsWith('Description:')) {
-          i--; // Step back so outer loop will process this label
-          break;
-        }
-
-        // Extract text from 'text "..."', 'next "..."', or 'db "..."' lines (with flexible spacing)
-        if (
-          descLine.startsWith('text "') ||
-          descLine.startsWith('next "') ||
-          descLine.match(/^db\s+"/) // Allow flexible spacing after db
-        ) {
-          let textContent = descLine.replace(/^(text|next|db)\s*"/, '').replace(/"$/, '');
-
-          // Handle special @ terminator (like in Thunder Wave)
-          let isEndOfDescription = false;
-          if (textContent.endsWith('@')) {
-            textContent = textContent.replace('@', '').trim();
-            isEndOfDescription = true;
-          }
-
-          // Add the text content
-          if (description) {
-            description += ' ' + textContent; // Add space between lines
-          } else {
-            description = textContent;
-          }
-
-          description = description.replace(/-\s+/g, '').replace(/#mon/g, 'Pokemon').trim(); // Clean up extra spaces
-
-          // Break after adding the content if @ was found
-          if (isEndOfDescription) {
-            break; // @ indicates end of description
-          }
-        }
-
-        i++;
-      }
-
-      // Assign the same description to all moves that shared the labels
-      for (const moveId of moveLabels) {
-        descriptions[moveId] = description;
-      }
-    }
-  }
-
-  for (let i = 0; i < moveLines.length && i < nameLines.length; i++) {
-    const moveLine = moveLines[i].trim();
-    const nameLine = nameLines[i].trim();
-
-    // Parse move data: move ACROBATICS, EFFECT_CONDITIONAL_BOOST, 55, FLYING, 100, 15, 0, PHYSICAL
-    const parts = moveLine.split(',');
-    if (parts.length >= 8) {
-      const moveId: string = reduce(parts[0].replace('move ', '').trim());
-      const power = parseInt(parts[2].trim());
-      const type = reduce(parts[3].trim());
-      const accuracy = parseInt(parts[4].trim());
-      const pp = parseInt(parts[5].trim());
-      const category = reduce(parts[7].trim());
-
-      // Extract name: li "Acrobatics"
-      const name = nameLine.replace('li "', '').replace('"', '').trim();
-
-      movesManifest[moveId] = {
-        name: name,
-        power: power,
-        type: type,
-        accuracy: accuracy,
-        pp: pp,
-        category: category,
-        description: descriptions[moveId] || '',
-      };
-    }
-  }
-};
 
 const extractAbilities = (
   abilityNamesData: string[],
@@ -249,8 +123,8 @@ const extractAbilities = (
   }
 
   // Parse ability names and create the manifest
-  const abilityNameLines = abilityNamesData.filter((line) => 
-    line.trim().includes('rawchar "') && !line.includes('NoAbility')
+  const abilityNameLines = abilityNamesData.filter(
+    (line) => line.trim().includes('rawchar "') && !line.includes('NoAbility'),
   );
 
   if (!abilitiesManifest[version]) {
@@ -259,7 +133,7 @@ const extractAbilities = (
 
   for (const nameLine of abilityNameLines) {
     const line = nameLine.trim();
-    
+
     // Parse ability name: AbilityName: rawchar "Ability Name@"
     const abilityId = reduce(line.split(':')[0]);
     const name = line.split('rawchar "')[1]?.replace('"', '').replace('@', '').trim();
@@ -841,15 +715,15 @@ const extractCosmetic = (pokemonForm: string) => {
 
 //#1: Names, Dex Numbers
 let raw = await readFile(namesASM, 'utf-8');
-const namesFILES = splitFile(raw);
-extractNames(namesFILES[0], 'polished');
-extractNames(namesFILES[1], 'faithful');
+const [polishedNames, faithfulNames] = splitFile(raw);
+extractNames(polishedNames, 'polished');
+extractNames(faithfulNames, 'faithful');
 
 //#2: Forms
 raw = await readFile(formsASM, 'utf-8');
-const formsFILES = splitFile(raw);
-extractForms(formsFILES[0], 'polished');
-extractForms(formsFILES[1], 'faithful');
+const [polishedForms, faithfulForms] = splitFile(raw);
+extractForms(polishedForms, 'polished');
+extractForms(faithfulForms, 'faithful');
 
 //#3: Type, Abilities, Base Stats, Growth Rate, Gender
 const filenames = await readdir(monDIR);
@@ -866,41 +740,29 @@ await Promise.all(
 extractCosmetic('polished');
 extractCosmetic('faithful');
 
-//#4: Extract Moves
-raw = await readFile(movesASM, 'utf-8');
-const movesFiles = splitFile(raw);
-raw = await readFile(moveNamesASM, 'utf-8');
-const moveNamesFiles = splitFile(raw);
-raw = await readFile(moveDescriptionsASM, 'utf-8');
-const moveDescriptionsData = raw
-  .trim()
-  .split('\n')
-  .map((line) => line.trim());
-extractMoves(movesFiles[0], moveNamesFiles[0], moveDescriptionsData); // Use Polished version for moves
-
-//#5: Extract Evolution Chains
+//#4: Extract Evolution Chains
 raw = await readFile(evoAttacksASM, 'utf-8');
-const evoAttacksFiles = splitFile(raw);
-extractEvolutions(evoAttacksFiles[0], 'polished');
-extractEvolutions(evoAttacksFiles[1], 'faithful');
+const [polishedEvoAttacks, faithfulEvoAttacks] = splitFile(raw);
+extractEvolutions(polishedEvoAttacks, 'polished');
+extractEvolutions(faithfulEvoAttacks, 'faithful');
 
-//#6: Extract Pokemon Movesets
-extractPokemonMovesets(evoAttacksFiles[0], 'polished');
-extractPokemonMovesets(evoAttacksFiles[1], 'faithful');
+//#5: Extract Pokemon Movesets
+extractPokemonMovesets(polishedEvoAttacks, 'polished');
+extractPokemonMovesets(faithfulEvoAttacks, 'faithful');
 
-//#7: Extract Egg Moves
+//#6: Extract Egg Moves
 raw = await readFile(eggMovesASM, 'utf-8');
-const eggMovesFiles = splitFile(raw);
-extractEggMoves(eggMovesFiles[0], 'polished');
-extractEggMoves(eggMovesFiles[1], 'faithful');
+const [polishedEggMoves, faithfulEggMoves] = splitFile(raw);
+extractEggMoves(polishedEggMoves, 'polished');
+extractEggMoves(faithfulEggMoves, 'faithful');
 
-//#8: Extract Abilities
+//#7: Extract Abilities
 raw = await readFile(abilityNamesASM, 'utf-8');
-const abilityNamesFiles = splitFile(raw);
+const [polishedAbilityNames, faithfulAbilityNames] = splitFile(raw);
 raw = await readFile(abilityDescriptionsASM, 'utf-8');
-const abilityDescriptionsFiles = splitFile(raw);
-extractAbilities(abilityNamesFiles[0], abilityDescriptionsFiles[0], 'polished');
-extractAbilities(abilityNamesFiles[1], abilityDescriptionsFiles[1], 'faithful');
+const [polishedAbilityDescriptions, faithfulAbilityDescriptions] = splitFile(raw);
+extractAbilities(polishedAbilityNames, polishedAbilityDescriptions, 'polished');
+extractAbilities(faithfulAbilityNames, faithfulAbilityDescriptions, 'faithful');
 
 // Merge Pokemon data by combining Polished and Faithful versions
 const mergeVersions = () => {
@@ -1106,10 +968,6 @@ const manifestPath = join(outputDir, 'pokemon_manifest.json');
 await writeFile(manifestPath, JSON.stringify(manifest, null, 2), 'utf-8');
 
 // Write moves manifest file
-const movesManifestPath = join(outputDir, 'moves_manifest.json');
-await writeFile(movesManifestPath, JSON.stringify(movesManifest, null, 2), 'utf-8');
-
-// Write moves manifest file
 const abilitiesManifestPath = join(outputDir, 'abilities_manifest.json');
 await writeFile(abilitiesManifestPath, JSON.stringify(abilitiesManifest, null, 2), 'utf-8');
 
@@ -1119,7 +977,6 @@ await writeFile(evolutionChainsPath, JSON.stringify(evolutionChains, null, 2));
 
 console.log(`${mergedPokemon.length} Pokemon files written to ${pokemonDir}`);
 console.log(`Manifest written to ${manifestPath}`);
-console.log(`${Object.keys(movesManifest).length} moves written to ${movesManifestPath}`);
 console.log(`Evolution chains written to ${evolutionChainsPath}`);
 
 //Pokemon GETTER

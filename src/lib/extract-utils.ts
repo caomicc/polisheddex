@@ -330,6 +330,14 @@ export const parseMapEvent = (line: string) => {
 };
 
 /**
+ * Parses a move description line by removing leading hyphens and replacing placeholders
+ * Specifically replaces "#mon" with "Pokemon"
+ */
+export const parseMoveDescription = (line: string): string => {
+  return line.replace(/-\s+/g, '').replace(/#mon/g, 'Pokemon').trim();
+};
+
+/**
  * Parses a trainer line
  * Format: generictrainer SWIMMERF, KENDRA, EVENT_BEAT_SWIMMERF_KENDRA, .SeenText, .BeatenText or
  * Format: 	loadtrainer KAREN, 1

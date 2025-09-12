@@ -38,19 +38,34 @@ export interface ComprehensivePokemonData {
   };
 }
 
-export interface MoveManifest {
-  name: MoveData['name'];
-  description: MoveData['description'];
-}
-
-export interface MoveData {
+export interface MovesManifest {
+  id: string;
   name: string;
   type: string;
   category: string;
-  power: number | null;
-  accuracy: number | null;
+  hasTM: boolean;
+}
+
+export interface MoveStats {
+  power: number;
+  type: string;
+  accuracy: number | string;
   pp: number;
-  description?: string;
+  effectChance: number;
+  category: string;
+}
+
+export interface MoveData {
+  id: string;
+  name: string;
+  description: string;
+  versions: {
+    [versionName: string]: MoveStats;
+  };
+  tm?: {
+    number: string;
+    location?: string;
+  };
 }
 
 export interface PokemonMovesets {
