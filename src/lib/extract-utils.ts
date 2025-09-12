@@ -285,9 +285,9 @@ export const parseVerboseGiveTMHMEvent = (line: string) => {
 export const parseMapEvent = (line: string) => {
   let eventType = 'event';
   let item;
-  if (line.match(/setevent\s+/)) {
+  if (line.match(/setevent\s+/) && !line.match(/setevent x/)) {
     const parts = line.trim().split(/setevent\s+/);
-    const eventDescription = parts[1].split('EVENT_')[1].replaceAll('_', ' ').toLowerCase();
+    const eventDescription = parts[1].split('EVENT_')[1]?.replaceAll('_', ' ')?.toLowerCase();
     if (parts.length > 1) {
       const eventName = parts[1].split('EVENT_')[1];
 
@@ -303,6 +303,9 @@ export const parseMapEvent = (line: string) => {
         case eventName.includes('BEAT_'):
           eventType = 'battle';
           break;
+        case eventName.includes('RIVAL_'):
+          eventType = 'rival';
+          break;
         case eventName.includes('GOT_'):
           item = eventName.split('GOT_')[1].split('_FROM_')[0];
           item = item.split('_IN')[0];
@@ -317,7 +320,6 @@ export const parseMapEvent = (line: string) => {
         default:
           eventType = 'event';
       }
-      console.log(eventName);
       return {
         name: reduce(eventName),
         type: eventType,

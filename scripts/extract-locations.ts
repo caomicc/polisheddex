@@ -401,6 +401,7 @@ const extractMapEvents = async () => {
 
     for (const mapFile of mapFiles) {
       if (!mapFile.endsWith('.asm')) continue;
+      if (mapFile.endsWith('PlayersHouse2F.asm')) continue;
 
       const mapFilePath = join(mapsDir, mapFile);
       const mapName = reduce(mapFile.replace('.asm', ''));
@@ -414,7 +415,6 @@ const extractMapEvents = async () => {
         if (mapEvents.length > 0) {
           locationEvents[mapName] = mapEvents;
         }
-        console.log(`Extracted ${mapEvents.length} events from ${mapName}`);
       } catch (error) {
         console.warn(`Could not read map file: ${mapFilePath}`, error);
         // Skip files that can't be read - some might be binary or have permissions issues
