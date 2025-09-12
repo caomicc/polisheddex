@@ -119,6 +119,7 @@ export interface ItemData {
     effect?: string;
     params?: number | string | boolean;
     category?: string;
+    moveName?: MoveData['name'];
   };
   locations?: Array<{
     area: string;
@@ -177,6 +178,7 @@ export interface LocationData {
     name: string;
     description: string;
     type: string; // itemball, fruit tree, trainer, rock smash,
+    item?: string;
   }[];
   items?: ItemLocation[];
   trainers?: string[];

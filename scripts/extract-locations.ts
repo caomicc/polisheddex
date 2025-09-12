@@ -10,6 +10,7 @@ import {
   countConnections,
   displayName,
   parseTrainerLine,
+  parseMapEvent,
 } from '@/lib/extract-utils';
 import { mapEncounterRatesToPokemon } from '@/utils/encounterRates';
 import splitFile from '@/lib/split';
@@ -24,7 +25,14 @@ const locations: LocationData[] = [];
 const encounters: Record<string, LocationData['encounters']> = {};
 const connections: Record<string, number> = {};
 const locationTrainerNames: Record<string, string[]> = {}; // Store trainer names by location
-const locationEventNames: Record<string, string[]> = {}; // Store event names by location
+const locationEvents: Record<
+  string,
+  {
+    name: string;
+    description: string;
+    type: string;
+  }[]
+> = {}; // Store event names by location
 const locationTypes: Record<string, string[]> = {}; // Store map names by location
 const locationParent: Record<string, string> = {}; // Store map names by location
 const landmarks: {
@@ -156,7 +164,7 @@ const extractMapGroups = async () => {
       const parts = trimmedLine.replace('map ', '').split(',');
 
       if (parts.length >= 5) {
-        const mapName = parts[0].trim();
+        const mapName = reduce(parts[0].trim()); // MapName
         const environment = reduce(parts[2].trim()); // TOWN, ROUTE, INDOOR, CAVE, etc.
         const landmark = reduce(parts[4].trim()); // The parent landmark
 
@@ -334,7 +342,7 @@ const extractMapTrainers = async () => {
       if (!mapFile.endsWith('.asm')) continue;
 
       const mapFilePath = join(mapsDir, mapFile);
-      const mapName = mapFile.replace('.asm', '');
+      const mapName = reduce(mapFile.replace('.asm', ''));
 
       try {
         const raw = await readFile(mapFilePath, 'utf-8');
@@ -359,26 +367,32 @@ const extractMapTrainers = async () => {
 };
 
 /**
- * Extracts all trainers from a map file's content
+ * Extracts all events from a map file's content
  */
-const extractEventFromMapData = (mapData: string[]): string[] => {
-  const events: Set<string> = new Set();
+const extractEventFromMapData = (mapData: string[]) => {
+  const events: LocationData['events'] = [];
 
   for (const line of mapData) {
     const trimmedLine = line.trim();
 
     // Parse setevent events
     if (trimmedLine.startsWith('setevent ')) {
-      console.log('Parsing setevent line:', trimmedLine);
-      const event = reduce(trimmedLine);
-      if (event) events.add(event);
+      const event = parseMapEvent(trimmedLine);
+      if (event) {
+        events.push({
+          name: event.name,
+          description: event.description,
+          type: event.type,
+          item: event.item,
+        });
+      }
     }
   }
 
-  return Array.from(events);
+  return events;
 };
 
-// Extract trainers from all map files
+// uses set data above
 const extractMapEvents = async () => {
   const { readdir } = await import('fs/promises');
 
@@ -398,7 +412,7 @@ const extractMapEvents = async () => {
         const mapEvents = extractEventFromMapData(mapData);
 
         if (mapEvents.length > 0) {
-          locationEventNames[mapName] = mapEvents;
+          locationEvents[mapName] = mapEvents;
         }
         console.log(`Extracted ${mapEvents.length} events from ${mapName}`);
       } catch (error) {
@@ -408,7 +422,7 @@ const extractMapEvents = async () => {
       }
     }
 
-    console.log(`Extracted events from ${Object.keys(locationEventNames).length} maps`);
+    console.log(`Extracted events from ${Object.keys(locationEvents).length} maps`);
   } catch (error) {
     console.error('Error reading maps directory:', error);
   }
@@ -442,25 +456,24 @@ const mergeLocationData = async () => {
     }
 
     // Find trainers for this location
-    const locationTrainers = locationTrainerNames[locationKey] || undefined;
+    const locationTrainers = locationTrainerNames[locationId] || undefined;
+
+    // Find events for this location
+    const mapEvents = locationEvents[locationId] || undefined;
 
     locations.push({
       id: locationId,
       name: locationName,
       constantName: locationConstant,
       connectionCount: connectionCount,
-      parent: locationParent[locationKey],
-      type: locationTypes[locationKey],
+      parent: locationParent[locationId],
+      type: locationTypes[locationId],
       order: order,
       region: region,
       encounters: locationEncounters,
       items: itemNames,
       trainers: locationTrainers,
-      events: locationEventNames[locationKey]?.map((e) => ({
-        name: reduce(e),
-        description: '',
-        type: '',
-      })),
+      events: mapEvents,
     });
   }
 
@@ -523,7 +536,7 @@ await Promise.all(
           ? new Set(location.encounters.map((e) => e.pokemon)).size
           : undefined,
       trainerCount: location.trainers?.length,
-      eventCount: locationEventNames[location.id]?.length,
+      eventCount: locationEvents[location.id]?.length,
     });
   }),
 );

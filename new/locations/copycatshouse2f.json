@@ -6,5 +6,23 @@
   "parent": "saffroncity",
   "type": [
     "indoor"
+  ],
+  "events": [
+    {
+      "name": "metcopycatfoundoutaboutlostitem",
+      "description": "met copycat found out about lost item",
+      "type": "event"
+    },
+    {
+      "name": "returnedlostitemtocopycat",
+      "description": "returned lost item to copycat",
+      "type": "event"
+    },
+    {
+      "name": "gotpassfromcopycat",
+      "description": "got pass from copycat",
+      "type": "gift",
+      "item": "pass"
+    }
   ]
 }

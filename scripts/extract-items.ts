@@ -24,6 +24,7 @@ const wingNamesASM = join(__dirname, '../polishedcrystal/data/items/wing_names.a
 const specialNamesASM = join(__dirname, '../polishedcrystal/data/items/special_names.asm');
 const itemDescriptionsASM = join(__dirname, '../polishedcrystal/data/items/descriptions.asm');
 const martsASM = join(__dirname, '../polishedcrystal/data/items/marts.asm');
+const tmhmMovesASM = join(__dirname, '../polishedcrystal/data/moves/tmhm_moves.asm');
 
 // Maps directory for extracting item locations
 const mapsDir = join(__dirname, '../polishedcrystal/maps');
@@ -200,6 +201,63 @@ const getItemLocations = (itemId: string): Array<{ area: string; method: string 
   }
 
   return locations;
+};
+
+/**
+ * Extracts TM/HM data and adds to itemData
+ */
+const extractTMHMData = async (version: 'polished' | 'faithful') => {
+  // Read the moves file
+  const movesRaw = await readFile(tmhmMovesASM, 'utf-8');
+  const movesData = splitFile(movesRaw, false)[0] as string[];
+
+  for (const line of movesData) {
+    const trimmedLine = line.trim();
+
+    // Skip non-data lines
+    if (
+      trimmedLine.startsWith(';') ||
+      trimmedLine.startsWith('TMHMMoves:') ||
+      trimmedLine.startsWith('table_width') ||
+      trimmedLine.includes('; end') ||
+      !trimmedLine.startsWith('db ')
+    ) {
+      continue;
+    }
+
+    // Parse: db MOVE_NAME ; TM01 (location info)
+    if (trimmedLine.startsWith('db ')) {
+      const parts = trimmedLine.split(';');
+      const moveName = parts[0].replace('db ', '').trim();
+      const itemName = parts[1].trim().split(' (')[0]; // e.g., TM01 or HM02
+
+      // Skip MT (Move Tutor) items
+      if (itemName.startsWith('MT')) {
+        continue;
+      }
+
+      // Extract location info if available
+      let location = undefined;
+      if (parts.length > 1) {
+        const commentPart = parts[1].trim();
+        const locationMatch = commentPart.match(/\(([^)]+)\)/);
+        if (locationMatch) {
+          location = locationMatch[1];
+        }
+      }
+
+      // Create TM/HM item entry
+      itemData[version].push({
+        id: reduce(itemName),
+        name: itemName,
+        description: `Teaches the move ${moveName.replace(/_/g, ' ').toLowerCase()} to a compatible Pokémon.`,
+        attributes: {
+          moveName: reduce(moveName),
+        },
+        locations: location ? [{ area: reduce(location), method: 'gift' }] : [],
+      });
+    }
+  }
 };
 
 const extractItemsData = async (
@@ -618,15 +676,21 @@ export default async function extractItems() {
     'faithful',
   );
 
+  // Extract TM/HM data for both versions
+  await extractTMHMData('polished');
+  await extractTMHMData('faithful');
+
   const outputDir = join(__dirname, '..', 'new');
   const itemsDir = join(outputDir, 'items');
+  const itemsManifestPath = join(outputDir, 'items_manifest.json');
 
-  // Clear and recreate items directory
+  // Clear and recreate items directory and delete manifest
   try {
     await rm(itemsDir, { recursive: true, force: true });
+    await rm(itemsManifestPath, { force: true });
     await mkdir(itemsDir, { recursive: true });
     await mkdir(outputDir, { recursive: true });
-    console.log('Cleared and created items directory');
+    console.log('Cleared items directory and deleted items manifest');
   } catch (error) {
     if (error) {
       throw error;
@@ -699,7 +763,6 @@ export default async function extractItems() {
   });
 
   // Write items manifest file
-  const itemsManifestPath = join(outputDir, 'items_manifest.json');
   await writeFile(itemsManifestPath, JSON.stringify(itemsManifest, null, 2), 'utf-8');
 
   console.log(`✅ Items extraction completed successfully!`);

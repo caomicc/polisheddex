@@ -279,16 +279,52 @@ export const parseVerboseGiveTMHMEvent = (line: string) => {
 };
 
 /**
- * Parses a verbosegivetmhm line
- * Format: verbosegivetmhm ITEM_NAME
+ * Parses a setevent line
+ * Format: setevent EVENT_NAME
  */
 export const parseMapEvent = (line: string) => {
-  if (line.match(/verbosegivetmhm\s+/)) {
-    const parts = line.split(/verbosegivetmhm\s+/)[1].split('_');
-    return {
-      name: parts.length > 1 ? reduce(parts.slice(1).join('_')) : reduce(parts[0]),
-      type: reduce(parts[0]),
-    };
+  let eventType = 'event';
+  let item;
+  if (line.match(/setevent\s+/)) {
+    const parts = line.trim().split(/setevent\s+/);
+    const eventDescription = parts[1].split('EVENT_')[1].replaceAll('_', ' ').toLowerCase();
+    if (parts.length > 1) {
+      const eventName = parts[1].split('EVENT_')[1];
+
+      // Skip events containing security
+      if (
+        eventName.toLowerCase().includes('security') ||
+        eventDescription.toLowerCase().includes('switch')
+      ) {
+        return null;
+      }
+
+      switch (true) {
+        case eventName.includes('BEAT_'):
+          eventType = 'battle';
+          break;
+        case eventName.includes('GOT_'):
+          item = eventName.split('GOT_')[1].split('_FROM_')[0];
+          item = item.split('_IN')[0];
+          if (item.includes('TM') || item.includes('HM')) {
+            item = item.split('_')[0];
+          }
+          eventType = 'gift';
+          break;
+        case eventName.includes('PHONE_NUMBER'):
+          eventType = 'phone';
+          break;
+        default:
+          eventType = 'event';
+      }
+      console.log(eventName);
+      return {
+        name: reduce(eventName),
+        type: eventType,
+        description: eventDescription,
+        item: item ? reduce(item) : undefined,
+      };
+    }
   }
   return null;
 };
