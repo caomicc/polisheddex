@@ -279,6 +279,21 @@ export const parseVerboseGiveTMHMEvent = (line: string) => {
 };
 
 /**
+ * Parses a verbosegivetmhm line
+ * Format: verbosegivetmhm ITEM_NAME
+ */
+export const parseMapEvent = (line: string) => {
+  if (line.match(/verbosegivetmhm\s+/)) {
+    const parts = line.split(/verbosegivetmhm\s+/)[1].split('_');
+    return {
+      name: parts.length > 1 ? reduce(parts.slice(1).join('_')) : reduce(parts[0]),
+      type: reduce(parts[0]),
+    };
+  }
+  return null;
+};
+
+/**
  * Parses a trainer line
  * Format: generictrainer SWIMMERF, KENDRA, EVENT_BEAT_SWIMMERF_KENDRA, .SeenText, .BeatenText or
  * Format: 	loadtrainer KAREN, 1

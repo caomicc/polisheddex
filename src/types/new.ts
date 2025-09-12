@@ -158,6 +158,7 @@ export interface LocationData {
   isPokemonCenter?: boolean;
   order?: number;
   region?: string;
+  parent?: string;
   encounters?: {
     pokemon: PokemonData['name'];
     formNumber?: number;

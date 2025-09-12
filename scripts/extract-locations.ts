@@ -25,6 +25,8 @@ const encounters: Record<string, LocationData['encounters']> = {};
 const connections: Record<string, number> = {};
 const locationTrainerNames: Record<string, string[]> = {}; // Store trainer names by location
 const locationEventNames: Record<string, string[]> = {}; // Store event names by location
+const locationTypes: Record<string, string[]> = {}; // Store map names by location
+const locationParent: Record<string, string> = {}; // Store map names by location
 const landmarks: {
   locationRefs: Set<string>;
   orderMap: Map<string, number>;
@@ -37,6 +39,7 @@ const landmarks: {
 
 // File paths
 const attributesASM = join(__dirname, '../polishedcrystal/data/maps/attributes.asm');
+const mapsASM = join(__dirname, '../polishedcrystal/data/maps/maps.asm');
 const landmarkConstantsASM = join(__dirname, '../polishedcrystal/constants/landmark_constants.asm');
 const mapsDir = join(__dirname, '../polishedcrystal/maps');
 
@@ -138,6 +141,38 @@ const extractConnections = async () => {
   }
 
   console.log(`Extracted connections for ${Object.keys(connections).length} locations`);
+};
+
+const extractMapGroups = async () => {
+  const raw = await readFile(mapsASM, 'utf-8');
+  const mapGroupsData = splitFile(raw);
+
+  for (const line of mapGroupsData[0]) {
+    const trimmedLine = (line as string).trim();
+
+    // Find map lines
+    if (trimmedLine.startsWith('map ')) {
+      // Parse: map MapName, TILESET_TYPE, ENVIRONMENT, SIGN_TYPE, LANDMARK_CONSTANT, MUSIC_CONSTANT, phone_service_flag, PALETTE
+      const parts = trimmedLine.replace('map ', '').split(',');
+
+      if (parts.length >= 5) {
+        const mapName = parts[0].trim();
+        const environment = reduce(parts[2].trim()); // TOWN, ROUTE, INDOOR, CAVE, etc.
+        const landmark = reduce(parts[4].trim()); // The parent landmark
+
+        // Store the type (environment) for this map
+        if (!locationTypes[mapName]) {
+          locationTypes[mapName] = [];
+        }
+        locationTypes[mapName].push(environment);
+
+        // Store the parent landmark for this map
+        locationParent[mapName] = landmark;
+      }
+    }
+  }
+
+  console.log(`Extracted map groups for ${Object.keys(locationTypes).length} maps`);
 };
 
 // Extract Pokemon encounters from wild data files
@@ -266,7 +301,8 @@ const extractEncounters = async (filePaths: string[], encounterType: string) => 
 /**
  * Extracts all trainers from a map file's content
  */
-export const extractTrainerFromMapData = (mapData: string[]): string[] => {
+// only looking for locations, not party information - that is handled in extract-trainers.ts
+const extractTrainerFromMapData = (mapData: string[]): string[] => {
   const trainers: Set<string> = new Set();
 
   for (const line of mapData) {
@@ -287,6 +323,7 @@ export const extractTrainerFromMapData = (mapData: string[]): string[] => {
 };
 
 // Extract trainers from all map files
+// only looking for locations, not party information - that is handled in extract-trainers.ts
 const extractMapTrainers = async () => {
   const { readdir } = await import('fs/promises');
 
@@ -324,14 +361,15 @@ const extractMapTrainers = async () => {
 /**
  * Extracts all trainers from a map file's content
  */
-export const extractEventFromMapData = (mapData: string[]): string[] => {
+const extractEventFromMapData = (mapData: string[]): string[] => {
   const events: Set<string> = new Set();
 
   for (const line of mapData) {
     const trimmedLine = line.trim();
 
-    // Parse generic events
-    if (trimmedLine.startsWith('genericevent ')) {
+    // Parse setevent events
+    if (trimmedLine.startsWith('setevent ')) {
+      console.log('Parsing setevent line:', trimmedLine);
       const event = reduce(trimmedLine);
       if (event) events.add(event);
     }
@@ -351,7 +389,7 @@ const extractMapEvents = async () => {
       if (!mapFile.endsWith('.asm')) continue;
 
       const mapFilePath = join(mapsDir, mapFile);
-      const mapName = mapFile.replace('.asm', '');
+      const mapName = reduce(mapFile.replace('.asm', ''));
 
       try {
         const raw = await readFile(mapFilePath, 'utf-8');
@@ -362,6 +400,7 @@ const extractMapEvents = async () => {
         if (mapEvents.length > 0) {
           locationEventNames[mapName] = mapEvents;
         }
+        console.log(`Extracted ${mapEvents.length} events from ${mapName}`);
       } catch (error) {
         console.warn(`Could not read map file: ${mapFilePath}`, error);
         // Skip files that can't be read - some might be binary or have permissions issues
@@ -377,123 +416,9 @@ const extractMapEvents = async () => {
 
 // Merge all data into final location objects
 const mergeLocationData = async () => {
-  const buildingStrings = [
-    'house',
-    'charcoalkiln',
-    'daycare',
-    'academy',
-    'university',
-    'mansion',
-    'villa',
-    'gamecorner',
-    'tower',
-    'factory',
-    'hideout',
-    'trainstation',
-    'museum',
-    'hotel',
-    'rater',
-    'chamber',
-    'room',
-    'cafe',
-    'slab', // ivyslab, oakslab
-    'shack',
-    'policestation',
-    'center',
-    'photostudio',
-    'pharmacy',
-    'shop',
-    'dojo',
-    'club',
-    'inside',
-    'theatre',
-    'ship',
-    'colosseum',
-    'hall',
-    'merchant',
-    'silph',
-  ];
-  const caveStrings = [
-    'cave',
-    'mountmoon',
-    'whirlisland',
-    'volcano',
-    'mount',
-    'rock',
-    'seafoamisland',
-    'dragonshrine',
-    'dragonsden',
-    'victoryroad',
-    'icepath',
-    'tunnel',
-    'slowpokewell',
-  ];
-  const outsideStrings = [
-    'outside',
-    'beach',
-    'jungle',
-    'forest',
-    'roof',
-    'port',
-    'grotto',
-    'park',
-    'road',
-    'shrineruins',
-    'channel',
-  ];
-
   for (const [locationKey, connectionCount] of Object.entries(connections)) {
     const locationId = reduce(locationKey);
     const locationName = displayName(locationKey);
-
-    const locationType = [];
-    if (landmarks.locationRefs.has(locationId)) {
-      locationType.push('landmark');
-    }
-    if (locationId.includes('mart') || locationId.includes('store')) {
-      locationType.push('mart');
-    }
-    if (
-      locationId.includes('route') &&
-      !locationId.includes('gate') &&
-      !locationId.includes('house') &&
-      !locationId.includes('pokecenter')
-    ) {
-      locationType.push('route');
-    }
-    if (locationId.includes('gate')) {
-      locationType.push('gate');
-    }
-    if (
-      buildingStrings.some((str) => locationId.includes(str)) &&
-      !caveStrings.some((str) => locationId.includes(str)) &&
-      !locationId.includes('pokecenter')
-    ) {
-      locationType.push('building');
-    }
-    if (locationId.includes('pokecenter')) {
-      locationType.push('pokecenter');
-    }
-    if (locationId.includes('gym') && !locationId.includes('house')) {
-      locationType.push('gym');
-    }
-    if (locationId.includes('safari')) {
-      locationType.push('safarizone');
-    }
-    if (
-      caveStrings.some((str) => locationId.includes(str)) &&
-      !outsideStrings.every((str) => locationId.includes(str))
-    ) {
-      locationType.push('cave');
-    }
-    if (
-      outsideStrings.some(
-        (str) =>
-          locationId.includes(str) && !locationId.includes('cave') && !locationId.includes('gate'),
-      )
-    ) {
-      locationType.push('outside');
-    }
 
     const order = landmarks.orderMap.get(locationId);
     const region = landmarks.regionMap.get(locationId);
@@ -524,12 +449,18 @@ const mergeLocationData = async () => {
       name: locationName,
       constantName: locationConstant,
       connectionCount: connectionCount,
-      type: locationType,
+      parent: locationParent[locationKey],
+      type: locationTypes[locationKey],
       order: order,
       region: region,
       encounters: locationEncounters,
       items: itemNames,
       trainers: locationTrainers,
+      events: locationEventNames[locationKey]?.map((e) => ({
+        name: reduce(e),
+        description: '',
+        type: '',
+      })),
     });
   }
 
@@ -541,12 +472,13 @@ const mergeLocationData = async () => {
 await Promise.all([
   extractLandmarks(),
   extractConnections(),
-  extractMapTrainers(),
   extractMapEvents(),
+  extractMapTrainers(),
   extractEncounters(grassFiles, 'grass'),
   extractEncounters(waterFiles, 'surfing'),
   extractEncounters(fishFiles, 'fishing'),
   extractEncounters(treeFiles, 'headbutt'),
+  extractMapGroups(),
 ]);
 
 // Run trainer extraction after other operations since it depends on Pokemon data
@@ -584,7 +516,6 @@ await Promise.all(
     locationManifest.push({
       id: location.id,
       name: location.name,
-      type: location.type,
       region: location.region,
       order: location.order,
       encounterCount:
@@ -592,6 +523,7 @@ await Promise.all(
           ? new Set(location.encounters.map((e) => e.pokemon)).size
           : undefined,
       trainerCount: location.trainers?.length,
+      eventCount: locationEventNames[location.id]?.length,
     });
   }),
 );
