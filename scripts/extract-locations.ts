@@ -24,6 +24,7 @@ const locations: LocationData[] = [];
 const encounters: Record<string, LocationData['encounters']> = {};
 const connections: Record<string, number> = {};
 const locationTrainerNames: Record<string, string[]> = {}; // Store trainer names by location
+const locationEventNames: Record<string, string[]> = {}; // Store event names by location
 const landmarks: {
   locationRefs: Set<string>;
   orderMap: Map<string, number>;
@@ -320,6 +321,60 @@ const extractMapTrainers = async () => {
   }
 };
 
+/**
+ * Extracts all trainers from a map file's content
+ */
+export const extractEventFromMapData = (mapData: string[]): string[] => {
+  const events: Set<string> = new Set();
+
+  for (const line of mapData) {
+    const trimmedLine = line.trim();
+
+    // Parse generic events
+    if (trimmedLine.startsWith('genericevent ')) {
+      const event = reduce(trimmedLine);
+      if (event) events.add(event);
+    }
+  }
+
+  return Array.from(events);
+};
+
+// Extract trainers from all map files
+const extractMapEvents = async () => {
+  const { readdir } = await import('fs/promises');
+
+  try {
+    const mapFiles = await readdir(mapsDir);
+
+    for (const mapFile of mapFiles) {
+      if (!mapFile.endsWith('.asm')) continue;
+
+      const mapFilePath = join(mapsDir, mapFile);
+      const mapName = mapFile.replace('.asm', '');
+
+      try {
+        const raw = await readFile(mapFilePath, 'utf-8');
+        const mapData = splitFile(raw)[0] as string[]; // Don't remove @ symbols
+
+        const mapEvents = extractEventFromMapData(mapData);
+
+        if (mapEvents.length > 0) {
+          locationEventNames[mapName] = mapEvents;
+        }
+      } catch (error) {
+        console.warn(`Could not read map file: ${mapFilePath}`, error);
+        // Skip files that can't be read - some might be binary or have permissions issues
+        continue;
+      }
+    }
+
+    console.log(`Extracted events from ${Object.keys(locationEventNames).length} maps`);
+  } catch (error) {
+    console.error('Error reading maps directory:', error);
+  }
+};
+
 // Merge all data into final location objects
 const mergeLocationData = async () => {
   const buildingStrings = [
@@ -487,6 +542,7 @@ await Promise.all([
   extractLandmarks(),
   extractConnections(),
   extractMapTrainers(),
+  extractMapEvents(),
   extractEncounters(grassFiles, 'grass'),
   extractEncounters(waterFiles, 'surfing'),
   extractEncounters(fishFiles, 'fishing'),

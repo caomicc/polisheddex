@@ -263,6 +263,20 @@ export const parseVerboseGiveItemEvent = (line: string) => {
   }
   return null;
 };
+/**
+ * Parses a verbosegivetmhm line
+ * Format: verbosegivetmhm ITEM_NAME
+ */
+export const parseVerboseGiveTMHMEvent = (line: string) => {
+  if (line.match(/verbosegivetmhm\s+/)) {
+    const parts = line.split(/verbosegivetmhm\s+/)[1].split('_');
+    return {
+      name: parts.length > 1 ? reduce(parts.slice(1).join('_')) : reduce(parts[0]),
+      type: reduce(parts[0]),
+    };
+  }
+  return null;
+};
 
 /**
  * Parses a trainer line

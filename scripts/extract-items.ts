@@ -10,6 +10,7 @@ import {
   parseFruitTreeEvent,
   parseVerboseGiveItemEvent,
   parseMartItem,
+  parseVerboseGiveTMHMEvent,
 } from '@/lib/extract-utils';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -61,6 +62,9 @@ export const extractItemsFromMapData = (mapData: string[]): ItemLocation[] => {
       if (item) items.push(item);
     } else if (trimmedLine.startsWith('verbosegiveitem ')) {
       const item = parseVerboseGiveItemEvent(trimmedLine);
+      if (item) items.push(item);
+    } else if (trimmedLine.startsWith('verbosegivetmhm ')) {
+      const item = parseVerboseGiveTMHMEvent(trimmedLine);
       if (item) items.push(item);
     }
   }

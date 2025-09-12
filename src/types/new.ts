@@ -140,7 +140,7 @@ export interface ItemsManifest {
 }
 
 export interface ItemLocation {
-  type: 'item' | 'hiddenItem' | 'tmHm' | 'berry' | 'gift' | 'purchase';
+  type: string;
   name: string;
   coordinates?: {
     x: number;
