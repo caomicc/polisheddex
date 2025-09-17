@@ -443,6 +443,7 @@ const mergeLocationData = async () => {
 
     // Find items for this location by reading the map file
     let itemNames = undefined;
+
     try {
       // prevent issues with special characters in filenames
       const mapFilePath = join(mapsDir, `${locationKey.replace('é', 'e')}.asm`);
@@ -471,7 +472,7 @@ const mergeLocationData = async () => {
       order: order,
       region: region,
       encounters: locationEncounters,
-      items: itemNames,
+      items: locationId === 'playershouse2f' ? undefined : itemNames, // skip players house 2F which has debug items
       trainers: locationTrainers,
       events: mapEvents,
     });

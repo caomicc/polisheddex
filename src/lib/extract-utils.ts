@@ -190,7 +190,7 @@ export const parseItemballEvent = (line: string) => {
     const [, x, y, itemName] = match;
     return {
       name: reduce(itemName),
-      type: 'item' as const,
+      type: 'item',
       coordinates: {
         x: parseInt(x),
         y: parseInt(y),
@@ -271,6 +271,54 @@ export const parseVerboseGiveItemEvent = (line: string) => {
   }
   return null;
 };
+
+/**
+ * Parses a giveitem line with context awareness
+ * Format: giveitem ITEM_NAME [, quantity]
+ * Detects if it's in a purchase context by looking for money checks
+ */
+export const parseGiveItemEvent = (line: string, context?: string[]) => {
+  if (line.match(/giveitem\s+/)) {
+    const parts = line.split(/giveitem\s+/)[1].split(',');
+    const [itemName] = parts;
+
+    // Default to gift unless we detect purchase context
+    let itemType: 'gift' | 'purchase' = 'gift';
+
+    // If we have context lines, check for purchase indicators
+    if (context && context.length > 0) {
+      const contextText = context.join(' ').toLowerCase();
+
+      // Look for money-related keywords that indicate a purchase
+      const purchaseKeywords = [
+        'checkmoney',
+        'takemoney',
+        'your_money',
+        'notmoney',
+        'notenoughmoney',
+        '.buy',
+        'buy1:',
+        'buy10:',
+        'purchase',
+      ];
+
+      const isPurchase = purchaseKeywords.some((keyword) =>
+        contextText.includes(keyword.toLowerCase()),
+      );
+
+      if (isPurchase) {
+        itemType = 'purchase';
+      }
+    }
+
+    return {
+      name: reduce(itemName),
+      type: itemType,
+    };
+  }
+  return null;
+};
+
 /**
  * Parses a verbosegivetmhm line
  * Format: verbosegivetmhm ITEM_NAME

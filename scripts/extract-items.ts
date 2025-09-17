@@ -11,6 +11,7 @@ import {
   parseVerboseGiveItemEvent,
   parseMartItem,
   parseVerboseGiveTMHMEvent,
+  parseGiveItemEvent,
 } from '@/lib/extract-utils';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -44,9 +45,10 @@ const itemsByLocation: Record<'polished' | 'faithful', Record<string, ItemLocati
  */
 export const extractItemsFromMapData = (mapData: string[]): ItemLocation[] => {
   const items: ItemLocation[] = [];
+  const seenPurchases = new Set<string>(); // Track items we've already seen as purchases
 
-  for (const line of mapData) {
-    const trimmedLine = line.trim();
+  for (let i = 0; i < mapData.length; i++) {
+    const trimmedLine = mapData[i].trim();
 
     // Parse visible items (itemball_event)
     if (trimmedLine.startsWith('itemball_event ')) {
@@ -70,6 +72,28 @@ export const extractItemsFromMapData = (mapData: string[]): ItemLocation[] => {
     } else if (trimmedLine.startsWith('verbosegivetmhm ')) {
       const item = parseVerboseGiveTMHMEvent(trimmedLine);
       if (item) items.push(item);
+    } else if (trimmedLine.startsWith('giveitem ')) {
+      // Collect context lines (10 lines before and 5 lines after) for purchase detection
+      const contextLines: string[] = [];
+      const contextStart = Math.max(0, i - 10);
+      const contextEnd = Math.min(mapData.length - 1, i + 5);
+      
+      for (let j = contextStart; j <= contextEnd; j++) {
+        contextLines.push(mapData[j].trim());
+      }
+      
+      const item = parseGiveItemEvent(trimmedLine, contextLines);
+      if (item) {
+        // Check for purchase duplicates
+        if (item.type === 'purchase') {
+          const purchaseKey = item.name;
+          if (seenPurchases.has(purchaseKey)) {
+            continue; // Skip this duplicate purchase
+          }
+          seenPurchases.add(purchaseKey);
+        }
+        items.push(item);
+      }
     }
   }
 
@@ -202,6 +226,9 @@ const getItemLocations = (
   const locations: Array<{ area: string; method: string }> = [];
 
   for (const [locationName, locationItems] of Object.entries(itemsByLocation[version])) {
+    if (reduce(locationName) === 'playershouse2f') {
+      continue;
+    }
     const itemsFound = locationItems.filter((item) => item.name === itemId);
     for (const item of itemsFound) {
       locations.push({
