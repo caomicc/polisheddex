@@ -441,3 +441,131 @@ export const parseEvolutionParameter = (line: string): number | string | undefin
       ? undefined
       : Number(parameter);
 };
+
+// Evolution chain building types and function
+type EvolutionMethod = {
+  action: string;
+  parameter?: string | number;
+};
+
+type EvolutionStep = {
+  from: { name: string; formName: string };
+  to: { name: string; formName: string };
+  method: EvolutionMethod;
+};
+
+type ChainLink = {
+  from: { name: string; formName: string };
+  to: { name: string; formName: string };
+  method: EvolutionMethod;
+};
+
+type EvolutionChains = {
+  [root: string]: ChainLink[][];
+};
+
+/**
+ * Builds full evolution chains from the JSON structure
+ * @param evoData evolution chains data from extract-pokemon.ts
+ * @param style "polished" or "faithful"
+ */
+export function buildChains(
+  evoData: Record<string, Record<string, EvolutionStep[]>>,
+  style: "polished" | "faithful" = "polished"
+): EvolutionChains {
+  const chains: EvolutionChains = {};
+  const data = evoData[style];
+
+  if (!data) return chains;
+
+  // Collect all "to" names to find root Pokémon
+  const allTos = new Set<string>();
+  for (const evos of Object.values(data)) {
+    for (const evo of evos) {
+      allTos.add(evo.to.name);
+    }
+  }
+
+  function dfs(
+    current: { name: string; formName: string },
+    path: ChainLink[]
+  ): void {
+    const nextEvos = data[current.name];
+    if (!nextEvos || nextEvos.length === 0) {
+      // Save the full path as a chain (only if path has links)
+      if (path.length > 0) {
+        const root = path[0].from.name;
+        chains[root] = chains[root] || [];
+        chains[root].push([...path]);
+      }
+      return;
+    }
+
+    for (const evo of nextEvos) {
+      // Skip if form doesn't match
+      if (evo.from.formName !== current.formName) continue;
+      
+      const nextLink: ChainLink = {
+        from: evo.from,
+        to: evo.to,
+        method: evo.method,
+      };
+      dfs(evo.to, [...path, nextLink]);
+    }
+  }
+
+  // Start DFS from root Pokémon (those that never appear as "to")
+  for (const start of Object.keys(data)) {
+    if (!allTos.has(start)) {
+      dfs({ name: start, formName: "plain" }, []);
+    }
+  }
+
+  return chains;
+}
+
+/**
+ * Converts a chain into a human-readable string
+ * @param chain Array of evolution steps
+ * @returns Formatted string like "Bulbasaur (L16) → Ivysaur (L32) → Venusaur"
+ */
+export function chainToString(chain: ChainLink[]): string {
+  if (chain.length === 0) return "";
+  
+  const formatMethod = (method: EvolutionMethod): string => {
+    switch (method.action) {
+      case "level":
+        return `L${method.parameter}`;
+      case "item":
+        return `use ${method.parameter}`;
+      case "trade":
+        return method.parameter ? `trade with ${method.parameter}` : "trade";
+      case "happiness":
+        return `happiness during ${method.parameter}`;
+      case "location":
+        return `level up at ${method.parameter}`;
+      default:
+        return method.parameter ? `${method.action} ${method.parameter}` : method.action;
+    }
+  };
+
+  // Start with the first Pokemon
+  let result = chain[0].from.name;
+  
+  // Add each evolution step
+  for (const step of chain) {
+    const methodStr = formatMethod(step.method);
+    result += ` (${methodStr}) → ${step.to.name}`;
+  }
+  
+  return result;
+}
+
+/**
+ * Converts all chains for a Pokemon into human-readable strings
+ * @param chains All chains for a Pokemon
+ * @returns Array of formatted strings
+ */
+export function chainsToStrings(chains: ChainLink[][]): string[] {
+  return chains.map(chainToString);
+}

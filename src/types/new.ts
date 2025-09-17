@@ -272,3 +272,19 @@ export interface TrainerManifest {
   class: TrainerData['class'];
   constantName?: TrainerData['constantName'];
 }
+
+// Build and write evolution chains
+export type ChainLink = {
+  from: { name: string; formName: string };
+  to: { name: string; formName: string };
+  method: { action: string; parameter?: string | number };
+};
+
+export type FullEvolutionChains = {
+  [root: string]: ChainLink[][];
+};
+
+export type EvolutionManifestEntry = {
+  id: string;
+  relatedPokemon: string[];
+};

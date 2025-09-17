@@ -3,8 +3,11 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import {
   AbilityManifest,
+  ChainLink,
   ComprehensivePokemonData,
   EvolutionData,
+  EvolutionManifestEntry,
+  FullEvolutionChains,
   PokemonData,
   PokemonManifest,
   PokemonMovesets,
@@ -168,7 +171,19 @@ const extractEvolutions = (evoAttacksData: string[], version: string) => {
     if (line.startsWith('evo_data ') && currentPokemon) {
       const parts = line.split(',');
       if (parts.length >= 3) {
-        const evolutionName = reduce(parts[2].includes('TR_') ? parts[3].trim() : parts[2].trim());
+        const evolutionType = parts[0].replace('evo_data ', '').trim();
+        let evolutionName: string;
+
+        switch (evolutionType) {
+          case 'EVOLVE_STAT':
+            // For EVOLVE_STAT: evo_data EVOLVE_STAT, level, comparison, target
+            evolutionName = reduce(parts[3].trim());
+            break;
+          default:
+            evolutionName = reduce(parts[2].includes('TR_') ? parts[3].trim() : parts[2].trim());
+            break;
+        }
+
         let evolutionForm = 'plain';
 
         // Handle form-specific evolutions (e.g., ARCANINE, HISUIAN_FORM)
@@ -179,13 +194,21 @@ const extractEvolutions = (evoAttacksData: string[], version: string) => {
 
         const basePokemon = currentPokemon.replace(/(plain|alolan|galarian|hisuian|paldean)$/i, '');
 
-        // evolutionName = evolutionName + evolutionForm;
-
         if (!(version in evolutionChains)) {
           evolutionChains[version] = {};
         }
         if (!evolutionChains[version][basePokemon]) {
           evolutionChains[version][basePokemon] = [];
+        }
+
+        let methodParameter;
+        const methodAction = reduce(parts[0].replace('evo_data ', '').trim().split('EVOLVE_')[1]);
+
+        if (evolutionType === 'EVOLVE_STAT') {
+          // For EVOLVE_STAT, the parameter is the comparison (ATK_LT_DEF, etc.)
+          methodParameter = reduce(parts[2].trim());
+        } else {
+          methodParameter = parseEvolutionParameter(parts[1].trim());
         }
 
         evolutionChains[version][basePokemon].push({
@@ -198,8 +221,8 @@ const extractEvolutions = (evoAttacksData: string[], version: string) => {
             formName: evolutionForm,
           },
           method: {
-            action: reduce(parts[0].replace('evo_data ', '').trim().split('EVOLVE_')[1]),
-            parameter: parseEvolutionParameter(parts[1].trim()),
+            action: methodAction,
+            parameter: methodParameter,
           },
         });
       }
@@ -971,13 +994,237 @@ await writeFile(manifestPath, JSON.stringify(manifest, null, 2), 'utf-8');
 const abilitiesManifestPath = join(outputDir, 'abilities_manifest.json');
 await writeFile(abilitiesManifestPath, JSON.stringify(abilitiesManifest, null, 2), 'utf-8');
 
-// Write Evolution Chains file
+const buildFullChains = (
+  evoData: Record<string, Record<string, EvolutionData[]>>,
+  style: 'polished' | 'faithful',
+): FullEvolutionChains => {
+  const chains: FullEvolutionChains = {};
+  const data = evoData[style];
+
+  if (!data) return chains;
+
+  // Collect all "to" names to find root Pokémon
+  const allTos = new Set<string>();
+  for (const evos of Object.values(data)) {
+    for (const evo of evos) {
+      allTos.add(evo.to.name);
+    }
+  }
+
+  // Store all complete chains temporarily
+  const allCompleteChains: ChainLink[][] = [];
+
+  function dfs(current: { name: string; formName: string }, path: ChainLink[]): void {
+    const nextEvos = data[current.name];
+    if (!nextEvos || nextEvos.length === 0) {
+      // Save the complete chain if it has links
+      if (path.length > 0) {
+        allCompleteChains.push([...path]);
+      }
+      return;
+    }
+
+    for (const evo of nextEvos) {
+      // Skip if form doesn't match
+      if (evo.from.formName !== current.formName) continue;
+
+      const nextLink: ChainLink = {
+        from: {
+          name: evo.from.name,
+          formName: evo.from.formName || 'plain',
+        },
+        to: {
+          name: evo.to.name,
+          formName: evo.to.formName || 'plain',
+        },
+        method: evo.method,
+      };
+      dfs({ name: evo.to.name, formName: evo.to.formName || 'plain' }, [...path, nextLink]);
+    }
+  }
+
+  // Start DFS from root Pokémon (those that never appear as "to")
+  for (const start of Object.keys(data)) {
+    if (!allTos.has(start)) {
+      dfs({ name: start, formName: 'plain' }, []);
+    }
+  }
+
+  // Now assign complete chains to ALL Pokémon that appear in any chain
+  for (const chain of allCompleteChains) {
+    // Create a set of all Pokémon in this chain
+    const pokemonInChain = new Set<string>();
+
+    for (const link of chain) {
+      pokemonInChain.add(link.from.name);
+      pokemonInChain.add(link.to.name);
+    }
+
+    // Assign the complete chain to every Pokémon in it
+    for (const pokemon of pokemonInChain) {
+      chains[pokemon] = chains[pokemon] || [];
+      chains[pokemon].push([...chain]);
+    }
+  }
+
+  return chains;
+};
+
+const polishedChains = buildFullChains(evolutionChains, 'polished');
+const faithfulChains = buildFullChains(evolutionChains, 'faithful');
+
+const evolutionChainsData = {
+  polished: polishedChains,
+  faithful: faithfulChains,
+};
+
+// Write the main evolution chains file
 const evolutionChainsPath = join(outputDir, 'evolution_chains.json');
-await writeFile(evolutionChainsPath, JSON.stringify(evolutionChains, null, 2));
+await writeFile(evolutionChainsPath, JSON.stringify(evolutionChainsData, null, 2));
+
+// Create individual evolution chain files
+const evolutionDir = join(outputDir, 'evolution');
+
+// Clear and recreate evolution directory
+try {
+  await rm(evolutionDir, { recursive: true, force: true });
+  await mkdir(evolutionDir, { recursive: true });
+  console.log('Cleared and created evolution directory');
+} catch (error) {
+  if (error) {
+    throw error;
+  }
+}
+
+// Create a consolidated set of all Pokemon that have evolution chains
+const allPokemonWithChains = new Set<string>();
+Object.keys(polishedChains).forEach((pokemon) => allPokemonWithChains.add(pokemon));
+Object.keys(faithfulChains).forEach((pokemon) => allPokemonWithChains.add(pokemon));
+
+// Write individual evolution files for each Pokemon
+await Promise.all(
+  Array.from(allPokemonWithChains).map(async (pokemonName) => {
+    const pokemonEvolutionData = {
+      polished: polishedChains[pokemonName] || [],
+      faithful: faithfulChains[pokemonName] || [],
+    };
+
+    const evolutionFilePath = join(evolutionDir, `${pokemonName}.json`);
+    await writeFile(evolutionFilePath, JSON.stringify(pokemonEvolutionData, null, 2), 'utf-8');
+  }),
+);
+
+console.log(`Individual evolution files written to ${evolutionDir}`);
+
+// Build evolution families using Union-Find for efficiency
+class UnionFind {
+  private parent: Map<string, string> = new Map();
+  private rank: Map<string, number> = new Map();
+
+  find(pokemon: string): string {
+    if (!this.parent.has(pokemon)) {
+      this.parent.set(pokemon, pokemon);
+      this.rank.set(pokemon, 0);
+    }
+
+    if (this.parent.get(pokemon) !== pokemon) {
+      this.parent.set(pokemon, this.find(this.parent.get(pokemon)!));
+    }
+
+    return this.parent.get(pokemon)!;
+  }
+
+  union(pokemon1: string, pokemon2: string): void {
+    const root1 = this.find(pokemon1);
+    const root2 = this.find(pokemon2);
+
+    if (root1 === root2) return;
+
+    const rank1 = this.rank.get(root1) || 0;
+    const rank2 = this.rank.get(root2) || 0;
+
+    if (rank1 < rank2) {
+      this.parent.set(root1, root2);
+    } else if (rank1 > rank2) {
+      this.parent.set(root2, root1);
+    } else {
+      this.parent.set(root2, root1);
+      this.rank.set(root1, rank1 + 1);
+    }
+  }
+
+  getGroups(): Map<string, string[]> {
+    const groups = new Map<string, string[]>();
+
+    for (const pokemon of this.parent.keys()) {
+      const root = this.find(pokemon);
+      if (!groups.has(root)) {
+        groups.set(root, []);
+      }
+      groups.get(root)!.push(pokemon);
+    }
+
+    return groups;
+  }
+}
+
+const buildEvolutionFamilies = () => {
+  const unionFind = new UnionFind();
+
+  // Process polished chains
+  for (const [, chainList] of Object.entries(polishedChains)) {
+    for (const chain of chainList) {
+      for (const link of chain) {
+        unionFind.union(link.from.name, link.to.name);
+      }
+    }
+  }
+
+  // Process faithful chains
+  for (const [, chainList] of Object.entries(faithfulChains)) {
+    for (const chain of chainList) {
+      for (const link of chain) {
+        unionFind.union(link.from.name, link.to.name);
+      }
+    }
+  }
+
+  // Convert groups to family mapping
+  const allFamilies = new Map<string, string[]>();
+  const groups = unionFind.getGroups();
+
+  for (const [, members] of groups) {
+    const sortedMembers = members.sort();
+    for (const member of members) {
+      allFamilies.set(member, sortedMembers);
+    }
+  }
+
+  return allFamilies;
+};
+
+const allFamilies = buildEvolutionFamilies();
+
+const evolutionManifest: EvolutionManifestEntry[] = Array.from(allPokemonWithChains)
+  .map((pokemonName) => {
+    const family = allFamilies.get(pokemonName) || [pokemonName];
+
+    return {
+      id: pokemonName,
+      relatedPokemon: family,
+    };
+  })
+  .sort((a, b) => a.id.localeCompare(b.id)); // Sort alphabetically
+
+const evolutionManifestPath = join(outputDir, 'evolution_manifest.json');
+await writeFile(evolutionManifestPath, JSON.stringify(evolutionManifest, null, 2), 'utf-8');
 
 console.log(`${mergedPokemon.length} Pokemon files written to ${pokemonDir}`);
 console.log(`Manifest written to ${manifestPath}`);
 console.log(`Evolution chains written to ${evolutionChainsPath}`);
+console.log(
+  `Evolution manifest with ${evolutionManifest.length} entries written to ${evolutionManifestPath}`,
+);
 
 //Pokemon GETTER
 const getPokemon = () => {
