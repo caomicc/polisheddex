@@ -5,9 +5,9 @@ import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 import { PokemonSprite } from './pokemon-sprite';
-import { usePokemonType } from '@/contexts/PokemonTypeContext';
-import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
-import { EvolutionMethod, PokemonType } from '@/types/types';
+// import { usePokemonType } from '@/contexts/PokemonTypeContext';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { EvolutionMethod } from '@/types/types';
 import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
 
 interface EvolutionData {
@@ -29,7 +29,7 @@ interface Props {
 export function EvolutionChain({ evolutionData, spritesByGen, className }: Props) {
   const { chain, chainWithMethods, faithfulChainWithMethods, updatedChainWithMethods } =
     evolutionData;
-  const { primaryType } = usePokemonType();
+  // const { primaryType } = usePokemonType();
   const { showFaithful } = useFaithfulPreference();
 
   // Determine which evolution data to use based on faithful preference
@@ -162,7 +162,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                 pokemonName={path.source}
                 src={getSpriteUrl(path.source)}
                 alt={`Sprite of Pokémon ${path.source}`}
-                primaryType={primaryType as PokemonType['name']}
+                // primaryType={primaryType as PokemonType['name']}
                 form={path.sourceForm?.toLowerCase()}
                 className="shadow-none"
               />
@@ -281,7 +281,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                 pokemonName={path.target}
                 src={getSpriteUrl(path.target)}
                 alt={`Sprite of Pokémon ${path.target}`}
-                primaryType={primaryType as PokemonType['name']}
+                // primaryType={primaryType as PokemonType['name']}
                 form={path.targetForm?.replace(/ form$/i, '').toLowerCase()}
               />
               <span className="mt-2 flex text-xs font-black text-neutral-600 dark:text-neutral-200 capitalize leading-none">

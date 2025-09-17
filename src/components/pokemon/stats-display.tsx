@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { StatData, calculateActualStats, type NatureModifiers } from './stat-hexagon';
 import { getPokemonStatsData, type PokemonStatsData } from '@/lib/pokemon-stats';
 import { Nature, NATURE_DATA, type IVs, type EVs } from '../pokemon-slot';
-import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 import { Progress } from '../ui/progress';
 
 interface StatsDisplayProps {

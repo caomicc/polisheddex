@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import React, { PropsWithChildren, ReactNode } from 'react';
 import { Card, CardContent, CardHeader } from '../ui/card';
-import { usePokemonType } from '@/contexts/PokemonTypeContext';
+// import { usePokemonType } from '@/contexts/PokemonTypeContext';
 
 type SectionCardProps = PropsWithChildren<{
   children: ReactNode;
@@ -13,15 +13,15 @@ type SectionCardProps = PropsWithChildren<{
 
 const SectionCard: React.FC<SectionCardProps> = ({ ...props }: SectionCardProps) => {
   const { children, headline, className } = props;
-  const { primaryType } = usePokemonType();
-  const hasPokemonTheme = primaryType && primaryType !== 'normal';
+  // const { primaryType } = usePokemonType();
+  // const hasPokemonTheme = primaryType && primaryType !== 'normal';
 
   return (
     <Card
       className={cn(
         'shadow-input row-span-1 flex flex-col justify-between space-y-4 rounded-xl border border-neutral-200 bg-neutral-100 p-4 transition duration-200 dark:border-white/[0.2] dark:bg-black dark:shadow-none',
-        hasPokemonTheme && 'pokemon-section-card',
-        `shadow-${primaryType?.toLowerCase()}`,
+        // hasPokemonTheme && 'pokemon-section-card',
+        // `shadow-${primaryType?.toLowerCase()}`,
         className,
       )}
     >

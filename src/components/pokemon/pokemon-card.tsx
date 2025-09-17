@@ -1,4 +1,5 @@
-import { BaseData, PokemonType } from '@/types/types';
+import { PokemonType } from '@/types/types';
+import { PokemonManifest } from '@/types/new';
 import React from 'react';
 import { Card } from '../ui/card';
 import { Badge } from '../ui/badge';
@@ -6,10 +7,25 @@ import { cn } from '@/lib/utils';
 import { getTypeGradientProps } from '@/utils/css-gradients';
 import { TYPE_COLORS } from '@/contexts/PokemonTypeContext';
 import { PokemonSprite } from './pokemon-sprite';
-import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+
+/**
+ * Local helper function to get Pokemon types from the manifest structure
+ * (Duplicate of server-side function to avoid importing server code in client component)
+ */
+function getPokemonTypes(
+  pokemon: PokemonManifest,
+  version: 'polished' | 'faithful' = 'polished',
+  form: string = 'plain',
+): string[] {
+  return pokemon.versions?.[version]?.[form]?.types || [];
+}
 
 export interface PokemonCardProps {
-  pokemon: BaseData & { formName?: string };
+  pokemon: PokemonManifest & {
+    formName?: string;
+    frontSpriteUrl?: string; // For backward compatibility
+  };
   sortType?: string;
   showUpdatedTypes?: boolean;
 }
@@ -19,46 +35,18 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
 
   console.log('PokemonCard', pokemon);
 
-  // Get the appropriate types based on preference
-  const displayTypes = showFaithful
-    ? pokemon.faithfulTypes || pokemon.types
-    : pokemon.updatedTypes || pokemon.types;
+  // Get the appropriate types based on preference using helper function
+  const version = showFaithful ? 'faithful' : 'polished';
+  const form = pokemon.formName || 'plain';
+  const displayTypes = getPokemonTypes(pokemon, version, form);
 
-  let displayName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+  console.log('Display Types', displayTypes);
 
-  if (pokemon.name) {
-    // Handle special cases for names
-    if (pokemon.name === 'nidoran-f') {
-      displayName = 'Nidoran ♀';
-    } else if (pokemon.name === 'nidoran-m') {
-      displayName = 'Nidoran ♂';
-    } else if (pokemon.name === 'Mr-Mime') {
-      displayName = 'Mr. Mime';
-    } else if (pokemon.name === 'Mime-Jr') {
-      displayName = 'Mime Jr.';
-    } else if (pokemon.name === 'Farfetchd') {
-      displayName = "Farfetch'd";
-    } else if (pokemon.name === 'Sirfetchd') {
-      displayName = "Sirfetch'd";
-    } else if (pokemon.name === 'Ho-Oh') {
-      displayName = 'Ho-Oh';
-    } else if (pokemon.name === 'mr-rime' || pokemon.name === 'Mr-Rime') {
-      displayName = 'Mr. Rime';
-    } else if (pokemon.name === 'Farigiraf') {
-      displayName = 'Farigiraf';
-    }
-  }
-  // Get the primary type for styling
-  const primaryType = displayTypes
-    ? typeof displayTypes === 'string'
-      ? displayTypes.toLowerCase()
-      : Array.isArray(displayTypes) && displayTypes.length > 0
-        ? displayTypes[0].toLowerCase()
-        : 'unknown'
-    : 'unknown';
+  const displayName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
 
-  const secondaryType =
-    Array.isArray(displayTypes) && displayTypes.length > 1 ? displayTypes[1].toLowerCase() : null;
+  // Get the primary type for styling (getPokemonTypes always returns an array)
+  const primaryType = displayTypes.length > 0 ? displayTypes[0].toLowerCase() : 'unknown';
+  const secondaryType = displayTypes.length > 1 ? displayTypes[1].toLowerCase() : null;
 
   // Generate CSS-based gradient props
   const gradientProps = getTypeGradientProps(primaryType, secondaryType || undefined);
@@ -86,13 +74,13 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
     <Card className={baseClassName} style={gradientProps.style}>
       <PokemonSprite
         hoverAnimate={true}
-        pokemonName={pokemon.name}
+        pokemonName={pokemon.id} // Use id for sprite naming
         alt={`${pokemon.name} sprite`}
         primaryType={primaryType as PokemonType['name']}
         variant="normal"
         type="static"
-        form={typeof pokemon.form === 'string' ? pokemon.form : 'plain'}
-        src={pokemon.frontSpriteUrl} // fallback for backward compatibility
+        form={pokemon.formName || 'plain'}
+        src={pokemon.frontSpriteUrl || `/sprites/pokemon/${pokemon.id}.png`} // fallback
         className="aspect-square mb-0"
         size="default"
       />
@@ -100,7 +88,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
         <p
           className={cn(
             'text-xs md:text-sm top-4 right-4 md:top-0 md:right-0 font-medium tracking-wide mb-1 absolute md:relative leading-[21px]',
-            pokemon.nationalDex === null && pokemon.johtoDex === null ? 'hidden' : '',
+            pokemon.dexNo === null && pokemon.johtoDex === null ? 'hidden' : '',
           )}
         >
           #
@@ -110,22 +98,22 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
             ) : (
               <span className="text-cell text-cell-muted">—</span>
             )
-          ) : pokemon.nationalDex !== null ? (
-            pokemon.nationalDex
+          ) : pokemon.dexNo !== null ? (
+            pokemon.dexNo
           ) : (
             <span className="text-cell text-cell-muted">—</span>
           )}
         </p>
 
-        {pokemon.form ? (
+        {pokemon.formName && pokemon.formName !== 'plain' ? (
           <Badge
             variant="form"
             className={cn(
               'text-xxs md:rounded-sm absolute top-4 right-12 md:right-4',
-              pokemon.nationalDex === null && pokemon.johtoDex === null ? 'hidden' : '',
+              pokemon.dexNo === null && pokemon.johtoDex === null ? 'hidden' : '',
             )}
           >
-            {pokemon.form
+            {pokemon.formName
               .toString()
               .replace(/_/g, ' ')
               .replace(/\bsegment\b/gi, 'seg.')}
@@ -138,7 +126,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
           {displayName}
         </h2>
         <div className="flex md:justify-start gap-1 md:gap-2 flex-row md:flex-row">
-          {(Array.isArray(displayTypes) ? displayTypes : [displayTypes]).map((type, idx) => (
+          {displayTypes.map((type, idx) => (
             <Badge key={type + idx} variant={type.toLowerCase() as PokemonType['name']}>
               {type}
             </Badge>

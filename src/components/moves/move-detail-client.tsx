@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 import { PokemonWithMove } from '@/utils/loaders/move-data-loader';
 import PokemonWithMoveDataTable from './pokemon-with-move-data-table';
 import { Hero } from '../ui/Hero';

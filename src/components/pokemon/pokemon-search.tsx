@@ -7,7 +7,7 @@ import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger } from '../ui/select';
 import { cn } from '@/lib/utils';
-import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 import Link from 'next/link';
 import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
 import { usePokemonSearch } from '@/hooks/usePokemonSearch';

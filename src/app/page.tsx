@@ -9,10 +9,10 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { PokemonSprite } from '@/components/pokemon/pokemon-sprite';
-import { useFaithfulPreference } from '@/contexts';
+// import { useFaithfulPreference } from '@/contexts';
 
 export default function Home() {
-  const { showFaithful } = useFaithfulPreference(); // This should be determined by your app logic
+  // const { showFaithful } = useFaithfulPreference(); // This should be determined by your app logic
 
   return (
     <div className="mb-10 pb-12 px-4 lg:p-4">
@@ -116,7 +116,7 @@ export default function Home() {
             className="relative z-10 mt-20 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900"
           >
             <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-              {getItems(showFaithful).map((item, i) => (
+              {getItems(false).map((item, i) => (
                 <BentoGridItem
                   key={i}
                   title={item.title}

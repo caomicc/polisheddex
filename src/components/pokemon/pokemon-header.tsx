@@ -12,7 +12,7 @@ import {
 } from '../ui/breadcrumb';
 import Link from 'next/link';
 import { Hero } from '../ui/Hero';
-import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 
 const PokedexHeader = ({
   formData,

@@ -20,7 +20,7 @@ import {
 } from '@/lib/pokemon-data';
 import { Ability, BaseData, PokemonType } from '@/types/types';
 import { Badge } from './ui/badge';
-import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 import { PokemonSprite } from './pokemon/pokemon-sprite';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';

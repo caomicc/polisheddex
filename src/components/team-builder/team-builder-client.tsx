@@ -8,7 +8,7 @@ import { PokemonSearchModal } from './pokemon-search-modal';
 import { SaveTeamModal } from './save-team-modal';
 import { LoadTeamModal } from './load-team-modal';
 import { MoveSelector } from './move-selector';
-import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 import { useTeamSearchParams } from '@/hooks/use-team-search-params';
 import { Button } from '../ui/button';
 import { Save, FolderOpen } from 'lucide-react';
@@ -19,10 +19,8 @@ interface TeamBuilderClientProps {
 
 export function TeamBuilderClient({ pokemonData }: TeamBuilderClientProps) {
   const { showFaithful } = useFaithfulPreference();
-  const { team, setPokemonInSlot, removePokemonFromSlot, updatePokemonMoves, setTeamFromUrl } = useTeamSearchParams(
-    pokemonData,
-    showFaithful,
-  );
+  const { team, setPokemonInSlot, removePokemonFromSlot, updatePokemonMoves, setTeamFromUrl } =
+    useTeamSearchParams(pokemonData, showFaithful);
   const [selectedSlot, setSelectedSlot] = useState<number | null>(null);
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [showLoadModal, setShowLoadModal] = useState(false);
@@ -135,11 +133,13 @@ export function TeamBuilderClient({ pokemonData }: TeamBuilderClientProps) {
         isOpen={showSaveModal}
         onClose={() => setShowSaveModal(false)}
         teamPokemon={team.map((pokemon) =>
-          pokemon ? { 
-            name: pokemon.name, 
-            formName: pokemon.formName,
-            moves: pokemon.moves 
-          } : null,
+          pokemon
+            ? {
+                name: pokemon.name,
+                formName: pokemon.formName,
+                moves: pokemon.moves,
+              }
+            : null,
         )}
         onSave={handleSaveComplete}
       />

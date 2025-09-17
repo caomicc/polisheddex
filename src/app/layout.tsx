@@ -4,7 +4,7 @@ import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Footer, Navigation } from '@/components/ui';
-import { PokemonTypeProvider, FaithfulPreferenceProvider } from '@/contexts';
+// import { PokemonTypeProvider, FaithfulPreferenceProvider } from '@/contexts';
 import { NuqsProvider } from '@/components/providers/nuqs-provider';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import ServiceWorkerRegister from '@/components/service-worker-register';
@@ -111,22 +111,18 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <NuqsProvider>
-            <FaithfulPreferenceProvider>
-              <PokemonTypeProvider>
-                <div
-                  className={cn(
-                    'pointer-events-none absolute inset-0 [background-size:40px_40px] select-none z-0 h-full w-full top-0 left-0 bottom-0',
-                    '[background-image:linear-gradient(to_right,var(--pokemon-theme-grid)_1px,transparent_1px),linear-gradient(to_bottom,var(--pokemon-theme-grid)_1px,transparent_1px)]',
-                    'dark:[background-image:linear-gradient(to_right,var(--pokemon-theme-grid)_1px,transparent_1px),linear-gradient(to_bottom,var(--pokemon-theme-grid)_1px,transparent_1px)]',
-                  )}
-                />
-                <div className="flex flex-col min-h-screen relative z-10">
-                  <Navigation />
-                  <main className="flex-grow">{children}</main>
-                  <Footer />
-                </div>
-              </PokemonTypeProvider>
-            </FaithfulPreferenceProvider>
+            <div
+              className={cn(
+                'pointer-events-none absolute inset-0 [background-size:40px_40px] select-none z-0 h-full w-full top-0 left-0 bottom-0',
+                '[background-image:linear-gradient(to_right,var(--pokemon-theme-grid)_1px,transparent_1px),linear-gradient(to_bottom,var(--pokemon-theme-grid)_1px,transparent_1px)]',
+                'dark:[background-image:linear-gradient(to_right,var(--pokemon-theme-grid)_1px,transparent_1px),linear-gradient(to_bottom,var(--pokemon-theme-grid)_1px,transparent_1px)]',
+              )}
+            />
+            <div className="flex flex-col min-h-screen relative z-10">
+              <Navigation />
+              <main className="flex-grow">{children}</main>
+              <Footer />
+            </div>
           </NuqsProvider>
         </ThemeProvider>
         <ServiceWorkerRegister />

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { DetailedStats } from '@/types/types';
 import { cn } from '@/lib/utils';
-import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 import { BentoGridItem } from '../ui/bento-box';
 import { Badge } from '../ui/badge';
 

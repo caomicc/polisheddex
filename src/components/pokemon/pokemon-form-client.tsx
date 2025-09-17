@@ -12,7 +12,7 @@ import PokedexHeader from './pokemon-header';
 import { WeaknessChart } from './weakness-chart';
 import PokemonTypeSetter from './pokemon-type-setter';
 import { useQueryState } from 'nuqs';
-import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 import { PokemonSprite } from './pokemon-sprite';
 import { MoveRow } from '../moves';
 import { LocationListItem } from '../locations';

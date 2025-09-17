@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { parseAsBoolean, parseAsString, useQueryStates } from 'nuqs';
 import { Button } from '../ui/button';
 import React from 'react';
-import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 import { ColumnFiltersState, SortingState } from '@tanstack/react-table';
 import { usePaginationSearchParams } from '@/hooks/use-pagination-search-params';
 import { createPokemonListColumns } from './pokemon-list-columns';
@@ -79,6 +79,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
     const typeSet = new Set<string>();
 
     pokemonList.forEach((pokemon) => {
+      console.log(pokemon);
       const displayTypes = showFaithful
         ? pokemon.faithfulTypes || pokemon.types
         : pokemon.updatedTypes || pokemon.types;

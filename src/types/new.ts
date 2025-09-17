@@ -94,6 +94,7 @@ export interface PokemonManifest {
   id: PokemonData['id'];
   name: PokemonData['name'];
   dexNo: PokemonData['dexNo'];
+  johtoDex?: number;
   versions: {
     [versionName: string]: {
       [formName: string]: {
@@ -101,6 +102,11 @@ export interface PokemonManifest {
       };
     };
   };
+}
+
+// Collection type for the manifest data
+export interface PokemonManifestCollection {
+  [pokemonId: string]: PokemonManifest;
 }
 
 export interface AbilityData {

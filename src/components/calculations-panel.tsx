@@ -22,7 +22,7 @@ import {
   defensiveMultiplierAgainst,
 } from '@/lib/calculations';
 import { useEffect, useState } from 'react';
-import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 import TableWrapper from './ui/table-wrapper';
 import { BentoGridNoLink } from './ui/bento-box';
 

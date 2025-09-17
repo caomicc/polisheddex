@@ -17,8 +17,7 @@ import {
 import { Label } from './label';
 import { SimpleThemeToggle } from './theme-toggle';
 import { Switch } from './switch';
-import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
-import { usePokemonType } from '@/contexts/PokemonTypeContext';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { Badge } from './badge';
@@ -29,8 +28,8 @@ import { ExternalLink } from 'lucide-react';
 
 export default function Navigation() {
   const pathname = usePathname();
-  const { primaryType } = usePokemonType();
-  const { showFaithful, toggleFaithful } = useFaithfulPreference();
+  // const { primaryType } = usePokemonType();
+  const { showFaithful, toggleFaithful, isLoading } = useFaithfulPreference();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
@@ -64,7 +63,8 @@ export default function Navigation() {
     }
   });
 
-  const hasPokemonTheme = primaryType !== null;
+  const hasPokemonTheme = false;
+  // const hasPokemonTheme = primaryType !== null;
   const isActive = (path: string) => pathname?.startsWith(path);
 
   return (
@@ -345,6 +345,7 @@ export default function Navigation() {
             <Label htmlFor="type-toggle" className="text-sm whitespace-nowrap">
               <Badge>{!showFaithful ? 'Polished' : 'Faithful'}</Badge>
             </Label>
+            {isLoading && <>loading...</>}
             <Switch
               id="type-toggle"
               checked={!showFaithful}

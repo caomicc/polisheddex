@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Search, Plus, X } from 'lucide-react';
 import { PokemonType } from '@/types/types';
-import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 import movesData from '@/output/manifests/moves.json';
 
 interface MoveSelectorProps {
