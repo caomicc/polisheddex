@@ -294,3 +294,19 @@ export type EvolutionManifestEntry = {
   id: string;
   relatedPokemon: string[];
 };
+
+// Evolution chain building types and function
+export type EvolutionMethod = {
+  action: string;
+  parameter?: string | number;
+};
+
+export type EvolutionStep = {
+  from: { name: string; formName: string };
+  to: { name: string; formName: string };
+  method: EvolutionMethod;
+};
+
+export type EvolutionChains = {
+  [root: string]: ChainLink[][];
+};

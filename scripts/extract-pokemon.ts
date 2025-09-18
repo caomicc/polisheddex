@@ -12,7 +12,8 @@ import {
   PokemonManifest,
   PokemonMovesets,
 } from '@/types/new';
-import { parseEvolutionParameter, reduce } from '@/lib/extract-utils';
+import { parseEvolutionParameter, reduce, parseDexOrder } from '@/lib/extract-utils';
+
 import splitFile from '@/lib/split';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -39,6 +40,7 @@ const abilityDescriptionsASM = join(
   __dirname,
   '../polishedcrystal/data/abilities/descriptions.asm',
 );
+const dexOrderNewASM = join(__dirname, '../polishedcrystal/data/pokemon/dex_order_new.asm');
 
 const extractAbilities = (
   abilityNamesData: string[],
@@ -445,8 +447,11 @@ const isInSameEvolutionFamily = (pokemon1: string, pokemon2: string, formKey: st
   return connectedToPokemon1.has(pokemon2);
 };
 
-const extractNames = (data: string[], version: string) => {
-  let dexNo = 1;
+const extractNames = async (data: string[], version: string) => {
+  // Extract dex order from the ASM file using the utility function
+  const dexOrderContent = await readFile(dexOrderNewASM, 'utf-8');
+  const johtoDexMap = parseDexOrder(dexOrderContent);
+
   for (let lineNo = 0; lineNo < data.length; lineNo++) {
     //Skips undesirable lines
     if (
@@ -458,6 +463,8 @@ const extractNames = (data: string[], version: string) => {
       continue;
     }
     if (data[lineNo].includes('Dudunsparc')) {
+      const dexNo = johtoDexMap.get('dudunsparce') || 0;
+
       pokemonData[version].push({
         id: 'dudunsparce',
         name: 'Dudunsparce',
@@ -478,13 +485,18 @@ const extractNames = (data: string[], version: string) => {
           },
         },
       });
-      dexNo++;
       continue;
     }
 
+    const pokemonName = data[lineNo].slice(9, -1);
+    const pokemonId = reduce(pokemonName);
+
+    // Get dex number using the normalized name
+    const dexNo = johtoDexMap.get(pokemonId) || 0;
+
     pokemonData[version]?.push({
-      id: reduce(data[lineNo].slice(9, -1)),
-      name: data[lineNo].slice(9, -1),
+      id: pokemonId,
+      name: pokemonName,
       dexNo: dexNo,
       forms: {
         plain: {
@@ -502,7 +514,6 @@ const extractNames = (data: string[], version: string) => {
         },
       },
     });
-    dexNo++;
   }
 };
 
@@ -739,8 +750,8 @@ const extractCosmetic = (pokemonForm: string) => {
 //#1: Names, Dex Numbers
 let raw = await readFile(namesASM, 'utf-8');
 const [polishedNames, faithfulNames] = splitFile(raw);
-extractNames(polishedNames, 'polished');
-extractNames(faithfulNames, 'faithful');
+await extractNames(polishedNames, 'polished');
+await extractNames(faithfulNames, 'faithful');
 
 //#2: Forms
 raw = await readFile(formsASM, 'utf-8');

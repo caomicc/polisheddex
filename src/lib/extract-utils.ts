@@ -1,5 +1,7 @@
 // Utility functions for common patterns in data extraction
 
+import { ChainLink, EvolutionChains, EvolutionMethod, EvolutionStep } from '@/types/new';
+
 export const specialTrainerClasses = ['GIOVANNI', 'LYRA1', 'RIVAL1', 'ARCHER', 'ARIANA'];
 
 export const formNumberMap: Record<string, number> = {
@@ -442,28 +444,6 @@ export const parseEvolutionParameter = (line: string): number | string | undefin
       : Number(parameter);
 };
 
-// Evolution chain building types and function
-type EvolutionMethod = {
-  action: string;
-  parameter?: string | number;
-};
-
-type EvolutionStep = {
-  from: { name: string; formName: string };
-  to: { name: string; formName: string };
-  method: EvolutionMethod;
-};
-
-type ChainLink = {
-  from: { name: string; formName: string };
-  to: { name: string; formName: string };
-  method: EvolutionMethod;
-};
-
-type EvolutionChains = {
-  [root: string]: ChainLink[][];
-};
-
 /**
  * Builds full evolution chains from the JSON structure
  * @param evoData evolution chains data from extract-pokemon.ts
@@ -471,7 +451,7 @@ type EvolutionChains = {
  */
 export function buildChains(
   evoData: Record<string, Record<string, EvolutionStep[]>>,
-  style: "polished" | "faithful" = "polished"
+  style: 'polished' | 'faithful' = 'polished',
 ): EvolutionChains {
   const chains: EvolutionChains = {};
   const data = evoData[style];
@@ -486,10 +466,7 @@ export function buildChains(
     }
   }
 
-  function dfs(
-    current: { name: string; formName: string },
-    path: ChainLink[]
-  ): void {
+  function dfs(current: { name: string; formName: string }, path: ChainLink[]): void {
     const nextEvos = data[current.name];
     if (!nextEvos || nextEvos.length === 0) {
       // Save the full path as a chain (only if path has links)
@@ -504,7 +481,7 @@ export function buildChains(
     for (const evo of nextEvos) {
       // Skip if form doesn't match
       if (evo.from.formName !== current.formName) continue;
-      
+
       const nextLink: ChainLink = {
         from: evo.from,
         to: evo.to,
@@ -517,7 +494,7 @@ export function buildChains(
   // Start DFS from root Pokémon (those that never appear as "to")
   for (const start of Object.keys(data)) {
     if (!allTos.has(start)) {
-      dfs({ name: start, formName: "plain" }, []);
+      dfs({ name: start, formName: 'plain' }, []);
     }
   }
 
@@ -530,19 +507,19 @@ export function buildChains(
  * @returns Formatted string like "Bulbasaur (L16) → Ivysaur (L32) → Venusaur"
  */
 export function chainToString(chain: ChainLink[]): string {
-  if (chain.length === 0) return "";
-  
+  if (chain.length === 0) return '';
+
   const formatMethod = (method: EvolutionMethod): string => {
     switch (method.action) {
-      case "level":
+      case 'level':
         return `L${method.parameter}`;
-      case "item":
+      case 'item':
         return `use ${method.parameter}`;
-      case "trade":
-        return method.parameter ? `trade with ${method.parameter}` : "trade";
-      case "happiness":
+      case 'trade':
+        return method.parameter ? `trade with ${method.parameter}` : 'trade';
+      case 'happiness':
         return `happiness during ${method.parameter}`;
-      case "location":
+      case 'location':
         return `level up at ${method.parameter}`;
       default:
         return method.parameter ? `${method.action} ${method.parameter}` : method.action;
@@ -551,13 +528,13 @@ export function chainToString(chain: ChainLink[]): string {
 
   // Start with the first Pokemon
   let result = chain[0].from.name;
-  
+
   // Add each evolution step
   for (const step of chain) {
     const methodStr = formatMethod(step.method);
     result += ` (${methodStr}) → ${step.to.name}`;
   }
-  
+
   return result;
 }
 
@@ -569,3 +546,27 @@ export function chainToString(chain: ChainLink[]): string {
 export function chainsToStrings(chains: ChainLink[][]): string[] {
   return chains.map(chainToString);
 }
+
+/**
+ * Parses a dex order ASM file and returns a map of Pokemon names to their dex numbers
+ * @param content The content of the dex order ASM file
+ * @returns Map of normalized Pokemon names to their dex numbers (1-indexed)
+ */
+export const parseDexOrder = (content: string): Map<string, number> => {
+  const dexOrderMap = new Map<string, number>();
+  const lines = content.split('\n');
+  let dexNumber = 1;
+
+  for (const line of lines) {
+    const trimmedLine = line.trim();
+    if (trimmedLine.startsWith('dp ')) {
+      const pokemonName = trimmedLine.replace('dp ', '').trim();
+      // Use reduce to normalize the ASM constant name to match the extraction format
+      const normalizedName = reduce(pokemonName);
+      dexOrderMap.set(normalizedName, dexNumber);
+      dexNumber++;
+    }
+  }
+
+  return dexOrderMap;
+};
