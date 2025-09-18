@@ -1,6 +1,5 @@
 // pokemon columns for /pokemon route
 'use client';
-import { BaseData } from '@/types/types';
 import { PokemonListDataTable } from './pokemon-list-data-table';
 import LazyPokemonCardGrid from './lazy-pokemon-card-grid';
 import { Switch } from '../ui/switch';
@@ -16,11 +15,14 @@ import { ColumnFiltersState, SortingState } from '@tanstack/react-table';
 import { usePaginationSearchParams } from '@/hooks/use-pagination-search-params';
 import { createPokemonListColumns } from './pokemon-list-columns';
 import { Badge } from '../ui/badge';
+import { PokemonManifest } from '@/types/new';
 
-export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseData[] }) {
+export default function PokemonListDisplay({ pokemonList }: { pokemonList: PokemonManifest[] }) {
   const [tableView, setTableView] = React.useState(false);
   const STORAGE_KEY = 'pokemonListDataTable';
   const { showFaithful } = useFaithfulPreference();
+
+  const version = showFaithful ? 'faithful' : 'polished';
 
   const columns = React.useMemo(() => createPokemonListColumns(showFaithful), [showFaithful]);
 
@@ -29,9 +31,6 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
     {
       search: parseAsString.withDefault(''),
       type: parseAsString.withDefault('all'),
-      generation: parseAsString.withDefault('all'),
-      hasJohtoDex: parseAsBoolean.withDefault(false),
-      hasNationalDex: parseAsBoolean.withDefault(false),
       hasForms: parseAsBoolean.withDefault(false),
       showForms: parseAsBoolean.withDefault(false), // Added show forms toggle
       view: parseAsString.withDefault('card'), // Added view parameter
@@ -55,12 +54,11 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
   const storedState = loadStoredState();
 
   const [sorting, setSorting] = React.useState<SortingState>(
-    storedState?.sorting || [{ id: 'johtoDex', desc: false }],
+    storedState?.sorting || [{ id: 'dexNo', desc: false }],
   );
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
 
-  const { search, type, generation, hasJohtoDex, hasNationalDex, hasForms, showForms, view } =
-    urlState;
+  const { search, type, hasForms, showForms, view } = urlState;
 
   React.useEffect(() => {
     const nameColumn = columns.find((col) => 'accessorKey' in col && col.accessorKey === 'name');
@@ -79,116 +77,62 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
     const typeSet = new Set<string>();
 
     pokemonList.forEach((pokemon) => {
-      console.log(pokemon);
-      const displayTypes = showFaithful
-        ? pokemon.faithfulTypes || pokemon.types
-        : pokemon.updatedTypes || pokemon.types;
-      const typesArray = Array.isArray(displayTypes) ? displayTypes : [displayTypes];
+      const currentForm = 'plain';
+      const displayTypes = pokemon.versions[version]?.[currentForm]?.types;
+      const typesArray = Array.isArray(displayTypes)
+        ? displayTypes
+        : displayTypes
+          ? [displayTypes]
+          : [];
       typesArray.forEach((type) => {
         if (type) typeSet.add(type);
       });
     });
 
     return Array.from(typeSet).sort();
-  }, [pokemonList, showFaithful]);
+  }, [pokemonList, version]);
 
   // Apply filters to the data
   const filteredData = React.useMemo(() => {
     return pokemonList.filter((pokemon) => {
       const matchesSearch = !search || pokemon.name.toLowerCase().includes(search.toLowerCase());
 
-      // Type filter
-      const displayTypes = showFaithful
-        ? pokemon.faithfulTypes || pokemon.types
-        : pokemon.updatedTypes || pokemon.types;
-      const typesArray = Array.isArray(displayTypes) ? displayTypes : [displayTypes];
+      // Type filter - get types for the current form and version
+      const currentForm = 'plain';
+      const displayTypes = pokemon.versions[version]?.[currentForm]?.types;
+      const typesArray = Array.isArray(displayTypes)
+        ? displayTypes
+        : displayTypes
+          ? [displayTypes]
+          : [];
       const matchesType = type === 'all' || typesArray.some((t) => t === type);
 
-      // Generation filter (based on national dex ranges)
-      let matchesGeneration = true;
-      if (generation !== 'all') {
-        const nationalDex = pokemon.nationalDex;
-        if (nationalDex) {
-          switch (generation) {
-            case 'gen1':
-              matchesGeneration = nationalDex >= 1 && nationalDex <= 151;
-              break;
-            case 'gen2':
-              matchesGeneration = nationalDex >= 152 && nationalDex <= 251;
-              break;
-            case 'gen3':
-              matchesGeneration = nationalDex >= 252 && nationalDex <= 386;
-              break;
-            case 'gen4':
-              matchesGeneration = nationalDex >= 387 && nationalDex <= 493;
-              break;
-            case 'gen5':
-              matchesGeneration = nationalDex >= 494 && nationalDex <= 649;
-              break;
-            case 'gen6':
-              matchesGeneration = nationalDex >= 650 && nationalDex <= 721;
-              break;
-            case 'gen7':
-              matchesGeneration = nationalDex >= 722 && nationalDex <= 809;
-              break;
-            case 'gen8':
-              matchesGeneration = nationalDex >= 810 && nationalDex <= 905;
-              break;
-            case 'gen9':
-              matchesGeneration = nationalDex >= 906;
-              break;
-            default:
-              matchesGeneration = true;
-          }
-        } else {
-          matchesGeneration = false;
-        }
-      }
-
-      // Checkbox filters
-      const matchesJohtoDex = !hasJohtoDex || (pokemon.johtoDex !== null && pokemon.johtoDex < 999);
-      const matchesNationalDex = !hasNationalDex || pokemon.nationalDex !== null;
-      const matchesForms = !hasForms || (Array.isArray(pokemon.forms) && pokemon.forms.length > 1);
-
-      // Form visibility filter - hide forms if showForms is false
-      const matchesFormVisibility = showForms || !pokemon.isForm;
-
-      return (
-        matchesSearch &&
-        matchesType &&
-        matchesGeneration &&
-        matchesJohtoDex &&
-        matchesNationalDex &&
-        matchesForms &&
-        matchesFormVisibility
-      );
+      return matchesSearch && matchesType && showForms;
     });
-  }, [
-    pokemonList,
-    search,
-    type,
-    generation,
-    showFaithful,
-    hasJohtoDex,
-    hasNationalDex,
-    hasForms,
-    showForms,
-  ]);
+  }, [pokemonList, search, type, version, showForms]);
 
   // Apply sorting to the filtered data
   const sortedData = React.useMemo(() => {
-    return [...filteredData].sort((a, b) => {
-      for (const sort of sorting) {
-        const { id, desc } = sort;
-        const aValue = a[id] as string | number;
-        const bValue = b[id] as string | number;
-
-        if (aValue < bValue) return desc ? 1 : -1;
-        if (aValue > bValue) return desc ? -1 : 1;
-      }
-      return 0;
-    });
-  }, [filteredData, sorting]);
+    if (showForms) {
+      // When showForms is enabled, map out each individual form as separate entries
+      const expandedData = filteredData.flatMap((pokemon) => {
+        const availableForms = Object.keys(pokemon.versions[version] || {});
+        console.log(`${pokemon.name}: mapping forms [${availableForms.join(', ')}]`);
+        
+        // Create individual entries for each form
+        return availableForms.map((formName) => ({
+          ...pokemon,
+          name: formName === 'plain' ? pokemon.name : `${pokemon.name} (${formName})`,
+        }));
+      });
+      
+      console.log(`Show forms enabled: ${expandedData.length} total entries`);
+      return expandedData;
+    } else {
+      console.log(`Show forms disabled: ${filteredData.length} entries`);
+      return filteredData;
+    }
+  }, [filteredData, showForms, version]);
 
   // Fixed `setPagination` usage by correctly destructuring the returned object
   const [, setPagination] = usePaginationSearchParams();
@@ -217,17 +161,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
 
   React.useEffect(() => {
     setPagination({ pageIndex: 0 });
-  }, [
-    columnFilters,
-    type,
-    generation,
-    showFaithful,
-    hasJohtoDex,
-    hasNationalDex,
-    hasForms,
-    showForms,
-    setPagination,
-  ]);
+  }, [columnFilters, type, showFaithful, hasForms, showForms, setPagination]);
 
   React.useEffect(() => {
     setTableView(view === 'table');
@@ -307,27 +241,17 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
 
         {/* Results Summary */}
         <div className="flex flex-col sm:items-start gap-2 text-sm text-muted-foreground">
-          {(Boolean(search) ||
-            type !== 'all' ||
-            generation !== 'all' ||
-            sorting.length > 0 ||
-            hasJohtoDex ||
-            hasNationalDex ||
-            hasForms ||
-            !showForms) && (
+          {(Boolean(search) || type !== 'all' || sorting.length > 0 || hasForms || !showForms) && (
             <Button
               size="sm"
               onClick={() => {
                 setUrlState({
                   search: null,
                   type: null,
-                  generation: null,
-                  hasJohtoDex: null,
-                  hasNationalDex: null,
                   hasForms: null,
                   showForms: null,
                 });
-                setSorting([{ id: 'johtoDex', desc: false }]);
+                setSorting([{ id: 'dexNo', desc: false }]);
                 try {
                   localStorage.removeItem(STORAGE_KEY);
                 } catch (error) {
@@ -341,43 +265,11 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
           )}
           <span className="flex flex-col md:flex-row text-xs text-muted-foreground">
             Showing {filteredData.length} Pokémon
-            {/* {sorting.length > 0 && (
-              <span className="">
-                Sorted by{' '}
-                {sorting
-                  .map((sort) => {
-                    const direction = sort.desc ? 'desc' : 'asc';
-                    return `${sort.id} (${direction === 'desc' ? 'Z-A' : 'A-Z'})`;
-                  })
-                  .join(', ')}
-              </span>
-            )} */}
-            {/* {(hasJohtoDex ||
-              hasNationalDex ||
-              hasForms ||
-              type !== 'all' ||
-              generation !== 'all' ||
-              showForms) &&
-              showForms && (
-                <span className="ml-2">
-                  Filtered:{' '}
-                  {[
-                    hasJohtoDex && 'In Johto Dex',
-                    hasNationalDex && 'Has National Dex',
-                    hasForms && 'Has multiple forms',
-                    type !== 'all' && `Type: ${type}`,
-                    generation !== 'all' && `Generation: ${generation.replace('gen', 'Gen ')}`,
-                    showForms && 'Forms visible',
-                  ]
-                    .filter(Boolean)
-                    .join(', ')}
-                </span>
-              )} */}
           </span>
         </div>
       </div>
       {tableView ? (
-        <PokemonListDataTable data={sortedData} />
+        <PokemonListDataTable pokemonData={sortedData} />
       ) : (
         <LazyPokemonCardGrid pokemonData={sortedData} itemsPerPage={24} />
       )}

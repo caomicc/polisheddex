@@ -7,8 +7,8 @@ import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 import { PokemonSprite } from './pokemon-sprite';
 // import { usePokemonType } from '@/contexts/PokemonTypeContext';
 import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
-import { EvolutionMethod } from '@/types/types';
 import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
+import { EvolutionMethod } from '@/types/new';
 
 interface EvolutionData {
   methods: EvolutionMethod[];
@@ -36,8 +36,6 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
   const currentChainWithMethods = showFaithful
     ? faithfulChainWithMethods || chainWithMethods
     : updatedChainWithMethods || chainWithMethods;
-
-  const formatMethod = (method: string) => method.replace('EVOLVE_', '').toLowerCase();
 
   const processEvolutionData = () => {
     const chainWithForms = [...chain];
@@ -73,12 +71,17 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
         if (!method) return;
 
         evolutionPaths.push({
-          source: sourcePokemon,
-          sourceForm: method.sourceForm,
-          target: method.target.toLowerCase(),
-          targetForm: method.form,
-          method: formatMethod(method.method),
-          parameter: method.parameter,
+          source: 'sourcePokemon',
+          target: '',
+          method: '',
+          parameter: '',
+
+          // source: sourcePokemon,
+          // sourceForm: method.,
+          // target: method.target.toLowerCase(),
+          // targetForm: method.form,
+          // method: formatMethod(method.method),
+          // parameter: method.parameter,
         });
       });
     });

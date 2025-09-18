@@ -125,7 +125,7 @@ export default function RootLayout({
                 <main className="flex-grow">{children}</main>
                 <Footer />
               </div>
-            </PokemonTypeProvider>{' '}
+            </PokemonTypeProvider>
           </NuqsProvider>
         </ThemeProvider>
         <ServiceWorkerRegister />

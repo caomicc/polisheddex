@@ -33,11 +33,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { BaseData } from '@/types/types';
-import { useFaithfulPreference } from '@/contexts';
 import { createPokemonListColumns } from './pokemon-list-columns';
 import { cn } from '@/lib/utils';
 import TableWrapper from '../ui/table-wrapper';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { PokemonManifest } from '@/types/new';
 
 /**
  * PokemonListDataTable - A data table component for Pokemon list data with persistent state
@@ -52,14 +52,17 @@ import TableWrapper from '../ui/table-wrapper';
  */
 
 interface PokemonListDataTableProps {
-  data: BaseData[];
+  pokemonData: PokemonManifest[];
+  itemsPerPage?: number;
 }
 
-export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
+export function PokemonListDataTable({ pokemonData, e }: PokemonListDataTableProps) {
   // Storage key for persisting non-URL table state
   const STORAGE_KEY = 'pokemonListDataTable';
 
   const { showFaithful } = useFaithfulPreference();
+
+  const version = showFaithful ? 'faithful' : 'polished';
 
   // Create columns dynamically based on faithful preference
   const columns = React.useMemo(() => createPokemonListColumns(showFaithful), [showFaithful]);
@@ -70,8 +73,6 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
       search: parseAsString.withDefault(''),
       type: parseAsString.withDefault('all'),
       generation: parseAsString.withDefault('all'),
-      hasJohtoDex: parseAsBoolean.withDefault(false),
-      hasNationalDex: parseAsBoolean.withDefault(false),
       hasForms: parseAsBoolean.withDefault(false),
     },
     {
@@ -96,7 +97,7 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
   const storedState = loadStoredState();
 
   const [sorting, setSorting] = React.useState<SortingState>(
-    storedState?.sorting || [{ id: 'johtoDex', desc: false }],
+    storedState?.sorting || [{ id: 'dexNo', desc: false }],
   );
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>(
@@ -104,7 +105,7 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
   );
 
   // Extract URL state values
-  const { search, type, generation, hasJohtoDex, hasNationalDex, hasForms } = urlState;
+  const { search, type, generation, hasForms } = urlState;
 
   // Sync search value with table filter for name column
   React.useEffect(() => {
@@ -139,65 +140,25 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
 
   // Apply filters to the data
   const filteredData = React.useMemo(() => {
-    return data.filter((pokemon) => {
-      // Type filter
-      const displayTypes = showFaithful
-        ? pokemon.faithfulTypes || pokemon.types
-        : pokemon.updatedTypes || pokemon.types;
-      const typesArray = Array.isArray(displayTypes) ? displayTypes : [displayTypes];
+    return pokemonData.filter((pokemon) => {
+      // Type filter - get types for the current form and version
+      const currentForm = 'plain';
+      const displayTypes = pokemon.versions[version]?.[currentForm]?.types;
+      const typesArray = Array.isArray(displayTypes)
+        ? displayTypes
+        : displayTypes
+          ? [displayTypes]
+          : [];
       const matchesType = type === 'all' || typesArray.some((t) => t === type);
 
-      // Generation filter (based on national dex ranges)
-      let matchesGeneration = true;
-      if (generation !== 'all') {
-        const nationalDex = pokemon.nationalDex;
-        if (nationalDex) {
-          switch (generation) {
-            case 'gen1':
-              matchesGeneration = nationalDex >= 1 && nationalDex <= 151;
-              break;
-            case 'gen2':
-              matchesGeneration = nationalDex >= 152 && nationalDex <= 251;
-              break;
-            case 'gen3':
-              matchesGeneration = nationalDex >= 252 && nationalDex <= 386;
-              break;
-            case 'gen4':
-              matchesGeneration = nationalDex >= 387 && nationalDex <= 493;
-              break;
-            case 'gen5':
-              matchesGeneration = nationalDex >= 494 && nationalDex <= 649;
-              break;
-            case 'gen6':
-              matchesGeneration = nationalDex >= 650 && nationalDex <= 721;
-              break;
-            case 'gen7':
-              matchesGeneration = nationalDex >= 722 && nationalDex <= 809;
-              break;
-            case 'gen8':
-              matchesGeneration = nationalDex >= 810 && nationalDex <= 905;
-              break;
-            case 'gen9':
-              matchesGeneration = nationalDex >= 906;
-              break;
-            default:
-              matchesGeneration = true;
-          }
-        } else {
-          matchesGeneration = false;
-        }
-      }
+      const matchesForms =
+        !hasForms ||
+        (pokemon.versions[version].forms &&
+          Object.keys(pokemon.versions[version].forms).length > 1);
 
-      // Checkbox filters
-      const matchesJohtoDex = !hasJohtoDex || (pokemon.johtoDex !== null && pokemon.johtoDex < 999);
-      const matchesNationalDex = !hasNationalDex || pokemon.nationalDex !== null;
-      const matchesForms = !hasForms || (Array.isArray(pokemon.forms) && pokemon.forms.length > 1);
-
-      return (
-        matchesType && matchesGeneration && matchesJohtoDex && matchesNationalDex && matchesForms
-      );
+      return matchesType && matchesForms;
     });
-  }, [data, type, generation, showFaithful, hasJohtoDex, hasNationalDex, hasForms]);
+  }, [pokemonData, version, type, hasForms]);
 
   // URL-based pagination state
   const [{ pageIndex, pageSize }, setPagination] = usePaginationSearchParams();
@@ -250,16 +211,7 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
   // Reset page to 0 when filters change
   React.useEffect(() => {
     setPagination({ pageIndex: 0 });
-  }, [
-    columnFilters,
-    type,
-    generation,
-    showFaithful,
-    hasJohtoDex,
-    hasNationalDex,
-    hasForms,
-    setPagination,
-  ]);
+  }, [columnFilters, type, generation, showFaithful, hasForms, setPagination]);
 
   return (
     <div>

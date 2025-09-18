@@ -84,9 +84,15 @@ export function useFaithfulPreference(initialValue?: boolean): FaithfulPreferenc
 
   // Toggle faithful preference
   const toggleFaithful = useCallback(() => {
-    const newValue = !showFaithful;
-    setFaithful(newValue);
-  }, [showFaithful, setFaithful]);
+    setShowFaithful(prev => {
+      const newValue = !prev;
+      // Don't set cookie during SSR or while still loading
+      if (!isLoading && typeof window !== 'undefined') {
+        setClientSideFaithfulPreference(newValue);
+      }
+      return newValue;
+    });
+  }, [isLoading]);
 
   return {
     showFaithful,

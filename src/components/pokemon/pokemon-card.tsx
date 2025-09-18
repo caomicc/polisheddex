@@ -22,22 +22,24 @@ function getPokemonTypes(
 }
 
 export interface PokemonCardProps {
-  pokemon: PokemonManifest & {
-    formName?: string;
-    frontSpriteUrl?: string; // For backward compatibility
-  };
+  pokemon: PokemonManifest;
+  selectedForm?: string; // Optional form to display, defaults to 'plain'
   sortType?: string;
   showUpdatedTypes?: boolean;
 }
 
-const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex' }) => {
+const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, selectedForm }) => {
   const { showFaithful } = useFaithfulPreference();
 
   console.log('PokemonCard', pokemon);
 
-  // Get the appropriate types based on preference using helper function
+  // Get the appropriate version and form
   const version = showFaithful ? 'faithful' : 'polished';
-  const form = pokemon.formName || 'plain';
+  const form = selectedForm || 'plain';
+  
+  // Derive form properties dynamically
+  const isForm = form !== 'plain';
+  
   const displayTypes = getPokemonTypes(pokemon, version, form);
 
   console.log('Display Types', displayTypes);
@@ -79,8 +81,8 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
         primaryType={primaryType as PokemonType['name']}
         variant="normal"
         type="static"
-        form={pokemon.formName || 'plain'}
-        src={pokemon.frontSpriteUrl || `/sprites/pokemon/${pokemon.id}.png`} // fallback
+        form={form}
+        // src will be auto-compiled from pokemonName and form
         className="aspect-square mb-0"
         size="default"
       />
@@ -88,32 +90,21 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
         <p
           className={cn(
             'text-xs md:text-sm top-4 right-4 md:top-0 md:right-0 font-medium tracking-wide mb-1 absolute md:relative leading-[21px]',
-            pokemon.dexNo === null && pokemon.johtoDex === null ? 'hidden' : '',
+            pokemon.dexNo === null ? 'hidden' : '',
           )}
         >
-          #
-          {sortType === 'johtodex' ? (
-            pokemon.johtoDex !== null && pokemon.johtoDex < 999 ? (
-              pokemon.johtoDex
-            ) : (
-              <span className="text-cell text-cell-muted">—</span>
-            )
-          ) : pokemon.dexNo !== null ? (
-            pokemon.dexNo
-          ) : (
-            <span className="text-cell text-cell-muted">—</span>
-          )}
+          #{pokemon.dexNo}
         </p>
 
-        {pokemon.formName && pokemon.formName !== 'plain' ? (
+        {isForm ? (
           <Badge
             variant="form"
             className={cn(
               'text-xxs md:rounded-sm absolute top-4 right-12 md:right-4',
-              pokemon.dexNo === null && pokemon.johtoDex === null ? 'hidden' : '',
+              pokemon.dexNo === null ? 'hidden' : '',
             )}
           >
-            {pokemon.formName
+            {form
               .toString()
               .replace(/_/g, ' ')
               .replace(/\bsegment\b/gi, 'seg.')}

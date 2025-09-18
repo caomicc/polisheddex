@@ -1,12 +1,13 @@
 // import fs from 'fs';
 import path from 'path';
+import { readFile } from 'fs/promises';
 import { urlKeyToStandardKey } from './pokemonUrlNormalizer';
-import { loadJsonData } from './fileLoader';
+import { parseDexOrder } from '@/lib/extract-utils';
 
 export interface NavigationData {
   previous: { name: string; url: string } | null;
   next: { name: string; url: string } | null;
-  current: { name: string; index: number; total: number };
+  current: { name: string; index: number };
 }
 
 /**
@@ -21,15 +22,13 @@ function pokemonNameToUrlSafe(name: string): string {
  */
 export function getPokemonNavigation(
   currentPokemonName: string,
-  dexOrder: string[],
+  currentPokemonNumber?: number,
 ): NavigationData {
   // Normalize the current Pokemon name to match the dex order format
   const normalizedCurrentName = urlKeyToStandardKey(currentPokemonName);
 
   // Find the current Pokemon's index in the dex order
-  const currentIndex = dexOrder.findIndex(
-    (name) => urlKeyToStandardKey(name) === normalizedCurrentName,
-  );
+  const currentIndex = currentPokemonNumber ? currentPokemonNumber - 1 : -1;
 
   if (currentIndex === -1) {
     // Pokemon not found in this dex order, return empty navigation
@@ -39,7 +38,6 @@ export function getPokemonNavigation(
       current: {
         name: currentPokemonName,
         index: -1,
-        total: dexOrder.length,
       },
     };
   }
@@ -47,137 +45,22 @@ export function getPokemonNavigation(
   const previous =
     currentIndex > 0
       ? {
-          name: dexOrder[currentIndex - 1],
-          url: `/pokemon/${pokemonNameToUrlSafe(dexOrder[currentIndex - 1])}`,
+          name: 'dexOrder[currentIndex - 1]',
+          url: `/pokemon/${currentIndex - 1}`,
         }
       : null;
 
-  const next =
-    currentIndex < dexOrder.length - 1
-      ? {
-          name: dexOrder[currentIndex + 1],
-          url: `/pokemon/${pokemonNameToUrlSafe(dexOrder[currentIndex + 1])}`,
-        }
-      : null;
+  const next = {
+    name: 'dexOrder[currentIndex + 1]',
+    url: `/pokemon/${currentIndex + 1}`,
+  };
 
   return {
     previous,
     next,
     current: {
       name: currentPokemonName,
-      index: currentIndex + 1, // 1-based indexing for display
-      total: dexOrder.length,
+      index: currentIndex,
     },
   };
-}
-
-/**
- * Load dex order data from JSON files
- */
-export async function loadDexOrders(): Promise<{
-  national: string[];
-  johto: string[];
-}> {
-  try {
-    // console.log('Loading dex orders...');
-
-    // First try to load from the output directory (development)
-    // let [nationalData, johtoData] = await Promise.all([
-    //   loadJsonFile<string[]>('output/national_dex_order.json'),
-    //   loadJsonFile<string[]>('output/johto_dex_order.json')
-    // ]);
-
-    const nationalDexFile = path.join(process.cwd(), `output/national_dex_order.json`);
-    const johtoDexFile = path.join(process.cwd(), `output/johto_dex_order.json`);
-
-    let nationalData = await loadJsonData<string[]>(nationalDexFile);
-    let johtoData = await loadJsonData<string[]>(johtoDexFile);
-
-    // If that fails (e.g., in production), try to fetch from public directory
-    if (!nationalData || !johtoData) {
-      // console.log('Fallback: Loading dex orders from public directory...');
-
-      try {
-        // In server-side rendering, we need to use fetch with full URL in production
-        const baseUrl = process.env.VERCEL_URL
-          ? `https://${process.env.VERCEL_URL}`
-          : 'http://localhost:3000';
-
-        const [nationalResponse, johtoResponse] = await Promise.all([
-          fetch(`${baseUrl}/output/national_dex_order.json`),
-          fetch(`${baseUrl}/output/johto_dex_order.json`),
-        ]);
-
-        if (nationalResponse.ok && !nationalData) {
-          nationalData = await nationalResponse.json();
-        }
-
-        if (johtoResponse.ok && !johtoData) {
-          johtoData = await johtoResponse.json();
-        }
-      } catch (fetchError) {
-        console.error('Error fetching from public directory:', fetchError);
-      }
-    }
-
-    const result = {
-      national: nationalData || [],
-      johto: johtoData || [],
-    };
-
-    // console.log('Dex orders loaded:', {
-    //   nationalCount: result.national.length,
-    //   johtoCount: result.johto.length,
-    // });
-
-    return result;
-  } catch (error) {
-    console.error('Error loading dex orders:', error);
-    console.error('Error details:', {
-      message: error instanceof Error ? error.message : String(error),
-      cwd: process.cwd(),
-    });
-    return {
-      national: [],
-      johto: [],
-    };
-  }
-}
-
-/**
- * Determine which dex order to use based on Pokemon data
- */
-export function getDexOrderToUse(
-  pokemonData: { nationalDex?: number | null; johtoDex?: number | null },
-  nationalOrder: string[],
-  johtoOrder: string[],
-): { order: string[]; type: 'national' | 'johto' } {
-  // console.log('getDexOrderToUse called with:', {
-  //   pokemonData,
-  //   nationalOrder,
-  //   johtoOrder,
-  // });
-
-  // If we don't have any order data, return empty arrays but still indicate the preferred type
-  if (nationalOrder.length === 0 && johtoOrder.length === 0) {
-    // console.warn('No dex order data available');
-    const preferJohto = pokemonData.johtoDex && pokemonData.johtoDex > 0;
-    return {
-      order: [],
-      type: preferJohto ? 'johto' : 'national',
-    };
-  }
-
-  // Prefer Johto dex if the Pokemon has a Johto dex number and we have johto data
-  if (pokemonData.johtoDex && pokemonData.johtoDex > 0 && johtoOrder.length > 0) {
-    return { order: johtoOrder, type: 'johto' };
-  }
-
-  // Otherwise use national dex if available
-  if (nationalOrder.length > 0) {
-    return { order: nationalOrder, type: 'national' };
-  }
-
-  // Fallback to johto if national is empty but johto has data
-  return { order: johtoOrder, type: 'johto' };
 }

@@ -133,7 +133,7 @@ export async function getMovesByCategory(category: string): Promise<any[]> {
 }
 
 // Additional functionality for finding Pokemon that can learn moves
-import { loadPokemonBaseDataFromManifest } from './pokemon-data-loader';
+import { loadPokemonFromNewManifest } from './pokemon-data-loader';
 import { normalizePokemonUrlKey } from '../pokemonUrlNormalizer';
 import { BaseData } from '@/types/types';
 
@@ -155,7 +155,7 @@ export interface PokemonWithMove {
 }
 
 export async function getPokemonThatCanLearnMove(moveName: string): Promise<PokemonWithMove[]> {
-  const pokemonBaseData = await loadPokemonBaseDataFromManifest();
+  const pokemonManifestData = await loadPokemonFromNewManifest();
   const pokemonWithMove: PokemonWithMove[] = [];
 
   // Normalize move name for comparison
@@ -172,7 +172,7 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
     // Check TM/HM moves
     if (tmHmData) {
       Object.entries(tmHmData).forEach(([pokemonKey, moves]) => {
-        const basePokemon = pokemonBaseData[pokemonKey];
+        const basePokemon = pokemonManifestData[pokemonKey];
         if (!basePokemon) return;
 
         moves?.forEach((move) => {
@@ -195,10 +195,10 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
     if (levelMoveData) {
       Object.entries(levelMoveData).forEach(([pokemonName, data]) => {
         // Find Pokemon by name (not key) since level moves use display names
-        const pokemonEntry = Object.entries(pokemonBaseData).find(([key, pokemon]) => 
-          pokemon.name.toLowerCase() === pokemonName.toLowerCase()
+        const pokemonEntry = Object.entries(pokemonManifestData).find(
+          ([key, pokemon]) => pokemon.name.toLowerCase() === pokemonName.toLowerCase(),
         );
-        
+
         if (!pokemonEntry) return;
         const [pokemonKey, basePokemon] = pokemonEntry;
 
@@ -222,7 +222,7 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
     // Check egg moves
     if (eggMoveData) {
       Object.entries(eggMoveData).forEach(([pokemonKey, moves]) => {
-        const basePokemon = pokemonBaseData[pokemonKey];
+        const basePokemon = pokemonManifestData[pokemonKey];
         if (!basePokemon) return;
 
         moves?.forEach((move) => {
@@ -240,7 +240,6 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
         });
       });
     }
-
   } catch (error) {
     console.error('Error loading move data from pre-computed files:', error);
     // Fallback to empty array rather than the slow file-by-file approach

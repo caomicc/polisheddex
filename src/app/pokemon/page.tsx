@@ -16,14 +16,8 @@ export default async function PokemonTableList() {
   // Load Pokemon data from new manifest system
   const pokemonData = await loadPokemonFromNewManifest();
 
-  // Prepare an array of Pokémon with their names and dex numbers
-  // For now, just use the basic Pokemon data without form processing
-  const pokemonList = Object.values(pokemonData).map((pokemon) => ({
-    ...pokemon,
-    // isForm: false,
-    // parentSpecies: undefined,
-    // form: undefined,
-  }));
+  // Just use the PokemonManifest data directly
+  const pokemonList = Object.values(pokemonData);
 
   return (
     <>

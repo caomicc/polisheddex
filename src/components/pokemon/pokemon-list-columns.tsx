@@ -7,7 +7,16 @@ import { Button } from '@/components/ui/button';
 import { ArrowDown, ArrowUp, ArrowUpDown, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
-import { BaseData, PokemonType } from '@/types/types';
+import { PokemonType } from '@/types/types';
+import { PokemonManifest } from '@/types/new';
+
+// Type for transformed Pokemon data that includes form information  
+type TransformedPokemonData = PokemonManifest & {
+  form?: string;
+  isForm: boolean;
+  parentSpecies?: string;
+  forms: string[];
+};
 import { PokemonSprite } from './pokemon-sprite';
 import {
   getFormTypeClass,
@@ -28,17 +37,19 @@ function formatPokemonName(name: string): string {
   return name.charAt(0).toUpperCase() + name.slice(1);
 }
 
-export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseData>[] => [
+export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<TransformedPokemonData>[] => [
   {
     accessorKey: 'sprite',
     id: 'sprite',
     header: '',
     cell: ({ row }) => {
       const pokemon = row.original;
-      const primaryType =
-        Array.isArray(pokemon.types) && pokemon.types.length > 0
-          ? pokemon.types[0].toLowerCase()
-          : 'unknown';
+      const currentForm = pokemon.form || 'plain';
+      const displayTypes = showFaithful
+        ? pokemon.versions['faithful']?.[currentForm]?.types
+        : pokemon.versions['polished']?.[currentForm]?.types;
+      const typesArray = Array.isArray(displayTypes) ? displayTypes : (displayTypes ? [displayTypes] : []);
+      const primaryType = typesArray.length > 0 ? typesArray[0].toLowerCase() : 'unknown';
 
       // Extract base name and form for proper sprite handling
       const { baseName, formName } = extractPokemonForm(pokemon.name);
@@ -61,7 +72,7 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
               variant="normal"
               type="static"
               form={typeof actualFormName === 'string' ? actualFormName : 'plain'}
-              src={pokemon.frontSpriteUrl}
+              // src will be auto-compiled from pokemonName
               size={'sm'}
               className="shadow-none"
             />
@@ -73,8 +84,8 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
     size: 60,
   },
   {
-    accessorKey: 'johtoDex',
-    id: 'johtoDex',
+    accessorKey: 'dexNo',
+    id: 'dexNo',
     header: ({ column }) => {
       return (
         <Button
@@ -94,11 +105,11 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
       );
     },
     cell: ({ row }) => {
-      const johtoDex = row.getValue('johtoDex') as number | null;
+      const dexNo = row.getValue('dexNo') as number | null;
       return (
         <div className="text-cell">
-          {johtoDex !== null && johtoDex < 999 ? (
-            `#${johtoDex}`
+          {dexNo !== null ? (
+            `#${dexNo}`
           ) : (
             <span className="text-cell text-cell-muted">—</span>
           )}
@@ -188,11 +199,11 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
     header: 'Types',
     cell: ({ row }) => {
       const pokemon = row.original;
-      // Use faithful vs polished types based on context
+      const currentForm = pokemon.form || 'plain';
       const displayTypes = showFaithful
-        ? pokemon.faithfulTypes || pokemon.types
-        : pokemon.updatedTypes || pokemon.types;
-      const typesArray = Array.isArray(displayTypes) ? displayTypes : [displayTypes];
+        ? pokemon.versions['faithful']?.[currentForm]?.types
+        : pokemon.versions['polished']?.[currentForm]?.types;
+      const typesArray = Array.isArray(displayTypes) ? displayTypes : (displayTypes ? [displayTypes] : []);
 
       return (
         <div className="flex gap-1">
@@ -207,10 +218,11 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
     filterFn: (row, id, value) => {
       const pokemon = row.original;
       const searchText = value.toLowerCase();
+      const currentForm = pokemon.form || 'plain';
       const displayTypes = showFaithful
-        ? pokemon.faithfulTypes || pokemon.types
-        : pokemon.updatedTypes || pokemon.types;
-      const typesArray = Array.isArray(displayTypes) ? displayTypes : [displayTypes];
+        ? pokemon.versions['faithful']?.[currentForm]?.types
+        : pokemon.versions['polished']?.[currentForm]?.types;
+      const typesArray = Array.isArray(displayTypes) ? displayTypes : (displayTypes ? [displayTypes] : []);
 
       return typesArray.some((type) => type.toLowerCase().includes(searchText));
     },

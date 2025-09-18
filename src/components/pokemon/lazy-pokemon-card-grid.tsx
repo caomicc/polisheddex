@@ -2,13 +2,13 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import { BaseData } from '@/types/types';
 import PokemonCard from './pokemon-card';
 import { PokemonCardSkeleton } from './pokemon-card-skeleton';
 import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
+import { PokemonManifest } from '@/types/new';
 
 interface LazyPokemonCardGridProps {
-  pokemonData: BaseData[];
+  pokemonData: PokemonManifest[];
   itemsPerPage?: number;
 }
 
@@ -75,10 +75,10 @@ function LazyPokemonCardGrid({ pokemonData, itemsPerPage = 24 }: LazyPokemonCard
           return (
             <Link
               className="rounded-xl"
-              key={`${pokemon.name}-${pokemon.form || 'base'}-${idx}`}
+              key={`${pokemon.id}-plain-${idx}`}
               href={formatPokemonUrlWithForm(
                 pokemon.name,
-                pokemon.form ? pokemon.form.toString() : 'plain',
+                'plain',
               )}
             >
               <div ref={isLastItem && hasMore ? lastElementRef : null}>

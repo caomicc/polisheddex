@@ -94,7 +94,6 @@ export interface PokemonManifest {
   id: PokemonData['id'];
   name: PokemonData['name'];
   dexNo: PokemonData['dexNo'];
-  johtoDex?: number;
   versions: {
     [versionName: string]: {
       [formName: string]: {
