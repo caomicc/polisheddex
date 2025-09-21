@@ -52,9 +52,6 @@ export function useSpriteData(
       // Construct the full sprite name including form if provided
       const fullSpriteName =
         form !== undefined && form !== 'plain' ? `${spriteName}_${form}` : spriteName;
-      console.log(
-        `DEBUG: Fetching sprite for ${fullSpriteName} with variant=${variant} and type=${type}`,
-      );
       // Try with form first if provided, then fallback to base pokemon
       const sprite = getUnifiedSpriteWithFallback(
         manifest,

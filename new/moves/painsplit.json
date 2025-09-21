@@ -14,51 +14,82 @@
       "learners": [
         {
           "id": "gastly",
+          "name": "Gastly",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 26
             }
+          ],
+          "types": [
+            "ghost",
+            "poison"
           ]
         },
         {
           "id": "gengar",
+          "name": "Gengar",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 28
             }
+          ],
+          "types": [
+            "ghost",
+            "poison"
           ]
         },
         {
           "id": "grimer",
+          "name": "Grimer",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 43
             }
+          ],
+          "types": [
+            "poison"
           ]
         },
         {
           "id": "grimer",
+          "name": "Grimer",
+          "form": "alolan",
           "methods": [
             {
               "method": "levelUp",
               "level": 43
             }
+          ],
+          "types": [
+            "poison",
+            "dark"
           ]
         },
         {
           "id": "haunter",
+          "name": "Haunter",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 28
             }
+          ],
+          "types": [
+            "ghost",
+            "poison"
           ]
         },
         {
           "id": "koffing",
+          "name": "Koffing",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
@@ -67,154 +98,247 @@
             {
               "method": "eggMove"
             }
+          ],
+          "types": [
+            "poison"
           ]
         },
         {
           "id": "magcargo",
+          "name": "Magcargo",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 34
             }
+          ],
+          "types": [
+            "fire",
+            "rock"
           ]
         },
         {
           "id": "marowak",
+          "name": "Marowak",
+          "form": "alolan",
           "methods": [
             {
               "method": "levelUp",
               "level": 59
             }
+          ],
+          "types": [
+            "fire",
+            "ghost"
           ]
         },
         {
           "id": "misdreavus",
+          "name": "Misdreavus",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 32
             }
+          ],
+          "types": [
+            "ghost"
           ]
         },
         {
           "id": "moltres",
+          "name": "Moltres",
+          "form": "galarian",
           "methods": [
             {
               "method": "levelUp",
               "level": 85
             }
+          ],
+          "types": [
+            "dark",
+            "flying"
           ]
         },
         {
           "id": "muk",
+          "name": "Muk",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 46
             }
+          ],
+          "types": [
+            "poison"
           ]
         },
         {
           "id": "muk",
+          "name": "Muk",
+          "form": "alolan",
           "methods": [
             {
               "method": "levelUp",
               "level": 46
             }
+          ],
+          "types": [
+            "poison",
+            "dark"
           ]
         },
         {
           "id": "natu",
+          "name": "Natu",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 20
             }
+          ],
+          "types": [
+            "psychic",
+            "flying"
           ]
         },
         {
           "id": "overqwil",
+          "name": "Overqwil",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 25
             }
+          ],
+          "types": [
+            "dark",
+            "poison"
           ]
         },
         {
           "id": "porygonz",
+          "name": "Porygon-Z",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 34
             }
+          ],
+          "types": [
+            "normal"
           ]
         },
         {
           "id": "qwilfish",
+          "name": "Qwilfish",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 25
             }
+          ],
+          "types": [
+            "water",
+            "poison"
           ]
         },
         {
           "id": "qwilfish",
+          "name": "Qwilfish",
+          "form": "hisuian",
           "methods": [
             {
               "method": "levelUp",
               "level": 25
             }
+          ],
+          "types": [
+            "dark",
+            "poison"
           ]
         },
         {
           "id": "slugma",
+          "name": "Slugma",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 34
             }
+          ],
+          "types": [
+            "fire"
           ]
         },
         {
           "id": "staryu",
+          "name": "Staryu",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 28
             }
+          ],
+          "types": [
+            "water"
           ]
         },
         {
           "id": "tangela",
+          "name": "Tangela",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 44
             }
+          ],
+          "types": [
+            "grass"
           ]
         },
         {
           "id": "tangrowth",
+          "name": "Tangrowth",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 46
             }
+          ],
+          "types": [
+            "grass"
           ]
         },
         {
           "id": "vulpix",
+          "name": "Vulpix",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 28
             }
+          ],
+          "types": [
+            "fire"
           ]
         },
         {
           "id": "weezing",
+          "name": "Weezing",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
@@ -223,10 +347,15 @@
             {
               "method": "eggMove"
             }
+          ],
+          "types": [
+            "poison"
           ]
         },
         {
           "id": "weezing",
+          "name": "Weezing",
+          "form": "galarian",
           "methods": [
             {
               "method": "levelUp",
@@ -235,15 +364,25 @@
             {
               "method": "eggMove"
             }
+          ],
+          "types": [
+            "poison",
+            "fairy"
           ]
         },
         {
           "id": "xatu",
+          "name": "Xatu",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 20
             }
+          ],
+          "types": [
+            "psychic",
+            "flying"
           ]
         }
       ]
@@ -260,51 +399,82 @@
       "learners": [
         {
           "id": "gastly",
+          "name": "Gastly",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 26
             }
+          ],
+          "types": [
+            "ghost",
+            "poison"
           ]
         },
         {
           "id": "gengar",
+          "name": "Gengar",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 28
             }
+          ],
+          "types": [
+            "ghost",
+            "poison"
           ]
         },
         {
           "id": "grimer",
+          "name": "Grimer",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 43
             }
+          ],
+          "types": [
+            "poison"
           ]
         },
         {
           "id": "grimer",
+          "name": "Grimer",
+          "form": "alolan",
           "methods": [
             {
               "method": "levelUp",
               "level": 43
             }
+          ],
+          "types": [
+            "poison",
+            "dark"
           ]
         },
         {
           "id": "haunter",
+          "name": "Haunter",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 28
             }
+          ],
+          "types": [
+            "ghost",
+            "poison"
           ]
         },
         {
           "id": "koffing",
+          "name": "Koffing",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
@@ -313,154 +483,247 @@
             {
               "method": "eggMove"
             }
+          ],
+          "types": [
+            "poison"
           ]
         },
         {
           "id": "magcargo",
+          "name": "Magcargo",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 34
             }
+          ],
+          "types": [
+            "fire",
+            "rock"
           ]
         },
         {
           "id": "marowak",
+          "name": "Marowak",
+          "form": "alolan",
           "methods": [
             {
               "method": "levelUp",
               "level": 59
             }
+          ],
+          "types": [
+            "fire",
+            "ghost"
           ]
         },
         {
           "id": "misdreavus",
+          "name": "Misdreavus",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 32
             }
+          ],
+          "types": [
+            "ghost"
           ]
         },
         {
           "id": "moltres",
+          "name": "Moltres",
+          "form": "galarian",
           "methods": [
             {
               "method": "levelUp",
               "level": 85
             }
+          ],
+          "types": [
+            "dark",
+            "flying"
           ]
         },
         {
           "id": "muk",
+          "name": "Muk",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 46
             }
+          ],
+          "types": [
+            "poison"
           ]
         },
         {
           "id": "muk",
+          "name": "Muk",
+          "form": "alolan",
           "methods": [
             {
               "method": "levelUp",
               "level": 46
             }
+          ],
+          "types": [
+            "poison",
+            "dark"
           ]
         },
         {
           "id": "natu",
+          "name": "Natu",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 20
             }
+          ],
+          "types": [
+            "psychic",
+            "flying"
           ]
         },
         {
           "id": "overqwil",
+          "name": "Overqwil",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 25
             }
+          ],
+          "types": [
+            "dark",
+            "poison"
           ]
         },
         {
           "id": "porygonz",
+          "name": "Porygon-Z",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 34
             }
+          ],
+          "types": [
+            "normal"
           ]
         },
         {
           "id": "qwilfish",
+          "name": "Qwilfish",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 25
             }
+          ],
+          "types": [
+            "water",
+            "poison"
           ]
         },
         {
           "id": "qwilfish",
+          "name": "Qwilfish",
+          "form": "hisuian",
           "methods": [
             {
               "method": "levelUp",
               "level": 25
             }
+          ],
+          "types": [
+            "dark",
+            "poison"
           ]
         },
         {
           "id": "slugma",
+          "name": "Slugma",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 34
             }
+          ],
+          "types": [
+            "fire"
           ]
         },
         {
           "id": "staryu",
+          "name": "Staryu",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 28
             }
+          ],
+          "types": [
+            "water"
           ]
         },
         {
           "id": "tangela",
+          "name": "Tangela",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 44
             }
+          ],
+          "types": [
+            "grass"
           ]
         },
         {
           "id": "tangrowth",
+          "name": "Tangrowth",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 46
             }
+          ],
+          "types": [
+            "grass"
           ]
         },
         {
           "id": "vulpix",
+          "name": "Vulpix",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 28
             }
+          ],
+          "types": [
+            "fire"
           ]
         },
         {
           "id": "weezing",
+          "name": "Weezing",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
@@ -469,10 +732,15 @@
             {
               "method": "eggMove"
             }
+          ],
+          "types": [
+            "poison"
           ]
         },
         {
           "id": "weezing",
+          "name": "Weezing",
+          "form": "galarian",
           "methods": [
             {
               "method": "levelUp",
@@ -481,15 +749,25 @@
             {
               "method": "eggMove"
             }
+          ],
+          "types": [
+            "poison",
+            "fairy"
           ]
         },
         {
           "id": "xatu",
+          "name": "Xatu",
+          "form": "plain",
           "methods": [
             {
               "method": "levelUp",
               "level": 20
             }
+          ],
+          "types": [
+            "psychic",
+            "flying"
           ]
         }
       ]

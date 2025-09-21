@@ -35,10 +35,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { MoveDescription } from '@/types/types';
-import { useFaithfulPreference } from '@/contexts';
-import MoveRow from './move-row';
 import TableWrapper from '../ui/table-wrapper';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { MoveData } from '@/types/new';
+import MoveRow from './move-row';
 
 /**
  * MovesDataTable - A data table component for move data with persistent state
@@ -53,8 +53,8 @@ import TableWrapper from '../ui/table-wrapper';
  */
 
 interface MovesDataTableProps {
-  columns: ColumnDef<MoveDescription, unknown>[];
-  data: MoveDescription[];
+  columns: ColumnDef<MoveData, unknown>[];
+  data: MoveData[];
 }
 
 export function MovesDataTable({ columns, data }: MovesDataTableProps) {
@@ -63,6 +63,8 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
 
   const { showFaithful } = useFaithfulPreference();
 
+  const version = showFaithful ? 'faithful' : 'polished';
+
   // URL-based state for filters that should persist across navigation
   const [urlState, setUrlState] = useQueryStates(
     {
@@ -70,11 +72,9 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
       tmSearch: parseAsString.withDefault(''),
       type: parseAsString.withDefault('all'),
       category: parseAsString.withDefault('all'),
-      // version: parseAsString.withDefault('updated'),
       physical: parseAsBoolean.withDefault(false),
       special: parseAsBoolean.withDefault(false),
       status: parseAsBoolean.withDefault(false),
-      hasFaithful: parseAsBoolean.withDefault(false),
       highPower: parseAsBoolean.withDefault(false),
       perfectAccuracy: parseAsBoolean.withDefault(false),
       hasTm: parseAsBoolean.withDefault(false),
@@ -112,11 +112,9 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
     tmSearch,
     type,
     category,
-    // version,
     physical,
     special,
     status,
-    hasFaithful,
     highPower,
     perfectAccuracy,
     hasTm,
@@ -158,12 +156,13 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
     const categorySet = new Set<string>();
 
     data.forEach((move) => {
+      // Prefer updated, fallback to faithful, fallback to base
       // Get type from updated, faithful, or base
-      const moveType = move.updated?.type ?? move.faithful?.type ?? move.type;
+      const moveType = move.versions[version]?.type;
       if (moveType) typeSet.add(moveType);
 
       // Get category from updated, faithful, or base
-      const moveCategory = move.updated?.category ?? move.faithful?.category;
+      const moveCategory = move.versions[version]?.category;
       if (moveCategory) categorySet.add(moveCategory);
     });
 
@@ -171,18 +170,16 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
       types: Array.from(typeSet).sort(),
       categories: Array.from(categorySet).sort(),
     };
-  }, [data]);
+  }, [data, version]);
 
   // Apply filters to the data
   const filteredData = React.useMemo(() => {
     return data.filter((move) => {
       // Get move stats based on version preference
-      const moveData = showFaithful
-        ? (move.faithful ?? move.updated)
-        : (move.updated ?? move.faithful);
+      const moveData = move.versions[version];
 
       // Type filter
-      const moveType = moveData?.type ?? move.type;
+      const moveType = moveData?.type;
       const matchesType = type === 'all' || moveType === type;
 
       // Category filter
@@ -193,9 +190,6 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
       const matchesPhysical = !physical || moveCategory === 'Physical';
       const matchesSpecial = !special || moveCategory === 'Special';
       const matchesStatus = !status || moveCategory === 'Status';
-
-      // Has faithful version filter
-      const matchesHasFaithful = !hasFaithful || move.faithful !== undefined;
 
       // Power and accuracy filters
       const movePower =
@@ -213,25 +207,12 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
         matchesPhysical &&
         matchesSpecial &&
         matchesStatus &&
-        matchesHasFaithful &&
         matchesHighPower &&
         matchesHasTM
         // matchesPerfectAccuracy
       );
     });
-  }, [
-    data,
-    type,
-    category,
-    showFaithful,
-    physical,
-    special,
-    status,
-    hasFaithful,
-    highPower,
-    hasTm,
-    // perfectAccuracy,
-  ]);
+  }, [data, type, category, version, physical, special, status, highPower, hasTm]);
 
   // URL-based pagination state
   const [{ pageIndex, pageSize }, setPagination] = usePaginationSearchParams();
@@ -292,7 +273,6 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
     physical,
     special,
     status,
-    hasFaithful,
     highPower,
     perfectAccuracy,
     setPagination,
@@ -368,17 +348,6 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
         <div className="flex flex-wrap gap-4">
           <div className="flex items-center space-x-2">
             <Checkbox
-              id="has-faithful"
-              checked={hasFaithful}
-              onCheckedChange={(checked) => setUrlState({ hasFaithful: checked ? true : null })}
-            />
-            <Label htmlFor="has-faithful" className="label-text">
-              Has faithful version
-            </Label>
-          </div>
-
-          <div className="flex items-center space-x-2">
-            <Checkbox
               id="high-power"
               checked={highPower}
               onCheckedChange={(checked) => setUrlState({ highPower: checked ? true : null })}
@@ -410,7 +379,6 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
             physical ||
             special ||
             status ||
-            hasFaithful ||
             highPower ||
             hasTm ||
             perfectAccuracy) && (
@@ -425,7 +393,6 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
                   physical: null,
                   special: null,
                   status: null,
-                  hasFaithful: null,
                   highPower: null,
                   perfectAccuracy: null,
                   hasTm: null,
@@ -458,7 +425,6 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
             {(physical ||
               special ||
               status ||
-              hasFaithful ||
               highPower ||
               perfectAccuracy ||
               hasTm ||
@@ -470,7 +436,6 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
                   physical && 'Physical only',
                   special && 'Special only',
                   status && 'Status only',
-                  hasFaithful && 'Has faithful version',
                   highPower && 'High power (80+)',
                   perfectAccuracy && 'Perfect accuracy',
                   type !== 'all' && `Type: ${type}`,
@@ -513,16 +478,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table
-                .getRowModel()
-                .rows.map((row) => (
-                  <MoveRow
-                    key={row.id}
-                    name={row.original.name || ''}
-                    level={undefined}
-                    info={row.original}
-                  />
-                ))
+              table.getRowModel().rows.map((row) => <MoveRow key={row.id} info={row.original} />)
             ) : (
               <TableRow>
                 <TableCell colSpan={columns.length} className="h-24 text-center">

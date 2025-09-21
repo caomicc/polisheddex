@@ -3,10 +3,10 @@
 import React, { Suspense } from 'react';
 import { MovesDataTable } from './moves-data-table';
 import { moveColumns } from './moves-columns';
-import { MoveDescription } from '@/types/types';
+import { MoveData } from '@/types/new';
 
 interface MovesDataTableSearchProps {
-  moves: MoveDescription[];
+  moves: MoveData[];
 }
 
 const MovesDataTableSearch: React.FC<MovesDataTableSearchProps> = ({ moves }) => {

@@ -1,13 +1,13 @@
 // Enhanced Pokemon data loader that works with compressed data and manifests
 
 import { loadJsonFile } from '../fileLoader';
-import { PokemonManifest, PokemonManifestCollection, ComprehensivePokemonData } from '@/types/new';
+import { PokemonManifest, ComprehensivePokemonData } from '@/types/new';
 
 /**
  * Load Pokemon data from the new manifest structure (new/pokemon_manifest.json)
  * This function handles the new flattened array structure with version-specific data
  */
-export async function loadPokemonFromNewManifest(): Promise<PokemonManifestCollection> {
+export async function loadPokemonFromNewManifest(): Promise<Record<string, PokemonManifest>> {
   try {
     console.log('Loading Pokemon from new manifest...');
 
@@ -22,7 +22,7 @@ export async function loadPokemonFromNewManifest(): Promise<PokemonManifestColle
       }
 
       console.log(`Processing ${pokemonArray.length} Pokemon from manifest`);
-      const baseData: PokemonManifestCollection = {};
+      const baseData: Record<string, PokemonManifest> = {};
 
       pokemonArray.forEach((pokemon, index) => {
         if (!pokemon || !pokemon.id) {
@@ -53,7 +53,7 @@ export async function loadPokemonFromNewManifest(): Promise<PokemonManifestColle
       }
 
       console.log(`Processing ${pokemonArray.length} Pokemon from client manifest`);
-      const baseData: PokemonManifestCollection = {};
+      const baseData: Record<string, PokemonManifest> = {};
 
       pokemonArray.forEach((pokemon: PokemonManifest, index: number) => {
         if (!pokemon || !pokemon.id) {

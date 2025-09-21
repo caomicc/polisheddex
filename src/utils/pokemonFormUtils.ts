@@ -3,6 +3,7 @@
  */
 
 import { KNOWN_FORMS } from '@/data/constants';
+import { reduce } from '@/lib/extract-utils';
 
 /**
  * Extract form information from a Pokémon name
@@ -11,7 +12,7 @@ import { KNOWN_FORMS } from '@/data/constants';
  */
 export function extractPokemonForm(pokemonName: string): {
   baseName: string;
-  formName: string | null;
+  formName: string;
 } {
   // Special cases for Pokémon with hyphens that aren't forms
   const specialHyphenatedPokemon = [
@@ -44,7 +45,7 @@ export function extractPokemonForm(pokemonName: string): {
 
   // Check if this is a special hyphenated Pokémon (no form)
   if (specialHyphenatedPokemon.includes(lowerName)) {
-    return { baseName: pokemonName, formName: null };
+    return { baseName: pokemonName, formName: 'plain' };
   }
 
   // Check for parentheses form first (like "Arbok (Johto)")
@@ -100,7 +101,7 @@ export function extractPokemonForm(pokemonName: string): {
     }
   }
 
-  return { baseName: pokemonName, formName: null };
+  return { baseName: pokemonName, formName: 'plain' };
 }
 
 /**
@@ -133,19 +134,11 @@ export function formatPokemonDisplayWithForm(pokemonName: string): string {
  * @param pokemonName - The full Pokémon name
  * @returns URL string like "/pokemon/bulbasaur" or "/pokemon/oricorio?form=baile"
  */
-export function formatPokemonUrlWithForm(pokemonName: string, formString: string): string {
-  const { baseName, formName } = extractPokemonForm(pokemonName);
-  // console.log('formatPokemonUrlWithForm', { baseName, formName });
-  const base = `/pokemon/${encodeURIComponent(formatPokemonBaseName(baseName).toLowerCase().replace(/'/g, '-'))}`;
+export function formatPokemonUrlWithForm(pokemonName: string, formString?: string): string {
+  const base = `/pokemon/${reduce(pokemonName)}`;
 
-  // Normalize the form string if it has parentheses
-  const normalizedFormString = formString ? normalizeFormName(formString) : formString;
-  const finalFormName = formName || normalizedFormString;
-
-  if (finalFormName && finalFormName !== 'plain') {
-    // Remove _form suffix if present
-    const formParam = encodeURIComponent(finalFormName.toLowerCase().replace(/_form$/, ''));
-    return `${base}?form=${formParam}`;
+  if (formString && formString !== 'plain') {
+    return `${base}?form=${formString}`;
   }
   return base;
 }

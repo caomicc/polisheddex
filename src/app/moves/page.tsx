@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { MoveDescription } from '@/types/types';
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -11,13 +11,14 @@ import {
 import { Hero } from '@/components/ui/Hero';
 import MovesDataTableSearch from '@/components/moves/moves-data-table-search';
 import { loadMovesData } from '@/utils/loaders/move-data-loader';
+import { MovesManifest } from '@/types/new';
 
 export default async function MovesList() {
   // Load moves using the optimized loader
   const movesData = await loadMovesData();
 
   // Convert to array for the data table
-  const allMoves: MoveDescription[] = Object.values(movesData);
+  const allMoves: MovesManifest[] = Object.values(movesData);
 
   return (
     <>

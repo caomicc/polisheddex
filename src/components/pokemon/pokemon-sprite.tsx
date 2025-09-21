@@ -2,7 +2,6 @@ import * as React from 'react';
 import { useState } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { PokemonType } from '@/types/types';
 import { SpriteVariant, SpriteType } from '@/types/spriteTypes';
 import { useSpriteData } from '@/hooks/useSpriteData';
 import { cva } from 'class-variance-authority';
@@ -11,10 +10,10 @@ interface PokemonSpriteProps {
   className?: string;
   pokemonName: string;
   alt?: string;
-  primaryType?: PokemonType['name'];
+  primaryType?: string;
   variant?: SpriteVariant;
   type?: SpriteType;
-  form?: string; // Optional form prop for specific Pokemon forms
+  form?: string | null; // Optional form prop for specific Pokemon forms
   // Legacy prop for backward compatibility
   src?: string;
   size?: 'default' | 'sm';

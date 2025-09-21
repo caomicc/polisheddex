@@ -24,14 +24,13 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: Pokem
 
   const version = showFaithful ? 'faithful' : 'polished';
 
-  const columns = React.useMemo(() => createPokemonListColumns(showFaithful), [showFaithful]);
+  const columns = React.useMemo(() => createPokemonListColumns(version), [version]);
 
   // Added `view` parameter to URL state for persisting list vs card view
   const [urlState, setUrlState] = useQueryStates(
     {
       search: parseAsString.withDefault(''),
       type: parseAsString.withDefault('all'),
-      hasForms: parseAsBoolean.withDefault(false),
       showForms: parseAsBoolean.withDefault(false), // Added show forms toggle
       view: parseAsString.withDefault('card'), // Added view parameter
     },
@@ -58,7 +57,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: Pokem
   );
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
 
-  const { search, type, hasForms, showForms, view } = urlState;
+  const { search, type, showForms, view } = urlState;
 
   React.useEffect(() => {
     const nameColumn = columns.find((col) => 'accessorKey' in col && col.accessorKey === 'name');
@@ -107,32 +106,16 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: Pokem
           : [];
       const matchesType = type === 'all' || typesArray.some((t) => t === type);
 
-      return matchesSearch && matchesType && showForms;
+      return matchesSearch && matchesType;
     });
-  }, [pokemonList, search, type, version, showForms]);
+  }, [pokemonList, search, type, version]);
 
   // Apply sorting to the filtered data
   const sortedData = React.useMemo(() => {
-    if (showForms) {
-      // When showForms is enabled, map out each individual form as separate entries
-      const expandedData = filteredData.flatMap((pokemon) => {
-        const availableForms = Object.keys(pokemon.versions[version] || {});
-        console.log(`${pokemon.name}: mapping forms [${availableForms.join(', ')}]`);
-        
-        // Create individual entries for each form
-        return availableForms.map((formName) => ({
-          ...pokemon,
-          name: formName === 'plain' ? pokemon.name : `${pokemon.name} (${formName})`,
-        }));
-      });
-      
-      console.log(`Show forms enabled: ${expandedData.length} total entries`);
-      return expandedData;
-    } else {
-      console.log(`Show forms disabled: ${filteredData.length} entries`);
-      return filteredData;
-    }
-  }, [filteredData, showForms, version]);
+    console.log(`Sorting ${filteredData.length} filtered Pokemon entries`);
+    // Sort by dexNo for consistent ordering
+    return [...filteredData].sort((a, b) => a.dexNo - b.dexNo);
+  }, [filteredData]);
 
   // Fixed `setPagination` usage by correctly destructuring the returned object
   const [, setPagination] = usePaginationSearchParams();
@@ -161,7 +144,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: Pokem
 
   React.useEffect(() => {
     setPagination({ pageIndex: 0 });
-  }, [columnFilters, type, showFaithful, hasForms, showForms, setPagination]);
+  }, [columnFilters, type, showForms, setPagination]);
 
   React.useEffect(() => {
     setTableView(view === 'table');
@@ -241,14 +224,13 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: Pokem
 
         {/* Results Summary */}
         <div className="flex flex-col sm:items-start gap-2 text-sm text-muted-foreground">
-          {(Boolean(search) || type !== 'all' || sorting.length > 0 || hasForms || !showForms) && (
+          {(Boolean(search) || type !== 'all' || sorting.length > 0 || !showForms) && (
             <Button
               size="sm"
               onClick={() => {
                 setUrlState({
                   search: null,
                   type: null,
-                  hasForms: null,
                   showForms: null,
                 });
                 setSorting([{ id: 'dexNo', desc: false }]);
@@ -271,7 +253,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: Pokem
       {tableView ? (
         <PokemonListDataTable pokemonData={sortedData} />
       ) : (
-        <LazyPokemonCardGrid pokemonData={sortedData} itemsPerPage={24} />
+        <LazyPokemonCardGrid pokemonData={sortedData} itemsPerPage={24} showForms={showForms} />
       )}
     </div>
   );

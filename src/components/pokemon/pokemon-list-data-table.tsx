@@ -56,7 +56,7 @@ interface PokemonListDataTableProps {
   itemsPerPage?: number;
 }
 
-export function PokemonListDataTable({ pokemonData, e }: PokemonListDataTableProps) {
+export function PokemonListDataTable({ pokemonData }: PokemonListDataTableProps) {
   // Storage key for persisting non-URL table state
   const STORAGE_KEY = 'pokemonListDataTable';
 
@@ -65,20 +65,17 @@ export function PokemonListDataTable({ pokemonData, e }: PokemonListDataTablePro
   const version = showFaithful ? 'faithful' : 'polished';
 
   // Create columns dynamically based on faithful preference
-  const columns = React.useMemo(() => createPokemonListColumns(showFaithful), [showFaithful]);
+  const columns = React.useMemo(() => createPokemonListColumns(version), [version]);
 
   // URL-based state for filters that should persist across navigation
   const [urlState] = useQueryStates(
     {
       search: parseAsString.withDefault(''),
       type: parseAsString.withDefault('all'),
-      generation: parseAsString.withDefault('all'),
-      hasForms: parseAsBoolean.withDefault(false),
+      showForms: parseAsBoolean.withDefault(false),
     },
     {
-      // Configure shallow routing to avoid full page reloads
       shallow: true,
-      // Clear empty params from URL for cleaner URLs
       clearOnDefault: true,
     },
   );
@@ -105,7 +102,7 @@ export function PokemonListDataTable({ pokemonData, e }: PokemonListDataTablePro
   );
 
   // Extract URL state values
-  const { search, type, generation, hasForms } = urlState;
+  const { search, type, showForms } = urlState;
 
   // Sync search value with table filter for name column
   React.useEffect(() => {
@@ -121,28 +118,36 @@ export function PokemonListDataTable({ pokemonData, e }: PokemonListDataTablePro
     }
   }, [search, columns]);
 
-  // // Get unique types from the data
-  // const types = React.useMemo(() => {
-  //   const typeSet = new Set<string>();
-
-  //   data.forEach((pokemon) => {
-  //     const displayTypes = showFaithful
-  //       ? pokemon.faithfulTypes || pokemon.types
-  //       : pokemon.updatedTypes || pokemon.types;
-  //     const typesArray = Array.isArray(displayTypes) ? displayTypes : [displayTypes];
-  //     typesArray.forEach((type) => {
-  //       if (type) typeSet.add(type);
-  //     });
-  //   });
-
-  //   return Array.from(typeSet).sort();
-  // }, [data, showFaithful]);
-
-  // Apply filters to the data
+  // Apply filters to the data and expand forms if needed
   const filteredData = React.useMemo(() => {
-    return pokemonData.filter((pokemon) => {
-      // Type filter - get types for the current form and version
-      const currentForm = 'plain';
+    // Define extended type for internal processing
+    type PokemonWithCurrentForm = PokemonManifest;
+    let dataToFilter: PokemonWithCurrentForm[] = [];
+
+    if (showForms) {
+      pokemonData.forEach((pokemon) => {
+        const forms = Object.keys(pokemon.versions[version] || {});
+        forms.forEach((formKey) => {
+          // For forms, modify the name to include form designation for display
+
+          dataToFilter.push({
+            ...pokemon,
+            formName: formKey,
+            id: formKey === 'plain' ? pokemon.id : `${pokemon.id}_${formKey}`,
+          });
+        });
+      });
+    } else {
+      // Just use the base pokemon data with plain form
+      dataToFilter = pokemonData.map((pokemon) => ({
+        ...pokemon,
+        currentForm: 'plain',
+      }));
+    }
+
+    // Now apply type filtering based on the current form
+    const filtered = dataToFilter.filter((pokemon) => {
+      const currentForm = pokemon.formName || 'plain';
       const displayTypes = pokemon.versions[version]?.[currentForm]?.types;
       const typesArray = Array.isArray(displayTypes)
         ? displayTypes
@@ -151,17 +156,17 @@ export function PokemonListDataTable({ pokemonData, e }: PokemonListDataTablePro
           : [];
       const matchesType = type === 'all' || typesArray.some((t) => t === type);
 
-      const matchesForms =
-        !hasForms ||
-        (pokemon.versions[version].forms &&
-          Object.keys(pokemon.versions[version].forms).length > 1);
-
-      return matchesType && matchesForms;
+      return matchesType;
     });
-  }, [pokemonData, version, type, hasForms]);
+
+    // Return as PokemonManifest[] for compatibility with existing table code
+    return filtered as PokemonManifest[];
+  }, [pokemonData, version, type, showForms]);
 
   // URL-based pagination state
   const [{ pageIndex, pageSize }, setPagination] = usePaginationSearchParams();
+
+  console.log('Pagination state:', { filteredData });
 
   const table = useReactTable({
     data: filteredData,
@@ -211,7 +216,7 @@ export function PokemonListDataTable({ pokemonData, e }: PokemonListDataTablePro
   // Reset page to 0 when filters change
   React.useEffect(() => {
     setPagination({ pageIndex: 0 });
-  }, [columnFilters, type, generation, showFaithful, hasForms, setPagination]);
+  }, [columnFilters, type, version, showForms, setPagination]);
 
   return (
     <div>

@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
-import { PokemonWithMove } from '@/utils/loaders/move-data-loader';
 import PokemonWithMoveDataTable from './pokemon-with-move-data-table';
 import { Hero } from '../ui/Hero';
 import {
@@ -17,68 +16,27 @@ import Link from 'next/link';
 import { Badge } from '../ui/badge';
 import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
 import { BicepsFlexed, Crosshair, FolderOpen, HandFist } from 'lucide-react';
+import { MoveData } from '@/types/new';
 
-interface MoveDetailClientProps {
-  moveData: {
-    name?: string;
-    description?: string;
-    faithful?: {
-      type?: string;
-      category?: string;
-      power?: number;
-      accuracy?: number;
-      pp?: number;
-    };
-    updated?: {
-      type?: string;
-      category?: string;
-      power?: number;
-      accuracy?: number;
-      pp?: number;
-    };
-    tm?: {
-      number?: string;
-      location?: {
-        area?: string;
-        details?: string;
-      };
-    };
-  };
-  pokemonWithMove: PokemonWithMove[];
-  moveName: string;
-}
-
-export default function MoveDetailClient({
-  moveData,
-  pokemonWithMove,
-  moveName,
-}: MoveDetailClientProps) {
+export default function MoveDetailClient({ moveData }: { moveData: MoveData }) {
   const [learnMethodFilter, setLearnMethodFilter] = useState<string>('all');
   const { showFaithful } = useFaithfulPreference();
 
-  // Get move stats based on faithful preference
-  const moveStats = (showFaithful ? moveData.faithful : moveData.updated) ?? moveData.updated;
-
-  // Get TM/HM info
-  const tmInfo = moveData.tm;
+  const version = showFaithful ? 'faithful' : 'polished';
 
   return (
     <>
       <Hero
-        headline={moveData.name || moveName}
-        description={moveData.description || 'Move details and Pokemon that can learn it'}
+        headline={moveData.versions[version]?.name}
+        description={
+          moveData.versions[version]?.description || 'Move details and Pokemon that can learn it'
+        }
         types={
           <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
             <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
-              {showFaithful ? (
-                <Badge variant={moveData.faithful?.type?.toLowerCase()}>
-                  {String(moveData.faithful?.type || moveData.updated?.type || 'Unknown Type')}
-                </Badge>
-              ) : (
-                <Badge variant={moveData.updated?.type?.toLowerCase()}>
-                  {String(moveData.updated?.type || 'Unknown Type')}
-                </Badge>
-              )}
+              <Badge variant={moveData.versions[version]?.type?.toLowerCase()}>
+                {String(moveData.versions[version]?.type || 'Unknown Type')}
+              </Badge>
             </div>
           </div>
         }
@@ -102,7 +60,7 @@ export default function MoveDetailClient({
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage className="">{moveData.name || moveName}</BreadcrumbPage>
+                <BreadcrumbPage className="">{moveData.versions[version]?.name}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -119,7 +77,7 @@ export default function MoveDetailClient({
                   Category
                 </p>
                 <p className="font-sans text-xs font-normal text-neutral-600 dark:text-neutral-300">
-                  {moveStats?.category || 'Unknown'}
+                  {moveData.versions[version]?.category || 'Unknown'}
                 </p>
               </div>
             </BentoGridNoLink>
@@ -130,7 +88,7 @@ export default function MoveDetailClient({
                   Power
                 </p>
                 <p className="font-sans text-xs font-normal text-neutral-600 dark:text-neutral-300">
-                  {moveStats?.power || 'N/A'}
+                  {moveData.versions[version]?.power || 'N/A'}
                 </p>
               </div>
             </BentoGridNoLink>
@@ -141,7 +99,7 @@ export default function MoveDetailClient({
                   Accuracy
                 </p>
                 <p className="font-sans text-xs font-normal text-neutral-600 dark:text-neutral-300">
-                  {moveStats?.accuracy || 'N/A'}%
+                  {moveData.versions[version]?.accuracy || 'N/A'}%
                 </p>
               </div>
             </BentoGridNoLink>
@@ -152,12 +110,12 @@ export default function MoveDetailClient({
                   PP
                 </p>
                 <p className="font-sans text-xs font-normal text-neutral-600 dark:text-neutral-300">
-                  {moveStats?.pp || 'N/A'}
+                  {moveData.versions[version]?.pp || 'N/A'}
                 </p>
               </div>
             </BentoGridNoLink>
 
-            {tmInfo && (
+            {/* {tmInfo && (
               <BentoGridNoLink className="md:col-span-4">
                 <div>
                   <Crosshair className="size-4" />
@@ -172,12 +130,12 @@ export default function MoveDetailClient({
                   </p>
                 </div>{' '}
               </BentoGridNoLink>
-            )}
+            )} */}
           </BentoGrid>
         </div>
 
         <PokemonWithMoveDataTable
-          pokemonWithMove={pokemonWithMove}
+          learners={moveData.versions[version]?.learners || []}
           learnMethodFilter={learnMethodFilter}
           onLearnMethodFilterChange={setLearnMethodFilter}
           showFaithful={showFaithful}

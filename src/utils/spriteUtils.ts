@@ -256,8 +256,6 @@ export function getFallbackTrainerSprite(
       break;
   }
 
-  // const filename = type === 'animated' ? `animated.${extension}` : `static.${extension}`;
-  console.log('trainerSpritePath', `/sprites/trainers/${normalizedName}/${normalizedName}.png`);
   return {
     url: `/sprites/trainers/${normalizedName}/${normalizedName}.png`,
     width: 64, // fallback dimensions
@@ -306,8 +304,6 @@ export function getUnifiedSpriteWithFallback(
 ): SpriteInfo {
   const sprite = getUnifiedSprite(manifest, spriteName, category, variant, type);
 
-  console.log('Unified sprite', sprite, manifest, spriteName, category, variant, type);
-
   if (sprite) {
     return sprite;
   }
@@ -323,7 +319,6 @@ export function getUnifiedSpriteWithFallback(
     }
     return getFallbackSprite(spriteName, variant as SpriteVariant, type);
   } else {
-    console.log('spriteName', spriteName);
     return getFallbackTrainerSprite(spriteName, type || 'static');
   }
 }

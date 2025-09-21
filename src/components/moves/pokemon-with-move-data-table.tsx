@@ -3,39 +3,44 @@
 import React, { useMemo } from 'react';
 import { PokemonDataTable } from '@/components/pokemon/pokemon-data-table';
 import { pokemonWithMoveColumns } from './pokemon-with-move-columns';
-import { PokemonWithMove } from '@/utils/loaders/move-data-loader';
 import { Select, SelectContent, SelectItem, SelectTrigger } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
 import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
+import { MoveLearner } from '@/types/new';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 
 interface PokemonWithMoveDataTableProps {
-  pokemonWithMove: PokemonWithMove[];
+  learners: MoveLearner[];
   learnMethodFilter: string;
   onLearnMethodFilterChange: (value: string) => void;
   showFaithful: boolean;
 }
 
 export default function PokemonWithMoveDataTable({
-  pokemonWithMove,
+  learners,
   learnMethodFilter,
   onLearnMethodFilterChange,
-  showFaithful,
 }: PokemonWithMoveDataTableProps) {
+  const { showFaithful } = useFaithfulPreference();
+
+  const version = showFaithful ? 'faithful' : 'polished';
   // Filter Pokemon based on faithful preference and learn method
   const filteredData = useMemo(() => {
-    return pokemonWithMove.filter((item) => {
+    return learners.filter((item) => {
       // Filter by faithful preference - check if this entry exists for the selected version
-      const versionMatch = showFaithful ? item.faithful : item.updated;
-      if (!versionMatch) return false;
+      if (!version) return false;
 
       // Filter by learn method
-      if (learnMethodFilter !== 'all' && item.learnMethod !== learnMethodFilter) {
+      if (
+        learnMethodFilter !== 'all' &&
+        !item.methods.some((method) => method.method === learnMethodFilter)
+      ) {
         return false;
       }
 
       return true;
     });
-  }, [pokemonWithMove, showFaithful, learnMethodFilter]);
+  }, [learners, version, learnMethodFilter]);
 
   return (
     <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">

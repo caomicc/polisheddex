@@ -40,10 +40,9 @@ export interface ComprehensivePokemonData {
 
 export interface MovesManifest {
   id: string;
-  name: string;
-  type: string;
-  category: string;
-  hasTM: boolean;
+  versions: {
+    [versionName: string]: Omit<MoveStats, 'learners'>;
+  };
 }
 
 export interface MoveStats {
@@ -55,6 +54,7 @@ export interface MoveStats {
   effectChance: number;
   category: string;
   description: string;
+  learners?: MoveLearner[]; // Pokemon that can learn this move
 }
 
 export interface MoveData {
@@ -79,6 +79,7 @@ export interface MoveLearner {
     level?: number;
     tmNumber?: string;
   }>;
+  types?: string[];
 }
 
 export interface PokemonMovesets {
@@ -101,11 +102,7 @@ export interface PokemonManifest {
       };
     };
   };
-}
-
-// Collection type for the manifest data
-export interface PokemonManifestCollection {
-  [pokemonId: string]: PokemonManifest;
+  formName?: string; // current form name, used for display purposes only! not required for extraction, only displaying web app due to flat mapping
 }
 
 export interface AbilityData {

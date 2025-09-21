@@ -1,9 +1,15 @@
 import { readFile, writeFile, mkdir, rm, readdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { displayName, parseMoveDescription, reduce } from '@/lib/extract-utils';
+import { displayName, parseMoveDescription, reduce, toTitleCase } from '@/lib/extract-utils';
 import splitFile from '@/lib/split';
-import { MoveData, MoveLearner, MovesManifest, MoveStats } from '@/types/new';
+import {
+  ComprehensivePokemonData,
+  MoveData,
+  MoveLearner,
+  MovesManifest,
+  MoveStats,
+} from '@/types/new';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -306,7 +312,7 @@ const extractPokemonLearners = async () => {
 
       const pokemonPath = join(pokemonDir, pokemonFile);
       const pokemonRaw = await readFile(pokemonPath, 'utf-8');
-      const pokemonData = JSON.parse(pokemonRaw);
+      const pokemonData: ComprehensivePokemonData = JSON.parse(pokemonRaw);
 
       // Process both versions
       for (const version of ['polished', 'faithful'] as const) {
@@ -316,15 +322,7 @@ const extractPokemonLearners = async () => {
         // Process all forms of this Pokemon
         const forms = versionData.forms || {};
         for (const [formName, formData] of Object.entries(forms)) {
-          const movesets = (
-            formData as {
-              movesets?: {
-                levelUp?: Array<{ name: string; level: number }>;
-                tm?: Array<string>;
-                eggMoves?: Array<string>;
-              };
-            }
-          )?.movesets;
+          const movesets = formData?.movesets;
           if (!movesets) continue;
 
           // Process level-up moves
@@ -341,7 +339,9 @@ const extractPokemonLearners = async () => {
               if (!moveLearners[version][moveId][learnerKey]) {
                 moveLearners[version][moveId][learnerKey] = {
                   id: pokemonData.id,
+                  name: pokemonData.name,
                   form: formName || 'plain',
+                  types: formData?.types || [],
                   methods: [],
                 };
               }
@@ -375,6 +375,7 @@ const extractPokemonLearners = async () => {
                   id: pokemonData.id,
                   name: pokemonData.name,
                   form: formName || 'plain',
+                  types: formData?.types || [],
                   methods: [],
                 };
               }
@@ -402,6 +403,7 @@ const extractPokemonLearners = async () => {
                   id: pokemonData.id,
                   name: pokemonData.name,
                   form: formName || 'plain',
+                  types: formData?.types || [],
                   methods: [],
                 };
               }
@@ -452,7 +454,10 @@ const extractMovesData = async () => {
       if (versionLearners) {
         learnersData[version] = Object.entries(versionLearners).map(([, data]) => ({
           id: data.id,
+          name: data.name,
+          form: data.form,
           methods: data.methods,
+          types: data.types,
         }));
       }
     }
@@ -524,19 +529,31 @@ export default async function extractMoves() {
   // Create moves manifest
   const movesManifest: MovesManifest[] = moves.map((move) => {
     // Use polished version for manifest, fall back to faithful
-    const primaryVersion = move.versions.polished || move.versions.faithful;
+    // const primaryVersion = move.versions.polished || move.versions.faithful;
     return {
       id: move.id,
-      name: move.name || primaryVersion?.name || 'Unknown',
-      type: primaryVersion?.type || 'None',
-      category: primaryVersion?.category || 'Unknown',
-      description: primaryVersion?.description || 'No description available.',
-      hasTM: !!move.tm,
+      versions:
+        Object.fromEntries(
+          Object.entries(move.versions).map(([versionName, stats]) => [
+            versionName,
+            {
+              name: toTitleCase(stats.name || move.name || 'Unknown'),
+              type: stats.type || 'None',
+              power: stats.power || 0,
+              accuracy: stats.accuracy || 100,
+              pp: stats.pp || 0,
+              effectChance: stats.effectChance || 0,
+              category: stats.category || 'Unknown',
+              description: stats.description || '',
+            },
+          ]),
+        ) || {},
+      tm: move.tm ? { ...move.tm } : undefined,
     };
   });
 
-  // Sort manifest alphabetically
-  movesManifest.sort((a, b) => a.name.localeCompare(b.name));
+  // Sort manifest alphabetically by id
+  movesManifest.sort((a, b) => a.id.localeCompare(b.id));
 
   // Write moves manifest file
   await writeFile(movesManifestPath, JSON.stringify(movesManifest, null, 2), 'utf-8');

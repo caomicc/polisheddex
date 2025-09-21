@@ -1,24 +1,39 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import PokemonCard from './pokemon-card';
 import { PokemonCardSkeleton } from './pokemon-card-skeleton';
 import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
 import { PokemonManifest } from '@/types/new';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 
 interface LazyPokemonCardGridProps {
   pokemonData: PokemonManifest[];
+  showForms?: boolean;
   itemsPerPage?: number;
 }
 
 // Memoized card component to prevent unnecessary re-renders
 const MemoizedPokemonCard = React.memo(PokemonCard);
 
-function LazyPokemonCardGrid({ pokemonData, itemsPerPage = 24 }: LazyPokemonCardGridProps) {
+function LazyPokemonCardGrid({
+  pokemonData,
+  itemsPerPage = 24,
+  showForms = false,
+}: LazyPokemonCardGridProps) {
   const [visibleItems, setVisibleItems] = useState(itemsPerPage);
   const [isLoading, setIsLoading] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
+
+  const { showFaithful } = useFaithfulPreference();
+
+  const version = showFaithful ? 'faithful' : 'polished';
+
+  // Sort Pokemon by dexNo for consistent ordering
+  const sortedPokemonData = useMemo(() => {
+    return [...pokemonData].sort((a, b) => a.dexNo - b.dexNo);
+  }, [pokemonData]);
 
   // Create intersection observer to detect when user scrolls near bottom
   const lastElementRef = useCallback(
@@ -28,11 +43,11 @@ function LazyPokemonCardGrid({ pokemonData, itemsPerPage = 24 }: LazyPokemonCard
 
       observerRef.current = new IntersectionObserver(
         (entries) => {
-          if (entries[0].isIntersecting && visibleItems < pokemonData.length) {
+          if (entries[0].isIntersecting && visibleItems < sortedPokemonData.length) {
             setIsLoading(true);
             // Use requestAnimationFrame for smooth loading
             requestAnimationFrame(() => {
-              setVisibleItems((prev) => Math.min(prev + itemsPerPage, pokemonData.length));
+              setVisibleItems((prev) => Math.min(prev + itemsPerPage, sortedPokemonData.length));
               setIsLoading(false);
             });
           }
@@ -45,14 +60,14 @@ function LazyPokemonCardGrid({ pokemonData, itemsPerPage = 24 }: LazyPokemonCard
 
       if (node) observerRef.current.observe(node);
     },
-    [isLoading, visibleItems, pokemonData.length, itemsPerPage],
+    [isLoading, visibleItems, sortedPokemonData.length, itemsPerPage],
   );
 
   // Reset visible items when data changes (e.g., filtering)
   useEffect(() => {
     setVisibleItems(itemsPerPage);
     setIsLoading(false);
-  }, [pokemonData, itemsPerPage]);
+  }, [sortedPokemonData, itemsPerPage]);
 
   // Clean up observer on unmount
   useEffect(() => {
@@ -65,46 +80,67 @@ function LazyPokemonCardGrid({ pokemonData, itemsPerPage = 24 }: LazyPokemonCard
   }, []);
 
   const visiblePokemon = pokemonData.slice(0, visibleItems);
+
+  // Calculate total cards accounting for forms
+  const totalCards = pokemonData.reduce((acc, pokemon) => {
+    const forms = Object.keys(pokemon.versions[version] || {});
+    const formsToShow = showForms ? forms : forms.includes('plain') ? ['plain'] : forms.slice(0, 1);
+    return acc + formsToShow.length;
+  }, 0);
+
+  // Calculate visible cards
+  const visibleCards = visiblePokemon.reduce((acc, pokemon) => {
+    const forms = Object.keys(pokemon.versions[version] || {});
+    const formsToShow = showForms ? forms : forms.includes('plain') ? ['plain'] : forms.slice(0, 1);
+    return acc + formsToShow.length;
+  }, 0);
+
   const hasMore = visibleItems < pokemonData.length;
 
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-4">
-        {visiblePokemon.map((pokemon, idx) => {
-          const isLastItem = idx === visibleItems - 1;
-          return (
-            <Link
-              className="rounded-xl"
-              key={`${pokemon.id}-plain-${idx}`}
-              href={formatPokemonUrlWithForm(
-                pokemon.name,
-                'plain',
-              )}
-            >
-              <div ref={isLastItem && hasMore ? lastElementRef : null}>
-                <MemoizedPokemonCard pokemon={pokemon} />
-              </div>
-            </Link>
-          );
+        {visiblePokemon.flatMap((pokemon, pokemonIdx) => {
+          // Get all forms for the current version
+          const forms = Object.keys(pokemon.versions[version] || {});
+          const formsToShow = showForms
+            ? forms
+            : forms.includes('plain')
+              ? ['plain']
+              : forms.slice(0, 1);
+
+          return formsToShow.map((form, formIdx) => {
+            const combinedIdx = pokemonIdx * formsToShow.length + formIdx;
+            const isLastItem = combinedIdx === visibleCards - 1;
+
+            return (
+              <Link
+                className="rounded-xl"
+                key={`${pokemon.id}-${form}-${combinedIdx}`}
+                href={formatPokemonUrlWithForm(pokemon.id, form)}
+              >
+                <div ref={isLastItem && hasMore ? lastElementRef : null}>
+                  <MemoizedPokemonCard pokemon={{ ...pokemon, formName: form }} />
+                </div>
+              </Link>
+            );
+          });
         })}
       </div>
 
       {/* Loading skeletons */}
       {isLoading && (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 mt-4">
-          {Array.from(
-            { length: Math.min(itemsPerPage, pokemonData.length - visibleItems) },
-            (_, i) => (
-              <PokemonCardSkeleton key={`skeleton-${i}`} />
-            ),
-          )}
+          {Array.from({ length: Math.min(itemsPerPage, totalCards - visibleCards) }, (_, i) => (
+            <PokemonCardSkeleton key={`skeleton-${i}`} />
+          ))}
         </div>
       )}
 
       {/* End of list indicator */}
       {!hasMore && pokemonData.length > itemsPerPage && (
         <div className="text-center py-8 text-xs text-muted-foreground">
-          Showing all {pokemonData.length} Pokémon
+          Showing all {totalCards} cards from {pokemonData.length} Pokémon
         </div>
       )}
 
@@ -125,6 +161,7 @@ export default React.memo(LazyPokemonCardGrid, (prevProps, nextProps) => {
   return (
     prevProps.pokemonData.length === nextProps.pokemonData.length &&
     prevProps.itemsPerPage === nextProps.itemsPerPage &&
+    prevProps.showForms === nextProps.showForms &&
     prevProps.pokemonData === nextProps.pokemonData
   );
 });

@@ -1,33 +1,32 @@
 import React from 'react';
 import { TableCell, TableRow } from '../ui/table';
 import { cn } from '@/lib/utils';
-import { Move, MoveDescription, PokemonType } from '@/types/types';
 import { Badge } from '../ui/badge';
 import MoveCategoryIcon from './move-category-icon';
 import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 import Link from 'next/link';
 import { ExternalLink } from 'lucide-react';
+import { MoveData } from '@/types/new';
 
-const MoveRow: React.FC<Move> = ({ name, level, info }) => {
+type MoveRowProps = {
+  level?: number;
+  info: MoveData;
+};
+
+const MoveRow: React.FC<MoveRowProps> = ({ level, info }) => {
   // Desktop version uses the original two-row layout
 
   const { showFaithful } = useFaithfulPreference();
 
-  const effectiveInfo: MoveDescription['updated'] | MoveDescription['faithful'] = (showFaithful
-    ? info?.faithful || info?.updated || undefined
-    : info?.updated || info?.faithful) ?? {
-    type: '—',
-    pp: '—',
-    power: '—',
-    accuracy: '—',
-    effectPercent: '—',
-    category: 'Unknown',
-  };
+  const version = showFaithful ? 'faithful' : 'polished';
+  // Determine the effective move info based on the selected version
+
+  const effectiveInfo = info?.versions?.[version];
 
   const desktopRows = [
     <TableRow
-      key={`row-${name}-${level}`}
-      id={name?.toLowerCase().replace(/\s+/g, '-') ?? `row-${name}-${level}`}
+      key={`row-${info.name}-${level}`}
+      id={info.name?.toLowerCase().replace(/\s+/g, '-') ?? `row-${info.name}-${level}`}
       className="hover:bg-muted/0 border-b-0 group hidden md:table-row"
     >
       {level !== undefined && (
@@ -40,15 +39,15 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
         rowSpan={2}
         className="align-middle font-medium p-2 text-center md:text-left text-xs md:text-md md:w-[238px]"
       >
-        <Link href={`/moves/${name.toLowerCase().replace(/\s+/g, '-')}`} className="table-link">
-          {name}
+        <Link href={`/moves/${info.id}`} className="table-link">
+          {effectiveInfo.name}
           <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
         </Link>
       </TableCell>
 
       <TableCell className="align-middle p-2">
         <Badge
-          variant={String(effectiveInfo?.type ?? '-').toLowerCase() as PokemonType['name']}
+          variant={String(effectiveInfo?.type ?? '-').toLowerCase()}
           // className="w-full md:w-auto text-center"
           className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
         >
@@ -65,14 +64,7 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
               | 'special'
               | 'status') || 'unknown'
           }
-          // className={'w-4 h-4 p-[4px]'}
         />
-        {/* <Badge
-          variant={info?.category?.toLowerCase() as MoveDescription['category']}
-          className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px] mx-auto"
-        >
-          {info?.category ? String(info.category) : '-'}
-        </Badge> */}
       </TableCell>
 
       <TableCell className="align-middle p-2 text-cell">
@@ -119,14 +111,14 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
       </TableCell>
     </TableRow>,
     <TableRow
-      key={`desc-${name}-${level}-desktop`}
+      key={`desc-${info.name}-${level}-desktop`}
       className="group-hover:bg-muted/0 hover:bg-muted/0 hidden md:table-row"
     >
       <TableCell
-        className={cn('text-cell p-2 pb-3 md:pt-0', !info?.description?.trim() && 'text-error')}
+        className={cn('text-cell p-2 pb-3 md:pt-0', !effectiveInfo?.description && 'text-error')}
         // colSpan={1}
       >
-        {info?.description?.trim() ? info.description : 'No description found.'}
+        {effectiveInfo?.description}
       </TableCell>
     </TableRow>,
   ];
@@ -134,18 +126,18 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
   const mobileRows = [
     <TableRow
       className="md:hidden group border-b-0 hover:bg-muted/0"
-      key={`mobile-header-${name}-${level}`}
-      id={`mobile-header-${name}-${level}`}
+      key={`mobile-header-${info.name}-${level}`}
+      id={`mobile-header-${info.name}-${level}`}
     >
       <TableCell
         colSpan={6}
         className="align-middle font-bold p-1 md:p-2 text-left text-xs md:text-md col-span-2"
       >
         <Link
-          href={`/moves/${name.toLowerCase().replace(/\s+/g, '-')}`}
+          href={`/moves/${info.name?.toLowerCase().replace(/\s+/g, '-')}`}
           className="table-link pt-2"
         >
-          {name}
+          {info.name}
           <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
         </Link>
         {level !== undefined && (
@@ -154,13 +146,16 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
       </TableCell>
     </TableRow>,
     <TableRow
-      key={`row-${name}-${level}-mobile`}
-      id={name?.toLowerCase().replace(/\s+/g, '-') ?? `row-${name}-${level}`}
+      key={`row-${effectiveInfo.name}-${level}-mobile`}
+      id={
+        effectiveInfo.name?.toLowerCase().replace(/\s+/g, '-') ??
+        `row-${effectiveInfo.name}-${level}`
+      }
       className="hover:bg-muted/0 border-b-0 group md:hidden"
     >
       <TableCell className="align-middle p-1 md:p-2 ">
         <Badge
-          variant={String(effectiveInfo?.type ?? '-').toLowerCase() as PokemonType['name']}
+          variant={String(effectiveInfo?.type ?? '-').toLowerCase()}
           // className="w-full md:w-auto text-center"
           className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
         >
@@ -215,17 +210,17 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
       </TableCell>
     </TableRow>,
     <TableRow
-      key={`desc-${name}-${level}-mobile`}
+      key={`desc-${info.name}-${level}-mobile`}
       className="group-hover:bg-muted/0 hover:bg-muted/0 md:hidden"
     >
       <TableCell
         className={cn(
           'text-cell-muted text-cell p-1 md:p-2 pb-4',
-          !info?.description?.trim() && 'text-error',
+          !effectiveInfo?.description && 'text-error',
         )}
         colSpan={6}
       >
-        {info?.description?.trim() ? info.description : 'No description found.'}
+        {effectiveInfo?.description}
       </TableCell>
     </TableRow>,
   ];

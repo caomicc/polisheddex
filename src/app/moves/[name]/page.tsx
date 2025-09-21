@@ -1,37 +1,19 @@
-import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
-import { loadManifest } from '@/utils/manifest-resolver';
 import MoveDetailClient from '@/components/moves/move-detail-client';
 import { PokemonGridSkeleton } from '@/components/pokemon/pokemon-card-skeleton';
-import { MoveManifest, getPokemonThatCanLearnMove } from '@/utils/loaders/move-data-loader';
-import { Move, MoveDescription } from '@/types/types';
+import { loadDetailedMoveData, loadMovesFromNewManifest } from '@/utils/loaders/move-data-loader';
 
 export default async function MoveDetail({ params }: { params: Promise<{ name: string }> }) {
   const nameParam = (await params).name;
   const moveName = decodeURIComponent(nameParam);
 
-  // Load move data
-  const moveData = await loadManifest<MoveManifest>('moves').then(
-    (movesData) => movesData[moveName.toLowerCase()] || null,
-  );
-
-  if (!moveData) {
-    return notFound();
-  }
-
-  // Load Pokemon that can learn this move using the proper function
-  // Use the display name from the move data, not the URL parameter
-  const pokemonWithMove = await getPokemonThatCanLearnMove(moveData.name || moveName);
+  const moveData = await loadDetailedMoveData(moveName);
 
   return (
     <>
       <Suspense fallback={<PokemonGridSkeleton count={8} />}>
-        <MoveDetailClient
-          moveData={moveData}
-          pokemonWithMove={pokemonWithMove}
-          moveName={moveData.name || moveName}
-        />
+        <MoveDetailClient moveData={moveData} />
       </Suspense>
     </>
   );
@@ -40,8 +22,25 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
 // Generate static params for all moves
 export async function generateStaticParams() {
   try {
-    const movesData = await loadManifest<Record<string, Move>>('moves');
-    return Object.keys(movesData).map((moveKey) => ({
+    // Try new manifest system first
+    try {
+      const newMovesData = await loadMovesFromNewManifest();
+      const moveKeys = Object.keys(newMovesData);
+      if (moveKeys.length > 0) {
+        console.log(`Generated static params for ${moveKeys.length} moves from new manifest`);
+        return moveKeys.map((moveKey) => ({
+          name: moveKey.toLowerCase(),
+        }));
+      }
+    } catch (error) {
+      console.error('Error loading from new manifest for static params, falling back:', error);
+    }
+
+    // Fallback to old system
+    const movesData = await loadMovesFromNewManifest();
+    const moveKeys = Object.keys(movesData);
+    console.log(`Generated static params for ${moveKeys.length} moves from old manifest`);
+    return moveKeys.map((moveKey) => ({
       name: moveKey.toLowerCase(),
     }));
   } catch (error) {
@@ -56,7 +55,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   const moveName = decodeURIComponent(nameParam);
 
   try {
-    const moveData = await loadManifest<Record<string, MoveDescription>>('moves').then(
+    const moveData = await loadMovesFromNewManifest().then(
       (movesData) => movesData[moveName.toLowerCase()] || null,
     );
 
@@ -67,30 +66,24 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
       };
     }
 
-    const pokemonWithMoveForCount = await getPokemonThatCanLearnMove(moveData.name || moveName);
-    const pokemonCount = pokemonWithMoveForCount.length;
-
-    const pokemonCountText =
-      pokemonCount > 0 ? ` ${pokemonCount} Pokémon can learn this move.` : '';
-
-    const title = `${moveData.name || moveName} | PolishedDex`;
-    const description = `${moveData.description || 'Move details'}${pokemonCountText} View all Pokémon that can learn ${moveData.name || moveName} in Pokémon Polished Crystal.`;
+    const title = `${moveData.versions['polished'].name} | PolishedDex`;
+    const description = `${moveData.versions['polished'].description || 'Move details'} View all Pokémon that can learn ${moveData.versions['polished'].name} in Pokémon Polished Crystal.`;
     const url = `https://www.polisheddex.app/moves/${nameParam}`;
 
     // Build move stats text
-    const moveStats = moveData.updated || moveData.faithful;
+    const moveStats = moveData.versions['polished'];
     const statsText = moveStats
       ? ` Type: ${moveStats.type}, Power: ${moveStats.power || 'N/A'}, Accuracy: ${moveStats.accuracy || 'N/A'}, PP: ${moveStats.pp || 'N/A'}.`
       : '';
 
-    const socialDescription = `${moveData.description || 'Move details'}.${statsText}${pokemonCountText}`;
+    const socialDescription = `${moveData.versions['polished'].description || 'Move details'}.${statsText}`;
 
     return {
       title,
       description,
       keywords: [
         'pokemon polished crystal',
-        moveData.name?.toLowerCase() || moveName.toLowerCase(),
+        moveData.versions['polished'].name?.toLowerCase() || moveName.toLowerCase(),
         'move',
         'pokemon moves',
         'polisheddex',
@@ -110,7 +103,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
             url: '/og-image.png',
             width: 1200,
             height: 630,
-            alt: `${moveData.name || moveName} - PolishedDex`,
+            alt: `${moveData.versions['polished'].name} - PolishedDex`,
           },
         ],
         locale: 'en_US',

@@ -4,10 +4,10 @@ import { ColumnDef } from '@tanstack/react-table';
 import { ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
-import { MoveDescription } from '@/types/types';
 import { accentInsensitiveIncludes } from '@/utils/stringUtils';
+import { MoveData } from '@/types/new';
 
-export const moveColumns: ColumnDef<MoveDescription>[] = [
+export const moveColumns: ColumnDef<MoveData>[] = [
   {
     accessorKey: 'name',
     header: ({ column }) => {
