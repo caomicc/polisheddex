@@ -3,7 +3,6 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import {
   AbilityData,
-  AbilityManifest,
   ChainLink,
   ComprehensivePokemonData,
   EvolutionData,
@@ -28,7 +27,7 @@ const mergedPokemon: ComprehensivePokemonData[] = [];
 const pokemonMovesets: Record<string, Record<string, PokemonMovesets>> = {};
 const pokemonTMCompatibility: Record<string, Record<string, string[]>> = {};
 const evolutionChains: Record<string, Record<string, EvolutionData[]>> = {};
-const abilitiesManifest: Record<string, Record<string, AbilityManifest>> = {};
+const abilitiesManifest: AbilityData[] = [];
 
 //Paths
 const namesASM = join(__dirname, '../polishedcrystal/data/pokemon/names.asm');
@@ -133,10 +132,6 @@ const extractAbilities = (
     (line) => line.trim().includes('rawchar "') && !line.includes('NoAbility'),
   );
 
-  if (!abilitiesManifest[version]) {
-    abilitiesManifest[version] = {};
-  }
-
   for (const nameLine of abilityNameLines) {
     const line = nameLine.trim();
 
@@ -145,8 +140,18 @@ const extractAbilities = (
     const name = line.split('rawchar "')[1]?.replace('"', '').replace('@', '').trim();
 
     if (abilityId && name) {
-      abilitiesManifest[version][abilityId] = {
-        name: name,
+      let existingAbility = abilitiesManifest.find((ability) => ability.id === abilityId);
+
+      if (!existingAbility) {
+        existingAbility = {
+          id: abilityId,
+          name: name,
+          versions: {},
+        };
+        abilitiesManifest.push(existingAbility);
+      }
+
+      existingAbility.versions[version] = {
         description: descriptions[abilityId] || 'No description available.',
       };
     }
@@ -1002,7 +1007,6 @@ for (const pokemon of mergedPokemon) {
 const manifestPath = join(outputDir, 'pokemon_manifest.json');
 await writeFile(manifestPath, JSON.stringify(manifest, null, 2), 'utf-8');
 
-// Write abilities manifest file
 const abilitiesManifestPath = join(outputDir, 'abilities_manifest.json');
 await writeFile(abilitiesManifestPath, JSON.stringify(abilitiesManifest, null, 2), 'utf-8');
 
@@ -1022,33 +1026,55 @@ const abilityFiles: Promise<void>[] = [];
 
 // Get unique ability IDs across all versions
 const allAbilityIds = new Set<string>();
-for (const versionAbilities of Object.values(abilitiesManifest)) {
-  for (const abilityId of Object.keys(versionAbilities)) {
-    allAbilityIds.add(abilityId);
-  }
+for (const ability of abilitiesManifest) {
+  allAbilityIds.add(ability.id);
 }
 
 for (const abilityId of allAbilityIds) {
   const abilityFile = async () => {
+    // Find the correct ability data from the manifest
+    const abilityManifestData = abilitiesManifest.find((ability) => ability.id === abilityId);
+
+    if (!abilityManifestData) {
+      console.warn(`No ability data found for ${abilityId}`);
+      return;
+    }
+
     // Create ability data with versions structure matching the updated AbilityData interface
     const abilityFileData: AbilityData = {
       id: abilityId,
-      name:
-        abilitiesManifest.polished[abilityId]?.name ||
-        abilitiesManifest.faithful[abilityId]?.name ||
-        abilityId,
-      versions: {},
+      name: abilityManifestData.name,
+      versions: abilityManifestData.versions,
     };
 
     // Add version-specific data
-    for (const [version, versionAbilities] of Object.entries(abilitiesManifest)) {
-      const abilityData = versionAbilities[abilityId];
-      if (abilityData) {
-        abilityFileData.versions[version] = {
-          description: abilityData.description,
-          pokemon: [], // Will be populated later
-        };
+    for (const [version, versionData] of Object.entries(abilityManifestData.versions)) {
+      const pokemonWithAbility: { name: string; form?: string }[] = [];
+
+      // Find all pokemon that have this ability in this version
+      for (const pokemon of mergedPokemon) {
+        const pokemonVersionData = pokemon.versions[version];
+        if (pokemonVersionData) {
+          // Check form abilities
+          if (pokemonVersionData.forms) {
+            console.log(pokemon.id, pokemonVersionData.forms);
+            for (const [formName, formData] of Object.entries(pokemonVersionData.forms)) {
+              if (formData.abilities?.includes(abilityManifestData.id)) {
+                if (!pokemonWithAbility.some((p) => p.name === pokemon.id && p.form === formName)) {
+                  pokemonWithAbility.push({ name: pokemon.id, form: formName });
+                }
+              }
+            }
+          }
+        }
       }
+
+      pokemonWithAbility.sort((a, b) => a.name.localeCompare(b.name));
+
+      abilityFileData.versions[version] = {
+        description: versionData.description,
+        pokemon: pokemonWithAbility,
+      };
     }
 
     const abilityFilePath = join(abilitiesDir, `${abilityId}.json`);
