@@ -1,23 +1,16 @@
-import { loadManifest, type AbilityManifest } from '../manifest-resolver';
+// Additional functionality for finding Pokemon that have abilities
+import { AbilityData } from '@/types/new';
+import { loadJsonFile } from '../fileLoader';
 
 /**
  * Load abilities data using the manifest system
  */
 export async function loadAbilitiesData(): Promise<Record<string, any>> {
   try {
-    // Check if we're in a server environment
-    if (typeof window === 'undefined') {
-      // Server-side: Load the abilities manifest directly
-      const abilitiesManifest = await loadManifest<AbilityManifest>('abilities');
-      return abilitiesManifest;
-    } else {
-      // Client-side: Use fetch (fallback)
-      const response = await fetch('/output/manifests/abilities.json');
-      if (!response.ok) {
-        throw new Error('Failed to load abilities manifest');
-      }
-      return await response.json();
-    }
+    // First try the new manifest system
+    const newManifestData = await loadAbilitiesFromNewManifest();
+    console.log('Successfully loaded abilities from new manifest system');
+    return newManifestData;
   } catch (error) {
     console.error('Error loading abilities data:', error);
     return {};
@@ -25,276 +18,105 @@ export async function loadAbilitiesData(): Promise<Record<string, any>> {
 }
 
 /**
- * Load a specific ability by ID from the manifest
+ * Load abilities data from the new manifest structure (new/abilities_manifest.json)
+ * This function handles the new flattened array structure
  */
-export async function loadAbilityById(abilityId: string): Promise<any | null> {
+export async function loadAbilitiesFromNewManifest(): Promise<Record<string, AbilityData>> {
   try {
-    const abilitiesData = await loadAbilitiesData();
-    return abilitiesData[abilityId] || null;
-  } catch (error) {
-    console.error(`Error loading ability ${abilityId}:`, error);
-    return null;
-  }
-}
+    console.log('Loading Abilities from new manifest...');
 
-/**
- * Load multiple abilities by IDs efficiently
- */
-export async function loadMultipleAbilitiesById(abilityIds: string[]): Promise<(any | null)[]> {
-  try {
-    const abilitiesData = await loadAbilitiesData();
-    return abilityIds.map((id) => abilitiesData[id] || null);
-  } catch (error) {
-    console.error('Error loading multiple abilities:', error);
-    return abilityIds.map(() => null);
-  }
-}
+    // Check if we're in a server environment
+    if (typeof window === 'undefined') {
+      // Server-side: Load the new abilities manifest directly
+      const abilitiesArray = await loadJsonFile<AbilityData[]>('new/abilities_manifest.json');
 
-/**
- * Search abilities by name or description
- */
-export async function searchAbilities(query: string): Promise<any[]> {
-  try {
-    const abilitiesData = await loadAbilitiesData();
-    const lowerQuery = query.toLowerCase();
-
-    return Object.entries(abilitiesData)
-      .filter(
-        ([id, ability]) =>
-          ability.name?.toLowerCase().includes(lowerQuery) ||
-          ability.description?.toLowerCase().includes(lowerQuery) ||
-          id.toLowerCase().includes(lowerQuery),
-      )
-      .map(([id, ability]) => ({ id, ...ability }));
-  } catch (error) {
-    console.error('Error searching abilities:', error);
-    return [];
-  }
-}
-
-/**
- * Get all abilities
- */
-export async function getAllAbilities(): Promise<any[]> {
-  try {
-    const abilitiesData = await loadAbilitiesData();
-    return Object.entries(abilitiesData).map(([id, ability]) => ({ id, ...ability }));
-  } catch (error) {
-    console.error('Error getting all abilities:', error);
-    return [];
-  }
-}
-
-// Additional functionality for finding Pokemon that have abilities
-import { BaseData } from '@/types/types';
-import { loadPokemonFromNewManifest } from './pokemon-data-loader';
-
-export interface PokemonWithAbility {
-  pokemon: BaseData;
-  abilityTypes: ('primary' | 'secondary' | 'hidden')[];
-  isHidden: boolean;
-  faithful?: boolean;
-  updated?: boolean;
-}
-
-export async function getPokemonThatHaveAbility(abilityId: string): Promise<PokemonWithAbility[]> {
-  const pokemonManifestData = await loadPokemonFromNewManifest();
-  const pokemonWithAbility: PokemonWithAbility[] = [];
-
-  // Normalize ability ID for comparison
-  const normalizedAbilityId = abilityId.toLowerCase();
-
-  // Load individual Pokemon files to get full ability data
-  for (const [pokemonKey, basePokemon] of Object.entries(pokemonManifestData)) {
-    try {
-      const fs = await import('fs');
-      const path = await import('path');
-
-      // The pokemonKey is already normalized (lowercase), so use it directly
-      const pokemonFilePath = path.join(process.cwd(), `output/pokemon/${pokemonKey}.json`);
-
-      if (!fs.existsSync(pokemonFilePath)) {
-        continue; // Skip if individual file doesn't exist
+      if (!abilitiesArray || !Array.isArray(abilitiesArray)) {
+        console.error('Invalid abilities manifest structure or file not found');
+        return {};
       }
 
-      const pokemonData = JSON.parse(fs.readFileSync(pokemonFilePath, 'utf8'));
-      const pokemon = {
-        ...basePokemon,
-        ...pokemonData,
-        normalizedUrl: pokemonKey, // Use the pokemonKey as it's already normalized
-      };
+      console.log(`Processing ${abilitiesArray.length} Abilities from manifest`);
+      const baseData: Record<string, AbilityData> = {};
 
-      // Determine which abilities to use for each version with fallback logic
-      const faithfulAbilities =
-        pokemon.detailedStats?.faithfulAbilities || pokemon.faithfulAbilities;
-      const updatedAbilities = pokemon.detailedStats?.updatedAbilities || pokemon.updatedAbilities;
-      const mainAbilities = pokemon.detailedStats?.abilities || pokemon.abilities;
+      abilitiesArray.forEach((ability, index) => {
+        if (!ability || !ability.id) {
+          console.warn(`Skipping invalid Ability at index ${index}`);
+          return;
+        }
 
-      // Use fallback logic: if no specific version abilities, use the other version or main abilities
-      const effectiveFaithfulAbilities = faithfulAbilities || updatedAbilities || mainAbilities;
-      const effectiveUpdatedAbilities = updatedAbilities || mainAbilities;
+        // Store the Ability data using its ID as the key
+        baseData[ability.id] = ability;
+      });
 
-      // Check faithful abilities (with fallback)
-      if (effectiveFaithfulAbilities) {
-        effectiveFaithfulAbilities.forEach((ability: any) => {
-          if (ability.id && ability.id.toLowerCase() === normalizedAbilityId) {
-            const existingIndex = pokemonWithAbility.findIndex(
-              (item) => item.pokemon.name === pokemon.name,
-            );
-
-            if (existingIndex >= 0) {
-              const existing = pokemonWithAbility[existingIndex];
-              if (!existing.abilityTypes.includes(ability.abilityType)) {
-                existing.abilityTypes.push(ability.abilityType);
-              }
-              existing.faithful = true;
-              // If no specific updated abilities, use faithful abilities for both versions
-              if (!updatedAbilities || updatedAbilities.length === 0) {
-                existing.updated = true;
-              }
-              if (ability.isHidden) existing.isHidden = true;
-            } else {
-              pokemonWithAbility.push({
-                pokemon,
-                abilityTypes: [ability.abilityType],
-                isHidden: ability.isHidden,
-                faithful: true,
-                // If no specific updated abilities, use faithful abilities for both versions
-                updated: !updatedAbilities || updatedAbilities.length === 0,
-              });
-            }
-          }
-        });
+      console.log(`Successfully processed ${Object.keys(baseData).length} Abilities`);
+      return baseData;
+    } else {
+      console.log('Client-side: Fetching new moves manifest...');
+      // Client-side: Use fetch
+      const response = await fetch('/new/abilities_manifest.json');
+      if (!response.ok) {
+        console.error('Failed to load new abilities manifest on client');
+        return {};
       }
 
-      // Check updated abilities
-      if (effectiveUpdatedAbilities) {
-        effectiveUpdatedAbilities.forEach((ability: any) => {
-          if (ability.id && ability.id.toLowerCase() === normalizedAbilityId) {
-            const existingIndex = pokemonWithAbility.findIndex(
-              (item) => item.pokemon.name === pokemon.name,
-            );
+      const abilitiesArray = await response.json();
 
-            if (existingIndex >= 0) {
-              const existing = pokemonWithAbility[existingIndex];
-              if (!existing.abilityTypes.includes(ability.abilityType)) {
-                existing.abilityTypes.push(ability.abilityType);
-              }
-              existing.updated = true;
-              if (ability.isHidden) existing.isHidden = true;
-            } else {
-              pokemonWithAbility.push({
-                pokemon,
-                abilityTypes: [ability.abilityType],
-                isHidden: ability.isHidden,
-                updated: true,
-              });
-            }
-          }
-        });
+      if (!Array.isArray(abilitiesArray)) {
+        console.error('Invalid abilities manifest structure');
+        return {};
       }
 
-      // Check forms if they exist
-      if (pokemon.forms) {
-        Object.entries(pokemon.forms).forEach(([formName, formData]) => {
-          // Apply same fallback logic for forms
-          const formFaithfulAbilities =
-            (formData as any).detailedStats?.faithfulAbilities ||
-            (formData as any).faithfulAbilities;
-          const formUpdatedAbilities =
-            (formData as any).detailedStats?.updatedAbilities || (formData as any).updatedAbilities;
-          const formMainAbilities =
-            (formData as any).detailedStats?.abilities || (formData as any).abilities;
+      console.log(`Processing ${abilitiesArray.length} Abilities from client manifest`);
+      const baseData: Record<string, AbilityData> = {};
 
-          const effectiveFormFaithfulAbilities =
-            formFaithfulAbilities || formUpdatedAbilities || formMainAbilities;
-          const effectiveFormUpdatedAbilities = formUpdatedAbilities || formMainAbilities;
+      abilitiesArray.forEach((ability: AbilityData, index: number) => {
+        if (!ability || !ability.id) {
+          console.warn(`Skipping invalid Ability at index ${index}`);
+          return;
+        }
 
-          // Check faithful abilities for form (with fallback)
-          if (effectiveFormFaithfulAbilities) {
-            effectiveFormFaithfulAbilities.forEach((ability: any) => {
-              if (ability.id && ability.id.toLowerCase() === normalizedAbilityId) {
-                const formPokemonName = `${pokemon.name}`;
-                const existingIndex = pokemonWithAbility.findIndex(
-                  (item) => item.pokemon.name === formPokemonName,
-                );
+        // Store the Ability data using its ID as the key
+        baseData[ability.id] = ability;
+      });
 
-                if (existingIndex >= 0) {
-                  const existing = pokemonWithAbility[existingIndex];
-                  if (!existing.abilityTypes.includes(ability.abilityType)) {
-                    existing.abilityTypes.push(ability.abilityType);
-                  }
-                  existing.faithful = true;
-                  if (ability.isHidden) existing.isHidden = true;
-                } else {
-                  pokemonWithAbility.push({
-                    pokemon: {
-                      ...pokemon,
-                      // name: formPokemonName,
-                      formName,
-                      // normalizedUrl: pokemonKey, // Use pokemonKey for consistent URL generation
-                    },
-                    abilityTypes: [ability.abilityType],
-                    isHidden: ability.isHidden,
-                    faithful: true,
-                    // If no specific updated abilities for form, use faithful for both versions
-                    updated: !formUpdatedAbilities || formUpdatedAbilities.length === 0,
-                  });
-                }
-              }
-            });
-          }
-
-          // Check updated abilities for form
-          if (effectiveFormUpdatedAbilities) {
-            effectiveFormUpdatedAbilities.forEach((ability: any) => {
-              if (ability.id && ability.id.toLowerCase() === normalizedAbilityId) {
-                const formPokemonName = pokemon.name;
-                const existingIndex = pokemonWithAbility.findIndex(
-                  (item) => item.pokemon.name === formPokemonName,
-                );
-
-                if (existingIndex >= 0) {
-                  const existing = pokemonWithAbility[existingIndex];
-                  if (!existing.abilityTypes.includes(ability.abilityType)) {
-                    existing.abilityTypes.push(ability.abilityType);
-                  }
-                  existing.updated = true;
-                  if (ability.isHidden) existing.isHidden = true;
-                } else {
-                  pokemonWithAbility.push({
-                    pokemon: {
-                      ...pokemon,
-                      // name: formPokemonName,
-                      formName,
-                      // normalizedUrl: pokemonKey, // Use pokemonKey for consistent URL generation
-                    },
-                    abilityTypes: [ability.abilityType],
-                    isHidden: ability.isHidden,
-                    updated: true,
-                  });
-                }
-              }
-            });
-          }
-        });
-      }
-    } catch (error: any) {
-      // Skip Pokemon if there's an error loading their data
-      console.warn(`Error loading data for ${pokemonKey}:`, error.message);
-      continue;
+      console.log(`Successfully processed ${Object.keys(baseData).length} Abilities on client`);
+      return baseData;
     }
+  } catch (error) {
+    console.error('Error loading Abilities from new manifest:', error);
+    return {};
   }
-
-  // Sort ability types by priority (primary > secondary > hidden)
-  pokemonWithAbility.forEach((item) => {
-    item.abilityTypes.sort((a, b) => {
-      const order = { primary: 0, secondary: 1, hidden: 2 };
-      return (order[a as keyof typeof order] || 999) - (order[b as keyof typeof order] || 999);
-    });
-  });
-
-  return pokemonWithAbility.sort((a, b) => a.pokemon.name.localeCompare(b.pokemon.name));
 }
 
-export type { AbilityManifest };
+/**
+ * Load detailed move data from individual files (new/moves/{id}.json)
+ * This contains version-specific data with learner information
+ */
+export async function loadDetailedAbilityData(abilityId: string): Promise<AbilityData> {
+  try {
+    // Check if we're in a server environment
+    if (typeof window === 'undefined') {
+      // Server-side: Load the detailed ability data directly
+      const abilityData = await loadJsonFile<AbilityData>(`new/abilities/${abilityId}.json`);
+      return (
+        abilityData || {
+          id: abilityId,
+          name: '',
+          versions: {},
+        }
+      );
+    } else {
+      // Client-side: Use fetch
+      const response = await fetch(`/new/abilities/${abilityId}.json`);
+      if (!response.ok) {
+        console.error(`Failed to load detailed data for ability ${abilityId} on client`);
+      }
+
+      const abilityData = await response.json();
+      return abilityData;
+    }
+  } catch (error) {
+    console.error(`Error loading detailed data for ability ${abilityId}:`, error);
+    throw error;
+  }
+}

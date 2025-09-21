@@ -5,14 +5,9 @@ import { ArrowUpDown, ArrowUp, ArrowDown, ExternalLink } from 'lucide-react';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import { accentInsensitiveIncludes } from '@/utils/stringUtils';
+import { AbilityData } from '@/types/new';
 
-interface Ability {
-  id: string;
-  name?: string;
-  description?: string;
-}
-
-export const abilityColumns: ColumnDef<Ability>[] = [
+export const abilityColumns = (version: string): ColumnDef<AbilityData>[] => [
   {
     accessorKey: 'name',
     header: ({ column }) => {
@@ -83,7 +78,7 @@ export const abilityColumns: ColumnDef<Ability>[] = [
       const ability = row.original;
       return (
         <div className="text-cell max-w-md truncate">
-          {ability.description || 'No description available'}
+          {ability.versions[version].description || 'No description available'}
         </div>
       );
     },

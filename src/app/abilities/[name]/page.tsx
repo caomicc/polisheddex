@@ -10,29 +10,25 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { Hero } from '@/components/ui/Hero';
-import { loadAbilityById, getPokemonThatHaveAbility } from '@/utils/loaders/ability-data-loader';
 import AbilityDetailClient from '@/components/abilities/ability-detail-client';
 import { PokemonGridSkeleton } from '@/components/pokemon/pokemon-card-skeleton';
+import { loadAbilitiesData, loadDetailedAbilityData } from '@/utils/loaders/ability-data-loader';
+import { AbilityData } from '@/types/new';
 
-export default async function AbilityDetail({ params }: { params: Promise<{ name: string }> }) {
-  const nameParam = (await params).name;
-  const abilityName = decodeURIComponent(nameParam);
+export default async function AbilityDetail({ params }: { params: Promise<AbilityData> }) {
+  const abilityId = (await params).name;
 
   // Load ability data
-  const abilityData = await loadAbilityById(abilityName.toLowerCase());
+  const abilityData = await loadDetailedAbilityData(abilityId);
 
   if (!abilityData) {
     return notFound();
   }
 
-  // Load Pokemon that have this ability
-  const pokemonWithAbility = await getPokemonThatHaveAbility(abilityName.toLowerCase());
-
   return (
     <>
       <Hero
-        headline={abilityData.name || abilityName}
-        description={abilityData.description || 'Ability details and Pokemon that have it'}
+        headline={abilityData.name}
         breadcrumbs={
           <Breadcrumb>
             <BreadcrumbList>
@@ -53,7 +49,7 @@ export default async function AbilityDetail({ params }: { params: Promise<{ name
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage className="">{abilityData.name || abilityName}</BreadcrumbPage>
+                <BreadcrumbPage className="">{abilityData.name}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -62,11 +58,7 @@ export default async function AbilityDetail({ params }: { params: Promise<{ name
 
       <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
         <Suspense fallback={<PokemonGridSkeleton count={8} />}>
-          <AbilityDetailClient
-            abilityData={abilityData}
-            pokemonWithAbility={pokemonWithAbility}
-            abilityName={abilityData.name || abilityName}
-          />
+          <AbilityDetailClient abilityData={abilityData} />
         </Suspense>
       </div>
     </>
@@ -76,7 +68,6 @@ export default async function AbilityDetail({ params }: { params: Promise<{ name
 // Generate static params for all abilities
 export async function generateStaticParams() {
   try {
-    const { loadAbilitiesData } = await import('@/utils/loaders/ability-data-loader');
     const abilitiesData = await loadAbilitiesData();
 
     return Object.keys(abilitiesData).map((abilityKey) => ({
@@ -90,11 +81,10 @@ export async function generateStaticParams() {
 
 // Generate metadata for SEO and social sharing
 export async function generateMetadata({ params }: { params: Promise<{ name: string }> }) {
-  const nameParam = (await params).name;
-  const abilityName = decodeURIComponent(nameParam);
+  const abilityId = (await params).name;
 
   try {
-    const abilityData = await loadAbilityById(abilityName.toLowerCase());
+    const abilityData = await loadDetailedAbilityData(abilityId);
 
     if (!abilityData) {
       return {
@@ -103,22 +93,18 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
       };
     }
 
-    const pokemonCount = await getPokemonThatHaveAbility(abilityName.toLowerCase());
-    const pokemonCountText =
-      pokemonCount.length > 0 ? ` ${pokemonCount.length} Pokémon have this ability.` : '';
+    const title = `${abilityData.name} | PolishedDex`;
+    const description = `${abilityData.versions['polished'].description || 'Ability details'} View all Pokémon that have ${abilityData.name} in Pokémon Polished Crystal.`;
+    const url = `https://www.polisheddex.app/abilities/${abilityId}`;
 
-    const title = `${abilityData.name || abilityName} | PolishedDex`;
-    const description = `${abilityData.description || 'Ability details'}${pokemonCountText} View all Pokémon that have ${abilityData.name || abilityName} in Pokémon Polished Crystal.`;
-    const url = `https://www.polisheddex.app/abilities/${nameParam}`;
-
-    const socialDescription = `${abilityData.description || 'Ability details'}.${pokemonCountText}`;
+    const socialDescription = `${abilityData.versions['polished'].description || 'Ability details'}`;
 
     return {
       title,
       description,
       keywords: [
         'pokemon polished crystal',
-        abilityData.name?.toLowerCase() || abilityName.toLowerCase(),
+        abilityData.name,
         'ability',
         'pokemon abilities',
         'polisheddex',
@@ -136,7 +122,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
             url: '/og-image.png',
             width: 1200,
             height: 630,
-            alt: `${abilityData.name || abilityName} - PolishedDex`,
+            alt: `${abilityData.name} - PolishedDex`,
           },
         ],
         locale: 'en_US',

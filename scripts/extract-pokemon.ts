@@ -1049,7 +1049,7 @@ for (const abilityId of allAbilityIds) {
 
     // Add version-specific data
     for (const [version, versionData] of Object.entries(abilityManifestData.versions)) {
-      const pokemonWithAbility: { name: string; form?: string }[] = [];
+      const pokemonWithAbility: AbilityData['versions']['version']['pokemon'] = [];
 
       // Find all pokemon that have this ability in this version
       for (const pokemon of mergedPokemon) {
@@ -1057,11 +1057,30 @@ for (const abilityId of allAbilityIds) {
         if (pokemonVersionData) {
           // Check form abilities
           if (pokemonVersionData.forms) {
-            console.log(pokemon.id, pokemonVersionData.forms);
             for (const [formName, formData] of Object.entries(pokemonVersionData.forms)) {
               if (formData.abilities?.includes(abilityManifestData.id)) {
+                const abilityIndex = formData.abilities.indexOf(abilityManifestData.id);
+                const abilityTypes = [];
+
+                if (abilityIndex === 0) {
+                  abilityTypes.push('primary');
+                  // If Pokemon only has one ability, it's both primary and secondary
+                  if (
+                    formData.abilities.length === 1 ||
+                    formData.abilities[0] === formData.abilities[1]
+                  ) {
+                    abilityTypes.push('secondary');
+                  }
+                }
+                if (abilityIndex === 1) abilityTypes.push('secondary');
+                if (abilityIndex === 2) abilityTypes.push('hidden');
+
                 if (!pokemonWithAbility.some((p) => p.name === pokemon.id && p.form === formName)) {
-                  pokemonWithAbility.push({ name: pokemon.id, form: formName });
+                  pokemonWithAbility.push({
+                    name: pokemon.id,
+                    form: formName,
+                    abilityTypes: abilityTypes,
+                  });
                 }
               }
             }

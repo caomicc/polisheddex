@@ -37,15 +37,10 @@ import {
 import TableWrapper from '../ui/table-wrapper';
 import { cn } from '@/lib/utils';
 
-interface Ability {
-  id: string;
-  name?: string;
-  description?: string;
-}
-
+import { AbilityData } from '@/types/new';
 interface AbilitiesDataTableProps {
-  columns: ColumnDef<Ability, unknown>[];
-  data: Ability[];
+  columns: ColumnDef<AbilityData, unknown>[];
+  data: AbilityData[];
 }
 
 export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {

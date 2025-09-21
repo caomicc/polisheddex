@@ -3,21 +3,19 @@
 import React, { Suspense } from 'react';
 import { AbilitiesDataTable } from './abilities-data-table';
 import { abilityColumns } from './abilities-columns';
-
-interface Ability {
-  id: string;
-  name?: string;
-  description?: string;
-}
+import { AbilityData } from '@/types/new';
+import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 
 interface AbilitiesDataTableSearchProps {
-  abilities: Ability[];
+  abilities: AbilityData[];
 }
 
 const AbilitiesDataTableSearch: React.FC<AbilitiesDataTableSearchProps> = ({ abilities }) => {
+  const { showFaithful } = useFaithfulPreference();
+  const version = showFaithful ? 'faithful' : 'polished';
   return (
     <Suspense fallback={<div className="flex justify-center py-8">Loading abilities...</div>}>
-      <AbilitiesDataTable columns={abilityColumns} data={abilities} />
+      <AbilitiesDataTable columns={abilityColumns(version)} data={abilities} />
     </Suspense>
   );
 };

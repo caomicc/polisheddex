@@ -2,28 +2,24 @@
 
 import React, { useState } from 'react';
 import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
-import { PokemonWithAbility } from '@/utils/loaders/ability-data-loader';
 import PokemonWithAbilityDataTable from './pokemon-with-ability-data-table';
+import { AbilityData } from '@/types/new';
 
 interface AbilityDetailClientProps {
-  abilityData: {
-    name?: string;
-    description?: string;
-  };
-  pokemonWithAbility: PokemonWithAbility[];
-  abilityName: string;
+  abilityData: AbilityData;
 }
 
-export default function AbilityDetailClient({ pokemonWithAbility }: AbilityDetailClientProps) {
+export default function AbilityDetailClient({ abilityData }: AbilityDetailClientProps) {
   const [abilityTypeFilter, setAbilityTypeFilter] = useState<string>('all');
   const { showFaithful } = useFaithfulPreference();
+  const version = showFaithful ? 'faithful' : 'polished';
 
   return (
     <PokemonWithAbilityDataTable
-      pokemonWithAbility={pokemonWithAbility}
+      abilityData={abilityData}
       abilityTypeFilter={abilityTypeFilter}
       onAbilityTypeFilterChange={setAbilityTypeFilter}
-      showFaithful={showFaithful}
+      version={version}
     />
   );
 }

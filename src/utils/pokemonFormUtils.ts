@@ -109,17 +109,15 @@ export function extractPokemonForm(pokemonName: string): {
  * @param pokemonName - The full Pokémon name
  * @returns Formatted display string
  */
-export function formatPokemonDisplayWithForm(pokemonName: string): string {
-  const { baseName, formName } = extractPokemonForm(pokemonName);
+export function formatPokemonDisplayWithForm(pokemonName: string, formString?: string): string {
+  console.log('formatPokemonDisplayWithForm', { pokemonName, formString });
 
-  console.log('formatPokemonDisplayWithForm', { pokemonName, baseName, formName });
-
-  if (!formName) {
-    return formatPokemonBaseName(baseName);
+  if (!formString || formString === 'plain') {
+    return formatPokemonBaseName(pokemonName);
   }
 
-  const formattedBaseName = formatPokemonBaseName(baseName);
-  const formattedFormName = formatFormName(formName);
+  const formattedBaseName = formatPokemonBaseName(pokemonName);
+  const formattedFormName = formatFormName(formString);
 
   return `${formattedBaseName} (${formattedFormName})`;
 }
@@ -316,4 +314,15 @@ export function getFormTypeClass(formName: string | null): string {
   };
 
   return formClasses[formName] || '';
+}
+
+export function displayName(pokemonName: string, formString?: string): string {
+  const baseName = pokemonName
+    .replace(/_/g, ' ')
+    .toLowerCase()
+    .split(/[\s-]+/)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(pokemonName.includes('-') ? '-' : ' ');
+
+  return `${baseName}${formString && formString !== 'plain' ? ` (${formatFormName(formString)})` : ''}`;
 }

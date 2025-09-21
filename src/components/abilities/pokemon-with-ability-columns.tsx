@@ -5,14 +5,12 @@ import { Button } from '@/components/ui/button';
 import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
-import { PokemonWithAbility } from '@/utils/loaders/ability-data-loader';
-import {
-  formatPokemonDisplayWithForm,
-  formatPokemonUrlWithForm,
-  getFormTypeClass,
-} from '@/utils/pokemonFormUtils';
+import { displayName, formatPokemonUrlWithForm, getFormTypeClass } from '@/utils/pokemonFormUtils';
 import { PokemonSprite } from '../pokemon/pokemon-sprite';
-import { PokemonType } from '@/types/types';
+import { AbilityData } from '@/types/new';
+
+// Define the type for individual Pokemon with ability entries
+type PokemonWithAbility = NonNullable<AbilityData['versions'][string]['pokemon']>[number];
 
 export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
   {
@@ -20,12 +18,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     id: 'sprite',
     header: '',
     cell: ({ row }) => {
-      const { pokemon } = row.original;
-      const primaryType =
-        Array.isArray(pokemon.types) && pokemon.types.length > 0
-          ? pokemon.types[0].toLowerCase()
-          : 'unknown';
-
+      const pokemon = row.original;
       return (
         <div className="">
           <Link
@@ -39,11 +32,9 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
               hoverAnimate={true}
               pokemonName={pokemon.name}
               alt={`${pokemon.name} sprite`}
-              primaryType={primaryType as PokemonType['name']}
               variant="normal"
               type="static"
               form={typeof pokemon.form === 'string' ? pokemon.form : 'plain'}
-              src={pokemon.frontSpriteUrl}
               size="sm"
               className="shadow-none"
             />
@@ -73,19 +64,18 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     },
 
     cell: ({ row }) => {
-      const { pokemon } = row.original;
+      const pokemon = row.original;
       return (
         <Link
-          href={formatPokemonUrlWithForm(pokemon.name, pokemon.formName || '')}
+          href={formatPokemonUrlWithForm(pokemon.name, pokemon.form || '')}
           className="table-link"
         >
-          {formatPokemonDisplayWithForm(pokemon.name)}
-          {pokemon.formName && (
+          {displayName(pokemon.name)}
+          {pokemon.form && pokemon.form !== 'plain' && (
             <span
-              className={`text-xs text-muted-foreground block capitalize ${getFormTypeClass(pokemon.formName)}`}
+              className={`text-xs text-muted-foreground block capitalize ${getFormTypeClass(pokemon.form)}`}
             >
-              {formatPokemonDisplayWithForm(pokemon.formName.replace(/_form$/, '')) ||
-                pokemon.formName}
+              ({pokemon.form})
             </span>
           )}
         </Link>
@@ -93,14 +83,14 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     },
 
     filterFn: (row, id, value) => {
-      const { pokemon } = row.original;
+      const pokemon = row.original;
       const searchText = value.toLowerCase();
       const pokemonName = pokemon.name.toLowerCase();
       return pokemonName.includes(searchText);
     },
     sortingFn: (rowA, rowB) => {
-      const a = rowA.original.pokemon.name.toLowerCase();
-      const b = rowB.original.pokemon.name.toLowerCase();
+      const a = rowA.original.name.toLowerCase();
+      const b = rowB.original.name.toLowerCase();
       if (a < b) return -1;
       if (a > b) return 1;
       return 0;
@@ -128,7 +118,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
 
       return (
         <div className="flex gap-1 flex-wrap">
-          {abilityTypes.map((abilityType) => (
+          {abilityTypes.map((abilityType: string) => (
             <Badge key={abilityType} variant={abilityType}>
               {abilityType === 'primary' && 'Primary'}
               {abilityType === 'secondary' && 'Secondary'}
@@ -156,49 +146,5 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
         (typeOrder[bFirstType as keyof typeof typeOrder] || 999)
       );
     },
-  },
-  {
-    accessorKey: 'types',
-    id: 'types',
-    header: () => <span className="label-text">Types</span>,
-    cell: ({ row }) => {
-      const { pokemon } = row.original;
-      const types = Array.isArray(pokemon.types) ? pokemon.types : [pokemon.types];
-
-      return (
-        <div className="flex gap-1 flex-wrap">
-          {types.filter(Boolean).map((type: string) => (
-            <Badge
-              key={type}
-              variant={
-                type.toLowerCase() as
-                  | 'normal'
-                  | 'fire'
-                  | 'water'
-                  | 'electric'
-                  | 'grass'
-                  | 'ice'
-                  | 'fighting'
-                  | 'poison'
-                  | 'ground'
-                  | 'flying'
-                  | 'psychic'
-                  | 'bug'
-                  | 'rock'
-                  | 'ghost'
-                  | 'dragon'
-                  | 'dark'
-                  | 'steel'
-                  | 'fairy'
-              }
-              className="text-xs"
-            >
-              {type}
-            </Badge>
-          ))}
-        </div>
-      );
-    },
-    enableSorting: false,
   },
 ];
