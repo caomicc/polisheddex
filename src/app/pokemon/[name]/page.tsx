@@ -3,10 +3,9 @@ import { Suspense } from 'react';
 
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import PokemonFormClient from '@/components/pokemon/pokemon-form-client-new';
+import PokemonFormClient from '@/components/pokemon/pokemon-form-client';
 import PokemonNavigation from '@/components/pokemon/pokemon-navigation';
 import PokemonKeyboardNavigation from '@/components/pokemon/pokemon-keyboard-navigation';
-// import { FormData } from '@/types/types';
 import {
   urlKeyToStandardKey,
   getPokemonFileName,
@@ -14,24 +13,15 @@ import {
 } from '@/utils/pokemonUrlNormalizer';
 import { getPokemonNavigation } from '@/utils/pokemonNavigation';
 import { loadJsonData } from '@/utils/fileLoader';
-import { loadPokemonData } from '@/utils/loaders/pokemon-data-loader';
+import { loadBasePokemonData, loadEnrichedPokemonData } from '@/utils/loaders/pokemon-data-loader';
 import { Button } from '@/components/ui/button';
-import { loadMovesData } from '@/utils/loaders/move-data-loader';
-// import { loadFormLocationData } from '@/utils/loaders/pokemon-form-location-loader';
-// import { loadMovesData } from '@/utils/loaders/move-data-loader';
-// import { loadFormLocationData } from '@/utils/loaders/pokemon-form-location-loader';
 
 export default async function PokemonDetail({ params }: { params: Promise<{ name: string }> }) {
   const nameParam = (await params).name;
   const pokemonName = decodeURIComponent(nameParam);
 
-  // Convert the URL key to a standardized key for file lookup
-  const standardKey = urlKeyToStandardKey(pokemonName);
-
   // Load Pokemon data with resolved abilities using the new optimized loader
-  const pokemonData = await loadPokemonData(getPokemonFileName(standardKey).replace('.json', ''));
-  const moveDescData = await loadMovesData();
-  // const locationData = await loadFormLocationData();
+  const pokemonData = await loadEnrichedPokemonData(pokemonName);
 
   console.log('Loaded Pokemon Data:', pokemonData);
 
@@ -46,11 +36,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
         <h1 className="text-2xl font-bold mb-4 sr-only">{pokemonName}</h1>
         <PokemonKeyboardNavigation navigation={navigation} />
         <Suspense fallback={<div className="flex justify-center py-8">Loading...</div>}>
-          <PokemonFormClient
-            pokemonData={pokemonData}
-            moveDescData={moveDescData}
-            // locationData={locationData}
-          />
+          <PokemonFormClient pokemonData={pokemonData} />
         </Suspense>
         {/* Only render navigation if we have valid navigation data */}
         {navigation.current.index !== -1 ? (
@@ -91,7 +77,9 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   const standardKey = urlKeyToStandardKey(pokemonName);
 
   // Use the optimized loader for metadata as well
-  const pokemonData = await loadPokemonData(getPokemonFileName(standardKey).replace('.json', ''));
+  const pokemonData = await loadBasePokemonData(
+    getPokemonFileName(standardKey).replace('.json', ''),
+  );
 
   if (!pokemonData) {
     return {

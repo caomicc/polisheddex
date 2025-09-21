@@ -3,25 +3,18 @@ import { TableCell, TableRow } from '../ui/table';
 import { cn } from '@/lib/utils';
 import { Badge } from '../ui/badge';
 import MoveCategoryIcon from './move-category-icon';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 import Link from 'next/link';
 import { ExternalLink } from 'lucide-react';
-import { MoveData } from '@/types/new';
+import { MoveStats } from '@/types/new';
 
 type MoveRowProps = {
   level?: number;
-  info: MoveData;
+  id: string;
+  info: MoveStats;
 };
 
-const MoveRow: React.FC<MoveRowProps> = ({ level, info }) => {
+const MoveRow: React.FC<MoveRowProps> = ({ level, id, info }) => {
   // Desktop version uses the original two-row layout
-
-  const { showFaithful } = useFaithfulPreference();
-
-  const version = showFaithful ? 'faithful' : 'polished';
-  // Determine the effective move info based on the selected version
-
-  const effectiveInfo = info?.versions?.[version];
 
   const desktopRows = [
     <TableRow
@@ -39,47 +32,44 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, info }) => {
         rowSpan={2}
         className="align-middle font-medium p-2 text-center md:text-left text-xs md:text-md md:w-[238px]"
       >
-        <Link href={`/moves/${info.id}`} className="table-link">
-          {effectiveInfo.name}
+        <Link href={`/moves/${id}`} className="table-link">
+          {info.name}
           <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
         </Link>
       </TableCell>
 
       <TableCell className="align-middle p-2">
         <Badge
-          variant={String(effectiveInfo?.type ?? '-').toLowerCase()}
+          variant={String(info?.type ?? '-').toLowerCase()}
           // className="w-full md:w-auto text-center"
           className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
         >
-          {effectiveInfo?.type ? String(effectiveInfo.type) : '-'}
+          {info?.type ? String(info.type) : '-'}
         </Badge>
       </TableCell>
 
       <TableCell className="align-middle p-2 text-center">
         <MoveCategoryIcon
           category={
-            (effectiveInfo?.category?.toLowerCase() as
-              | 'unknown'
-              | 'physical'
-              | 'special'
-              | 'status') || 'unknown'
+            (info?.category?.toLowerCase() as 'unknown' | 'physical' | 'special' | 'status') ||
+            'unknown'
           }
         />
       </TableCell>
 
       <TableCell className="align-middle p-2 text-cell">
-        {effectiveInfo?.power ?? <span className="text-cell text-cell-muted">—</span>}
+        {info?.power ?? <span className="text-cell text-cell-muted">—</span>}
       </TableCell>
 
       <TableCell className="align-middle p-2 text-cell">
-        {effectiveInfo?.accuracy ?? <span className="text-cell text-cell-muted">—</span>}
+        {info?.accuracy ?? <span className="text-cell text-cell-muted">—</span>}
       </TableCell>
 
       <TableCell className="align-middle p-2 text-cell">
-        {effectiveInfo?.pp ?? <span className="text-cell text-cell-muted">—</span>}
+        {info?.pp ?? <span className="text-cell text-cell-muted">—</span>}
       </TableCell>
       <TableCell className="align-middle p-2 text-cell">
-        {info?.tm?.number ? (
+        {/* {info?.tm?.number ? (
           info.tm.number.toLowerCase().startsWith('mt') ? (
             <Link
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -107,7 +97,7 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, info }) => {
           )
         ) : (
           <span className="text-cell text-cell-muted">—</span>
-        )}
+        )} */}
       </TableCell>
     </TableRow>,
     <TableRow
@@ -115,10 +105,10 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, info }) => {
       className="group-hover:bg-muted/0 hover:bg-muted/0 hidden md:table-row"
     >
       <TableCell
-        className={cn('text-cell p-2 pb-3 md:pt-0', !effectiveInfo?.description && 'text-error')}
+        className={cn('text-cell p-2 pb-3 md:pt-0', !info?.description && 'text-error')}
         // colSpan={1}
       >
-        {effectiveInfo?.description}
+        {info?.description}
       </TableCell>
     </TableRow>,
   ];
@@ -146,31 +136,25 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, info }) => {
       </TableCell>
     </TableRow>,
     <TableRow
-      key={`row-${effectiveInfo.name}-${level}-mobile`}
-      id={
-        effectiveInfo.name?.toLowerCase().replace(/\s+/g, '-') ??
-        `row-${effectiveInfo.name}-${level}`
-      }
+      key={`row-${info.name}-${level}-mobile`}
+      id={info.name?.toLowerCase().replace(/\s+/g, '-') ?? `row-${info.name}-${level}`}
       className="hover:bg-muted/0 border-b-0 group md:hidden"
     >
       <TableCell className="align-middle p-1 md:p-2 ">
         <Badge
-          variant={String(effectiveInfo?.type ?? '-').toLowerCase()}
+          variant={String(info?.type ?? '-').toLowerCase()}
           // className="w-full md:w-auto text-center"
           className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
         >
-          {effectiveInfo?.type ? String(effectiveInfo.type) : '-'}
+          {info?.type ? String(info.type) : '-'}
         </Badge>
       </TableCell>
 
       <TableCell className="align-middle p-1 md:p-2 text-center">
         <MoveCategoryIcon
           category={
-            (effectiveInfo?.category?.toLowerCase() as
-              | 'unknown'
-              | 'physical'
-              | 'special'
-              | 'status') || 'unknown'
+            (info?.category?.toLowerCase() as 'unknown' | 'physical' | 'special' | 'status') ||
+            'unknown'
           }
           className={'w-4 h-4 p-[4px]'}
         />
@@ -183,18 +167,18 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, info }) => {
       </TableCell>
 
       <TableCell className="align-middle p-1 md:p-2 text-cell ">
-        {effectiveInfo?.power ?? <span className="text-cell text-cell-muted">—</span>}
+        {info?.power ?? <span className="text-cell text-cell-muted">—</span>}
       </TableCell>
 
       <TableCell className="align-middle p-1 md:p-2 text-cell">
-        {effectiveInfo?.accuracy ?? <span className="text-cell text-cell-muted">—</span>}
+        {info?.accuracy ?? <span className="text-cell text-cell-muted">—</span>}
       </TableCell>
 
       <TableCell className="align-middle p-1 md:p-2 text-cell">
-        {effectiveInfo?.pp ?? <span className="text-cell text-cell-muted">—</span>}
+        {info?.pp ?? <span className="text-cell text-cell-muted">—</span>}
       </TableCell>
       <TableCell className="align-middle p-1 md:p-2 text-cell ">
-        {info?.tm?.number ? (
+        {/* {info?.tm?.number ? (
           <Link href={`/items/${info.tm.number.toLowerCase()}`} className="table-link">
             <Badge
               variant={info.tm.number.startsWith('TM') ? 'tm' : 'hm'}
@@ -206,7 +190,7 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, info }) => {
           </Link>
         ) : (
           <span className="text-cell text-cell-muted">—</span>
-        )}
+        )} */}
       </TableCell>
     </TableRow>,
     <TableRow
@@ -216,11 +200,11 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, info }) => {
       <TableCell
         className={cn(
           'text-cell-muted text-cell p-1 md:p-2 pb-4',
-          !effectiveInfo?.description && 'text-error',
+          !info?.description && 'text-error',
         )}
         colSpan={6}
       >
-        {effectiveInfo?.description}
+        {info?.description}
       </TableCell>
     </TableRow>,
   ];

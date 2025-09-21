@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormData, PokemonType } from '@/types/types';
+import { PokemonType } from '@/types/types';
 import { Badge } from '../ui/badge';
 import PokemonFormSelect from './pokemon-form-select';
 import {
@@ -22,7 +22,7 @@ const PokedexHeader = ({
   setSelectedForm,
   // usePolished,
 }: {
-  formData: FormData;
+  formData: any;
   uniqueForms: string[];
   pokemonName: string;
   selectedForm: string;

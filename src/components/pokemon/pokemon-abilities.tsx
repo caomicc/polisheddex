@@ -1,51 +1,22 @@
 import * as React from 'react';
-import { DetailedStats } from '@/types/types';
 import { cn } from '@/lib/utils';
 import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 import { BentoGridItem } from '../ui/bento-box';
 import { Badge } from '../ui/badge';
 
 interface PokemonAbilitiesProps {
-  abilities?: DetailedStats['abilities'];
-  faithfulAbilities?: DetailedStats['faithfulAbilities'];
-  updatedAbilities?: DetailedStats['updatedAbilities'];
+  abilities?: {
+    id: string;
+    name: string;
+    description?: string;
+  }[];
   className?: string;
 }
 
-interface ResolvedAbility {
-  id: string;
-  name: string;
-  description: string;
-  isHidden: boolean;
-  abilityType: 'primary' | 'secondary' | 'hidden';
-}
-
-export function PokemonAbilities({
-  abilities,
-  faithfulAbilities,
-  updatedAbilities,
-  className,
-}: PokemonAbilitiesProps) {
+export function PokemonAbilities({ abilities, className }: PokemonAbilitiesProps) {
   const { showFaithful } = useFaithfulPreference();
-
-  console.log('PokemonAbilities render', {
-    abilities,
-    faithfulAbilities,
-    updatedAbilities,
-    showFaithful,
-  });
-
-  // Determine which abilities to show based on faithful preference and availability
-  let abilitiesToShow;
-  if (showFaithful) {
-    abilitiesToShow =
-      faithfulAbilities && faithfulAbilities.length > 0 ? faithfulAbilities : abilities;
-  } else {
-    abilitiesToShow =
-      updatedAbilities && updatedAbilities.length > 0 ? updatedAbilities : abilities;
-  }
-
-  if (!abilitiesToShow || abilitiesToShow.length === 0) {
+  const version = showFaithful ? 'faithful' : 'polished';
+  if (!abilities || abilities.length === 0) {
     return (
       <div className={'space-y-2 ' + className}>
         <h3>Abilities:</h3>
@@ -56,36 +27,31 @@ export function PokemonAbilities({
     );
   }
 
-  // Convert abilities to resolved format for display
-  const resolvedAbilities: ResolvedAbility[] = abilitiesToShow.map((ability) => ({
-    id: ability.id,
-    name: ability.name || ability.id?.replace(/-/g, ' ') || 'Unknown',
-    description: ability.description || 'No description available',
-    isHidden: ability.isHidden ?? false,
-    abilityType: ability.abilityType ?? 'primary',
-  }));
-
-  console.log('Resolved abilities:', resolvedAbilities);
-
-  return resolvedAbilities.map((ability, idx) => (
-    <AbilityRow key={`${ability.id}-${idx}`} ability={ability} />
+  return abilities.map((ability, idx) => (
+    <AbilityRow key={`${ability.id}-${idx}`} ability={ability} version={version} order={idx} />
   ));
 }
 
-function AbilityRow({ ability }: { ability: ResolvedAbility }) {
+function AbilityRow({
+  ability,
+  version,
+  order,
+}: {
+  ability: { id: string; name: string; description?: string };
+  version: string;
+  order: number;
+}) {
+  console.log(
+    `Rendering Ability: ${JSON.stringify(ability)} (${ability.id}) for version: ${version}`,
+  );
+  const abilityType = order === 0 ? 'primary' : order === 1 ? 'secondary' : 'hidden';
   return (
-    // <BentoGridNoLink className="md:col-span-2">
-    //   <span className="text-xs text-foreground capitalize">
-    //     {ability.name} ({ability.abilityType}):
-    //   </span>
-    //   <span className="text-xs text-muted-foreground">{ability.description}</span>
-    // </BentoGridNoLink>
     <BentoGridItem
-      icon={<Badge variant={ability.abilityType}>{ability.abilityType} Ability</Badge>}
+      icon={<Badge variant={abilityType}>{abilityType} Ability</Badge>}
       className="md:col-span-2"
       title={`${ability.name}`}
-      description={ability.description}
-      href={`/abilities/${ability.name.toLowerCase().replace(/ /g, '-')}`}
+      description={ability.description || 'No description available'}
+      href={`/abilities/${ability.id}`}
     />
   );
 }

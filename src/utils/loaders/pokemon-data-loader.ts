@@ -1,7 +1,9 @@
 // Enhanced Pokemon data loader that works with compressed data and manifests
 
 import { loadJsonFile } from '../fileLoader';
-import { PokemonManifest, ComprehensivePokemonData } from '@/types/new';
+import { PokemonManifest, ComprehensivePokemonData, PokemonMovesets } from '@/types/new';
+import { loadDetailedMoveData } from './move-data-loader';
+import { loadDetailedAbilityData } from './ability-data-loader';
 
 /**
  * Load Pokemon data from the new manifest structure (new/pokemon_manifest.json)
@@ -111,7 +113,9 @@ export function hasMultipleForms(
  * Load individual Pokemon data from new/pokemon/{pokemonId}.json
  * This function loads the complete Pokemon data including stats, moves, abilities, etc.
  */
-export async function loadPokemonData(pokemonId: string): Promise<ComprehensivePokemonData | null> {
+export async function loadBasePokemonData(
+  pokemonId: string,
+): Promise<ComprehensivePokemonData | null> {
   try {
     console.log(`Loading individual Pokemon data for: ${pokemonId}`);
 
@@ -157,45 +161,161 @@ export async function loadPokemonData(pokemonId: string): Promise<ComprehensiveP
 }
 
 /**
- * Load multiple Pokemon data files by their IDs
+ * Load individual Pokemon data with enriched move and ability details
+ * This function loads Pokemon data and enriches movesets with detailed move information
+ * and abilities with detailed ability information
  */
-export async function loadMultiplePokemonData(
-  pokemonIds: string[],
-): Promise<{ [pokemonId: string]: ComprehensivePokemonData }> {
+export async function loadEnrichedPokemonData(
+  pokemonId: string,
+): Promise<ComprehensivePokemonData | null> {
   try {
-    console.log(`Loading ${pokemonIds.length} Pokemon data files...`);
+    console.log(`Loading Pokemon data with move and ability details for: ${pokemonId}`);
 
-    const results: { [pokemonId: string]: ComprehensivePokemonData } = {};
+    // First load the basic Pokemon data
+    const pokemonData = await loadBasePokemonData(pokemonId);
+    if (!pokemonData) {
+      return null;
+    }
 
-    // Load all Pokemon data in parallel
-    const promises = pokemonIds.map(async (id) => {
-      const data = await loadPokemonData(id);
-      if (data) {
-        results[id] = data;
+    // Enrich the Pokemon data with detailed move and ability information
+    const enrichedVersions: ComprehensivePokemonData['versions'] = {};
+
+    for (const [versionName, versionData] of Object.entries(pokemonData.versions)) {
+      console.log(
+        `Enriching moves and abilities for ${pokemonData.name} in version: ${versionName}`,
+      );
+
+      const enrichedForms: typeof versionData.forms = {};
+
+      for (const [formName, formData] of Object.entries(versionData.forms || {})) {
+        // Enrich movesets
+        const enrichedMovesets = formData.movesets
+          ? await enrichMovesets(formData.movesets, versionName)
+          : undefined;
+
+        // Enrich abilities
+        const enrichedAbilities = formData.abilities
+          ? await enrichAbilities(formData.abilities, versionName)
+          : undefined;
+
+        enrichedForms[formName] = {
+          ...formData,
+          movesets: enrichedMovesets,
+          abilities: enrichedAbilities,
+        };
       }
-    });
 
-    await Promise.all(promises);
+      enrichedVersions[versionName] = {
+        ...versionData,
+        forms: enrichedForms,
+      };
+    }
+
+    const result = {
+      ...pokemonData,
+      versions: enrichedVersions,
+    };
 
     console.log(
-      `Successfully loaded ${Object.keys(results).length}/${pokemonIds.length} Pokemon data files`,
+      `Successfully enriched Pokemon data with moves and abilities for: ${pokemonData.name}`,
     );
-    return results;
+    return result;
   } catch (error) {
-    console.error('Error loading multiple Pokemon data:', error);
-    return {};
+    console.error(`Error loading Pokemon data with moves and abilities for ${pokemonId}:`, error);
+    return null;
   }
 }
 
 /**
- * Helper function to get Pokemon types from comprehensive data
+ * Helper function to enrich movesets with detailed move data
  */
-export function getComprehensivePokemonTypes(
-  pokemon: ComprehensivePokemonData,
-  version: 'polished' | 'faithful' = 'polished',
-  form: string = 'plain',
-): string[] {
-  return pokemon.versions?.[version]?.forms?.[form]?.types || [];
+async function enrichMovesets(movesets: any, versionName: string): Promise<any> {
+  const enrichedMovesets: Record<string, any> = {};
+
+  for (const [movesetType, moves] of Object.entries(movesets)) {
+    if (Array.isArray(moves)) {
+      // Handle different types of moves
+      enrichedMovesets[movesetType] = await Promise.all(
+        moves.map(async (move: any) => {
+          try {
+            if (typeof move === 'string') {
+              const moveData = await loadDetailedMoveData(move);
+              const versionData = moveData.versions?.[versionName] || {};
+
+              // Create enriched move object, excluding learners and ensuring name is preserved
+              const { learners, name, ...moveStats } = versionData;
+              return {
+                name, // Preserve original move name
+                ...moveStats, // All other move data (power, accuracy, etc.)
+              };
+            } else if (move && typeof move === 'object' && move.name) {
+              // Move with additional properties (like level-up moves)
+              const moveData = await loadDetailedMoveData(move.name);
+              const versionData = moveData.versions?.[versionName] || {};
+
+              // Create enriched move object, excluding learners and preserving original data
+              const { learners, name, ...moveStats } = versionData;
+
+              console.log(`Enriched move data for ${move.name}:`, versionData);
+              return {
+                name, // Preserve original move name
+                level: move.level, // Preserve level if present
+                ...moveStats, // Move stats (power, accuracy, etc.)
+              };
+            } else {
+              // Invalid move data, return as-is
+              console.warn(`Invalid move data:`, move);
+              return move;
+            }
+          } catch (error) {
+            console.warn(`Failed to load move data for:`, move, error);
+            return move; // Return original data if enrichment fails
+          }
+        }),
+      );
+    } else {
+      // Non-array movesets, keep as-is
+      enrichedMovesets[movesetType] = moves;
+    }
+  }
+
+  return enrichedMovesets;
+}
+
+/**
+ * Helper function to enrich abilities with detailed ability data
+ */
+async function enrichAbilities(abilities: string[], versionName: string): Promise<any[]> {
+  console.log(`Enriching ${abilities.length} abilities for version: ${versionName}`);
+
+  return await Promise.all(
+    abilities.map(async (abilityName: string) => {
+      try {
+        console.log(`Loading detailed data for ability: ${abilityName}`);
+        const abilityData = await loadDetailedAbilityData(abilityName);
+        const versionData = abilityData.versions?.[versionName] || {};
+
+        // Extract description and other data, avoiding duplicates
+        const { description, pokemon, ...otherVersionData } = versionData;
+
+        return {
+          id: abilityName,
+          name: abilityData.name || abilityName,
+          description: description || '',
+          // Include any other version-specific data except pokemon (to avoid circular references)
+          ...otherVersionData,
+        };
+      } catch (error) {
+        console.warn(`Failed to load ability data for: ${abilityName}`, error);
+        // Return basic ability info if enrichment fails
+        return {
+          id: abilityName,
+          name: abilityName,
+          description: '',
+        };
+      }
+    }),
+  );
 }
 
 /**

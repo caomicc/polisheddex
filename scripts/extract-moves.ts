@@ -1,7 +1,7 @@
 import { readFile, writeFile, mkdir, rm, readdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { displayName, parseMoveDescription, reduce, toTitleCase } from '@/lib/extract-utils';
+import { parseMoveDescription, reduce, toTitleCase } from '@/lib/extract-utils';
 import splitFile from '@/lib/split';
 import {
   ComprehensivePokemonData,
@@ -189,7 +189,7 @@ const extractMoveData = async () => {
           const category = parts[7].trim();
 
           stats[moveId] = {
-            name: displayName(parts[0].replace('move ', '')),
+            name: toTitleCase(parts[0].replace('move ', '').trim()),
             description: '',
             power,
             type: reduce(type),
@@ -330,7 +330,7 @@ const extractPokemonLearners = async () => {
             for (const move of movesets.levelUp) {
               if (!move || !move.name) continue; // Skip invalid moves
 
-              const moveId = move.name;
+              const moveId = String(move.name);
               if (!moveLearners[version][moveId]) {
                 moveLearners[version][moveId] = {};
               }
@@ -362,7 +362,7 @@ const extractPokemonLearners = async () => {
           if (movesets.tm && Array.isArray(movesets.tm)) {
             for (const tmMove of movesets.tm) {
               // TM moves are stored as strings
-              const moveId = tmMove;
+              const moveId = String(tmMove);
               if (!moveId) continue; // Skip invalid moves
 
               if (!moveLearners[version][moveId]) {
@@ -390,7 +390,7 @@ const extractPokemonLearners = async () => {
           if (movesets.eggMoves && Array.isArray(movesets.eggMoves)) {
             for (const eggMove of movesets.eggMoves) {
               // Egg moves are stored as strings
-              const moveId = eggMove;
+              const moveId = String(eggMove);
               if (!moveId) continue; // Skip invalid moves
 
               if (!moveLearners[version][moveId]) {
@@ -429,7 +429,6 @@ const extractMovesData = async () => {
 
   const [moveNames, moveStats, tmhmInfo, pokemonLearners] = await Promise.all([
     extractMoveNames(),
-    // extractMoveDescriptions(),
     extractMoveData(),
     extractTMHMInfo(),
     extractPokemonLearners(),
@@ -487,7 +486,7 @@ const extractMovesData = async () => {
 
     moves.push({
       id: moveId,
-      name: moveName,
+      // name: moveName,
       versions,
       ...(tmhmInfo[moveId] && { tm: tmhmInfo[moveId] }),
     });
@@ -537,7 +536,7 @@ export default async function extractMoves() {
           Object.entries(move.versions).map(([versionName, stats]) => [
             versionName,
             {
-              name: toTitleCase(stats.name || move.name || 'Unknown'),
+              name: toTitleCase(stats.name),
               type: stats.type || 'None',
               power: stats.power || 0,
               accuracy: stats.accuracy || 100,

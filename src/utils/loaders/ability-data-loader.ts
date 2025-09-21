@@ -1,7 +1,7 @@
 // Additional functionality for finding Pokemon that have abilities
 import { AbilityData } from '@/types/new';
 import { loadJsonFile } from '../fileLoader';
-import { getPokemonTypes, loadPokemonData } from './pokemon-data-loader';
+import { getPokemonTypes, loadBasePokemonData } from './pokemon-data-loader';
 
 /**
  * Load abilities data using the manifest system
@@ -134,18 +134,27 @@ export async function loadDetailedAbilityData(abilityId: string): Promise<Abilit
             );
 
             // Validate that Pokemon has required properties
-            if (!pokemon.id) {
-              console.warn(`Skipping Pokemon with missing id in ability ${abilityId}`);
+            if (!pokemon.name) {
+              console.warn(`Skipping Pokemon with missing name in ability ${abilityId}`);
               return pokemon;
             }
 
             try {
-              const pokemonData = await loadPokemonData(pokemon.id);
+              // Pokemon objects in abilities use 'name' property, but loadBasePokemonData expects 'id'
+              // The pokemon name should match the pokemon id in most cases
+              const pokemonId = pokemon.name.toLowerCase();
+              console.log(`Loading Pokemon data for: ${pokemon.name} (ID: ${pokemonId})`);
+
+              const pokemonData = await loadBasePokemonData(pokemonId);
 
               if (pokemonData) {
                 console.log(`Loaded Pokemon data for ${pokemon.name}:`, pokemonData);
 
-                const types = await getPokemonTypes(pokemonData, versionName, pokemon.form);
+                const types = await getPokemonTypes(
+                  pokemonData,
+                  versionName,
+                  pokemon.form || 'plain',
+                );
 
                 console.log(`Enriched ${pokemon.name} with types: ${types?.join(', ')}`);
 
@@ -155,7 +164,7 @@ export async function loadDetailedAbilityData(abilityId: string): Promise<Abilit
                 };
               }
             } catch (error) {
-              console.warn(`Failed to load Pokemon data for ${pokemon.id}:`, error);
+              console.warn(`Failed to load Pokemon data for ${pokemon.name}:`, error);
             }
 
             // If Pokemon not found or failed to load, return original data

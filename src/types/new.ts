@@ -83,12 +83,16 @@ export interface MoveLearner {
 }
 
 export interface PokemonMovesets {
-  levelUp?: {
-    name: string;
+  levelUp?: (Partial<MoveStats> & {
+    id: string;
     level: number;
-  }[];
-  tm?: string[]; // TM move names
-  eggMoves?: string[];
+  })[];
+  tm?: (Partial<MoveStats> & {
+    id: string;
+  })[]; // TM move names
+  eggMoves?: (Partial<MoveStats> & {
+    id: string;
+  })[];
 }
 
 export interface PokemonManifest {
