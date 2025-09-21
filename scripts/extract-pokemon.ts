@@ -2,6 +2,7 @@ import { readFile, readdir, writeFile, mkdir, rm } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import {
+  AbilityData,
   AbilityManifest,
   ChainLink,
   ComprehensivePokemonData,
@@ -1001,9 +1002,64 @@ for (const pokemon of mergedPokemon) {
 const manifestPath = join(outputDir, 'pokemon_manifest.json');
 await writeFile(manifestPath, JSON.stringify(manifest, null, 2), 'utf-8');
 
-// Write moves manifest file
+// Write abilities manifest file
 const abilitiesManifestPath = join(outputDir, 'abilities_manifest.json');
 await writeFile(abilitiesManifestPath, JSON.stringify(abilitiesManifest, null, 2), 'utf-8');
+
+// Create abilities directory and write individual ability files
+const abilitiesDir = join(outputDir, 'abilities');
+try {
+  await rm(abilitiesDir, { recursive: true, force: true });
+  await mkdir(abilitiesDir, { recursive: true });
+} catch (error) {
+  if (error) {
+    throw error;
+  }
+}
+
+// Generate individual ability files with basic ID structure
+const abilityFiles: Promise<void>[] = [];
+
+// Get unique ability IDs across all versions
+const allAbilityIds = new Set<string>();
+for (const versionAbilities of Object.values(abilitiesManifest)) {
+  for (const abilityId of Object.keys(versionAbilities)) {
+    allAbilityIds.add(abilityId);
+  }
+}
+
+for (const abilityId of allAbilityIds) {
+  const abilityFile = async () => {
+    // Create ability data with versions structure matching the updated AbilityData interface
+    const abilityFileData: AbilityData = {
+      id: abilityId,
+      name:
+        abilitiesManifest.polished[abilityId]?.name ||
+        abilitiesManifest.faithful[abilityId]?.name ||
+        abilityId,
+      versions: {},
+    };
+
+    // Add version-specific data
+    for (const [version, versionAbilities] of Object.entries(abilitiesManifest)) {
+      const abilityData = versionAbilities[abilityId];
+      if (abilityData) {
+        abilityFileData.versions[version] = {
+          description: abilityData.description,
+          pokemon: [], // Will be populated later
+        };
+      }
+    }
+
+    const abilityFilePath = join(abilitiesDir, `${abilityId}.json`);
+    await writeFile(abilityFilePath, JSON.stringify(abilityFileData, null, 2), 'utf-8');
+  };
+
+  abilityFiles.push(abilityFile());
+}
+
+await Promise.all(abilityFiles);
+console.log(`✅ Individual ability files written to ${abilitiesDir}`);
 
 const buildFullChains = (
   evoData: Record<string, Record<string, EvolutionData[]>>,

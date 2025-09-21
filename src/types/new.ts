@@ -107,13 +107,18 @@ export interface PokemonManifest {
 
 export interface AbilityData {
   name: string;
-  description: string;
-  pokemon: PokemonData['name'][];
+  id: string;
+  versions: {
+    [versionName: string]: {
+      description: string;
+      pokemon: PokemonData['name'][];
+    };
+  };
 }
 
 export interface AbilityManifest {
   name: AbilityData['name'];
-  description: AbilityData['description'];
+  description: string;
 }
 
 export interface EvolutionData {
