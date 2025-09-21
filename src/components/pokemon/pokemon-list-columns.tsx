@@ -22,7 +22,7 @@ export const createPokemonListColumns = (version: string): ColumnDef<PokemonMani
       return (
         <div className="">
           <Link
-            href={formatPokemonUrlWithForm(pokemon.id, pokemon.formName)}
+            href={formatPokemonUrlWithForm(pokemon.name, pokemon.formName)}
             className="table-link"
           >
             <PokemonSprite
@@ -101,7 +101,7 @@ export const createPokemonListColumns = (version: string): ColumnDef<PokemonMani
         <div className="min-w-0">
           <Link
             className="table-link"
-            href={formatPokemonUrlWithForm(pokemon.id, pokemon.formName)}
+            href={formatPokemonUrlWithForm(pokemon.name, pokemon.formName)}
           >
             {pokemon.name}
             {pokemon.formName && pokemon.formName !== 'plain' && (
@@ -114,7 +114,7 @@ export const createPokemonListColumns = (version: string): ColumnDef<PokemonMani
         </div>
       );
     },
-    filterFn: (row, id, value) => {
+    filterFn: (row, value) => {
       const pokemon = row.original;
       const searchText = value.toLowerCase();
 

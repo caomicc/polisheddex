@@ -1,25 +1,41 @@
 import React from 'react';
 import { PokemonType } from '@/types/types';
-import typeChartData from '../../../output/type_chart.json';
+import { PokemonType as TypeChartType, getTypeEffectiveness } from '@/data/typeChart';
 import { Badge } from '../ui/badge';
 
-// TODO: Update types`
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const TYPE_CHART: Record<string, Record<string, number>> = typeChartData as any;
-const ALL_TYPES = Object.keys(TYPE_CHART).filter((type) => {
-  const data = TYPE_CHART[type];
-  return data && Object.keys(data).length > 0;
-});
+const ALL_TYPES: TypeChartType[] = [
+  'NORMAL',
+  'FIRE',
+  'WATER',
+  'ELECTRIC',
+  'GRASS',
+  'ICE',
+  'FIGHTING',
+  'POISON',
+  'GROUND',
+  'FLYING',
+  'PSYCHIC',
+  'BUG',
+  'ROCK',
+  'GHOST',
+  'DRAGON',
+  'DARK',
+  'STEEL',
+  'FAIRY',
+];
 
-function getTypeEffectiveness(defTypes: string[]): Record<string, number> {
+function getDefensiveEffectiveness(defTypes: string[]): Record<string, number> {
   // For each attacking type, calculate the combined multiplier against all defending types
   const result: Record<string, number> = {};
   for (const attackType of ALL_TYPES) {
     let multiplier = 1;
     for (const defType of defTypes) {
-      const chart = TYPE_CHART[attackType] || {};
-      const m = chart[defType] ?? 1;
-      multiplier *= m;
+      // Convert string types to TypeChartType and get effectiveness
+      const effectiveness = getTypeEffectiveness(
+        attackType,
+        defType.toUpperCase() as TypeChartType,
+      );
+      multiplier *= effectiveness;
     }
     result[attackType] = multiplier;
   }
@@ -27,7 +43,7 @@ function getTypeEffectiveness(defTypes: string[]): Record<string, number> {
 }
 
 export function WeaknessChart({ types }: { types: string[]; variant?: string }) {
-  const effectiveness = getTypeEffectiveness(types);
+  const effectiveness = getDefensiveEffectiveness(types);
   const weaknesses = ALL_TYPES.filter((type) => effectiveness[type] > 1);
   const strengths = ALL_TYPES.filter((type) => effectiveness[type] < 1 && effectiveness[type] > 0);
 

@@ -2,53 +2,11 @@
 // This file defines which Pokemon have variants/forms based on the ROM constants
 
 export const POKEMON_VARIANTS = {
-  // Unown forms (cosmetic variants)
-  // UNOWN: [
-  //   'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-  //   'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-  //   'exclamation', 'question'
-  // ],
-
-  // Arbok forms removed - these were just cosmetic sprite variants without gameplay differences
-
-  // Pikachu forms (cosmetic variants)
-  // PIKACHU: ['plain', 'fly', 'surf', 'red', 'yellow', 'spark'],
-
-  // Pichu forms (cosmetic variants)
-  // PICHU: ['plain', 'spiky-eared'],
-
-  // Magikarp forms (cosmetic variants)
-  // MAGIKARP: [
-  //   'plain',
-  //   'skelly',
-  //   'calico1',
-  //   'calico2',
-  //   'calico3',
-  //   'two-tone',
-  //   'orca',
-  //   'dapples',
-  //   'tiger',
-  //   'zebra',
-  //   'stripe',
-  //   'bubbles',
-  //   'diamonds',
-  //   'patches',
-  //   'forehead1',
-  //   'mask1',
-  //   'forehead2',
-  //   'mask2',
-  //   'saucy',
-  //   'raindrop',
-  // ],
-
   // Gyarados forms (variant forms)
   GYARADOS: ['plain'],
 
   // Mewtwo forms (variant forms)
   MEWTWO: ['plain', 'armored'],
-
-  // Dudunsparce forms (variant forms)
-  // DUDUNSPARCE: ['two-segment', 'three-segment'],
 
   // Alolan forms (variant forms)
   RATTATA: ['plain', 'alolan'],
