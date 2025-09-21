@@ -1,7 +1,7 @@
 import { readFile, writeFile, mkdir, rm } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { LocationData, LocationManifest } from '@/types/new';
+import { LocationData, LocationManifest, EventsManifest } from '@/types/new';
 import {
   reduce,
   normalizeString,
@@ -520,6 +520,8 @@ try {
 
 // Write individual location files
 const locationManifest: LocationManifest[] = [];
+const eventsManifest: EventsManifest[] = [];
+
 await Promise.all(
   locations.map(async (location) => {
     const locationPath = join(locationsDir, `${location.id}.json`);
@@ -539,14 +541,29 @@ await Promise.all(
       trainerCount: location.trainers?.length,
       eventCount: locationEvents[location.id]?.length,
     });
+
+    // Add events to events manifest if location has events
+    if (location.events && location.events.length > 0) {
+      location.events.forEach((event) => {
+        eventsManifest.push({
+          id: event.name,
+          location: location.id,
+          ...event,
+        });
+      });
+    }
   }),
 );
 
 locationManifest.sort((a, b) => a.name.localeCompare(b.name));
+eventsManifest.sort((a, b) => a.id.localeCompare(b.id));
 
-// Write manifest file
+// Write manifest files
 const locationManifestPath = join(outputDir, 'locations_manifest.json');
 await writeFile(locationManifestPath, JSON.stringify(locationManifest, null, 2), 'utf-8');
+
+const eventsManifestPath = join(outputDir, 'events_manifest.json');
+await writeFile(eventsManifestPath, JSON.stringify(eventsManifest, null, 2), 'utf-8');
 
 console.log('Location extraction complete!');
 

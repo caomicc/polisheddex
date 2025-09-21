@@ -204,14 +204,16 @@ export interface LocationData {
     to: LocationData['name'];
     toId: LocationData['id'];
   }[];
-  events?: {
-    name: string;
-    description: string;
-    type: string; // itemball, fruit tree, trainer, rock smash,
-    item?: string;
-  }[];
+  events?: EventData[];
   items?: ItemLocation[];
   trainers?: string[];
+}
+
+export interface EventData {
+  name: string;
+  description: string;
+  type: string; // itemball, fruit tree, trainer, rock smash,
+  item?: string;
 }
 
 export interface LocationManifest {
@@ -273,6 +275,11 @@ export interface TrainerManifest {
   name: TrainerData['name'];
   class: TrainerData['class'];
   constantName?: TrainerData['constantName'];
+}
+
+export interface EventsManifest extends EventData {
+  id: string;
+  location: string;
 }
 
 // Build and write evolution chains
