@@ -11,9 +11,13 @@ type MoveRowProps = {
   level?: number;
   id: string;
   info: MoveStats;
+  tm?: {
+    number: string;
+    location?: string;
+  };
 };
 
-const MoveRow: React.FC<MoveRowProps> = ({ level, id, info }) => {
+const MoveRow: React.FC<MoveRowProps> = ({ level, id, info, tm }) => {
   // Desktop version uses the original two-row layout
 
   const desktopRows = [
@@ -69,35 +73,35 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, id, info }) => {
         {info?.pp ?? <span className="text-cell text-cell-muted">—</span>}
       </TableCell>
       <TableCell className="align-middle p-2 text-cell">
-        {/* {info?.tm?.number ? (
-          info.tm.number.toLowerCase().startsWith('mt') ? (
+        {tm?.number ? (
+          tm.number.toLowerCase().startsWith('mt') ? (
             <Link
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              href={`/locations/${encodeURIComponent((info.tm.location as any).area?.toLowerCase().replace(/\s+/g, '_'))}`}
+              href={`/locations/${encodeURIComponent((tm.location as any).area?.toLowerCase().replace(/\s+/g, '_'))}`}
               className="table-link"
             >
               <Badge
                 variant={'berry'}
                 className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
               >
-                {info.tm.number}
+                {tm.number}
               </Badge>
               <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
             </Link>
           ) : (
-            <Link href={`/items/${info.tm.number.toLowerCase()}`} className="table-link">
+            <Link href={`/items/${tm.number.toLowerCase()}`} className="table-link">
               <Badge
-                variant={info.tm.number.startsWith('TM') ? 'tm' : 'hm'}
+                variant={tm.number.startsWith('TM') ? 'tm' : 'hm'}
                 className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
               >
-                {info.tm.number}
+                {tm.number}
               </Badge>
               <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
             </Link>
           )
         ) : (
           <span className="text-cell text-cell-muted">—</span>
-        )} */}
+        )}
       </TableCell>
     </TableRow>,
     <TableRow
@@ -158,12 +162,12 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, id, info }) => {
           }
           className={'w-4 h-4 p-[4px]'}
         />
-        {/* <Badge
-          variant={info?.category?.toLowerCase() as MoveDescription['category']}
+        <Badge
+          variant={info?.category?.toLowerCase()}
           className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px] mx-auto"
         >
           {info?.category ? String(info.category) : '-'}
-        </Badge> */}
+        </Badge>
       </TableCell>
 
       <TableCell className="align-middle p-1 md:p-2 text-cell ">
@@ -178,19 +182,19 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, id, info }) => {
         {info?.pp ?? <span className="text-cell text-cell-muted">—</span>}
       </TableCell>
       <TableCell className="align-middle p-1 md:p-2 text-cell ">
-        {/* {info?.tm?.number ? (
-          <Link href={`/items/${info.tm.number.toLowerCase()}`} className="table-link">
+        {tm?.number ? (
+          <Link href={`/items/${tm.number.toLowerCase()}`} className="table-link">
             <Badge
-              variant={info.tm.number.startsWith('TM') ? 'tm' : 'hm'}
+              variant={tm.number.startsWith('TM') ? 'tm' : 'hm'}
               className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
             >
-              {info.tm.number}
+              {tm.number}
             </Badge>
             <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
           </Link>
         ) : (
           <span className="text-cell text-cell-muted">—</span>
-        )} */}
+        )}
       </TableCell>
     </TableRow>,
     <TableRow

@@ -485,6 +485,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
                     key={row.id}
                     id={row.original.id}
                     info={row.original.versions[version]}
+                    tm={row.original.tm}
                   />
                 ))
             ) : (

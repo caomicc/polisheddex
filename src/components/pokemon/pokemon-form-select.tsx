@@ -21,7 +21,7 @@ export default function PokemonFormSelect({
           <SelectValue placeholder="Select form" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="default">Plain</SelectItem>
+          <SelectItem value="plain">Plain</SelectItem>
           {uniqueForms
             .filter((form) => form !== 'plain' && form.trim() !== '')
             .map((form) => (

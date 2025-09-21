@@ -203,7 +203,7 @@ export default function PokemonFormClient({
                       <div className="flex flex-wrap gap-1">
                         {uniqueForms.map((form) => (
                           <Badge key={form} variant="outline" className="capitalize text-xs">
-                            {form === 'plain' ? 'Default' : form.replace(/([A-Z])/g, ' $1').trim()}
+                            {form === 'plain' ? 'plain' : form.replace(/([A-Z])/g, ' $1').trim()}
                           </Badge>
                         ))}
                       </div>
