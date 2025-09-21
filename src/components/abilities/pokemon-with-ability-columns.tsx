@@ -147,4 +147,50 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
       );
     },
   },
+  {
+    accessorKey: 'types',
+    id: 'types',
+    header: ({ column }) => {
+      return (
+        <Button className="-ml-3 label-text" variant="ghost" onClick={() => column.toggleSorting()}>
+          <>Type(s)</>
+          {column.getIsSorted() === 'desc' ? (
+            <ArrowDown className="size-3" />
+          ) : column.getIsSorted() === 'asc' ? (
+            <ArrowUp className="size-3" />
+          ) : (
+            <ArrowUpDown className="size-3" />
+          )}
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      const types = row.original.types;
+      return (
+        <div className="flex gap-1 flex-wrap">
+          {types && types.length > 0 ? (
+            types.map((type) => (
+              <Badge key={type} variant={type.toLowerCase()}>
+                {type}
+              </Badge>
+            ))
+          ) : (
+            <span className="text-sm text-muted-foreground">Unknown</span>
+          )}
+        </div>
+      );
+    },
+    filterFn: (row, id, value) => {
+      const { types } = row.original;
+      if (value === 'all') return true;
+      return types?.includes(value) ?? false;
+    },
+    sortingFn: (rowA, rowB) => {
+      const a = rowA.original.types ? rowA.original.types[0] : '';
+      const b = rowB.original.types ? rowB.original.types[0] : '';
+      if (a < b) return -1;
+      if (a > b) return 1;
+      return 0;
+    },
+  },
 ];

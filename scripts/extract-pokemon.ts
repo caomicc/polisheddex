@@ -1077,7 +1077,8 @@ for (const abilityId of allAbilityIds) {
 
                 if (!pokemonWithAbility.some((p) => p.name === pokemon.id && p.form === formName)) {
                   pokemonWithAbility.push({
-                    name: pokemon.id,
+                    id: pokemon.id,
+                    name: pokemon.name,
                     form: formName,
                     abilityTypes: abilityTypes,
                   });

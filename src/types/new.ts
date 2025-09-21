@@ -112,9 +112,11 @@ export interface AbilityData {
     [versionName: string]: {
       description: string;
       pokemon?: {
-        name: PokemonData['name'];
+        id: string;
+        name: string;
         form?: string;
         abilityTypes: string[];
+        types?: string[];
       }[];
     };
   };

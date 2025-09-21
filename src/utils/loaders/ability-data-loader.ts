@@ -1,6 +1,7 @@
 // Additional functionality for finding Pokemon that have abilities
 import { AbilityData } from '@/types/new';
 import { loadJsonFile } from '../fileLoader';
+import { getPokemonTypes, loadPokemonData } from './pokemon-data-loader';
 
 /**
  * Load abilities data using the manifest system
@@ -89,32 +90,86 @@ export async function loadAbilitiesFromNewManifest(): Promise<Record<string, Abi
 }
 
 /**
- * Load detailed move data from individual files (new/moves/{id}.json)
- * This contains version-specific data with learner information
+ * Load detailed ability data from individual files (new/abilities/{id}.json)
+ * This contains version-specific data with Pokemon information enriched with types
  */
 export async function loadDetailedAbilityData(abilityId: string): Promise<AbilityData> {
   try {
+    let abilityData: AbilityData;
+
     // Check if we're in a server environment
     if (typeof window === 'undefined') {
       // Server-side: Load the detailed ability data directly
-      const abilityData = await loadJsonFile<AbilityData>(`new/abilities/${abilityId}.json`);
-      return (
-        abilityData || {
-          id: abilityId,
-          name: '',
-          versions: {},
-        }
-      );
+      const rawAbilityData = await loadJsonFile<AbilityData>(`new/abilities/${abilityId}.json`);
+      abilityData = rawAbilityData || {
+        id: abilityId,
+        name: '',
+        versions: {},
+      };
     } else {
       // Client-side: Use fetch
       const response = await fetch(`/new/abilities/${abilityId}.json`);
       if (!response.ok) {
         console.error(`Failed to load detailed data for ability ${abilityId} on client`);
+        return {
+          id: abilityId,
+          name: '',
+          versions: {},
+        };
       }
 
-      const abilityData = await response.json();
-      return abilityData;
+      abilityData = await response.json();
     }
+
+    // Enrich ability data with Pokemon types
+    const enrichedVersions: AbilityData['versions'] = {};
+
+    for (const [versionName, versionData] of Object.entries(abilityData.versions)) {
+      enrichedVersions[versionName] = {
+        ...versionData,
+        pokemon: await Promise.all(
+          (versionData.pokemon || []).map(async (pokemon) => {
+            console.log(
+              `Processing ${versionData.pokemon?.length || 0} Pokemon for ability ${abilityId} in version ${versionName}`,
+            );
+
+            // Validate that Pokemon has required properties
+            if (!pokemon.id) {
+              console.warn(`Skipping Pokemon with missing id in ability ${abilityId}`);
+              return pokemon;
+            }
+
+            try {
+              const pokemonData = await loadPokemonData(pokemon.id);
+
+              if (pokemonData) {
+                console.log(`Loaded Pokemon data for ${pokemon.name}:`, pokemonData);
+
+                const types = await getPokemonTypes(pokemonData, versionName, pokemon.form);
+
+                console.log(`Enriched ${pokemon.name} with types: ${types?.join(', ')}`);
+
+                return {
+                  ...pokemon,
+                  types: types,
+                };
+              }
+            } catch (error) {
+              console.warn(`Failed to load Pokemon data for ${pokemon.id}:`, error);
+            }
+
+            // If Pokemon not found or failed to load, return original data
+            console.log(`Using original data for ${pokemon.name} (no enrichment)`);
+            return pokemon;
+          }),
+        ),
+      };
+    }
+
+    return {
+      ...abilityData,
+      versions: enrichedVersions,
+    };
   } catch (error) {
     console.error(`Error loading detailed data for ability ${abilityId}:`, error);
     throw error;

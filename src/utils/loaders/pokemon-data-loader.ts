@@ -77,12 +77,13 @@ export async function loadPokemonFromNewManifest(): Promise<Record<string, Pokem
 /**
  * Helper function to get Pokemon types from the new manifest structure
  */
-export function getPokemonTypes(
-  pokemon: PokemonManifest,
-  version: 'polished' | 'faithful' = 'polished',
+export async function getPokemonTypes(
+  pokemon: ComprehensivePokemonData,
+  version: string = 'polished',
   form: string = 'plain',
-): string[] {
-  return pokemon.versions?.[version]?.[form]?.types || [];
+): Promise<string[]> {
+  const formData = pokemon.versions?.[version]?.forms?.[form];
+  return formData?.types || [];
 }
 
 /**
