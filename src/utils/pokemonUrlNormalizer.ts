@@ -1,3 +1,4 @@
+import { reduce } from '@/lib/extract-utils.ts';
 import { KNOWN_FORMS } from '../data/constants.ts';
 
 /**
@@ -224,16 +225,6 @@ export function urlKeyToStandardKey(urlKey: string): string {
     .split('-')
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(' ');
-}
-
-/**
- * Gets the filename for a Pokemon's individual JSON file
- *
- * @param name - The Pokemon name
- * @returns Filename for the individual Pokemon JSON file
- */
-export function getPokemonFileName(name: string): string {
-  return `${normalizePokemonUrlKey(name)}.json`;
 }
 
 /**

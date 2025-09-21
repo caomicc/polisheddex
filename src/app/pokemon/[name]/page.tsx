@@ -6,15 +6,11 @@ import Link from 'next/link';
 import PokemonFormClient from '@/components/pokemon/pokemon-form-client';
 import PokemonNavigation from '@/components/pokemon/pokemon-navigation';
 import PokemonKeyboardNavigation from '@/components/pokemon/pokemon-keyboard-navigation';
-import {
-  urlKeyToStandardKey,
-  getPokemonFileName,
-  normalizePokemonUrlKey,
-} from '@/utils/pokemonUrlNormalizer';
 import { getPokemonNavigation } from '@/utils/pokemonNavigation';
 import { loadJsonData } from '@/utils/fileLoader';
 import { loadBasePokemonData, loadEnrichedPokemonData } from '@/utils/loaders/pokemon-data-loader';
 import { Button } from '@/components/ui/button';
+import { reduce } from '@/lib/extract-utils';
 
 export default async function PokemonDetail({ params }: { params: Promise<{ name: string }> }) {
   const nameParam = (await params).name;
@@ -22,8 +18,6 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
 
   // Load Pokemon data with resolved abilities using the new optimized loader
   const pokemonData = await loadEnrichedPokemonData(pokemonName);
-
-  console.log('Loaded Pokemon Data:', pokemonData);
 
   if (!pokemonData) return notFound();
 
@@ -59,27 +53,24 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
 
 // Generate static params for all Pokemon - only lowercase normalized names
 export async function generateStaticParams() {
-  const baseDataFile = path.join(process.cwd(), 'output/pokemon_base_data.json');
+  const baseDataFile = path.join(process.cwd(), 'new/pokemon_manifest.json');
   const data = await loadJsonData<Record<string, unknown>>(baseDataFile);
 
   if (!data) return [];
 
   // Only generate lowercase normalized URLs to prevent uppercase static generation
   return Object.keys(data).map((pokemonKey) => ({
-    name: normalizePokemonUrlKey(pokemonKey),
+    name: pokemonKey,
   }));
 }
 
 // Generate metadata for SEO and social sharing
 export async function generateMetadata({ params }: { params: Promise<{ name: string }> }) {
   const nameParam = (await params).name;
-  const pokemonName = decodeURIComponent(nameParam);
-  const standardKey = urlKeyToStandardKey(pokemonName);
+  const standardKey = reduce(nameParam);
 
   // Use the optimized loader for metadata as well
-  const pokemonData = await loadBasePokemonData(
-    getPokemonFileName(standardKey).replace('.json', ''),
-  );
+  const pokemonData = await loadBasePokemonData(standardKey);
 
   if (!pokemonData) {
     return {
@@ -108,12 +99,6 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   const description = `${baseDescription} in Pokémon Polished Crystal. View stats, moves, evolution, and more.`;
   const url = `https://www.polisheddex.app/pokemon/${nameParam}`;
 
-  // Create rich social description
-  // const baseStats = pokemonData.versions['plain'].baseStats;
-  // const statsText = baseStats
-  //   ? ` HP: ${baseStats.hp || 0}, Attack: ${baseStats.attack || 0}, Defense: ${baseStats.defense || 0}.`
-  //   : '';
-
   const socialDescription = `${baseDescription}`;
 
   return {
@@ -137,25 +122,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
       url,
       siteName: 'PolishedDex',
       type: 'website',
-      // images: [
-      //   {
-      //     url: pokemonData.frontSpriteUrl || '/og-image.png',
-      //     width: pokemonData.frontSpriteUrl ? 288 : 1200,
-      //     height: pokemonData.frontSpriteUrl ? 288 : 630,
-      //     alt: `${pokemonData.name} sprite from Pokémon Polished Crystal`,
-      //   },
-      //   // Fallback to main OG image if sprite exists
-      //   ...(pokemonData.frontSpriteUrl
-      //     ? [
-      //         {
-      //           url: '/og-image.png',
-      //           width: 1200,
-      //           height: 630,
-      //           alt: `${pokemonData.name} - PolishedDex`,
-      //         },
-      //       ]
-      //     : []),
-      // ],
+
       locale: 'en_US',
     },
 

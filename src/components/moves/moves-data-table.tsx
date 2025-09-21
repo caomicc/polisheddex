@@ -478,7 +478,15 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => <MoveRow key={row.id} info={row.original} />)
+              table
+                .getRowModel()
+                .rows.map((row) => (
+                  <MoveRow
+                    key={row.id}
+                    id={row.original.id}
+                    info={row.original.versions[version]}
+                  />
+                ))
             ) : (
               <TableRow>
                 <TableCell colSpan={columns.length} className="h-24 text-center">

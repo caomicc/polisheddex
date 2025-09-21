@@ -571,3 +571,13 @@ export const parseDexOrder = (content: string): Map<string, number> => {
 
   return dexOrderMap;
 };
+
+/**
+ * Gets the filename for a Pokemon's individual JSON file
+ *
+ * @param name - The Pokemon name
+ * @returns Filename for the individual Pokemon JSON file
+ */
+export function getPokemonFileName(name: string): string {
+  return `${reduce(name)}.json`;
+}

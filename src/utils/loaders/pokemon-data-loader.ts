@@ -4,6 +4,8 @@ import { loadJsonFile } from '../fileLoader';
 import { PokemonManifest, ComprehensivePokemonData, PokemonMovesets } from '@/types/new';
 import { loadDetailedMoveData } from './move-data-loader';
 import { loadDetailedAbilityData } from './ability-data-loader';
+import { normalizePokemonUrlKey } from '../pokemonUrlNormalizer';
+import { getPokemonFileName } from '@/lib/extract-utils';
 
 /**
  * Load Pokemon data from the new manifest structure (new/pokemon_manifest.json)
@@ -117,41 +119,37 @@ export async function loadBasePokemonData(
   pokemonId: string,
 ): Promise<ComprehensivePokemonData | null> {
   try {
-    console.log(`Loading individual Pokemon data for: ${pokemonId}`);
+    // Normalize the pokemon ID to get the correct filename
+    const fileName = getPokemonFileName(pokemonId);
 
     // Check if we're in a server environment
     if (typeof window === 'undefined') {
       // Server-side: Load the individual pokemon file directly
-      const pokemonData = await loadJsonFile<ComprehensivePokemonData>(
-        `new/pokemon/${pokemonId}.json`,
-      );
+      const pokemonData = await loadJsonFile<ComprehensivePokemonData>(`new/pokemon/${fileName}`);
 
       if (!pokemonData) {
-        console.error(`Pokemon data not found for: ${pokemonId}`);
+        console.error(`Pokemon data not found for: ${pokemonId} (${fileName})`);
         return null;
       }
 
-      console.log(`Successfully loaded Pokemon data for: ${pokemonData.name} (${pokemonData.id})`);
       return pokemonData;
     } else {
-      console.log(`Client-side: Fetching Pokemon data for: ${pokemonId}`);
       // Client-side: Use fetch
-      const response = await fetch(`/new/pokemon/${pokemonId}.json`);
+      const response = await fetch(`/new/pokemon/${fileName}`);
       if (!response.ok) {
-        console.error(`Failed to load Pokemon data for: ${pokemonId} (${response.status})`);
+        console.error(
+          `Failed to load Pokemon data for: ${pokemonId} (${fileName}) - ${response.status}`,
+        );
         return null;
       }
 
       const pokemonData = (await response.json()) as ComprehensivePokemonData;
 
       if (!pokemonData || !pokemonData.id) {
-        console.error(`Invalid Pokemon data structure for: ${pokemonId}`);
+        console.error(`Invalid Pokemon data structure for: ${pokemonId} (${fileName})`);
         return null;
       }
 
-      console.log(
-        `Successfully loaded Pokemon data for: ${pokemonData.name} (${pokemonData.id}) on client`,
-      );
       return pokemonData;
     }
   } catch (error) {
@@ -169,8 +167,6 @@ export async function loadEnrichedPokemonData(
   pokemonId: string,
 ): Promise<ComprehensivePokemonData | null> {
   try {
-    console.log(`Loading Pokemon data with move and ability details for: ${pokemonId}`);
-
     // First load the basic Pokemon data
     const pokemonData = await loadBasePokemonData(pokemonId);
     if (!pokemonData) {
@@ -216,9 +212,6 @@ export async function loadEnrichedPokemonData(
       versions: enrichedVersions,
     };
 
-    console.log(
-      `Successfully enriched Pokemon data with moves and abilities for: ${pokemonData.name}`,
-    );
     return result;
   } catch (error) {
     console.error(`Error loading Pokemon data with moves and abilities for ${pokemonId}:`, error);
