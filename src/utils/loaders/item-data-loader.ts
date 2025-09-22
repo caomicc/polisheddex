@@ -1,36 +1,124 @@
-// Enhanced item data loader that works with the items manifest
+// Enhanced item data loader that works with the new items manifest
 
 import { loadJsonFile } from '../fileLoader';
-import { ItemManifest, loadManifest } from '../manifest-resolver';
+import { ItemsManifest, ItemData, ComprehensiveItemsData } from '@/types/new';
 
 /**
- * Load items data using the manifest system
+ * Load items data using the new manifest system with fallbacks
+ * Returns a Record where keys are item IDs and values are item data
  */
 export async function loadItemsData(): Promise<Record<string, any>> {
   try {
-    // Check if we're in a server environment
-    if (typeof window === 'undefined') {
-      // Server-side: Load the items manifest directly
-      const itemsManifest = await loadManifest<ItemManifest>('items');
-      return itemsManifest;
-    } else {
-      // Client-side: Use fetch (fallback)
-      const response = await fetch('/output/manifests/items.json');
-      if (!response.ok) {
-        throw new Error('Failed to load items manifest');
-      }
-      return await response.json();
-    }
+    // Use the new manifest system
+    const newManifestData = await loadItemsFromNewManifest();
+    console.log('Successfully loaded items from new manifest system');
+    return newManifestData;
   } catch (error) {
     console.error('Error loading items data:', error);
-    // Fallback to original items_data.json if manifest fails
-    try {
-      const fallbackData = await loadJsonFile<Record<string, any>>('output/items_data.json');
-      return fallbackData || {};
-    } catch (fallbackError) {
-      console.error('Failed to load fallback items data:', fallbackError);
-      return {};
+    return {};
+  }
+}
+
+/**
+ * Load items data from the new manifest structure (new/items_manifest.json)
+ * This function handles the new flattened array structure
+ */
+export async function loadItemsFromNewManifest(): Promise<Record<string, ItemsManifest>> {
+  try {
+    console.log('Loading Items from new manifest...');
+
+    // Check if we're in a server environment
+    if (typeof window === 'undefined') {
+      // Server-side: Load the new items manifest directly
+      const itemsArray = await loadJsonFile<ItemsManifest[]>('new/items_manifest.json');
+
+      if (!itemsArray || !Array.isArray(itemsArray)) {
+        console.error('Invalid items manifest structure or file not found');
+        return {};
+      }
+
+      console.log(`Processing ${itemsArray.length} Items from manifest`);
+      const baseData: Record<string, ItemsManifest> = {};
+
+      itemsArray.forEach((item, index) => {
+        if (!item || !item.id) {
+          console.warn(`Skipping invalid Item at index ${index}`);
+          return;
+        }
+
+        // Store the Item data using its ID as the key
+        baseData[item.id] = item;
+      });
+
+      console.log(`Successfully processed ${Object.keys(baseData).length} Items`);
+      return baseData;
+    } else {
+      console.log('Client-side: Fetching new items manifest...');
+      // Client-side: Use fetch
+      const response = await fetch('/new/items_manifest.json');
+      if (!response.ok) {
+        console.error('Failed to load new items manifest on client');
+        return {};
+      }
+
+      const itemsArray = await response.json();
+
+      if (!Array.isArray(itemsArray)) {
+        console.error('Invalid items manifest structure');
+        return {};
+      }
+
+      console.log(`Processing ${itemsArray.length} Items from client manifest`);
+      const baseData: Record<string, ItemsManifest> = {};
+
+      itemsArray.forEach((item: ItemsManifest, index: number) => {
+        if (!item || !item.id) {
+          console.warn(`Skipping invalid Item at index ${index}`);
+          return;
+        }
+
+        // Store the Item data using its ID as the key
+        baseData[item.id] = item;
+      });
+
+      console.log(`Successfully processed ${Object.keys(baseData).length} Items on client`);
+      return baseData;
     }
+  } catch (error) {
+    console.error('Error loading Items from new manifest:', error);
+    return {};
+  }
+}
+
+/**
+ * Load detailed item data from individual files (new/items/{id}.json)
+ * This contains version-specific data with location information
+ */
+export async function loadDetailedItemData(itemId: string): Promise<ComprehensiveItemsData> {
+  try {
+    // Check if we're in a server environment
+    if (typeof window === 'undefined') {
+      // Server-side: Load the detailed item data directly
+      const itemData = await loadJsonFile<ComprehensiveItemsData>(`new/items/${itemId}.json`);
+      return (
+        itemData || {
+          id: itemId,
+          versions: {},
+        }
+      );
+    } else {
+      // Client-side: Use fetch
+      const response = await fetch(`/new/items/${itemId}.json`);
+      if (!response.ok) {
+        console.error(`Failed to load detailed data for item ${itemId} on client`);
+      }
+
+      const itemData = await response.json();
+      return itemData;
+    }
+  } catch (error) {
+    console.error(`Error loading detailed data for item ${itemId}:`, error);
+    throw error;
   }
 }
 
@@ -59,75 +147,3 @@ export async function loadMultipleItemsById(itemIds: string[]): Promise<(any | n
     return itemIds.map(() => null);
   }
 }
-
-/**
- * Search items by name, type, or attributes
- */
-export async function searchItems(query: string): Promise<any[]> {
-  try {
-    const itemsData = await loadItemsData();
-    const allItems = Object.values(itemsData);
-
-    const queryLower = query.toLowerCase();
-
-    return allItems.filter((item) => {
-      if (!item || typeof item !== 'object') return false;
-
-      // Search in name
-      if (
-        item.name &&
-        typeof item.name === 'string' &&
-        item.name.toLowerCase().includes(queryLower)
-      ) {
-        return true;
-      }
-
-      // Search in description
-      if (
-        item.description &&
-        typeof item.description === 'string' &&
-        item.description.toLowerCase().includes(queryLower)
-      ) {
-        return true;
-      }
-
-      // Search in type/category
-      if (
-        item.category &&
-        typeof item.category === 'string' &&
-        item.category.toLowerCase().includes(queryLower)
-      ) {
-        return true;
-      }
-
-      return false;
-    });
-  } catch (error) {
-    console.error('Error searching items:', error);
-    return [];
-  }
-}
-
-/**
- * Get items by category/type
- */
-export async function getItemsByCategory(category: string): Promise<any[]> {
-  try {
-    const itemsData = await loadItemsData();
-    const allItems = Object.values(itemsData);
-
-    return allItems.filter((item) => {
-      if (!item || typeof item !== 'object') return false;
-      return (
-        item.category === category ||
-        (item.type && item.type === category) ||
-        (item.attributes && item.attributes.category === category)
-      );
-    });
-  } catch (error) {
-    console.error(`Error loading items for category ${category}:`, error);
-    return [];
-  }
-}
-
-export type { ItemManifest };
