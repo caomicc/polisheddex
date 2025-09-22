@@ -77,11 +77,11 @@ export const extractItemsFromMapData = (mapData: string[]): ItemLocation[] => {
       const contextLines: string[] = [];
       const contextStart = Math.max(0, i - 10);
       const contextEnd = Math.min(mapData.length - 1, i + 5);
-      
+
       for (let j = contextStart; j <= contextEnd; j++) {
         contextLines.push(mapData[j].trim());
       }
-      
+
       const item = parseGiveItemEvent(trimmedLine, contextLines);
       if (item) {
         // Check for purchase duplicates
@@ -292,6 +292,7 @@ const extractTMHMData = async (version: 'polished' | 'faithful') => {
         description: `Teaches the move ${moveName.replace(/_/g, ' ').toLowerCase()} to a compatible Pokémon.`,
         attributes: {
           moveName: reduce(moveName),
+          category: itemName.startsWith('TM') ? 'tm' : 'hm',
         },
         locations: location ? [{ area: reduce(location), method: 'gift' }] : [],
       });
@@ -442,9 +443,9 @@ const extractItemsData = async (
         description: descriptions[itemId] || 'No description available.',
         attributes: {
           price: parseInt(parts[0].trim(), 10) || undefined,
-          effect: parts[1].trim() !== '0' ? parts[1].trim() : undefined,
-          params: parts[2].trim() !== '0' ? parts[2].trim() : undefined,
-          category: parts[4].trim() !== '0' ? parts[4].trim() : undefined,
+          effect: parts[1].trim() !== '0' ? reduce(parts[1].trim()) : undefined,
+          params: parts[2].trim() !== '0' ? reduce(parts[2].trim()) : undefined,
+          category: parts[3].trim() !== '0' ? reduce(parts[3].trim()) : undefined,
         },
         locations: getItemLocations(itemId, version),
       });
@@ -516,7 +517,7 @@ const extractItemsData = async (
           price: undefined, // Key items don't have prices
           effect: undefined,
           params: undefined,
-          category: parts[1].trim() !== '0' ? parts[1].trim() : 'KEY', // Use KEY as default category
+          category: 'keyitem',
         },
         locations: getItemLocations(itemId, version),
       });
@@ -553,7 +554,7 @@ const extractItemsData = async (
         'A fruit that can be used by Kurt to make Poké Balls.',
       attributes: {
         price: undefined, // Apricorns are free from trees
-        category: 'Berry', // Use Berry category like other fruit tree items
+        category: 'berries', // Use Berry category like other fruit tree items
       },
       locations: [],
     });
@@ -587,7 +588,7 @@ const extractItemsData = async (
         "A candy that increases a Pokémon's experience points.",
       attributes: {
         price: undefined,
-        category: 'CANDY',
+        category: 'candy',
       },
       locations: [],
     });
@@ -622,7 +623,7 @@ const extractItemsData = async (
         "A feather that slightly increases a Pokémon's base points.",
       attributes: {
         price: undefined,
-        category: 'Medicine',
+        category: 'wing',
       },
       locations: [],
     });
@@ -656,7 +657,7 @@ const extractItemsData = async (
         'A special item with unique properties.',
       attributes: {
         price: undefined,
-        category: 'KEY',
+        category: 'keyitem',
       },
       locations: [],
     });
@@ -793,11 +794,19 @@ export default async function extractItems() {
 
   // Create items manifest with proper format (using polished version for manifest)
   const itemsManifest: ItemsManifest[] = consolidatedItems.map((item) => {
-    const polishedVersion = item.versions.polished || item.versions.faithful;
     return {
       id: item.id,
-      name: polishedVersion!.name,
-      locationCount: polishedVersion!.locations?.length,
+      versions: Object.fromEntries(
+        Object.entries(item.versions).map(([versionKey, version]) => [
+          versionKey,
+          {
+            name: version.name || 'Unknown Item',
+            category: version.attributes?.category,
+            locationCount: version.locations?.length,
+            price: version.attributes?.price,
+          },
+        ]),
+      ),
     };
   });
 

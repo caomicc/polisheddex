@@ -176,8 +176,14 @@ export interface ComprehensiveItemsData {
 
 export interface ItemsManifest {
   id: ItemData['id'];
-  name: ItemData['name'];
-  locationCount?: number;
+  versions: {
+    [versionName: string]: {
+      name: ItemData['name'];
+      category?: string;
+      locationCount?: number;
+      price?: number;
+    };
+  };
 }
 
 export interface ItemLocation {

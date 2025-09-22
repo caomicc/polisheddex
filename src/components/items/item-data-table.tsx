@@ -35,8 +35,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { AnyItemData, isRegularItem, isTMHMItem } from '@/types/types';
 import TableWrapper from '../ui/table-wrapper';
+import { ItemsManifest } from '@/types/new';
 
 /**
  * ItemDataTable - A data table component with persistent state
@@ -51,8 +51,8 @@ import TableWrapper from '../ui/table-wrapper';
  */
 
 interface ItemDataTableProps {
-  columns: ColumnDef<AnyItemData, unknown>[];
-  data: AnyItemData[];
+  columns: ColumnDef<ItemsManifest, unknown>[];
+  data: ItemsManifest[];
 }
 
 export function ItemDataTable({ columns, data }: ItemDataTableProps) {
@@ -116,15 +116,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
   const categories = React.useMemo(() => {
     const categorySet = new Set<string>();
     data.forEach((item) => {
-      if (isRegularItem(item)) {
-        if (item.attributes?.isKeyItem) {
-          categorySet.add('Key Item');
-        } else if (item.attributes?.category) {
-          categorySet.add(item.attributes.category);
-        }
-      } else if (isTMHMItem(item)) {
-        categorySet.add('TM/HM');
-      }
+      categorySet.add(item.versions[Object.keys(item.versions)[0]]?.category || 'Item');
     });
     return Array.from(categorySet).sort();
   }, [data]);
@@ -132,20 +124,15 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
   // Apply checkbox filters and category filter to the data
   const filteredData = React.useMemo(() => {
     return data.filter((item) => {
-      const matchesTMHM = !tmhm || isTMHMItem(item);
-      const matchesPrice = !price || (isRegularItem(item) && (item.attributes?.price || 0) > 0);
+      const matchesTMHM =
+        !tmhm ||
+        item.versions[Object.keys(item.versions)[0]]?.category === 'tm' ||
+        item.versions[Object.keys(item.versions)[0]]?.category === 'hm';
+      const matchesPrice = !price || (item.versions[Object.keys(item.versions)[0]]?.price || 0) > 0;
       const matchesLocations =
-        !locations ||
-        (isRegularItem(item) && (item.locations?.length || 0) > 0) ||
-        (isTMHMItem(item) && item.location);
+        !locations || (item.versions[Object.keys(item.versions)[0]]?.locationCount || 0) > 0;
 
-      const itemCategory = isRegularItem(item)
-        ? item.attributes?.isKeyItem
-          ? 'Key Item'
-          : item.attributes?.category || 'Item'
-        : isTMHMItem(item)
-          ? 'TM/HM'
-          : 'Unknown';
+      const itemCategory = item.versions[Object.keys(item.versions)[0]]?.category || 'Item';
       const matchesCategory = category === 'all' || itemCategory === category;
 
       return matchesTMHM && matchesPrice && matchesLocations && matchesCategory;
@@ -174,36 +161,6 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
     },
     pageCount: Math.ceil(filteredData.length / pageSize),
   });
-
-  // Save non-URL state to localStorage whenever it changes
-  // React.useEffect(() => {
-  //   if (typeof window === 'undefined') return;
-
-  //   // Skip saving on initial render if we just loaded from storage
-  //   const isInitialLoad =
-  //     !storedState ||
-  //     (JSON.stringify(sorting) === JSON.stringify(storedState.sorting) &&
-  //       JSON.stringify(columnFilters) === JSON.stringify(storedState.columnFilters));
-
-  //   if (isInitialLoad) return;
-
-  //   const stateToSave = {
-  //     sorting,
-  //     columnFilters,
-  //     columnVisibility,
-  //   };
-
-  //   try {
-  //     localStorage.setItem(STORAGE_KEY, JSON.stringify(stateToSave));
-  //   } catch (error) {
-  //     console.warn('Failed to save table state to localStorage:', error);
-  //   }
-  // }, [sorting, columnFilters, columnVisibility, storedState]);
-
-  // Reset page to 0 when filters change
-  // React.useEffect(() => {
-  //   setPagination({ pageIndex: 0 });
-  // }, [columnFilters, tmhm, price, locations, category, setPagination]);
 
   return (
     <div className="w-full">

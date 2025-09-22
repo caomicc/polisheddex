@@ -52,7 +52,7 @@ export async function loadAbilitiesFromNewManifest(): Promise<Record<string, Abi
       console.log(`Successfully processed ${Object.keys(baseData).length} Abilities`);
       return baseData;
     } else {
-      console.log('Client-side: Fetching new moves manifest...');
+      console.log('Client-side: Fetching new abilities manifest...');
       // Client-side: Use fetch
       const response = await fetch('/new/abilities_manifest.json');
       if (!response.ok) {
