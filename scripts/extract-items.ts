@@ -104,6 +104,16 @@ const extractMartData = (data: string[], version: 'polished' | 'faithful') => {
   // Parse marts.asm file structure following the same pattern as move descriptions
   // Multiple mart labels can share the same item list
 
+  // Manual name mappings for specific mart names
+  const martNameMappings: Record<string, string> = {
+    cherrygrovemartafterdex: 'cherrygrovemart',
+    goldenrod2fmart2: 'goldenroddeptstore2f',
+    goldenrod2fmart2eevee: 'goldenroddeptstore2f',
+    celadon2fmart2: 'celadondeptstore2f',
+    goldenrod3fmart3: 'goldenroddeptstore3f',
+    celadon3fmart2: 'celadondeptstore3f',
+  };
+
   for (let i = 0; i < data.length; i++) {
     const line = data[i].trim();
 
@@ -120,10 +130,18 @@ const extractMartData = (data: string[], version: 'polished' | 'faithful') => {
         !data[currentIndex].trim().startsWith(';')
       ) {
         const labelLine = data[currentIndex].trim();
-        const martName = reduce(labelLine.replace(':', ''));
+        let martName = reduce(labelLine.replace(':', ''));
+
+        // Apply manual name mapping if it exists
+        if (martNameMappings[martName]) {
+          martName = martNameMappings[martName];
+        }
+
         martLabels.push(martName);
         currentIndex++;
       }
+
+      console.log(`🏪 Extracting mart items for: ${martLabels.join(', ')} in ${version}`);
 
       // Parse the item list that follows all the labels
       const items: string[] = [];
@@ -418,6 +436,24 @@ const extractItemsData = async (
     }
   }
 
+  // Helper function to detect evolution items
+  const isEvolutionItem = (description: string): boolean => {
+    // Check if it's a known evolution stone or if description mentions evolution
+    return (
+      description.toLowerCase().includes('evolves certain') ||
+      (description.toLowerCase().includes('evolves') &&
+        description.toLowerCase().includes('kinds of'))
+    );
+  };
+
+  // Helper function to detect berry items
+  const isBerryItem = (itemId: string): boolean => {
+    return itemId.toLowerCase().includes('berry');
+  };
+
+  const isBattleItem = (itemId: string, description: string): boolean => {
+    return itemId.toLowerCase().startsWith('x') || description.toLowerCase().includes('1 battle');
+  };
   // Skip the first name entry ("Park Ball") as it doesn't have a corresponding attribute entry
   const nameEntries = nameLines.slice(1);
 
@@ -434,18 +470,30 @@ const extractItemsData = async (
     // Extract name: li "Poke Ball"
     const name = nameLine.replace('li "', '').replace('"', '').trim();
 
-    // console.log(`🛍️ Extracted item: ${name} (${itemId})`);
-
     if (parts.length >= 6) {
+      const description = descriptions[itemId] || 'No description available.';
+      let category = parts[3].trim() !== '0' ? reduce(parts[3].trim()) : undefined;
+
+      // Override category for evolution items
+      if (isEvolutionItem(description)) {
+        category = 'evolutionitem';
+      }
+      if (isBerryItem(itemId)) {
+        category = 'berries';
+      }
+      if (isBattleItem(itemId, description)) {
+        category = 'battleitem';
+      }
+
       itemData[version].push({
         id: itemId,
         name: name,
-        description: descriptions[itemId] || 'No description available.',
+        description: description,
         attributes: {
           price: parseInt(parts[0].trim(), 10) || undefined,
           effect: parts[1].trim() !== '0' ? reduce(parts[1].trim()) : undefined,
           params: parts[2].trim() !== '0' ? reduce(parts[2].trim()) : undefined,
-          category: parts[3].trim() !== '0' ? reduce(parts[3].trim()) : undefined,
+          category: category,
         },
         locations: getItemLocations(itemId, version),
       });

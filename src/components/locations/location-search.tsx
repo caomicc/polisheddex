@@ -3,10 +3,10 @@
 import React, { Suspense } from 'react';
 import { LocationDataTable } from './location-data-table';
 import { locationColumns } from './location-columns';
-import { LocationData } from '@/types/types';
+import { LocationManifest } from '@/types/new';
 
 interface LocationSearchProps {
-  locations: LocationData[];
+  locations: LocationManifest[];
 }
 
 const LocationSearch: React.FC<LocationSearchProps> = ({ locations }) => {

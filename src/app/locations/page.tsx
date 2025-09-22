@@ -7,14 +7,16 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { LocationData } from '@/types/types';
 import LocationSearch from '@/components/locations/location-search';
 import { Hero } from '@/components/ui/Hero';
-import { loadEnhancedLocationsOptimized } from '@/utils/loaders/location-data-loader';
+import { loadLocationsFromNewManifest } from '@/utils/loaders/location-data-loader';
 
 export default async function LocationsPage() {
-  // Load enhanced locations using the optimized loader
-  const processedLocations = await loadEnhancedLocationsOptimized();
+  // Load locations using the new manifest system
+  const locationsData = await loadLocationsFromNewManifest();
+
+  // Convert to array for the search component
+  const processedLocations = Object.values(locationsData);
 
   return (
     <>
@@ -40,7 +42,7 @@ export default async function LocationsPage() {
         }
       />
       <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
-        <LocationSearch locations={processedLocations as LocationData[]} />
+        <LocationSearch locations={processedLocations} />
       </div>
     </>
   );

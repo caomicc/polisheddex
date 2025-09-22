@@ -1,7 +1,8 @@
 // Enhanced item data loader that works with the new items manifest
 
 import { loadJsonFile } from '../fileLoader';
-import { ItemsManifest, ItemData, ComprehensiveItemsData } from '@/types/new';
+import { ItemsManifest, ComprehensiveItemsData } from '@/types/new';
+import { loadLocationsFromNewManifest, loadDetailedLocationData } from './location-data-loader';
 
 /**
  * Load items data using the new manifest system with fallbacks
@@ -96,16 +97,16 @@ export async function loadItemsFromNewManifest(): Promise<Record<string, ItemsMa
  */
 export async function loadDetailedItemData(itemId: string): Promise<ComprehensiveItemsData> {
   try {
+    let itemData: ComprehensiveItemsData;
+
     // Check if we're in a server environment
     if (typeof window === 'undefined') {
       // Server-side: Load the detailed item data directly
-      const itemData = await loadJsonFile<ComprehensiveItemsData>(`new/items/${itemId}.json`);
-      return (
-        itemData || {
-          id: itemId,
-          versions: {},
-        }
-      );
+      const loadedData = await loadJsonFile<ComprehensiveItemsData>(`new/items/${itemId}.json`);
+      itemData = loadedData || {
+        id: itemId,
+        versions: {},
+      };
     } else {
       // Client-side: Use fetch
       const response = await fetch(`/new/items/${itemId}.json`);
@@ -113,9 +114,48 @@ export async function loadDetailedItemData(itemId: string): Promise<Comprehensiv
         console.error(`Failed to load detailed data for item ${itemId} on client`);
       }
 
-      const itemData = await response.json();
-      return itemData;
+      itemData = await response.json();
     }
+
+    // Load location data to resolve location names and parent information
+    const locationsData = await loadLocationsFromNewManifest();
+
+    // Enrich location data with names and parent location info
+    for (const version in itemData.versions) {
+      const versionData = itemData.versions[version];
+      if (versionData.locations && versionData.locations.length > 0) {
+        // Process locations in parallel but ensure stable result
+        const processedLocations = await Promise.all(
+          versionData.locations.map(async (location) => {
+            const name = locationsData[location.area]?.name || location.area;
+
+            // Load detailed location data to get parent information
+            let parentId: string | undefined;
+            try {
+              const detailedLocationData = await loadDetailedLocationData(location.area);
+              if (detailedLocationData?.parent) {
+                const parentLocationData = locationsData[detailedLocationData.parent];
+                parentId =
+                  parentLocationData?.id || detailedLocationData.parent || detailedLocationData.id;
+              }
+            } catch (error) {
+              // Silently continue if location data can't be loaded
+            }
+
+            return {
+              area: location.area,
+              method: location.method,
+              name,
+              parentId,
+            };
+          }),
+        );
+        
+        versionData.locations = processedLocations;
+      }
+    }
+
+    return itemData;
   } catch (error) {
     console.error(`Error loading detailed data for item ${itemId}:`, error);
     throw error;

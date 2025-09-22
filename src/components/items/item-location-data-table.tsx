@@ -28,22 +28,19 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import Link from 'next/link';
-import { normalizeLocationKey } from '@/utils/locationUtils';
 import { usePaginationSearchParams } from '@/hooks/use-pagination-search-params';
 import TableWrapper from '../ui/table-wrapper';
+import { ItemData } from '@/types/new';
+import Link from 'next/link';
 import { ExternalLink } from 'lucide-react';
 
-export interface ItemLocation {
-  area: string;
-  details?: string;
-}
-
 interface ItemLocationDataTableProps {
-  locations: ItemLocation[];
+  locations: NonNullable<ItemData['locations']>;
 }
 
-const columns: ColumnDef<ItemLocation>[] = [
+type LocationItem = NonNullable<ItemData['locations']>[0];
+
+const columns: ColumnDef<LocationItem>[] = [
   {
     accessorKey: 'area',
     id: 'area',
@@ -56,39 +53,42 @@ const columns: ColumnDef<ItemLocation>[] = [
     },
     cell: ({ row }) => {
       const location = row.original;
-      const shouldLink =
-        location.area?.toLowerCase() !== 'pickup' &&
-        (location.details?.toLowerCase() === 'hidden item' ||
-          location.details?.toLowerCase() !== 'for sale' ||
-          location.details?.toLowerCase() === 'visible item');
-      console.log('Location:', location);
-      // If the location is a hidden or visible item, link to the area page
+
+      // Display the area name, or name if available
+      const displayName = location.name;
+
       return (
         <div className="flex items-center space-x-2 min-w-0">
-          {shouldLink ? (
-            <Link href={`/locations/${normalizeLocationKey(location.area)}`} className="table-link">
-              {location.area}
-              <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
-            </Link>
-          ) : (
-            <span className="table-lead-column-text" style={{ textDecoration: 'none !important' }}>
-              {location.area}
-            </span>
-          )}
+          <span className="table-lead-column-text" style={{ textDecoration: 'none !important' }}>
+            {location.parentId ? (
+              <Link
+                href={`/locations/${location.parentId}`}
+                className="text-muted-foreground hover:text-primary transition-colors"
+                title={`View details for ${displayName}`}
+              >
+                {displayName}
+                <ExternalLink className="inline-block ml-1 mb-0.5 w-3 h-3" />
+              </Link>
+            ) : (
+              displayName
+            )}
+          </span>
         </div>
       );
     },
     filterFn: (row, id, value) => {
-      const area = row.original.area.toLowerCase();
+      const area = (row.original.name || row.original.area).toLowerCase();
       const searchText = value.toLowerCase();
       return area.includes(searchText);
     },
     sortingFn: (rowA, rowB) => {
-      return rowA.original.area.localeCompare(rowB.original.area);
+      const nameA = rowA.original.name || rowA.original.area;
+      const nameB = rowB.original.name || rowB.original.area;
+      return nameA.localeCompare(nameB);
     },
   },
   {
-    accessorKey: 'details',
+    accessorKey: 'method',
     id: 'method',
     header: ({ column }) => {
       return (
@@ -98,17 +98,17 @@ const columns: ColumnDef<ItemLocation>[] = [
       );
     },
     cell: ({ row }) => {
-      const method = row.original.details || 'Unknown';
-      return <span className="text-cell">{method}</span>;
+      // const method = row.original.method || 'Unknown';
+      return <span className="text-cell">{row.original?.method || 'Unknown'}</span>;
     },
     filterFn: (row, id, value) => {
-      const method = row.original.details || 'Unknown';
+      const method = row.original.method || 'Unknown';
       if (value === 'all') return true;
       return method === value;
     },
     sortingFn: (rowA, rowB) => {
-      const methodA = rowA.original.details || 'Unknown';
-      const methodB = rowB.original.details || 'Unknown';
+      const methodA = rowA.original.method || 'Unknown';
+      const methodB = rowB.original.method || 'Unknown';
       return methodA.localeCompare(methodB);
     },
   },
@@ -120,9 +120,13 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
 
   // Filter out Players House2 F locations with NPC methods
   const filteredLocations = useMemo(() => {
+    if (!locations || !Array.isArray(locations)) {
+      return [];
+    }
+    
     return locations.filter((location) => {
-      const isPlayersHouse2F = location.area?.toLowerCase() === 'players house2 f';
-      const isNpcMethod = location.details?.toLowerCase().includes('npc');
+      const isPlayersHouse2F = location.area?.toLowerCase() === 'playershouse2f';
+      const isNpcMethod = location.method?.toLowerCase().includes('npc');
 
       // Exclude if it's Players House2 F AND involves an NPC
       return !(isPlayersHouse2F && isNpcMethod);
@@ -131,7 +135,10 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
 
   // Get unique methods for the filter dropdown
   const uniqueMethods = useMemo(() => {
-    const methods = Array.from(new Set(filteredLocations.map((loc) => loc.details || 'Unknown')));
+    if (!filteredLocations || filteredLocations.length === 0) {
+      return [];
+    }
+    const methods = Array.from(new Set(filteredLocations.map((loc) => loc.method || 'Unknown')));
     return methods.sort();
   }, [filteredLocations]);
   const [{ pageIndex, pageSize }, setPagination] = usePaginationSearchParams();
@@ -144,10 +151,21 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     onPaginationChange: setPagination,
+    onGlobalFilterChange: setGlobalFilter,
+    globalFilterFn: (row, columnId, value) => {
+      const location = row.original;
+      const searchText = value.toLowerCase();
+      const areaName = (location.name || location.area).toLowerCase();
+      const method = location.method?.toLowerCase() || '';
+
+      return areaName.includes(searchText) || method.includes(searchText);
+    },
     state: {
       pagination: { pageIndex, pageSize },
+      globalFilter,
+      columnFilters: methodFilter !== 'all' ? [{ id: 'method', value: methodFilter }] : [],
     },
-    pageCount: Math.ceil(filteredLocations.length / pageSize),
+    pageCount: filteredLocations.length > 0 ? Math.ceil(filteredLocations.length / pageSize) : 1,
   });
 
   return (

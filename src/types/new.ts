@@ -164,6 +164,8 @@ export interface ItemData {
   locations?: Array<{
     area: string;
     method: string;
+    name?: string;
+    parentId?: string;
   }>;
 }
 
