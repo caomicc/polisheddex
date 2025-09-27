@@ -6,9 +6,9 @@ import Link from 'next/link';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { accentInsensitiveIncludes } from '@/utils/stringUtils';
-import { getItemSpriteName, getMoveUrlFromName } from '@/utils/itemUtils';
 import Image from 'next/image';
 import { ItemsManifest } from '@/types/new';
+import { getItemSpriteName } from '@/utils/spriteUtils';
 
 export const itemColumns = (version: string): ColumnDef<ItemsManifest>[] => [
   {
@@ -22,9 +22,7 @@ export const itemColumns = (version: string): ColumnDef<ItemsManifest>[] => [
       const isTM =
         item.versions[version].category === 'tm' || item.versions[version].category === 'hm';
       const linkHref =
-        isTM && item.versions[version].name
-          ? `/moves/${getMoveUrlFromName(item.versions[version].name)}`
-          : `/items/${encodeURIComponent(item.id)}`;
+        isTM && item.versions[version].name ? `TODO` : `/items/${encodeURIComponent(item.id)}`;
 
       const spriteUrl = isTM
         ? `/sprites/items/tm_hm.png`
@@ -72,7 +70,7 @@ export const itemColumns = (version: string): ColumnDef<ItemsManifest>[] => [
       // Check if this is a TM/HM item that should link to moves
       const linkHref =
         item.versions[version].category === 'tm' || item.versions[version].category === 'hm'
-          ? `/moves/${getMoveUrlFromName(item.id)}`
+          ? `TODO`
           : `/items/${encodeURIComponent(item.id)}`;
 
       return (

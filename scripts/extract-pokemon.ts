@@ -282,6 +282,7 @@ const extractPokemonMovesets = (evoAttacksData: string[], version: string | numb
           // Add the move to the levelUp array
           pokemonMovesets[versionKey][currentPokemon].levelUp!.push({
             name: move,
+            id: move,
             level,
           });
         }
@@ -391,7 +392,9 @@ const extractEggMoves = (eggMovesData: string[], version: string | number) => {
         if (pokemonMovesets[versionKey][targetPokemon]) {
           // Only set egg moves if the Pokemon doesn't already have them
           if (pokemonMovesets[versionKey][targetPokemon].eggMoves?.length === 0) {
-            pokemonMovesets[versionKey][targetPokemon].eggMoves = [...eggMoves];
+            pokemonMovesets[versionKey][targetPokemon].eggMoves = eggMoves.map((move) => ({
+              id: move,
+            }));
           }
         }
       }
@@ -845,7 +848,7 @@ const mergeVersions = () => {
 
           // Merge TM moves into movesets
           const finalMovesets = { ...formMovesets };
-          finalMovesets.tm = formTMMoves;
+          finalMovesets.tm = formTMMoves.map((move) => ({ id: move }));
 
           polishedFormsWithRest[formKey].movesets = finalMovesets;
         }
@@ -882,7 +885,7 @@ const mergeVersions = () => {
 
           // Merge TM moves into movesets
           const finalMovesets = { ...formMovesets };
-          finalMovesets.tm = formTMMoves;
+          finalMovesets.tm = formTMMoves.map((move) => ({ id: move }));
 
           faithfulFormsWithRest[formKey].movesets = finalMovesets;
         }

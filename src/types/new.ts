@@ -245,6 +245,7 @@ export interface LocationManifest {
   encounterCount?: number;
   eventCount?: number;
   trainerCount?: number;
+  itemCount?: number;
 }
 
 export interface TrainerData {

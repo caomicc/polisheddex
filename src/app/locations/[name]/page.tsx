@@ -11,12 +11,15 @@ import {
 } from '@/components/ui/breadcrumb';
 import { Hero } from '@/components/ui/Hero';
 import { LocationData } from '@/types/new';
-import { loadJsonFile } from '@/utils/fileLoader';
+import {
+  loadLocationsFromNewManifest,
+  loadDetailedLocationData,
+} from '@/utils/loaders/location-data-loader';
 
-// Load location data from the new system
+// Load location data from the new system using proper data loaders
 async function loadLocationData(locationId: string): Promise<LocationData | null> {
   try {
-    const locationData = await loadJsonFile<LocationData>(`new/locations/${locationId}.json`);
+    const locationData = await loadDetailedLocationData(locationId);
     return locationData;
   } catch (error) {
     console.error(`Error loading location data for ${locationId}:`, error);
@@ -27,17 +30,10 @@ async function loadLocationData(locationId: string): Promise<LocationData | null
 // Generate static params for all locations
 export async function generateStaticParams() {
   try {
-    const locationManifest = await loadJsonFile<Array<{ id: string; name: string }>>(
-      'new/locations_manifest.json',
-    );
+    const locationsData = await loadLocationsFromNewManifest();
 
-    if (!locationManifest || !Array.isArray(locationManifest)) {
-      console.error('Invalid locations manifest');
-      return [];
-    }
-
-    return locationManifest.map((location) => ({
-      name: location.id,
+    return Object.keys(locationsData).map((locationId) => ({
+      name: locationId,
     }));
   } catch (error) {
     console.error('Error generating static params for locations:', error);

@@ -2,15 +2,11 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-import { PokemonType } from '@/types/types';
 
 interface PokemonTypeContextValue {
-  primaryType: PokemonType['name'] | null;
-  secondaryType: PokemonType['name'] | null;
-  setPokemonTypes: (
-    primary: PokemonType['name'] | null,
-    secondary?: PokemonType['name'] | null,
-  ) => void;
+  primaryType: string | null;
+  secondaryType: string | null;
+  setPokemonTypes: (primary: string | null, secondary?: string | null) => void;
   clearPokemonTypes: () => void;
   getTypeBasedStyles: () => {
     backgroundColor?: string;
@@ -32,7 +28,7 @@ export const usePokemonType = () => {
 
 // Type color mappings based on your globals.css
 export const TYPE_COLORS: Record<
-  PokemonType['name'],
+  string,
   {
     primary: string;
     secondary: string;
@@ -573,8 +569,8 @@ interface PokemonTypeProviderProps {
 }
 
 export const PokemonTypeProvider: React.FC<PokemonTypeProviderProps> = ({ children }) => {
-  const [primaryType, setPrimaryType] = useState<PokemonType['name'] | null>(null);
-  const [secondaryType, setSecondaryType] = useState<PokemonType['name'] | null>(null);
+  const [primaryType, setPrimaryType] = useState<string | null>(null);
+  const [secondaryType, setSecondaryType] = useState<string | null>(null);
   const [isInitialized, setIsInitialized] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { theme, resolvedTheme } = useTheme();
@@ -584,10 +580,7 @@ export const PokemonTypeProvider: React.FC<PokemonTypeProviderProps> = ({ childr
     setIsInitialized(true);
   }, []);
 
-  const setPokemonTypes = (
-    primary: PokemonType['name'] | null,
-    secondary?: PokemonType['name'] | null,
-  ) => {
+  const setPokemonTypes = (primary: string | null, secondary?: string | null) => {
     setPrimaryType(primary);
     setSecondaryType(secondary || null);
   };

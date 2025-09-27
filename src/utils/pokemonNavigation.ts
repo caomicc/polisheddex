@@ -1,20 +1,9 @@
-// import fs from 'fs';
-import path from 'path';
-import { readFile } from 'fs/promises';
 import { urlKeyToStandardKey } from './pokemonUrlNormalizer';
-import { parseDexOrder } from '@/lib/extract-utils';
 
 export interface NavigationData {
   previous: { name: string; url: string } | null;
   next: { name: string; url: string } | null;
   current: { name: string; index: number };
-}
-
-/**
- * Convert a Pokemon name to URL-safe format for navigation
- */
-function pokemonNameToUrlSafe(name: string): string {
-  return name.toLowerCase().replace(/\s+/g, '-');
 }
 
 /**

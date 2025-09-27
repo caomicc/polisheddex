@@ -16,6 +16,7 @@ import { mapEncounterRatesToPokemon } from '@/utils/encounterRates';
 import splitFile from '@/lib/split';
 import extractTrainers from './extract-trainers';
 import { extractItemsFromMapData } from './extract-items';
+import { getMartItemCount } from './mart-items-mapping';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -44,6 +45,10 @@ const landmarks: {
   orderMap: new Map(),
   regionMap: new Map(),
 };
+
+// Mart data storage (legacy - replaced with manual mapping)
+const martConstants: Map<string, number> = new Map(); // MART_AZALEA -> 3 (index)
+const martData: Map<number, string[]> = new Map(); // 3 -> ["CHARCOAL", "POKE_BALL", ...]
 
 // File paths
 const attributesASM = join(__dirname, '../polishedcrystal/data/maps/attributes.asm');
@@ -106,6 +111,76 @@ const extractLandmarks = async () => {
   }
 
   console.log(`Extracted ${landmarks.locationRefs.size} landmarks`);
+};
+
+// Legacy mart extraction functions removed - now using manual mapping
+
+// Extract mart items from map data
+const extractMartItemsFromMapData = (
+  mapData: string[],
+): { name: string; type: string; method: string }[] => {
+  const items: { name: string; type: string; method: string }[] = [];
+
+  for (const line of mapData) {
+    const trimmed = line.trim();
+
+    // Look for mart_clerk_event lines
+    if (trimmed.startsWith('mart_clerk_event ')) {
+      // Parse: mart_clerk_event  1,  3, MARTTYPE_STANDARD, MART_AZALEA
+      const parts = trimmed.replace('mart_clerk_event ', '').split(',');
+      if (parts.length >= 4) {
+        const martConstant = parts[3].trim();
+        const martIndex = martConstants.get(martConstant);
+
+        if (martIndex !== undefined && martData.has(martIndex)) {
+          const martItems = martData.get(martIndex)!;
+          for (const itemId of martItems) {
+            items.push({
+              name: itemId,
+              type: 'purchase',
+              method: 'mart',
+            });
+          }
+        }
+      }
+    }
+
+    // Also look for pokemart commands (used in dept stores)
+    if (trimmed.includes('pokemart ') || trimmed.includes('pokemart MARTTYPE_')) {
+      // Parse: pokemart MARTTYPE_STANDARD, MART_GOLDENROD_2F_1
+      // or: OBJECTTYPE_COMMAND, pokemart, MARTTYPE_STANDARD, MART_GOLDENROD_2F_1, -1
+      const martMatch = trimmed.match(/MART_[A-Z0-9_]+/);
+      if (martMatch) {
+        const martConstant = martMatch[0];
+        const martIndex = martConstants.get(martConstant);
+
+        // Special debug for MART_GOLDENROD_3F
+        if (martConstant === 'MART_GOLDENROD_3F') {
+          console.log(
+            `   🔍 DEBUG MART_GOLDENROD_3F: found constant index ${martIndex}, has data: ${martData.has(martIndex ?? -1)}`,
+          );
+          if (martIndex !== undefined) {
+            console.log(
+              `   🔍 DEBUG MART_GOLDENROD_3F: data = ${JSON.stringify(martData.get(martIndex))}`,
+            );
+          }
+        }
+
+        if (martIndex !== undefined && martData.has(martIndex)) {
+          const martItems = martData.get(martIndex)!;
+          for (const itemId of martItems) {
+            items.push({
+              name: itemId,
+              type: 'purchase',
+              method: 'mart',
+            });
+          }
+        }
+      }
+    }
+  }
+
+  return items;
 };
 
 // Extract connection counts from map attributes
@@ -428,14 +503,54 @@ const extractMapEvents = async () => {
   }
 };
 
+// Create ordered locations array similar to old implementation
+const createOrderedLocations = () => {
+  const orderedLocationIds: string[] = [];
+
+  // First, add all landmarks in order
+  const landmarksByOrder = Array.from(landmarks.orderMap.entries()).sort(
+    ([, orderA], [, orderB]) => orderA - orderB,
+  );
+
+  for (const [landmarkId] of landmarksByOrder) {
+    orderedLocationIds.push(landmarkId);
+
+    // Add related locations for this landmark (gym, mart, pokecenter, etc.)
+    const relatedLocations: string[] = [];
+
+    // Look for locations that have this landmark as their parent
+    for (const [mapId, parentId] of Object.entries(locationParent)) {
+      if (parentId === landmarkId && mapId !== landmarkId) {
+        relatedLocations.push(mapId);
+      }
+    }
+
+    // Sort related locations by name to ensure consistent ordering
+    relatedLocations.sort();
+    orderedLocationIds.push(...relatedLocations);
+  }
+
+  return orderedLocationIds;
+};
+
 // Merge all data into final location objects
 const mergeLocationData = async () => {
+  const orderedLocationIds = createOrderedLocations();
+  const orderMap = new Map<string, number>();
+
+  // Create order map with sequential numbering
+  orderedLocationIds.forEach((locationId, index) => {
+    orderMap.set(locationId, index + 1);
+  });
+
   for (const [locationKey, connectionCount] of Object.entries(connections)) {
     const locationId = reduce(locationKey);
     const locationName = displayName(locationKey);
 
-    const order = landmarks.orderMap.get(locationId);
-    const region = landmarks.regionMap.get(locationId);
+    // Use the new order map that includes related locations
+    const order = orderMap.get(locationId);
+    const region =
+      landmarks.regionMap.get(locationId) || landmarks.regionMap.get(locationParent[locationId]);
 
     // Find encounters for this location using the actual constant name
     const locationConstant = locationConstants[locationKey];
@@ -447,10 +562,46 @@ const mergeLocationData = async () => {
     try {
       // prevent issues with special characters in filenames
       const mapFilePath = join(mapsDir, `${locationKey.replace('é', 'e')}.asm`);
+
+      // Debug logging for mart locations
+      const isMart =
+        locationKey.toLowerCase().includes('mart') ||
+        locationKey.toLowerCase().includes('deptstore');
+      if (isMart) {
+        console.log(`🏪 Processing mart: ${locationKey}`);
+        console.log(`   Map file path: ${mapFilePath}`);
+      }
+
       const raw = await readFile(mapFilePath, 'utf-8');
       const mapData = splitFile(raw, false)[0] as string[];
+
+      // if (isMart) {
+      //   console.log(`   Map file found, ${mapData.length} lines`);
+      //   // Show first 20 lines to see structure
+      //   console.log(`   First 20 lines:`);
+      //   mapData.slice(0, 20).forEach((line, idx) => {
+      //     console.log(`     ${idx + 1}: ${line}`);
+      //   });
+      // }
+
       const locationItems = extractItemsFromMapData(mapData);
-      itemNames = locationItems.length > 0 ? locationItems : undefined;
+
+      // Also check for mart items
+      const martItems = extractMartItemsFromMapData(mapData);
+      const allItems = [...locationItems, ...martItems];
+
+      if (isMart) {
+        console.log(`   Extracted ${locationItems.length} regular items:`, locationItems);
+        console.log(`   Extracted ${martItems.length} mart items:`, martItems);
+        console.log(`   Total ${allItems.length} items:`, allItems);
+      }
+
+      itemNames = allItems.length > 0 ? allItems : undefined;
+      if (isMart && itemNames) {
+        console.log(`   Final item names for ${locationKey}:`, itemNames);
+      } else if (isMart && !itemNames) {
+        console.log(`   No items found for ${locationKey}`);
+      }
     } catch (error) {
       console.warn(`Could not read map file for items: ${locationKey}.asm`, error);
       // Map file doesn't exist or can't be read, no items for this location
@@ -485,6 +636,9 @@ const mergeLocationData = async () => {
 // Main execution using Promise.all pattern for operations that don't depend on Pokemon data
 await Promise.all([
   extractLandmarks(),
+  // Mart extraction replaced with manual mapping
+  // extractMartConstants(),
+  // extractMartData(),
   extractConnections(),
   extractMapEvents(),
   extractMapTrainers(),
@@ -532,14 +686,18 @@ await Promise.all(
     locationManifest.push({
       id: location.id,
       name: location.name,
+      // constantName: location.constantName,
+      // type: location.type,
       region: location.region,
       order: location.order,
+      // connections: location.connectionCount,
       encounterCount:
         location.encounters && location.encounters.length > 0
           ? new Set(location.encounters.map((e) => e.pokemon)).size
           : undefined,
       trainerCount: location.trainers?.length,
-      eventCount: locationEvents[location.id]?.length,
+      eventCount: location.events?.length,
+      itemCount: (location.items?.length || 0) + getMartItemCount(location.id),
     });
 
     // Add events to events manifest if location has events
@@ -555,7 +713,23 @@ await Promise.all(
   }),
 );
 
-locationManifest.sort((a, b) => a.name.localeCompare(b.name));
+// Sort locations by travel order (order field), with undefined orders at the end
+locationManifest.sort((a, b) => {
+  // If both have order, sort by order
+  if (a.order !== undefined && b.order !== undefined) {
+    return a.order - b.order;
+  }
+  // If only one has order, put the one with order first
+  if (a.order !== undefined && b.order === undefined) {
+    return -1;
+  }
+  if (a.order === undefined && b.order !== undefined) {
+    return 1;
+  }
+  // If neither has order, sort alphabetically
+  return a.name.localeCompare(b.name);
+});
+
 eventsManifest.sort((a, b) => a.id.localeCompare(b.id));
 
 // Write manifest files

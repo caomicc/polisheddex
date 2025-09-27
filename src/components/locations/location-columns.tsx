@@ -77,8 +77,42 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
       return region === value;
     },
   },
+  // {
+  //   accessorKey: 'type',
+  //   header: ({ column }) => {
+  //     return (
+  //       <Button
+  //         variant="ghost"
+  //         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+  //         className="-ml-3 label-text"
+  //       >
+  //         Type
+  //         {column.getIsSorted() === 'desc' ? (
+  //           <ArrowDown className="size-3" />
+  //         ) : column.getIsSorted() === 'asc' ? (
+  //           <ArrowUp className="size-3" />
+  //         ) : (
+  //           <ArrowUpDown className="size-3" />
+  //         )}
+  //       </Button>
+  //     );
+  //   },
+  //   cell: ({ row }) => {
+  //     const types = row.getValue('type') as string[];
+  //     if (!types || types.length === 0) return <span className="text-cell text-cell-muted">—</span>;
+  //     return (
+  //       <div className="flex flex-wrap gap-1">
+  //         {types.map((type, index) => (
+  //           <Badge key={index} variant="outline" className="text-xs">
+  //             {type}
+  //           </Badge>
+  //         ))}
+  //       </div>
+  //     );
+  //   },
+  // },
   {
-    accessorKey: 'type',
+    accessorKey: 'encounterCount',
     header: ({ column }) => {
       return (
         <Button
@@ -86,7 +120,7 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
           className="-ml-3 label-text"
         >
-          Type
+          Pokemon
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
           ) : column.getIsSorted() === 'asc' ? (
@@ -98,15 +132,14 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
       );
     },
     cell: ({ row }) => {
-      const types = row.getValue('type') as string[];
-      if (!types || types.length === 0) return <span className="text-cell text-cell-muted">—</span>;
+      const count = row.getValue('encounterCount') as number;
       return (
-        <div className="flex flex-wrap gap-1">
-          {types.map((type, index) => (
-            <Badge key={index} variant="outline" className="text-xs">
-              {type}
-            </Badge>
-          ))}
+        <div className="">
+          {count && count > 0 ? (
+            <span className="text-cell">{count}</span>
+          ) : (
+            <span className="text-cell text-cell-muted">—</span>
+          )}
         </div>
       );
     },
@@ -178,7 +211,7 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
     },
   },
   {
-    accessorKey: 'order',
+    accessorKey: 'itemCount',
     header: ({ column }) => {
       return (
         <Button
@@ -186,7 +219,7 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
           className="-ml-3 label-text"
         >
-          Order
+          Items
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
           ) : column.getIsSorted() === 'asc' ? (
@@ -198,11 +231,11 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
       );
     },
     cell: ({ row }) => {
-      const order = row.getValue('order') as number;
+      const count = row.getValue('itemCount') as number;
       return (
         <div className="">
-          {order ? (
-            <span className="text-cell">{order}</span>
+          {count && count > 0 ? (
+            <span className="text-cell">{count}</span>
           ) : (
             <span className="text-cell text-cell-muted">—</span>
           )}
@@ -210,4 +243,37 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
       );
     },
   },
+  // {
+  //   accessorKey: 'order',
+  //   header: ({ column }) => {
+  //     return (
+  //       <Button
+  //         variant="ghost"
+  //         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+  //         className="-ml-3 label-text"
+  //       >
+  //         Order
+  //         {column.getIsSorted() === 'desc' ? (
+  //           <ArrowDown className="size-3" />
+  //         ) : column.getIsSorted() === 'asc' ? (
+  //           <ArrowUp className="size-3" />
+  //         ) : (
+  //           <ArrowUpDown className="size-3" />
+  //         )}
+  //       </Button>
+  //     );
+  //   },
+  //   cell: ({ row }) => {
+  //     const order = row.getValue('order') as number;
+  //     return (
+  //       <div className="">
+  //         {order ? (
+  //           <span className="text-cell">{order}</span>
+  //         ) : (
+  //           <span className="text-cell text-cell-muted">—</span>
+  //         )}
+  //       </div>
+  //     );
+  //   },
+  // },
 ];

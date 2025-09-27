@@ -69,39 +69,39 @@ export function normalizeLocationKey(input: string): string {
 
 console.log('🌍 Normalized location key function ready');
 
-// Helper function to convert method names to more user-friendly format
-export function formatMethod(method: string): string {
-  if (method === 'grass') return 'Wild Grass';
-  if (method === 'surf') return 'Surfing';
-  if (method === 'fish') return 'Fishing';
-  if (method === 'rock_smash') return 'Rock Smash';
-  if (method === 'headbutt') return 'Headbutt';
-  if (method === 'gift') return 'Gift Pokémon';
-  if (method === 'event') return 'Event Pokémon';
-  if (method === 'egg') return 'Egg';
-  if (method === 'trade') return 'Trade';
-  if (method === 'special') return 'Special Encounter';
-  if (method === 'roaming') return 'Roaming Pokémon';
-  if (method === 'swarm') return 'Swarm Encounter';
-  if (method === 'honey_tree') return 'Honey Tree';
-  if (method === 'rock') return 'Rock';
-  if (method === 'cave') return 'Cave Encounter';
-  if (method === 'hidden') return 'Hidden Pokémon';
-  if (method === 'hidden_grotto') return 'Hidden Grotto';
-  if (method === 'unknown') return 'Special Encounter';
-  return method.charAt(0).toUpperCase() + method.slice(1);
-}
+// // Helper function to convert method names to more user-friendly format
+// export function formatMethod(method: string): string {
+//   if (method === 'grass') return 'Wild Grass';
+//   if (method === 'surf') return 'Surfing';
+//   if (method === 'fish') return 'Fishing';
+//   if (method === 'rock_smash') return 'Rock Smash';
+//   if (method === 'headbutt') return 'Headbutt';
+//   if (method === 'gift') return 'Gift Pokémon';
+//   if (method === 'event') return 'Event Pokémon';
+//   if (method === 'egg') return 'Egg';
+//   if (method === 'trade') return 'Trade';
+//   if (method === 'special') return 'Special Encounter';
+//   if (method === 'roaming') return 'Roaming Pokémon';
+//   if (method === 'swarm') return 'Swarm Encounter';
+//   if (method === 'honey_tree') return 'Honey Tree';
+//   if (method === 'rock') return 'Rock';
+//   if (method === 'cave') return 'Cave Encounter';
+//   if (method === 'hidden') return 'Hidden Pokémon';
+//   if (method === 'hidden_grotto') return 'Hidden Grotto';
+//   if (method === 'unknown') return 'Special Encounter';
+//   return method.charAt(0).toUpperCase() + method.slice(1);
+// }
 
-// Helper function to format time of day
-export function formatTime(time: string): string {
-  if (time === 'morn') return 'Morning';
-  if (time === 'day') return 'Day';
-  if (time === 'nite') return 'Night';
-  if (time === 'eve') return 'Evening';
-  if (time === 'any') return 'Any Time';
-  // Hidden grotto rarities
-  if (time === 'common') return 'Common';
-  if (time === 'uncommon') return 'Uncommon';
-  if (time === 'rare') return 'Rare';
-  return time.charAt(0).toUpperCase() + time.slice(1);
-}
+// // Helper function to format time of day
+// export function formatTime(time: string): string {
+//   if (time === 'morn') return 'Morning';
+//   if (time === 'day') return 'Day';
+//   if (time === 'nite') return 'Night';
+//   if (time === 'eve') return 'Evening';
+//   if (time === 'any') return 'Any Time';
+//   // Hidden grotto rarities
+//   if (time === 'common') return 'Common';
+//   if (time === 'uncommon') return 'Uncommon';
+//   if (time === 'rare') return 'Rare';
+//   return time.charAt(0).toUpperCase() + time.slice(1);
+// }

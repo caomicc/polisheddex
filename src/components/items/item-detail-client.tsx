@@ -6,10 +6,10 @@ import Image from 'next/image';
 // import ItemLocationDataTable from './item-location-data-table';
 import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
 import { processItemEffect, getUsageDescription } from '@/utils/itemEffectProcessor';
-import { getItemSpriteName } from '@/utils/itemUtils';
 import { ComprehensiveItemsData } from '@/types/new';
 import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 import ItemLocationDataTable from './item-location-data-table';
+import { getItemSpriteName } from '@/utils/spriteUtils';
 
 interface ItemDetailClientProps {
   item: ComprehensiveItemsData;

@@ -21,13 +21,6 @@ export default function PokemonNavigation({ navigation }: PokemonNavigationProps
     return null;
   }
 
-  const formatPokemonName = (name: string) => {
-    return name
-      .split('-')
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-  };
-
   return (
     <div className="flex flex-col gap-4 mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
       {/* Dex info */}

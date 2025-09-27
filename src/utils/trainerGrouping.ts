@@ -22,12 +22,13 @@ function isStarterVariationGroup(group: LocationTrainer[]): boolean {
 
   // Check if all trainers have similar levels (starter variations should be at similar levels)
   // Unlike rematches which typically have increasing levels
-  const levels = group.flatMap((trainer) => 
-    trainer.pokemon?.map((p) => {
-      // Convert badge levels to numbers for comparison, default to 25
-      const level = p.level || 0;
-      return typeof level === 'string' ? 25 : level;
-    }) || []
+  const levels = group.flatMap(
+    (trainer) =>
+      trainer.pokemon?.map((p) => {
+        // Convert badge levels to numbers for comparison, default to 25
+        const level = p.level || 0;
+        return typeof level === 'string' ? 25 : level;
+      }) || [],
   );
 
   if (levels.length === 0) return false;
@@ -249,10 +250,10 @@ export function groupRematchTrainers(trainers: LocationTrainer[]): GroupedTraine
   return groupedTrainers;
 }
 
-/**
- * Get the unique trainer count (grouped trainers count as 1)
- */
-export function getUniqueTrainerCount(trainers: LocationTrainer[]): number {
-  const groupedTrainers = groupRematchTrainers(trainers);
-  return groupedTrainers.length;
-}
+// /**
+//  * Get the unique trainer count (grouped trainers count as 1)
+//  */
+// export function getUniqueTrainerCount(trainers: LocationTrainer[]): number {
+//   const groupedTrainers = groupRematchTrainers(trainers);
+//   return groupedTrainers.length;
+// }
