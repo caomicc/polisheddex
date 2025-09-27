@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "node scripts/generate-build-info.mjs & tsx --tsconfig scripts/tsconfig.json scripts/smart-sprite-build.ts && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
