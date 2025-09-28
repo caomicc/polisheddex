@@ -123,7 +123,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
       return (
         <div className="flex gap-1 flex-wrap">
           {abilityTypes.map((abilityType: string) => (
-            <Badge key={abilityType} variant={abilityType}>
+            <Badge key={abilityType} variant={abilityType as any}>
               {abilityType === 'primary' && 'Primary'}
               {abilityType === 'secondary' && 'Secondary'}
               {abilityType === 'hidden' && 'Hidden'}
@@ -174,7 +174,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
         <div className="flex gap-1 flex-wrap">
           {types && types.length > 0 ? (
             types.map((type) => (
-              <Badge key={type} variant={type.toLowerCase()}>
+              <Badge key={type} variant={type.toLowerCase() as any}>
                 {type}
               </Badge>
             ))

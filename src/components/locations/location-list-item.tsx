@@ -1,4 +1,4 @@
-import { LocationEntry } from '@/types/types';
+// import { LocationEntry } from '@/types/types';
 import Link from 'next/link';
 import { TableRow, TableCell } from '@/components/ui/table';
 import { cn } from '@/lib/utils';
@@ -6,7 +6,8 @@ import { normalizeLocationKey, getLocationDisplayName } from '@/utils/locationUt
 import { ExternalLink } from 'lucide-react';
 import { Badge, BadgeVariant } from '../ui/badge';
 
-export function LocationListItem({ area, method, time, level, chance }: LocationEntry) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function LocationListItem({ area, method, time, level, chance }: any) {
   const formattedArea = area || 'N/A';
   // Use the normalized area name for URL routing to match the detail page expectations
   const areaUrl = area ? `/locations/${encodeURIComponent(normalizeLocationKey(area))}` : '#';

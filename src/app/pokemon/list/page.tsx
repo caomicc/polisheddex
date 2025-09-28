@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BaseData } from '@/types/types';
+import { PokemonManifest } from '@/types/new';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -10,14 +10,14 @@ import {
 } from '@/components/ui/breadcrumb';
 import PokemonSearch from '@/components/pokemon/pokemon-search';
 import { Hero } from '@/components/ui/Hero';
-import { loadPokemonBaseDataFromManifest } from '@/utils/loaders/pokemon-data-loader';
+import { loadPokemonFromNewManifest } from '@/utils/loaders/pokemon-data-loader';
 export default async function PokemonList({
   searchParams,
 }: {
   searchParams: Promise<{ sort?: string }>;
 }) {
   // Load Pokemon data from manifest system
-  const pokemonData = await loadPokemonBaseDataFromManifest();
+  const pokemonData = await loadPokemonFromNewManifest();
   const { sort = 'johtodex' } = (await searchParams) ?? {};
 
   console.log('Pokemon data loaded:', Object.keys(pokemonData).length, 'entries');
@@ -28,7 +28,7 @@ export default async function PokemonList({
     sort === 'nationaldex' ? 'nationaldex' : sort === 'johtodex' ? 'johtodex' : 'alphabetical';
 
   // Prepare an array of Pokémon with their names and dex numbers
-  const pokemonList: BaseData[] = Object.values(pokemonData) as BaseData[];
+  const pokemonList: PokemonManifest[] = Object.values(pokemonData);
 
   // Sort based on selected sort type
   const sortedPokemon = [...pokemonList].sort((a, b) => {
@@ -36,17 +36,18 @@ export default async function PokemonList({
       return a.name.localeCompare(b.name);
     }
     if (sortType === 'nationaldex') {
-      return (a.nationalDex ?? 0) - (b.nationalDex ?? 0) || a.name.localeCompare(b.name);
+      return (a.dexNo ?? 0) - (b.dexNo ?? 0) || a.name.localeCompare(b.name);
     }
     if (sortType === 'johtodex') {
-      return (a.johtoDex ?? 999) - (b.johtoDex ?? 999) || a.name.localeCompare(b.name);
+      // For Johto dex, we'll use dexNo for now - you may need to add johtoDex to PokemonManifest if needed
+      return (a.dexNo ?? 999) - (b.dexNo ?? 999) || a.name.localeCompare(b.name);
     }
     return 0;
   });
 
   console.log(
     `Sorted Pokémon by ${sortType}:`,
-    sortedPokemon.map((p) => `${p.name} (${p.johtoDex ?? 'N/A'})`).join(', '),
+    sortedPokemon.map((p) => `${p.name} (${p.dexNo ?? 'N/A'})`).join(', '),
   );
 
   return (

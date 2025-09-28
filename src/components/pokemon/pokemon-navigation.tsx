@@ -13,7 +13,7 @@ export default function PokemonNavigation({ navigation }: PokemonNavigationProps
 
   // Debug logging
   console.log('PokemonNavigation render:', { navigation });
-  console.log('Current index:', current.index, 'Total:', current.total);
+  // console.log('Current index:', current.index, 'Total:', current.total);
 
   // If we don't have valid navigation data, don't render anything
   if (current.index === -1) {
@@ -25,7 +25,7 @@ export default function PokemonNavigation({ navigation }: PokemonNavigationProps
     <div className="flex flex-col gap-4 mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
       {/* Dex info */}
       <div className="text-center text-sm text-gray-600 dark:text-gray-400">
-        Pokédex: #{current.index} of {current.total}
+        {/* Pokédex: #{current.index} of {current.total} */}
       </div>
 
       {/* Navigation buttons */}

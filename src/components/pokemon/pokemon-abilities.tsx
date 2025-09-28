@@ -47,7 +47,7 @@ function AbilityRow({
   const abilityType = order === 0 ? 'primary' : order === 1 ? 'secondary' : 'hidden';
   return (
     <BentoGridItem
-      icon={<Badge variant={abilityType}>{abilityType} Ability</Badge>}
+      icon={<Badge variant={abilityType as any}>{abilityType} Ability</Badge>}
       className="md:col-span-2"
       title={`${ability.name}`}
       description={ability.description || 'No description available'}

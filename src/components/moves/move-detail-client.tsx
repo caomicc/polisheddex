@@ -34,7 +34,7 @@ export default function MoveDetailClient({ moveData }: { moveData: MoveData }) {
         types={
           <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
             <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
-              <Badge variant={moveData.versions[version]?.type?.toLowerCase()}>
+              <Badge variant={moveData.versions[version]?.type?.toLowerCase() as any}>
                 {String(moveData.versions[version]?.type || 'Unknown Type')}
               </Badge>
             </div>

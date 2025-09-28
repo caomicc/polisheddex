@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
-import { BaseData } from '@/types/types';
+import { PokemonManifest } from '@/types/new';
 import { useDebounce } from './useDebounce';
 
 interface UsePokemonSearchProps {
-  pokemon: BaseData[];
+  pokemon: PokemonManifest[];
   searchQuery: string;
   showUpdatedTypes: boolean;
 }
@@ -28,29 +28,21 @@ export function usePokemonSearch({
         return true;
       }
 
-      // Get the appropriate types based on user preference
-      const selectedTypes = showUpdatedTypes ? p.updatedTypes || p.types : p.types;
+      // Get the appropriate version based on user preference
+      const version = showUpdatedTypes ? 'polished' : 'faithful';
+      const versionData = p.versions[version];
 
-      // Check if any type matches
-      const types = Array.isArray(selectedTypes) ? selectedTypes : [selectedTypes];
-      if (types.some((type: string) => type?.toLowerCase().includes(query))) {
-        return true;
+      if (!versionData) {
+        return false;
       }
 
-      // Check if any form type matches
-      if (p.forms) {
-        for (const formName in p.forms) {
-          const formSelectedTypes = showUpdatedTypes
-            ? p.forms[formName].updatedTypes || p.forms[formName].types
-            : p.forms[formName].faithfulTypes || p.forms[formName].types;
+      // Check types in all forms for this version
+      for (const formName in versionData) {
+        const formData = versionData[formName];
+        const types = formData.types || [];
 
-          const formTypes = Array.isArray(formSelectedTypes)
-            ? formSelectedTypes
-            : [formSelectedTypes];
-
-          if (formTypes.some((type: string) => type?.toLowerCase().includes(query))) {
-            return true;
-          }
+        if (types.some((type: string) => type?.toLowerCase().includes(query))) {
+          return true;
         }
       }
 

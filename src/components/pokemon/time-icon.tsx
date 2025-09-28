@@ -1,11 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { LocationEntry } from '@/types/types';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 
 interface TypeIconProps {
-  time: LocationEntry['time'] | string;
+  time: string;
   size?: number;
   className?: string;
   showTooltip?: boolean;

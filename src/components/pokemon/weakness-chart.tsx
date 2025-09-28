@@ -1,5 +1,5 @@
 import React from 'react';
-import { PokemonType } from '@/types/types';
+// import { PokemonType } from '@/types/types';
 import { PokemonType as TypeChartType, getTypeEffectiveness } from '@/data/typeChart';
 import { Badge } from '../ui/badge';
 
@@ -56,7 +56,7 @@ export function WeaknessChart({ types }: { types: string[]; variant?: string }) 
             <span className="text-gray-600">None</span>
           ) : (
             weaknesses.map((type) => (
-              <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
+              <Badge key={type} variant={type.toLowerCase() as any}>
                 <span>
                   {type} ×{effectiveness[type]}
                 </span>
@@ -72,7 +72,7 @@ export function WeaknessChart({ types }: { types: string[]; variant?: string }) 
             <span className="text-gray-600">None</span>
           ) : (
             strengths.map((type) => (
-              <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
+              <Badge key={type} variant={type.toLowerCase() as any}>
                 <span>
                   {type} ×{effectiveness[type]}
                 </span>

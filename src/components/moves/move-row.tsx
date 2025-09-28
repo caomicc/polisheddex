@@ -44,7 +44,7 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, id, info, tm }) => {
 
       <TableCell className="align-middle p-2">
         <Badge
-          variant={String(info?.type ?? '-').toLowerCase()}
+          variant={String(info?.type ?? '-').toLowerCase() as any}
           // className="w-full md:w-auto text-center"
           className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
         >
@@ -146,7 +146,7 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, id, info, tm }) => {
     >
       <TableCell className="align-middle p-1 md:p-2 ">
         <Badge
-          variant={String(info?.type ?? '-').toLowerCase()}
+          variant={String(info?.type ?? '-').toLowerCase() as any}
           // className="w-full md:w-auto text-center"
           className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
         >
@@ -163,7 +163,7 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, id, info, tm }) => {
           className={'w-4 h-4 p-[4px]'}
         />
         <Badge
-          variant={info?.category?.toLowerCase()}
+          variant={info?.category?.toLowerCase() as any}
           className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px] mx-auto"
         >
           {info?.category ? String(info.category) : '-'}

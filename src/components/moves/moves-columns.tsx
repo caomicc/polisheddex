@@ -62,15 +62,15 @@ export const moveColumns: ColumnDef<MoveData>[] = [
     },
     cell: ({ row }) => {
       const move = row.original;
-      // Prefer updated, fallback to faithful, fallback to undefined
-      const type = move.updated?.type ?? move.faithful?.type ?? move.type ?? 'Unknown';
+      // Use the new versions structure
+      const type = move.versions?.polished?.type ?? move.versions?.faithful?.type ?? 'Unknown';
       return (
         <Badge variant="outline" className="text-xs">
           {type}
         </Badge>
       );
     },
-    accessorFn: (row) => row.updated?.type ?? row.faithful?.type ?? row.type ?? 'Unknown',
+    accessorFn: (row) => row.versions?.polished?.type ?? row.versions?.faithful?.type ?? 'Unknown',
   },
   {
     accessorKey: 'category',
@@ -95,14 +95,16 @@ export const moveColumns: ColumnDef<MoveData>[] = [
     },
     cell: ({ row }) => {
       const move = row.original;
-      const category = move.updated?.category ?? move.faithful?.category ?? 'Unknown';
+      const category =
+        move.versions?.polished?.category ?? move.versions?.faithful?.category ?? 'Unknown';
       return (
         <Badge variant="secondary" className="text-xs">
           {category}
         </Badge>
       );
     },
-    accessorFn: (row) => row.updated?.category ?? row.faithful?.category ?? 'Unknown',
+    accessorFn: (row) =>
+      row.versions?.polished?.category ?? row.versions?.faithful?.category ?? 'Unknown',
   },
 
   {
@@ -128,12 +130,12 @@ export const moveColumns: ColumnDef<MoveData>[] = [
     },
     cell: ({ row }) => {
       const move = row.original;
-      const power = move.updated?.power ?? move.faithful?.power ?? (
+      const power = move.versions?.polished?.power ?? move.versions?.faithful?.power ?? (
         <span className="text-cell text-cell-muted">—</span>
       );
       return <span className="text-cell">{power}</span>;
     },
-    accessorFn: (row) => row.updated?.power ?? row.faithful?.power ?? null,
+    accessorFn: (row) => row.versions?.polished?.power ?? row.versions?.faithful?.power ?? null,
   },
   {
     accessorKey: 'accuracy',
@@ -158,12 +160,13 @@ export const moveColumns: ColumnDef<MoveData>[] = [
     },
     cell: ({ row }) => {
       const move = row.original;
-      const accuracy = move.updated?.accuracy ?? move.faithful?.accuracy ?? (
+      const accuracy = move.versions?.polished?.accuracy ?? move.versions?.faithful?.accuracy ?? (
         <span className="text-cell text-cell-muted">—</span>
       );
       return <span className="text-cell">{accuracy}</span>;
     },
-    accessorFn: (row) => row.updated?.accuracy ?? row.faithful?.accuracy ?? null,
+    accessorFn: (row) =>
+      row.versions?.polished?.accuracy ?? row.versions?.faithful?.accuracy ?? null,
   },
   {
     accessorKey: 'pp',
@@ -187,12 +190,12 @@ export const moveColumns: ColumnDef<MoveData>[] = [
     },
     cell: ({ row }) => {
       const move = row.original;
-      const pp = move.updated?.pp ?? move.faithful?.pp ?? (
+      const pp = move.versions?.polished?.pp ?? move.versions?.faithful?.pp ?? (
         <span className="text-cell text-cell-muted">—</span>
       );
       return <span className="text-cell">{pp}</span>;
     },
-    accessorFn: (row) => row.updated?.pp ?? row.faithful?.pp ?? null,
+    accessorFn: (row) => row.versions?.polished?.pp ?? row.versions?.faithful?.pp ?? null,
   },
   {
     accessorKey: 'tm',

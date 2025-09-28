@@ -1,13 +1,9 @@
 import { useQueryState } from 'nuqs';
 import { useMemo, useCallback } from 'react';
-import { DetailedStats } from '@/types/types';
+// import { DetailedStats } from '@/types/types';\n// eslint-disable-next-line @typescript-eslint/no-explicit-any\ntype DetailedStats = any;
 
 // Helper function to get types based on faithful preference and form
-const getTypesForMode = (
-  data: DetailedStats,
-  showFaithful: boolean,
-  formName?: string,
-): string[] => {
+const getTypesForMode = (n: any, data: any, showFaithful: boolean, formName?: string): string[] => {
   let types;
 
   // If form is specified and exists, use form types
@@ -30,16 +26,13 @@ const getTypesForMode = (
 export interface TeamPokemon {
   name: string;
   formName?: string;
-  data: DetailedStats;
+  data: any;
   types: string[];
   normalizedUrl?: string; // Optional normalized URL for the Pokemon
   moves?: string[]; // Selected moves for this Pokemon (up to 4)
 }
 
-export function useTeamSearchParams(
-  pokemonData: Record<string, DetailedStats>,
-  showFaithful: boolean,
-) {
+export function useTeamSearchParams(pokemonData: Record<string, any>, showFaithful: boolean) {
   // Store team as comma-separated Pokemon names in URL
   const [teamParam, setTeamParam] = useQueryState('team');
 
@@ -59,14 +52,14 @@ export function useTeamSearchParams(
         const name = parts[0];
         const formName = parts[1] || undefined;
         const movesStr = parts[2] || '';
-        const moves = movesStr ? movesStr.split('|').filter(m => m.trim()) : [];
-        
+        const moves = movesStr ? movesStr.split('|').filter((m) => m.trim()) : [];
+
         if (pokemonData[name]) {
           teamArray[index] = {
             name,
             formName,
             data: pokemonData[name],
-            types: getTypesForMode(pokemonData[name], showFaithful, formName),
+            types: getTypesForMode(pokemonData[name], pokemonData[name], showFaithful, formName),
             moves: moves.length > 0 ? moves : undefined,
           };
         }
@@ -109,13 +102,13 @@ export function useTeamSearchParams(
 
   // Add Pokemon to specific slot
   const setPokemonInSlot = useCallback(
-    (index: number, name: string, data: DetailedStats, formName?: string) => {
+    (index: number, name: string, data: any, formName?: string) => {
       const newTeam = [...team];
       newTeam[index] = {
         name,
         formName,
         data,
-        types: getTypesForMode(data, showFaithful, formName),
+        types: getTypesForMode(data, data, showFaithful, formName),
       };
       setTeam(newTeam);
     },

@@ -1,4 +1,4 @@
-import { PokemonType } from '@/types/types';
+// import { PokemonType } from '@/types/types';
 import { PokemonManifest } from '@/types/new';
 import React from 'react';
 import { Card } from '../ui/card';
@@ -48,7 +48,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
         hoverAnimate={true}
         pokemonName={pokemon.id} // Use id for sprite naming
         alt={`${pokemon.name} sprite`}
-        primaryType={primaryType as PokemonType['name']}
+        primaryType={primaryType as string}
         variant="normal"
         type="static"
         form={pokemon.formName}
@@ -68,7 +68,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
 
         {pokemon.formName && pokemon.formName !== 'plain' ? (
           <Badge
-            variant="form"
+            variant="default"
             className={cn(
               'text-xxs md:rounded-sm absolute top-4 right-12 md:right-4',
               pokemon.dexNo === null ? 'hidden' : '',
@@ -87,11 +87,9 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
           {pokemon.name}
         </h2>
         <div className="flex md:justify-start gap-1 md:gap-2 flex-row md:flex-row">
-          <Badge variant={primaryType.toLowerCase() as PokemonType['name']}>{primaryType}</Badge>
+          <Badge variant={primaryType.toLowerCase() as any}>{primaryType}</Badge>
           {secondaryType && (
-            <Badge variant={secondaryType.toLowerCase() as PokemonType['name']}>
-              {secondaryType}
-            </Badge>
+            <Badge variant={secondaryType.toLowerCase() as any}>{secondaryType}</Badge>
           )}
         </div>
       </div>

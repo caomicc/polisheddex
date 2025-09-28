@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { X, Search, Plus } from 'lucide-react';
+import { Search, Plus } from 'lucide-react';
 // import {
 //   POKEMON_LIST,
 //   emptyPokemonEntry,
@@ -332,7 +332,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
 
     const query = abilitySearchQuery.toLowerCase();
     return abilityList.filter(
-      (ability) =>
+      (ability: any) =>
         ability.toLowerCase().includes(query) ||
         getAbilityDescription(ability).toLowerCase().includes(query),
     );
@@ -466,8 +466,8 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
 
     // Combine all moves
     const allMoves = [
-      ...levelUpMoves.map((move) => ({ ...move, category: 'Level-up' })),
-      ...eggMoves.map((move) => ({
+      ...levelUpMoves.map((move: any) => ({ ...move, category: 'Level-up' })),
+      ...eggMoves.map((move: any) => ({
         name: typeof move === 'string' ? move : move.name || 'Unknown Move',
         type: getMoveType(typeof move === 'string' ? move : move.name || 'Unknown Move'),
         category: 'Egg Move',
@@ -510,7 +510,8 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
         move.type.toLowerCase().includes(query) ||
         move.category?.toLowerCase().includes(query),
     );
-  }, [pokemonData, matched, showFaithful, movesData, evolutionChainMoves, moveSearchQuery]);
+    // }, [pokemonData, matched, showFaithful, movesData, evolutionChainMoves, moveSearchQuery]);
+  }, [pokemonData, showFaithful, movesData, evolutionChainMoves, moveSearchQuery]);
 
   // Load moves, items, and abilities data in parallel, only once
   useEffect(() => {
@@ -847,7 +848,8 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
       spdef: stats.specialDefense || 0,
       speed: stats.speed || 0,
     };
-  }, [pokemonData, matched, showFaithful]);
+  }, [pokemonData, showFaithful]);
+  // }, [pokemonData, matched, showFaithful]);
 
   // const isPokemonSelected = Boolean(matched);
   const isPokemonSelected = false;
@@ -1144,7 +1146,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                         </div>
                       ) : (
                         <div className="grid gap-1">
-                          {filteredAbilityOptions.map((ability, idx) => {
+                          {filteredAbilityOptions.map((ability: any, idx: number) => {
                             const description = getAbilityDescription(ability);
                             return (
                               <Button
@@ -1212,7 +1214,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                             className="flex items-center gap-2 bg-white/90 dark:bg-black/40 p-2 rounded-md"
                           >
                             <Badge
-                              variant={mv.type?.toLowerCase() || 'any'}
+                              variant={mv.type?.toLowerCase() as any}
                               className="text-xs w-[20px]"
                             >
                               {i + 1}
@@ -1389,7 +1391,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                                               </div>
                                               <div className="flex items-center gap-2">
                                                 <Badge
-                                                  variant={move.type?.toLowerCase() || 'any'}
+                                                  variant={move.type?.toLowerCase() as any}
                                                   className="text-xs"
                                                 >
                                                   {move.type}
@@ -1529,7 +1531,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                 >
                   {entry.item ? (
                     <Image
-                      src={`/sprites/items/${getItemSpriteName(entry.item)}.png`}
+                      src={`/sprites/items/${entry.item?.toLowerCase()?.replace(/\s+/g, '-') || 'unknown'}.png`}
                       width={24}
                       height={24}
                       alt={entry.item}
@@ -1594,7 +1596,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                               }}
                             >
                               <Image
-                                src={`/sprites/items/${getItemSpriteName(item.name)}.png`}
+                                src={`/sprites/items/${item.name?.toLowerCase()?.replace(/\s+/g, '-') || 'unknown'}.png`}
                                 width={24}
                                 height={24}
                                 alt={item.name}

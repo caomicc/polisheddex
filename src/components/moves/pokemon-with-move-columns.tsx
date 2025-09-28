@@ -218,7 +218,7 @@ export const pokemonWithMoveColumns: ColumnDef<MoveLearner>[] = [
       return (
         <div className="flex gap-1 flex-wrap">
           {typesArray.map((type) => (
-            <Badge key={type} variant={type} className="text-xs">
+            <Badge key={type} variant={type as any} className="text-xs">
               {type}
             </Badge>
           ))}

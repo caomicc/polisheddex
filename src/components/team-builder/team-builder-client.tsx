@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { DetailedStats } from '@/types/types';
+// import { DetailedStats } from '@/types/types';
 import { TeamSlot } from './team-slot';
 import { TeamAnalysis } from './team-analysis';
 import { PokemonSearchModal } from './pokemon-search-modal';
@@ -14,7 +14,7 @@ import { Button } from '../ui/button';
 import { Save, FolderOpen } from 'lucide-react';
 
 interface TeamBuilderClientProps {
-  pokemonData: Record<string, DetailedStats>;
+  pokemonData: Record<string, any>;
 }
 
 export function TeamBuilderClient({ pokemonData }: TeamBuilderClientProps) {
@@ -30,7 +30,7 @@ export function TeamBuilderClient({ pokemonData }: TeamBuilderClientProps) {
     setSelectedSlot(index);
   };
 
-  const handlePokemonSelect = (name: string, data: DetailedStats, formName?: string) => {
+  const handlePokemonSelect = (name: string, data: any, formName?: string) => {
     if (selectedSlot !== null) {
       setPokemonInSlot(selectedSlot, name, data, formName);
       setSelectedSlot(null);

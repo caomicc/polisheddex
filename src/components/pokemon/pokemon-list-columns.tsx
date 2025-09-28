@@ -102,7 +102,8 @@ export const createPokemonListColumns = (version: string): ColumnDef<PokemonMani
         <div className="min-w-0">
           <Link
             className="table-link"
-            href={formatPokemonUrlWithForm(pokemon.name, pokemon.formName)}
+            // href={formatPokemonUrlWithForm(pokemon.name, pokemon.formName)}
+            href={`/pokemon/${pokemon.name}`}
           >
             {pokemon.name}
             {pokemon.formName && pokemon.formName !== 'plain' && (
@@ -152,7 +153,7 @@ export const createPokemonListColumns = (version: string): ColumnDef<PokemonMani
       return (
         <div className="flex gap-1">
           {typesArray.map((type, index) => (
-            <Badge key={index} variant={type.toLowerCase()}>
+            <Badge key={index} variant={type.toLowerCase() as any}>
               {type}
             </Badge>
           ))}

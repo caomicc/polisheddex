@@ -1,11 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { PokemonType } from '@/types/types';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 
 interface TypeIconProps {
-  type: PokemonType['name'] | string;
+  type: string;
   size?: number;
   className?: string;
   showTooltip?: boolean;
@@ -13,7 +12,7 @@ interface TypeIconProps {
 
 const TypeIcon: React.FC<TypeIconProps> = ({ type, size = 16, className, showTooltip = true }) => {
   // Convert type to lowercase and ensure it's a valid string
-  const normalizedType = String(type || 'normal').toLowerCase() as PokemonType['name'];
+  const normalizedType = String(type || 'normal').toLowerCase() as string;
 
   const icon = (
     <div

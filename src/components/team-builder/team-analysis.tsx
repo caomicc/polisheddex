@@ -3,15 +3,18 @@
 import { useMemo } from 'react';
 import { TeamPokemon } from '@/hooks/use-team-search-params';
 import { Badge } from '@/components/ui/badge';
-import { PokemonType } from '@/types/types';
-import typeChartData from '../../../output/type_chart.json';
-import movesData from '../../../output/manifests/moves.json';
+// import { PokemonType } from '@/types/types';
+// import typeChartData from '../../../output/type_chart.json';
+// import movesData from '../../../output/manifests/moves.json';
 import { MoveData } from '../pokemon-slot';
 
-const TYPE_CHART: Record<string, Record<string, number>> = typeChartData as Record<
-  string,
-  Record<string, number>
->;
+const movesData = [] as unknown as Record<string, MoveData>;
+
+// const TYPE_CHART: Record<string, Record<string, number>> = typeChartData as Record<
+//   string,
+//   Record<string, number>
+// >;
+const TYPE_CHART: Record<string, Record<string, number>> = {};
 const ALL_TYPES = Object.keys(TYPE_CHART).filter((type) => {
   const data = TYPE_CHART[type];
   return data && Object.keys(data).length > 0;
@@ -172,7 +175,7 @@ export function TeamAnalysis({ team }: TeamAnalysisProps) {
                   className={`flex items-center justify-between p-2 rounded border ${getSeverityColor(severity, activePokemon.length)}`}
                 >
                   <div className="flex items-center space-x-2">
-                    <Badge variant={type.toLowerCase() as PokemonType['name']} className="text-xs">
+                    <Badge variant={type.toLowerCase()} className="text-xs">
                       {type}
                     </Badge>
                     <span className="text-sm">
@@ -201,7 +204,7 @@ export function TeamAnalysis({ team }: TeamAnalysisProps) {
                   className="flex items-center justify-between p-2 rounded bg-green-100 text-green-800 border border-green-200"
                 >
                   <div className="flex items-center space-x-2">
-                    <Badge variant={type.toLowerCase() as PokemonType['name']} className="text-xs">
+                    <Badge variant={type.toLowerCase()} className="text-xs">
                       {type}
                     </Badge>
                     <span className="text-sm">
@@ -227,7 +230,7 @@ export function TeamAnalysis({ team }: TeamAnalysisProps) {
                   className="flex items-center justify-between p-2 rounded bg-blue-100 text-blue-800 border border-blue-200"
                 >
                   <div className="flex items-center space-x-2">
-                    <Badge variant={type.toLowerCase() as PokemonType['name']} className="text-xs">
+                    <Badge variant={type.toLowerCase()} className="text-xs">
                       {type}
                     </Badge>
                     <span className="text-sm">
@@ -253,7 +256,7 @@ export function TeamAnalysis({ team }: TeamAnalysisProps) {
                   className="flex items-center justify-between p-2 rounded bg-purple-100 text-purple-800 border border-purple-200"
                 >
                   <div className="flex items-center space-x-2">
-                    <Badge variant={type.toLowerCase() as PokemonType['name']} className="text-xs">
+                    <Badge variant={type.toLowerCase()} className="text-xs">
                       {type}
                     </Badge>
                     <span className="text-sm">

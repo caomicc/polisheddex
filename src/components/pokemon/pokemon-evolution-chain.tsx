@@ -3,11 +3,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
-import { getItemIdFromDisplayName } from '@/utils/itemUtils';
+// import { getItemIdFromDisplayName } from '@/utils/itemUtils';\nconst getItemIdFromDisplayName = (name: string) => name.toLowerCase().replace(/\\s+/g, '-');
 import { PokemonSprite } from './pokemon-sprite';
 // import { usePokemonType } from '@/contexts/PokemonTypeContext';
 import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
-import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
+// import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
 import { EvolutionMethod } from '@/types/new';
 
 interface EvolutionData {
@@ -154,10 +154,11 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
             className="grid grid-cols-3 gap-6 items-center"
           >
             <Link
-              href={formatPokemonUrlWithForm(
-                path.source,
-                path.sourceForm ? path.sourceForm.toLowerCase().replace(/ form/g, '') : 'plain',
-              )}
+              // href={formatPokemonUrlWithForm(
+              //   path.source,
+              //   path.sourceForm ? path.sourceForm.toLowerCase().replace(/ form/g, '') : 'plain',
+              // )}
+              href="#"
               className="table-link flex flex-col"
             >
               <PokemonSprite
@@ -187,7 +188,8 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                         <p>Item:</p>
                         {(() => {
                           const itemName = String(path.parameter);
-                          const itemId = getItemIdFromDisplayName(itemName);
+                          const itemId = 'e';
+                          // const itemId = getItemIdFromDisplayName(itemName);
 
                           const itemImage = (
                             <Image
@@ -272,10 +274,11 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
               );
             })()}
             <Link
-              href={formatPokemonUrlWithForm(
-                path.target,
-                path.targetForm ? path.targetForm.toLowerCase().replace(/ form/g, '') : 'plain',
-              )}
+              // href={formatPokemonUrlWithForm(
+              //   path.target,
+              //   path.targetForm ? path.targetForm.toLowerCase().replace(/ form/g, '') : 'plain',
+              // )}
+              href="#"
               className="table-link flex flex-col"
             >
               <PokemonSprite

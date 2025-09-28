@@ -21,12 +21,12 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Badge } from '@/components/ui/badge';
 import { Filter, Check, CalendarDays } from 'lucide-react';
-import { DayName, EventType, getTodayName } from '@/lib/event-utils';
+// import { DayName, EventType, getTodayName } from '@/lib/event-utils';
 
 export type FiltersState = {
-  day: DayName | ''; // empty means all days
+  day: any | ''; // empty means all days
   timeOfDay: 'any' | 'morning' | 'afternoon' | 'night';
-  types: EventType[];
+  types: any[];
   query: string;
 };
 
@@ -46,8 +46,8 @@ export function EventFilters(
   }: {
     value?: FiltersState;
     onChange?: (next: FiltersState) => void;
-    allTypes?: EventType[];
-    dayNames?: DayName[];
+    allTypes?: any[];
+    dayNames?: any[];
   } = {
     value: defaultFilters,
     onChange: () => {},
@@ -55,7 +55,8 @@ export function EventFilters(
     dayNames: [],
   },
 ) {
-  const today = getTodayName(new Date());
+  // const today = getTodayName(new Date());
+  const today = 'Monday'; // TODO: replace with real value
 
   const activeTypeCount = value.types.length;
   const typeSummary = useMemo(() => {
@@ -64,7 +65,7 @@ export function EventFilters(
     return `${activeTypeCount} types`;
   }, [activeTypeCount, value.types]);
 
-  const toggleType = (t: EventType) => {
+  const toggleType = (t: any) => {
     const set = new Set(value.types);
     if (set.has(t)) set.delete(t);
     else set.add(t);
@@ -92,8 +93,8 @@ export function EventFilters(
           </Label>
           <div className="flex items-center gap-2">
             <Select
-              value={value.day === '' ? 'all' : (value.day as DayName)}
-              onValueChange={(v) => onChange({ ...value, day: v === 'all' ? '' : (v as DayName) })}
+              value={value.day === '' ? 'all' : (value.day as any)}
+              onValueChange={(v) => onChange({ ...value, day: v === 'all' ? '' : (v as any) })}
             >
               <SelectTrigger className="w-[150px]">
                 <SelectValue placeholder="All days" />

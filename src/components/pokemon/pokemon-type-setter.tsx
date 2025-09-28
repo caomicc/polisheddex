@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { usePokemonType } from '@/contexts/PokemonTypeContext';
-import { PokemonType } from '@/types/types';
 
 interface PokemonTypeSetterProps {
   primaryType: string | string[] | null;
@@ -24,10 +23,8 @@ const PokemonTypeSetter: React.FC<PokemonTypeSetterProps> = ({ primaryType, seco
           ? [secondaryType]
           : [];
 
-      const primary = typeArray[0]?.toLowerCase() as PokemonType['name'];
-      const secondary = (secondaryTypeArray[0] || typeArray[1])?.toLowerCase() as
-        | PokemonType['name']
-        | undefined;
+      const primary = typeArray[0]?.toLowerCase() as any;
+      const secondary = (secondaryTypeArray[0] || typeArray[1])?.toLowerCase() as any | undefined;
 
       // Validate that the types are valid Pokemon types
       const validTypes = [

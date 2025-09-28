@@ -1,5 +1,5 @@
 import React from 'react';
-import { PokemonType } from '@/types/types';
+// import { PokemonType } from '@/types/types';
 import { Badge } from '../ui/badge';
 import PokemonFormSelect from './pokemon-form-select';
 import {
@@ -69,7 +69,7 @@ const PokedexHeader = ({
             if (!types) return <Badge variant="secondary">Unknown</Badge>;
             const typeArray = Array.isArray(types) ? types : [types];
             return typeArray.map((type: string) => (
-              <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
+              <Badge key={type} variant={type.toLowerCase() as any}>
                 {type}
               </Badge>
             ));

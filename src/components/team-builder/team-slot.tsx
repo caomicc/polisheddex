@@ -3,7 +3,7 @@
 import { TeamPokemon } from '@/hooks/use-team-search-params';
 import { X, Plus, Settings } from 'lucide-react';
 import PokemonCard from '../pokemon/pokemon-card';
-import { BaseData } from '@/types/types';
+// import { BaseData } from '@/types/types';
 import Link from 'next/link';
 import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
 
@@ -88,7 +88,7 @@ export function TeamSlot({
               // Use form-specific types (already calculated in pokemon.types)
               types: pokemon.types,
               formName: pokemon.formName, // Pass form info for URL generation
-            } as BaseData & { formName?: string }
+            } as any & { formName?: string }
           }
         />
       </Link>

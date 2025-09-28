@@ -1,6 +1,6 @@
 'use client';
 
-import { BaseData } from '@/types/types';
+import { PokemonManifest } from '@/types/new';
 import React, { useState } from 'react';
 import PokemonCard from './pokemon-card';
 import { Input } from '../ui/input';
@@ -14,7 +14,7 @@ import { usePokemonSearch } from '@/hooks/usePokemonSearch';
 import { PokemonGridSkeleton } from './pokemon-card-skeleton';
 
 interface PokemonSearchProps {
-  pokemon: BaseData[];
+  pokemon: PokemonManifest[];
   sortType: string;
 }
 
@@ -90,18 +90,15 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
         <ul className="grid gap-4 md:gap-8 grid-cols-2 md:grid-cols-3">
           {filteredPokemon.map((p) => {
             // Use pre-computed normalized URL if available, otherwise fallback to runtime normalization
-            const normalizedName = p.normalizedUrl || normalizePokemonUrlKey(p.name).toLowerCase();
+            const normalizedName = normalizePokemonUrlKey(p.name).toLowerCase();
+            // const normalizedName = p.normalizedUrl || normalizePokemonUrlKey(p.name).toLowerCase();
             const pokemonUrl = p.formName
               ? `/pokemon/${normalizedName}?form=${encodeURIComponent(p.formName)}`
               : `/pokemon/${normalizedName}`;
             return (
               <li key={p.name}>
                 <Link href={pokemonUrl}>
-                  <PokemonCard
-                    pokemon={p}
-                    sortType={sortType}
-                    showUpdatedTypes={showUpdatedTypes}
-                  />
+                  <PokemonCard pokemon={p} />
                 </Link>
               </li>
             );

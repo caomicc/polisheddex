@@ -2,19 +2,19 @@
 
 import { ColumnDef } from '@tanstack/react-table';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, ArrowUp, ArrowUpDown, ExternalLink } from 'lucide-react';
-import Link from 'next/link';
-import {
-  formatFormName,
-  formatPokemonBaseName,
-  formatPokemonDisplayWithForm,
-  formatPokemonUrlWithForm,
-  getFormTypeClass,
-} from '@/utils/pokemonFormUtils';
+import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react';
+// import Link from 'next/link';
+// import {
+//   formatFormName,
+//   formatPokemonBaseName,
+//   formatPokemonDisplayWithForm,
+//   formatPokemonUrlWithForm,
+//   getFormTypeClass,
+// } from '@/utils/pokemonFormUtils';
 // import TimeIcon from './TimeIcon';
 import { Badge } from '../ui/badge';
-import { PokemonEncounter } from '@/types/types';
-import { PokemonSprite } from './pokemon-sprite';
+// import { PokemonEncounter } from '@/types/types';
+// import { PokemonSprite } from './pokemon-sprite';
 // import { P } from 'vitest/dist/reporters-5f784f42.js';
 
 // Helper function to format method names (matching LocationListItem)
@@ -30,13 +30,15 @@ function formatMethod(method: string): string {
   if (method === 'fish_old') return 'Fishing - Old Rod';
   return method.charAt(0).toUpperCase() + method.slice(1);
 }
-export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
+// export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
+export const pokemonColumns: ColumnDef<any>[] = [
   {
     accessorKey: 'sprite',
     id: 'sprite',
     header: '',
     cell: ({ row }) => {
       const { name, form } = row.original;
+      console.log(name, form);
       // const primaryType =
       //   Array.isArray(pokemon.types) && pokemon.types.length > 0
       //     ? pokemon.types[0].toLowerCase()
@@ -44,7 +46,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
 
       return (
         <div className="">
-          <Link href={formatPokemonUrlWithForm(name, form || '')} className="table-link">
+          {/* <Link href={formatPokemonUrlWithForm(name, form || '')} className="table-link">
             <PokemonSprite
               hoverAnimate={true}
               pokemonName={formatPokemonBaseName(name)}
@@ -66,7 +68,8 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
               }
               size={'sm'}
             />
-          </Link>
+          </Link> */}
+          ghjkghulj
         </div>
       );
     },
@@ -92,11 +95,11 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
     },
     cell: ({ row }) => {
       const pokemon = row.original;
-      const { name, form } = pokemon;
-
+      // const { name, form } = pokemon;
+      console.log(pokemon);
       return (
         <div className="flex flex-col items-start space-x-2 min-w-0">
-          <Link href={formatPokemonUrlWithForm(name, form || '')} className="table-link">
+          {/* <Link href={formatPokemonUrlWithForm(name, form || '')} className="table-link">
             {formatPokemonBaseName(name)}
             {form && (
               <span
@@ -116,23 +119,25 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
             )}
             <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
           </Link>
+          eee */}
+          eee
         </div>
       );
     },
-    filterFn: (row, id, value) => {
-      const pokemon = row.original;
-      const searchText = value.toLowerCase();
-      const pokemonName = pokemon.name.toLowerCase();
-      const fullPokemonName = pokemon.form
-        ? `${pokemon.name}_${pokemon.form}`.toLowerCase()
-        : pokemonName;
+    // filterFn: (row, id, value) => {
+    //   const pokemon = row.original;
+    //   const searchText = value.toLowerCase();
+    //   const pokemonName = pokemon.name.toLowerCase();
+    //   const fullPokemonName = pokemon.form
+    //     ? `${pokemon.name}_${pokemon.form}`.toLowerCase()
+    //     : pokemonName;
 
-      return (
-        pokemonName.includes(searchText) ||
-        fullPokemonName.includes(searchText) ||
-        formatPokemonDisplayWithForm(fullPokemonName).toLowerCase().includes(searchText)
-      );
-    },
+    //   return (
+    //     pokemonName.includes(searchText) ||
+    //     fullPokemonName.includes(searchText) ||
+    //     formatPokemonDisplayWithForm(fullPokemonName).toLowerCase().includes(searchText)
+    //   );
+    // },
     sortingFn: (rowA, rowB) => {
       // Sort by base name, then by form if present
       const a = rowA.original;
@@ -189,7 +194,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
       );
     },
     cell: ({ row }) => {
-      let time = row.getValue('time') as PokemonEncounter['time'];
+      let time = row.getValue('time') as any;
 
       if (time === null || time === undefined || time === 'null') time = 'any';
 

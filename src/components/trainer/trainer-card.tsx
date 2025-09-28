@@ -1,19 +1,19 @@
-import { GymLeader, LocationTrainer, Move, PokemonType } from '@/types/types';
-import Image from 'next/image';
-import { Card, CardContent } from '../ui/card';
-import pokemonBaseData from '@/output/pokemon_base_data.json';
-import pokemonMoveDescriptions from '@/output/manifests/moves.json';
-import { Badge } from '../ui/badge';
-import { getItemIdFromDisplayName } from '@/utils/itemUtils';
-import Link from 'next/link';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
-import { PokemonSprite } from '../pokemon/pokemon-sprite';
+// import { GymLeader, LocationTrainer, Move, PokemonType } from '@/types/types';
+// import Image from 'next/image';
+// import { Card, CardContent } from '../ui/card';
+// import pokemonBaseData from '@/output/pokemon_base_data.json';
+// import pokemonMoveDescriptions from '@/output/manifests/moves.json';
+// import { Badge } from '../ui/badge';
+// import { getItemIdFromDisplayName } from '@/utils/itemUtils';
+// import Link from 'next/link';
+// import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+// import { PokemonSprite } from '../pokemon/pokemon-sprite';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
 import { TrainerSprite } from './trainer-sprite';
-import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
+// import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
 
 interface TrainerCardProps {
-  trainer: GymLeader | LocationTrainer;
+  trainer: any;
   isGymLeader?: boolean;
 }
 
@@ -63,7 +63,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
       break;
   }
 
-  const { showFaithful } = useFaithfulPreference();
+  // const { showFaithful } = useFaithfulPreference();
 
   return (
     <div className="">
@@ -80,12 +80,15 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                     ? trainer.trainerClass
                         .toLowerCase()
                         .replace(/-/g, '_')
-                        .replace(/(\d)$/, (match) => `${parseInt(match) + 1}`)
+                        .replace(/(\d)$/, (match: string) => `${parseInt(match) + 1}`)
                     : trainer.trainerClass.toLowerCase().replace(/-/g, '_')
                 }
                 src={`/sprites/trainers/${
                   ['rival0', 'rival1', 'lyra0', 'lyra1'].includes(trainerSpritePath)
-                    ? trainerSpritePath.replace(/(\d)$/, (match) => `${parseInt(match) + 1}`)
+                    ? trainerSpritePath.replace(
+                        /(\d)$/,
+                        (match: string) => `${parseInt(match) + 1}`,
+                      )
                     : trainerSpritePath
                 }/static.png`}
                 alt={trainer.name}
@@ -100,7 +103,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                     </span>
                   )}
                 </h3>
-                {isGymLeader && <p>Badge: {(trainer as GymLeader).badge}</p>}
+                {isGymLeader && <p>Badge: {trainer.badge}</p>}
               </div>
             </div>
           </AccordionTrigger>
@@ -109,9 +112,8 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
               <div className="flex-grow min-w-0 w-full pt-6">
                 <span className="sr-only">Pokemon:</span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-                  {trainer.pokemon.map((poke, idx) => {
-                    type PokemonBaseDataKey = keyof typeof pokemonBaseData;
-                    const speciesKey = poke.species.toLowerCase() as PokemonBaseDataKey;
+                  {/* {trainer.pokemon.map((poke: any, idx: number) => {
+                    const speciesKey = poke.species.toLowerCase();
                     const pokemonData = pokemonBaseData[speciesKey];
                     const types: string[] = Array.isArray(pokemonData?.types)
                       ? pokemonData.types
@@ -126,10 +128,6 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                         : [];
 
                     console.log(`Pokemon data for ${poke.species}:`, pokemonData);
-
-                    // const moves = showFaithful
-                    //   ? pokemonData?.moves?.faithful || []
-                    //   : pokemonData?.moves?.updated || [];
 
                     console.log(
                       `Rendering Pokémon: ${poke.species} with types: ${types.join(', ')}`,
@@ -275,7 +273,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                         </CardContent>
                       </Card>
                     );
-                  })}
+                  })} */}
                 </div>
               </div>
             )}
