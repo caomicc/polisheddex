@@ -1,5 +1,5 @@
 import { reduce } from '@/lib/extract-utils.ts';
-import { KNOWN_FORMS } from '../data/constants.ts';
+// import { KNOWN_FORMS } from '../data/constants.ts';
 
 /**
  * Special cases for Pokemon names that have hyphens as part of their actual name
@@ -116,14 +116,14 @@ export function normalizePokemonUrlKey(name: string): string {
   let baseName = name;
   let formSuffix = '';
 
-  for (const form of Object.values(KNOWN_FORMS)) {
-    const formPattern = new RegExp(`\\b${form}\\b$`, 'i');
-    if (formPattern.test(name)) {
-      baseName = name.replace(formPattern, '').trim();
-      formSuffix = form.toLowerCase();
-      break;
-    }
-  }
+  // for (const form of Object.values(KNOWN_FORMS)) {
+  //   const formPattern = new RegExp(`\\b${form}\\b$`, 'i');
+  //   if (formPattern.test(name)) {
+  //     baseName = name.replace(formPattern, '').trim();
+  //     formSuffix = form.toLowerCase();
+  //     break;
+  //   }
+  // }
 
   // Normalize the base name for URL safety
   let normalizedBase = baseName

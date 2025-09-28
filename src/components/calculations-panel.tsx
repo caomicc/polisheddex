@@ -4,23 +4,23 @@ import {
   Table,
   TableBody,
   TableCaption,
-  TableCell,
+  // TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Badge } from '@/components/ui/badge';
+// import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import type { PokemonEntry, Nature } from './pokemon-slot';
-import { TYPES } from '@/lib/types-data';
-import {
-  // computeDefensiveSummary,
-  computeOffensiveCoverage,
-  analyzeAbilitySynergies,
-  loadTypeChart,
-  defensiveMultiplierAgainst,
-} from '@/lib/calculations';
+// import { TYPES } from '@/lib/types-data';
+// import {
+//   // computeDefensiveSummary,
+//   computeOffensiveCoverage,
+//   analyzeAbilitySynergies,
+//   loadTypeChart,
+//   defensiveMultiplierAgainst,
+// } from '@/lib/calculations';
 import { useEffect, useState } from 'react';
 import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 import TableWrapper from './ui/table-wrapper';
@@ -54,9 +54,9 @@ export default function CalculationsPanel({
   const { showFaithful } = useFaithfulPreference();
 
   // Load type chart when faithful preference changes
-  useEffect(() => {
-    loadTypeChart();
-  }, [showFaithful]);
+  // useEffect(() => {
+  //   loadTypeChart();
+  // }, [showFaithful]);
 
   // Load detailed stats for all Pokemon in the team
   useEffect(() => {
@@ -130,25 +130,25 @@ export default function CalculationsPanel({
   }
 
   // Create enriched team data with faithful/polished context
-  const enrichedTeam = team.map((pokemon) => {
-    if (!pokemon.name) return pokemon;
+  // const enrichedTeam = team.map((pokemon) => {
+  //   if (!pokemon.name) return pokemon;
 
-    const pokemonStatData = pokemonStats.find((p) => p.name === pokemon.name);
-    if (pokemonStatData && pokemonStatData.abilities.length > 0) {
-      // Always use the first ability from the loaded stats data which respects faithful/polished context
-      // This ensures calculations are always correct regardless of what's stored in the team data
-      return {
-        ...pokemon,
-        ability: pokemonStatData.abilities[0]?.name || pokemon.ability,
-        types: pokemon.types,
-      };
-    }
-    return pokemon;
-  });
+  //   const pokemonStatData = pokemonStats.find((p) => p.name === pokemon.name);
+  //   if (pokemonStatData && pokemonStatData.abilities.length > 0) {
+  //     // Always use the first ability from the loaded stats data which respects faithful/polished context
+  //     // This ensures calculations are always correct regardless of what's stored in the team data
+  //     return {
+  //       ...pokemon,
+  //       ability: pokemonStatData.abilities[0]?.name || pokemon.ability,
+  //       types: pokemon.types,
+  //     };
+  //   }
+  //   return pokemon;
+  // });
 
   // const defensive = computeDefensiveSummary(enrichedTeam);
-  const offensive = computeOffensiveCoverage(enrichedTeam);
-  const abilitySynergies = analyzeAbilitySynergies(enrichedTeam);
+  // const offensive = computeOffensiveCoverage(enrichedTeam);
+  // const abilitySynergies = analyzeAbilitySynergies(enrichedTeam);
 
   // const maxWeak = Math.max(...TYPES.map((t) => defensive[t]?.weak ?? 0));
 
@@ -214,7 +214,7 @@ export default function CalculationsPanel({
             </TableRow>
           </TableHeader>
           <TableBody>
-            {TYPES.map((type) => {
+            {/* {TYPES.map((type) => {
               // Calculate summary counts for this type
               let weaknessCount = 0;
               let resistanceCount = 0;
@@ -289,7 +289,7 @@ export default function CalculationsPanel({
                   </TableCell>
                 </TableRow>
               );
-            })}
+            })} */}
           </TableBody>
         </Table>
       </TableWrapper>
@@ -421,7 +421,7 @@ export default function CalculationsPanel({
       </div>
 
       {/* Enhanced offensive analysis */}
-      {offensive.typeEffectiveness && Object.keys(offensive.typeEffectiveness).length > 0 && (
+      {/* {offensive.typeEffectiveness && Object.keys(offensive.typeEffectiveness).length > 0 && (
         <div className="mt-6">
           <h3 className="mb-4">Detailed Type Effectiveness</h3>
           <div className="grid gap-4 lg:grid-cols-3">
@@ -458,7 +458,7 @@ export default function CalculationsPanel({
             ))}
           </div>
         </div>
-      )}
+      )} */}
 
       {/* Ability synergies section */}
       <div className="mt-6">
@@ -466,7 +466,7 @@ export default function CalculationsPanel({
         <div className="grid gap-4 lg:grid-cols-2">
           <BentoGridNoLink>
             <h2 className="text-lg">Team Abilities</h2>
-            {abilitySynergies.synergies.length > 0 ? (
+            {/* {abilitySynergies.synergies.length > 0 ? (
               <div className="space-y-2">
                 {abilitySynergies.synergies.map((synergy, i) => (
                   <div key={`${synergy.ability}-${i}`} className="p-2 border rounded">
@@ -484,12 +484,12 @@ export default function CalculationsPanel({
               <p className="text-sm text-muted-foreground">
                 No recognized abilities with special effects.
               </p>
-            )}
+            )} */}
           </BentoGridNoLink>
 
           <BentoGridNoLink>
             <h2 className="text-lg">Potential Synergies</h2>
-            {abilitySynergies.potentialSynergies.length > 0 ? (
+            {/* {abilitySynergies.potentialSynergies.length > 0 ? (
               <div className="space-y-2">
                 {abilitySynergies.potentialSynergies.map((synergy, i) => (
                   <div key={i} className="p-2 bg-blue-50 border border-blue-200 rounded">
@@ -499,9 +499,9 @@ export default function CalculationsPanel({
               </div>
             ) : (
               <p className="text-sm text-muted-foreground">No obvious synergies detected.</p>
-            )}
+            )} */}
 
-            {Object.keys(abilitySynergies.categoryCounts).length > 0 && (
+            {/* {Object.keys(abilitySynergies.categoryCounts).length > 0 && (
               <div className="mt-4">
                 <div className="text-xs font-medium mb-2">Ability Categories</div>
                 <div className="flex flex-wrap gap-1">
@@ -512,7 +512,7 @@ export default function CalculationsPanel({
                   ))}
                 </div>
               </div>
-            )}
+            )} */}
           </BentoGridNoLink>
         </div>
       </div>

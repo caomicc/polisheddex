@@ -7,21 +7,21 @@ import { Separator } from '@/components/ui/separator';
 import { Trash2, Upload, Download, Calculator, Share } from 'lucide-react';
 import PokemonSlot, { type PokemonEntry } from './pokemon-slot';
 import CalculationsPanel from './calculations-panel';
-import { DEFAULT_TEAM, emptyPokemonEntry, loadPokemonData } from '@/lib/pokemon-data';
-import { loadMovesData } from '@/lib/moves-data';
-import { loadAbilitiesData } from '@/lib/abilities-data';
-import { loadTypesData } from '@/lib/types-data';
-import { loadTypeChart } from '@/lib/calculations';
+// import { DEFAULT_TEAM, emptyPokemonEntry, loadPokemonData } from '@/lib/pokemon-data';
+// import { loadMovesData } from '@/lib/moves-data';
+// import { loadAbilitiesData } from '@/lib/abilities-data';
+// import { loadTypesData } from '@/lib/types-data';
+// import { loadTypeChart } from '@/lib/calculations';
 import { useLocalStorage } from '@/lib/use-local-storage';
 import { generateShareUrl, getTeamFromUrl, copyToClipboard } from '@/lib/team-url-sharing';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
-import StatsDisplay from './pokemon/stats-display';
+// import StatsDisplay from './pokemon/stats-display';
 import { BentoGrid, BentoGridNoLink } from './ui/bento-box';
 import { PokemonSprite } from './pokemon/pokemon-sprite';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
 
 export default function TeamBuilder() {
-  const [team, setTeam] = useLocalStorage<PokemonEntry[]>('pokedex-team', DEFAULT_TEAM);
+  const [team, setTeam] = useLocalStorage<PokemonEntry[]>('pokedex-team', []);
   const [importing, setImporting] = useState(false);
   const [importText, setImportText] = useState('');
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -33,11 +33,11 @@ export default function TeamBuilder() {
     const loadEssentialData = async () => {
       try {
         // Load only Pokemon data first to show the team builder quickly
-        await loadPokemonData();
+        // await loadPokemonData();
         setEssentialDataLoaded(true);
 
         // Then load the rest in the background
-        await Promise.all([loadMovesData(), loadAbilitiesData(), loadTypesData(), loadTypeChart()]);
+        // await Promise.all([loadMovesData(), loadAbilitiesData(), loadTypesData(), loadTypeChart()]);
         setDataLoaded(true);
       } catch (error) {
         console.error('Failed to load data:', error);
@@ -63,7 +63,7 @@ export default function TeamBuilder() {
     } else {
       // Ensure length is 6 for existing teams
       if (!team || team.length !== 6) {
-        setTeam(new Array(6).fill(0).map(() => ({ ...emptyPokemonEntry })));
+        // setTeam(new Array(6).fill(0).map(() => ({ ...emptyPokemonEntry })));
       }
     }
   }, [setTeam, team]);
@@ -77,7 +77,7 @@ export default function TeamBuilder() {
   };
 
   const clearTeam = () => {
-    setTeam(new Array(6).fill(0).map(() => ({ ...emptyPokemonEntry })));
+    // setTeam(new Array(6).fill(0).map(() => ({ ...emptyPokemonEntry })));
   };
 
   const exportTeam = () => {
@@ -263,13 +263,13 @@ export default function TeamBuilder() {
                               {entry.item && <div className="text-xs">Item: {entry.item}</div>}
                             </div>
                           </div>
-                          <StatsDisplay
+                          {/* <StatsDisplay
                             pokemonName={entry.name}
                             ivs={entry.ivs}
                             evs={entry.evs}
                             level={entry.level || 50}
                             nature={entry.nature}
-                          />
+                          /> */}
                         </BentoGridNoLink>
                       );
                     })}

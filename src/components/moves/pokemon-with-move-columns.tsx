@@ -6,7 +6,7 @@ import { ArrowDown, ArrowUp, ArrowUpDown, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
 import { cn } from '@/lib/utils';
-import { formatPokemonUrlWithForm, getFormTypeClass } from '@/utils/pokemonFormUtils';
+// import { formatPokemonUrlWithForm, getFormTypeClass } from '@/utils/pokemonFormUtils';
 import { PokemonSprite } from '../pokemon/pokemon-sprite';
 import { MoveLearner } from '@/types/new';
 
@@ -20,7 +20,8 @@ export const pokemonWithMoveColumns: ColumnDef<MoveLearner>[] = [
 
       return (
         <div className="">
-          <Link href={formatPokemonUrlWithForm(name || id, form || 'plain')} className="table-link">
+          {/* <Link href={formatPokemonUrlWithForm(name || id, form || 'plain')} className="table-link"> */}
+          <Link href={`/pokemon/${name || id}`} className="table-link">
             <PokemonSprite
               hoverAnimate={true}
               pokemonName={name || id}
@@ -63,11 +64,12 @@ export const pokemonWithMoveColumns: ColumnDef<MoveLearner>[] = [
     cell: ({ row }) => {
       const { id, name, form } = row.original;
       return (
-        <Link href={formatPokemonUrlWithForm(id, form)} className="table-link">
+        <Link href={`/pokemon/${id}`} className="table-link">
           {name}
           {form && form !== 'plain' && (
             <span
-              className={`text-xs text-muted-foreground block capitalize ${getFormTypeClass(form)}`}
+              // className={`text-xs text-muted-foreground block capitalize ${getFormTypeClass(form)}`}
+              className={`text-xs text-muted-foreground block capitalize`}
             >
               ({form})
             </span>

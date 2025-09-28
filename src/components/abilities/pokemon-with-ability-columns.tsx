@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
-import { displayName, formatPokemonUrlWithForm, getFormTypeClass } from '@/utils/pokemonFormUtils';
+// import { displayName, formatPokemonUrlWithForm, getFormTypeClass } from '@/utils/pokemonFormUtils';
 import { PokemonSprite } from '../pokemon/pokemon-sprite';
 import { AbilityData } from '@/types/new';
 
@@ -23,10 +23,11 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
         <div className="">
           <Link
             className="table-link"
-            href={formatPokemonUrlWithForm(
-              pokemon.name,
-              pokemon.form ? pokemon.form.toString() : 'plain',
-            )}
+            href={'#'}
+            // href={formatPokemonUrlWithForm(
+            //   pokemon.name,
+            //   pokemon.form ? pokemon.form.toString() : 'plain',
+            // )}
           >
             <PokemonSprite
               hoverAnimate={true}
@@ -67,13 +68,16 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
       const pokemon = row.original;
       return (
         <Link
-          href={formatPokemonUrlWithForm(pokemon.name, pokemon.form || '')}
+          // href={formatPokemonUrlWithForm(pokemon.name, pokemon.form || '')}
+          href={'#'}
           className="table-link"
         >
-          {displayName(pokemon.name)}
+          {/* {displayName(pokemon.name)} */}
+          {pokemon.name}
           {pokemon.form && pokemon.form !== 'plain' && (
             <span
-              className={`text-xs text-muted-foreground block capitalize ${getFormTypeClass(pokemon.form)}`}
+              // className={`text-xs text-muted-foreground block capitalize ${getFormTypeClass(pokemon.form)}`}
+              className={`text-xs text-muted-foreground block capitalize`}
             >
               ({pokemon.form})
             </span>

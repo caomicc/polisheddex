@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import Link from 'next/link';
 import PokemonCard from './pokemon-card';
 import { PokemonCardSkeleton } from './pokemon-card-skeleton';
-import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
+// import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
 import { PokemonManifest } from '@/types/new';
 import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
 
@@ -117,7 +117,8 @@ function LazyPokemonCardGrid({
               <Link
                 className="rounded-xl"
                 key={`${pokemon.id}-${form}-${combinedIdx}`}
-                href={formatPokemonUrlWithForm(pokemon.id, form)}
+                // href={formatPokemonUrlWithForm(pokemon.id, form)}
+                href={`/pokemon/${pokemon.id}`}
               >
                 <div ref={isLastItem && hasMore ? lastElementRef : null}>
                   <MemoizedPokemonCard pokemon={{ ...pokemon, formName: form }} />

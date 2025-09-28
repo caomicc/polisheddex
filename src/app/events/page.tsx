@@ -3,8 +3,8 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 
-import { allEventTypes, dayNames } from '@/lib/event-utils';
-import { EventFilters } from '@/components/ui/event-filter';
+// import { allEventTypes, dayNames } from '@/lib/event-utils';
+// import { EventFilters } from '@/components/ui/event-filter';
 import { Hero } from '@/components/ui';
 import {
   Breadcrumb,
@@ -117,12 +117,12 @@ export default function Page() {
         }
       />
       <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
-        <EventFilters
+        {/* <EventFilters
           // value={filters}
           // onChange={setFilters}
           allTypes={allEventTypes}
           dayNames={dayNames}
-        />
+        /> */}
 
         <Tabs defaultValue="today" className="w-full">
           <TabsList className="grid w-full grid-cols-4 border-border border-1 p-1 h-12 bg-white dark:bg-white/5">

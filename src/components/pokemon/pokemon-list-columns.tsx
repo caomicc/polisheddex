@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { Badge } from '../ui/badge';
 import { PokemonManifest } from '@/types/new';
 import { PokemonSprite } from './pokemon-sprite';
-import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
+// import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
 
 export const createPokemonListColumns = (version: string): ColumnDef<PokemonManifest>[] => [
   {
@@ -22,7 +22,8 @@ export const createPokemonListColumns = (version: string): ColumnDef<PokemonMani
       return (
         <div className="">
           <Link
-            href={formatPokemonUrlWithForm(pokemon.name, pokemon.formName)}
+            // href={formatPokemonUrlWithForm(pokemon.name, pokemon.formName)}
+            href={`/pokemon/${pokemon.name}`}
             className="table-link"
           >
             <PokemonSprite
