@@ -281,7 +281,6 @@ const extractPokemonMovesets = (evoAttacksData: string[], version: string | numb
         if (pokemonMovesets[versionKey][currentPokemon]) {
           // Add the move to the levelUp array
           pokemonMovesets[versionKey][currentPokemon].levelUp!.push({
-            name: move,
             id: move,
             level,
           });
