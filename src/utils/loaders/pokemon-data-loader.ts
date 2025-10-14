@@ -3,7 +3,7 @@
 import { loadJsonFile } from '../fileLoader';
 import { PokemonManifest, ComprehensivePokemonData, PokemonMovesets } from '@/types/new';
 import { getMoveData } from '../move-data-server';
-import { loadDetailedAbilityData } from './ability-data-loader';
+import { getAbilityData } from '../ability-data-server';
 import { normalizePokemonUrlKey } from '../pokemonUrlNormalizer';
 import { getPokemonFileName } from '@/lib/extract-utils';
 
@@ -301,19 +301,22 @@ async function enrichAbilities(abilities: string[], versionName: string): Promis
     abilities.map(async (abilityName: string) => {
       try {
         console.log(`Loading detailed data for ability: ${abilityName}`);
-        const abilityData = await loadDetailedAbilityData(abilityName);
-        const versionData = abilityData.versions?.[versionName] || {};
+        const abilityData = await getAbilityData(abilityName, versionName as 'faithful' | 'polished');
 
-        // Extract description and other data, avoiding duplicates
-        const { description, pokemon, ...otherVersionData } = versionData;
-
-        return {
-          id: abilityName,
-          name: abilityData.name || abilityName,
-          description: description || '',
-          // Include any other version-specific data except pokemon (to avoid circular references)
-          ...otherVersionData,
-        };
+        if (abilityData) {
+          return {
+            id: abilityData.id,
+            name: abilityData.name,
+            description: abilityData.description,
+          };
+        } else {
+          // Return basic ability info if ability data not found
+          return {
+            id: abilityName,
+            name: abilityName,
+            description: '',
+          };
+        }
       } catch (error) {
         console.warn(`Failed to load ability data for: ${abilityName}`, error);
         // Return basic ability info if enrichment fails

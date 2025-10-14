@@ -12,20 +12,19 @@ import {
 import { Hero } from '@/components/ui/Hero';
 import AbilityDetailClient from '@/components/abilities/ability-detail-client';
 import { PokemonGridSkeleton } from '@/components/pokemon/pokemon-card-skeleton';
-import { loadAbilitiesData, loadDetailedAbilityData } from '@/utils/loaders/ability-data-loader';
+import { promises as fs } from 'fs';
+import path from 'path';
 import { AbilityData } from '@/types/new';
 
 export default async function AbilityDetail({ params }: { params: Promise<AbilityData> }) {
   const abilityId = (await params).name;
 
   // Load ability data
-  const abilityData = await loadDetailedAbilityData(abilityId);
+  try {
+    const abilityPath = path.join(process.cwd(), `new/abilities/${abilityId}.json`);
+    const abilityData = JSON.parse(await fs.readFile(abilityPath, 'utf-8'));
 
-  if (!abilityData) {
-    return notFound();
-  }
-
-  return (
+    return (
     <>
       <Hero
         headline={abilityData.name}
@@ -63,15 +62,21 @@ export default async function AbilityDetail({ params }: { params: Promise<Abilit
       </div>
     </>
   );
+  } catch (error) {
+    console.error('Error loading ability data:', error);
+    return notFound();
+  }
 }
 
 // Generate static params for all abilities
 export async function generateStaticParams() {
   try {
-    const abilitiesData = await loadAbilitiesData();
+    const manifestPath = path.join(process.cwd(), 'new/abilities_manifest.json');
+    const manifestData = await fs.readFile(manifestPath, 'utf-8');
+    const allAbilities = JSON.parse(manifestData);
 
-    return Object.keys(abilitiesData).map((abilityKey) => ({
-      name: abilityKey.toLowerCase(),
+    return allAbilities.map((ability: any) => ({
+      name: ability.id,
     }));
   } catch (error) {
     console.error('Error generating static params for abilities:', error);
@@ -84,7 +89,8 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   const abilityId = (await params).name;
 
   try {
-    const abilityData = await loadDetailedAbilityData(abilityId);
+    const abilityPath = path.join(process.cwd(), `new/abilities/${abilityId}.json`);
+    const abilityData = JSON.parse(await fs.readFile(abilityPath, 'utf-8'));
 
     if (!abilityData) {
       return {
