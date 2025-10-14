@@ -2,7 +2,7 @@
 
 import { loadJsonFile } from '../fileLoader';
 import { PokemonManifest, ComprehensivePokemonData, PokemonMovesets } from '@/types/new';
-import { loadDetailedMoveData } from './move-data-loader';
+import { getMoveData } from '../move-data-server';
 import { loadDetailedAbilityData } from './ability-data-loader';
 import { normalizePokemonUrlKey } from '../pokemonUrlNormalizer';
 import { getPokemonFileName } from '@/lib/extract-utils';
@@ -232,28 +232,44 @@ async function enrichMovesets(movesets: any, versionName: string): Promise<any> 
         moves.map(async (move: any) => {
           try {
             if (typeof move === 'string') {
-              const moveData = await loadDetailedMoveData(move);
-              const versionData = moveData.versions?.[versionName] || {};
+              const moveData = await getMoveData(move, versionName as 'faithful' | 'polished');
 
-              // Create enriched move object, excluding learners and ensuring name is preserved
-              const { learners, name, ...moveStats } = versionData;
-              return {
-                name, // Preserve original move name
-                ...moveStats, // All other move data (power, accuracy, etc.)
-              };
+              if (moveData) {
+                // Create enriched move object
+                return {
+                  name: moveData.name,
+                  type: moveData.type,
+                  power: moveData.power,
+                  accuracy: moveData.accuracy,
+                  pp: moveData.pp,
+                  effectChance: moveData.effectChance,
+                  category: moveData.category,
+                  description: moveData.description,
+                };
+              }
+              return { name: move }; // Fallback if move data not found
             } else if (move && typeof move === 'object' && move.name) {
               // Move with additional properties (like level-up moves)
-              const moveData = await loadDetailedMoveData(move.name);
-              const versionData = moveData.versions?.[versionName] || {};
+              const moveData = await getMoveData(move.name, versionName as 'faithful' | 'polished');
 
-              // Create enriched move object, excluding learners and preserving original data
-              const { learners, name, ...moveStats } = versionData;
-
-              console.log(`Enriched move data for ${move.name}:`, versionData);
+              if (moveData) {
+                return {
+                  name: moveData.name,
+                  level: move.level, // Preserve level if present
+                  type: moveData.type,
+                  power: moveData.power,
+                  accuracy: moveData.accuracy,
+                  pp: moveData.pp,
+                  effectChance: moveData.effectChance,
+                  category: moveData.category,
+                  description: moveData.description,
+                };
+              }
+              
+              // Fallback if move data not found
               return {
-                name, // Preserve original move name
-                level: move.level, // Preserve level if present
-                ...moveStats, // Move stats (power, accuracy, etc.)
+                name: move.name,
+                level: move.level,
               };
             } else {
               // Invalid move data, return as-is

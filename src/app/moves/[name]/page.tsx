@@ -1,14 +1,24 @@
 import { Suspense } from 'react';
+import { promises as fs } from 'fs';
+import path from 'path';
 
 import MoveDetailClient from '@/components/moves/move-detail-client';
 import { PokemonGridSkeleton } from '@/components/pokemon/pokemon-card-skeleton';
-import { loadDetailedMoveData, loadMovesFromNewManifest } from '@/utils/loaders/move-data-loader';
 
 export default async function MoveDetail({ params }: { params: Promise<{ name: string }> }) {
   const nameParam = (await params).name;
   const moveName = decodeURIComponent(nameParam);
 
-  const moveData = await loadDetailedMoveData(moveName);
+  // Load move data directly from individual move file
+  const moveFilePath = path.join(process.cwd(), 'new/moves', `${moveName}.json`);
+  let moveData = null;
+  
+  try {
+    const moveFileData = await fs.readFile(moveFilePath, 'utf-8');
+    moveData = JSON.parse(moveFileData);
+  } catch (error) {
+    console.error(`Error loading move data for ${moveName}:`, error);
+  }
 
   return (
     <>
@@ -22,25 +32,15 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
 // Generate static params for all moves
 export async function generateStaticParams() {
   try {
-    // Try new manifest system first
-    try {
-      const newMovesData = await loadMovesFromNewManifest();
-      const moveKeys = Object.keys(newMovesData);
-      if (moveKeys.length > 0) {
-        console.log(`Generated static params for ${moveKeys.length} moves from new manifest`);
-        return moveKeys.map((moveKey) => ({
-          name: moveKey.toLowerCase(),
-        }));
-      }
-    } catch (error) {
-      console.error('Error loading from new manifest for static params, falling back:', error);
-    }
-
-    // Fallback to old system
-    const movesData = await loadMovesFromNewManifest();
-    const moveKeys = Object.keys(movesData);
-    console.log(`Generated static params for ${moveKeys.length} moves from old manifest`);
-    return moveKeys.map((moveKey) => ({
+    // Load moves directly from manifest
+    const manifestPath = path.join(process.cwd(), 'new/moves_manifest.json');
+    const manifestData = await fs.readFile(manifestPath, 'utf-8');
+    const movesManifest = JSON.parse(manifestData);
+    
+    const moveKeys = movesManifest.map((move: any) => move.id);
+    console.log(`Generated static params for ${moveKeys.length} moves from manifest`);
+    
+    return moveKeys.map((moveKey: string) => ({
       name: moveKey.toLowerCase(),
     }));
   } catch (error) {
@@ -55,9 +55,10 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   const moveName = decodeURIComponent(nameParam);
 
   try {
-    const moveData = await loadMovesFromNewManifest().then(
-      (movesData) => movesData[moveName.toLowerCase()] || null,
-    );
+    // Load move data from individual file
+    const moveFilePath = path.join(process.cwd(), 'new/moves', `${moveName}.json`);
+    const moveFileData = await fs.readFile(moveFilePath, 'utf-8');
+    const moveData = JSON.parse(moveFileData);
 
     if (!moveData) {
       return {
