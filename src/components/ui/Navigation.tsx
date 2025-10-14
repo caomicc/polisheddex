@@ -44,7 +44,7 @@ export default function Navigation() {
     { title: 'Attackdex', href: '/moves' },
     { title: 'Abilities', href: '/abilities' },
     { title: 'Team Builder', href: '/team-builder' },
-    { title: 'Polished Cheats', href: 'https://polishedcheats.vercel.app' },
+    { title: 'Polished Editor', href: 'https://polishededitor.vercel.app' },
     { title: 'FAQ', href: '/faq' },
   ];
 
