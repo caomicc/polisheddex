@@ -96,35 +96,31 @@ export async function loadMovesFromNewManifest(): Promise<Record<string, MovesMa
  * This contains version-specific data with learner information
  */
 export async function loadDetailedMoveData(moveId: string): Promise<MoveData> {
-  // try {
-  //   // Check if we're in a server environment
-  //   if (typeof window === 'undefined') {
-  //     // Server-side: Load the detailed move data directly
-  //     const moveData = await loadJsonFile<MoveData>(`new/moves/${moveId}.json`);
-  //     return (
-  //       moveData || {
-  //         id: moveId,
-  //         versions: {},
-  //       }
-  //     );
-  //   } else {
-  //     // Client-side: Use fetch
-  //     const response = await fetch(`/new/moves/${moveId}.json`);
-  //     if (!response.ok) {
-  //       console.error(`Failed to load detailed data for move ${moveId} on client`);
-  //     }
+  try {
+    // Check if we're in a server environment
+    if (typeof window === 'undefined') {
+      // Server-side: Load the detailed move data directly
+      const moveData = await loadJsonFile<MoveData>(`new/moves/${moveId}.json`);
+      return (
+        moveData || {
+          id: moveId,
+          versions: {},
+        }
+      );
+    } else {
+      // Client-side: Use fetch
+      const response = await fetch(`/new/moves/${moveId}.json`);
+      if (!response.ok) {
+        console.error(`Failed to load detailed data for move ${moveId} on client`);
+      }
 
-  //     const moveData = await response.json();
-  //     return moveData;
-  //   }
-  // } catch (error) {
-  //   console.error(`Error loading detailed data for move ${moveId}:`, error);
-  //   throw error;
-  // }
-  return {
-    id: moveId,
-    versions: {},
-  };
+      const moveData = await response.json();
+      return moveData;
+    }
+  } catch (error) {
+    console.error(`Error loading detailed data for move ${moveId}:`, error);
+    throw error;
+  }
 }
 
 /**

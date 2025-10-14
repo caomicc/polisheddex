@@ -94,45 +94,44 @@ export async function loadLocationsFromNewManifest(): Promise<Record<string, Loc
  */
 export async function loadDetailedLocationData(locationId: string): Promise<LocationData | null> {
   // Check if we're in a server environment
-  // if (typeof window === 'undefined') {
-  //   // Server-side: Check if file exists first to avoid fileLoader errors
-  //   const fs = require('fs').promises;
-  //   const path = require('path');
+  if (typeof window === 'undefined') {
+    // Server-side: Check if file exists first to avoid fileLoader errors
+    const fs = require('fs').promises;
+    const path = require('path');
 
-  //   const possiblePaths = [
-  //     path.join(process.cwd(), `new/locations/${locationId}.json`),
-  //     // path.join(process.cwd(), '..', `new/locations/${locationId}.json`),
-  //     // path.resolve(__dirname, '..', '..', '..', `new/locations/${locationId}.json`),
-  //   ];
+    const possiblePaths = [
+      path.join(process.cwd(), `new/locations/${locationId}.json`),
+      // path.join(process.cwd(), '..', `new/locations/${locationId}.json`),
+      // path.resolve(__dirname, '..', '..', '..', `new/locations/${locationId}.json`),
+    ];
 
-  //   for (const filePath of possiblePaths) {
-  //     try {
-  //       await fs.access(filePath); // Check if file exists
-  //       const data = await fs.readFile(filePath, 'utf8');
-  //       const parsed = JSON.parse(data) as LocationData;
-  //       return parsed;
-  //     } catch (error) {
-  //       continue; // Try next path
-  //     }
-  //   }
+    for (const filePath of possiblePaths) {
+      try {
+        await fs.access(filePath); // Check if file exists
+        const data = await fs.readFile(filePath, 'utf8');
+        const parsed = JSON.parse(data) as LocationData;
+        return parsed;
+      } catch (error) {
+        continue; // Try next path
+      }
+    }
 
-  //   // File doesn't exist at any path - this is normal for marts, etc.
-  //   return null;
-  // } else {
-  //   // Client-side: Use fetch
-  //   try {
-  //     const response = await fetch(`/new/locations/${locationId}.json`);
-  //     if (!response.ok) {
-  //       return null; // File not found, normal for marts
-  //     }
+    // File doesn't exist at any path - this is normal for marts, etc.
+    return null;
+  } else {
+    // Client-side: Use fetch
+    try {
+      const response = await fetch(`/new/locations/${locationId}.json`);
+      if (!response.ok) {
+        return null; // File not found, normal for marts
+      }
 
-  //     const locationData = await response.json();
-  //     return locationData;
-  //   } catch (error) {
-  //     return null; // Network error or parsing error
-  //   }
-  // }
-  return null;
+      const locationData = await response.json();
+      return locationData;
+    } catch (error) {
+      return null; // Network error or parsing error
+    }
+  }
 }
 
 /**
