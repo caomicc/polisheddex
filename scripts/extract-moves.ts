@@ -328,9 +328,9 @@ const extractPokemonLearners = async () => {
           // Process level-up moves
           if (movesets.levelUp && Array.isArray(movesets.levelUp)) {
             for (const move of movesets.levelUp) {
-              if (!move || !move.name) continue; // Skip invalid moves
+              if (!move || !move.id) continue; // Skip invalid moves
 
-              const moveId = String(move.name);
+              const moveId = String(move.id);
               if (!moveLearners[version][moveId]) {
                 moveLearners[version][moveId] = {};
               }
@@ -361,8 +361,8 @@ const extractPokemonLearners = async () => {
           // Process TM moves
           if (movesets.tm && Array.isArray(movesets.tm)) {
             for (const tmMove of movesets.tm) {
-              // TM moves are stored as strings
-              const moveId = String(tmMove);
+              // TM moves are stored as objects with id property
+              const moveId = String(tmMove.id);
               if (!moveId) continue; // Skip invalid moves
 
               if (!moveLearners[version][moveId]) {
@@ -389,8 +389,8 @@ const extractPokemonLearners = async () => {
           // Process egg moves
           if (movesets.eggMoves && Array.isArray(movesets.eggMoves)) {
             for (const eggMove of movesets.eggMoves) {
-              // Egg moves are stored as strings
-              const moveId = String(eggMove);
+              // Egg moves are stored as objects with id property
+              const moveId = String(eggMove.id);
               if (!moveId) continue; // Skip invalid moves
 
               if (!moveLearners[version][moveId]) {
@@ -486,7 +486,6 @@ const extractMovesData = async () => {
 
     moves.push({
       id: moveId,
-      // name: moveName,
       versions,
       ...(tmhmInfo[moveId] && { tm: tmhmInfo[moveId] }),
     });
