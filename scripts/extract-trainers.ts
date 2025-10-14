@@ -423,11 +423,11 @@ const generateMovesetForPokemon = async (
     }
 
     if (levelUpMoves) {
-      for (const [, move] of Object.entries(levelUpMoves)) {
-        const { name, level } = move;
-        if (level && name && level <= pokemonLevel) {
+      for (const move of levelUpMoves) {
+        const { id, level } = move;
+        if (level && id && level <= pokemonLevel) {
           availableMoves.push({
-            move: name,
+            move: id,
             level: level,
           });
         }
