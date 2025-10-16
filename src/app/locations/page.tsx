@@ -9,14 +9,14 @@ import {
 } from '@/components/ui/breadcrumb';
 import LocationSearch from '@/components/locations/location-search';
 import { Hero } from '@/components/ui/Hero';
-import { loadLocationsFromNewManifest } from '@/utils/loaders/location-data-loader';
+import { getAllLocations } from '@/utils/location-data-server';
 
 export default async function LocationsPage() {
   // Load locations using the new manifest system
-  const locationsData = await loadLocationsFromNewManifest();
+  const locationsData = await getAllLocations();
 
-  // Convert to array for the search component
-  const processedLocations = Object.values(locationsData);
+  // Data is already an array from manifest
+  const processedLocations = locationsData;
 
   return (
     <>

@@ -2,7 +2,7 @@
 
 import { loadJsonFile } from '../fileLoader';
 import { ItemsManifest, ComprehensiveItemsData } from '@/types/new';
-import { loadLocationsFromNewManifest, loadDetailedLocationData } from './location-data-loader';
+import { getAllLocations, getLocationData } from '../location-data-server';
 
 /**
  * Load items data using the new manifest system with fallbacks
@@ -118,7 +118,11 @@ export async function loadDetailedItemData(itemId: string): Promise<Comprehensiv
     }
 
     // Load location data to resolve location names and parent information
-    const locationsData = await loadLocationsFromNewManifest();
+    const locationsArray = await getAllLocations();
+    const locationsData = locationsArray.reduce((acc, location) => {
+      acc[location.id] = location;
+      return acc;
+    }, {} as Record<string, any>);
 
     // Enrich location data with names and parent location info
     for (const version in itemData.versions) {
@@ -132,7 +136,7 @@ export async function loadDetailedItemData(itemId: string): Promise<Comprehensiv
             // Load detailed location data to get parent information
             let parentId: string | undefined;
             try {
-              const detailedLocationData = await loadDetailedLocationData(location.area);
+              const detailedLocationData = await getLocationData(location.area);
               if (detailedLocationData?.parent) {
                 const parentLocationData = locationsData[detailedLocationData.parent];
                 parentId =

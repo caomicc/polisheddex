@@ -11,15 +11,12 @@ import {
 } from '@/components/ui/breadcrumb';
 import { Hero } from '@/components/ui/Hero';
 import { LocationData } from '@/types/new';
-import {
-  loadLocationsFromNewManifest,
-  loadDetailedLocationData,
-} from '@/utils/loaders/location-data-loader';
+import { getAllLocations, getLocationData } from '@/utils/location-data-server';
 
 // Load location data from the new system using proper data loaders
 async function loadLocationData(locationId: string): Promise<LocationData | null> {
   try {
-    const locationData = await loadDetailedLocationData(locationId);
+    const locationData = await getLocationData(locationId);
     return locationData;
   } catch (error) {
     console.error(`Error loading location data for ${locationId}:`, error);
@@ -30,10 +27,10 @@ async function loadLocationData(locationId: string): Promise<LocationData | null
 // Generate static params for all locations
 export async function generateStaticParams() {
   try {
-    const locationsData = await loadLocationsFromNewManifest();
+    const locationsData = await getAllLocations();
 
-    return Object.keys(locationsData).map((locationId) => ({
-      name: locationId,
+    return locationsData.map((location) => ({
+      name: location.id,
     }));
   } catch (error) {
     console.error('Error generating static params for locations:', error);
