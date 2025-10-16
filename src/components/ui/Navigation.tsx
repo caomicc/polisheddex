@@ -43,7 +43,7 @@ export default function Navigation() {
     { title: 'Attackdex', href: '/moves' },
     { title: 'Abilities', href: '/abilities' },
     { title: 'Team Builder', href: '/team-builder' },
-    { title: 'Polished Cheats', href: 'https://polishedcheats.vercel.app' },
+    { title: 'Polished Editor', href: 'https://polishededitor.vercel.app' },
     { title: 'FAQ', href: '/faq' },
   ];
 
@@ -269,17 +269,17 @@ export default function Navigation() {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="https://polishedcheats.vercel.app"
+                          href="https://polishededitor.vercel.app"
                           target="_blank"
                           className={cn(
                             'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
                           )}
                         >
                           <div className="text-sm font-medium leading-none flex gap-1">
-                            Polished Cheats <ExternalLink className="size-3 mt-px" />
+                            Polished Editor <ExternalLink className="size-3 mt-px" />
                           </div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Cheat generator by Rev3lation
+                            Game Editor by Rev3lation
                           </p>
                         </Link>
                       </NavigationMenuLink>
