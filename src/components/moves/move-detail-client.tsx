@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import PokemonWithMoveDataTable from './pokemon-with-move-data-table';
 import { Hero } from '../ui/Hero';
 import {
@@ -20,7 +20,7 @@ import { MoveData } from '@/types/new';
 
 export default function MoveDetailClient({ moveData }: { moveData: MoveData }) {
   const [learnMethodFilter, setLearnMethodFilter] = useState<string>('all');
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
 
   const version = showFaithful ? 'faithful' : 'polished';
 

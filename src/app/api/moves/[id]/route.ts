@@ -3,11 +3,11 @@ import { getMoveData } from '@/utils/move-data-server';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   const { searchParams } = new URL(request.url);
   const version = (searchParams.get('version') as 'faithful' | 'polished') || 'polished';
-  const moveId = params.id;
+  const moveId = (await params).id;
 
   if (!moveId) {
     return NextResponse.json({ error: 'Move ID is required' }, { status: 400 });

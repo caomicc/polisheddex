@@ -8,7 +8,7 @@ import { PokemonSearchModal } from './pokemon-search-modal';
 import { SaveTeamModal } from './save-team-modal';
 import { LoadTeamModal } from './load-team-modal';
 import { MoveSelector } from './move-selector';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import { useTeamSearchParams } from '@/hooks/use-team-search-params';
 import { Button } from '../ui/button';
 import { Save, FolderOpen } from 'lucide-react';
@@ -18,7 +18,7 @@ interface TeamBuilderClientProps {
 }
 
 export function TeamBuilderClient({ pokemonData }: TeamBuilderClientProps) {
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
   const { team, setPokemonInSlot, removePokemonFromSlot, updatePokemonMoves, setTeamFromUrl } =
     useTeamSearchParams(pokemonData, showFaithful);
   const [selectedSlot, setSelectedSlot] = useState<number | null>(null);

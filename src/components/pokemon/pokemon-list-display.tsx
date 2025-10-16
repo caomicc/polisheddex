@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { parseAsBoolean, parseAsString, useQueryStates } from 'nuqs';
 import { Button } from '../ui/button';
 import React from 'react';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import { ColumnFiltersState, SortingState } from '@tanstack/react-table';
 import { usePaginationSearchParams } from '@/hooks/use-pagination-search-params';
 import { createPokemonListColumns } from './pokemon-list-columns';
@@ -20,7 +20,7 @@ import { PokemonManifest } from '@/types/new';
 export default function PokemonListDisplay({ pokemonList }: { pokemonList: PokemonManifest[] }) {
   const [tableView, setTableView] = React.useState(false);
   const STORAGE_KEY = 'pokemonListDataTable';
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
 
   const version = showFaithful ? 'faithful' : 'polished';
 

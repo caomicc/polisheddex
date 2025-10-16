@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { cn } from '@/lib/utils';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import { BentoGridItem } from '../ui/bento-box';
 import { Badge } from '../ui/badge';
 
@@ -14,7 +14,7 @@ interface PokemonAbilitiesProps {
 }
 
 export function PokemonAbilities({ abilities, className }: PokemonAbilitiesProps) {
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
   const version = showFaithful ? 'faithful' : 'polished';
   if (!abilities || abilities.length === 0) {
     return (

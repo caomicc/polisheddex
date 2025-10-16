@@ -6,7 +6,7 @@ import PokemonCard from './pokemon-card';
 import { PokemonCardSkeleton } from './pokemon-card-skeleton';
 // import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
 import { PokemonManifest } from '@/types/new';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 
 interface LazyPokemonCardGridProps {
   pokemonData: PokemonManifest[];
@@ -26,7 +26,7 @@ function LazyPokemonCardGrid({
   const [isLoading, setIsLoading] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
 
   const version = showFaithful ? 'faithful' : 'polished';
 

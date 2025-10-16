@@ -10,7 +10,7 @@ import PokedexHeader from './pokemon-header';
 import { WeaknessChart } from './weakness-chart';
 import PokemonTypeSetter from './pokemon-type-setter';
 import { useQueryState } from 'nuqs';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import { PokemonSprite } from './pokemon-sprite';
 import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
 import { MoveRow } from '../moves';
@@ -28,7 +28,7 @@ export default function PokemonFormClient({
   const [activeTab, setActiveTab] = useQueryState('tab', {
     defaultValue: 'stats',
   });
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
 
   // Get the current version based on faithful preference
   const version = showFaithful ? 'faithful' : 'polished';

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { fetchMultipleLocationsData, fetchLocationsByRegion, LocationData } from '@/utils/location-data-client';
+import { fetchMultipleLocationsData, fetchLocationsByRegion } from '@/utils/location-data-client';
+import { LocationData } from '@/types/new';
 
 interface UseLocationDataProps {
   locationIds?: string[];
@@ -13,8 +14,14 @@ interface UseLocationDataReturn {
   error: string | null;
 }
 
-export function useLocationData({ locationIds, region, enabled = true }: UseLocationDataProps): UseLocationDataReturn {
-  const [locationsData, setLocationsData] = useState<Record<string, LocationData> | LocationData[]>({});
+export function useLocationData({
+  locationIds,
+  region,
+  enabled = true,
+}: UseLocationDataProps): UseLocationDataReturn {
+  const [locationsData, setLocationsData] = useState<Record<string, LocationData> | LocationData[]>(
+    {},
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -28,7 +35,7 @@ export function useLocationData({ locationIds, region, enabled = true }: UseLoca
     const fetchData = async () => {
       setIsLoading(true);
       setError(null);
-      
+
       try {
         if (region) {
           // Fetch by region

@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import PokemonFormClient from '@/components/pokemon/pokemon-form-client';
+import PokemonFormWrapper from '@/components/pokemon/pokemon-form-wrapper';
 import PokemonNavigation from '@/components/pokemon/pokemon-navigation';
 import PokemonKeyboardNavigation from '@/components/pokemon/pokemon-keyboard-navigation';
 import { getPokemonNavigation } from '@/utils/pokemonNavigation';
@@ -29,9 +29,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
       <div className="max-w-xl md:max-w-4xl mx-auto">
         <h1 className="text-2xl font-bold mb-4 sr-only">{pokemonName}</h1>
         <PokemonKeyboardNavigation navigation={navigation} />
-        <Suspense fallback={<div className="flex justify-center py-8">Loading...</div>}>
-          <PokemonFormClient pokemonData={pokemonData} />
-        </Suspense>
+        <PokemonFormWrapper pokemonData={pokemonData} />
         {/* Only render navigation if we have valid navigation data */}
         {navigation.current.index !== -1 ? (
           <PokemonNavigation navigation={navigation} />

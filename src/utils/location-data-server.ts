@@ -23,10 +23,7 @@ export interface LocationData {
     description: string;
     type: string;
   }>;
-  trainers?: Array<{
-    name: string;
-    type: string;
-  }>;
+  trainers?: string[];
 }
 
 export interface LocationsManifestItem {

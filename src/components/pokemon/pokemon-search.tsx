@@ -7,7 +7,7 @@ import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger } from '../ui/select';
 import { cn } from '@/lib/utils';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import Link from 'next/link';
 import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
 import { usePokemonSearch } from '@/hooks/usePokemonSearch';
@@ -20,7 +20,7 @@ interface PokemonSearchProps {
 
 export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps) {
   const [searchQuery, setSearchQuery] = useState('');
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
 
   // For backward compatibility, we'll use the inverse of showFaithful
   // since the original logic was "showUpdatedTypes" (true = updated, false = faithful)

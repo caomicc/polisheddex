@@ -20,7 +20,7 @@ import { Search, Plus } from 'lucide-react';
 // } from '@/lib/pokemon-data';
 // import { Ability, BaseData, PokemonType } from '@/types/types';
 import { Badge } from './ui/badge';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import { PokemonSprite } from './pokemon/pokemon-sprite';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
@@ -237,7 +237,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
   const natureSearchInputRef = useRef<HTMLInputElement>(null);
   const itemSearchInputRef = useRef<HTMLInputElement>(null);
   const moveSearchInputRef = useRef<HTMLInputElement>(null);
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
   const previousTypesRef = useRef<string | null>(null);
   const previousFaithfulRef = useRef<boolean | null>(null);
 

@@ -1,30 +1,4 @@
-export interface LocationData {
-  id: string;
-  name: string;
-  region: string;
-  type?: string[];
-  order?: number;
-  connectionCount?: number;
-  parent?: string;
-  constantName?: string;
-  items?: Array<{
-    name: string;
-    type: string;
-    coordinates?: {
-      x: number;
-      y: number;
-    };
-  }>;
-  events?: Array<{
-    name: string;
-    description: string;
-    type: string;
-  }>;
-  trainers?: Array<{
-    name: string;
-    type: string;
-  }>;
-}
+import { LocationData } from '@/types/new';
 
 /**
  * Client-side function to fetch location data via API
@@ -45,9 +19,11 @@ export async function fetchLocationData(locationId: string): Promise<LocationDat
 /**
  * Client-side function to fetch multiple locations data via API
  */
-export async function fetchMultipleLocationsData(locationIds: string[]): Promise<Record<string, LocationData>> {
+export async function fetchMultipleLocationsData(
+  locationIds: string[],
+): Promise<Record<string, LocationData>> {
   try {
-    const queryString = locationIds.map(id => `ids=${encodeURIComponent(id)}`).join('&');
+    const queryString = locationIds.map((id) => `ids=${encodeURIComponent(id)}`).join('&');
     const response = await fetch(`/api/locations?${queryString}`);
     if (!response.ok) {
       return {};

@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Search, Plus, X } from 'lucide-react';
 // import { PokemonType } from '@/types/types';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 // import movesData from '@/output/manifests/moves.json';
 
 import movesData from '../../../new/moves_manifest.json';
@@ -41,7 +41,7 @@ export function MoveSelector({
   currentMoves,
   onMovesUpdate,
 }: MoveSelectorProps) {
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedMoves, setSelectedMoves] = useState<string[]>(currentMoves);
 

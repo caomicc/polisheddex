@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
 import { processItemEffect, getUsageDescription } from '@/utils/itemEffectProcessor';
 import { ComprehensiveItemsData } from '@/types/new';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import ItemLocationDataTable from './item-location-data-table';
 import { getItemSpriteName } from '@/utils/spriteUtils';
 
@@ -16,7 +16,7 @@ interface ItemDetailClientProps {
 }
 
 export default function ItemDetailClient({ item }: ItemDetailClientProps) {
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
   const version = showFaithful ? 'faithful' : 'polished';
   const effect = processItemEffect(item.versions[version]);
   const usageDesc = getUsageDescription(item.versions[version]);

@@ -6,7 +6,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 // import { getItemIdFromDisplayName } from '@/utils/itemUtils';\nconst getItemIdFromDisplayName = (name: string) => name.toLowerCase().replace(/\\s+/g, '-');
 import { PokemonSprite } from './pokemon-sprite';
 // import { usePokemonType } from '@/contexts/PokemonTypeContext';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 // import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
 import { EvolutionMethod } from '@/types/new';
 
@@ -30,7 +30,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
   const { chain, chainWithMethods, faithfulChainWithMethods, updatedChainWithMethods } =
     evolutionData;
   // const { primaryType } = usePokemonType();
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
 
   // Determine which evolution data to use based on faithful preference
   const currentChainWithMethods = showFaithful

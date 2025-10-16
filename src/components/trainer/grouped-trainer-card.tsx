@@ -5,7 +5,7 @@
 import { Badge } from '../ui/badge';
 // import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 // import Link from 'next/link';
-// import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+// import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 // import { PokemonSprite } from '../pokemon/pokemon-sprite';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
 // import { TrainerSprite } from './trainer-sprite';
@@ -136,7 +136,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '..
 // }
 
 function TrainerTeamDisplay({ trainer }: { trainer: any }) {
-  // const { showFaithful } = useFaithfulPreference();
+  // const { showFaithful } = useFaithfulPreferenceSafe();
 
   if (!trainer.pokemon || trainer.pokemon.length === 0) {
     return null;

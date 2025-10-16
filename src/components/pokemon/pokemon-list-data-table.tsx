@@ -36,7 +36,7 @@ import {
 import { createPokemonListColumns } from './pokemon-list-columns';
 import { cn } from '@/lib/utils';
 import TableWrapper from '../ui/table-wrapper';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import { PokemonManifest } from '@/types/new';
 
 /**
@@ -60,7 +60,7 @@ export function PokemonListDataTable({ pokemonData }: PokemonListDataTableProps)
   // Storage key for persisting non-URL table state
   const STORAGE_KEY = 'pokemonListDataTable';
 
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
 
   const version = showFaithful ? 'faithful' : 'polished';
 

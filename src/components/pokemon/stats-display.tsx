@@ -4,7 +4,7 @@
 // import { StatData, calculateActualStats, type NatureModifiers } from './stat-hexagon';
 // import { getPokemonStatsData, type PokemonStatsData } from '@/lib/pokemon-stats';
 // import { Nature, NATURE_DATA, type IVs, type EVs } from '../pokemon-slot';
-// import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+// import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 // import { Progress } from '../ui/progress';
 
 // interface StatsDisplayProps {
@@ -67,7 +67,7 @@ export default function StatsDisplay(
 ) {
   // const [pokemonStats, setPokemonStats] = useState<PokemonStatsData | null>(null);
   // const [loading, setLoading] = useState(false);
-  // const { showFaithful } = useFaithfulPreference();
+  // const { showFaithful } = useFaithfulPreferenceSafe();
 
   // useEffect(() => {
   //   if (!pokemonName) {

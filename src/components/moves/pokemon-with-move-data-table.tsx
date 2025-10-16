@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger } from '@/components/u
 import { Label } from '@/components/ui/label';
 import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
 import { MoveLearner } from '@/types/new';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 
 interface PokemonWithMoveDataTableProps {
   learners: MoveLearner[];
@@ -21,7 +21,7 @@ export default function PokemonWithMoveDataTable({
   learnMethodFilter,
   onLearnMethodFilterChange,
 }: PokemonWithMoveDataTableProps) {
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
 
   const version = showFaithful ? 'faithful' : 'polished';
   // Filter Pokemon based on faithful preference and learn method

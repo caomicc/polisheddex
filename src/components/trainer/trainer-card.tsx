@@ -6,7 +6,7 @@
 // import { Badge } from '../ui/badge';
 // import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 // import Link from 'next/link';
-// import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+// import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 // import { PokemonSprite } from '../pokemon/pokemon-sprite';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
 import { TrainerSprite } from './trainer-sprite';
@@ -63,7 +63,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
       break;
   }
 
-  // const { showFaithful } = useFaithfulPreference();
+  // const { showFaithful } = useFaithfulPreferenceSafe();
 
   return (
     <div className="">

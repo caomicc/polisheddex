@@ -17,7 +17,7 @@ import {
 import { Label } from './label';
 import { SimpleThemeToggle } from './theme-toggle';
 import { Switch } from './switch';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { Badge } from './badge';
@@ -29,7 +29,7 @@ import { ExternalLink } from 'lucide-react';
 export default function Navigation() {
   const pathname = usePathname();
   // const { primaryType } = usePokemonType();
-  const { showFaithful, toggleFaithful, isLoading } = useFaithfulPreference();
+  const { showFaithful, toggleFaithful, isLoading } = useFaithfulPreferenceSafe();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
@@ -343,15 +343,18 @@ export default function Navigation() {
           </NavigationMenu>
           <div className={cn('flex items-center gap-2')}>
             <Label htmlFor="type-toggle" className="text-sm whitespace-nowrap">
-              <Badge>{!showFaithful ? 'Polished' : 'Faithful'}</Badge>
+              <Badge>{showFaithful ? 'Faithful' : 'Polished'}</Badge>
             </Label>
-            {isLoading && <>loading...</>}
-            <Switch
-              id="type-toggle"
-              checked={!showFaithful}
-              onCheckedChange={toggleFaithful}
-              aria-label="Toggle between faithful and updated Pokémon types"
-            />
+            {isLoading ? (
+              <div className="w-11 h-6 bg-gray-200 rounded-full animate-pulse" />
+            ) : (
+              <Switch
+                id="type-toggle"
+                checked={showFaithful}
+                onCheckedChange={toggleFaithful}
+                aria-label="Toggle between faithful and polished versions"
+              />
+            )}
             <SimpleThemeToggle />
           </div>
         </div>
@@ -404,14 +407,18 @@ export default function Navigation() {
           </div>
           <div className="flex items-center gap-2">
             <Label htmlFor="mobile-type-toggle-header" className="text-sm whitespace-nowrap">
-              <Badge>{!showFaithful ? 'Polished' : 'Faithful'}</Badge>
+              <Badge>{showFaithful ? 'Faithful' : 'Polished'}</Badge>
             </Label>
-            <Switch
-              id="mobile-type-toggle-header"
-              checked={!showFaithful}
-              onCheckedChange={toggleFaithful}
-              aria-label="Toggle between faithful and updated Pokémon types"
-            />
+            {isLoading ? (
+              <div className="w-11 h-6 bg-gray-200 rounded-full animate-pulse" />
+            ) : (
+              <Switch
+                id="mobile-type-toggle-header"
+                checked={showFaithful}
+                onCheckedChange={toggleFaithful}
+                aria-label="Toggle between faithful and polished versions"
+              />
+            )}
             <SimpleThemeToggle />
             <Button
               variant="ghost"
@@ -467,19 +474,23 @@ export default function Navigation() {
                 </span>
               </Link>
             ))}
-            {/* <div className="flex w-full flex-col gap-4 pt-4 border-t border-neutral-100">
+            <div className="flex w-full flex-col gap-4 pt-4 border-t border-neutral-100">
               <div className="flex items-center gap-2">
                 <Label htmlFor="mobile-type-toggle" className="text-sm">
-                  <Badge>{!showFaithful ? 'Polished' : 'Faithful'}</Badge>
+                  <Badge>{showFaithful ? 'Faithful' : 'Polished'}</Badge>
                 </Label>
-                <Switch
-                  id="mobile-type-toggle"
-                  checked={!showFaithful}
-                  onCheckedChange={toggleFaithful}
-                  aria-label="Toggle between faithful and updated Pokémon types"
-                />
+                {isLoading ? (
+                  <div className="w-11 h-6 bg-gray-200 rounded-full animate-pulse" />
+                ) : (
+                  <Switch
+                    id="mobile-type-toggle"
+                    checked={showFaithful}
+                    onCheckedChange={toggleFaithful}
+                    aria-label="Toggle between faithful and polished versions"
+                  />
+                )}
               </div>
-            </div> */}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

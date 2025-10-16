@@ -36,7 +36,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import TableWrapper from '../ui/table-wrapper';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import { MoveData } from '@/types/new';
 import MoveRow from './move-row';
 
@@ -61,7 +61,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
   // Storage key for persisting non-URL table state
   const STORAGE_KEY = 'movesDataTable';
 
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
 
   const version = showFaithful ? 'faithful' : 'polished';
 

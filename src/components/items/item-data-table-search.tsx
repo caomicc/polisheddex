@@ -3,14 +3,14 @@
 import React, { Suspense } from 'react';
 import { ItemDataTable } from './item-data-table';
 import { itemColumns } from './item-columns';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import { ItemsManifest } from '@/types/new';
 
 interface ItemDataTableSearchProps {
   items: ItemsManifest[];
 }
 const ItemDataTableSearch: React.FC<ItemDataTableSearchProps> = ({ items }) => {
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
 
   const version = showFaithful ? 'faithful' : 'polished';
 

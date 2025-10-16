@@ -22,7 +22,7 @@ import type { PokemonEntry, Nature } from './pokemon-slot';
 //   defensiveMultiplierAgainst,
 // } from '@/lib/calculations';
 import { useEffect, useState } from 'react';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import TableWrapper from './ui/table-wrapper';
 import { BentoGridNoLink } from './ui/bento-box';
 
@@ -51,7 +51,7 @@ export default function CalculationsPanel({
 }) {
   const [pokemonStats, setPokemonStats] = useState<PokemonStats[]>([]);
   const [loading, setLoading] = useState(false);
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
 
   // Load type chart when faithful preference changes
   // useEffect(() => {

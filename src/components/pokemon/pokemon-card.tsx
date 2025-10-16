@@ -7,13 +7,13 @@ import { cn } from '@/lib/utils';
 import { getTypeGradientProps } from '@/utils/css-gradients';
 import { TYPE_COLORS } from '@/contexts/PokemonTypeContext';
 import { PokemonSprite } from './pokemon-sprite';
-import { useFaithfulPreference } from '@/hooks/useFaithfulPreference';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 
 interface PokemonCardProps {
   pokemon: PokemonManifest;
 }
 const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
 
   const version = showFaithful ? 'faithful' : 'polished';
 
