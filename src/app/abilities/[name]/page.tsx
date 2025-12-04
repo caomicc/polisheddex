@@ -68,6 +68,9 @@ export default async function AbilityDetail({ params }: { params: Promise<Abilit
   }
 }
 
+// Disable dynamic params - only pre-generated routes are valid
+export const dynamicParams = false;
+
 // Generate static params for all abilities
 export async function generateStaticParams() {
   try {

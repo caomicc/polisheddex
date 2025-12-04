@@ -29,6 +29,9 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
   );
 }
 
+// Disable dynamic params - only pre-generated routes are valid
+export const dynamicParams = false;
+
 // Generate static params for all moves
 export async function generateStaticParams() {
   try {

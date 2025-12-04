@@ -71,6 +71,9 @@ export default async function ItemPage({ params }: ItemPageProps) {
   );
 }
 
+// Disable dynamic params - only pre-generated routes are valid
+export const dynamicParams = false;
+
 // Generate static params for all items (temporarily back to full generation)
 export async function generateStaticParams() {
   try {

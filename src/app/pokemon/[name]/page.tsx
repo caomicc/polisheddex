@@ -49,6 +49,9 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   );
 }
 
+// Disable dynamic params - only pre-generated routes are valid
+export const dynamicParams = false;
+
 // Generate static params for all Pokemon - only lowercase normalized names
 export async function generateStaticParams() {
   const baseDataFile = path.join(process.cwd(), 'new/pokemon_manifest.json');
