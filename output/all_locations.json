@@ -3338,18 +3338,6 @@
           }
         ],
         "rematchable": false
-      },
-      {
-        "id": "kimono_girl_6_1",
-        "name": "1",
-        "trainerClass": "KIMONO_GIRL_6",
-        "spriteType": "kimono_girl_6",
-        "coordinates": {
-          "x": 11,
-          "y": 4
-        },
-        "pokemon": [],
-        "rematchable": false
       }
     ],
     "items": [
@@ -7878,7 +7866,6 @@
           {
             "level": 14,
             "species": "Butterfree",
-            "item": "No Item",
             "gender": "male",
             "moves": [
               "Tackle",
@@ -8181,24 +8168,25 @@
         },
         "pokemon": [
           {
-            "level": 10,
+            "level": 13,
             "species": "Ledyba",
             "moves": [
-              "Swift",
-              "Supersonic",
-              "Tackle"
+              "Light Screen",
+              "Reflect",
+              "Safeguard",
+              "Swift"
             ],
             "faithful": {},
             "polished": {}
           },
           {
-            "level": 10,
+            "level": 13,
             "species": "Spinarak",
             "moves": [
+              "Scary Face",
               "Glare",
               "Absorb",
-              "Poison Sting",
-              "String Shot"
+              "Poison Sting"
             ],
             "faithful": {},
             "polished": {}
@@ -8221,7 +8209,6 @@
         {
           "level": 14,
           "species": "butterfree",
-          "item": "no_item",
           "gender": "male",
           "moves": [
             "Tackle",
@@ -21484,20 +21471,6 @@
         "offset": 0
       }
     ],
-    "trainers": [
-      {
-        "id": "kimono_girl_7_1",
-        "name": "1",
-        "trainerClass": "KIMONO_GIRL_7",
-        "spriteType": "kimono_girl_7",
-        "coordinates": {
-          "x": 28,
-          "y": 14
-        },
-        "pokemon": [],
-        "rematchable": false
-      }
-    ],
     "items": [
       {
         "type": "hiddenItem",
@@ -25898,11 +25871,6 @@
     "spawnPoint": "SPAWN_CIANWOOD",
     "tmhms": [
       {
-        "tmNumber": "HM02",
-        "moveName": "Fly",
-        "location": "Cianwood City"
-      },
-      {
         "tmNumber": "HM04",
         "moveName": "Strength",
         "location": "Cianwood City"
@@ -26032,10 +26000,6 @@
           "x": 5,
           "y": 29
         }
-      },
-      {
-        "type": "tmHm",
-        "name": "HM02 - Fly"
       },
       {
         "type": "tmHm",
@@ -27436,6 +27400,11 @@
         "tmNumber": "TM50",
         "moveName": "Leech Life",
         "location": "Yellow Forest"
+      },
+      {
+        "tmNumber": "HM02",
+        "moveName": "Fly",
+        "location": "Yellow Forest"
       }
     ],
     "trainers": [
@@ -28098,6 +28067,10 @@
       {
         "type": "tmHm",
         "name": "TM50 - Leech Life"
+      },
+      {
+        "type": "tmHm",
+        "name": "HM02 - Fly"
       }
     ]
   },
@@ -34344,18 +34317,6 @@
             }
           }
         ],
-        "rematchable": false
-      },
-      {
-        "id": "kimono_girl_8_1",
-        "name": "1",
-        "trainerClass": "KIMONO_GIRL_8",
-        "spriteType": "kimono_girl_8",
-        "coordinates": {
-          "x": 34,
-          "y": 19
-        },
-        "pokemon": [],
         "rematchable": false
       }
     ],
@@ -50849,10 +50810,10 @@
     ],
     "trainers": [
       {
-        "id": "kimono_girl_1_naoko",
+        "id": "kimono_girl_naoko",
         "name": "Naoko",
-        "trainerClass": "KIMONO_GIRL_1",
-        "spriteType": "kimono_girl_1",
+        "trainerClass": "KIMONO_GIRL",
+        "spriteType": "kimono_girl",
         "coordinates": {
           "x": 0,
           "y": 2
@@ -50865,110 +50826,6 @@
             "moves": [
               "Fire Spin",
               "Bite",
-              "Quick Attack",
-              "Double Kick"
-            ],
-            "faithful": {},
-            "polished": {}
-          }
-        ],
-        "rematchable": false
-      },
-      {
-        "id": "kimono_girl_2_sayo",
-        "name": "Sayo",
-        "trainerClass": "KIMONO_GIRL_2",
-        "spriteType": "kimono_girl_2",
-        "coordinates": {
-          "x": 2,
-          "y": 1
-        },
-        "pokemon": [
-          {
-            "level": 20,
-            "species": "Espeon",
-            "item": "Lum Berry",
-            "moves": [
-              "Psybeam",
-              "Swift",
-              "Quick Attack",
-              "Double Kick"
-            ],
-            "faithful": {},
-            "polished": {}
-          }
-        ],
-        "rematchable": false
-      },
-      {
-        "id": "kimono_girl_3_zuki",
-        "name": "Zuki",
-        "trainerClass": "KIMONO_GIRL_3",
-        "spriteType": "kimono_girl_3",
-        "coordinates": {
-          "x": 6,
-          "y": 2
-        },
-        "pokemon": [
-          {
-            "level": 20,
-            "species": "Umbreon",
-            "item": "Lum Berry",
-            "moves": [
-              "Feint Attack",
-              "Confuse Ray",
-              "Quick Attack",
-              "Double Kick"
-            ],
-            "faithful": {},
-            "polished": {}
-          }
-        ],
-        "rematchable": false
-      },
-      {
-        "id": "kimono_girl_4_kuni",
-        "name": "Kuni",
-        "trainerClass": "KIMONO_GIRL_4",
-        "spriteType": "kimono_girl_4",
-        "coordinates": {
-          "x": 9,
-          "y": 1
-        },
-        "pokemon": [
-          {
-            "level": 20,
-            "species": "Vaporeon",
-            "item": "Lum Berry",
-            "moves": [
-              "Aurora Beam",
-              "Water Pulse",
-              "Quick Attack",
-              "Double Kick"
-            ],
-            "faithful": {},
-            "polished": {}
-          }
-        ],
-        "rematchable": false
-      },
-      {
-        "id": "kimono_girl_5_miki",
-        "name": "Miki",
-        "trainerClass": "KIMONO_GIRL_5",
-        "spriteType": "kimono_girl_5",
-        "coordinates": {
-          "x": 11,
-          "y": 2
-        },
-        "pokemon": [
-          {
-            "level": 20,
-            "species": "Jolteon",
-            "item": "Lum Berry",
-            "moves": [
-              "Light Screen",
-              "Spark",
               "Quick Attack",
               "Double Kick"
             ],
