@@ -216,7 +216,7 @@ function PokemonCard({ pokemon, isCurrent, methods, showArrow }: PokemonCardProp
       {showArrow && methods && methods.length > 0 && (
         <div className="flex flex-col items-center gap-0.5 mx-1">
           <ChevronRight className="w-3 h-3 text-muted-foreground" />
-          <div className="text-[9px] md:text-[10px] text-muted-foreground text-center max-w-[60px] leading-tight">
+          <div className="text-xs text-muted-foreground text-center max-w-[60px] leading-tight">
             {methods.slice(0, 2).map((m, i) => (
               <div key={i}>{formatEvolutionMethod(m)}</div>
             ))}
@@ -245,7 +245,7 @@ function PokemonCard({ pokemon, isCurrent, methods, showArrow }: PokemonCardProp
         </div>
         <span
           className={cn(
-            'text-[9px] md:text-[10px] font-medium text-center leading-tight max-w-[100px] truncate',
+            'text-xs font-black text-neutral-600 dark:text-neutral-200 capitalize leading-none text-center max-w-[100px] truncate',
           )}
         >
           {formatPokemonName(pokemon.name)}{' '}
@@ -329,7 +329,7 @@ export function EvolutionChainDisplay({
                   className="flex flex-col items-center"
                 >
                   <PokemonCard pokemon={evo.pokemon} isCurrent={evoCurrent} />
-                  <div className="text-[7px] md:text-[8px] text-muted-foreground text-center max-w-[60px] leading-tight mt-0.5">
+                  <div className="text-xs text-muted-foreground text-center max-w-[60px] leading-none mt-0.5">
                     {evo.methods.slice(0, 1).map((m, i) => (
                       <div key={i}>{formatEvolutionMethod(m)}</div>
                     ))}
@@ -368,7 +368,7 @@ export function EvolutionChainDisplay({
             <div className="flex flex-col items-center gap-0.5 mx-1">
               <ChevronRight className="w-3 h-3 text-muted-foreground" />
               {rootToMiddleMethods.length > 0 && (
-                <div className="text-[8px] md:text-[9px] text-muted-foreground text-center max-w-[50px] leading-tight">
+                <div className="text-xs text-muted-foreground text-center max-w-[50px] leading-tight">
                   {formatEvolutionMethod(rootToMiddleMethods[0])}
                 </div>
               )}
@@ -394,7 +394,7 @@ export function EvolutionChainDisplay({
                   className="flex flex-col items-center"
                 >
                   <PokemonCard pokemon={evo.pokemon} isCurrent={evoCurrent} />
-                  <div className="text-[8px] md:text-[10px] text-muted-foreground text-center max-w-[100px] leading-tight">
+                  <div className="text-xs text-muted-foreground text-center max-w-[100px] leading-tight">
                     {evo.methods.slice(0, 1).map((m, i) => (
                       <div key={i}>{formatEvolutionMethod(m)}</div>
                     ))}

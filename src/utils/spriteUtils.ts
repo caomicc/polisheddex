@@ -10,6 +10,126 @@ import {
   SpriteCategory,
 } from '@/types/spriteTypes';
 
+// Known form suffixes that should be preserved with underscores
+const FORM_SUFFIXES = [
+  '_alolan',
+  '_galarian',
+  '_hisuian',
+  '_paldean',
+  '_paldean_fire',
+  '_paldean_water',
+  '_paldean_combat',
+  '_paldean_blaze',
+  '_paldean_aqua',
+  '_mega',
+  '_mega_x',
+  '_mega_y',
+  '_gmax',
+  '_primal',
+  '_origin',
+  '_sky',
+  '_therian',
+  '_black',
+  '_white',
+  '_attack',
+  '_defense',
+  '_speed',
+  '_plant',
+  '_sandy',
+  '_trash',
+  '_heat',
+  '_wash',
+  '_frost',
+  '_fan',
+  '_mow',
+  '_zen',
+  '_pirouette',
+  '_blade',
+  '_shield',
+  '_10',
+  '_50',
+  '_complete',
+  '_school',
+  '_meteor',
+  '_dusk',
+  '_midnight',
+  '_dawn',
+  '_dusk_mane',
+  '_dawn_wings',
+  '_ultra',
+  '_crowned',
+  '_eternamax',
+  '_ice',
+  '_shadow',
+  '_single_strike',
+  '_rapid_strike',
+  '_bloodmoon',
+  '_hero',
+  '_wellspring',
+  '_hearthflame',
+  '_cornerstone',
+  '_terastal',
+  '_stellar',
+  '_red',
+  '_yellow',
+  '_green',
+  '_blue',
+  '_orange',
+  '_purple',
+  '_pink',
+  '_two_segment',
+  '_three_segment',
+  '_johto',
+  '_kanto',
+  '_agatha',
+  '_ariana',
+  '_koga',
+];
+
+/**
+ * Normalize a Pokemon name for sprite lookup.
+ * Reduces the base name (removes special chars, underscores) but preserves form suffixes.
+ * Examples:
+ *   - "Ho-Oh" -> "hooh"
+ *   - "Mr. Mime" -> "mrmime"
+ *   - "ninetales_alolan" -> "ninetales_alolan"
+ *   - "Mr. Mime_galarian" -> "mrmime_galarian"
+ */
+function normalizePokemonName(name: string): string {
+  const nameLower = name.toLowerCase();
+
+  // Check for form suffixes (longest first to handle _paldean_fire before _paldean)
+  const sortedSuffixes = [...FORM_SUFFIXES].sort((a, b) => b.length - a.length);
+
+  for (const suffix of sortedSuffixes) {
+    if (nameLower.endsWith(suffix)) {
+      const baseName = nameLower.slice(0, -suffix.length);
+      // Reduce the base name (remove special chars including underscores)
+      const reducedBase = baseName
+        .replace(/\s/g, '')
+        .replace(/-/g, '')
+        .replace(/_/g, '')
+        .replace(/'/g, '')
+        .replace(/\./g, '')
+        .replace(/♂/g, 'm')
+        .replace(/♀/g, 'f')
+        .replace(/é/g, 'e');
+      return `${reducedBase}${suffix}`;
+    }
+  }
+
+  // No form suffix, reduce the whole name
+  return nameLower
+    .replace(/\s/g, '')
+    .replace(/-/g, '')
+    .replace(/_/g, '')
+    .replace(/'/g, '')
+    .replace(/\./g, '')
+    .replace(/♂/g, 'm')
+    .replace(/♀/g, 'f')
+    .replace(/é/g, 'e');
+}
+
 let unifiedManifest: UnifiedSpriteManifest | null = null;
 
 /**
@@ -50,12 +170,8 @@ export function getSprite(
   variant: SpriteVariant = 'normal',
   type: SpriteType = 'static',
 ): SpriteInfo | null {
-  const normalizedName = pokemonName
-    .toLowerCase()
-    .replace(/-/g, '_')
-    .replace(/\(/g, '_')
-    .replace(/\)/g, '')
-    .replace(/\s/g, '');
+  // Normalize Pokemon names: reduce base name but preserve form suffixes
+  const normalizedName = normalizePokemonName(pokemonName);
 
   // Handle both unified and legacy manifests
   const pokemonData =
@@ -89,14 +205,8 @@ export function getFallbackSprite(
   variant: SpriteVariant = 'normal',
   type: SpriteType = 'static',
 ): SpriteInfo {
-  let normalizedName = pokemonName.toLowerCase().replace(/-/g, '_');
-
-  // If this is a form and the form-specific fallback doesn't work, try the base pokemon
-  if (normalizedName.includes('_')) {
-    const baseName = normalizedName.split('_')[0];
-    // Return the base pokemon fallback instead of the form-specific one
-    normalizedName = baseName;
-  }
+  // Normalize Pokemon names: reduce base name but preserve form suffixes
+  const normalizedName = normalizePokemonName(pokemonName);
 
   const extension = type === 'animated' ? 'gif' : 'png';
   const filename =
