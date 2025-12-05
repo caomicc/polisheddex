@@ -60,13 +60,9 @@ export default function TeamBuilder() {
         url.searchParams.delete('team');
         window.history.replaceState({}, '', url.toString());
       }
-    } else {
-      // Ensure length is 6 for existing teams
-      if (!team || team.length !== 6) {
-        // setTeam(new Array(6).fill(0).map(() => ({ ...emptyPokemonEntry })));
-      }
     }
-  }, [setTeam, team]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Only run on mount
 
   const handleUpdate = (index: number, data: Partial<PokemonEntry>) => {
     setTeam((prev) => {

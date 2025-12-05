@@ -67,8 +67,12 @@ export default function CalculationsPanel({
           if (!pokemon.name) return null;
 
           try {
-            const fileName = pokemon.name.toLowerCase().replace(/[ -]/g, '-');
-            const response = await fetch(`/output/pokemon/${fileName}.json`);
+            // Strip form suffix (e.g., "Slowking (Galarian)" -> "slowking")
+            const fileName = pokemon.name
+              .toLowerCase()
+              .replace(/\s*\([^)]*\)/g, '')
+              .replace(/[ -]/g, '-');
+            const response = await fetch(`/new/pokemon/${fileName}.json`);
             if (!response.ok) throw new Error('Pokemon not found');
 
             const data = await response.json();

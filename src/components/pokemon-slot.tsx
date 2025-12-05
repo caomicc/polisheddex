@@ -210,6 +210,16 @@ export type PokemonSlotProps = {
 
 export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps) {
   const [pokemonData, setPokemonData] = useState<any | null>(null);
+  const [pokemonList, setPokemonList] = useState<
+    {
+      id: string;
+      name: string;
+      versions: {
+        polished?: { plain?: { types: string[] } };
+        faithful?: { plain?: { types: string[] } };
+      };
+    }[]
+  >([]);
   const [movesData, setMovesData] = useState<Record<string, MoveData> | null>(null);
   const [itemsData, setItemsData] = useState<Record<
     string,
@@ -274,16 +284,20 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
   // );
 
   // Filter Pokemon based on search query
-  // const filteredPokemonList = useMemo(() => {
-  //   if (!pokemonSearchQuery.trim()) return POKEMON_LIST;
+  const filteredPokemonList = useMemo(() => {
+    const version = showFaithful ? 'faithful' : 'polished';
+    if (!pokemonSearchQuery.trim()) return pokemonList;
 
-  //   const query = pokemonSearchQuery.toLowerCase();
-  //   return POKEMON_LIST.filter(
-  //     (pokemon) =>
-  //       pokemon.name.toLowerCase().includes(query) ||
-  //       pokemon.types.some((type) => type?.toLowerCase().includes(query)),
-  //   );
-  // }, [pokemonSearchQuery]);
+    const query = pokemonSearchQuery.toLowerCase();
+    return pokemonList.filter((pokemon) => {
+      const types = pokemon.versions?.[version]?.plain?.types || [];
+      return (
+        pokemon.name.toLowerCase().includes(query) ||
+        pokemon.id.toLowerCase().includes(query) ||
+        types.some((type) => type?.toLowerCase().includes(query))
+      );
+    });
+  }, [pokemonSearchQuery, pokemonList, showFaithful]);
 
   // Helper function to get ability description
   const getAbilityDescription = useCallback(
@@ -513,15 +527,17 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     // }, [pokemonData, matched, showFaithful, movesData, evolutionChainMoves, moveSearchQuery]);
   }, [pokemonData, showFaithful, movesData, evolutionChainMoves, moveSearchQuery]);
 
-  // Load moves, items, and abilities data in parallel, only once
+  // Load moves, items, abilities, and pokemon data in parallel, only once
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [movesResponse, itemsResponse, abilitiesResponse] = await Promise.all([
-          fetch('/new/moves_manifest.json'),
-          fetch('/new/items_manifest.json'),
-          fetch('/new/abilities_manifest.json'),
-        ]);
+        const [movesResponse, itemsResponse, abilitiesResponse, pokemonResponse] =
+          await Promise.all([
+            fetch('/new/moves_manifest.json'),
+            fetch('/new/items_manifest.json'),
+            fetch('/new/abilities_manifest.json'),
+            fetch('/new/pokemon_manifest.json'),
+          ]);
 
         if (movesResponse.ok) {
           const movesData = await movesResponse.json();
@@ -537,8 +553,13 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
           const abilitiesData = await abilitiesResponse.json();
           setAbilitiesData(abilitiesData);
         }
+
+        if (pokemonResponse.ok) {
+          const pokemonData = await pokemonResponse.json();
+          setPokemonList(pokemonData);
+        }
       } catch (error) {
-        console.error('Failed to load moves/items/abilities data:', error);
+        console.error('Failed to load moves/items/abilities/pokemon data:', error);
       }
     };
 
@@ -777,8 +798,12 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
         const prevEvolutionName = evolutionChain[i];
 
         try {
-          const fileName = prevEvolutionName.toLowerCase().replace(/[ -]/g, '-');
-          const response = await fetch(`/output/pokemon/${fileName}.json`);
+          // Strip form suffix (e.g., "Slowking (Galarian)" -> "slowking")
+          const fileName = prevEvolutionName
+            .toLowerCase()
+            .replace(/\s*\([^)]*\)/g, '')
+            .replace(/[ -]/g, '-');
+          const response = await fetch(`/new/pokemon/${fileName}.json`);
           if (response.ok) {
             const prevPokemonData = await response.json();
             const formData = prevPokemonData.forms?.plain || prevPokemonData;
@@ -851,8 +876,8 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
   }, [pokemonData, showFaithful]);
   // }, [pokemonData, matched, showFaithful]);
 
-  // const isPokemonSelected = Boolean(matched);
-  const isPokemonSelected = false;
+  // Check if a Pokemon is selected based on entry.name
+  const isPokemonSelected = Boolean(entry.name && entry.name.trim() !== '');
 
   const setMove = (i: number, move: Partial<MoveEntry>) => {
     const copy = [...entry.moves];
@@ -860,59 +885,22 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     onChange({ moves: copy });
   };
 
-  // const autofillFromPokemon = (pokemonName: string) => {
-  //   console.log('autofillFromPokemon called with:', pokemonName);
-  //   const found = POKEMON_LIST.find((p) => p.name === pokemonName);
-  //   if (!found) {
-  //     console.log('Pokemon not found in POKEMON_LIST, setting name only');
-  //     onChange({ name: pokemonName });
-  //     setSearchModalOpen(false);
-  //     setPokemonSearchQuery('');
-  //     return;
-  //   }
+  const autofillFromPokemon = (pokemon: (typeof pokemonList)[0]) => {
+    const version = showFaithful ? 'faithful' : 'polished';
+    const types = pokemon.versions?.[version]?.plain?.types || [];
 
-  //   console.log('Found Pokemon in POKEMON_LIST:', found);
-  //   console.log('Found types:', found.types);
+    // Reset the ref when manually selecting a Pokemon
+    previousTypesRef.current = null;
 
-  //   // Use basic types as default - types will be updated when detailed data loads
-  //   const validTypes = [found.types[0], found.types[1]].filter(
-  //     (t): t is string =>
-  //       typeof t === 'string' &&
-  //       [
-  //         'normal',
-  //         'fire',
-  //         'water',
-  //         'electric',
-  //         'grass',
-  //         'ice',
-  //         'fighting',
-  //         'poison',
-  //         'ground',
-  //         'flying',
-  //         'psychic',
-  //         'bug',
-  //         'rock',
-  //         'ghost',
-  //         'dragon',
-  //         'dark',
-  //         'steel',
-  //         'fairy',
-  //       ].includes(t),
-  //   );
+    onChange({
+      name: pokemon.name,
+      types: types,
+    });
 
-  //   console.log('Setting autofill types:', validTypes);
-  //   // Reset the ref when manually selecting a Pokemon
-  //   previousTypesRef.current = null;
-
-  //   onChange({
-  //     name: found.name,
-  //     types: validTypes,
-  //   });
-
-  //   // Close modal and clear search
-  //   setSearchModalOpen(false);
-  //   setPokemonSearchQuery('');
-  // };
+    // Close modal and clear search
+    setSearchModalOpen(false);
+    setPokemonSearchQuery('');
+  };
 
   // const clearSlot = () => {
   //   onChange({ ...emptyPokemonEntry });
@@ -1006,38 +994,40 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                   onChange={(e) => setPokemonSearchQuery(e.target.value)}
                   onKeyDown={(e) => {
                     // Allow Enter to select the first filtered Pokemon if only one result
-                    // if (e.key === 'Enter' && filteredPokemonList.length === 1) {
-                    //   autofillFromPokemon(filteredPokemonList[0].name);
-                    // }
+                    if (e.key === 'Enter' && filteredPokemonList.length === 1) {
+                      autofillFromPokemon(filteredPokemonList[0]);
+                    }
                   }}
                   className="pl-10"
                 />
               </div>
               <div className="max-h-[300px] overflow-y-auto border border-border rounded-md">
                 <div className="p-2">
-                  {/* {filteredPokemonList.length === 0 ? (
+                  {filteredPokemonList.length === 0 ? (
                     <div className="text-center text-muted-foreground py-4">
-                      No Pokémon found matching &ldquo;{pokemonSearchQuery}&rdquo;
+                      {pokemonList.length === 0
+                        ? 'Loading Pokémon...'
+                        : `No Pokémon found matching "${pokemonSearchQuery}"`}
                     </div>
                   ) : (
                     <div className="grid gap-1">
                       {filteredPokemonList.map((pokemon, idx) => (
                         <Button
-                          key={`pokemon-${idx}-${pokemon.name}`}
+                          key={`pokemon-${idx}-${pokemon.id}`}
                           variant="ghost"
                           className="w-full justify-start h-auto p-3"
-                          onClick={() => autofillFromPokemon(pokemon.name)}
+                          onClick={() => autofillFromPokemon(pokemon)}
                         >
                           <div className="flex items-center gap-3 w-full">
                             <div className="flex flex-row items-center gap-4">
-                              <PokemonSprite pokemonName={pokemon.name} className="" size="sm" />
+                              <PokemonSprite pokemonName={pokemon.id} className="" size="sm" />
                               <span className="font-medium">{pokemon.name}</span>
                             </div>
                           </div>
                         </Button>
                       ))}
                     </div>
-                  )} */}
+                  )}
                 </div>
               </div>
             </div>
