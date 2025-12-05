@@ -25,9 +25,11 @@ import {
   getAllLocations,
   getLocationData,
 } from '@/utils/location-data-server';
+import { getTrainersData } from '@/utils/loaders/trainer-data-loader';
 import { PokemonSprite } from '@/components/pokemon/pokemon-sprite';
 import Image from 'next/image';
 import { getItemSpriteName } from '@/utils/spriteUtils';
+import LocationTrainersSection from '@/components/locations/location-trainers-section';
 
 // Load location data from the new system using proper data loaders
 async function loadLocationData(locationId: string): Promise<LocationData | null> {
@@ -70,6 +72,11 @@ export default async function LocationDetailPage({
   if (!locationData) {
     return notFound();
   }
+
+  // Load trainer data if this location has trainers
+  const trainersData = locationData.trainers && locationData.trainers.length > 0
+    ? await getTrainersData(locationData.trainers)
+    : [];
 
   const displayName =
     locationData.name ||
@@ -400,17 +407,8 @@ export default async function LocationDetailPage({
           )}
 
           {/* Trainers */}
-          {locationData.trainers && locationData.trainers.length > 0 && (
-            <div className="bg-white rounded-lg border p-6 dark:bg-gray-800 dark:border-gray-700">
-              <h2 className="text-xl font-semibold mb-4">Trainers</h2>
-              <div className="grid grid-cols-1 gap-3">
-                {locationData.trainers.map((trainer, index) => (
-                  <div key={index} className="p-3 bg-gray-50 rounded-lg dark:bg-gray-700">
-                    <div className="font-medium">{trainer}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
+          {trainersData.length > 0 && (
+            <LocationTrainersSection trainers={trainersData} />
           )}
 
           {/* Raw Data (for debugging) */}
