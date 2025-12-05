@@ -18,7 +18,9 @@ export async function loadPokemonFromNewManifest(): Promise<Record<string, Pokem
     // Check if we're in a server environment
     if (typeof window === 'undefined') {
       // Server-side: Load the new pokemon manifest directly
-      const pokemonArray = await loadJsonFile<PokemonManifest[]>('public/new/pokemon_manifest.json');
+      const pokemonArray = await loadJsonFile<PokemonManifest[]>(
+        'public/new/pokemon_manifest.json',
+      );
 
       if (!pokemonArray || !Array.isArray(pokemonArray)) {
         console.error('Invalid pokemon manifest structure or file not found');

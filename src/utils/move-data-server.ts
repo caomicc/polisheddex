@@ -45,10 +45,13 @@ async function loadMovesManifest(): Promise<MovesManifestItem[]> {
 /**
  * Get move data by ID and version from manifest (server-side only)
  */
-export async function getMoveData(moveId: string, version: 'faithful' | 'polished' = 'polished'): Promise<MoveData | null> {
+export async function getMoveData(
+  moveId: string,
+  version: 'faithful' | 'polished' = 'polished',
+): Promise<MoveData | null> {
   const manifest = await loadMovesManifest();
-  const moveItem = manifest.find(item => item.id === moveId);
-  
+  const moveItem = manifest.find((item) => item.id === moveId);
+
   if (!moveItem || !moveItem.versions[version]) {
     return null;
   }
@@ -59,12 +62,15 @@ export async function getMoveData(moveId: string, version: 'faithful' | 'polishe
 /**
  * Get multiple moves data at once for better performance (server-side only)
  */
-export async function getMultipleMovesData(moveIds: string[], version: 'faithful' | 'polished' = 'polished'): Promise<Record<string, MoveData>> {
+export async function getMultipleMovesData(
+  moveIds: string[],
+  version: 'faithful' | 'polished' = 'polished',
+): Promise<Record<string, MoveData>> {
   const manifest = await loadMovesManifest();
   const result: Record<string, MoveData> = {};
 
   for (const moveId of moveIds) {
-    const moveItem = manifest.find(item => item.id === moveId);
+    const moveItem = manifest.find((item) => item.id === moveId);
     if (moveItem && moveItem.versions[version]) {
       result[moveId] = moveItem.versions[version];
     }

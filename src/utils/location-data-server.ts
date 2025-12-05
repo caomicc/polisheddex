@@ -74,7 +74,9 @@ export async function getLocationData(locationId: string): Promise<LocationData 
 /**
  * Get multiple locations data at once for better performance (server-side only)
  */
-export async function getMultipleLocationsData(locationIds: string[]): Promise<Record<string, LocationData>> {
+export async function getMultipleLocationsData(
+  locationIds: string[],
+): Promise<Record<string, LocationData>> {
   const result: Record<string, LocationData> = {};
 
   for (const locationId of locationIds) {
@@ -99,5 +101,5 @@ export async function getAllLocations(): Promise<LocationsManifestItem[]> {
  */
 export async function getLocationsByRegion(region: string): Promise<LocationsManifestItem[]> {
   const allLocations = await loadLocationsManifest();
-  return allLocations.filter(location => location.region.toLowerCase() === region.toLowerCase());
+  return allLocations.filter((location) => location.region.toLowerCase() === region.toLowerCase());
 }

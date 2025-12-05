@@ -30,7 +30,6 @@ try {
   console.log('━'.repeat(50));
   console.log('🎉 All extractions completed successfully!');
   console.log('   Check the /public/new directory for results.');
-
 } catch (error) {
   console.error('❌ Extraction failed:', error);
   process.exit(1);

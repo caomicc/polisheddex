@@ -44,10 +44,13 @@ async function loadAbilitiesManifest(): Promise<AbilitiesManifestItem[]> {
 /**
  * Get ability data by ID and version from manifest (server-side only)
  */
-export async function getAbilityData(abilityId: string, version: 'faithful' | 'polished' = 'polished'): Promise<AbilityData | null> {
+export async function getAbilityData(
+  abilityId: string,
+  version: 'faithful' | 'polished' = 'polished',
+): Promise<AbilityData | null> {
   const manifest = await loadAbilitiesManifest();
-  const abilityItem = manifest.find(item => item.id === abilityId);
-  
+  const abilityItem = manifest.find((item) => item.id === abilityId);
+
   if (!abilityItem || !abilityItem.versions[version]) {
     return null;
   }
@@ -62,12 +65,15 @@ export async function getAbilityData(abilityId: string, version: 'faithful' | 'p
 /**
  * Get multiple abilities data at once for better performance (server-side only)
  */
-export async function getMultipleAbilitiesData(abilityIds: string[], version: 'faithful' | 'polished' = 'polished'): Promise<Record<string, AbilityData>> {
+export async function getMultipleAbilitiesData(
+  abilityIds: string[],
+  version: 'faithful' | 'polished' = 'polished',
+): Promise<Record<string, AbilityData>> {
   const manifest = await loadAbilitiesManifest();
   const result: Record<string, AbilityData> = {};
 
   for (const abilityId of abilityIds) {
-    const abilityItem = manifest.find(item => item.id === abilityId);
+    const abilityItem = manifest.find((item) => item.id === abilityId);
     if (abilityItem && abilityItem.versions[version]) {
       result[abilityId] = {
         id: abilityItem.id,

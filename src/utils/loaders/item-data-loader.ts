@@ -119,10 +119,13 @@ export async function loadDetailedItemData(itemId: string): Promise<Comprehensiv
 
     // Load location data to resolve location names and parent information
     const locationsArray = await getAllLocations();
-    const locationsData = locationsArray.reduce((acc, location) => {
-      acc[location.id] = location;
-      return acc;
-    }, {} as Record<string, any>);
+    const locationsData = locationsArray.reduce(
+      (acc, location) => {
+        acc[location.id] = location;
+        return acc;
+      },
+      {} as Record<string, any>,
+    );
 
     // Enrich location data with names and parent location info
     for (const version in itemData.versions) {
@@ -154,7 +157,7 @@ export async function loadDetailedItemData(itemId: string): Promise<Comprehensiv
             };
           }),
         );
-        
+
         versionData.locations = processedLocations;
       }
     }
