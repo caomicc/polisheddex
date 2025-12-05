@@ -21,7 +21,7 @@ export default async function AbilityDetail({ params }: { params: Promise<Abilit
 
   // Load ability data
   try {
-    const abilityPath = path.join(process.cwd(), `new/abilities/${abilityId}.json`);
+    const abilityPath = path.join(process.cwd(), `public/new/abilities/${abilityId}.json`);
     const abilityData = JSON.parse(await fs.readFile(abilityPath, 'utf-8'));
 
     return (
@@ -92,7 +92,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   const abilityId = (await params).name;
 
   try {
-    const abilityPath = path.join(process.cwd(), `new/abilities/${abilityId}.json`);
+    const abilityPath = path.join(process.cwd(), `public/new/abilities/${abilityId}.json`);
     const abilityData = JSON.parse(await fs.readFile(abilityPath, 'utf-8'));
 
     if (!abilityData) {
