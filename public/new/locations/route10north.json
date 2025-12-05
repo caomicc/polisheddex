@@ -1,0 +1,209 @@
+{
+  "id": "route10north",
+  "name": "Route 10 North",
+  "constantName": "ROUTE_10_NORTH",
+  "connectionCount": 2,
+  "parent": "route10",
+  "type": [
+    "route"
+  ],
+  "order": 387,
+  "region": "Kanto",
+  "encounters": [
+    {
+      "pokemon": "fearow",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "47",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "electrode",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "49",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "raticate",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "47",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "magneton",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "48",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "marowak",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "49",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "electabuzz",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "50",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "electabuzz",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "52",
+      "rate": 2,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "fearow",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "47",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "electrode",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "49",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "raticate",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "47",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "magneton",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "48",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "marowak",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "49",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "electabuzz",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "50",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "electabuzz",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "52",
+      "rate": 2,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "venomoth",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "47",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "electrode",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "49",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "raticate",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "47",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "magneton",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "48",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "golbat",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "49",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "electabuzz",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "50",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "electabuzz",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "52",
+      "rate": 2,
+      "formName": "plain"
+    }
+  ],
+  "items": [
+    {
+      "name": "fullrestore",
+      "type": "item",
+      "coordinates": {
+        "x": 11,
+        "y": 3
+      }
+    }
+  ],
+  "events": [
+    {
+      "name": "heardlawrencesfinalspeech",
+      "description": "heard lawrences final speech",
+      "type": "event"
+    },
+    {
+      "name": "zapdosgone",
+      "description": "zapdos gone",
+      "type": "event"
+    },
+    {
+      "name": "route10zapdos",
+      "description": "route 10 zapdos",
+      "type": "event"
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "id": "route48",
+  "name": "Route 48",
+  "constantName": "ROUTE_48",
+  "connectionCount": 1,
+  "parent": "route48",
+  "type": [
+    "route"
+  ],
+  "order": 228,
+  "region": "Johto",
+  "encounters": [
+    {
+      "pokemon": "farfetchd",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "+1",
+      "rate": 30,
+      "formName": "galarian"
+    },
+    {
+      "pokemon": "tauros",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "+0",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "sunflora",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "-2",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "growlithe",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "-2",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "farfetchd",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "-3",
+      "rate": 5,
+      "formName": "galarian"
+    },
+    {
+      "pokemon": "girafarig",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "-4",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "farfetchd",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "+1",
+      "rate": 30,
+      "formName": "galarian"
+    },
+    {
+      "pokemon": "tauros",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "+0",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "gloom",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "-2",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "houndour",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "-2",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "farfetchd",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "-3",
+      "rate": 5,
+      "formName": "galarian"
+    },
+    {
+      "pokemon": "girafarig",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "-4",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "houndour",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "+1",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "tauros",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "+0",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "gloom",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "-2",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "vulpix",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "-2",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "noctowl",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "-3",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "girafarig",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "-4",
+      "rate": 5,
+      "formName": "plain"
+    }
+  ],
+  "items": [
+    {
+      "name": "nugget",
+      "type": "item",
+      "coordinates": {
+        "x": 4,
+        "y": 13
+      }
+    }
+  ],
+  "trainers": [
+    "jessiejames"
+  ],
+  "events": [
+    {
+      "name": "route48jessie",
+      "description": "route 48 jessie",
+      "type": "event"
+    },
+    {
+      "name": "route48james",
+      "description": "route 48 james",
+      "type": "event"
+    },
+    {
+      "name": "clearedyellowforest",
+      "description": "cleared yellow forest",
+      "type": "event"
+    }
+  ]
+}

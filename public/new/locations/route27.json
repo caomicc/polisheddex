@@ -1,0 +1,247 @@
+{
+  "id": "route27",
+  "name": "Route 27",
+  "constantName": "ROUTE_27",
+  "connectionCount": 2,
+  "parent": "route27",
+  "type": [
+    "route"
+  ],
+  "order": 569,
+  "region": "Kanto",
+  "encounters": [
+    {
+      "pokemon": "doduo",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "37",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "arbok",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "37",
+      "rate": 30,
+      "formName": "arbokkanto"
+    },
+    {
+      "pokemon": "raticate",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "39",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "doduo",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "39",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "ponyta",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "41",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "dodrio",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "39",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "dodrio",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "40",
+      "rate": 2,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "doduo",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "37",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "arbok",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "37",
+      "rate": 30,
+      "formName": "arbokkanto"
+    },
+    {
+      "pokemon": "raticate",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "39",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "doduo",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "39",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "ponyta",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "41",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "dodrio",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "39",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "dodrio",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "40",
+      "rate": 2,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "quagsire",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "37",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "noctowl",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "37",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "raticate",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "39",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "quagsire",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "39",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "noctowl",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "41",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "noctowl",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "39",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "noctowl",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "40",
+      "rate": 2,
+      "formName": "plain"
+    }
+  ],
+  "items": [
+    {
+      "name": "rarecandy",
+      "type": "item",
+      "coordinates": {
+        "x": 53,
+        "y": 12
+      }
+    },
+    {
+      "name": "destinyknot",
+      "type": "item",
+      "coordinates": {
+        "x": 71,
+        "y": 4
+      }
+    },
+    {
+      "name": "lumberry",
+      "type": "berry",
+      "coordinates": {
+        "x": 60,
+        "y": 12
+      }
+    },
+    {
+      "name": "choicespecs",
+      "type": "gift"
+    },
+    {
+      "name": "starpiece",
+      "type": "gift"
+    }
+  ],
+  "trainers": [
+    "veteranflitvyak",
+    "psychictgilbert",
+    "birdkeeperjose",
+    "cooltrainermblake",
+    "cooltrainerfreena",
+    "cooltrainerfmegan"
+  ],
+  "events": [
+    {
+      "name": "beatveteranflitvyak",
+      "description": "beat veteranf litvyak",
+      "type": "battle"
+    },
+    {
+      "name": "gotchoicespecsfromroute27leader",
+      "description": "got choice specs from route 27 leader",
+      "type": "gift",
+      "item": "choicespecs"
+    },
+    {
+      "name": "joseaskedforphonenumber",
+      "description": "jose asked for phone number",
+      "type": "phone"
+    },
+    {
+      "name": "reenaaskedforphonenumber",
+      "description": "reena asked for phone number",
+      "type": "phone"
+    }
+  ]
+}

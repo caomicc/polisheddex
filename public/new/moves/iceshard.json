@@ -1,0 +1,561 @@
+{
+  "id": "iceshard",
+  "versions": {
+    "faithful": {
+      "name": "Ice Shard",
+      "description": "Hurls icy shards. Always goes first.",
+      "power": 40,
+      "type": "ice",
+      "accuracy": 100,
+      "pp": 30,
+      "effectChance": 0,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "ice",
+            "flying"
+          ]
+        },
+        {
+          "id": "dewgong",
+          "name": "Dewgong",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "water",
+            "ice"
+          ]
+        },
+        {
+          "id": "donphan",
+          "name": "Donphan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "glaceon",
+          "name": "Glaceon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "ice"
+          ]
+        },
+        {
+          "id": "lapras",
+          "name": "Lapras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ],
+          "types": [
+            "water",
+            "ice"
+          ]
+        },
+        {
+          "id": "mamoswine",
+          "name": "Mamoswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "mrmime",
+          "name": "Mr.Mime",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ice",
+            "psychic"
+          ]
+        },
+        {
+          "id": "ninetales",
+          "name": "Ninetales",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ice",
+            "fairy"
+          ]
+        },
+        {
+          "id": "phanpy",
+          "name": "Phanpy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "piloswine",
+          "name": "Piloswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "seel",
+          "name": "Seel",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "shellder",
+          "name": "Shellder",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "sneasel",
+          "name": "Sneasel",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dark",
+            "ice"
+          ]
+        },
+        {
+          "id": "sneasel",
+          "name": "Sneasel",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "fighting"
+          ]
+        },
+        {
+          "id": "sneasler",
+          "name": "Sneasler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "fighting"
+          ]
+        },
+        {
+          "id": "swinub",
+          "name": "Swinub",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "vulpix",
+          "name": "Vulpix",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ],
+          "types": [
+            "ice"
+          ]
+        },
+        {
+          "id": "weavile",
+          "name": "Weavile",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dark",
+            "ice"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Ice Shard",
+      "description": "Hurls icy shards. Always goes first.",
+      "power": 40,
+      "type": "ice",
+      "accuracy": 100,
+      "pp": 30,
+      "effectChance": 0,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "ice",
+            "flying"
+          ]
+        },
+        {
+          "id": "dewgong",
+          "name": "Dewgong",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "water",
+            "ice"
+          ]
+        },
+        {
+          "id": "donphan",
+          "name": "Donphan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "glaceon",
+          "name": "Glaceon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "ice"
+          ]
+        },
+        {
+          "id": "lapras",
+          "name": "Lapras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ],
+          "types": [
+            "water",
+            "ice"
+          ]
+        },
+        {
+          "id": "mamoswine",
+          "name": "Mamoswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "mrmime",
+          "name": "Mr.Mime",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ice",
+            "psychic"
+          ]
+        },
+        {
+          "id": "ninetales",
+          "name": "Ninetales",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ice",
+            "fairy"
+          ]
+        },
+        {
+          "id": "phanpy",
+          "name": "Phanpy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "piloswine",
+          "name": "Piloswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "seel",
+          "name": "Seel",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "shellder",
+          "name": "Shellder",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "sneasel",
+          "name": "Sneasel",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dark",
+            "ice"
+          ]
+        },
+        {
+          "id": "sneasel",
+          "name": "Sneasel",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "fighting"
+          ]
+        },
+        {
+          "id": "sneasler",
+          "name": "Sneasler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "fighting"
+          ]
+        },
+        {
+          "id": "swinub",
+          "name": "Swinub",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "vulpix",
+          "name": "Vulpix",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ],
+          "types": [
+            "ice"
+          ]
+        },
+        {
+          "id": "weavile",
+          "name": "Weavile",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dark",
+            "ice"
+          ]
+        }
+      ]
+    }
+  }
+}

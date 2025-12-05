@@ -1,0 +1,2046 @@
+{
+  "id": "roar",
+  "versions": {
+    "faithful": {
+      "name": "Roar",
+      "description": "Scares wild foes to end battle.",
+      "power": 0,
+      "type": "normal",
+      "accuracy": 100,
+      "pp": 20,
+      "effectChance": 0,
+      "category": "status",
+      "learners": [
+        {
+          "id": "aerodactyl",
+          "name": "Aerodactyl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "flying"
+          ]
+        },
+        {
+          "id": "arcanine",
+          "name": "Arcanine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "arcanine",
+          "name": "Arcanine",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "rock"
+          ]
+        },
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "flying"
+          ]
+        },
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "blastoise",
+          "name": "Blastoise",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "charizard",
+          "name": "Charizard",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "flying"
+          ]
+        },
+        {
+          "id": "croconaw",
+          "name": "Croconaw",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "donphan",
+          "name": "Donphan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "dragonite",
+          "name": "Dragonite",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dragon",
+            "flying"
+          ]
+        },
+        {
+          "id": "entei",
+          "name": "Entei",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "feraligatr",
+          "name": "Feraligatr",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "flareon",
+          "name": "Flareon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "glaceon",
+          "name": "Glaceon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice"
+          ]
+        },
+        {
+          "id": "golem",
+          "name": "Golem",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "golem",
+          "name": "Golem",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "electric"
+          ]
+        },
+        {
+          "id": "granbull",
+          "name": "Granbull",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "growlithe",
+          "name": "Growlithe",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "growlithe",
+          "name": "Growlithe",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "rock"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "red",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "hooh",
+          "name": "Ho-Oh",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "flying"
+          ]
+        },
+        {
+          "id": "houndoom",
+          "name": "Houndoom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark",
+            "fire"
+          ]
+        },
+        {
+          "id": "houndour",
+          "name": "Houndour",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark",
+            "fire"
+          ]
+        },
+        {
+          "id": "jolteon",
+          "name": "Jolteon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "kangaskhan",
+          "name": "Kangaskhan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "lapras",
+          "name": "Lapras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "ice"
+          ]
+        },
+        {
+          "id": "leafeon",
+          "name": "Leafeon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "lugia",
+          "name": "Lugia",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "mamoswine",
+          "name": "Mamoswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "mew",
+          "name": "Mew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "moltres",
+          "name": "Moltres",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "flying"
+          ]
+        },
+        {
+          "id": "moltres",
+          "name": "Moltres",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark",
+            "flying"
+          ]
+        },
+        {
+          "id": "nidoking",
+          "name": "Nidoking",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "ground"
+          ]
+        },
+        {
+          "id": "nidoqueen",
+          "name": "Nidoqueen",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "ground"
+          ]
+        },
+        {
+          "id": "ninetales",
+          "name": "Ninetales",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "ninetales",
+          "name": "Ninetales",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ice",
+            "fairy"
+          ]
+        },
+        {
+          "id": "onix",
+          "name": "Onix",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "persian",
+          "name": "Persian",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "persian",
+          "name": "Persian",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "phanpy",
+          "name": "Phanpy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "piloswine",
+          "name": "Piloswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "quilava",
+          "name": "Quilava",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "raikou",
+          "name": "Raikou",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "raticate",
+          "name": "Raticate",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "raticate",
+          "name": "Raticate",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark",
+            "normal"
+          ]
+        },
+        {
+          "id": "rhydon",
+          "name": "Rhydon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyhorn",
+          "name": "Rhyhorn",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyperior",
+          "name": "Rhyperior",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "skarmory",
+          "name": "Skarmory",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel",
+            "flying"
+          ]
+        },
+        {
+          "id": "snubbull",
+          "name": "Snubbull",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "stantler",
+          "name": "Stantler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "steelix",
+          "name": "Steelix",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel",
+            "ground"
+          ]
+        },
+        {
+          "id": "suicune",
+          "name": "Suicune",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "swinub",
+          "name": "Swinub",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "teddiursa",
+          "name": "Teddiursa",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "name": "Typhlosion",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "name": "Typhlosion",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "ghost"
+          ]
+        },
+        {
+          "id": "tyranitar",
+          "name": "Tyranitar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "dark"
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "name": "Ursaluna",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "normal"
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "name": "Ursaluna",
+          "form": "bloodmoon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "normal"
+          ]
+        },
+        {
+          "id": "ursaring",
+          "name": "Ursaring",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "vaporeon",
+          "name": "Vaporeon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "venusaur",
+          "name": "Venusaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "vulpix",
+          "name": "Vulpix",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "vulpix",
+          "name": "Vulpix",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            },
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ice"
+          ]
+        },
+        {
+          "id": "wyrdeer",
+          "name": "Wyrdeer",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "zapdos",
+          "name": "Zapdos",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "flying"
+          ]
+        },
+        {
+          "id": "zapdos",
+          "name": "Zapdos",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fighting",
+            "flying"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Roar",
+      "description": "Scares wild foes to end battle.",
+      "power": 0,
+      "type": "normal",
+      "accuracy": 100,
+      "pp": 20,
+      "effectChance": 0,
+      "category": "status",
+      "learners": [
+        {
+          "id": "aerodactyl",
+          "name": "Aerodactyl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "flying"
+          ]
+        },
+        {
+          "id": "arcanine",
+          "name": "Arcanine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "arcanine",
+          "name": "Arcanine",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "rock"
+          ]
+        },
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "flying"
+          ]
+        },
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "blastoise",
+          "name": "Blastoise",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "steel"
+          ]
+        },
+        {
+          "id": "charizard",
+          "name": "Charizard",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "dragon"
+          ]
+        },
+        {
+          "id": "croconaw",
+          "name": "Croconaw",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "donphan",
+          "name": "Donphan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "dragonite",
+          "name": "Dragonite",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dragon",
+            "flying"
+          ]
+        },
+        {
+          "id": "entei",
+          "name": "Entei",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "feraligatr",
+          "name": "Feraligatr",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "dark"
+          ]
+        },
+        {
+          "id": "flareon",
+          "name": "Flareon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "glaceon",
+          "name": "Glaceon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice"
+          ]
+        },
+        {
+          "id": "golem",
+          "name": "Golem",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "golem",
+          "name": "Golem",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "electric"
+          ]
+        },
+        {
+          "id": "granbull",
+          "name": "Granbull",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 27
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "growlithe",
+          "name": "Growlithe",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "growlithe",
+          "name": "Growlithe",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "rock"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "red",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "hooh",
+          "name": "Ho-Oh",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "flying"
+          ]
+        },
+        {
+          "id": "houndoom",
+          "name": "Houndoom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark",
+            "fire"
+          ]
+        },
+        {
+          "id": "houndour",
+          "name": "Houndour",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark",
+            "fire"
+          ]
+        },
+        {
+          "id": "jolteon",
+          "name": "Jolteon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "kangaskhan",
+          "name": "Kangaskhan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "lapras",
+          "name": "Lapras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "ice"
+          ]
+        },
+        {
+          "id": "leafeon",
+          "name": "Leafeon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "lugia",
+          "name": "Lugia",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "mamoswine",
+          "name": "Mamoswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "mew",
+          "name": "Mew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "moltres",
+          "name": "Moltres",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "flying"
+          ]
+        },
+        {
+          "id": "moltres",
+          "name": "Moltres",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark",
+            "flying"
+          ]
+        },
+        {
+          "id": "nidoking",
+          "name": "Nidoking",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "ground"
+          ]
+        },
+        {
+          "id": "nidoqueen",
+          "name": "Nidoqueen",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "ground"
+          ]
+        },
+        {
+          "id": "ninetales",
+          "name": "Ninetales",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire",
+            "ghost"
+          ]
+        },
+        {
+          "id": "ninetales",
+          "name": "Ninetales",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ice",
+            "fairy"
+          ]
+        },
+        {
+          "id": "onix",
+          "name": "Onix",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "persian",
+          "name": "Persian",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "persian",
+          "name": "Persian",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "phanpy",
+          "name": "Phanpy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "piloswine",
+          "name": "Piloswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "quilava",
+          "name": "Quilava",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "raikou",
+          "name": "Raikou",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "raticate",
+          "name": "Raticate",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "raticate",
+          "name": "Raticate",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark",
+            "normal"
+          ]
+        },
+        {
+          "id": "rhydon",
+          "name": "Rhydon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyhorn",
+          "name": "Rhyhorn",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyperior",
+          "name": "Rhyperior",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel",
+            "rock"
+          ]
+        },
+        {
+          "id": "skarmory",
+          "name": "Skarmory",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel",
+            "flying"
+          ]
+        },
+        {
+          "id": "snubbull",
+          "name": "Snubbull",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "stantler",
+          "name": "Stantler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "steelix",
+          "name": "Steelix",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel",
+            "ground"
+          ]
+        },
+        {
+          "id": "suicune",
+          "name": "Suicune",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "swinub",
+          "name": "Swinub",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "teddiursa",
+          "name": "Teddiursa",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "name": "Typhlosion",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "ground"
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "name": "Typhlosion",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "ghost"
+          ]
+        },
+        {
+          "id": "tyranitar",
+          "name": "Tyranitar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "dark"
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "name": "Ursaluna",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "normal"
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "name": "Ursaluna",
+          "form": "bloodmoon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "normal"
+          ]
+        },
+        {
+          "id": "ursaring",
+          "name": "Ursaring",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "vaporeon",
+          "name": "Vaporeon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "venusaur",
+          "name": "Venusaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "vulpix",
+          "name": "Vulpix",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "vulpix",
+          "name": "Vulpix",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            },
+            {
+              "method": "tm"
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ice"
+          ]
+        },
+        {
+          "id": "wyrdeer",
+          "name": "Wyrdeer",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "zapdos",
+          "name": "Zapdos",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "flying"
+          ]
+        },
+        {
+          "id": "zapdos",
+          "name": "Zapdos",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fighting",
+            "flying"
+          ]
+        }
+      ]
+    }
+  },
+  "tm": {
+    "number": "tm05",
+    "location": "route32"
+  }
+}

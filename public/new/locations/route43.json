@@ -1,0 +1,206 @@
+{
+  "id": "route43",
+  "name": "Route 43",
+  "constantName": "ROUTE_43",
+  "connectionCount": 2,
+  "parent": "route43",
+  "type": [
+    "route"
+  ],
+  "order": 251,
+  "region": "Johto",
+  "encounters": [
+    {
+      "pokemon": "pidgeotto",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "25",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "girafarig",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "23",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "flaaffy",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "23",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "farfetchd",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "24",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "mareep",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "23",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pidgeotto",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "25",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "girafarig",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "23",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "flaaffy",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "23",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "farfetchd",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "24",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "mareep",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "23",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "venonat",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "25",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "girafarig",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "23",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "flaaffy",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "23",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "noctowl",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "24",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "venomoth",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "23",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "mareep",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "23",
+      "rate": 5,
+      "formName": "plain"
+    }
+  ],
+  "items": [
+    {
+      "name": "persimberry",
+      "type": "berry",
+      "coordinates": {
+        "x": 1,
+        "y": 26
+      }
+    },
+    {
+      "name": "maxether",
+      "type": "item",
+      "coordinates": {
+        "x": 12,
+        "y": 32
+      }
+    },
+    {
+      "name": "flameorb",
+      "type": "gift"
+    },
+    {
+      "name": "pinkbow",
+      "type": "gift"
+    }
+  ],
+  "trainers": [
+    "sightseerflenie",
+    "breederjody",
+    "camperspencer",
+    "pokemaniacben",
+    "pokemaniacbrent",
+    "pokemaniacron",
+    "fishermarvin",
+    "picnickertiffany"
+  ],
+  "events": [
+    {
+      "name": "beatsightseerflenie",
+      "description": "beat sightseerf lenie",
+      "type": "battle"
+    },
+    {
+      "name": "gotflameorbfromroute43leader",
+      "description": "got flame orb from route 43 leader",
+      "type": "gift",
+      "item": "flameorb"
+    },
+    {
+      "name": "brentaskedforphonenumber",
+      "description": "brent asked for phone number",
+      "type": "phone"
+    },
+    {
+      "name": "tiffanyaskedforphonenumber",
+      "description": "tiffany asked for phone number",
+      "type": "phone"
+    },
+    {
+      "name": "tiffanygavepinkbow",
+      "description": "tiffany gave pink bow",
+      "type": "event"
+    }
+  ]
+}

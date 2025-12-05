@@ -1,0 +1,34 @@
+{
+  "id": "cliffedgegate",
+  "name": "Cliff Edge Gate",
+  "constantName": "CLIFF_EDGE_GATE",
+  "connectionCount": 0,
+  "parent": "cliffedgegate",
+  "type": [
+    "cave"
+  ],
+  "order": 224,
+  "region": "Johto",
+  "items": [
+    {
+      "name": "ovalstone",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 17,
+        "y": 6
+      }
+    },
+    {
+      "name": "machobrace",
+      "type": "gift"
+    }
+  ],
+  "events": [
+    {
+      "name": "gotmachobracefromprofoaksaide",
+      "description": "got macho brace from prof oaks aide",
+      "type": "gift",
+      "item": "machobrace"
+    }
+  ]
+}

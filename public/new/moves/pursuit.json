@@ -1,0 +1,2410 @@
+{
+  "id": "pursuit",
+  "versions": {
+    "faithful": {
+      "name": "Pursuit",
+      "description": "Heavily strikes switching Pokémon.",
+      "power": 40,
+      "type": "dark",
+      "accuracy": 100,
+      "pp": 20,
+      "effectChance": 0,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "aerodactyl",
+          "name": "Aerodactyl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "flying"
+          ]
+        },
+        {
+          "id": "aipom",
+          "name": "Aipom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "ambipom",
+          "name": "Ambipom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "annihilape",
+          "name": "Annihilape",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ],
+          "types": [
+            "fighting",
+            "ghost"
+          ]
+        },
+        {
+          "id": "arbok",
+          "name": "Arbok",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 32
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "arbok",
+          "name": "Arbok",
+          "form": "kanto",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 32
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "arbok",
+          "name": "Arbok",
+          "form": "koga",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 32
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "arbok",
+          "name": "Arbok",
+          "form": "agatha",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 32
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "arbok",
+          "name": "Arbok",
+          "form": "ariana",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 32
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "ariados",
+          "name": "Ariados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "beedrill",
+          "name": "Beedrill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "crobat",
+          "name": "Crobat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "flying"
+          ]
+        },
+        {
+          "id": "diglett",
+          "name": "Diglett",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "diglett",
+          "name": "Diglett",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground",
+            "steel"
+          ]
+        },
+        {
+          "id": "dodrio",
+          "name": "Dodrio",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "doduo",
+          "name": "Doduo",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "threesegment",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "name": "Dugtrio",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "name": "Dugtrio",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground",
+            "steel"
+          ]
+        },
+        {
+          "id": "dunsparce",
+          "name": "Dunsparce",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "ekans",
+          "name": "Ekans",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "fearow",
+          "name": "Fearow",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "furret",
+          "name": "Furret",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "girafarig",
+          "name": "Girafarig",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "golbat",
+          "name": "Golbat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 51
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "flying"
+          ]
+        },
+        {
+          "id": "grimer",
+          "name": "Grimer",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "dark"
+          ]
+        },
+        {
+          "id": "heracross",
+          "name": "Heracross",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "bug",
+            "fighting"
+          ]
+        },
+        {
+          "id": "hitmonchan",
+          "name": "Hitmonchan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "hitmonlee",
+          "name": "Hitmonlee",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "hitmontop",
+          "name": "Hitmontop",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "honchkrow",
+          "name": "Honchkrow",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "dark",
+            "flying"
+          ]
+        },
+        {
+          "id": "houndoom",
+          "name": "Houndoom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dark",
+            "fire"
+          ]
+        },
+        {
+          "id": "houndour",
+          "name": "Houndour",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dark",
+            "fire"
+          ]
+        },
+        {
+          "id": "kleavor",
+          "name": "Kleavor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "bug",
+            "rock"
+          ]
+        },
+        {
+          "id": "larvitar",
+          "name": "Larvitar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "mankey",
+          "name": "Mankey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "meowth",
+          "name": "Meowth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "meowth",
+          "name": "Meowth",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "meowth",
+          "name": "Meowth",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "steel"
+          ]
+        },
+        {
+          "id": "moltres",
+          "name": "Moltres",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "dark",
+            "flying"
+          ]
+        },
+        {
+          "id": "muk",
+          "name": "Muk",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "dark"
+          ]
+        },
+        {
+          "id": "murkrow",
+          "name": "Murkrow",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "dark",
+            "flying"
+          ]
+        },
+        {
+          "id": "nidoqueen",
+          "name": "Nidoqueen",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "ground"
+          ]
+        },
+        {
+          "id": "nidoranf",
+          "name": "Nidoran♀",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "nidorina",
+          "name": "Nidorina",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "paras",
+          "name": "Paras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "parasect",
+          "name": "Parasect",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "perrserker",
+          "name": "Perrserker",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "steel"
+          ]
+        },
+        {
+          "id": "persian",
+          "name": "Persian",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "persian",
+          "name": "Persian",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "pidgeot",
+          "name": "Pidgeot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgeotto",
+          "name": "Pidgeotto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgey",
+          "name": "Pidgey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "primeape",
+          "name": "Primeape",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "pupitar",
+          "name": "Pupitar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "raticate",
+          "name": "Raticate",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "raticate",
+          "name": "Raticate",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "dark",
+            "normal"
+          ]
+        },
+        {
+          "id": "rattata",
+          "name": "Rattata",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "rattata",
+          "name": "Rattata",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "dark",
+            "normal"
+          ]
+        },
+        {
+          "id": "rhydon",
+          "name": "Rhydon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyhorn",
+          "name": "Rhyhorn",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyperior",
+          "name": "Rhyperior",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "scizor",
+          "name": "Scizor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "bug",
+            "steel"
+          ]
+        },
+        {
+          "id": "scyther",
+          "name": "Scyther",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "bug",
+            "flying"
+          ]
+        },
+        {
+          "id": "sentret",
+          "name": "Sentret",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "skarmory",
+          "name": "Skarmory",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "steel",
+            "flying"
+          ]
+        },
+        {
+          "id": "sneasel",
+          "name": "Sneasel",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dark",
+            "ice"
+          ]
+        },
+        {
+          "id": "sneasel",
+          "name": "Sneasel",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "fighting"
+          ]
+        },
+        {
+          "id": "sneasler",
+          "name": "Sneasler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "fighting"
+          ]
+        },
+        {
+          "id": "spearow",
+          "name": "Spearow",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "spinarak",
+          "name": "Spinarak",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "tauros",
+          "name": "Tauros",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "tauros",
+          "name": "Tauros",
+          "form": "paldean",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "tyranitar",
+          "name": "Tyranitar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "dark"
+          ]
+        },
+        {
+          "id": "tyrogue",
+          "name": "Tyrogue",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "umbreon",
+          "name": "Umbreon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "weavile",
+          "name": "Weavile",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dark",
+            "ice"
+          ]
+        },
+        {
+          "id": "yanma",
+          "name": "Yanma",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 30
+            }
+          ],
+          "types": [
+            "bug",
+            "flying"
+          ]
+        },
+        {
+          "id": "yanmega",
+          "name": "Yanmega",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 30
+            }
+          ],
+          "types": [
+            "bug",
+            "flying"
+          ]
+        },
+        {
+          "id": "zubat",
+          "name": "Zubat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "flying"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Pursuit",
+      "description": "Heavily strikes switching Pokémon.",
+      "power": 40,
+      "type": "dark",
+      "accuracy": 100,
+      "pp": 20,
+      "effectChance": 0,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "aerodactyl",
+          "name": "Aerodactyl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "flying"
+          ]
+        },
+        {
+          "id": "aipom",
+          "name": "Aipom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "ambipom",
+          "name": "Ambipom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "annihilape",
+          "name": "Annihilape",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ],
+          "types": [
+            "fighting",
+            "ghost"
+          ]
+        },
+        {
+          "id": "arbok",
+          "name": "Arbok",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 32
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "arbok",
+          "name": "Arbok",
+          "form": "kanto",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 32
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "arbok",
+          "name": "Arbok",
+          "form": "koga",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 32
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "arbok",
+          "name": "Arbok",
+          "form": "agatha",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 32
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "arbok",
+          "name": "Arbok",
+          "form": "ariana",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 32
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "ariados",
+          "name": "Ariados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "bug",
+            "dark"
+          ]
+        },
+        {
+          "id": "beedrill",
+          "name": "Beedrill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "crobat",
+          "name": "Crobat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "flying"
+          ]
+        },
+        {
+          "id": "diglett",
+          "name": "Diglett",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "diglett",
+          "name": "Diglett",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground",
+            "steel"
+          ]
+        },
+        {
+          "id": "dodrio",
+          "name": "Dodrio",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "doduo",
+          "name": "Doduo",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "normal",
+            "dragon"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "threesegment",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "normal",
+            "dragon"
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "name": "Dugtrio",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "name": "Dugtrio",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground",
+            "steel"
+          ]
+        },
+        {
+          "id": "dunsparce",
+          "name": "Dunsparce",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "normal",
+            "ground"
+          ]
+        },
+        {
+          "id": "ekans",
+          "name": "Ekans",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "fearow",
+          "name": "Fearow",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "furret",
+          "name": "Furret",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "girafarig",
+          "name": "Girafarig",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ],
+          "types": [
+            "psychic",
+            "dark"
+          ]
+        },
+        {
+          "id": "golbat",
+          "name": "Golbat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 51
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "flying"
+          ]
+        },
+        {
+          "id": "grimer",
+          "name": "Grimer",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "dark"
+          ]
+        },
+        {
+          "id": "heracross",
+          "name": "Heracross",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "bug",
+            "fighting"
+          ]
+        },
+        {
+          "id": "hitmonchan",
+          "name": "Hitmonchan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "hitmonlee",
+          "name": "Hitmonlee",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "hitmontop",
+          "name": "Hitmontop",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "honchkrow",
+          "name": "Honchkrow",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "dark",
+            "flying"
+          ]
+        },
+        {
+          "id": "houndoom",
+          "name": "Houndoom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dark",
+            "fire"
+          ]
+        },
+        {
+          "id": "houndour",
+          "name": "Houndour",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dark",
+            "fire"
+          ]
+        },
+        {
+          "id": "kleavor",
+          "name": "Kleavor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "bug",
+            "rock"
+          ]
+        },
+        {
+          "id": "larvitar",
+          "name": "Larvitar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "mankey",
+          "name": "Mankey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "meowth",
+          "name": "Meowth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "meowth",
+          "name": "Meowth",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "meowth",
+          "name": "Meowth",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "steel"
+          ]
+        },
+        {
+          "id": "moltres",
+          "name": "Moltres",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "dark",
+            "flying"
+          ]
+        },
+        {
+          "id": "muk",
+          "name": "Muk",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "dark"
+          ]
+        },
+        {
+          "id": "murkrow",
+          "name": "Murkrow",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "dark",
+            "flying"
+          ]
+        },
+        {
+          "id": "nidoqueen",
+          "name": "Nidoqueen",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "ground"
+          ]
+        },
+        {
+          "id": "nidoranf",
+          "name": "Nidoran♀",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "nidorina",
+          "name": "Nidorina",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "paras",
+          "name": "Paras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "parasect",
+          "name": "Parasect",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "perrserker",
+          "name": "Perrserker",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "steel"
+          ]
+        },
+        {
+          "id": "persian",
+          "name": "Persian",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "persian",
+          "name": "Persian",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "pidgeot",
+          "name": "Pidgeot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgeotto",
+          "name": "Pidgeotto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgey",
+          "name": "Pidgey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "primeape",
+          "name": "Primeape",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "pupitar",
+          "name": "Pupitar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "raticate",
+          "name": "Raticate",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "raticate",
+          "name": "Raticate",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "dark",
+            "normal"
+          ]
+        },
+        {
+          "id": "rattata",
+          "name": "Rattata",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "rattata",
+          "name": "Rattata",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "dark",
+            "normal"
+          ]
+        },
+        {
+          "id": "rhydon",
+          "name": "Rhydon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyhorn",
+          "name": "Rhyhorn",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyperior",
+          "name": "Rhyperior",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "steel",
+            "rock"
+          ]
+        },
+        {
+          "id": "scizor",
+          "name": "Scizor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "bug",
+            "steel"
+          ]
+        },
+        {
+          "id": "scyther",
+          "name": "Scyther",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "bug",
+            "flying"
+          ]
+        },
+        {
+          "id": "sentret",
+          "name": "Sentret",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "skarmory",
+          "name": "Skarmory",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "steel",
+            "flying"
+          ]
+        },
+        {
+          "id": "sneasel",
+          "name": "Sneasel",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dark",
+            "ice"
+          ]
+        },
+        {
+          "id": "sneasel",
+          "name": "Sneasel",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "fighting"
+          ]
+        },
+        {
+          "id": "sneasler",
+          "name": "Sneasler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "fighting"
+          ]
+        },
+        {
+          "id": "spearow",
+          "name": "Spearow",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "spinarak",
+          "name": "Spinarak",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "tauros",
+          "name": "Tauros",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "tauros",
+          "name": "Tauros",
+          "form": "paldean",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "tyranitar",
+          "name": "Tyranitar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "dark"
+          ]
+        },
+        {
+          "id": "tyrogue",
+          "name": "Tyrogue",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "umbreon",
+          "name": "Umbreon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "weavile",
+          "name": "Weavile",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dark",
+            "ice"
+          ]
+        },
+        {
+          "id": "yanma",
+          "name": "Yanma",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 30
+            }
+          ],
+          "types": [
+            "bug",
+            "flying"
+          ]
+        },
+        {
+          "id": "yanmega",
+          "name": "Yanmega",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 30
+            }
+          ],
+          "types": [
+            "bug",
+            "dragon"
+          ]
+        },
+        {
+          "id": "zubat",
+          "name": "Zubat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "flying"
+          ]
+        }
+      ]
+    }
+  }
+}

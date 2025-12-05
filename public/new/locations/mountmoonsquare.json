@@ -1,0 +1,29 @@
+{
+  "id": "mountmoonsquare",
+  "name": "Mount Moon Square",
+  "constantName": "MOUNT_MOON_SQUARE",
+  "connectionCount": 0,
+  "parent": "mtmoon",
+  "type": [
+    "route"
+  ],
+  "order": 336,
+  "region": "Kanto",
+  "items": [
+    {
+      "name": "moonstone",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 7,
+        "y": 7
+      }
+    }
+  ],
+  "events": [
+    {
+      "name": "mountmoonsquarehiddenmoonstone",
+      "description": "mount moon square hidden moon stone",
+      "type": "event"
+    }
+  ]
+}

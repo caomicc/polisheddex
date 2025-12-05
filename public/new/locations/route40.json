@@ -1,0 +1,50 @@
+{
+  "id": "route40",
+  "name": "Route 40",
+  "constantName": "ROUTE_40",
+  "connectionCount": 2,
+  "parent": "route40",
+  "type": [
+    "route"
+  ],
+  "order": 197,
+  "region": "Johto",
+  "items": [
+    {
+      "name": "hyperpotion",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 7,
+        "y": 8
+      }
+    },
+    {
+      "name": "sharpbeak",
+      "type": "gift"
+    }
+  ],
+  "trainers": [
+    "swimmerfelaine",
+    "swimmerfpaula",
+    "swimmermsimon",
+    "swimmermrandall"
+  ],
+  "events": [
+    {
+      "name": "listenedtoknockoffintro",
+      "description": "listened to knock off intro",
+      "type": "event"
+    },
+    {
+      "name": "metmonicaofmonday",
+      "description": "met monica of monday",
+      "type": "event"
+    },
+    {
+      "name": "gotsharpbeakfrommonica",
+      "description": "got sharp beak from monica",
+      "type": "gift",
+      "item": "sharpbeak"
+    }
+  ]
+}

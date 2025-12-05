@@ -1,0 +1,802 @@
+{
+  "id": "extrasensory",
+  "versions": {
+    "faithful": {
+      "name": "Extrasensory",
+      "description": "An attack that may cause flinching.",
+      "power": 80,
+      "type": "psychic",
+      "accuracy": 100,
+      "pp": 20,
+      "effectChance": 10,
+      "category": "special",
+      "learners": [
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ],
+          "types": [
+            "ice",
+            "flying"
+          ]
+        },
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "clefairy",
+          "name": "Clefairy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "cyndaquil",
+          "name": "Cyndaquil",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "entei",
+          "name": "Entei",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 64
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "exeggcute",
+          "name": "Exeggcute",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ],
+          "types": [
+            "grass",
+            "psychic"
+          ]
+        },
+        {
+          "id": "hooh",
+          "name": "Ho-Oh",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "fire",
+            "flying"
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "name": "Hoothoot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "lugia",
+          "name": "Lugia",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "moltres",
+          "name": "Moltres",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ],
+          "types": [
+            "fire",
+            "flying"
+          ]
+        },
+        {
+          "id": "ninetales",
+          "name": "Ninetales",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "ninetales",
+          "name": "Ninetales",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ice",
+            "fairy"
+          ]
+        },
+        {
+          "id": "noctowl",
+          "name": "Noctowl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "quilava",
+          "name": "Quilava",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "raikou",
+          "name": "Raikou",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 64
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "stantler",
+          "name": "Stantler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "suicune",
+          "name": "Suicune",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 64
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "togekiss",
+          "name": "Togekiss",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "togepi",
+          "name": "Togepi",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "togetic",
+          "name": "Togetic",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "name": "Typhlosion",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "name": "Typhlosion",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire",
+            "ghost"
+          ]
+        },
+        {
+          "id": "vulpix",
+          "name": "Vulpix",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "vulpix",
+          "name": "Vulpix",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ice"
+          ]
+        },
+        {
+          "id": "wyrdeer",
+          "name": "Wyrdeer",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "zapdos",
+          "name": "Zapdos",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ],
+          "types": [
+            "electric",
+            "flying"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Extrasensory",
+      "description": "An attack that may cause flinching.",
+      "power": 80,
+      "type": "psychic",
+      "accuracy": 100,
+      "pp": 20,
+      "effectChance": 10,
+      "category": "special",
+      "learners": [
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ],
+          "types": [
+            "ice",
+            "flying"
+          ]
+        },
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "clefairy",
+          "name": "Clefairy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "cyndaquil",
+          "name": "Cyndaquil",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "entei",
+          "name": "Entei",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 64
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "exeggcute",
+          "name": "Exeggcute",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ],
+          "types": [
+            "grass",
+            "psychic"
+          ]
+        },
+        {
+          "id": "hooh",
+          "name": "Ho-Oh",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "fire",
+            "flying"
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "name": "Hoothoot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "lugia",
+          "name": "Lugia",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "moltres",
+          "name": "Moltres",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ],
+          "types": [
+            "fire",
+            "flying"
+          ]
+        },
+        {
+          "id": "ninetales",
+          "name": "Ninetales",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire",
+            "ghost"
+          ]
+        },
+        {
+          "id": "ninetales",
+          "name": "Ninetales",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ice",
+            "fairy"
+          ]
+        },
+        {
+          "id": "noctowl",
+          "name": "Noctowl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            }
+          ],
+          "types": [
+            "ghost",
+            "flying"
+          ]
+        },
+        {
+          "id": "quilava",
+          "name": "Quilava",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "raikou",
+          "name": "Raikou",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 64
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "stantler",
+          "name": "Stantler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "suicune",
+          "name": "Suicune",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 64
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "togekiss",
+          "name": "Togekiss",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "togepi",
+          "name": "Togepi",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "togetic",
+          "name": "Togetic",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "name": "Typhlosion",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire",
+            "ground"
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "name": "Typhlosion",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire",
+            "ghost"
+          ]
+        },
+        {
+          "id": "vulpix",
+          "name": "Vulpix",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "vulpix",
+          "name": "Vulpix",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ice"
+          ]
+        },
+        {
+          "id": "wyrdeer",
+          "name": "Wyrdeer",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "zapdos",
+          "name": "Zapdos",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ],
+          "types": [
+            "electric",
+            "flying"
+          ]
+        }
+      ]
+    }
+  }
+}

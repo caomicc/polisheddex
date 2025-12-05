@@ -1,0 +1,26 @@
+{
+  "id": "ecruteakcherishballhouse",
+  "name": "Ecruteak Cherish Ball House",
+  "constantName": "ECRUTEAK_CHERISH_BALL_HOUSE",
+  "connectionCount": 0,
+  "parent": "ecruteakcity",
+  "type": [
+    "indoor"
+  ],
+  "order": 140,
+  "region": "Johto",
+  "items": [
+    {
+      "name": "cherishball",
+      "type": "gift"
+    }
+  ],
+  "events": [
+    {
+      "name": "gotcherishballfromecruteak",
+      "description": "got cherish ball from ecruteak",
+      "type": "gift",
+      "item": "cherishball"
+    }
+  ]
+}

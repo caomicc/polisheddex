@@ -1,0 +1,39 @@
+{
+  "id": "mystristage",
+  "name": "Mystri Stage",
+  "constantName": "MYSTRI_STAGE",
+  "connectionCount": 0,
+  "parent": "mystristage",
+  "type": [
+    "dungeon"
+  ],
+  "order": 296,
+  "region": "Johto",
+  "items": [
+    {
+      "name": "wiseglasses",
+      "type": "gift"
+    }
+  ],
+  "trainers": [
+    "cynthia"
+  ],
+  "events": [
+    {
+      "name": "listenedtocynthiaintro",
+      "description": "listened to cynthia intro",
+      "type": "event"
+    },
+    {
+      "name": "beatcynthia",
+      "description": "beat cynthia",
+      "type": "battle"
+    },
+    {
+      "name": "gotwiseglassesfromcynthia",
+      "description": "got wise glasses from cynthia",
+      "type": "gift",
+      "item": "wiseglasses"
+    }
+  ]
+}

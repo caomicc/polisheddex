@@ -1,0 +1,32 @@
+{
+  "id": "lancesroom",
+  "name": "Lances Room",
+  "constantName": "LANCES_ROOM",
+  "connectionCount": 0,
+  "parent": "indigoplateau",
+  "type": [
+    "indoor"
+  ],
+  "order": 589,
+  "region": "Kanto",
+  "trainers": [
+    "championlance"
+  ],
+  "events": [
+    {
+      "name": "lancesroomentranceclosed",
+      "description": "lances room entrance closed",
+      "type": "event"
+    },
+    {
+      "name": "beatchampionlance",
+      "description": "beat champion lance",
+      "type": "battle"
+    },
+    {
+      "name": "lancesroomentranceclosed",
+      "description": "lances room entrance closed",
+      "type": "event"
+    }
+  ]
+}

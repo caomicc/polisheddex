@@ -1,0 +1,85 @@
+{
+  "id": "crabhammer",
+  "versions": {
+    "faithful": {
+      "name": "Crabhammer",
+      "description": "Has a high critical hit ratio.",
+      "power": 100,
+      "type": "water",
+      "accuracy": 90,
+      "pp": 10,
+      "effectChance": 0,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "kingler",
+          "name": "Kingler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 51
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "krabby",
+          "name": "Krabby",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Crabhammer",
+      "description": "Has a high critical hit ratio.",
+      "power": 100,
+      "type": "water",
+      "accuracy": 95,
+      "pp": 10,
+      "effectChance": 0,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "kingler",
+          "name": "Kingler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 51
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "krabby",
+          "name": "Krabby",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "radiotower5f",
+  "name": "Radio Tower 5F",
+  "constantName": "RADIO_TOWER_5F",
+  "connectionCount": 0,
+  "parent": "radiotower",
+  "type": [
+    "indoor"
+  ],
+  "order": 120,
+  "region": "Johto",
+  "items": [
+    {
+      "name": "zoomlens",
+      "type": "item",
+      "coordinates": {
+        "x": 8,
+        "y": 5
+      }
+    }
+  ],
+  "trainers": [
+    "petrelpetrel",
+    "archer"
+  ],
+  "events": [
+    {
+      "name": "beatpetrel1",
+      "description": "beat petrel 1",
+      "type": "battle"
+    },
+    {
+      "name": "beatarcher1",
+      "description": "beat archer 1",
+      "type": "battle"
+    },
+    {
+      "name": "clearedradiotower",
+      "description": "cleared radio tower",
+      "type": "event"
+    },
+    {
+      "name": "goldenrodcityrocketscout",
+      "description": "goldenrod city rocket scout",
+      "type": "event"
+    },
+    {
+      "name": "goldenrodcityrockettakeover",
+      "description": "goldenrod city rocket takeover",
+      "type": "event"
+    },
+    {
+      "name": "radiotowerrockettakeover",
+      "description": "radio tower rocket takeover",
+      "type": "event"
+    },
+    {
+      "name": "blackthorncitydragontamerblocksgym",
+      "description": "blackthorn city dragon tamer blocks gym",
+      "type": "event"
+    },
+    {
+      "name": "gotclearbell",
+      "description": "got clear bell",
+      "type": "gift",
+      "item": "clearbell"
+    },
+    {
+      "name": "teamrocketdisbanded",
+      "description": "team rocket disbanded",
+      "type": "event"
+    }
+  ]
+}

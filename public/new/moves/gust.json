@@ -1,0 +1,695 @@
+{
+  "id": "gust",
+  "versions": {
+    "faithful": {
+      "name": "Gust",
+      "description": "Whips up a strong gust of wind.",
+      "power": 40,
+      "type": "flying",
+      "accuracy": 100,
+      "pp": 35,
+      "effectChance": 0,
+      "category": "special",
+      "learners": [
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ice",
+            "flying"
+          ]
+        },
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "butterfree",
+          "name": "Butterfree",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "bug",
+            "flying"
+          ]
+        },
+        {
+          "id": "crobat",
+          "name": "Crobat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "flying"
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "name": "Farfetch'd",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "name": "Farfetch'd",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "golbat",
+          "name": "Golbat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "flying"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "red",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "hooh",
+          "name": "Ho-Oh",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "fire",
+            "flying"
+          ]
+        },
+        {
+          "id": "lugia",
+          "name": "Lugia",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "mantine",
+          "name": "Mantine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "mantyke",
+          "name": "Mantyke",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "moltres",
+          "name": "Moltres",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "dark",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgeot",
+          "name": "Pidgeot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgeotto",
+          "name": "Pidgeotto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgey",
+          "name": "Pidgey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "sirfetchd",
+          "name": "Sirfetch'd",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "suicune",
+          "name": "Suicune",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "venomoth",
+          "name": "Venomoth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "weezing",
+          "name": "Weezing",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "poison",
+            "fairy"
+          ]
+        },
+        {
+          "id": "zubat",
+          "name": "Zubat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "flying"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Gust",
+      "description": "Whips up a strong gust of wind.",
+      "power": 40,
+      "type": "flying",
+      "accuracy": 100,
+      "pp": 35,
+      "effectChance": 0,
+      "category": "special",
+      "learners": [
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ice",
+            "flying"
+          ]
+        },
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "butterfree",
+          "name": "Butterfree",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "bug",
+            "psychic"
+          ]
+        },
+        {
+          "id": "crobat",
+          "name": "Crobat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "flying"
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "name": "Farfetch'd",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "name": "Farfetch'd",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "golbat",
+          "name": "Golbat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "flying"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "red",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "hooh",
+          "name": "Ho-Oh",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "fire",
+            "flying"
+          ]
+        },
+        {
+          "id": "lugia",
+          "name": "Lugia",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "mantine",
+          "name": "Mantine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "mantyke",
+          "name": "Mantyke",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "moltres",
+          "name": "Moltres",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "dark",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgeot",
+          "name": "Pidgeot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgeotto",
+          "name": "Pidgeotto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgey",
+          "name": "Pidgey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "sirfetchd",
+          "name": "Sirfetch'd",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "suicune",
+          "name": "Suicune",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "venomoth",
+          "name": "Venomoth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "weezing",
+          "name": "Weezing",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "poison",
+            "fairy"
+          ]
+        },
+        {
+          "id": "zubat",
+          "name": "Zubat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "flying"
+          ]
+        }
+      ]
+    }
+  }
+}

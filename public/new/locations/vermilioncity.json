@@ -1,0 +1,44 @@
+{
+  "id": "vermilioncity",
+  "name": "Vermilion City",
+  "constantName": "VERMILION_CITY",
+  "connectionCount": 2,
+  "parent": "vermilioncity",
+  "type": [
+    "town"
+  ],
+  "order": 365,
+  "region": "Kanto",
+  "items": [
+    {
+      "name": "fullheal",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 12,
+        "y": 23
+      }
+    },
+    {
+      "name": "bottlecap",
+      "type": "gift"
+    }
+  ],
+  "events": [
+    {
+      "name": "teleportguy",
+      "description": "teleport guy",
+      "type": "event"
+    },
+    {
+      "name": "foughtsnorlax",
+      "description": "fought snorlax",
+      "type": "event"
+    },
+    {
+      "name": "gotbottlecapfromvermilionguy",
+      "description": "got bottle cap from vermilion guy",
+      "type": "gift",
+      "item": "bottlecap"
+    }
+  ]
+}

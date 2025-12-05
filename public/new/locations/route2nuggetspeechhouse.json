@@ -1,0 +1,26 @@
+{
+  "id": "route2nuggetspeechhouse",
+  "name": "Route 2 Nugget Speech House",
+  "constantName": "ROUTE_2_NUGGET_SPEECH_HOUSE",
+  "connectionCount": 0,
+  "parent": "route2",
+  "type": [
+    "indoor"
+  ],
+  "order": 316,
+  "region": "Kanto",
+  "items": [
+    {
+      "name": "nugget",
+      "type": "gift"
+    }
+  ],
+  "events": [
+    {
+      "name": "gotnuggetfromguy",
+      "description": "got nugget from guy",
+      "type": "gift",
+      "item": "nugget"
+    }
+  ]
+}

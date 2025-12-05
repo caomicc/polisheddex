@@ -1,0 +1,265 @@
+{
+  "id": "noisyforest",
+  "name": "Noisy Forest",
+  "constantName": "NOISY_FOREST",
+  "connectionCount": 0,
+  "parent": "noisyforest",
+  "type": [
+    "cave"
+  ],
+  "order": 612,
+  "region": "Orange",
+  "encounters": [
+    {
+      "pokemon": "fearow",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "-1",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "butterfree",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "-1",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "butterfree",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "+1",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "scyther",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "+3",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "weepinbell",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "+2",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "yanma",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "+4",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "yanma",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "+2",
+      "rate": 2,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "fearow",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "-1",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "beedrill",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "-1",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "beedrill",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "+1",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "scyther",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "+3",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "weepinbell",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "+2",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "yanma",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "+4",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "yanma",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "+2",
+      "rate": 2,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "fearow",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "-1",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "ariados",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "-1",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "ariados",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "+1",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "scyther",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "+3",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "gloom",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "+2",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "yanma",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "+4",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "yanma",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "+2",
+      "rate": 2,
+      "formName": "plain"
+    }
+  ],
+  "items": [
+    {
+      "name": "ultraball",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 32,
+        "y": 2
+      }
+    },
+    {
+      "name": "tinymushroom",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 34,
+        "y": 18
+      }
+    },
+    {
+      "name": "fullrestore",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 7,
+        "y": 29
+      }
+    },
+    {
+      "name": "balmmushroom",
+      "type": "item",
+      "coordinates": {
+        "x": 41,
+        "y": 2
+      }
+    },
+    {
+      "name": "mulch",
+      "type": "item",
+      "coordinates": {
+        "x": 16,
+        "y": 28
+      }
+    },
+    {
+      "name": "oddsouvenir",
+      "type": "gift"
+    },
+    {
+      "name": "sweethoney",
+      "type": "gift"
+    }
+  ],
+  "trainers": [
+    "bugmaniacpierre",
+    "bugmaniacdylan",
+    "guitaristfjaclyn",
+    "guitaristmezekiel",
+    "hikerlester",
+    "birdkeepertrent",
+    "katy"
+  ],
+  "events": [
+    {
+      "name": "gotoddsouvenirfrompikabluguy",
+      "description": "got odd souvenir from pikablu guy",
+      "type": "gift",
+      "item": "oddsouvenir"
+    },
+    {
+      "name": "introducedkaty",
+      "description": "introduced katy",
+      "type": "event"
+    },
+    {
+      "name": "beatkaty",
+      "description": "beat katy",
+      "type": "battle"
+    },
+    {
+      "name": "gotsweethoneyfromkaty",
+      "description": "got sweet honey from katy",
+      "type": "gift",
+      "item": "sweethoney"
+    }
+  ]
+}

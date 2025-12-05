@@ -1,0 +1,713 @@
+{
+  "id": "flashcannon",
+  "versions": {
+    "faithful": {
+      "name": "Flash Cannon",
+      "description": "An attack that may lower Sp.Def.",
+      "power": 80,
+      "type": "steel",
+      "accuracy": 100,
+      "pp": 10,
+      "effectChance": 10,
+      "category": "special",
+      "learners": [
+        {
+          "id": "ampharos",
+          "name": "Ampharos",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "blastoise",
+          "name": "Blastoise",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "diglett",
+          "name": "Diglett",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "steel"
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "name": "Dugtrio",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "steel"
+          ]
+        },
+        {
+          "id": "forretress",
+          "name": "Forretress",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "steel"
+          ]
+        },
+        {
+          "id": "horsea",
+          "name": "Horsea",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "kingdra",
+          "name": "Kingdra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "dragon"
+          ]
+        },
+        {
+          "id": "lanturn",
+          "name": "Lanturn",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "electric"
+          ]
+        },
+        {
+          "id": "magmortar",
+          "name": "Magmortar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "magnemite",
+          "name": "Magnemite",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "steel"
+          ]
+        },
+        {
+          "id": "magneton",
+          "name": "Magneton",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "steel"
+          ]
+        },
+        {
+          "id": "magnezone",
+          "name": "Magnezone",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "steel"
+          ]
+        },
+        {
+          "id": "mew",
+          "name": "Mew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "octillery",
+          "name": "Octillery",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "onix",
+          "name": "Onix",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "rhyperior",
+          "name": "Rhyperior",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "scizor",
+          "name": "Scizor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "steel"
+          ]
+        },
+        {
+          "id": "seadra",
+          "name": "Seadra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "skarmory",
+          "name": "Skarmory",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel",
+            "flying"
+          ]
+        },
+        {
+          "id": "starmie",
+          "name": "Starmie",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "staryu",
+          "name": "Staryu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "steelix",
+          "name": "Steelix",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel",
+            "ground"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Flash Cannon",
+      "description": "An attack that may lower Sp.Def.",
+      "power": 80,
+      "type": "steel",
+      "accuracy": 100,
+      "pp": 10,
+      "effectChance": 10,
+      "category": "special",
+      "learners": [
+        {
+          "id": "ampharos",
+          "name": "Ampharos",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "dragon"
+          ]
+        },
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "blastoise",
+          "name": "Blastoise",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "steel"
+          ]
+        },
+        {
+          "id": "diglett",
+          "name": "Diglett",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "steel"
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "name": "Dugtrio",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "steel"
+          ]
+        },
+        {
+          "id": "forretress",
+          "name": "Forretress",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "steel"
+          ]
+        },
+        {
+          "id": "horsea",
+          "name": "Horsea",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "kingdra",
+          "name": "Kingdra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "dragon"
+          ]
+        },
+        {
+          "id": "lanturn",
+          "name": "Lanturn",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "electric"
+          ]
+        },
+        {
+          "id": "magmortar",
+          "name": "Magmortar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "fighting"
+          ]
+        },
+        {
+          "id": "magnemite",
+          "name": "Magnemite",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "steel"
+          ]
+        },
+        {
+          "id": "magneton",
+          "name": "Magneton",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "steel"
+          ]
+        },
+        {
+          "id": "magnezone",
+          "name": "Magnezone",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "steel"
+          ]
+        },
+        {
+          "id": "mew",
+          "name": "Mew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "octillery",
+          "name": "Octillery",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "fire"
+          ]
+        },
+        {
+          "id": "onix",
+          "name": "Onix",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "rhyperior",
+          "name": "Rhyperior",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel",
+            "rock"
+          ]
+        },
+        {
+          "id": "scizor",
+          "name": "Scizor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "steel"
+          ]
+        },
+        {
+          "id": "seadra",
+          "name": "Seadra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "skarmory",
+          "name": "Skarmory",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel",
+            "flying"
+          ]
+        },
+        {
+          "id": "starmie",
+          "name": "Starmie",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "staryu",
+          "name": "Staryu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "steelix",
+          "name": "Steelix",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel",
+            "ground"
+          ]
+        }
+      ]
+    }
+  },
+  "tm": {
+    "number": "tm34",
+    "location": "route9"
+  }
+}

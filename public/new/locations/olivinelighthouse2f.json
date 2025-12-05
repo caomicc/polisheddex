@@ -1,0 +1,49 @@
+{
+  "id": "olivinelighthouse2f",
+  "name": "Olivine Lighthouse 2F",
+  "constantName": "OLIVINE_LIGHTHOUSE_2F",
+  "connectionCount": 0,
+  "parent": "lighthouse",
+  "type": [
+    "dungeon"
+  ],
+  "order": 192,
+  "region": "Johto",
+  "items": [
+    {
+      "name": "protein",
+      "type": "gift"
+    },
+    {
+      "name": "protein",
+      "type": "gift"
+    }
+  ],
+  "trainers": [
+    "sailorhuey"
+  ],
+  "events": [
+    {
+      "name": "hueyaskedforphonenumber",
+      "description": "huey asked for phone number",
+      "type": "phone"
+    },
+    {
+      "name": "gotproteinfromhuey",
+      "description": "got protein from huey",
+      "type": "gift",
+      "item": "protein"
+    },
+    {
+      "name": "gotproteinfromhuey",
+      "description": "got protein from huey",
+      "type": "gift",
+      "item": "protein"
+    },
+    {
+      "name": "hueyprotein",
+      "description": "huey protein",
+      "type": "event"
+    }
+  ]
+}

@@ -1,0 +1,906 @@
+{
+  "id": "rapidspin",
+  "versions": {
+    "faithful": {
+      "name": "Rapid Spin",
+      "description": "A high-speed spinning attack.",
+      "power": 50,
+      "type": "normal",
+      "accuracy": 100,
+      "pp": 40,
+      "effectChance": 100,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "blastoise",
+          "name": "Blastoise",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "cloyster",
+          "name": "Cloyster",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "ice"
+          ]
+        },
+        {
+          "id": "delibird",
+          "name": "Delibird",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ice",
+            "flying"
+          ]
+        },
+        {
+          "id": "donphan",
+          "name": "Donphan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "forretress",
+          "name": "Forretress",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "bug",
+            "steel"
+          ]
+        },
+        {
+          "id": "geodude",
+          "name": "Geodude",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "geodude",
+          "name": "Geodude",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "rock",
+            "electric"
+          ]
+        },
+        {
+          "id": "golem",
+          "name": "Golem",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "golem",
+          "name": "Golem",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "rock",
+            "electric"
+          ]
+        },
+        {
+          "id": "graveler",
+          "name": "Graveler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "graveler",
+          "name": "Graveler",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "rock",
+            "electric"
+          ]
+        },
+        {
+          "id": "hitmonchan",
+          "name": "Hitmonchan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "hitmonlee",
+          "name": "Hitmonlee",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "hitmontop",
+          "name": "Hitmontop",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "kabuto",
+          "name": "Kabuto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "kabutops",
+          "name": "Kabutops",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "mrmime",
+          "name": "Mr.Mime",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ice",
+            "psychic"
+          ]
+        },
+        {
+          "id": "pineco",
+          "name": "Pineco",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "bug"
+          ]
+        },
+        {
+          "id": "sandshrew",
+          "name": "Sandshrew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "sandshrew",
+          "name": "Sandshrew",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ice",
+            "steel"
+          ]
+        },
+        {
+          "id": "sandslash",
+          "name": "Sandslash",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "sandslash",
+          "name": "Sandslash",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ice",
+            "steel"
+          ]
+        },
+        {
+          "id": "shellder",
+          "name": "Shellder",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "squirtle",
+          "name": "Squirtle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "starmie",
+          "name": "Starmie",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "staryu",
+          "name": "Staryu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "tentacool",
+          "name": "Tentacool",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "poison"
+          ]
+        },
+        {
+          "id": "tentacruel",
+          "name": "Tentacruel",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "poison"
+          ]
+        },
+        {
+          "id": "tyrogue",
+          "name": "Tyrogue",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "wartortle",
+          "name": "Wartortle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Rapid Spin",
+      "description": "A high-speed spinning attack.",
+      "power": 50,
+      "type": "normal",
+      "accuracy": 100,
+      "pp": 20,
+      "effectChance": 100,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "blastoise",
+          "name": "Blastoise",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "water",
+            "steel"
+          ]
+        },
+        {
+          "id": "cloyster",
+          "name": "Cloyster",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "ice"
+          ]
+        },
+        {
+          "id": "delibird",
+          "name": "Delibird",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ice",
+            "flying"
+          ]
+        },
+        {
+          "id": "donphan",
+          "name": "Donphan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "forretress",
+          "name": "Forretress",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "bug",
+            "steel"
+          ]
+        },
+        {
+          "id": "geodude",
+          "name": "Geodude",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "geodude",
+          "name": "Geodude",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "rock",
+            "electric"
+          ]
+        },
+        {
+          "id": "golem",
+          "name": "Golem",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "golem",
+          "name": "Golem",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "rock",
+            "electric"
+          ]
+        },
+        {
+          "id": "graveler",
+          "name": "Graveler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "graveler",
+          "name": "Graveler",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "rock",
+            "electric"
+          ]
+        },
+        {
+          "id": "hitmonchan",
+          "name": "Hitmonchan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "hitmonlee",
+          "name": "Hitmonlee",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "hitmontop",
+          "name": "Hitmontop",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "kabuto",
+          "name": "Kabuto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "kabutops",
+          "name": "Kabutops",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "mrmime",
+          "name": "Mr.Mime",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ice",
+            "psychic"
+          ]
+        },
+        {
+          "id": "pineco",
+          "name": "Pineco",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "bug"
+          ]
+        },
+        {
+          "id": "sandshrew",
+          "name": "Sandshrew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "sandshrew",
+          "name": "Sandshrew",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ice",
+            "steel"
+          ]
+        },
+        {
+          "id": "sandslash",
+          "name": "Sandslash",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "sandslash",
+          "name": "Sandslash",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ice",
+            "steel"
+          ]
+        },
+        {
+          "id": "shellder",
+          "name": "Shellder",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "squirtle",
+          "name": "Squirtle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "starmie",
+          "name": "Starmie",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "staryu",
+          "name": "Staryu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "tentacool",
+          "name": "Tentacool",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "poison"
+          ]
+        },
+        {
+          "id": "tentacruel",
+          "name": "Tentacruel",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "poison"
+          ]
+        },
+        {
+          "id": "tyrogue",
+          "name": "Tyrogue",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "wartortle",
+          "name": "Wartortle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        }
+      ]
+    }
+  }
+}

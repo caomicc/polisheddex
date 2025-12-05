@@ -1,0 +1,34 @@
+{
+  "id": "olivinegym",
+  "name": "Olivine Gym",
+  "constantName": "OLIVINE_GYM",
+  "connectionCount": 0,
+  "parent": "olivinecity",
+  "type": [
+    "indoor"
+  ],
+  "order": 184,
+  "region": "Johto",
+  "items": [
+    {
+      "name": "irontail",
+      "type": "tm"
+    }
+  ],
+  "trainers": [
+    "jasmine"
+  ],
+  "events": [
+    {
+      "name": "beatjasmine",
+      "description": "beat jasmine",
+      "type": "battle"
+    },
+    {
+      "name": "gottm23irontail",
+      "description": "got tm23 iron tail",
+      "type": "gift",
+      "item": "tm23"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "daycare",
+  "name": "Day Care",
+  "constantName": "DAYCARE",
+  "connectionCount": 0,
+  "parent": "route34",
+  "type": [
+    "indoor"
+  ],
+  "order": 78,
+  "region": "Johto",
+  "events": [
+    {
+      "name": "daycaremanonroute34",
+      "description": "daycare man on route 34",
+      "type": "event"
+    },
+    {
+      "name": "daycaremanindaycare",
+      "description": "daycare man in daycare",
+      "type": "event"
+    },
+    {
+      "name": "gotoddegg",
+      "description": "got odd egg",
+      "type": "gift",
+      "item": "oddegg"
+    },
+    {
+      "name": "gotlyrasegg",
+      "description": "got lyras egg",
+      "type": "gift",
+      "item": "lyrasegg"
+    }
+  ]
+}

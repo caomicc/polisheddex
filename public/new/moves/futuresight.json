@@ -1,0 +1,963 @@
+{
+  "id": "futuresight",
+  "versions": {
+    "faithful": {
+      "name": "Future Sight",
+      "description": "An attack that hits on 3rd turn.",
+      "power": 120,
+      "type": "psychic",
+      "accuracy": 100,
+      "pp": 10,
+      "effectChance": 0,
+      "category": "special",
+      "learners": [
+        {
+          "id": "alakazam",
+          "name": "Alakazam",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 71
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "azumarill",
+          "name": "Azumarill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "fairy"
+          ]
+        },
+        {
+          "id": "azurill",
+          "name": "Azurill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "celebi",
+          "name": "Celebi",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 64
+            }
+          ],
+          "types": [
+            "psychic",
+            "grass"
+          ]
+        },
+        {
+          "id": "drowzee",
+          "name": "Drowzee",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 61
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "espeon",
+          "name": "Espeon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "girafarig",
+          "name": "Girafarig",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "golduck",
+          "name": "Golduck",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "hooh",
+          "name": "Ho-Oh",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 79
+            }
+          ],
+          "types": [
+            "fire",
+            "flying"
+          ]
+        },
+        {
+          "id": "hypno",
+          "name": "Hypno",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 61
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "kadabra",
+          "name": "Kadabra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "lapras",
+          "name": "Lapras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "ice"
+          ]
+        },
+        {
+          "id": "lugia",
+          "name": "Lugia",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 79
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "marill",
+          "name": "Marill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "fairy"
+          ]
+        },
+        {
+          "id": "mewtwo",
+          "name": "Mewtwo",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "mewtwo",
+          "name": "Mewtwo",
+          "form": "armored",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "mimejr",
+          "name": "Mime Jr.",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "psychic",
+            "fairy"
+          ]
+        },
+        {
+          "id": "mrmime",
+          "name": "Mr.Mime",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "psychic",
+            "fairy"
+          ]
+        },
+        {
+          "id": "mrmime",
+          "name": "Mr.Mime",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ice",
+            "psychic"
+          ]
+        },
+        {
+          "id": "natu",
+          "name": "Natu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 44
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "psyduck",
+          "name": "Psyduck",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "slowbro",
+          "name": "Slowbro",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowbro",
+          "name": "Slowbro",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowking",
+          "name": "Slowking",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowking",
+          "name": "Slowking",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "name": "Slowpoke",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "name": "Slowpoke",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "togekiss",
+          "name": "Togekiss",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "togepi",
+          "name": "Togepi",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "togetic",
+          "name": "Togetic",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "xatu",
+          "name": "Xatu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Future Sight",
+      "description": "An attack that hits on 3rd turn.",
+      "power": 120,
+      "type": "psychic",
+      "accuracy": 100,
+      "pp": 10,
+      "effectChance": 0,
+      "category": "special",
+      "learners": [
+        {
+          "id": "alakazam",
+          "name": "Alakazam",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 71
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "azumarill",
+          "name": "Azumarill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "fairy"
+          ]
+        },
+        {
+          "id": "azurill",
+          "name": "Azurill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "celebi",
+          "name": "Celebi",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 64
+            }
+          ],
+          "types": [
+            "grass",
+            "fairy"
+          ]
+        },
+        {
+          "id": "drowzee",
+          "name": "Drowzee",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 61
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "espeon",
+          "name": "Espeon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "girafarig",
+          "name": "Girafarig",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "psychic",
+            "dark"
+          ]
+        },
+        {
+          "id": "golduck",
+          "name": "Golduck",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "hooh",
+          "name": "Ho-Oh",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 79
+            }
+          ],
+          "types": [
+            "fire",
+            "flying"
+          ]
+        },
+        {
+          "id": "hypno",
+          "name": "Hypno",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 61
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "kadabra",
+          "name": "Kadabra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "lapras",
+          "name": "Lapras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "ice"
+          ]
+        },
+        {
+          "id": "lugia",
+          "name": "Lugia",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 79
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "marill",
+          "name": "Marill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "fairy"
+          ]
+        },
+        {
+          "id": "mewtwo",
+          "name": "Mewtwo",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "mewtwo",
+          "name": "Mewtwo",
+          "form": "armored",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ],
+          "types": [
+            "psychic",
+            "steel"
+          ]
+        },
+        {
+          "id": "mimejr",
+          "name": "Mime Jr.",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "psychic",
+            "fairy"
+          ]
+        },
+        {
+          "id": "mrmime",
+          "name": "Mr.Mime",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "psychic",
+            "fairy"
+          ]
+        },
+        {
+          "id": "mrmime",
+          "name": "Mr.Mime",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ice",
+            "psychic"
+          ]
+        },
+        {
+          "id": "natu",
+          "name": "Natu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 44
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "psyduck",
+          "name": "Psyduck",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "slowbro",
+          "name": "Slowbro",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowbro",
+          "name": "Slowbro",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowking",
+          "name": "Slowking",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowking",
+          "name": "Slowking",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "name": "Slowpoke",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "name": "Slowpoke",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "togekiss",
+          "name": "Togekiss",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "togepi",
+          "name": "Togepi",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "togetic",
+          "name": "Togetic",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "xatu",
+          "name": "Xatu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        }
+      ]
+    }
+  }
+}

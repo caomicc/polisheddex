@@ -1,0 +1,72 @@
+{
+  "id": "undergroundpathswitchroomentrances",
+  "name": "Underground Path Switch Room Entrances",
+  "constantName": "UNDERGROUND_PATH_SWITCH_ROOM_ENTRANCES",
+  "connectionCount": 0,
+  "parent": "goldenrodcity",
+  "type": [
+    "dungeon"
+  ],
+  "order": 112,
+  "region": "Johto",
+  "items": [
+    {
+      "name": "maxpotion",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 8,
+        "y": 9
+      }
+    },
+    {
+      "name": "revive",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 1,
+        "y": 8
+      }
+    },
+    {
+      "name": "smokeball",
+      "type": "item",
+      "coordinates": {
+        "x": 1,
+        "y": 12
+      }
+    },
+    {
+      "name": "fullheal",
+      "type": "item",
+      "coordinates": {
+        "x": 14,
+        "y": 9
+      }
+    },
+    {
+      "name": "loadeddice",
+      "type": "gift"
+    }
+  ],
+  "trainers": [
+    "burglarduncan",
+    "burglarorson"
+  ],
+  "events": [
+    {
+      "name": "rivalburnedtower",
+      "description": "rival burned tower",
+      "type": "rival"
+    },
+    {
+      "name": "rivalundergroundpath",
+      "description": "rival underground path",
+      "type": "rival"
+    },
+    {
+      "name": "gotloadeddicefromgoldenrod",
+      "description": "got loaded dice from goldenrod",
+      "type": "gift",
+      "item": "loadeddice"
+    }
+  ]
+}

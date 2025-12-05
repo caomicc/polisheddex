@@ -1,0 +1,565 @@
+{
+  "id": "bugbite",
+  "versions": {
+    "faithful": {
+      "name": "Bug Bite",
+      "description": "Bites the foe and eats a held Berry.",
+      "power": 60,
+      "type": "bug",
+      "accuracy": 100,
+      "pp": 20,
+      "effectChance": 0,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "ariados",
+          "name": "Ariados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "caterpie",
+          "name": "Caterpie",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "bug"
+          ]
+        },
+        {
+          "id": "forretress",
+          "name": "Forretress",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "bug",
+            "steel"
+          ]
+        },
+        {
+          "id": "gligar",
+          "name": "Gligar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ],
+          "types": [
+            "ground",
+            "flying"
+          ]
+        },
+        {
+          "id": "gliscor",
+          "name": "Gliscor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ],
+          "types": [
+            "ground",
+            "flying"
+          ]
+        },
+        {
+          "id": "heracross",
+          "name": "Heracross",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "bug",
+            "fighting"
+          ]
+        },
+        {
+          "id": "kleavor",
+          "name": "Kleavor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "bug",
+            "rock"
+          ]
+        },
+        {
+          "id": "paras",
+          "name": "Paras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "parasect",
+          "name": "Parasect",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "pineco",
+          "name": "Pineco",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "bug"
+          ]
+        },
+        {
+          "id": "scizor",
+          "name": "Scizor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "bug",
+            "steel"
+          ]
+        },
+        {
+          "id": "scyther",
+          "name": "Scyther",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "bug",
+            "flying"
+          ]
+        },
+        {
+          "id": "shuckle",
+          "name": "Shuckle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 42
+            }
+          ],
+          "types": [
+            "bug",
+            "rock"
+          ]
+        },
+        {
+          "id": "venomoth",
+          "name": "Venomoth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "venonat",
+          "name": "Venonat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "weedle",
+          "name": "Weedle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "yanma",
+          "name": "Yanma",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "bug",
+            "flying"
+          ]
+        },
+        {
+          "id": "yanmega",
+          "name": "Yanmega",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "bug",
+            "flying"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Bug Bite",
+      "description": "Bites the foe and eats a held Berry.",
+      "power": 60,
+      "type": "bug",
+      "accuracy": 100,
+      "pp": 20,
+      "effectChance": 0,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "ariados",
+          "name": "Ariados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "bug",
+            "dark"
+          ]
+        },
+        {
+          "id": "caterpie",
+          "name": "Caterpie",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "bug"
+          ]
+        },
+        {
+          "id": "forretress",
+          "name": "Forretress",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "bug",
+            "steel"
+          ]
+        },
+        {
+          "id": "gligar",
+          "name": "Gligar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ],
+          "types": [
+            "ground",
+            "flying"
+          ]
+        },
+        {
+          "id": "gliscor",
+          "name": "Gliscor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ],
+          "types": [
+            "ground",
+            "flying"
+          ]
+        },
+        {
+          "id": "heracross",
+          "name": "Heracross",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "bug",
+            "fighting"
+          ]
+        },
+        {
+          "id": "kleavor",
+          "name": "Kleavor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "bug",
+            "rock"
+          ]
+        },
+        {
+          "id": "paras",
+          "name": "Paras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "parasect",
+          "name": "Parasect",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "pineco",
+          "name": "Pineco",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "bug"
+          ]
+        },
+        {
+          "id": "scizor",
+          "name": "Scizor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "bug",
+            "steel"
+          ]
+        },
+        {
+          "id": "scyther",
+          "name": "Scyther",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "bug",
+            "flying"
+          ]
+        },
+        {
+          "id": "shuckle",
+          "name": "Shuckle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 42
+            }
+          ],
+          "types": [
+            "bug",
+            "rock"
+          ]
+        },
+        {
+          "id": "venomoth",
+          "name": "Venomoth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "venonat",
+          "name": "Venonat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "weedle",
+          "name": "Weedle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "yanma",
+          "name": "Yanma",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "bug",
+            "flying"
+          ]
+        },
+        {
+          "id": "yanmega",
+          "name": "Yanmega",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "bug",
+            "dragon"
+          ]
+        }
+      ]
+    }
+  }
+}

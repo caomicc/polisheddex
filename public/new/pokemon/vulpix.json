@@ -1,0 +1,965 @@
+{
+  "id": "vulpix",
+  "name": "Vulpix",
+  "dexNo": 134,
+  "versions": {
+    "polished": {
+      "forms": {
+        "plain": {
+          "formNumber": 1,
+          "types": [
+            "fire"
+          ],
+          "abilities": [
+            "flashfire",
+            "forewarn",
+            "drought"
+          ],
+          "baseStats": {
+            "hp": 38,
+            "attack": 41,
+            "defense": 40,
+            "specialAttack": 65,
+            "specialDefense": 50,
+            "speed": 65
+          },
+          "growthRate": "growthmediumfast",
+          "hasGender": true,
+          "movesets": {
+            "levelUp": [
+              {
+                "id": "ember",
+                "level": 1
+              },
+              {
+                "id": "growl",
+                "level": 4
+              },
+              {
+                "id": "astonish",
+                "level": 7
+              },
+              {
+                "id": "charm",
+                "level": 9
+              },
+              {
+                "id": "quickattack",
+                "level": 10
+              },
+              {
+                "id": "confuseray",
+                "level": 12
+              },
+              {
+                "id": "firespin",
+                "level": 15
+              },
+              {
+                "id": "nightshade",
+                "level": 18
+              },
+              {
+                "id": "willowisp",
+                "level": 20
+              },
+              {
+                "id": "feintattack",
+                "level": 23
+              },
+              {
+                "id": "hex",
+                "level": 26
+              },
+              {
+                "id": "painsplit",
+                "level": 28
+              },
+              {
+                "id": "extrasensory",
+                "level": 31
+              },
+              {
+                "id": "safeguard",
+                "level": 34
+              },
+              {
+                "id": "flamethrower",
+                "level": 36
+              },
+              {
+                "id": "hypnosis",
+                "level": 39
+              },
+              {
+                "id": "fireblast",
+                "level": 42
+              },
+              {
+                "id": "shadowball",
+                "level": 44
+              },
+              {
+                "id": "disable",
+                "level": 47
+              },
+              {
+                "id": "flareblitz",
+                "level": 50
+              },
+              {
+                "id": "healinglight",
+                "level": 53
+              }
+            ],
+            "tm": [
+              {
+                "id": "curse"
+              },
+              {
+                "id": "roar"
+              },
+              {
+                "id": "toxic"
+              },
+              {
+                "id": "hiddenpower"
+              },
+              {
+                "id": "sunnyday"
+              },
+              {
+                "id": "protect"
+              },
+              {
+                "id": "safeguard"
+              },
+              {
+                "id": "irontail"
+              },
+              {
+                "id": "return"
+              },
+              {
+                "id": "dig"
+              },
+              {
+                "id": "shadowball"
+              },
+              {
+                "id": "doubleteam"
+              },
+              {
+                "id": "flamethrower"
+              },
+              {
+                "id": "fireblast"
+              },
+              {
+                "id": "swift"
+              },
+              {
+                "id": "substitute"
+              },
+              {
+                "id": "facade"
+              },
+              {
+                "id": "flamecharge"
+              },
+              {
+                "id": "rest"
+              },
+              {
+                "id": "attract"
+              },
+              {
+                "id": "thief"
+              },
+              {
+                "id": "energyball"
+              },
+              {
+                "id": "darkpulse"
+              },
+              {
+                "id": "willowisp"
+              },
+              {
+                "id": "agility"
+              },
+              {
+                "id": "batonpass"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "charm"
+              },
+              {
+                "id": "doubleedge"
+              },
+              {
+                "id": "endure"
+              },
+              {
+                "id": "headbutt"
+              },
+              {
+                "id": "sleeptalk"
+              },
+              {
+                "id": "swagger"
+              },
+              {
+                "id": "zenheadbutt"
+              }
+            ],
+            "eggMoves": [
+              {
+                "id": "flamecharge"
+              },
+              {
+                "id": "disable"
+              },
+              {
+                "id": "flareblitz"
+              },
+              {
+                "id": "hypnosis"
+              },
+              {
+                "id": "feintattack"
+              },
+              {
+                "id": "extrasensory"
+              },
+              {
+                "id": "charm"
+              },
+              {
+                "id": "energyball"
+              },
+              {
+                "id": "roar"
+              }
+            ]
+          }
+        },
+        "alolan": {
+          "formNumber": 2,
+          "types": [
+            "ice"
+          ],
+          "abilities": [
+            "snowcloak",
+            "snowcloak",
+            "snowwarning"
+          ],
+          "baseStats": {
+            "hp": 38,
+            "attack": 41,
+            "defense": 40,
+            "specialAttack": 65,
+            "specialDefense": 50,
+            "speed": 65
+          },
+          "growthRate": "growthmediumfast",
+          "hasGender": true,
+          "movesets": {
+            "levelUp": [
+              {
+                "id": "icywind",
+                "level": 1
+              },
+              {
+                "id": "growl",
+                "level": 4
+              },
+              {
+                "id": "roar",
+                "level": 7
+              },
+              {
+                "id": "charm",
+                "level": 9
+              },
+              {
+                "id": "iceshard",
+                "level": 10
+              },
+              {
+                "id": "confuseray",
+                "level": 12
+              },
+              {
+                "id": "disarmvoice",
+                "level": 15
+              },
+              {
+                "id": "nightshade",
+                "level": 18
+              },
+              {
+                "id": "hail",
+                "level": 20
+              },
+              {
+                "id": "feintattack",
+                "level": 23
+              },
+              {
+                "id": "hex",
+                "level": 26
+              },
+              {
+                "id": "aurorabeam",
+                "level": 28
+              },
+              {
+                "id": "extrasensory",
+                "level": 31
+              },
+              {
+                "id": "safeguard",
+                "level": 34
+              },
+              {
+                "id": "icebeam",
+                "level": 36
+              },
+              {
+                "id": "hypnosis",
+                "level": 39
+              },
+              {
+                "id": "blizzard",
+                "level": 42
+              },
+              {
+                "id": "shadowball",
+                "level": 44
+              },
+              {
+                "id": "disable",
+                "level": 47
+              },
+              {
+                "id": "moonblast",
+                "level": 50
+              },
+              {
+                "id": "healinglight",
+                "level": 53
+              }
+            ],
+            "tm": [
+              {
+                "id": "curse"
+              },
+              {
+                "id": "roar"
+              },
+              {
+                "id": "toxic"
+              },
+              {
+                "id": "hail"
+              },
+              {
+                "id": "hiddenpower"
+              },
+              {
+                "id": "icebeam"
+              },
+              {
+                "id": "blizzard"
+              },
+              {
+                "id": "protect"
+              },
+              {
+                "id": "raindance"
+              },
+              {
+                "id": "safeguard"
+              },
+              {
+                "id": "irontail"
+              },
+              {
+                "id": "return"
+              },
+              {
+                "id": "dig"
+              },
+              {
+                "id": "shadowball"
+              },
+              {
+                "id": "doubleteam"
+              },
+              {
+                "id": "swift"
+              },
+              {
+                "id": "substitute"
+              },
+              {
+                "id": "facade"
+              },
+              {
+                "id": "rest"
+              },
+              {
+                "id": "attract"
+              },
+              {
+                "id": "darkpulse"
+              },
+              {
+                "id": "agility"
+              },
+              {
+                "id": "batonpass"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "charm"
+              },
+              {
+                "id": "doubleedge"
+              },
+              {
+                "id": "endure"
+              },
+              {
+                "id": "headbutt"
+              },
+              {
+                "id": "icywind"
+              },
+              {
+                "id": "sleeptalk"
+              },
+              {
+                "id": "swagger"
+              },
+              {
+                "id": "zenheadbutt"
+              }
+            ],
+            "eggMoves": [
+              {
+                "id": "disable"
+              },
+              {
+                "id": "blizzard"
+              },
+              {
+                "id": "hypnosis"
+              },
+              {
+                "id": "feintattack"
+              },
+              {
+                "id": "extrasensory"
+              },
+              {
+                "id": "charm"
+              },
+              {
+                "id": "icebeam"
+              },
+              {
+                "id": "roar"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "faithful": {
+      "forms": {
+        "plain": {
+          "formNumber": 1,
+          "types": [
+            "fire"
+          ],
+          "abilities": [
+            "flashfire",
+            "flashfire",
+            "drought"
+          ],
+          "baseStats": {
+            "hp": 38,
+            "attack": 41,
+            "defense": 40,
+            "specialAttack": 65,
+            "specialDefense": 50,
+            "speed": 65
+          },
+          "growthRate": "growthmediumfast",
+          "hasGender": true,
+          "movesets": {
+            "levelUp": [
+              {
+                "id": "ember",
+                "level": 1
+              },
+              {
+                "id": "growl",
+                "level": 4
+              },
+              {
+                "id": "astonish",
+                "level": 7
+              },
+              {
+                "id": "charm",
+                "level": 9
+              },
+              {
+                "id": "quickattack",
+                "level": 10
+              },
+              {
+                "id": "confuseray",
+                "level": 12
+              },
+              {
+                "id": "firespin",
+                "level": 15
+              },
+              {
+                "id": "nightshade",
+                "level": 18
+              },
+              {
+                "id": "willowisp",
+                "level": 20
+              },
+              {
+                "id": "feintattack",
+                "level": 23
+              },
+              {
+                "id": "hex",
+                "level": 26
+              },
+              {
+                "id": "painsplit",
+                "level": 28
+              },
+              {
+                "id": "extrasensory",
+                "level": 31
+              },
+              {
+                "id": "safeguard",
+                "level": 34
+              },
+              {
+                "id": "flamethrower",
+                "level": 36
+              },
+              {
+                "id": "hypnosis",
+                "level": 39
+              },
+              {
+                "id": "fireblast",
+                "level": 42
+              },
+              {
+                "id": "shadowball",
+                "level": 44
+              },
+              {
+                "id": "disable",
+                "level": 47
+              },
+              {
+                "id": "flareblitz",
+                "level": 50
+              },
+              {
+                "id": "healinglight",
+                "level": 53
+              }
+            ],
+            "tm": [
+              {
+                "id": "curse"
+              },
+              {
+                "id": "roar"
+              },
+              {
+                "id": "toxic"
+              },
+              {
+                "id": "hiddenpower"
+              },
+              {
+                "id": "sunnyday"
+              },
+              {
+                "id": "protect"
+              },
+              {
+                "id": "safeguard"
+              },
+              {
+                "id": "irontail"
+              },
+              {
+                "id": "return"
+              },
+              {
+                "id": "dig"
+              },
+              {
+                "id": "shadowball"
+              },
+              {
+                "id": "doubleteam"
+              },
+              {
+                "id": "flamethrower"
+              },
+              {
+                "id": "fireblast"
+              },
+              {
+                "id": "swift"
+              },
+              {
+                "id": "substitute"
+              },
+              {
+                "id": "facade"
+              },
+              {
+                "id": "flamecharge"
+              },
+              {
+                "id": "rest"
+              },
+              {
+                "id": "attract"
+              },
+              {
+                "id": "thief"
+              },
+              {
+                "id": "energyball"
+              },
+              {
+                "id": "darkpulse"
+              },
+              {
+                "id": "willowisp"
+              },
+              {
+                "id": "agility"
+              },
+              {
+                "id": "batonpass"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "charm"
+              },
+              {
+                "id": "doubleedge"
+              },
+              {
+                "id": "endure"
+              },
+              {
+                "id": "headbutt"
+              },
+              {
+                "id": "sleeptalk"
+              },
+              {
+                "id": "swagger"
+              },
+              {
+                "id": "zenheadbutt"
+              }
+            ],
+            "eggMoves": [
+              {
+                "id": "flamecharge"
+              },
+              {
+                "id": "disable"
+              },
+              {
+                "id": "flareblitz"
+              },
+              {
+                "id": "hypnosis"
+              },
+              {
+                "id": "feintattack"
+              },
+              {
+                "id": "extrasensory"
+              },
+              {
+                "id": "charm"
+              },
+              {
+                "id": "energyball"
+              },
+              {
+                "id": "roar"
+              }
+            ]
+          }
+        },
+        "alolan": {
+          "formNumber": 2,
+          "types": [
+            "ice"
+          ],
+          "abilities": [
+            "snowcloak",
+            "snowcloak",
+            "snowwarning"
+          ],
+          "baseStats": {
+            "hp": 38,
+            "attack": 41,
+            "defense": 40,
+            "specialAttack": 65,
+            "specialDefense": 50,
+            "speed": 65
+          },
+          "growthRate": "growthmediumfast",
+          "hasGender": true,
+          "movesets": {
+            "levelUp": [
+              {
+                "id": "icywind",
+                "level": 1
+              },
+              {
+                "id": "growl",
+                "level": 4
+              },
+              {
+                "id": "roar",
+                "level": 7
+              },
+              {
+                "id": "charm",
+                "level": 9
+              },
+              {
+                "id": "iceshard",
+                "level": 10
+              },
+              {
+                "id": "confuseray",
+                "level": 12
+              },
+              {
+                "id": "disarmvoice",
+                "level": 15
+              },
+              {
+                "id": "nightshade",
+                "level": 18
+              },
+              {
+                "id": "hail",
+                "level": 20
+              },
+              {
+                "id": "feintattack",
+                "level": 23
+              },
+              {
+                "id": "hex",
+                "level": 26
+              },
+              {
+                "id": "aurorabeam",
+                "level": 28
+              },
+              {
+                "id": "extrasensory",
+                "level": 31
+              },
+              {
+                "id": "safeguard",
+                "level": 34
+              },
+              {
+                "id": "icebeam",
+                "level": 36
+              },
+              {
+                "id": "hypnosis",
+                "level": 39
+              },
+              {
+                "id": "blizzard",
+                "level": 42
+              },
+              {
+                "id": "shadowball",
+                "level": 44
+              },
+              {
+                "id": "disable",
+                "level": 47
+              },
+              {
+                "id": "moonblast",
+                "level": 50
+              },
+              {
+                "id": "healinglight",
+                "level": 53
+              }
+            ],
+            "tm": [
+              {
+                "id": "curse"
+              },
+              {
+                "id": "roar"
+              },
+              {
+                "id": "toxic"
+              },
+              {
+                "id": "hail"
+              },
+              {
+                "id": "hiddenpower"
+              },
+              {
+                "id": "icebeam"
+              },
+              {
+                "id": "blizzard"
+              },
+              {
+                "id": "protect"
+              },
+              {
+                "id": "raindance"
+              },
+              {
+                "id": "safeguard"
+              },
+              {
+                "id": "irontail"
+              },
+              {
+                "id": "return"
+              },
+              {
+                "id": "dig"
+              },
+              {
+                "id": "shadowball"
+              },
+              {
+                "id": "doubleteam"
+              },
+              {
+                "id": "swift"
+              },
+              {
+                "id": "substitute"
+              },
+              {
+                "id": "facade"
+              },
+              {
+                "id": "rest"
+              },
+              {
+                "id": "attract"
+              },
+              {
+                "id": "darkpulse"
+              },
+              {
+                "id": "agility"
+              },
+              {
+                "id": "batonpass"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "charm"
+              },
+              {
+                "id": "doubleedge"
+              },
+              {
+                "id": "endure"
+              },
+              {
+                "id": "headbutt"
+              },
+              {
+                "id": "icywind"
+              },
+              {
+                "id": "sleeptalk"
+              },
+              {
+                "id": "swagger"
+              },
+              {
+                "id": "zenheadbutt"
+              }
+            ],
+            "eggMoves": [
+              {
+                "id": "disable"
+              },
+              {
+                "id": "blizzard"
+              },
+              {
+                "id": "hypnosis"
+              },
+              {
+                "id": "feintattack"
+              },
+              {
+                "id": "extrasensory"
+              },
+              {
+                "id": "charm"
+              },
+              {
+                "id": "icebeam"
+              },
+              {
+                "id": "roar"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

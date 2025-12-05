@@ -1,0 +1,35 @@
+{
+  "id": "battletower1f",
+  "name": "Battle Tower 1F",
+  "constantName": "BATTLE_TOWER_1F",
+  "connectionCount": 0,
+  "parent": "battletower",
+  "type": [
+    "indoor"
+  ],
+  "order": 199,
+  "region": "Johto",
+  "items": [
+    {
+      "name": "abilitypatch",
+      "type": "gift"
+    }
+  ],
+  "events": [
+    {
+      "name": "beatpalmer",
+      "description": "beat palmer",
+      "type": "battle"
+    },
+    {
+      "name": "battletowerintro",
+      "description": "battle tower intro",
+      "type": "event"
+    },
+    {
+      "name": "listenedtotrickintro",
+      "description": "listened to trick intro",
+      "type": "event"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "route30berryspeechhouse",
+  "name": "Route 30 Berry Speech House",
+  "constantName": "ROUTE_30_BERRY_SPEECH_HOUSE",
+  "connectionCount": 0,
+  "parent": "route30",
+  "type": [
+    "indoor"
+  ],
+  "order": 20,
+  "region": "Johto",
+  "items": [
+    {
+      "name": "mulch",
+      "type": "gift"
+    }
+  ],
+  "events": [
+    {
+      "name": "gotmulchfromroute30house",
+      "description": "got mulch from route 30 house",
+      "type": "gift",
+      "item": "mulch"
+    }
+  ]
+}

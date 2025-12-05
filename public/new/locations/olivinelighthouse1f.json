@@ -1,0 +1,26 @@
+{
+  "id": "olivinelighthouse1f",
+  "name": "Olivine Lighthouse 1F",
+  "constantName": "OLIVINE_LIGHTHOUSE_1F",
+  "connectionCount": 0,
+  "parent": "lighthouse",
+  "type": [
+    "dungeon"
+  ],
+  "order": 191,
+  "region": "Johto",
+  "items": [
+    {
+      "name": "fullrestore",
+      "type": "gift"
+    }
+  ],
+  "events": [
+    {
+      "name": "gotfullrestorefromlighthouse",
+      "description": "got full restore from lighthouse",
+      "type": "gift",
+      "item": "fullrestore"
+    }
+  ]
+}

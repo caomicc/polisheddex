@@ -1,0 +1,52 @@
+{
+  "id": "azaleatown",
+  "name": "Azalea Town",
+  "constantName": "AZALEA_TOWN",
+  "connectionCount": 2,
+  "parent": "azaleatown",
+  "type": [
+    "town"
+  ],
+  "order": 66,
+  "region": "Johto",
+  "items": [
+    {
+      "name": "fullheal",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 31,
+        "y": 6
+      }
+    },
+    {
+      "name": "whtapricorn",
+      "type": "berry",
+      "coordinates": {
+        "x": 8,
+        "y": 2
+      }
+    },
+    {
+      "name": "clearamulet",
+      "type": "gift"
+    }
+  ],
+  "events": [
+    {
+      "name": "rivalazaleatown",
+      "description": "rival azalea town",
+      "type": "rival"
+    },
+    {
+      "name": "route34ilexforestgatelass",
+      "description": "route 34 ilex forest gate lass",
+      "type": "event"
+    },
+    {
+      "name": "gotclearamuletinazalea",
+      "description": "got clear amulet in azalea",
+      "type": "gift",
+      "item": "clearamulet"
+    }
+  ]
+}

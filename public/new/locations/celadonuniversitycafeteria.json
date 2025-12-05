@@ -1,0 +1,53 @@
+{
+  "id": "celadonuniversitycafeteria",
+  "name": "Celadon University Cafeteria",
+  "constantName": "CELADON_UNIVERSITY_CAFETERIA",
+  "connectionCount": 0,
+  "parent": "celadonuniversity",
+  "type": [
+    "indoor"
+  ],
+  "order": 462,
+  "region": "Kanto",
+  "items": [
+    {
+      "name": "choiceband",
+      "type": "gift"
+    },
+    {
+      "name": "lemonade",
+      "type": "gift"
+    },
+    {
+      "name": "leftovers",
+      "type": "purchase"
+    }
+  ],
+  "trainers": [
+    "cooltrainermcooltrainermcorey"
+  ],
+  "events": [
+    {
+      "name": "beatcooltrainermcorey",
+      "description": "beat cooltrainerm corey",
+      "type": "battle"
+    },
+    {
+      "name": "introducedceladonfour",
+      "description": "introduced celadon four",
+      "type": "event"
+    },
+    {
+      "name": "gotchoicebandfromceladonfour",
+      "description": "got choice band from celadon four",
+      "type": "gift",
+      "item": "choiceband"
+    },
+    {
+      "name": "gotlemonadeinuniversity",
+      "description": "got lemonade in university",
+      "type": "gift",
+      "item": "lemonade"
+    }
+  ]
+}

@@ -1,0 +1,573 @@
+{
+  "id": "leechseed",
+  "versions": {
+    "faithful": {
+      "name": "Leech Seed",
+      "description": "Steals HP from the foe on every turn.",
+      "power": 0,
+      "type": "grass",
+      "accuracy": 90,
+      "pp": 10,
+      "effectChance": 0,
+      "category": "status",
+      "learners": [
+        {
+          "id": "bayleef",
+          "name": "Bayleef",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "bulbasaur",
+          "name": "Bulbasaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "celebi",
+          "name": "Celebi",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "psychic",
+            "grass"
+          ]
+        },
+        {
+          "id": "chikorita",
+          "name": "Chikorita",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "exeggcute",
+          "name": "Exeggcute",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            }
+          ],
+          "types": [
+            "grass",
+            "psychic"
+          ]
+        },
+        {
+          "id": "gloom",
+          "name": "Gloom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "hoppip",
+          "name": "Hoppip",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "ivysaur",
+          "name": "Ivysaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "jumpluff",
+          "name": "Jumpluff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "meganium",
+          "name": "Meganium",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "oddish",
+          "name": "Oddish",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "paras",
+          "name": "Paras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "parasect",
+          "name": "Parasect",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "skiploom",
+          "name": "Skiploom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "sunflora",
+          "name": "Sunflora",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "sunkern",
+          "name": "Sunkern",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "tangela",
+          "name": "Tangela",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "tangrowth",
+          "name": "Tangrowth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "venusaur",
+          "name": "Venusaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Leech Seed",
+      "description": "Steals HP from the foe on every turn.",
+      "power": 0,
+      "type": "grass",
+      "accuracy": 90,
+      "pp": 10,
+      "effectChance": 0,
+      "category": "status",
+      "learners": [
+        {
+          "id": "bayleef",
+          "name": "Bayleef",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "bulbasaur",
+          "name": "Bulbasaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "celebi",
+          "name": "Celebi",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass",
+            "fairy"
+          ]
+        },
+        {
+          "id": "chikorita",
+          "name": "Chikorita",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "exeggcute",
+          "name": "Exeggcute",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            }
+          ],
+          "types": [
+            "grass",
+            "psychic"
+          ]
+        },
+        {
+          "id": "gloom",
+          "name": "Gloom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "hoppip",
+          "name": "Hoppip",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "ivysaur",
+          "name": "Ivysaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "jumpluff",
+          "name": "Jumpluff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "meganium",
+          "name": "Meganium",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "grass",
+            "fairy"
+          ]
+        },
+        {
+          "id": "oddish",
+          "name": "Oddish",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "paras",
+          "name": "Paras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "parasect",
+          "name": "Parasect",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "skiploom",
+          "name": "Skiploom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "sunflora",
+          "name": "Sunflora",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "grass",
+            "fire"
+          ]
+        },
+        {
+          "id": "sunkern",
+          "name": "Sunkern",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "tangela",
+          "name": "Tangela",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "tangrowth",
+          "name": "Tangrowth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "venusaur",
+          "name": "Venusaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        }
+      ]
+    }
+  }
+}

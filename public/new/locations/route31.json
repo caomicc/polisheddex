@@ -1,0 +1,231 @@
+{
+  "id": "route31",
+  "name": "Route 31",
+  "constantName": "ROUTE_31",
+  "connectionCount": 2,
+  "parent": "route31",
+  "type": [
+    "route"
+  ],
+  "order": 21,
+  "region": "Johto",
+  "encounters": [
+    {
+      "pokemon": "ledyba",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "4",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "caterpie",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "4",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "bellsprout",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "5",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pidgey",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "5",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "weedle",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "4",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "hoppip",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "5",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pidgey",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "4",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "caterpie",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "4",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "bellsprout",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "5",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pidgey",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "5",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "weedle",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "4",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "hoppip",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "5",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "spinarak",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "4",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "poliwag",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "4",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "bellsprout",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "5",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "hoothoot",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "5",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "zubat",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "4",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "gastly",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "5",
+      "rate": 5,
+      "formName": "plain"
+    }
+  ],
+  "items": [
+    {
+      "name": "persimberry",
+      "type": "berry",
+      "coordinates": {
+        "x": 16,
+        "y": 7
+      }
+    },
+    {
+      "name": "potion",
+      "type": "item",
+      "coordinates": {
+        "x": 29,
+        "y": 5
+      }
+    },
+    {
+      "name": "pokeball",
+      "type": "item",
+      "coordinates": {
+        "x": 19,
+        "y": 15
+      }
+    },
+    {
+      "name": "airballoon",
+      "type": "gift"
+    },
+    {
+      "name": "oranberry",
+      "type": "gift"
+    },
+    {
+      "name": "pechaberry",
+      "type": "gift"
+    },
+    {
+      "name": "cheriberry",
+      "type": "gift"
+    },
+    {
+      "name": "persimberry",
+      "type": "gift"
+    }
+  ],
+  "trainers": [
+    "cooltrainermfinch",
+    "bugcatcherwade"
+  ],
+  "events": [
+    {
+      "name": "beatcooltrainermfinch",
+      "description": "beat cooltrainerm finch",
+      "type": "battle"
+    },
+    {
+      "name": "gotairballoonfromroute31leader",
+      "description": "got air balloon from route 31 leader",
+      "type": "gift",
+      "item": "airballoon"
+    },
+    {
+      "name": "wadeaskedforphonenumber",
+      "description": "wade asked for phone number",
+      "type": "phone"
+    },
+    {
+      "name": "gavekenya",
+      "description": "gave kenya",
+      "type": "event"
+    }
+  ]
+}

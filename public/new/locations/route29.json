@@ -1,0 +1,191 @@
+{
+  "id": "route29",
+  "name": "Route 29",
+  "constantName": "ROUTE_29",
+  "connectionCount": 3,
+  "parent": "route29",
+  "type": [
+    "route"
+  ],
+  "order": 9,
+  "region": "Johto",
+  "encounters": [
+    {
+      "pokemon": "pidgey",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "2",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "sentret",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "2",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pidgey",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "3",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "sentret",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "3",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "2",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "hoppip",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "3",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pidgey",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "2",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "sentret",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "2",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pidgey",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "3",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "sentret",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "3",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "2",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "hoppip",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "3",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "hoothoot",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "2",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "2",
+      "rate": 35,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "hoothoot",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "3",
+      "rate": 25,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "3",
+      "rate": 10,
+      "formName": "plain"
+    }
+  ],
+  "items": [
+    {
+      "name": "oranberry",
+      "type": "berry",
+      "coordinates": {
+        "x": 12,
+        "y": 2
+      }
+    },
+    {
+      "name": "potion",
+      "type": "item",
+      "coordinates": {
+        "x": 48,
+        "y": 2
+      }
+    },
+    {
+      "name": "pokeball",
+      "type": "gift"
+    },
+    {
+      "name": "silkscarf",
+      "type": "gift"
+    }
+  ],
+  "events": [
+    {
+      "name": "learnedtocatchpokemon",
+      "description": "learned to catch pokemon",
+      "type": "event"
+    },
+    {
+      "name": "neverlearnedtocatchpokemon",
+      "description": "never learned to catch pokemon",
+      "type": "event"
+    },
+    {
+      "name": "mettuscanyoftuesday",
+      "description": "met tuscany of tuesday",
+      "type": "event"
+    },
+    {
+      "name": "gotsilkscarffromtuscany",
+      "description": "got silk scarf from tuscany",
+      "type": "gift",
+      "item": "silkscarf"
+    }
+  ]
+}

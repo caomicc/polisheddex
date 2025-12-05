@@ -1,0 +1,37 @@
+{
+  "id": "ejectbutton",
+  "versions": {
+    "polished": {
+      "name": "Eject Button",
+      "description": "Switches out when hit. (Hold)",
+      "attributes": {
+        "price": 4000,
+        "effect": "heldswitchtarget",
+        "params": "1switchdeferred|1switchtarget|1switchoppitem",
+        "category": "item"
+      },
+      "locations": [
+        {
+          "area": "battlefactorymart2",
+          "method": "purchase"
+        }
+      ]
+    },
+    "faithful": {
+      "name": "Eject Button",
+      "description": "Switches out when hit. (Hold)",
+      "attributes": {
+        "price": 4000,
+        "effect": "heldswitchtarget",
+        "params": "1switchdeferred|1switchtarget|1switchoppitem",
+        "category": "item"
+      },
+      "locations": [
+        {
+          "area": "battlefactorymart2",
+          "method": "purchase"
+        }
+      ]
+    }
+  }
+}

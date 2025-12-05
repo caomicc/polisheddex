@@ -1,0 +1,44 @@
+{
+  "id": "olivinelighthouse3f",
+  "name": "Olivine Lighthouse 3F",
+  "constantName": "OLIVINE_LIGHTHOUSE_3F",
+  "connectionCount": 0,
+  "parent": "lighthouse",
+  "type": [
+    "dungeon"
+  ],
+  "order": 193,
+  "region": "Johto",
+  "items": [
+    {
+      "name": "ether",
+      "type": "item",
+      "coordinates": {
+        "x": 8,
+        "y": 2
+      }
+    },
+    {
+      "name": "protectpads",
+      "type": "gift"
+    }
+  ],
+  "trainers": [
+    "battlegirlemy",
+    "gentlemanpreston",
+    "sailorterrell"
+  ],
+  "events": [
+    {
+      "name": "beatbattlegirlemy",
+      "description": "beat battle girl emy",
+      "type": "battle"
+    },
+    {
+      "name": "gotprotectpadsfromlighthouseleader",
+      "description": "got protect pads from lighthouse leader",
+      "type": "gift",
+      "item": "protectpads"
+    }
+  ]
+}

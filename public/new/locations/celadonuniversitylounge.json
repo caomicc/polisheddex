@@ -1,0 +1,49 @@
+{
+  "id": "celadonuniversitylounge",
+  "name": "Celadon University Lounge",
+  "constantName": "CELADON_UNIVERSITY_LOUNGE",
+  "connectionCount": 0,
+  "parent": "celadonuniversity",
+  "type": [
+    "indoor"
+  ],
+  "order": 470,
+  "region": "Kanto",
+  "items": [
+    {
+      "name": "choiceband",
+      "type": "gift"
+    },
+    {
+      "name": "ppmax",
+      "type": "gift"
+    }
+  ],
+  "trainers": [
+    "cooltrainerfneesha"
+  ],
+  "events": [
+    {
+      "name": "beatcooltrainerfneesha",
+      "description": "beat cooltrainerf neesha",
+      "type": "battle"
+    },
+    {
+      "name": "introducedceladonfour",
+      "description": "introduced celadon four",
+      "type": "event"
+    },
+    {
+      "name": "gotchoicebandfromceladonfour",
+      "description": "got choice band from celadon four",
+      "type": "gift",
+      "item": "choiceband"
+    },
+    {
+      "name": "gotppmaxinuniversity",
+      "description": "got pp max in university",
+      "type": "gift",
+      "item": "ppmax"
+    }
+  ]
+}

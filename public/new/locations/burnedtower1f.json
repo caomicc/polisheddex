@@ -1,0 +1,176 @@
+{
+  "id": "burnedtower1f",
+  "name": "Burned Tower 1F",
+  "constantName": "BURNED_TOWER_1F",
+  "connectionCount": 0,
+  "parent": "burnedtower",
+  "type": [
+    "dungeon"
+  ],
+  "order": 166,
+  "region": "Johto",
+  "encounters": [
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "13",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "koffing",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "14",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "15",
+      "rate": 25,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "zubat",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "14",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "raticate",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "15",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "13",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "koffing",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "14",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "15",
+      "rate": 25,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "zubat",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "14",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "raticate",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "15",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "13",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "koffing",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "14",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "gastly",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "15",
+      "rate": 25,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "zubat",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "14",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "raticate",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "15",
+      "rate": 5,
+      "formName": "plain"
+    }
+  ],
+  "items": [
+    {
+      "name": "ether",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 6,
+        "y": 7
+      }
+    },
+    {
+      "name": "ultraball",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 11,
+        "y": 11
+      }
+    },
+    {
+      "name": "hpup",
+      "type": "item",
+      "coordinates": {
+        "x": 13,
+        "y": 1
+      }
+    }
+  ],
+  "trainers": [
+    "hexmaniactamara",
+    "firebreatherned"
+  ],
+  "events": [
+    {
+      "name": "rivalburnedtower",
+      "description": "rival burned tower",
+      "type": "rival"
+    },
+    {
+      "name": "holeinburnedtower",
+      "description": "hole in burned tower",
+      "type": "event"
+    }
+  ]
+}

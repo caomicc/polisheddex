@@ -1,0 +1,885 @@
+{
+  "id": "wooper",
+  "name": "Wooper",
+  "dexNo": 58,
+  "versions": {
+    "polished": {
+      "forms": {
+        "plain": {
+          "formNumber": 1,
+          "types": [
+            "water",
+            "ground"
+          ],
+          "abilities": [
+            "damp",
+            "waterabsorb",
+            "unaware"
+          ],
+          "baseStats": {
+            "hp": 55,
+            "attack": 45,
+            "defense": 45,
+            "specialAttack": 15,
+            "specialDefense": 25,
+            "speed": 25
+          },
+          "growthRate": "growthmediumfast",
+          "hasGender": true,
+          "movesets": {
+            "levelUp": [
+              {
+                "id": "watergun",
+                "level": 1
+              },
+              {
+                "id": "leer",
+                "level": 1
+              },
+              {
+                "id": "mudslap",
+                "level": 5
+              },
+              {
+                "id": "scaryface",
+                "level": 9
+              },
+              {
+                "id": "headbutt",
+                "level": 15
+              },
+              {
+                "id": "recover",
+                "level": 19
+              },
+              {
+                "id": "amnesia",
+                "level": 23
+              },
+              {
+                "id": "bellydrum",
+                "level": 29
+              },
+              {
+                "id": "earthquake",
+                "level": 33
+              },
+              {
+                "id": "raindance",
+                "level": 37
+              },
+              {
+                "id": "haze",
+                "level": 43
+              },
+              {
+                "id": "aquatail",
+                "level": 47
+              }
+            ],
+            "tm": [
+              {
+                "id": "dynamicpunch"
+              },
+              {
+                "id": "curse"
+              },
+              {
+                "id": "toxic"
+              },
+              {
+                "id": "hail"
+              },
+              {
+                "id": "hiddenpower"
+              },
+              {
+                "id": "icebeam"
+              },
+              {
+                "id": "blizzard"
+              },
+              {
+                "id": "protect"
+              },
+              {
+                "id": "raindance"
+              },
+              {
+                "id": "safeguard"
+              },
+              {
+                "id": "bulldoze"
+              },
+              {
+                "id": "irontail"
+              },
+              {
+                "id": "earthquake"
+              },
+              {
+                "id": "return"
+              },
+              {
+                "id": "dig"
+              },
+              {
+                "id": "rocksmash"
+              },
+              {
+                "id": "doubleteam"
+              },
+              {
+                "id": "sludgebomb"
+              },
+              {
+                "id": "sandstorm"
+              },
+              {
+                "id": "substitute"
+              },
+              {
+                "id": "facade"
+              },
+              {
+                "id": "rest"
+              },
+              {
+                "id": "attract"
+              },
+              {
+                "id": "scald"
+              },
+              {
+                "id": "waterpulse"
+              },
+              {
+                "id": "flash"
+              },
+              {
+                "id": "surf"
+              },
+              {
+                "id": "whirlpool"
+              },
+              {
+                "id": "waterfall"
+              },
+              {
+                "id": "aquatail"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "defensecurl"
+              },
+              {
+                "id": "doubleedge"
+              },
+              {
+                "id": "earthpower"
+              },
+              {
+                "id": "endure"
+              },
+              {
+                "id": "headbutt"
+              },
+              {
+                "id": "icepunch"
+              },
+              {
+                "id": "icywind"
+              },
+              {
+                "id": "rollout"
+              },
+              {
+                "id": "sleeptalk"
+              },
+              {
+                "id": "swagger"
+              }
+            ],
+            "eggMoves": [
+              {
+                "id": "counter"
+              },
+              {
+                "id": "doublekick"
+              },
+              {
+                "id": "encore"
+              },
+              {
+                "id": "recover"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "ancientpower"
+              },
+              {
+                "id": "safeguard"
+              }
+            ]
+          }
+        },
+        "paldean": {
+          "formNumber": 5,
+          "types": [
+            "poison",
+            "ground"
+          ],
+          "abilities": [
+            "poisonpoint",
+            "waterabsorb",
+            "unaware"
+          ],
+          "baseStats": {
+            "hp": 55,
+            "attack": 45,
+            "defense": 45,
+            "specialAttack": 15,
+            "specialDefense": 25,
+            "speed": 25
+          },
+          "growthRate": "growthmediumfast",
+          "hasGender": true,
+          "movesets": {
+            "levelUp": [
+              {
+                "id": "mudslap",
+                "level": 1
+              },
+              {
+                "id": "leer",
+                "level": 1
+              },
+              {
+                "id": "tackle",
+                "level": 5
+              },
+              {
+                "id": "poisonsting",
+                "level": 9
+              },
+              {
+                "id": "headbutt",
+                "level": 15
+              },
+              {
+                "id": "recover",
+                "level": 19
+              },
+              {
+                "id": "amnesia",
+                "level": 23
+              },
+              {
+                "id": "bellydrum",
+                "level": 29
+              },
+              {
+                "id": "earthquake",
+                "level": 33
+              },
+              {
+                "id": "poisonjab",
+                "level": 37
+              },
+              {
+                "id": "toxicspikes",
+                "level": 43
+              },
+              {
+                "id": "gunkshot",
+                "level": 47
+              }
+            ],
+            "tm": [
+              {
+                "id": "dynamicpunch"
+              },
+              {
+                "id": "curse"
+              },
+              {
+                "id": "toxic"
+              },
+              {
+                "id": "hail"
+              },
+              {
+                "id": "venoshock"
+              },
+              {
+                "id": "hiddenpower"
+              },
+              {
+                "id": "icebeam"
+              },
+              {
+                "id": "blizzard"
+              },
+              {
+                "id": "protect"
+              },
+              {
+                "id": "safeguard"
+              },
+              {
+                "id": "bulldoze"
+              },
+              {
+                "id": "irontail"
+              },
+              {
+                "id": "earthquake"
+              },
+              {
+                "id": "return"
+              },
+              {
+                "id": "dig"
+              },
+              {
+                "id": "rocksmash"
+              },
+              {
+                "id": "doubleteam"
+              },
+              {
+                "id": "sludgebomb"
+              },
+              {
+                "id": "sandstorm"
+              },
+              {
+                "id": "substitute"
+              },
+              {
+                "id": "facade"
+              },
+              {
+                "id": "rest"
+              },
+              {
+                "id": "attract"
+              },
+              {
+                "id": "poisonjab"
+              },
+              {
+                "id": "flash"
+              },
+              {
+                "id": "surf"
+              },
+              {
+                "id": "aquatail"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "defensecurl"
+              },
+              {
+                "id": "doubleedge"
+              },
+              {
+                "id": "earthpower"
+              },
+              {
+                "id": "endure"
+              },
+              {
+                "id": "headbutt"
+              },
+              {
+                "id": "icepunch"
+              },
+              {
+                "id": "icywind"
+              },
+              {
+                "id": "rollout"
+              },
+              {
+                "id": "sleeptalk"
+              },
+              {
+                "id": "swagger"
+              }
+            ],
+            "eggMoves": [
+              {
+                "id": "counter"
+              },
+              {
+                "id": "doublekick"
+              },
+              {
+                "id": "encore"
+              },
+              {
+                "id": "recover"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "ancientpower"
+              },
+              {
+                "id": "safeguard"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "faithful": {
+      "forms": {
+        "plain": {
+          "formNumber": 1,
+          "types": [
+            "water",
+            "ground"
+          ],
+          "abilities": [
+            "damp",
+            "waterabsorb",
+            "unaware"
+          ],
+          "baseStats": {
+            "hp": 55,
+            "attack": 45,
+            "defense": 45,
+            "specialAttack": 15,
+            "specialDefense": 25,
+            "speed": 25
+          },
+          "growthRate": "growthmediumfast",
+          "hasGender": true,
+          "movesets": {
+            "levelUp": [
+              {
+                "id": "watergun",
+                "level": 1
+              },
+              {
+                "id": "leer",
+                "level": 1
+              },
+              {
+                "id": "mudslap",
+                "level": 5
+              },
+              {
+                "id": "scaryface",
+                "level": 9
+              },
+              {
+                "id": "headbutt",
+                "level": 15
+              },
+              {
+                "id": "recover",
+                "level": 19
+              },
+              {
+                "id": "amnesia",
+                "level": 23
+              },
+              {
+                "id": "bellydrum",
+                "level": 29
+              },
+              {
+                "id": "earthquake",
+                "level": 33
+              },
+              {
+                "id": "raindance",
+                "level": 37
+              },
+              {
+                "id": "haze",
+                "level": 43
+              },
+              {
+                "id": "aquatail",
+                "level": 47
+              }
+            ],
+            "tm": [
+              {
+                "id": "dynamicpunch"
+              },
+              {
+                "id": "curse"
+              },
+              {
+                "id": "toxic"
+              },
+              {
+                "id": "hail"
+              },
+              {
+                "id": "hiddenpower"
+              },
+              {
+                "id": "icebeam"
+              },
+              {
+                "id": "blizzard"
+              },
+              {
+                "id": "protect"
+              },
+              {
+                "id": "raindance"
+              },
+              {
+                "id": "safeguard"
+              },
+              {
+                "id": "bulldoze"
+              },
+              {
+                "id": "irontail"
+              },
+              {
+                "id": "earthquake"
+              },
+              {
+                "id": "return"
+              },
+              {
+                "id": "dig"
+              },
+              {
+                "id": "rocksmash"
+              },
+              {
+                "id": "doubleteam"
+              },
+              {
+                "id": "sludgebomb"
+              },
+              {
+                "id": "sandstorm"
+              },
+              {
+                "id": "substitute"
+              },
+              {
+                "id": "facade"
+              },
+              {
+                "id": "rest"
+              },
+              {
+                "id": "attract"
+              },
+              {
+                "id": "scald"
+              },
+              {
+                "id": "waterpulse"
+              },
+              {
+                "id": "flash"
+              },
+              {
+                "id": "surf"
+              },
+              {
+                "id": "whirlpool"
+              },
+              {
+                "id": "waterfall"
+              },
+              {
+                "id": "aquatail"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "defensecurl"
+              },
+              {
+                "id": "doubleedge"
+              },
+              {
+                "id": "earthpower"
+              },
+              {
+                "id": "endure"
+              },
+              {
+                "id": "headbutt"
+              },
+              {
+                "id": "icepunch"
+              },
+              {
+                "id": "icywind"
+              },
+              {
+                "id": "rollout"
+              },
+              {
+                "id": "sleeptalk"
+              },
+              {
+                "id": "swagger"
+              }
+            ],
+            "eggMoves": [
+              {
+                "id": "counter"
+              },
+              {
+                "id": "doublekick"
+              },
+              {
+                "id": "encore"
+              },
+              {
+                "id": "recover"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "ancientpower"
+              },
+              {
+                "id": "safeguard"
+              }
+            ]
+          }
+        },
+        "paldean": {
+          "formNumber": 5,
+          "types": [
+            "poison",
+            "ground"
+          ],
+          "abilities": [
+            "poisonpoint",
+            "waterabsorb",
+            "unaware"
+          ],
+          "baseStats": {
+            "hp": 55,
+            "attack": 45,
+            "defense": 45,
+            "specialAttack": 15,
+            "specialDefense": 25,
+            "speed": 25
+          },
+          "growthRate": "growthmediumfast",
+          "hasGender": true,
+          "movesets": {
+            "levelUp": [
+              {
+                "id": "mudslap",
+                "level": 1
+              },
+              {
+                "id": "leer",
+                "level": 1
+              },
+              {
+                "id": "tackle",
+                "level": 5
+              },
+              {
+                "id": "poisonsting",
+                "level": 9
+              },
+              {
+                "id": "headbutt",
+                "level": 15
+              },
+              {
+                "id": "recover",
+                "level": 19
+              },
+              {
+                "id": "amnesia",
+                "level": 23
+              },
+              {
+                "id": "bellydrum",
+                "level": 29
+              },
+              {
+                "id": "earthquake",
+                "level": 33
+              },
+              {
+                "id": "poisonjab",
+                "level": 37
+              },
+              {
+                "id": "toxicspikes",
+                "level": 43
+              },
+              {
+                "id": "gunkshot",
+                "level": 47
+              }
+            ],
+            "tm": [
+              {
+                "id": "dynamicpunch"
+              },
+              {
+                "id": "curse"
+              },
+              {
+                "id": "toxic"
+              },
+              {
+                "id": "hail"
+              },
+              {
+                "id": "venoshock"
+              },
+              {
+                "id": "hiddenpower"
+              },
+              {
+                "id": "icebeam"
+              },
+              {
+                "id": "blizzard"
+              },
+              {
+                "id": "protect"
+              },
+              {
+                "id": "safeguard"
+              },
+              {
+                "id": "bulldoze"
+              },
+              {
+                "id": "irontail"
+              },
+              {
+                "id": "earthquake"
+              },
+              {
+                "id": "return"
+              },
+              {
+                "id": "dig"
+              },
+              {
+                "id": "rocksmash"
+              },
+              {
+                "id": "doubleteam"
+              },
+              {
+                "id": "sludgebomb"
+              },
+              {
+                "id": "sandstorm"
+              },
+              {
+                "id": "substitute"
+              },
+              {
+                "id": "facade"
+              },
+              {
+                "id": "rest"
+              },
+              {
+                "id": "attract"
+              },
+              {
+                "id": "poisonjab"
+              },
+              {
+                "id": "flash"
+              },
+              {
+                "id": "surf"
+              },
+              {
+                "id": "aquatail"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "defensecurl"
+              },
+              {
+                "id": "doubleedge"
+              },
+              {
+                "id": "earthpower"
+              },
+              {
+                "id": "endure"
+              },
+              {
+                "id": "headbutt"
+              },
+              {
+                "id": "icepunch"
+              },
+              {
+                "id": "icywind"
+              },
+              {
+                "id": "rollout"
+              },
+              {
+                "id": "sleeptalk"
+              },
+              {
+                "id": "swagger"
+              }
+            ],
+            "eggMoves": [
+              {
+                "id": "counter"
+              },
+              {
+                "id": "doublekick"
+              },
+              {
+                "id": "encore"
+              },
+              {
+                "id": "recover"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "ancientpower"
+              },
+              {
+                "id": "safeguard"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "id": "bonemerang",
+  "versions": {
+    "faithful": {
+      "name": "Bonemerang",
+      "description": "An attack that strikes twice.",
+      "power": 50,
+      "type": "ground",
+      "accuracy": 90,
+      "pp": 10,
+      "effectChance": 0,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "cubone",
+          "name": "Cubone",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "marowak",
+          "name": "Marowak",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "marowak",
+          "name": "Marowak",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "fire",
+            "ghost"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Bonemerang",
+      "description": "An attack that strikes twice.",
+      "power": 50,
+      "type": "ground",
+      "accuracy": 90,
+      "pp": 10,
+      "effectChance": 0,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "cubone",
+          "name": "Cubone",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "marowak",
+          "name": "Marowak",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "marowak",
+          "name": "Marowak",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "fire",
+            "ghost"
+          ]
+        }
+      ]
+    }
+  }
+}

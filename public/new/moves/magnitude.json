@@ -1,0 +1,601 @@
+{
+  "id": "magnitude",
+  "versions": {
+    "faithful": {
+      "name": "Magnitude",
+      "description": "A Ground attack with random power.",
+      "power": 1,
+      "type": "ground",
+      "accuracy": 100,
+      "pp": 30,
+      "effectChance": 0,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "cubone",
+          "name": "Cubone",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "diglett",
+          "name": "Diglett",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "diglett",
+          "name": "Diglett",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ],
+          "types": [
+            "ground",
+            "steel"
+          ]
+        },
+        {
+          "id": "donphan",
+          "name": "Donphan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "name": "Dugtrio",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "name": "Dugtrio",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ],
+          "types": [
+            "ground",
+            "steel"
+          ]
+        },
+        {
+          "id": "geodude",
+          "name": "Geodude",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "golem",
+          "name": "Golem",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "graveler",
+          "name": "Graveler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "mamoswine",
+          "name": "Mamoswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 18
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "marowak",
+          "name": "Marowak",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "phanpy",
+          "name": "Phanpy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "piloswine",
+          "name": "Piloswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 18
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "rhydon",
+          "name": "Rhydon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyhorn",
+          "name": "Rhyhorn",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyperior",
+          "name": "Rhyperior",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "sandshrew",
+          "name": "Sandshrew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "sandslash",
+          "name": "Sandslash",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "swinub",
+          "name": "Swinub",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 18
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Magnitude",
+      "description": "A Ground attack with random power.",
+      "power": 1,
+      "type": "ground",
+      "accuracy": 100,
+      "pp": 30,
+      "effectChance": 0,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "cubone",
+          "name": "Cubone",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "diglett",
+          "name": "Diglett",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "diglett",
+          "name": "Diglett",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ],
+          "types": [
+            "ground",
+            "steel"
+          ]
+        },
+        {
+          "id": "donphan",
+          "name": "Donphan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "name": "Dugtrio",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "name": "Dugtrio",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ],
+          "types": [
+            "ground",
+            "steel"
+          ]
+        },
+        {
+          "id": "geodude",
+          "name": "Geodude",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "golem",
+          "name": "Golem",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "graveler",
+          "name": "Graveler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "mamoswine",
+          "name": "Mamoswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 18
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "marowak",
+          "name": "Marowak",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "phanpy",
+          "name": "Phanpy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "piloswine",
+          "name": "Piloswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 18
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "rhydon",
+          "name": "Rhydon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyhorn",
+          "name": "Rhyhorn",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyperior",
+          "name": "Rhyperior",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "steel",
+            "rock"
+          ]
+        },
+        {
+          "id": "sandshrew",
+          "name": "Sandshrew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "sandslash",
+          "name": "Sandslash",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "swinub",
+          "name": "Swinub",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 18
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        }
+      ]
+    }
+  }
+}

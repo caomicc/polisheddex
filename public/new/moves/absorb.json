@@ -1,0 +1,622 @@
+{
+  "id": "absorb",
+  "versions": {
+    "faithful": {
+      "name": "Absorb",
+      "description": "Steals 1/2 of the damage inflicted.",
+      "power": 20,
+      "type": "grass",
+      "accuracy": 100,
+      "pp": 25,
+      "effectChance": 0,
+      "category": "special",
+      "learners": [
+        {
+          "id": "ariados",
+          "name": "Ariados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "crobat",
+          "name": "Crobat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "poison",
+            "flying"
+          ]
+        },
+        {
+          "id": "electrode",
+          "name": "Electrode",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "electric",
+            "grass"
+          ]
+        },
+        {
+          "id": "gloom",
+          "name": "Gloom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "golbat",
+          "name": "Golbat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "poison",
+            "flying"
+          ]
+        },
+        {
+          "id": "hoppip",
+          "name": "Hoppip",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "jumpluff",
+          "name": "Jumpluff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "kabuto",
+          "name": "Kabuto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "kabutops",
+          "name": "Kabutops",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "oddish",
+          "name": "Oddish",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "paras",
+          "name": "Paras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "parasect",
+          "name": "Parasect",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "skiploom",
+          "name": "Skiploom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "spinarak",
+          "name": "Spinarak",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "sunflora",
+          "name": "Sunflora",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "sunkern",
+          "name": "Sunkern",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "tangela",
+          "name": "Tangela",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "tangrowth",
+          "name": "Tangrowth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "voltorb",
+          "name": "Voltorb",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "electric",
+            "grass"
+          ]
+        },
+        {
+          "id": "zubat",
+          "name": "Zubat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "poison",
+            "flying"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Absorb",
+      "description": "Steals 1/2 of the damage inflicted.",
+      "power": 20,
+      "type": "grass",
+      "accuracy": 100,
+      "pp": 25,
+      "effectChance": 0,
+      "category": "special",
+      "learners": [
+        {
+          "id": "ariados",
+          "name": "Ariados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "bug",
+            "dark"
+          ]
+        },
+        {
+          "id": "crobat",
+          "name": "Crobat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "poison",
+            "flying"
+          ]
+        },
+        {
+          "id": "electrode",
+          "name": "Electrode",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "electric",
+            "grass"
+          ]
+        },
+        {
+          "id": "gloom",
+          "name": "Gloom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "golbat",
+          "name": "Golbat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "poison",
+            "flying"
+          ]
+        },
+        {
+          "id": "hoppip",
+          "name": "Hoppip",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "jumpluff",
+          "name": "Jumpluff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "kabuto",
+          "name": "Kabuto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "kabutops",
+          "name": "Kabutops",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "oddish",
+          "name": "Oddish",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "paras",
+          "name": "Paras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "parasect",
+          "name": "Parasect",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "skiploom",
+          "name": "Skiploom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "spinarak",
+          "name": "Spinarak",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "sunflora",
+          "name": "Sunflora",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass",
+            "fire"
+          ]
+        },
+        {
+          "id": "sunkern",
+          "name": "Sunkern",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "tangela",
+          "name": "Tangela",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "tangrowth",
+          "name": "Tangrowth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "voltorb",
+          "name": "Voltorb",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "electric",
+            "grass"
+          ]
+        },
+        {
+          "id": "zubat",
+          "name": "Zubat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "poison",
+            "flying"
+          ]
+        }
+      ]
+    }
+  }
+}

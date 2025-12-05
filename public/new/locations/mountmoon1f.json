@@ -1,0 +1,239 @@
+{
+  "id": "mountmoon1f",
+  "name": "Mount Moon 1F",
+  "constantName": "MOUNT_MOON_1F",
+  "connectionCount": 0,
+  "parent": "mtmoon",
+  "type": [
+    "cave"
+  ],
+  "order": 332,
+  "region": "Kanto",
+  "encounters": [
+    {
+      "pokemon": "golbat",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "55",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "graveler",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "56",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "sandslash",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "56",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "parasect",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "56",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "graveler",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "57",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "clefairy",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "58",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "clefable",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "60",
+      "rate": 2,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "golbat",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "55",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "graveler",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "56",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "sandslash",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "56",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "parasect",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "56",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "graveler",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "57",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "clefairy",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "58",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "clefable",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "60",
+      "rate": 2,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "golbat",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "55",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "graveler",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "56",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "clefairy",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "56",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "parasect",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "56",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "graveler",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "57",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "clefairy",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "58",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "clefable",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "60",
+      "rate": 2,
+      "formName": "plain"
+    }
+  ],
+  "items": [
+    {
+      "name": "rarecandy",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 2,
+        "y": 17
+      }
+    },
+    {
+      "name": "fullrestore",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 12,
+        "y": 16
+      }
+    },
+    {
+      "name": "revive",
+      "type": "item",
+      "coordinates": {
+        "x": 3,
+        "y": 2
+      }
+    },
+    {
+      "name": "xaccuracy",
+      "type": "item",
+      "coordinates": {
+        "x": 2,
+        "y": 20
+      }
+    },
+    {
+      "name": "calcium",
+      "type": "item",
+      "coordinates": {
+        "x": 16,
+        "y": 22
+      }
+    }
+  ],
+  "trainers": [
+    "bugmaniackenta",
+    "lassmiriam",
+    "supernerdjovan",
+    "bugmaniacrobby",
+    "lassiris",
+    "hikermarcos"
+  ],
+  "events": [
+    {
+      "name": "beatrivalinmtmoon",
+      "description": "beat rival in mt moon",
+      "type": "battle"
+    }
+  ]
+}

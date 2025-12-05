@@ -1,0 +1,74 @@
+{
+  "id": "rockethideoutb4f",
+  "name": "Rocket Hideout B4F",
+  "constantName": "ROCKET_HIDEOUT_B4F",
+  "connectionCount": 0,
+  "parent": "celadoncity",
+  "type": [
+    "dungeon"
+  ],
+  "order": 457,
+  "region": "Kanto",
+  "items": [
+    {
+      "name": "maxpotion",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 17,
+        "y": 1
+      }
+    },
+    {
+      "name": "xspatk",
+      "type": "item",
+      "coordinates": {
+        "x": 1,
+        "y": 4
+      }
+    },
+    {
+      "name": "ppup",
+      "type": "item",
+      "coordinates": {
+        "x": 2,
+        "y": 12
+      }
+    },
+    {
+      "name": "dubiousdisc",
+      "type": "item",
+      "coordinates": {
+        "x": 4,
+        "y": 20
+      }
+    }
+  ],
+  "trainers": [
+    "sparkt",
+    "candela",
+    "blanche",
+    "youngsterarden"
+  ],
+  "events": [
+    {
+      "name": "beatspark",
+      "description": "beat spark",
+      "type": "battle"
+    },
+    {
+      "name": "beatcandela",
+      "description": "beat candela",
+      "type": "battle"
+    },
+    {
+      "name": "beatblanche",
+      "description": "beat blanche",
+      "type": "battle"
+    },
+    {
+      "name": "beatyoungsterarden",
+      "description": "beat youngster arden",
+      "type": "battle"
+    }
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "id": "route37",
+  "name": "Route 37",
+  "constantName": "ROUTE_37",
+  "connectionCount": 2,
+  "parent": "route37",
+  "type": [
+    "route"
+  ],
+  "order": 137,
+  "region": "Johto",
+  "encounters": [
+    {
+      "pokemon": "ledyba",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "13",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pidgey",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "14",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pidgeotto",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "15",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "growlithe",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "16",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "smeargle",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "14",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "ledian",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "15",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pidgeotto",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "16",
+      "rate": 2,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pidgey",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "14",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "growlithe",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "14",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pidgeotto",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "15",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "growlithe",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "16",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "smeargle",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "14",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pidgey",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "15",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pidgeotto",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "16",
+      "rate": 2,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "spinarak",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "13",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "stantler",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "15",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "hoothoot",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "14",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "stantler",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "16",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "ariados",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "16",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "houndour",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "15",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "houndour",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "16",
+      "rate": 2,
+      "formName": "plain"
+    }
+  ],
+  "items": [
+    {
+      "name": "ether",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "name": "redapricorn",
+      "type": "berry",
+      "coordinates": {
+        "x": 13,
+        "y": 5
+      }
+    },
+    {
+      "name": "bluapricorn",
+      "type": "berry",
+      "coordinates": {
+        "x": 16,
+        "y": 5
+      }
+    },
+    {
+      "name": "blkapricorn",
+      "type": "berry",
+      "coordinates": {
+        "x": 15,
+        "y": 7
+      }
+    },
+    {
+      "name": "magnet",
+      "type": "gift"
+    }
+  ],
+  "trainers": [
+    "psychictgreg",
+    "beautycallie",
+    "beautycassandra"
+  ],
+  "events": [
+    {
+      "name": "metsunnyofsunday",
+      "description": "met sunny of sunday",
+      "type": "event"
+    },
+    {
+      "name": "gotmagnetfromsunny",
+      "description": "got magnet from sunny",
+      "type": "gift",
+      "item": "magnet"
+    }
+  ]
+}

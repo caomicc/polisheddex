@@ -1,0 +1,1994 @@
+{
+  "id": "mudslap",
+  "versions": {
+    "faithful": {
+      "name": "Mud Slap",
+      "description": "An attack that lowers accuracy.",
+      "power": 20,
+      "type": "ground",
+      "accuracy": 100,
+      "pp": 10,
+      "effectChance": 100,
+      "category": "special",
+      "learners": [
+        {
+          "id": "aipom",
+          "name": "Aipom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "ambipom",
+          "name": "Ambipom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "ampharos",
+          "name": "Ampharos",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "bulbasaur",
+          "name": "Bulbasaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "clodsire",
+          "name": "Clodsire",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "poison",
+            "ground"
+          ]
+        },
+        {
+          "id": "cubone",
+          "name": "Cubone",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "diglett",
+          "name": "Diglett",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "diglett",
+          "name": "Diglett",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ground",
+            "steel"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "threesegment",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "name": "Dugtrio",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "name": "Dugtrio",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ground",
+            "steel"
+          ]
+        },
+        {
+          "id": "dunsparce",
+          "name": "Dunsparce",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "eevee",
+          "name": "Eevee",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "espeon",
+          "name": "Espeon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "name": "Farfetch'd",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "name": "Farfetch'd",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "flaaffy",
+          "name": "Flaaffy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "flareon",
+          "name": "Flareon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "geodude",
+          "name": "Geodude",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "glaceon",
+          "name": "Glaceon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "ice"
+          ]
+        },
+        {
+          "id": "gligar",
+          "name": "Gligar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "ground",
+            "flying"
+          ]
+        },
+        {
+          "id": "gliscor",
+          "name": "Gliscor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "ground",
+            "flying"
+          ]
+        },
+        {
+          "id": "golem",
+          "name": "Golem",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "graveler",
+          "name": "Graveler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "grimer",
+          "name": "Grimer",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "ivysaur",
+          "name": "Ivysaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "jolteon",
+          "name": "Jolteon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "kabuto",
+          "name": "Kabuto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "kabutops",
+          "name": "Kabutops",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "leafeon",
+          "name": "Leafeon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "magcargo",
+          "name": "Magcargo",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fire",
+            "rock"
+          ]
+        },
+        {
+          "id": "mamoswine",
+          "name": "Mamoswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "mareep",
+          "name": "Mareep",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "marowak",
+          "name": "Marowak",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "muk",
+          "name": "Muk",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "pidgeot",
+          "name": "Pidgeot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgeotto",
+          "name": "Pidgeotto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgey",
+          "name": "Pidgey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "fly",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "surf",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "red",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "yellow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "spark",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "piloswine",
+          "name": "Piloswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "poliwag",
+          "name": "Poliwag",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "poliwhirl",
+          "name": "Poliwhirl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "quagsire",
+          "name": "Quagsire",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "water",
+            "ground"
+          ]
+        },
+        {
+          "id": "rhydon",
+          "name": "Rhydon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyhorn",
+          "name": "Rhyhorn",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyperior",
+          "name": "Rhyperior",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "sandshrew",
+          "name": "Sandshrew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 3
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "sandslash",
+          "name": "Sandslash",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 3
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "shuckle",
+          "name": "Shuckle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "bug",
+            "rock"
+          ]
+        },
+        {
+          "id": "sirfetchd",
+          "name": "Sirfetch'd",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "skarmory",
+          "name": "Skarmory",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "steel",
+            "flying"
+          ]
+        },
+        {
+          "id": "slugma",
+          "name": "Slugma",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "stantler",
+          "name": "Stantler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "swinub",
+          "name": "Swinub",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "sylveon",
+          "name": "Sylveon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "umbreon",
+          "name": "Umbreon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "vaporeon",
+          "name": "Vaporeon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "venusaur",
+          "name": "Venusaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "wooper",
+          "name": "Wooper",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "water",
+            "ground"
+          ]
+        },
+        {
+          "id": "wooper",
+          "name": "Wooper",
+          "form": "paldean",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "poison",
+            "ground"
+          ]
+        },
+        {
+          "id": "wyrdeer",
+          "name": "Wyrdeer",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Mud Slap",
+      "description": "An attack that lowers accuracy.",
+      "power": 20,
+      "type": "ground",
+      "accuracy": 100,
+      "pp": 10,
+      "effectChance": 100,
+      "category": "special",
+      "learners": [
+        {
+          "id": "aipom",
+          "name": "Aipom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "ambipom",
+          "name": "Ambipom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "ampharos",
+          "name": "Ampharos",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric",
+            "dragon"
+          ]
+        },
+        {
+          "id": "bulbasaur",
+          "name": "Bulbasaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "clodsire",
+          "name": "Clodsire",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "poison",
+            "ground"
+          ]
+        },
+        {
+          "id": "cubone",
+          "name": "Cubone",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "diglett",
+          "name": "Diglett",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "diglett",
+          "name": "Diglett",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ground",
+            "steel"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "normal",
+            "dragon"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "threesegment",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "normal",
+            "dragon"
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "name": "Dugtrio",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "dugtrio",
+          "name": "Dugtrio",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ground",
+            "steel"
+          ]
+        },
+        {
+          "id": "dunsparce",
+          "name": "Dunsparce",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "normal",
+            "ground"
+          ]
+        },
+        {
+          "id": "eevee",
+          "name": "Eevee",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "espeon",
+          "name": "Espeon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "name": "Farfetch'd",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "name": "Farfetch'd",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "flaaffy",
+          "name": "Flaaffy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "flareon",
+          "name": "Flareon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "geodude",
+          "name": "Geodude",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "glaceon",
+          "name": "Glaceon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "ice"
+          ]
+        },
+        {
+          "id": "gligar",
+          "name": "Gligar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "ground",
+            "flying"
+          ]
+        },
+        {
+          "id": "gliscor",
+          "name": "Gliscor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "ground",
+            "flying"
+          ]
+        },
+        {
+          "id": "golem",
+          "name": "Golem",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "graveler",
+          "name": "Graveler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "grimer",
+          "name": "Grimer",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "ivysaur",
+          "name": "Ivysaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "jolteon",
+          "name": "Jolteon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "kabuto",
+          "name": "Kabuto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "kabutops",
+          "name": "Kabutops",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "leafeon",
+          "name": "Leafeon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "magcargo",
+          "name": "Magcargo",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fire",
+            "rock"
+          ]
+        },
+        {
+          "id": "mamoswine",
+          "name": "Mamoswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "mareep",
+          "name": "Mareep",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "marowak",
+          "name": "Marowak",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "muk",
+          "name": "Muk",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "pidgeot",
+          "name": "Pidgeot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgeotto",
+          "name": "Pidgeotto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgey",
+          "name": "Pidgey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "fly",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "surf",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "red",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "yellow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "spark",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "piloswine",
+          "name": "Piloswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "poliwag",
+          "name": "Poliwag",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "poliwhirl",
+          "name": "Poliwhirl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "quagsire",
+          "name": "Quagsire",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "water",
+            "ground"
+          ]
+        },
+        {
+          "id": "rhydon",
+          "name": "Rhydon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyhorn",
+          "name": "Rhyhorn",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyperior",
+          "name": "Rhyperior",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "steel",
+            "rock"
+          ]
+        },
+        {
+          "id": "sandshrew",
+          "name": "Sandshrew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 3
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "sandslash",
+          "name": "Sandslash",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 3
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "shuckle",
+          "name": "Shuckle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "bug",
+            "rock"
+          ]
+        },
+        {
+          "id": "sirfetchd",
+          "name": "Sirfetch'd",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "skarmory",
+          "name": "Skarmory",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "steel",
+            "flying"
+          ]
+        },
+        {
+          "id": "slugma",
+          "name": "Slugma",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "stantler",
+          "name": "Stantler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "swinub",
+          "name": "Swinub",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "sylveon",
+          "name": "Sylveon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "umbreon",
+          "name": "Umbreon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "vaporeon",
+          "name": "Vaporeon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "venusaur",
+          "name": "Venusaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "wooper",
+          "name": "Wooper",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            }
+          ],
+          "types": [
+            "water",
+            "ground"
+          ]
+        },
+        {
+          "id": "wooper",
+          "name": "Wooper",
+          "form": "paldean",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "poison",
+            "ground"
+          ]
+        },
+        {
+          "id": "wyrdeer",
+          "name": "Wyrdeer",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 16
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "soulhouse",
+  "name": "Soul House",
+  "constantName": "SOUL_HOUSE",
+  "connectionCount": 0,
+  "parent": "soulhouse",
+  "type": [
+    "indoor"
+  ],
+  "order": 418,
+  "region": "Kanto",
+  "items": [
+    {
+      "name": "shadowclaw",
+      "type": "tm"
+    }
+  ],
+  "trainers": [
+    "agatha"
+  ],
+  "events": [
+    {
+      "name": "beatagatha",
+      "description": "beat agatha",
+      "type": "battle"
+    },
+    {
+      "name": "gottm65shadowclawfromagatha",
+      "description": "got tm65 shadow claw from agatha",
+      "type": "gift",
+      "item": "tm65"
+    },
+    {
+      "name": "gotsilphscope2frommrfuji",
+      "description": "got silphscope2 from mr fuji",
+      "type": "gift",
+      "item": "silphscope2"
+    }
+  ]
+}

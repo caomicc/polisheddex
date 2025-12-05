@@ -1,0 +1,216 @@
+{
+  "id": "nationalpark",
+  "name": "National Park",
+  "constantName": "NATIONAL_PARK",
+  "connectionCount": 0,
+  "parent": "nationalpark",
+  "type": [
+    "route"
+  ],
+  "order": 131,
+  "region": "Johto",
+  "encounters": [
+    {
+      "pokemon": "nidoranm",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "12",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "nidoranf",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "13",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "ledyba",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "14",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pidgey",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "14",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "caterpie",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "10",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "weedle",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "12",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "nidoranf",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "12",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "nidoranm",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "13",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "sunkern",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "14",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pidgey",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "14",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "caterpie",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "10",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "weedle",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "12",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "psyduck",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "12",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "hoothoot",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "13",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "spinarak",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "14",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "hoothoot",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "14",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "venonat",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "10",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "venonat",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "12",
+      "rate": 5,
+      "formName": "plain"
+    }
+  ],
+  "items": [
+    {
+      "name": "fullheal",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 8,
+        "y": 47
+      }
+    },
+    {
+      "name": "shinystone",
+      "type": "item",
+      "coordinates": {
+        "x": 37,
+        "y": 12
+      }
+    },
+    {
+      "name": "quickclaw",
+      "type": "gift"
+    },
+    {
+      "name": "nugget",
+      "type": "gift"
+    }
+  ],
+  "trainers": [
+    "officermkeith",
+    "bugmaniaclou",
+    "schoolgirleliza",
+    "schoolboyjohnny",
+    "schoolboyjack",
+    "pokefanmwilliam",
+    "lasskrise"
+  ],
+  "events": [
+    {
+      "name": "gotquickclaw",
+      "description": "got quick claw",
+      "type": "gift",
+      "item": "quickclaw"
+    },
+    {
+      "name": "beatofficermkeith",
+      "description": "beat officerm keith",
+      "type": "battle"
+    },
+    {
+      "name": "jackaskedforphonenumber",
+      "description": "jack asked for phone number",
+      "type": "phone"
+    },
+    {
+      "name": "beverlyaskedforphonenumber",
+      "description": "beverly asked for phone number",
+      "type": "phone"
+    }
+  ]
+}

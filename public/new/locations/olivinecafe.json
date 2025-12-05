@@ -1,0 +1,34 @@
+{
+  "id": "olivinecafe",
+  "name": "Olivine Cafe",
+  "constantName": "OLIVINE_CAFE",
+  "connectionCount": 0,
+  "parent": "olivinecity",
+  "type": [
+    "indoor"
+  ],
+  "order": 182,
+  "region": "Johto",
+  "items": [
+    {
+      "name": "amuletcoin",
+      "type": "gift"
+    }
+  ],
+  "trainers": [
+    "bakerchelsie"
+  ],
+  "events": [
+    {
+      "name": "beatbakerchelsie",
+      "description": "beat baker chelsie",
+      "type": "battle"
+    },
+    {
+      "name": "gotamuletcoinfromlyra",
+      "description": "got amulet coin from lyra",
+      "type": "gift",
+      "item": "amuletcoin"
+    }
+  ]
+}

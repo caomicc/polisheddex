@@ -1,0 +1,34 @@
+{
+  "id": "shamoutiisland",
+  "name": "Shamouti Island",
+  "constantName": "SHAMOUTI_ISLAND",
+  "connectionCount": 2,
+  "parent": "shamoutiisland",
+  "type": [
+    "town"
+  ],
+  "order": 594,
+  "region": "Orange",
+  "items": [
+    {
+      "name": "figyberry",
+      "type": "berry",
+      "coordinates": {
+        "x": 34,
+        "y": 13
+      }
+    },
+    {
+      "name": "oddsouvenir",
+      "type": "gift"
+    }
+  ],
+  "events": [
+    {
+      "name": "gotoddsouvenirfrompikabluguy",
+      "description": "got odd souvenir from pikablu guy",
+      "type": "gift",
+      "item": "oddsouvenir"
+    }
+  ]
+}

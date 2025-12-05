@@ -1,0 +1,223 @@
+{
+  "id": "sprouttower3f",
+  "name": "Sprout Tower 3F",
+  "constantName": "SPROUT_TOWER_3F",
+  "connectionCount": 0,
+  "parent": "sprouttower",
+  "type": [
+    "dungeon"
+  ],
+  "order": 33,
+  "region": "Johto",
+  "encounters": [
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "4",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "5",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "6",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "bellsprout",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "4",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "7",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "bellsprout",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "6",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "bellsprout",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "7",
+      "rate": 2,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "4",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "5",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "6",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "bellsprout",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "4",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "7",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "bellsprout",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "6",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "bellsprout",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "7",
+      "rate": 2,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "4",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "rattata",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "5",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "gastly",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "6",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "bellsprout",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "4",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "gastly",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "7",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "bellsprout",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "6",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "bellsprout",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "7",
+      "rate": 2,
+      "formName": "plain"
+    }
+  ],
+  "items": [
+    {
+      "name": "potion",
+      "type": "item",
+      "coordinates": {
+        "x": 4,
+        "y": 14
+      }
+    },
+    {
+      "name": "escaperope",
+      "type": "item",
+      "coordinates": {
+        "x": 12,
+        "y": 1
+      }
+    },
+    {
+      "name": "flash",
+      "type": "tm"
+    }
+  ],
+  "trainers": [
+    "elderli",
+    "sagejin",
+    "sagetroy",
+    "sageneal"
+  ],
+  "events": [
+    {
+      "name": "gottm70flash",
+      "description": "got tm70 flash",
+      "type": "gift",
+      "item": "tm70"
+    },
+    {
+      "name": "beatelderli",
+      "description": "beat elder li",
+      "type": "battle"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "olivineport",
+  "name": "Olivine Port",
+  "constantName": "OLIVINE_PORT",
+  "connectionCount": 0,
+  "parent": "olivinecity",
+  "type": [
+    "isolated"
+  ],
+  "order": 187,
+  "region": "Johto",
+  "items": [
+    {
+      "name": "protein",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 1,
+        "y": 14
+      }
+    }
+  ],
+  "events": [
+    {
+      "name": "temporaryuntilmapreload1",
+      "description": "temporary until map reload 1",
+      "type": "event"
+    },
+    {
+      "name": "fastshippassengerswestbound",
+      "description": "fast ship passengers westbound",
+      "type": "event"
+    },
+    {
+      "name": "temporaryuntilmapreload2",
+      "description": "temporary until map reload 2",
+      "type": "event"
+    },
+    {
+      "name": "temporaryuntilmapreload2",
+      "description": "temporary until map reload 2",
+      "type": "event"
+    }
+  ]
+}

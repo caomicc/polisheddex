@@ -1,0 +1,31 @@
+{
+  "id": "blackthorncity",
+  "name": "Blackthorn City",
+  "constantName": "BLACKTHORN_CITY",
+  "connectionCount": 1,
+  "parent": "blackthorncity",
+  "type": [
+    "town"
+  ],
+  "order": 264,
+  "region": "Johto",
+  "items": [
+    {
+      "name": "spelltag",
+      "type": "gift"
+    }
+  ],
+  "events": [
+    {
+      "name": "metsantosofsaturday",
+      "description": "met santos of saturday",
+      "type": "event"
+    },
+    {
+      "name": "gotspelltagfromsantos",
+      "description": "got spell tag from santos",
+      "type": "gift",
+      "item": "spelltag"
+    }
+  ]
+}

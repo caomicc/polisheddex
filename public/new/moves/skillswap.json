@@ -1,0 +1,1284 @@
+{
+  "id": "skillswap",
+  "versions": {
+    "faithful": {
+      "name": "Skill Swap",
+      "description": "Swaps abilities with the foe.",
+      "power": 0,
+      "type": "psychic",
+      "accuracy": 100,
+      "pp": 10,
+      "effectChance": 0,
+      "category": "status",
+      "learners": [
+        {
+          "id": "abra",
+          "name": "Abra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "alakazam",
+          "name": "Alakazam",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "blissey",
+          "name": "Blissey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "butterfree",
+          "name": "Butterfree",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "flying"
+          ]
+        },
+        {
+          "id": "celebi",
+          "name": "Celebi",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "grass"
+          ]
+        },
+        {
+          "id": "chansey",
+          "name": "Chansey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "drowzee",
+          "name": "Drowzee",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "espeon",
+          "name": "Espeon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "exeggcute",
+          "name": "Exeggcute",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "grass",
+            "psychic"
+          ]
+        },
+        {
+          "id": "exeggutor",
+          "name": "Exeggutor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "grass",
+            "psychic"
+          ]
+        },
+        {
+          "id": "exeggutor",
+          "name": "Exeggutor",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "grass",
+            "dragon"
+          ]
+        },
+        {
+          "id": "farigiraf",
+          "name": "Farigiraf",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "gastly",
+          "name": "Gastly",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ghost",
+            "poison"
+          ]
+        },
+        {
+          "id": "gengar",
+          "name": "Gengar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ghost",
+            "poison"
+          ]
+        },
+        {
+          "id": "girafarig",
+          "name": "Girafarig",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "haunter",
+          "name": "Haunter",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ghost",
+            "poison"
+          ]
+        },
+        {
+          "id": "hypno",
+          "name": "Hypno",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "jynx",
+          "name": "Jynx",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "psychic"
+          ]
+        },
+        {
+          "id": "kadabra",
+          "name": "Kadabra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "lugia",
+          "name": "Lugia",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "mew",
+          "name": "Mew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "mewtwo",
+          "name": "Mewtwo",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "mewtwo",
+          "name": "Mewtwo",
+          "form": "armored",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "mimejr",
+          "name": "Mime Jr.",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "fairy"
+          ]
+        },
+        {
+          "id": "misdreavus",
+          "name": "Misdreavus",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ghost"
+          ]
+        },
+        {
+          "id": "mismagius",
+          "name": "Mismagius",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ghost"
+          ]
+        },
+        {
+          "id": "mrmime",
+          "name": "Mr.Mime",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "fairy"
+          ]
+        },
+        {
+          "id": "mrmime",
+          "name": "Mr.Mime",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "psychic"
+          ]
+        },
+        {
+          "id": "mrrime",
+          "name": "Mr.Rime",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "psychic"
+          ]
+        },
+        {
+          "id": "natu",
+          "name": "Natu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "slowbro",
+          "name": "Slowbro",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowbro",
+          "name": "Slowbro",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowking",
+          "name": "Slowking",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowking",
+          "name": "Slowking",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "name": "Slowpoke",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "name": "Slowpoke",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "smoochum",
+          "name": "Smoochum",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "psychic"
+          ]
+        },
+        {
+          "id": "stantler",
+          "name": "Stantler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "starmie",
+          "name": "Starmie",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "sylveon",
+          "name": "Sylveon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "venomoth",
+          "name": "Venomoth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "venonat",
+          "name": "Venonat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "wyrdeer",
+          "name": "Wyrdeer",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "xatu",
+          "name": "Xatu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Skill Swap",
+      "description": "Swaps abilities with the foe.",
+      "power": 0,
+      "type": "psychic",
+      "accuracy": 100,
+      "pp": 10,
+      "effectChance": 0,
+      "category": "status",
+      "learners": [
+        {
+          "id": "abra",
+          "name": "Abra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "alakazam",
+          "name": "Alakazam",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "blissey",
+          "name": "Blissey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "butterfree",
+          "name": "Butterfree",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "psychic"
+          ]
+        },
+        {
+          "id": "celebi",
+          "name": "Celebi",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "grass",
+            "fairy"
+          ]
+        },
+        {
+          "id": "chansey",
+          "name": "Chansey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "drowzee",
+          "name": "Drowzee",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "espeon",
+          "name": "Espeon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "exeggcute",
+          "name": "Exeggcute",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "grass",
+            "psychic"
+          ]
+        },
+        {
+          "id": "exeggutor",
+          "name": "Exeggutor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "grass",
+            "psychic"
+          ]
+        },
+        {
+          "id": "exeggutor",
+          "name": "Exeggutor",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "grass",
+            "dragon"
+          ]
+        },
+        {
+          "id": "farigiraf",
+          "name": "Farigiraf",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "dark"
+          ]
+        },
+        {
+          "id": "gastly",
+          "name": "Gastly",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ghost",
+            "poison"
+          ]
+        },
+        {
+          "id": "gengar",
+          "name": "Gengar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ghost",
+            "poison"
+          ]
+        },
+        {
+          "id": "girafarig",
+          "name": "Girafarig",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "dark"
+          ]
+        },
+        {
+          "id": "haunter",
+          "name": "Haunter",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ghost",
+            "poison"
+          ]
+        },
+        {
+          "id": "hypno",
+          "name": "Hypno",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "jynx",
+          "name": "Jynx",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "psychic"
+          ]
+        },
+        {
+          "id": "kadabra",
+          "name": "Kadabra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "lugia",
+          "name": "Lugia",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "mew",
+          "name": "Mew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "mewtwo",
+          "name": "Mewtwo",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "mewtwo",
+          "name": "Mewtwo",
+          "form": "armored",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "steel"
+          ]
+        },
+        {
+          "id": "mimejr",
+          "name": "Mime Jr.",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "fairy"
+          ]
+        },
+        {
+          "id": "misdreavus",
+          "name": "Misdreavus",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ghost"
+          ]
+        },
+        {
+          "id": "mismagius",
+          "name": "Mismagius",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ghost",
+            "fairy"
+          ]
+        },
+        {
+          "id": "mrmime",
+          "name": "Mr.Mime",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "fairy"
+          ]
+        },
+        {
+          "id": "mrmime",
+          "name": "Mr.Mime",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "psychic"
+          ]
+        },
+        {
+          "id": "mrrime",
+          "name": "Mr.Rime",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "psychic"
+          ]
+        },
+        {
+          "id": "natu",
+          "name": "Natu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "slowbro",
+          "name": "Slowbro",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowbro",
+          "name": "Slowbro",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowking",
+          "name": "Slowking",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowking",
+          "name": "Slowking",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "name": "Slowpoke",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "name": "Slowpoke",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "smoochum",
+          "name": "Smoochum",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "psychic"
+          ]
+        },
+        {
+          "id": "stantler",
+          "name": "Stantler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "starmie",
+          "name": "Starmie",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "sylveon",
+          "name": "Sylveon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "venomoth",
+          "name": "Venomoth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "venonat",
+          "name": "Venonat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "wyrdeer",
+          "name": "Wyrdeer",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "xatu",
+          "name": "Xatu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        }
+      ]
+    }
+  }
+}
