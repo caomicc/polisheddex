@@ -6,7 +6,7 @@ import { ArrowDown, ArrowUp, ArrowUpDown, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
 import { cn } from '@/lib/utils';
-// import { formatPokemonUrlWithForm, getFormTypeClass } from '@/utils/pokemonFormUtils';
+import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
 import { PokemonSprite } from '../pokemon/pokemon-sprite';
 import { MoveLearner } from '@/types/new';
 
@@ -17,11 +17,15 @@ export const pokemonWithMoveColumns: ColumnDef<MoveLearner>[] = [
     header: '',
     cell: ({ row }) => {
       const { id, name, form, types } = row.original;
+      const normalizedName = normalizePokemonUrlKey(name || id).toLowerCase();
+      const pokemonUrl =
+        form && form !== 'plain'
+          ? `/pokemon/${normalizedName}?form=${encodeURIComponent(form)}`
+          : `/pokemon/${normalizedName}`;
 
       return (
         <div className="">
-          {/* <Link href={formatPokemonUrlWithForm(name || id, form || 'plain')} className="table-link"> */}
-          <Link href={`/pokemon/${name || id}`} className="table-link">
+          <Link href={pokemonUrl} className="table-link">
             <PokemonSprite
               hoverAnimate={true}
               pokemonName={name || id}
@@ -63,8 +67,13 @@ export const pokemonWithMoveColumns: ColumnDef<MoveLearner>[] = [
     },
     cell: ({ row }) => {
       const { id, name, form } = row.original;
+      const normalizedName = normalizePokemonUrlKey(name || id).toLowerCase();
+      const pokemonUrl =
+        form && form !== 'plain'
+          ? `/pokemon/${normalizedName}?form=${encodeURIComponent(form)}`
+          : `/pokemon/${normalizedName}`;
       return (
-        <Link href={`/pokemon/${id}`} className="table-link">
+        <Link href={pokemonUrl} className="table-link">
           {name}
           {form && form !== 'plain' && (
             <span

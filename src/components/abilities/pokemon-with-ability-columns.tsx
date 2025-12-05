@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
-// import { displayName, formatPokemonUrlWithForm, getFormTypeClass } from '@/utils/pokemonFormUtils';
+import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
 import { PokemonSprite } from '../pokemon/pokemon-sprite';
 import { AbilityData } from '@/types/new';
 
@@ -19,16 +19,14 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     header: '',
     cell: ({ row }) => {
       const pokemon = row.original;
+      const normalizedName = normalizePokemonUrlKey(pokemon.name).toLowerCase();
+      const pokemonUrl =
+        pokemon.form && pokemon.form !== 'plain'
+          ? `/pokemon/${normalizedName}?form=${encodeURIComponent(String(pokemon.form))}`
+          : `/pokemon/${normalizedName}`;
       return (
         <div className="">
-          <Link
-            className="table-link"
-            href={'#'}
-            // href={formatPokemonUrlWithForm(
-            //   pokemon.name,
-            //   pokemon.form ? pokemon.form.toString() : 'plain',
-            // )}
-          >
+          <Link className="table-link" href={pokemonUrl}>
             <PokemonSprite
               hoverAnimate={true}
               pokemonName={pokemon.name}
@@ -66,13 +64,13 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
 
     cell: ({ row }) => {
       const pokemon = row.original;
+      const normalizedName = normalizePokemonUrlKey(pokemon.name).toLowerCase();
+      const pokemonUrl =
+        pokemon.form && pokemon.form !== 'plain'
+          ? `/pokemon/${normalizedName}?form=${encodeURIComponent(String(pokemon.form))}`
+          : `/pokemon/${normalizedName}`;
       return (
-        <Link
-          // href={formatPokemonUrlWithForm(pokemon.name, pokemon.form || '')}
-          href={'#'}
-          className="table-link"
-        >
-          {/* {displayName(pokemon.name)} */}
+        <Link href={pokemonUrl} className="table-link">
           {pokemon.name}
           {pokemon.form && pokemon.form !== 'plain' && (
             <span
