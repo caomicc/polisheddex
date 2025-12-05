@@ -9,6 +9,7 @@ import PokemonKeyboardNavigation from '@/components/pokemon/pokemon-keyboard-nav
 import { getPokemonNavigation } from '@/utils/pokemonNavigation';
 import { loadJsonData } from '@/utils/fileLoader';
 import { loadBasePokemonData, loadEnrichedPokemonData } from '@/utils/loaders/pokemon-data-loader';
+import { getLocationsForPokemon } from '@/utils/location-data-server';
 import { Button } from '@/components/ui/button';
 import { reduce } from '@/lib/extract-utils';
 
@@ -21,6 +22,9 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
 
   if (!pokemonData) return notFound();
 
+  // Load location data for this Pokemon
+  const locationData = await getLocationsForPokemon(pokemonName);
+
   // Load the new dex order for navigation
   const navigation = getPokemonNavigation(pokemonName);
 
@@ -29,7 +33,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
       <div className="max-w-xl md:max-w-4xl mx-auto">
         <h1 className="text-2xl font-bold mb-4 sr-only">{pokemonName}</h1>
         <PokemonKeyboardNavigation navigation={navigation} />
-        <PokemonFormWrapper pokemonData={pokemonData} />
+        <PokemonFormWrapper pokemonData={pokemonData} locationData={locationData} />
         {/* Only render navigation if we have valid navigation data */}
         {navigation.current.index !== -1 ? (
           <PokemonNavigation navigation={navigation} />

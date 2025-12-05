@@ -1,6 +1,6 @@
 'use client';
 import { AbilityData, ComprehensivePokemonData } from '@/types/new';
-import { Table, TableBody, TableHead, TableHeader, TableRow } from '../ui/table';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
 import { Badge } from '../ui/badge';
 import { cn } from '@/lib/utils';
 import { Progress } from '../ui/progress';
@@ -14,6 +14,19 @@ import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import { PokemonSprite } from './pokemon-sprite';
 import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
 import { MoveRow } from '../moves';
+import Link from 'next/link';
+
+// Type for location encounter data
+interface PokemonLocationEncounter {
+  locationId: string;
+  locationName: string;
+  region: string;
+  method: string;
+  version: string;
+  levelRange: string;
+  rate: number;
+  formName?: string;
+}
 
 // Type for enriched move data that comes from server
 interface EnrichedMove {
@@ -31,8 +44,10 @@ interface EnrichedMove {
 
 export default function PokemonFormClient({
   pokemonData,
+  locationData = [],
 }: {
   pokemonData: ComprehensivePokemonData;
+  locationData?: PokemonLocationEncounter[];
 }) {
   const [selectedForm, setSelectedForm] = useQueryState('form', {
     defaultValue: 'plain',
@@ -54,6 +69,84 @@ export default function PokemonFormClient({
     : [];
 
   const uniqueForms = Object.keys(pokemonData.versions?.[version]?.forms || {});
+
+  // Filter location data for the current form
+  const currentFormLocations = locationData.filter(
+    (loc) => !loc.formName || loc.formName === 'plain' || loc.formName === selectedForm,
+  );
+
+  // Group and consolidate locations by area, method, and time
+  // Combine level ranges and accumulate rates
+  const groupedLocations = currentFormLocations.reduce(
+    (acc, loc) => {
+      // Create a unique key for location + method + time
+      const key = `${loc.locationId}|${loc.method}|${loc.version}`;
+      if (!acc[key]) {
+        acc[key] = {
+          locationId: loc.locationId,
+          locationName: loc.locationName,
+          region: loc.region,
+          method: loc.method,
+          version: loc.version,
+          levels: [],
+          hasVariableLevel: false,
+          totalRate: 0,
+        };
+      }
+      // Parse level and add to list - check for non-numeric levels
+      const level = parseInt(loc.levelRange, 10);
+      if (isNaN(level) || level < 0 || loc.levelRange.toLowerCase().includes('badge')) {
+        // Mark as having variable/special level
+        acc[key].hasVariableLevel = true;
+      } else if (!acc[key].levels.includes(level)) {
+        acc[key].levels.push(level);
+      }
+      // Accumulate the rate
+      acc[key].totalRate += loc.rate;
+      return acc;
+    },
+    {} as Record<
+      string,
+      {
+        locationId: string;
+        locationName: string;
+        region: string;
+        method: string;
+        version: string;
+        levels: number[];
+        hasVariableLevel: boolean;
+        totalRate: number;
+      }
+    >,
+  );
+
+  // Convert to array and format level ranges
+  const consolidatedLocations = Object.values(groupedLocations).map((loc) => {
+    let levelRange: string;
+    if (loc.hasVariableLevel || loc.levels.length === 0) {
+      levelRange = 'Varies';
+    } else {
+      loc.levels.sort((a, b) => a - b);
+      const minLevel = loc.levels[0];
+      const maxLevel = loc.levels[loc.levels.length - 1];
+      levelRange = minLevel === maxLevel ? `${minLevel}` : `${minLevel}-${maxLevel}`;
+    }
+    return {
+      ...loc,
+      levelRange,
+    };
+  });
+
+  // Sort by location name, then method, then time
+  consolidatedLocations.sort((a, b) => {
+    if (a.locationName !== b.locationName) return a.locationName.localeCompare(b.locationName);
+    if (a.method !== b.method) return a.method.localeCompare(b.method);
+    const timeOrder = { morning: 0, day: 1, night: 2 };
+    return (
+      (timeOrder[a.version as keyof typeof timeOrder] ?? 3) -
+      (timeOrder[b.version as keyof typeof timeOrder] ?? 3)
+    );
+  });
 
   return (
     <>
@@ -501,67 +594,74 @@ export default function PokemonFormClient({
           >
             <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
               <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-1">
-                {/* {locationData && locationData.length > 0 ? (
-                  <>
-                    {(() => {
-                      const wildLocations = locationData.filter(
-                        (loc: LocationEntry) =>
-                          loc.method &&
-                          [
-                            'grass',
-                            'water',
-                            'fish_good',
-                            'fish_super',
-                            'fish_old',
-                            'surf',
-                            'rock_smash',
-                            'headbutt',
-                            'wild',
-                          ].includes(loc.method),
-                      );
-
-                      return wildLocations.length > 0 ? (
-                        <BentoGridNoLink>
-                          <h3 className="text-lg font-semibold mb-3 flex items-center gap-2 text-neutral-600 dark:text-neutral-200">
-                            Wild Encounters
-                          </h3>
-                          <Table>
-                            <TableHeader>
-                              <TableRow>
-                                <TableHead className="text-left">
-                                  <span className="label-text">Area</span>
-                                </TableHead>
-                                <TableHead className="text-left">
-                                  <span className="label-text">Method</span>
-                                </TableHead>
-                                <TableHead className="text-left">
-                                  <span className="label-text">Time</span>
-                                </TableHead>
-                                <TableHead className="text-left">
-                                  <span className="label-text">Level</span>
-                                </TableHead>
-                                <TableHead className="text-left">
-                                  <span className="label-text">Rate</span>
-                                </TableHead>
-                              </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                              {wildLocations.map((loc: LocationEntry, idx: number) => (
-                                <LocationListItem key={`wild-${idx}`} {...loc} />
-                              ))}
-                            </TableBody>
-                          </Table>
-                        </BentoGridNoLink>
-                      ) : null;
-                    })()}
-                  </>
+                {consolidatedLocations.length > 0 ? (
+                  <BentoGridNoLink>
+                    <h3 className="text-lg font-semibold mb-3 flex items-center gap-2 text-neutral-600 dark:text-neutral-200">
+                      Wild Encounters
+                    </h3>
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead className="text-left">
+                            <span className="label-text">Location</span>
+                          </TableHead>
+                          <TableHead className="text-left">
+                            <span className="label-text">Method</span>
+                          </TableHead>
+                          <TableHead className="text-left">
+                            <span className="label-text">Time</span>
+                          </TableHead>
+                          <TableHead className="text-left">
+                            <span className="label-text">Levels</span>
+                          </TableHead>
+                          <TableHead className="text-left">
+                            <span className="label-text">Rate</span>
+                          </TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {consolidatedLocations.map((loc, idx) => (
+                          <TableRow key={`${loc.locationId}-${loc.method}-${loc.version}-${idx}`}>
+                            <TableCell className="text-left">
+                              <Link
+                                href={`/locations/${loc.locationId}`}
+                                className="table-link text-sm"
+                              >
+                                {loc.locationName}
+                                <span className="text-xs text-muted-foreground ml-1">
+                                  ({loc.region})
+                                </span>
+                              </Link>
+                            </TableCell>
+                            <TableCell className="text-left">
+                              <Badge variant="secondary" className="text-xs capitalize">
+                                {loc.method.replace(/_/g, ' ')}
+                              </Badge>
+                            </TableCell>
+                            <TableCell className="text-left">
+                              <span className="text-sm capitalize">{loc.version}</span>
+                            </TableCell>
+                            <TableCell className="text-left">
+                              <span className="text-sm">
+                                {loc.levelRange === 'Varies' ? 'Varies' : `Lv. ${loc.levelRange}`}
+                              </span>
+                            </TableCell>
+                            <TableCell className="text-left">
+                              <span className="text-sm">{loc.totalRate}%</span>
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </BentoGridNoLink>
                 ) : (
                   <BentoGridNoLink>
                     <div className="text-gray-400 text-sm my-6 text-center">
-                      No location data found. Try breeding!
+                      No wild encounter data found. This Pokémon may only be available through
+                      breeding, events, or trades.
                     </div>
                   </BentoGridNoLink>
-                )} */}
+                )}
               </BentoGrid>
             </div>
           </TabsContent>

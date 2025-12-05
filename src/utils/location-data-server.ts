@@ -62,7 +62,7 @@ async function loadLocationsManifest(): Promise<LocationsManifestItem[]> {
  */
 export async function getLocationData(locationId: string): Promise<LocationData | null> {
   try {
-    const locationPath = path.join(process.cwd(), `new/locations/${locationId}.json`);
+    const locationPath = path.join(process.cwd(), `public/new/locations/${locationId}.json`);
     const locationData = await fs.readFile(locationPath, 'utf-8');
     return JSON.parse(locationData);
   } catch (error) {
@@ -102,4 +102,84 @@ export async function getAllLocations(): Promise<LocationsManifestItem[]> {
 export async function getLocationsByRegion(region: string): Promise<LocationsManifestItem[]> {
   const allLocations = await loadLocationsManifest();
   return allLocations.filter((location) => location.region.toLowerCase() === region.toLowerCase());
+}
+
+/**
+ * Encounter data for a Pokemon at a specific location
+ */
+export interface PokemonLocationEncounter {
+  locationId: string;
+  locationName: string;
+  region: string;
+  method: string;
+  version: string; // time of day: morning, day, night
+  levelRange: string;
+  rate: number;
+  formName?: string;
+}
+
+/**
+ * Get all locations where a specific Pokemon can be found (server-side only)
+ * This scans all location files for encounters with the given Pokemon
+ */
+export async function getLocationsForPokemon(
+  pokemonId: string,
+  formName?: string,
+): Promise<PokemonLocationEncounter[]> {
+  const encounters: PokemonLocationEncounter[] = [];
+  const normalizedPokemonId = pokemonId.toLowerCase();
+  const normalizedFormName = formName?.toLowerCase() || 'plain';
+
+  try {
+    const locationsDir = path.join(process.cwd(), 'public/new/locations');
+    const files = await fs.readdir(locationsDir);
+
+    for (const file of files) {
+      if (!file.endsWith('.json')) continue;
+
+      try {
+        const locationPath = path.join(locationsDir, file);
+        const locationData = await fs.readFile(locationPath, 'utf-8');
+        const location = JSON.parse(locationData) as LocationData & {
+          encounters?: Array<{
+            pokemon: string;
+            method: string;
+            version: string;
+            levelRange: string;
+            rate: number;
+            formName?: string;
+          }>;
+        };
+
+        if (!location.encounters) continue;
+
+        // Find encounters for this Pokemon
+        const pokemonEncounters = location.encounters.filter(
+          (enc) =>
+            enc.pokemon.toLowerCase() === normalizedPokemonId &&
+            (normalizedFormName === 'plain' || enc.formName?.toLowerCase() === normalizedFormName),
+        );
+
+        for (const enc of pokemonEncounters) {
+          encounters.push({
+            locationId: location.id,
+            locationName: location.name,
+            region: location.region,
+            method: enc.method,
+            version: enc.version,
+            levelRange: enc.levelRange,
+            rate: enc.rate,
+            formName: enc.formName,
+          });
+        }
+      } catch (error) {
+        // Skip files that can't be parsed
+        continue;
+      }
+    }
+  } catch (error) {
+    console.error('Error scanning locations for Pokemon:', error);
+  }
+
+  return encounters;
 }

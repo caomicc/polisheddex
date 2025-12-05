@@ -3,9 +3,11 @@
 import { Suspense } from 'react';
 import { ComprehensivePokemonData } from '@/types/new';
 import PokemonFormClient from './pokemon-form-client';
+import { PokemonLocationEncounter } from '@/utils/location-data-server';
 
 interface PokemonFormWrapperProps {
   pokemonData: ComprehensivePokemonData;
+  locationData?: PokemonLocationEncounter[];
 }
 
 function PokemonFormSkeleton() {
@@ -18,10 +20,13 @@ function PokemonFormSkeleton() {
   );
 }
 
-export default function PokemonFormWrapper({ pokemonData }: PokemonFormWrapperProps) {
+export default function PokemonFormWrapper({
+  pokemonData,
+  locationData = [],
+}: PokemonFormWrapperProps) {
   return (
     <Suspense fallback={<PokemonFormSkeleton />}>
-      <PokemonFormClient pokemonData={pokemonData} />
+      <PokemonFormClient pokemonData={pokemonData} locationData={locationData} />
     </Suspense>
   );
 }
