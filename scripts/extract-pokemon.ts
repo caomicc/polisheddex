@@ -699,7 +699,8 @@ const extractMon = (data: string[], pokemonForm: string) => {
   }
 
   //Case #1: Adding to plain form
-  let mon = pokemonData[pokemonForm]?.find((mon) => mon['id'] === reduce(name_form));
+  const reducedNameForm = reduce(name_form);
+  let mon = pokemonData[pokemonForm]?.find((mon) => mon['id'] === reducedNameForm);
   if (mon) {
     const form = Object.values(mon?.['forms'] || {}).find((form) => form['formNumber'] === 1);
     if (form) {
@@ -713,20 +714,21 @@ const extractMon = (data: string[], pokemonForm: string) => {
   }
 
   //Case #2: Adding to functional form
-  mon = pokemonData[pokemonForm]?.find(
-    (mon) => mon['id'] === reduce(name_form.split('_').slice(0, -1).join('_')),
-  );
-  if (mon) {
-    const formKey = reduce(name_form.split('_').at(-1) as string);
-    const form = mon['forms']?.[formKey];
-    if (form) {
-      form['types'] = types as unknown as PokemonData['types'];
-      form['abilities'] = abilities;
-      form['baseStats'] = bsts;
-      form['growthRate'] = growthRate;
-      form['hasGender'] = hasGender;
+  // Find a pokemon whose id is a prefix of the reduced name, then use the remainder as form key
+  // e.g., "taurospaldeanfire" -> find "tauros", form key is "paldeanfire"
+  for (const pokemon of pokemonData[pokemonForm] || []) {
+    if (reducedNameForm.startsWith(pokemon.id) && reducedNameForm !== pokemon.id) {
+      const formKey = reducedNameForm.slice(pokemon.id.length);
+      const form = pokemon['forms']?.[formKey];
+      if (form) {
+        form['types'] = types as unknown as PokemonData['types'];
+        form['abilities'] = abilities;
+        form['baseStats'] = bsts;
+        form['growthRate'] = growthRate;
+        form['hasGender'] = hasGender;
+        return;
+      }
     }
-    return;
   }
 };
 
