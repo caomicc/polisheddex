@@ -4,7 +4,6 @@ import { loadJsonFile } from '../fileLoader';
 import { PokemonManifest, ComprehensivePokemonData, PokemonMovesets } from '@/types/new';
 import { getMoveData } from '../move-data-server';
 import { getAbilityData } from '../ability-data-server';
-import { normalizePokemonUrlKey } from '../pokemonUrlNormalizer';
 import { getPokemonFileName } from '@/lib/extract-utils';
 
 /**

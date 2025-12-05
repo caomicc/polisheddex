@@ -306,44 +306,6 @@ export function normalizeAsmLabelToMoveKey(label: string) {
     .toUpperCase();
 }
 
-// // old alias
-// export function toTitleCase(str: string) {
-//   return normalizeString(str);
-//   // .toLowerCase()
-//   // .replace(/(^|_|\s|-)([a-z])/g, (_, sep, c) => sep + c.toUpperCase())
-//   // .replace(/_/g, '');
-// }
-
-// // Helper to standardize Pokemon key names across the codebase
-// export function standardizePokemonKey(name: string): string {
-//   // First, trim any whitespace from the name to avoid trailing space
-//   let trimmedName = name.trim();
-
-//   // Special handling for Paldean forms that need specific treatment
-//   if (trimmedName.toLowerCase().includes(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase())) {
-//     return toTitleCase(
-//       trimmedName
-//         .substring(0, trimmedName.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase()))
-//         .toLowerCase(),
-//     );
-//   } else if (trimmedName.toLowerCase().includes(KNOWN_FORMS.PALDEAN_WATER.toLowerCase())) {
-//     return toTitleCase(
-//       trimmedName
-//         .substring(0, trimmedName.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_WATER.toLowerCase()))
-//         .toLowerCase(),
-//     );
-//   }
-
-//   // Create a regex pattern using all the known forms from our constant
-//   const formSuffixPattern = new RegExp(`(${Object.values(KNOWN_FORMS).join('|')})$`, 'i');
-
-//   // Remove any form suffixes
-//   const baseName = trimmedName.replace(formSuffixPattern, '');
-
-//   // Convert to title case and remove any case inconsistencies
-//   return toTitleCase(baseName.trim());
-// }
-
 // --- NOTE: parseDexEntries has been moved to a Node-only file (parseDexEntries.node.ts) ---
 export function parseDexEntries(_file: string): never {
   throw new Error(
@@ -375,37 +337,6 @@ export function parseWildmonLine(
   };
 }
 
-// export function normalizeMonName(
-//   name: string,
-//   formStr: string | null,
-// ): { baseName: string; formName: string | null } {
-//   // Trim and convert to TitleCase, then remove any trailing spaces
-//   const baseName = toTitleCase(name).trimEnd();
-
-//   let formName: string | null = null;
-
-//   if (formStr) {
-//     if (formStr === 'ALOLAN_FORM') {
-//       formName = KNOWN_FORMS.ALOLAN;
-//     } else if (formStr === 'GALARIAN_FORM') {
-//       formName = KNOWN_FORMS.GALARIAN;
-//     } else if (formStr === 'HISUIAN_FORM') {
-//       formName = KNOWN_FORMS.HISUIAN;
-//     } else if (formStr === 'PALDEAN_FORM') {
-//       formName = KNOWN_FORMS.PALDEAN;
-//     } else if (formStr === 'TAUROS_PALDEAN_FIRE_FORM') {
-//       formName = KNOWN_FORMS.PALDEAN_FIRE;
-//     } else if (formStr === 'TAUROS_PALDEAN_WATER_FORM') {
-//       formName = KNOWN_FORMS.PALDEAN_WATER;
-//     } else if (formStr === 'PLAIN_FORM' || formStr.includes('PLAIN')) {
-//       formName = null;
-//     } else {
-//       formName = toTitleCase(formStr).trimEnd();
-//     }
-//   }
-
-//   return { baseName, formName };
-// }
 // Helper functions to convert game codes to human-readable strings
 export function convertGenderCode(code: string): { male: number; female: number } {
   const genderCodes: Record<string, { male: number; female: number }> = {

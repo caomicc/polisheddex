@@ -18,9 +18,8 @@ const FORM_SUFFIXES = [
   '_paldean',
   '_paldean_fire',
   '_paldean_water',
-  '_paldean_combat',
-  '_paldean_blaze',
-  '_paldean_aqua',
+  '_paldeanfire', // Reduced form - will be mapped
+  '_paldeanwater', // Reduced form - will be mapped
   '_mega',
   '_mega_x',
   '_mega_y',
@@ -92,6 +91,13 @@ const FORM_SUFFIXES = [
   '_spiky',
 ];
 
+// Map reduced form names to their folder-friendly versions
+const FORM_SUFFIX_MAP: Record<string, string> = {
+  _paldeanfire: '_paldean_fire',
+  _paldeanwater: '_paldean_water',
+  _spikyeared: '_spikyeared',
+};
+
 /**
  * Normalize a Pokemon name for sprite lookup.
  * Reduces the base name (removes special chars, underscores) but preserves form suffixes.
@@ -100,6 +106,7 @@ const FORM_SUFFIXES = [
  *   - "Mr. Mime" -> "mrmime"
  *   - "ninetales_alolan" -> "ninetales_alolan"
  *   - "Mr. Mime_galarian" -> "mrmime_galarian"
+ *   - "tauros_paldeanfire" -> "tauros_paldean_fire"
  */
 function normalizePokemonName(name: string): string {
   const nameLower = name.toLowerCase();
@@ -120,7 +127,9 @@ function normalizePokemonName(name: string): string {
         .replace(/♂/g, 'm')
         .replace(/♀/g, 'f')
         .replace(/é/g, 'e');
-      return `${reducedBase}${suffix}`;
+      // Map reduced form names to folder-friendly versions
+      const mappedSuffix = FORM_SUFFIX_MAP[suffix] || suffix;
+      return `${reducedBase}${mappedSuffix}`;
     }
   }
 
