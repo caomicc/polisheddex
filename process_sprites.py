@@ -143,6 +143,7 @@ class GBCSpriteProcessor:
         self.trainer_dir = self.rom_path / "gfx" / "trainers"
         self.items_dir = self.rom_path / "gfx" / "items"
         self.minis_dir = self.rom_path / "gfx" / "minis"
+        self.icons_dir = self.rom_path / "gfx" / "icons"
 
         # Create output directories
         self.sprites_dir = self.output_path / "sprites" / "pokemon"
@@ -157,115 +158,59 @@ class GBCSpriteProcessor:
         self.minis_sprites_dir = self.output_path / "sprites" / "minis"
         self.minis_sprites_dir.mkdir(parents=True, exist_ok=True)
 
-        # Mapping of variant directory names to base Pokemon names
-        # For Pokemon with multiple visual variants, we need to know which directory
-        # contains the "base" or most common form to use as the default sprite
-        self.variant_to_base_mapping = {
-            # Pikachu variants - use pikachu_plain as base (most common form)
-            'pikachu_plain': 'pikachu_plain',
-            'pikachu_chuchu': 'pikachu_yellow',
-            'pikachu_yellow': 'pikachu_yellow',
-            'pikachu_fly': 'pikachu_fly',
-            'pikachu_pika': 'pikachu_red',
-            'pikachu_red': 'pikachu_red',
-            'pikachu_spark': 'pikachu_spark',
-            'pikachu_surf': 'pikachu_surf',
+        self.icons_sprites_dir = self.output_path / "sprites" / "icons"
+        self.icons_sprites_dir.mkdir(parents=True, exist_ok=True)
 
-            'dudunsparce': 'dudunsparce',  # Dunsparce variant
-            'dudunsparce_two_segment': 'dudunsparce_two_segment',  # Dunsparce variant
-            'dudunsparce_three_segment': 'dudunsparce_three_segment',  # Dunsparce variant
-
-            # Unown variants - use unown_a as base (first letter form)
-            'unown_a': 'unown_a',
-            'unown_b': 'unown_b', 'unown_c': 'unown_c', 'unown_d': 'unown_d', 'unown_e': 'unown_e',
-            'unown_f': 'unown_f', 'unown_g': 'unown_g', 'unown_h': 'unown_h', 'unown_i': 'unown_i',
-            'unown_j': 'unown_j', 'unown_k': 'unown_k', 'unown_l': 'unown_l', 'unown_m': 'unown_m',
-            'unown_n': 'unown_n', 'unown_o': 'unown_o', 'unown_p': 'unown_p', 'unown_q': 'unown_q',
-            'unown_r': 'unown_r', 'unown_s': 'unown_s', 'unown_t': 'unown_t', 'unown_u': 'unown_u',
-            'unown_v': 'unown_v', 'unown_w': 'unown_w', 'unown_x': 'unown_x', 'unown_y': 'unown_y',
-            'unown_z': 'unown_z', 'unown_question': 'unown_question', 'unown_exclamation': 'unown_exclamation',
-
-            # Magikarp variants - use magikarp_plain as base
-            'magikarp_plain': 'magikarp_plain',
-            'magikarp_bubbles': 'magikarp_bubbles', 'magikarp_calico1': 'magikarp_calico1', 'magikarp_calico2': 'magikarp_calico2',
-            'magikarp_calico3': 'magikarp_calico3', 'magikarp_dapples': 'magikarp_dapples', 'magikarp_diamonds': 'magikarp_diamonds',
-            'magikarp_forehead1': 'magikarp_forehead1', 'magikarp_forehead2': 'magikarp_forehead2', 'magikarp_mask1': 'magikarp_mask1',
-            'magikarp_mask2': 'magikarp_mask2', 'magikarp_orca': 'magikarp_orca', 'magikarp_patches': 'magikarp_patches',
-            'magikarp_raindrop': 'magikarp_raindrop', 'magikarp_saucy': 'magikarp_saucy', 'magikarp_skelly': 'magikarp_skelly',
-            'magikarp_stripe': 'magikarp_stripe', 'magikarp_tiger': 'magikarp_tiger', 'magikarp_twotone': 'magikarp_twotone',
-            'magikarp_zebra': 'magikarp_zebra',
-
-            # Pichu variants - use pichu_plain as base
-            'pichu_plain': 'pichu_plain',
-            'pichu_spiky': 'pichu_spiky',
+        # Icon palette definitions from icons.pal (GBC 5-bit RGB values)
+        # Each palette has 4 colors: light, skin/base, main color, black
+        self.icon_palettes = {
+            'RED': [(27, 31, 27), (31, 19, 10), (31, 7, 1), (0, 0, 0)],
+            'BLUE': [(27, 31, 27), (31, 19, 10), (10, 9, 31), (0, 0, 0)],
+            'GREEN': [(27, 31, 27), (31, 19, 10), (7, 23, 3), (0, 0, 0)],
+            'BROWN': [(27, 31, 27), (31, 19, 10), (15, 10, 3), (0, 0, 0)],
+            'PURPLE': [(27, 31, 27), (31, 19, 10), (18, 4, 18), (0, 0, 0)],
+            'GRAY': [(27, 31, 27), (31, 19, 10), (13, 13, 13), (0, 0, 0)],
+            'PINK': [(27, 31, 27), (31, 19, 10), (31, 10, 11), (0, 0, 0)],
+            'TEAL': [(27, 31, 27), (31, 19, 10), (3, 23, 21), (0, 0, 0)],
+            # Additional colors referenced in overworld_icon_pals.asm
+            'AZURE': [(27, 31, 27), (31, 19, 10), (10, 20, 31), (0, 0, 0)],
+            'ORANGE': [(27, 31, 27), (31, 19, 10), (31, 16, 1), (0, 0, 0)],
+            'YELLOW': [(27, 31, 27), (31, 19, 10), (31, 28, 1), (0, 0, 0)],
+            'WHITE': [(27, 31, 27), (31, 19, 10), (27, 27, 27), (0, 0, 0)],
+            'BLACK': [(27, 31, 27), (31, 19, 10), (5, 5, 5), (0, 0, 0)],
         }
 
-        # Base forms that should be processed (directories that represent the default sprite)
-        self.base_form_directories = {
-            'pikachu': 'pikachu_plain',
-            'unown': 'unown_a',  # Use A form as default
-            'magikarp': 'magikarp_plain',
-            'pichu': 'pichu_plain',
-            'dudunsparce': 'dudunsparce_two_segment',  # Use two-segment as default
-        }
+        # Load icon palette mappings from overworld_icon_pals.asm
+        self.icon_color_map = self._load_icon_palette_map()
 
-        # Palette directory mapping - where to find palette files for variants
-        # Form variants use the base Pokemon's palette files
-        self.palette_directory_mapping = {
-            'pikachu_plain': 'pikachu',
-            'pikachu_chuchu': 'pikachu',
-            'pikachu_fly': 'pikachu',
-            'pikachu_pika': 'pikachu',
-            'pikachu_spark': 'pikachu',
-            'pikachu_surf': 'pikachu',
-            'pikachu_yellow': 'pikachu',
-            'pikachu_red': 'pikachu',
+    def _load_icon_palette_map(self) -> Dict[str, Tuple[str, str]]:
+        """Parse overworld_icon_pals.asm to get Pokemon -> (color1, color2) mapping"""
+        pal_map = {}
+        pal_file = self.rom_path / "data" / "pokemon" / "overworld_icon_pals.asm"
 
-            'pichu_plain': 'pichu',
-            'pichu_spiky': 'pichu',
+        if not pal_file.exists():
+            print(f"Warning: Icon palette map not found at {pal_file}")
+            return pal_map
 
-            'dudunsparce': 'dudunsparce',
-            'dudunsparce_two_segment': 'dudunsparce',
-            'dudunsparce_three_segment': 'dudunsparce',
+        try:
+            with open(pal_file, 'r') as f:
+                for line in f:
+                    line = line.strip()
+                    # Match lines like: iconpal RED, AZURE ; PIKACHU
+                    if line.startswith('iconpal'):
+                        # Extract colors and Pokemon name from comment
+                        match = re.match(r'iconpal\s+(\w+),\s*(\w+)\s*;\s*(\w+)', line)
+                        if match:
+                            color1, color2, pokemon = match.groups()
+                            # Normalize Pokemon name to match icon filename
+                            pokemon_key = pokemon.lower()
+                            # Handle special characters in names
+                            pokemon_key = pokemon_key.replace('_', '_')
+                            pal_map[pokemon_key] = (color1, color2)
+        except Exception as e:
+            print(f"Warning: Could not parse icon palette map: {e}")
 
-            # Unown variants - all use base unown palette
-            'unown_a': 'unown', 'unown_b': 'unown', 'unown_c': 'unown', 'unown_d': 'unown',
-            'unown_e': 'unown', 'unown_f': 'unown', 'unown_g': 'unown', 'unown_h': 'unown',
-            'unown_i': 'unown', 'unown_j': 'unown', 'unown_k': 'unown', 'unown_l': 'unown',
-            'unown_m': 'unown', 'unown_n': 'unown', 'unown_o': 'unown', 'unown_p': 'unown',
-            'unown_q': 'unown', 'unown_r': 'unown', 'unown_s': 'unown', 'unown_t': 'unown',
-            'unown_u': 'unown', 'unown_v': 'unown', 'unown_w': 'unown', 'unown_x': 'unown',
-            'unown_y': 'unown', 'unown_z': 'unown', 'unown_question': 'unown', 'unown_exclamation': 'unown',
-
-            # Magikarp variants - all use base magikarp palette
-            'magikarp_plain': 'magikarp',
-            'magikarp_bubbles': 'magikarp',
-            'magikarp_calico1': 'magikarp',
-            'magikarp_calico2': 'magikarp',
-            'magikarp_calico3': 'magikarp',
-            'magikarp_dapples': 'magikarp',
-            'magikarp_diamonds': 'magikarp',
-            'magikarp_forehead1': 'magikarp',
-            'magikarp_forehead2': 'magikarp',
-            'magikarp_mask1': 'magikarp',
-            'magikarp_mask2': 'magikarp',
-            'magikarp_orca': 'magikarp',
-            'magikarp_patches': 'magikarp',
-            'magikarp_raindrop': 'magikarp',
-            'magikarp_saucy': 'magikarp',
-            'magikarp_skelly': 'magikarp',
-            'magikarp_stripe': 'magikarp',
-            'magikarp_tiger': 'magikarp',
-            'magikarp_twotone': 'magikarp',
-            'magikarp_zebra': 'magikarp',
-
-            # Arbok variants - all use base arbok palette
-            'arbok_agatha': 'arbok',
-            'arbok_ariana': 'arbok',
-            'arbok_johto': 'arbok',
-            'arbok_kanto': 'arbok',
-            'arbok_koga': 'arbok',
-        }
+        return pal_map
 
     def get_pokemon_list(self) -> List[str]:
         """Get list of all Pokemon directories, including mapped variants"""
@@ -1184,18 +1129,262 @@ class GBCSpriteProcessor:
 
         return mini_manifest
 
+    def get_icon_list(self) -> List[str]:
+        """Get list of all icon PNG files (excluding palette file)"""
+        icon_pngs = []
+        if self.icons_dir.exists():
+            for item in self.icons_dir.iterdir():
+                if item.is_file() and item.suffix == '.png':
+                    icon_name = item.stem
+                    icon_pngs.append(icon_name)
+        return sorted(icon_pngs)
+
+    def _get_icon_colors(self, icon_name: str) -> Tuple[str, str]:
+        """Get the two palette colors for an icon based on Pokemon name"""
+        # Normalize icon name to match palette map keys
+        normalized = icon_name.lower()
+
+        # Direct lookup
+        if normalized in self.icon_color_map:
+            return self.icon_color_map[normalized]
+
+        # Try without form suffix for regional forms
+        for suffix in ['_alolan', '_galarian', '_hisuian', '_paldean', '_paldean_fire', '_paldean_water',
+                       '_armored', '_bloodmoon', '_two_segment', '_three_segment', '_spiky']:
+            if normalized.endswith(suffix):
+                base_name = normalized.replace(suffix, '')
+                if base_name in self.icon_color_map:
+                    return self.icon_color_map[base_name]
+
+        # Check for Unown forms (unown_a, unown_b, etc.)
+        if normalized.startswith('unown'):
+            if 'unown' in self.icon_color_map:
+                return self.icon_color_map['unown']
+            return ('BLACK', 'BLUE')  # Default Unown colors
+
+        # Default fallback
+        return ('GRAY', 'GRAY')
+
+    def _convert_gbc_to_rgb(self, gbc_color: Tuple[int, int, int]) -> Tuple[int, int, int]:
+        """Convert GBC 5-bit RGB (0-31) to 8-bit RGB (0-255)"""
+        r = (gbc_color[0] * 255) // 31
+        g = (gbc_color[1] * 255) // 31
+        b = (gbc_color[2] * 255) // 31
+        return (r, g, b)
+
+    def process_icon(self, icon_name: str) -> bool:
+        """Process a single Pokemon icon - extract 2 frames, apply colors, create animated GIF"""
+        icon_png = self.icons_dir / f"{icon_name}.png"
+        if not icon_png.exists():
+            print(f"Icon PNG not found: {icon_name}")
+            return False
+
+        print(f"Processing icon {icon_name}...")
+
+        try:
+            # Load the icon image (16x32, grayscale with 2 frames stacked)
+            icon_img = Image.open(icon_png)
+            width, height = icon_img.size
+
+            # Icons are 16x32 with two 16x16 frames
+            if height != 32 or width != 16:
+                print(f"Warning: Unexpected icon dimensions for {icon_name}: {width}x{height}")
+
+            frame_height = 16
+
+            # Get the palette colors for this Pokemon
+            color1_name, color2_name = self._get_icon_colors(icon_name)
+            palette1 = self.icon_palettes.get(color1_name, self.icon_palettes['GRAY'])
+            palette2 = self.icon_palettes.get(color2_name, self.icon_palettes['GRAY'])
+
+            # Extract the two frames
+            frames = []
+            for i in range(2):
+                top = i * frame_height
+                bottom = top + frame_height
+                frame = icon_img.crop((0, top, width, bottom))
+                # Apply colorization and transparency
+                frame_rgba = self.apply_icon_palette(frame, palette1, palette2)
+                frames.append(frame_rgba)
+
+            # Save static PNG (first frame)
+            if frames:
+                static_path = self.icons_sprites_dir / f"{icon_name}.png"
+                frames[0].save(static_path)
+                print(f"Saved static icon: {static_path}")
+
+                # Create animated GIF with the two frames
+                # Icons animate at a slow pace - about 500ms per frame
+                if len(frames) > 1:
+                    durations = [500, 500]  # 500ms per frame for gentle bobbing animation
+                    gif_path = self.icons_sprites_dir / f"{icon_name}_animated.gif"
+                    self.create_animated_gif(frames, durations, str(gif_path))
+
+            return True
+
+        except Exception as e:
+            print(f"Error processing icon {icon_name}: {e}")
+            import traceback
+            traceback.print_exc()
+            return False
+
+    def apply_icon_palette(self, icon_frame: Image.Image, palette1: List[Tuple[int, int, int]], palette2: List[Tuple[int, int, int]]) -> Image.Image:
+        """Apply two-color palette to icon frame with transparency"""
+        # Convert to grayscale if needed
+        if icon_frame.mode != 'L':
+            gray_frame = icon_frame.convert('L')
+        else:
+            gray_frame = icon_frame
+
+        # Create RGBA output
+        rgba = Image.new('RGBA', icon_frame.size, (0, 0, 0, 0))
+        gray_pixels = gray_frame.load()
+        rgba_pixels = rgba.load()
+
+        # Convert palette colors from GBC 5-bit to 8-bit RGB
+        # Use palette1 for main color mapping
+        light_color = self._convert_gbc_to_rgb(palette1[0])      # Lightest - near white
+        mid_color = self._convert_gbc_to_rgb(palette1[1])        # Skin/base tone
+        main_color = self._convert_gbc_to_rgb(palette1[2])       # Main distinguishing color
+        dark_color = self._convert_gbc_to_rgb(palette1[3])       # Black
+
+        for y in range(icon_frame.size[1]):
+            for x in range(icon_frame.size[0]):
+                gray_value = gray_pixels[x, y]
+
+                # Map grayscale values to the 4 palette colors
+                # White/near-white becomes transparent
+                if gray_value >= 250:
+                    rgba_pixels[x, y] = (0, 0, 0, 0)  # Transparent
+                elif gray_value >= 192:
+                    # Lightest non-transparent - use light color
+                    rgba_pixels[x, y] = (*light_color, 255)
+                elif gray_value >= 128:
+                    # Medium - use mid/skin color
+                    rgba_pixels[x, y] = (*mid_color, 255)
+                elif gray_value >= 64:
+                    # Darker - use main color
+                    rgba_pixels[x, y] = (*main_color, 255)
+                else:
+                    # Darkest - use black/dark color
+                    rgba_pixels[x, y] = (*dark_color, 255)
+
+        return rgba
+
+    def apply_icon_transparency(self, icon_frame: Image.Image) -> Image.Image:
+        """Apply transparency to icon frame - white pixels become transparent"""
+        # Convert to RGBA
+        if icon_frame.mode == 'L':
+            # Grayscale - convert to RGBA
+            rgba = Image.new('RGBA', icon_frame.size, (0, 0, 0, 0))
+            gray_pixels = icon_frame.load()
+            rgba_pixels = rgba.load()
+
+            for y in range(icon_frame.size[1]):
+                for x in range(icon_frame.size[0]):
+                    gray_value = gray_pixels[x, y]
+                    # White/near-white becomes transparent, everything else is grayscale
+                    if gray_value >= 250:
+                        rgba_pixels[x, y] = (0, 0, 0, 0)  # Transparent
+                    else:
+                        rgba_pixels[x, y] = (gray_value, gray_value, gray_value, 255)
+
+            return rgba
+        elif icon_frame.mode == 'RGBA':
+            return icon_frame
+        else:
+            return icon_frame.convert('RGBA')
+
+    def process_all_icons(self):
+        """Process all Pokemon icons"""
+        icon_list = self.get_icon_list()
+        total = len(icon_list)
+        processed = 0
+
+        print(f"Found {total} icons to process...")
+
+        for i, icon_name in enumerate(icon_list, 1):
+            print(f"[{i}/{total}] Processing icon {icon_name}")
+            if self.process_icon(icon_name):
+                processed += 1
+
+        print(f"\nCompleted! Processed {processed}/{total} icons")
+        print(f"Output directory: {self.icons_sprites_dir}")
+
+    def create_icon_manifest(self):
+        """Create a JSON manifest of all processed icon sprites with dimensions"""
+        icon_manifest = {}
+
+        # Get unique icon names (without file extensions)
+        icon_names = set()
+        for sprite_file in self.icons_sprites_dir.iterdir():
+            if sprite_file.is_file() and sprite_file.suffix in ['.png', '.gif']:
+                # Remove _animated suffix if present to get base name
+                base_name = sprite_file.stem.replace('_animated', '')
+                icon_names.add(base_name)
+
+        # Process each icon
+        for icon_name in sorted(icon_names):
+            icon_data = {}
+
+            # Check for static PNG
+            static_file = self.icons_sprites_dir / f"{icon_name}.png"
+            if static_file.exists():
+                try:
+                    with Image.open(static_file) as img:
+                        width, height = img.size
+                        icon_data["static"] = {
+                            "url": f"sprites/icons/{static_file.name}",
+                            "width": width,
+                            "height": height
+                        }
+                except Exception as e:
+                    print(f"Warning: Could not read dimensions for {static_file}: {e}")
+                    icon_data["static"] = {
+                        "url": f"sprites/icons/{static_file.name}",
+                        "width": 16,
+                        "height": 16
+                    }
+
+            # Check for animated GIF
+            animated_file = self.icons_sprites_dir / f"{icon_name}_animated.gif"
+            if animated_file.exists():
+                try:
+                    with Image.open(animated_file) as img:
+                        width, height = img.size
+                        icon_data["animated"] = {
+                            "url": f"sprites/icons/{animated_file.name}",
+                            "width": width,
+                            "height": height
+                        }
+                except Exception as e:
+                    print(f"Warning: Could not read dimensions for {animated_file}: {e}")
+                    icon_data["animated"] = {
+                        "url": f"sprites/icons/{animated_file.name}",
+                        "width": 16,
+                        "height": 16
+                    }
+
+            # Only add to manifest if we have at least one file
+            if icon_data:
+                icon_manifest[icon_name] = icon_data
+
+        return icon_manifest
+
     def create_unified_manifest(self):
-        """Create a unified JSON manifest containing Pokemon, trainer, item, and mini sprites"""
+        """Create a unified JSON manifest containing Pokemon, trainer, item, mini, and icon sprites"""
         pokemon_data = self.create_sprite_manifest()
         trainer_data = self.create_trainer_manifest()
         item_data = self.create_item_manifest()
         mini_data = self.create_mini_manifest()
+        icon_data = self.create_icon_manifest()
 
         unified_manifest = {
             "pokemon": pokemon_data,
             "trainers": trainer_data,
             "items": item_data,
-            "minis": mini_data
+            "minis": mini_data,
+            "icons": icon_data
         }
 
         # Save unified manifest
@@ -1208,6 +1397,7 @@ class GBCSpriteProcessor:
         print(f"Trainer sprites: {len(trainer_data)}")
         print(f"Item sprites: {len(item_data)}")
         print(f"Mini sprites: {len(mini_data)}")
+        print(f"Icon sprites: {len(icon_data)}")
 
     def export_sprite(self, sprite: Image.Image, output_path: str) -> None:
         """Export the processed sprite to the specified output path."""
@@ -1225,13 +1415,14 @@ class GBCSpriteProcessor:
         return [{'duration': 300} for _ in range(10)]  # Example: 10 frames, each 100ms
 
 def main():
-    parser = argparse.ArgumentParser(description="Process Game Boy Color sprites (Pokemon, Trainers, and Items)")
+    parser = argparse.ArgumentParser(description="Process Game Boy Color sprites (Pokemon, Trainers, Items, Minis, and Icons)")
     parser.add_argument('target', nargs='?', help='Specific Pokemon/trainer/item name to process')
     parser.add_argument('--all', action='store_true', help='Process all sprites')
     parser.add_argument('--pokemon', action='store_true', help='Process Pokemon sprites only')
     parser.add_argument('--trainers', action='store_true', help='Process trainer sprites only')
     parser.add_argument('--items', action='store_true', help='Process item sprites only')
     parser.add_argument('--minis', action='store_true', help='Process mini/overworld sprites only')
+    parser.add_argument('--icons', action='store_true', help='Process Pokemon icon sprites only')
     parser.add_argument('--rom-path', default='polishedcrystal', help='Path to ROM directory')
     parser.add_argument('--output-path', default='public', help='Output directory')
 
@@ -1253,6 +1444,9 @@ def main():
 
         print("\nProcessing all mini sprites...")
         processor.process_all_minis()
+
+        print("\nProcessing all icon sprites...")
+        processor.process_all_icons()
 
         # Create unified manifest
         print("\nCreating unified sprite manifest...")
@@ -1282,8 +1476,14 @@ def main():
         # Create unified manifest with existing data
         processor.create_unified_manifest()
 
+    elif args.icons:
+        # Process only icon sprites
+        processor.process_all_icons()
+        # Create unified manifest with existing data
+        processor.create_unified_manifest()
+
     elif args.target:
-        # Try to process specific target (check if it's Pokemon, trainer, item, or mini)
+        # Try to process specific target (check if it's Pokemon, trainer, item, mini, or icon)
         if processor.process_pokemon(args.target):
             print(f"Processed Pokemon: {args.target}")
         elif processor.process_trainer(args.target):
@@ -1292,8 +1492,10 @@ def main():
             print(f"Processed item: {args.target}")
         elif processor.process_mini(args.target):
             print(f"Processed mini sprite: {args.target}")
+        elif processor.process_icon(args.target):
+            print(f"Processed icon: {args.target}")
         else:
-            print(f"Target '{args.target}' not found as Pokemon, trainer, item, or mini sprite")
+            print(f"Target '{args.target}' not found as Pokemon, trainer, item, mini sprite, or icon")
 
     else:
         # Default: process test cases
@@ -1322,7 +1524,13 @@ def main():
         else:
             print("Mini sprite test failed")
 
-        print("Run with --all to process all sprites, --pokemon for Pokemon only, --trainers for trainers only, --items for items only, or --minis for mini sprites only")
+        print("Testing icon (pikachu)...")
+        if processor.process_icon('pikachu'):
+            print("Icon test successful!")
+        else:
+            print("Icon test failed")
+
+        print("Run with --all to process all sprites, --pokemon for Pokemon only, --trainers for trainers only, --items for items only, --minis for mini sprites only, or --icons for icons only")
 
 if __name__ == "__main__":
     main()
