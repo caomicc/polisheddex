@@ -40,15 +40,15 @@ def reduce_pokemon_folder_name(name: str) -> str:
     """
     Normalize a Pokemon folder name, preserving form suffixes with underscores.
     - If name ends with '_plain', strip it and return just the reduced base name
-    - If name has another form suffix (e.g., '_alolan'), reduce the base name 
+    - If name has another form suffix (e.g., '_alolan'), reduce the base name
       but keep the underscore and form suffix
     - Otherwise, reduce the entire name
     """
     name_lower = name.lower()
-    
+
     # Known form suffixes that should be preserved
     form_suffixes = [
-        '_alolan', '_galarian', '_hisuian', '_paldean', 
+        '_alolan', '_galarian', '_hisuian', '_paldean',
         '_paldean_fire', '_paldean_water', '_paldean_combat', '_paldean_blaze', '_paldean_aqua',
         '_mega', '_mega_x', '_mega_y', '_gmax', '_primal',
         '_origin', '_sky', '_therian', '_black', '_white',
@@ -62,16 +62,16 @@ def reduce_pokemon_folder_name(name: str) -> str:
         '_hero', '_wellspring', '_hearthflame', '_cornerstone',
         '_terastal', '_stellar',
         '_red', '_yellow', '_green', '_blue', '_orange', '_purple', '_pink', '_white', '_black',
-        '_chuchu', '_pika',
+        '_chuchu', '_pika', '_spark', '_fly', '_surf', '_spiky',
         '_two_segment', '_three_segment',
         '_johto',
     ]
-    
+
     # Check for _plain suffix - strip it entirely
     if name_lower.endswith('_plain'):
         base_name = name_lower[:-6]  # Remove '_plain'
         return reduce_name(base_name)
-    
+
     # Check for other form suffixes - preserve them with underscore
     for suffix in form_suffixes:
         if name_lower.endswith(suffix):
@@ -79,7 +79,7 @@ def reduce_pokemon_folder_name(name: str) -> str:
             reduced_base = reduce_name(base_name)
             # The suffix is already lowercase, just need to ensure underscore is there
             return f"{reduced_base}{suffix}"
-    
+
     # No form suffix, just reduce the whole name
     return reduce_name(name_lower)
 
@@ -320,7 +320,7 @@ class GBCSpriteProcessor:
         elif pokemon_name == 'pikachu_pika':
             mapped_name = 'pikachu_red'
 
-        # Apply reduce_pokemon_folder_name to normalize the output 
+        # Apply reduce_pokemon_folder_name to normalize the output
         # (reduces base name but preserves form suffixes with underscores)
         return reduce_pokemon_folder_name(mapped_name)
 
@@ -462,6 +462,23 @@ class GBCSpriteProcessor:
                 palette_dir = self.pokemon_dir / self.palette_directory_mapping[pokemon_name]
 
             palette_file = palette_dir / f"{variant}.pal"
+
+            # If palette not found in current dir, try the base Pokemon folder
+            # (e.g., pikachu_plain uses palettes from pikachu folder)
+            if not palette_file.exists() and '_' in pokemon_name:
+                # Extract base name by removing the form suffix
+                for suffix in ['_plain', '_alolan', '_galarian', '_hisuian', '_paldean',
+                               '_fly', '_surf', '_spark', '_spiky', '_chuchu', '_pika',
+                               '_red', '_yellow', '_green', '_blue']:
+                    if pokemon_name.endswith(suffix):
+                        base_name = pokemon_name[:-len(suffix)]
+                        base_palette_dir = self.pokemon_dir / base_name
+                        base_palette_file = base_palette_dir / f"{variant}.pal"
+                        if base_palette_file.exists():
+                            palette_file = base_palette_file
+                            palette_dir = base_palette_dir
+                            break
+
             if not palette_file.exists():
                 print(f"Palette file not found: {palette_file}")
                 continue
