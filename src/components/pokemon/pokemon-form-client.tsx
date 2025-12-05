@@ -317,15 +317,31 @@ export default function PokemonFormClient({
                   </h3>
                   <div className="text-xs text-left">
                     {uniqueForms.length > 1 ? (
-                      <div className="flex flex-wrap gap-1">
+                      <div className="grid grid-cols-2 gap-2">
                         {uniqueForms.map((form) => (
-                          <Badge key={form} variant="outline" className="capitalize text-xs">
-                            {form === 'plain' ? 'plain' : form.replace(/([A-Z])/g, ' $1').trim()}
-                          </Badge>
+                          <div key={form} className="flex flex-col items-center gap-1">
+                            <PokemonSprite
+                              form={form}
+                              pokemonName={pokemonData.name}
+                              className="w-16 h-16 shadow-none"
+                            />
+                            <span className="text-xs text-center capitalize">
+                              {form === 'plain'
+                                ? 'Default'
+                                : form.replace(/([A-Z])/g, ' $1').trim()}
+                            </span>
+                          </div>
                         ))}
                       </div>
                     ) : (
-                      <span className="text-gray-500">Default form only</span>
+                      <div className="flex flex-col items-center gap-1">
+                        <PokemonSprite
+                          form="plain"
+                          pokemonName={pokemonData.name}
+                          className="w-12 h-12 shadow-none"
+                        />
+                        <span className="text-xs text-center">Default form only</span>
+                      </div>
                     )}
                   </div>
                 </BentoGridNoLink>
