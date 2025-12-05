@@ -14,8 +14,20 @@ import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import { PokemonSprite } from './pokemon-sprite';
 import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
 import { MoveRow } from '../moves';
-import { useMoveData } from '@/hooks/useMoveData';
-import { useMemo } from 'react';
+
+// Type for enriched move data that comes from server
+interface EnrichedMove {
+  id: string;
+  name: string;
+  level?: number;
+  type: string;
+  power: number;
+  accuracy: number;
+  pp: number;
+  effectChance: number;
+  category: string;
+  description: string;
+}
 
 export default function PokemonFormClient({
   pokemonData,
@@ -42,22 +54,6 @@ export default function PokemonFormClient({
     : [];
 
   const uniqueForms = Object.keys(pokemonData.versions?.[version]?.forms || {});
-
-  // Get all move IDs for current form to fetch their data
-  const moveIds = useMemo(() => {
-    const levelUpMoves = currentFormData?.movesets?.levelUp?.map(move => move.id) || [];
-    const eggMoves = currentFormData?.movesets?.eggMoves?.map(move => move.id) || [];
-    const tmMoves = currentFormData?.movesets?.tm?.map(move => move.id) || [];
-    
-    return [...new Set([...levelUpMoves, ...eggMoves, ...tmMoves])].filter(Boolean);
-  }, [currentFormData?.movesets]);
-
-  // Fetch move data
-  const { movesData, isLoading: movesLoading } = useMoveData({
-    moveIds,
-    version,
-    enabled: moveIds.length > 0
-  });
 
   return (
     <>
@@ -349,27 +345,8 @@ export default function PokemonFormClient({
                               {currentFormData.movesets.levelUp
                                 .sort((a, b) => a.level - b.level)
                                 .map((move, index) => {
-                                  const moveData = movesData[move.id];
-                                  
-                                  if (movesLoading || !moveData) {
-                                    return (
-                                      <MoveRow
-                                        key={`levelup-${move.id}-${index}`}
-                                        id={move.id || ''}
-                                        level={move.level}
-                                        info={{
-                                          name: movesLoading ? 'Loading...' : move.id,
-                                          type: 'normal',
-                                          category: 'physical',
-                                          power: 0,
-                                          pp: 0,
-                                          accuracy: 0,
-                                          effectChance: 0,
-                                          description: movesLoading ? 'Loading...' : 'Move data not found',
-                                        }}
-                                      />
-                                    );
-                                  }
+                                  // Move data is already enriched from the server
+                                  const moveInfo = move as EnrichedMove;
 
                                   return (
                                     <MoveRow
@@ -377,14 +354,14 @@ export default function PokemonFormClient({
                                       id={move.id || ''}
                                       level={move.level}
                                       info={{
-                                        name: moveData.name,
-                                        type: moveData.type,
-                                        category: moveData.category,
-                                        power: moveData.power,
-                                        pp: moveData.pp,
-                                        accuracy: moveData.accuracy,
-                                        effectChance: moveData.effectChance,
-                                        description: moveData.description,
+                                        name: moveInfo.name || move.id,
+                                        type: moveInfo.type || 'normal',
+                                        category: moveInfo.category || 'physical',
+                                        power: moveInfo.power || 0,
+                                        pp: moveInfo.pp || 0,
+                                        accuracy: moveInfo.accuracy || 0,
+                                        effectChance: moveInfo.effectChance || 0,
+                                        description: moveInfo.description || '',
                                       }}
                                     />
                                   );
@@ -429,40 +406,22 @@ export default function PokemonFormClient({
                           </TableHeader>
                           <TableBody>
                             {currentFormData.movesets.eggMoves.map((move, index) => {
-                              const moveData = movesData[move.id];
-                              
-                              if (movesLoading || !moveData) {
-                                return (
-                                  <MoveRow
-                                    key={`eggmove-${move.id}-${index}`}
-                                    id={move.id}
-                                    info={{
-                                      name: movesLoading ? 'Loading...' : move.id,
-                                      type: 'normal',
-                                      category: 'physical',
-                                      power: 0,
-                                      pp: 0,
-                                      accuracy: 0,
-                                      effectChance: 0,
-                                      description: movesLoading ? 'Loading...' : 'Move data not found',
-                                    }}
-                                  />
-                                );
-                              }
+                              // Move data is already enriched from the server
+                              const moveInfo = move as EnrichedMove;
 
                               return (
                                 <MoveRow
                                   key={`eggmove-${move.id}-${index}`}
                                   id={move.id}
                                   info={{
-                                    name: moveData.name,
-                                    type: moveData.type,
-                                    category: moveData.category,
-                                    power: moveData.power,
-                                    pp: moveData.pp,
-                                    accuracy: moveData.accuracy,
-                                    effectChance: moveData.effectChance,
-                                    description: moveData.description,
+                                    name: moveInfo.name || move.id,
+                                    type: moveInfo.type || 'normal',
+                                    category: moveInfo.category || 'physical',
+                                    power: moveInfo.power || 0,
+                                    pp: moveInfo.pp || 0,
+                                    accuracy: moveInfo.accuracy || 0,
+                                    effectChance: moveInfo.effectChance || 0,
+                                    description: moveInfo.description || '',
                                   }}
                                 />
                               );
@@ -505,40 +464,22 @@ export default function PokemonFormClient({
                           </TableHeader>
                           <TableBody>
                             {currentFormData.movesets.tm.map((move, index) => {
-                              const moveData = movesData[move.id];
-                              
-                              if (movesLoading || !moveData) {
-                                return (
-                                  <MoveRow
-                                    key={`tm-${move.id}-${index}`}
-                                    id={move.id}
-                                    info={{
-                                      name: movesLoading ? 'Loading...' : move.id,
-                                      type: 'normal',
-                                      category: 'physical',
-                                      power: 0,
-                                      pp: 0,
-                                      accuracy: 0,
-                                      effectChance: 0,
-                                      description: movesLoading ? 'Loading...' : 'Move data not found',
-                                    }}
-                                  />
-                                );
-                              }
+                              // Move data is already enriched from the server
+                              const moveInfo = move as EnrichedMove;
 
                               return (
                                 <MoveRow
                                   key={`tm-${move.id}-${index}`}
                                   id={move.id}
                                   info={{
-                                    name: moveData.name,
-                                    type: moveData.type,
-                                    category: moveData.category,
-                                    power: moveData.power,
-                                    pp: moveData.pp,
-                                    accuracy: moveData.accuracy,
-                                    effectChance: moveData.effectChance,
-                                    description: moveData.description,
+                                    name: moveInfo.name || move.id,
+                                    type: moveInfo.type || 'normal',
+                                    category: moveInfo.category || 'physical',
+                                    power: moveInfo.power || 0,
+                                    pp: moveInfo.pp || 0,
+                                    accuracy: moveInfo.accuracy || 0,
+                                    effectChance: moveInfo.effectChance || 0,
+                                    description: moveInfo.description || '',
                                   }}
                                 />
                               );

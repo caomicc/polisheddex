@@ -1,7 +1,7 @@
 'use client';
 
 import { PokemonManifest } from '@/types/new';
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import PokemonCard from './pokemon-card';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
@@ -15,19 +15,39 @@ import { PokemonGridSkeleton } from './pokemon-card-skeleton';
 
 interface PokemonSearchProps {
   pokemon: PokemonManifest[];
-  sortType: string;
+  sortType?: string;
 }
 
-export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps) {
+export default function PokemonSearch({
+  pokemon,
+  sortType: initialSortType = 'johtodex',
+}: PokemonSearchProps) {
   const [searchQuery, setSearchQuery] = useState('');
+  const [sortType, setSortType] = useState(initialSortType);
   const { showFaithful } = useFaithfulPreferenceSafe();
 
   // For backward compatibility, we'll use the inverse of showFaithful
   // since the original logic was "showUpdatedTypes" (true = updated, false = faithful)
   const showUpdatedTypes = !showFaithful;
 
+  // Sort pokemon based on selected sort type
+  const sortedPokemon = useMemo(() => {
+    return [...pokemon].sort((a, b) => {
+      if (sortType === 'alphabetical') {
+        return a.name.localeCompare(b.name);
+      }
+      if (sortType === 'nationaldex') {
+        return (a.dexNo ?? 0) - (b.dexNo ?? 0) || a.name.localeCompare(b.name);
+      }
+      if (sortType === 'johtodex') {
+        return (a.dexNo ?? 999) - (b.dexNo ?? 999) || a.name.localeCompare(b.name);
+      }
+      return 0;
+    });
+  }, [pokemon, sortType]);
+
   const { filteredPokemon, isSearching } = usePokemonSearch({
-    pokemon,
+    pokemon: sortedPokemon,
     searchQuery,
     showUpdatedTypes,
   });
@@ -52,12 +72,7 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
           <Label className="label-text" htmlFor="sort-select">
             Sort:
           </Label>
-          <Select
-            value={sortType}
-            onValueChange={(value) => {
-              window.location.search = `?sort=${value}`;
-            }}
-          >
+          <Select value={sortType} onValueChange={(value) => setSortType(value)}>
             <SelectTrigger
               className={cn(
                 'w-full sm:w-[180px]', // full width on mobile, fixed on larger screens

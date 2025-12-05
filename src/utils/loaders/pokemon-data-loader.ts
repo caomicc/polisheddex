@@ -248,12 +248,15 @@ async function enrichMovesets(movesets: any, versionName: string): Promise<any> 
                 };
               }
               return { name: move }; // Fallback if move data not found
-            } else if (move && typeof move === 'object' && move.name) {
+            } else if (move && typeof move === 'object' && (move.id || move.name)) {
               // Move with additional properties (like level-up moves)
-              const moveData = await getMoveData(move.name, versionName as 'faithful' | 'polished');
+              // Support both 'id' and 'name' fields for move lookup
+              const moveId = move.id || move.name;
+              const moveData = await getMoveData(moveId, versionName as 'faithful' | 'polished');
 
               if (moveData) {
                 return {
+                  id: moveId,
                   name: moveData.name,
                   level: move.level, // Preserve level if present
                   type: moveData.type,
@@ -265,10 +268,11 @@ async function enrichMovesets(movesets: any, versionName: string): Promise<any> 
                   description: moveData.description,
                 };
               }
-              
+
               // Fallback if move data not found
               return {
-                name: move.name,
+                id: moveId,
+                name: moveId,
                 level: move.level,
               };
             } else {
@@ -301,7 +305,10 @@ async function enrichAbilities(abilities: string[], versionName: string): Promis
     abilities.map(async (abilityName: string) => {
       try {
         console.log(`Loading detailed data for ability: ${abilityName}`);
-        const abilityData = await getAbilityData(abilityName, versionName as 'faithful' | 'polished');
+        const abilityData = await getAbilityData(
+          abilityName,
+          versionName as 'faithful' | 'polished',
+        );
 
         if (abilityData) {
           return {

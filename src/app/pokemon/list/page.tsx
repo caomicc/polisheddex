@@ -11,44 +11,13 @@ import {
 import PokemonSearch from '@/components/pokemon/pokemon-search';
 import { Hero } from '@/components/ui/Hero';
 import { loadPokemonFromNewManifest } from '@/utils/loaders/pokemon-data-loader';
-export default async function PokemonList({
-  searchParams,
-}: {
-  searchParams: Promise<{ sort?: string }>;
-}) {
+
+export default async function PokemonList() {
   // Load Pokemon data from manifest system
   const pokemonData = await loadPokemonFromNewManifest();
-  const { sort = 'johtodex' } = (await searchParams) ?? {};
 
-  console.log('Pokemon data loaded:', Object.keys(pokemonData).length, 'entries');
-  console.log(JSON.stringify(pokemonData, null, 2));
-
-  // Determine sort type from query param
-  const sortType =
-    sort === 'nationaldex' ? 'nationaldex' : sort === 'johtodex' ? 'johtodex' : 'alphabetical';
-
-  // Prepare an array of Pokémon with their names and dex numbers
+  // Prepare an array of Pokémon - sorting will be handled client-side
   const pokemonList: PokemonManifest[] = Object.values(pokemonData);
-
-  // Sort based on selected sort type
-  const sortedPokemon = [...pokemonList].sort((a, b) => {
-    if (sortType === 'alphabetical') {
-      return a.name.localeCompare(b.name);
-    }
-    if (sortType === 'nationaldex') {
-      return (a.dexNo ?? 0) - (b.dexNo ?? 0) || a.name.localeCompare(b.name);
-    }
-    if (sortType === 'johtodex') {
-      // For Johto dex, we'll use dexNo for now - you may need to add johtoDex to PokemonManifest if needed
-      return (a.dexNo ?? 999) - (b.dexNo ?? 999) || a.name.localeCompare(b.name);
-    }
-    return 0;
-  });
-
-  console.log(
-    `Sorted Pokémon by ${sortType}:`,
-    sortedPokemon.map((p) => `${p.name} (${p.dexNo ?? 'N/A'})`).join(', '),
-  );
 
   return (
     <>
@@ -83,26 +52,17 @@ export default async function PokemonList({
             View as table →
           </Link>
         </div>
-        <PokemonSearch pokemon={sortedPokemon} sortType={sortType} />
+        <PokemonSearch pokemon={pokemonList} />
       </div>
     </>
   );
 }
 
-// Generate metadata for SEO and social sharing
-export async function generateMetadata({
-  searchParams,
-}: {
-  searchParams: Promise<{ sort?: string }>;
-}) {
-  const { sort = 'johtodex' } = (await searchParams) ?? {};
-
-  const sortType =
-    sort === 'nationaldex' ? 'National Dex' : sort === 'johtodex' ? 'Johto Dex' : 'Alphabetical';
-
-  const title = `Pokédex - ${sortType} Order | PolishedDex`;
-  const description = `Browse all Pokémon available in Pokémon Polished Crystal, sorted by ${sortType} order. View detailed stats, types, evolutions, moves, and locations.`;
-  const url = `https://polisheddex.com/pokemon${sort !== 'johtodex' ? `?sort=${sort}` : ''}`;
+// Generate static metadata for SEO
+export function generateMetadata() {
+  const title = `Pokédex | PolishedDex`;
+  const description = `Browse all Pokémon available in Pokémon Polished Crystal. View detailed stats, types, evolutions, moves, and locations.`;
+  const url = `https://polisheddex.com/pokemon`;
 
   return {
     title,
@@ -113,7 +73,6 @@ export async function generateMetadata({
       'pokemon list',
       'pokemon database',
       'polisheddex',
-      sortType.toLowerCase(),
       'pokemon stats',
       'pokemon types',
       'pokemon evolutions',
@@ -131,7 +90,7 @@ export async function generateMetadata({
           url: '/og-image.png',
           width: 1200,
           height: 630,
-          alt: `Pokédex - ${sortType} Order - PolishedDex`,
+          alt: `Pokédex - PolishedDex`,
         },
       ],
       locale: 'en_US',

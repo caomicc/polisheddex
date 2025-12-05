@@ -12,7 +12,7 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
   // Load move data directly from individual move file
   const moveFilePath = path.join(process.cwd(), 'new/moves', `${moveName}.json`);
   let moveData = null;
-  
+
   try {
     const moveFileData = await fs.readFile(moveFilePath, 'utf-8');
     moveData = JSON.parse(moveFileData);
@@ -39,10 +39,10 @@ export async function generateStaticParams() {
     const manifestPath = path.join(process.cwd(), 'new/moves_manifest.json');
     const manifestData = await fs.readFile(manifestPath, 'utf-8');
     const movesManifest = JSON.parse(manifestData);
-    
+
     const moveKeys = movesManifest.map((move: any) => move.id);
     console.log(`Generated static params for ${moveKeys.length} moves from manifest`);
-    
+
     return moveKeys.map((moveKey: string) => ({
       name: moveKey.toLowerCase(),
     }));

@@ -25,43 +25,43 @@ export default async function AbilityDetail({ params }: { params: Promise<Abilit
     const abilityData = JSON.parse(await fs.readFile(abilityPath, 'utf-8'));
 
     return (
-    <>
-      <Hero
-        headline={abilityData.name}
-        breadcrumbs={
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/" className="hover:underline">
-                    Home
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/abilities" className="hover:underline">
-                    Abilities
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage className="">{abilityData.name}</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-        }
-      />
+      <>
+        <Hero
+          headline={abilityData.name}
+          breadcrumbs={
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link href="/" className="hover:underline">
+                      Home
+                    </Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link href="/abilities" className="hover:underline">
+                      Abilities
+                    </Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="">{abilityData.name}</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+          }
+        />
 
-      <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
-        <Suspense fallback={<PokemonGridSkeleton count={8} />}>
-          <AbilityDetailClient abilityData={abilityData} />
-        </Suspense>
-      </div>
-    </>
-  );
+        <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
+          <Suspense fallback={<PokemonGridSkeleton count={8} />}>
+            <AbilityDetailClient abilityData={abilityData} />
+          </Suspense>
+        </div>
+      </>
+    );
   } catch (error) {
     console.error('Error loading ability data:', error);
     return notFound();
