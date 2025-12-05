@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Search, Plus } from 'lucide-react';
+import { Search, Plus, X } from 'lucide-react';
 // import {
 //   POKEMON_LIST,
 //   emptyPokemonEntry,
@@ -200,6 +200,23 @@ export type PokemonEntry = {
   ivs?: IVs;
   evs?: EVs;
   level?: number;
+};
+
+export const emptyPokemonEntry: PokemonEntry = {
+  name: '',
+  types: [],
+  ability: '',
+  nature: undefined,
+  item: undefined,
+  moves: [
+    { name: '', type: null },
+    { name: '', type: null },
+    { name: '', type: null },
+    { name: '', type: null },
+  ],
+  ivs: { hp: 31, attack: 31, defense: 31, spatk: 31, spdef: 31, speed: 31 },
+  evs: { hp: 0, attack: 0, defense: 0, spatk: 0, spdef: 0, speed: 0 },
+  level: 50,
 };
 
 export type PokemonSlotProps = {
@@ -919,9 +936,9 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     setPokemonSearchQuery('');
   };
 
-  // const clearSlot = () => {
-  //   onChange({ ...emptyPokemonEntry });
-  // };
+  const clearSlot = () => {
+    onChange({ ...emptyPokemonEntry });
+  };
 
   // Helper function to update IVs
   const updateIV = (stat: StatType, value: number) => {
@@ -1055,7 +1072,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
       <div
         className={cn('flex flex-col md:flex-row gap-8 relative', !isPokemonSelected && 'hidden')}
       >
-        {/* <Button
+        <Button
           variant="destructive"
           size="icon"
           onClick={clearSlot}
@@ -1063,7 +1080,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
           className="absolute -right-2 -top-2"
         >
           <X className="h-4 w-4" />
-        </Button> */}
+        </Button>
         <div className={cn('flex flex-col gap-4 lg:gap-6 w-full md:w-1/2')}>
           <div className="flex flex-col items-center gap-4 relative">
             <PokemonSprite

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Trash2, Upload, Download, Calculator, Share } from 'lucide-react';
-import PokemonSlot, { type PokemonEntry } from './pokemon-slot';
+import PokemonSlot, { type PokemonEntry, emptyPokemonEntry } from './pokemon-slot';
 import CalculationsPanel from './calculations-panel';
 // import { DEFAULT_TEAM, emptyPokemonEntry, loadPokemonData } from '@/lib/pokemon-data';
 // import { loadMovesData } from '@/lib/moves-data';
@@ -15,7 +15,7 @@ import CalculationsPanel from './calculations-panel';
 import { useLocalStorage } from '@/lib/use-local-storage';
 import { generateShareUrl, getTeamFromUrl, copyToClipboard } from '@/lib/team-url-sharing';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
-// import StatsDisplay from './pokemon/stats-display';
+import StatsDisplay from './pokemon/stats-display';
 import { BentoGrid, BentoGridNoLink } from './ui/bento-box';
 import { PokemonSprite } from './pokemon/pokemon-sprite';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
@@ -73,7 +73,7 @@ export default function TeamBuilder() {
   };
 
   const clearTeam = () => {
-    // setTeam(new Array(6).fill(0).map(() => ({ ...emptyPokemonEntry })));
+    setTeam([]);
   };
 
   const exportTeam = () => {
@@ -259,13 +259,13 @@ export default function TeamBuilder() {
                               {entry.item && <div className="text-xs">Item: {entry.item}</div>}
                             </div>
                           </div>
-                          {/* <StatsDisplay
+                          <StatsDisplay
                             pokemonName={entry.name}
                             ivs={entry.ivs}
                             evs={entry.evs}
                             level={entry.level || 50}
                             nature={entry.nature}
-                          /> */}
+                          />
                         </BentoGridNoLink>
                       );
                     })}

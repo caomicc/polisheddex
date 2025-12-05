@@ -64,6 +64,10 @@ export function useFaithfulPreferenceSafe(): FaithfulPreferenceSafeHook {
     setShowFaithful((prev) => {
       const newValue = !prev;
       setCookiePreference(newValue);
+      // Refresh the page to activate the cookie for SSG pages
+      if (typeof window !== 'undefined') {
+        window.location.reload();
+      }
       return newValue;
     });
   }, []);
