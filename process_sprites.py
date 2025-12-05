@@ -62,7 +62,7 @@ def reduce_pokemon_folder_name(name: str) -> str:
         '_hero', '_wellspring', '_hearthflame', '_cornerstone',
         '_terastal', '_stellar',
         '_red', '_yellow', '_green', '_blue', '_orange', '_purple', '_pink', '_white', '_black',
-        '_chuchu', '_pika', '_spark', '_fly', '_surf', '_spiky',
+        '_chuchu', '_pika', '_spark', '_fly', '_surf', '_spiky', '_spikyeared',
         '_two_segment', '_three_segment',
         '_johto',
     ]
@@ -319,6 +319,9 @@ class GBCSpriteProcessor:
         # Map pikachu_pika to pikachu_red (pika = red)
         elif pokemon_name == 'pikachu_pika':
             mapped_name = 'pikachu_red'
+        # Map pichu_spiky to pichu_spikyeared (matches Pokemon data reference)
+        elif pokemon_name == 'pichu_spiky':
+            mapped_name = 'pichu_spikyeared'
 
         # Apply reduce_pokemon_folder_name to normalize the output
         # (reduces base name but preserves form suffixes with underscores)

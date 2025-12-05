@@ -60,6 +60,8 @@ export function useSpriteData(
         variant,
         type,
       );
+
+      console.log('Fetched sprite for', fullSpriteName, ':', sprite);
       setSpriteInfo(sprite);
       setIsLoading(false);
     } catch (err) {

@@ -84,6 +84,12 @@ const FORM_SUFFIXES = [
   '_agatha',
   '_ariana',
   '_koga',
+  // Pikachu/Pichu specific forms
+  '_fly',
+  '_surf',
+  '_spark',
+  '_spikyeared',
+  '_spiky',
 ];
 
 /**
