@@ -70,14 +70,16 @@ async function loadLocationsManifest(): Promise<LocationsManifestItem[]> {
 
 /**
  * Get location data by ID from individual file (server-side only)
+ * Returns null silently if the location file doesn't exist (expected for mart sub-locations, etc.)
  */
 export async function getLocationData(locationId: string): Promise<LocationData | null> {
   try {
     const locationPath = path.join(process.cwd(), `public/new/locations/${locationId}.json`);
     const locationData = await fs.readFile(locationPath, 'utf-8');
     return JSON.parse(locationData);
-  } catch (error) {
-    console.error(`Error loading location data for ${locationId}:`, error);
+  } catch {
+    // Silently return null - missing location files are expected for mart sub-locations
+    // and other synthetic location IDs from the ROM data
     return null;
   }
 }

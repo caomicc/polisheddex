@@ -9,7 +9,6 @@ import { TrainerSprite } from './trainer-sprite';
 import { PokemonSprite } from '@/components/pokemon/pokemon-sprite';
 import { ComprehensiveTrainerData } from '@/types/new';
 import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
-import { getItemSpriteName } from '@/utils/spriteUtils';
 
 // Type for move data from manifest
 interface MoveInfo {
