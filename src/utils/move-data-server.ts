@@ -32,7 +32,7 @@ async function loadMovesManifest(): Promise<MovesManifestItem[]> {
   }
 
   try {
-    const manifestPath = path.join(process.cwd(), 'new/moves_manifest.json');
+    const manifestPath = path.join(process.cwd(), 'public/new/moves_manifest.json');
     const manifestData = await fs.readFile(manifestPath, 'utf-8');
     movesManifest = JSON.parse(manifestData);
     return movesManifest || [];

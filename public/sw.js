@@ -1,43 +1,47 @@
 // Service Worker for caching Pokemon data
-const CACHE_NAME = 'pokedex-cache-v1';
-const STATIC_CACHE = 'pokedex-static-v1';
+const CACHE_NAME = 'pokedex-cache-v2';
+const STATIC_CACHE = 'pokedex-static-v2';
 
 // Cache manifest files and essential data
 const urlsToCache = [
-  '/output/manifests/pokemon.json',
-  '/output/manifests/moves.json', 
-  '/output/manifests/items.json',
-  '/output/manifests/abilities.json',
-  '/pokemon.json'
+  '/new/pokemon_manifest.json',
+  '/new/moves_manifest.json',
+  '/new/items_manifest.json',
+  '/new/abilities_manifest.json',
+  '/pokemon.json',
 ];
 
 // Install event - cache essential files
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(STATIC_CACHE)
+    caches
+      .open(STATIC_CACHE)
       .then((cache) => {
         return cache.addAll(urlsToCache);
       })
       .then(() => {
         return self.skipWaiting();
-      })
+      }),
   );
 });
 
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME && cacheName !== STATIC_CACHE) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    }).then(() => {
-      return self.clients.claim();
-    })
+    caches
+      .keys()
+      .then((cacheNames) => {
+        return Promise.all(
+          cacheNames.map((cacheName) => {
+            if (cacheName !== CACHE_NAME && cacheName !== STATIC_CACHE) {
+              return caches.delete(cacheName);
+            }
+          }),
+        );
+      })
+      .then(() => {
+        return self.clients.claim();
+      }),
   );
 });
 
@@ -50,44 +54,43 @@ self.addEventListener('fetch', (event) => {
 
   // Check if this is a request for our cached data
   const url = new URL(event.request.url);
-  const isDataRequest = url.pathname.includes('/output/') || 
-                       url.pathname.includes('/pokemon.json');
+  const isDataRequest = url.pathname.includes('/output/') || url.pathname.includes('/pokemon.json');
 
   if (isDataRequest) {
     event.respondWith(
-      caches.match(event.request)
-        .then((response) => {
-          // Return cached version if available
-          if (response) {
-            // Also fetch in background to update cache
-            fetch(event.request).then((fetchResponse) => {
+      caches.match(event.request).then((response) => {
+        // Return cached version if available
+        if (response) {
+          // Also fetch in background to update cache
+          fetch(event.request)
+            .then((fetchResponse) => {
               if (fetchResponse.ok) {
                 caches.open(STATIC_CACHE).then((cache) => {
                   cache.put(event.request, fetchResponse.clone());
                 });
               }
-            }).catch(() => {
+            })
+            .catch(() => {
               // Ignore network errors when updating cache
             });
-            
-            return response;
-          }
-          
-          // If not in cache, fetch from network and cache
-          return fetch(event.request).then((fetchResponse) => {
-            if (!fetchResponse || fetchResponse.status !== 200) {
-              return fetchResponse;
-            }
-            
-            const responseToCache = fetchResponse.clone();
-            caches.open(STATIC_CACHE)
-              .then((cache) => {
-                cache.put(event.request, responseToCache);
-              });
-            
+
+          return response;
+        }
+
+        // If not in cache, fetch from network and cache
+        return fetch(event.request).then((fetchResponse) => {
+          if (!fetchResponse || fetchResponse.status !== 200) {
             return fetchResponse;
+          }
+
+          const responseToCache = fetchResponse.clone();
+          caches.open(STATIC_CACHE).then((cache) => {
+            cache.put(event.request, responseToCache);
           });
-        })
+
+          return fetchResponse;
+        });
+      }),
     );
   }
 });

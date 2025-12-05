@@ -74,7 +74,7 @@ export const dynamicParams = false;
 // Generate static params for all abilities
 export async function generateStaticParams() {
   try {
-    const manifestPath = path.join(process.cwd(), 'new/abilities_manifest.json');
+    const manifestPath = path.join(process.cwd(), 'public/new/abilities_manifest.json');
     const manifestData = await fs.readFile(manifestPath, 'utf-8');
     const allAbilities = JSON.parse(manifestData);
 

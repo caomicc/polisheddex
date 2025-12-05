@@ -768,7 +768,7 @@ export default async function extractItems() {
   await extractTMHMData('polished');
   await extractTMHMData('faithful');
 
-  const outputDir = join(__dirname, '..', 'new');
+  const outputDir = join(__dirname, '..', 'public', 'new');
   const itemsDir = join(outputDir, 'items');
   const itemsManifestPath = join(outputDir, 'items_manifest.json');
 

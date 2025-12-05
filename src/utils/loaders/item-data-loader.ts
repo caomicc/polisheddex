@@ -31,7 +31,7 @@ export async function loadItemsFromNewManifest(): Promise<Record<string, ItemsMa
     // Check if we're in a server environment
     if (typeof window === 'undefined') {
       // Server-side: Load the new items manifest directly
-      const itemsArray = await loadJsonFile<ItemsManifest[]>('new/items_manifest.json');
+      const itemsArray = await loadJsonFile<ItemsManifest[]>('public/new/items_manifest.json');
 
       if (!itemsArray || !Array.isArray(itemsArray)) {
         console.error('Invalid items manifest structure or file not found');

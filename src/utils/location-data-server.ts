@@ -47,7 +47,7 @@ async function loadLocationsManifest(): Promise<LocationsManifestItem[]> {
   }
 
   try {
-    const manifestPath = path.join(process.cwd(), 'new/locations_manifest.json');
+    const manifestPath = path.join(process.cwd(), 'public/new/locations_manifest.json');
     const manifestData = await fs.readFile(manifestPath, 'utf-8');
     locationsManifest = JSON.parse(manifestData);
     return locationsManifest || [];

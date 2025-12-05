@@ -10,7 +10,7 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
   const moveName = decodeURIComponent(nameParam);
 
   // Load move data directly from individual move file
-  const moveFilePath = path.join(process.cwd(), 'new/moves', `${moveName}.json`);
+  const moveFilePath = path.join(process.cwd(), 'public/new/moves', `${moveName}.json`);
   let moveData = null;
 
   try {
@@ -36,7 +36,7 @@ export const dynamicParams = false;
 export async function generateStaticParams() {
   try {
     // Load moves directly from manifest
-    const manifestPath = path.join(process.cwd(), 'new/moves_manifest.json');
+    const manifestPath = path.join(process.cwd(), 'public/new/moves_manifest.json');
     const manifestData = await fs.readFile(manifestPath, 'utf-8');
     const movesManifest = JSON.parse(manifestData);
 
@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
 
   try {
     // Load move data from individual file
-    const moveFilePath = path.join(process.cwd(), 'new/moves', `${moveName}.json`);
+    const moveFilePath = path.join(process.cwd(), 'public/new/moves', `${moveName}.json`);
     const moveFileData = await fs.readFile(moveFilePath, 'utf-8');
     const moveData = JSON.parse(moveFileData);
 

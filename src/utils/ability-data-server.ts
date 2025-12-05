@@ -31,7 +31,7 @@ async function loadAbilitiesManifest(): Promise<AbilitiesManifestItem[]> {
   }
 
   try {
-    const manifestPath = path.join(process.cwd(), 'new/abilities_manifest.json');
+    const manifestPath = path.join(process.cwd(), 'public/new/abilities_manifest.json');
     const manifestData = await fs.readFile(manifestPath, 'utf-8');
     abilitiesManifest = JSON.parse(manifestData);
     return abilitiesManifest || [];

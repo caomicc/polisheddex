@@ -915,8 +915,8 @@ const mergeVersions = () => {
 mergeVersions();
 
 // Create output directories
-const pokemonDir = join(__dirname, '..', 'new', 'pokemon');
-const outputDir = join(__dirname, '..', 'new');
+const pokemonDir = join(__dirname, '..', 'public', 'new', 'pokemon');
+const outputDir = join(__dirname, '..', 'public', 'new');
 
 // Clear and recreate pokemon directory
 try {

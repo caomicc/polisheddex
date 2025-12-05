@@ -27,7 +27,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const baseDir = join(__dirname, '..');
-const outputDir = join(baseDir, 'new');
+const outputDir = join(baseDir, 'public', 'new');
 const trainerDir = join(outputDir, 'trainers');
 const polishedcrystalDir = join(baseDir, 'polishedcrystal');
 const mapsDir = join(polishedcrystalDir, 'maps');

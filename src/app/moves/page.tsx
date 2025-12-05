@@ -16,7 +16,7 @@ import { MovesManifest } from '@/types/new';
 
 export default async function MovesList() {
   // Load moves directly from manifest
-  const manifestPath = path.join(process.cwd(), 'new/moves_manifest.json');
+  const manifestPath = path.join(process.cwd(), 'public/new/moves_manifest.json');
   const manifestData = await fs.readFile(manifestPath, 'utf-8');
   const allMoves: MovesManifest[] = JSON.parse(manifestData);
 

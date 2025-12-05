@@ -14,7 +14,7 @@ import { promises as fs } from 'fs';
 
 export default async function AbilitiesList() {
   // Load abilities from manifest
-  const manifestPath = path.join(process.cwd(), 'new/abilities_manifest.json');
+  const manifestPath = path.join(process.cwd(), 'public/new/abilities_manifest.json');
   const manifestData = await fs.readFile(manifestPath, 'utf-8');
   const allAbilities = JSON.parse(manifestData);
 

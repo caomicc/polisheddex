@@ -29,7 +29,7 @@ try {
 
   console.log('━'.repeat(50));
   console.log('🎉 All extractions completed successfully!');
-  console.log('   Check the /new and /output directories for results.');
+  console.log('   Check the /public/new directory for results.');
 
 } catch (error) {
   console.error('❌ Extraction failed:', error);

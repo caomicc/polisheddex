@@ -298,7 +298,7 @@ const extractTMHMInfo = async () => {
 
 // Extract Pokemon that can learn each move
 const extractPokemonLearners = async () => {
-  const pokemonDir = join(__dirname, '..', 'new', 'pokemon');
+  const pokemonDir = join(__dirname, '..', 'public', 'new', 'pokemon');
   const moveLearners: Record<string, Record<string, Record<string, MoveLearner>>> = {
     polished: {},
     faithful: {},
@@ -499,7 +499,7 @@ export default async function extractMoves() {
   await extractMovesData();
 
   // Create output directories
-  const outputDir = join(__dirname, '..', 'new');
+  const outputDir = join(__dirname, '..', 'public', 'new');
   const movesDir = join(outputDir, 'moves');
   const movesManifestPath = join(outputDir, 'moves_manifest.json');
 

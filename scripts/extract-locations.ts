@@ -656,9 +656,9 @@ await extractTrainers();
 await mergeLocationData();
 
 // Create output directories
-const locationsDir = join(__dirname, '..', 'new', 'locations');
-const trainersDir = join(__dirname, '..', 'new', 'trainers');
-const outputDir = join(__dirname, '..', 'new');
+const locationsDir = join(__dirname, '..', 'public', 'new', 'locations');
+const trainersDir = join(__dirname, '..', 'public', 'new', 'trainers');
+const outputDir = join(__dirname, '..', 'public', 'new');
 
 // Clear and recreate locations directory
 try {

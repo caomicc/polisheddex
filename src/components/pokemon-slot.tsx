@@ -518,9 +518,9 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     const loadData = async () => {
       try {
         const [movesResponse, itemsResponse, abilitiesResponse] = await Promise.all([
-          fetch('/output/manifests/moves.json'),
-          fetch('/output/manifests/items.json'),
-          fetch('/output/manifests/abilities.json'),
+          fetch('/new/moves_manifest.json'),
+          fetch('/new/items_manifest.json'),
+          fetch('/new/abilities_manifest.json'),
         ]);
 
         if (movesResponse.ok) {
