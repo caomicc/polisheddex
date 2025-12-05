@@ -65,6 +65,8 @@ def reduce_pokemon_folder_name(name: str) -> str:
         '_chuchu', '_pika', '_spark', '_fly', '_surf', '_spiky', '_spikyeared',
         '_two_segment', '_three_segment',
         '_johto',
+        # Arbok regional/trainer variants
+        '_agatha', '_ariana', '_kanto', '_koga',
     ]
 
     # Check for _plain suffix - strip it entirely
@@ -472,6 +474,9 @@ class GBCSpriteProcessor:
                 # Extract base name by removing the form suffix
                 for suffix in ['_plain', '_alolan', '_galarian', '_hisuian', '_paldean',
                                '_fly', '_surf', '_spark', '_spiky', '_chuchu', '_pika',
+                               '_koga', '_agatha', '_lance', '_dudunsparce_two_segment',
+                               '_dudunsparce_three_segment',
+                               '_kanto', '_ariana',
                                '_red', '_yellow', '_green', '_blue']:
                     if pokemon_name.endswith(suffix):
                         base_name = pokemon_name[:-len(suffix)]
