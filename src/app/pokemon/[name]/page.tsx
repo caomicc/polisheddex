@@ -10,6 +10,7 @@ import { getPokemonNavigation } from '@/utils/pokemonNavigation';
 import { loadJsonData } from '@/utils/fileLoader';
 import { loadBasePokemonData, loadEnrichedPokemonData } from '@/utils/loaders/pokemon-data-loader';
 import { getLocationsForPokemon } from '@/utils/location-data-server';
+import { getEvolutionChainForPokemon } from '@/utils/evolution-data-server';
 import { Button } from '@/components/ui/button';
 import { reduce } from '@/lib/extract-utils';
 
@@ -25,6 +26,12 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   // Load location data for this Pokemon
   const locationData = await getLocationsForPokemon(pokemonName);
 
+  // Load evolution chain data for both versions
+  const [polishedEvolutionChain, faithfulEvolutionChain] = await Promise.all([
+    getEvolutionChainForPokemon(pokemonName, 'polished'),
+    getEvolutionChainForPokemon(pokemonName, 'faithful'),
+  ]);
+
   // Load the new dex order for navigation
   const navigation = getPokemonNavigation(pokemonName);
 
@@ -33,7 +40,14 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
       <div className="max-w-xl md:max-w-4xl mx-auto">
         <h1 className="text-2xl font-bold mb-4 sr-only">{pokemonName}</h1>
         <PokemonKeyboardNavigation navigation={navigation} />
-        <PokemonFormWrapper pokemonData={pokemonData} locationData={locationData} />
+        <PokemonFormWrapper
+          pokemonData={pokemonData}
+          locationData={locationData}
+          evolutionChainData={{
+            polished: polishedEvolutionChain,
+            faithful: faithfulEvolutionChain,
+          }}
+        />
         {/* Only render navigation if we have valid navigation data */}
         {navigation.current.index !== -1 ? (
           <PokemonNavigation navigation={navigation} />

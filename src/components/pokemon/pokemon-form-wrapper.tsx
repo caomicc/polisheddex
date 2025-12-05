@@ -4,10 +4,17 @@ import { Suspense } from 'react';
 import { ComprehensivePokemonData } from '@/types/new';
 import PokemonFormClient from './pokemon-form-client';
 import { PokemonLocationEncounter } from '@/utils/location-data-server';
+import { EvolutionChain } from '@/utils/evolution-data-server';
+
+interface EvolutionChainData {
+  polished: EvolutionChain | null;
+  faithful: EvolutionChain | null;
+}
 
 interface PokemonFormWrapperProps {
   pokemonData: ComprehensivePokemonData;
   locationData?: PokemonLocationEncounter[];
+  evolutionChainData?: EvolutionChainData;
 }
 
 function PokemonFormSkeleton() {
@@ -23,10 +30,15 @@ function PokemonFormSkeleton() {
 export default function PokemonFormWrapper({
   pokemonData,
   locationData = [],
+  evolutionChainData,
 }: PokemonFormWrapperProps) {
   return (
     <Suspense fallback={<PokemonFormSkeleton />}>
-      <PokemonFormClient pokemonData={pokemonData} locationData={locationData} />
+      <PokemonFormClient
+        pokemonData={pokemonData}
+        locationData={locationData}
+        evolutionChainData={evolutionChainData}
+      />
     </Suspense>
   );
 }

@@ -15,6 +15,8 @@ import { PokemonSprite } from './pokemon-sprite';
 import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
 import { MoveRow } from '../moves';
 import Link from 'next/link';
+import { EvolutionChainDisplay } from './evolution-chain-display';
+import { EvolutionChain } from '@/utils/evolution-data-server';
 
 // Type for location encounter data
 interface PokemonLocationEncounter {
@@ -26,6 +28,12 @@ interface PokemonLocationEncounter {
   levelRange: string;
   rate: number;
   formName?: string;
+}
+
+// Type for evolution chain data
+interface EvolutionChainData {
+  polished: EvolutionChain | null;
+  faithful: EvolutionChain | null;
 }
 
 // Type for enriched move data that comes from server
@@ -45,9 +53,11 @@ interface EnrichedMove {
 export default function PokemonFormClient({
   pokemonData,
   locationData = [],
+  evolutionChainData,
 }: {
   pokemonData: ComprehensivePokemonData;
   locationData?: PokemonLocationEncounter[];
+  evolutionChainData?: EvolutionChainData;
 }) {
   const [selectedForm, setSelectedForm] = useQueryState('form', {
     defaultValue: 'plain',
@@ -380,9 +390,15 @@ export default function PokemonFormClient({
                   <div className="mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200 capitalize">
                     Evolution Chain
                   </div>
-                  <div className="text-gray-500 text-center w-full my-4 text-sm mb-auto">
-                    Evolution data coming soon...
-                  </div>
+                  <EvolutionChainDisplay
+                    chain={
+                      showFaithful
+                        ? (evolutionChainData?.faithful ?? null)
+                        : (evolutionChainData?.polished ?? null)
+                    }
+                    currentPokemon={pokemonData.id}
+                    currentForm={selectedForm}
+                  />
                 </BentoGridNoLink>
               </BentoGrid>
             </div>
