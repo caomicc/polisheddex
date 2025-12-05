@@ -26,6 +26,8 @@ import {
   getLocationData,
 } from '@/utils/location-data-server';
 import { PokemonSprite } from '@/components/pokemon/pokemon-sprite';
+import Image from 'next/image';
+import { getItemSpriteName } from '@/utils/spriteUtils';
 
 // Load location data from the new system using proper data loaders
 async function loadLocationData(locationId: string): Promise<LocationData | null> {
@@ -272,28 +274,104 @@ export default async function LocationDetailPage({
           {locationData.items && locationData.items.length > 0 && (
             <div className="bg-white rounded-lg border p-6 dark:bg-gray-800 dark:border-gray-700">
               <h2 className="text-xl font-semibold mb-4">Items Found Here</h2>
-              <div className="grid grid-cols-1 gap-3">
-                {locationData.items.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center justify-between p-3 bg-gray-50 rounded-lg dark:bg-gray-700"
-                  >
-                    <div>
-                      <span className="font-medium capitalize">
-                        {item.name.replace(/([a-z])([A-Z])/g, '$1 $2')}
-                      </span>
-                      <span className="ml-2 text-sm text-gray-600 dark:text-gray-400">
-                        ({item.type})
-                      </span>
-                    </div>
-                    {item.coordinates && (
-                      <span className="text-xs text-gray-500">
-                        ({item.coordinates.x}, {item.coordinates.y})
-                      </span>
-                    )}
-                  </div>
-                ))}
-              </div>
+              <Tabs defaultValue="all" className="w-full">
+                <TabsList className="mb-4">
+                  <TabsTrigger value="all">All</TabsTrigger>
+                  <TabsTrigger value="hidden">Hidden</TabsTrigger>
+                  <TabsTrigger value="gift">Gift</TabsTrigger>
+                  <TabsTrigger value="berry">Berry</TabsTrigger>
+                  <TabsTrigger value="tm">TM/HM</TabsTrigger>
+                </TabsList>
+
+                {['all', 'hidden', 'gift', 'berry', 'tm'].map((itemType) => {
+                  const filteredItems =
+                    itemType === 'all'
+                      ? locationData.items!
+                      : itemType === 'hidden'
+                        ? locationData.items!.filter((item) => item.type === 'item' || item.type === 'hiddenItem')
+                        : itemType === 'tm'
+                          ? locationData.items!.filter((item) => item.type === 'tm' || item.type === 'hm')
+                          : locationData.items!.filter((item) => item.type === itemType);
+
+                  // Helper to format the type for display
+                  const formatItemType = (type: string) => {
+                    if (type === 'item' || type === 'hiddenItem') return 'Hidden';
+                    if (type === 'tm') return 'TM';
+                    if (type === 'hm') return 'HM';
+                    return type.charAt(0).toUpperCase() + type.slice(1);
+                  };
+
+                  return (
+                    <TabsContent key={itemType} value={itemType}>
+                      {filteredItems.length > 0 ? (
+                        <Table>
+                          <TableHeader>
+                            <TableRow>
+                              <TableHead className="w-[60px]"></TableHead>
+                              <TableHead>Item</TableHead>
+                              <TableHead>Type</TableHead>
+                              <TableHead>Location</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {filteredItems.map((item, idx) => {
+                              // Format item name for display
+                              const displayName = item.name
+                                .replace(/([a-z])([A-Z])/g, '$1 $2')
+                                .replace(/_/g, ' ');
+
+                              // Get the sprite name
+                              const spriteName = getItemSpriteName(displayName);
+
+                              return (
+                                <TableRow key={idx}>
+                                  <TableCell>
+                                    <Image
+                                      src={`/sprites/items/${spriteName}.png`}
+                                      width={24}
+                                      height={24}
+                                      alt={displayName}
+                                      className="w-6 h-6"
+                                    />
+                                  </TableCell>
+                                  <TableCell>
+                                    <Link
+                                      href={`/items/${item.name.toLowerCase()}`}
+                                      className="font-medium capitalize hover:text-blue-600 dark:hover:text-blue-400"
+                                    >
+                                      {displayName}
+                                    </Link>
+                                  </TableCell>
+                                  <TableCell>
+                                    <Badge variant="secondary" className="capitalize">
+                                      {formatItemType(item.type)}
+                                    </Badge>
+                                  </TableCell>
+                                  <TableCell>
+                                    {item.coordinates ? (
+                                      <span className="text-sm text-gray-500 dark:text-gray-400">
+                                        ({item.coordinates.x}, {item.coordinates.y})
+                                      </span>
+                                    ) : (
+                                      <span className="text-sm text-gray-400 dark:text-gray-500">
+                                        —
+                                      </span>
+                                    )}
+                                  </TableCell>
+                                </TableRow>
+                              );
+                            })}
+                          </TableBody>
+                        </Table>
+                      ) : (
+                        <div className="text-center text-gray-500 py-4">
+                          No {itemType === 'hidden' ? 'hidden items' : itemType === 'all' ? 'items' : itemType === 'tm' ? 'TM/HM items' : `${itemType} items`} found at this location
+                        </div>
+                      )}
+                    </TabsContent>
+                  );
+                })}
+              </Tabs>
             </div>
           )}
 
