@@ -1,6 +1,15 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 
+export interface LocationEncounter {
+  pokemon: string;
+  method: string;
+  version: string;
+  levelRange: string;
+  rate: number;
+  formName?: string;
+}
+
 export interface LocationData {
   id: string;
   name: string;
@@ -10,6 +19,7 @@ export interface LocationData {
   connectionCount?: number;
   parent?: string;
   constantName?: string;
+  encounters?: LocationEncounter[];
   items?: Array<{
     name: string;
     type: string;
@@ -22,6 +32,7 @@ export interface LocationData {
     name: string;
     description: string;
     type: string;
+    item?: string;
   }>;
   trainers?: string[];
 }
