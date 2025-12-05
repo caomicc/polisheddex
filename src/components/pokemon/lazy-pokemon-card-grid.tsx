@@ -63,11 +63,11 @@ function LazyPokemonCardGrid({
     [isLoading, visibleItems, sortedPokemonData.length, itemsPerPage],
   );
 
-  // Reset visible items when data changes (e.g., filtering)
+  // Reset visible items when data changes (e.g., filtering) or showForms changes
   useEffect(() => {
     setVisibleItems(itemsPerPage);
     setIsLoading(false);
-  }, [sortedPokemonData, itemsPerPage]);
+  }, [sortedPokemonData, itemsPerPage, showForms]);
 
   // Clean up observer on unmount
   useEffect(() => {
@@ -79,10 +79,10 @@ function LazyPokemonCardGrid({
     };
   }, []);
 
-  const visiblePokemon = pokemonData.slice(0, visibleItems);
+  const visiblePokemon = sortedPokemonData.slice(0, visibleItems);
 
   // Calculate total cards accounting for forms
-  const totalCards = pokemonData.reduce((acc, pokemon) => {
+  const totalCards = sortedPokemonData.reduce((acc, pokemon) => {
     const forms = Object.keys(pokemon.versions[version] || {});
     const formsToShow = showForms ? forms : forms.includes('plain') ? ['plain'] : forms.slice(0, 1);
     return acc + formsToShow.length;
@@ -95,7 +95,20 @@ function LazyPokemonCardGrid({
     return acc + formsToShow.length;
   }, 0);
 
-  const hasMore = visibleItems < pokemonData.length;
+  const hasMore = visibleItems < sortedPokemonData.length;
+
+  // Pre-calculate which card is the last one for the intersection observer
+  const lastCardInfo = useMemo(() => {
+    if (visiblePokemon.length === 0) return null;
+    const lastPokemon = visiblePokemon[visiblePokemon.length - 1];
+    const forms = Object.keys(lastPokemon.versions[version] || {});
+    const formsToShow = showForms ? forms : forms.includes('plain') ? ['plain'] : forms.slice(0, 1);
+    const lastFormIdx = formsToShow.length - 1;
+    return {
+      pokemonId: lastPokemon.id,
+      formIdx: lastFormIdx,
+    };
+  }, [visiblePokemon, version, showForms]);
 
   return (
     <>
@@ -110,13 +123,16 @@ function LazyPokemonCardGrid({
               : forms.slice(0, 1);
 
           return formsToShow.map((form, formIdx) => {
-            const combinedIdx = pokemonIdx * formsToShow.length + formIdx;
-            const isLastItem = combinedIdx === visibleCards - 1;
+            // Check if this is the last card (last form of the last visible Pokemon)
+            const isLastItem =
+              lastCardInfo &&
+              pokemon.id === lastCardInfo.pokemonId &&
+              formIdx === lastCardInfo.formIdx;
 
             return (
               <Link
                 className="rounded-xl"
-                key={`${pokemon.id}-${form}-${combinedIdx}`}
+                key={`${pokemon.id}-${form}-${pokemonIdx}-${formIdx}`}
                 // href={formatPokemonUrlWithForm(pokemon.id, form)}
                 href={`/pokemon/${pokemon.id}`}
               >
@@ -139,14 +155,14 @@ function LazyPokemonCardGrid({
       )}
 
       {/* End of list indicator */}
-      {!hasMore && pokemonData.length > itemsPerPage && (
+      {!hasMore && sortedPokemonData.length > itemsPerPage && (
         <div className="text-center py-8 text-xs text-muted-foreground">
-          Showing all {totalCards} cards from {pokemonData.length} Pokémon
+          Showing all {totalCards} cards from {sortedPokemonData.length} Pokémon
         </div>
       )}
 
       {/* Empty state */}
-      {pokemonData.length === 0 && (
+      {sortedPokemonData.length === 0 && (
         <div className="text-center py-12 text-muted-foreground">
           <p className="text-lg font-medium">No Pokémon found</p>
           <p className="text-sm mt-2">Try adjusting your search or filter criteria</p>
