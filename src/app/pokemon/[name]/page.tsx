@@ -55,13 +55,13 @@ export const dynamicParams = false;
 // Generate static params for all Pokemon - only lowercase normalized names
 export async function generateStaticParams() {
   const baseDataFile = path.join(process.cwd(), 'new/pokemon_manifest.json');
-  const data = await loadJsonData<Record<string, unknown>>(baseDataFile);
+  const data = await loadJsonData<{ id: string }[]>(baseDataFile);
 
-  if (!data) return [];
+  if (!data || !Array.isArray(data)) return [];
 
-  // Only generate lowercase normalized URLs to prevent uppercase static generation
-  return Object.keys(data).map((pokemonKey) => ({
-    name: pokemonKey,
+  // Manifest is an array - extract IDs for static generation
+  return data.map((pokemon) => ({
+    name: pokemon.id,
   }));
 }
 
