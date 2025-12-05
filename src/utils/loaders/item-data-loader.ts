@@ -102,7 +102,7 @@ export async function loadDetailedItemData(itemId: string): Promise<Comprehensiv
     // Check if we're in a server environment
     if (typeof window === 'undefined') {
       // Server-side: Load the detailed item data directly
-      const loadedData = await loadJsonFile<ComprehensiveItemsData>(`new/items/${itemId}.json`);
+      const loadedData = await loadJsonFile<ComprehensiveItemsData>(`public/new/items/${itemId}.json`);
       itemData = loadedData || {
         id: itemId,
         versions: {},

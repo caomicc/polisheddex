@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { Badge } from '../ui/badge';
 import { PokemonManifest } from '@/types/new';
 import { PokemonSprite } from './pokemon-sprite';
-// import { formatPokemonUrlWithForm } from '@/utils/pokemonFormUtils';
+import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
 
 export const createPokemonListColumns = (version: string): ColumnDef<PokemonManifest>[] => [
   {
@@ -18,14 +18,14 @@ export const createPokemonListColumns = (version: string): ColumnDef<PokemonMani
     header: '',
     cell: ({ row }) => {
       const pokemon = row.original;
-      // Use the extracted form name for proper sprite handling
+      const normalizedName = normalizePokemonUrlKey(pokemon.name).toLowerCase();
+      const pokemonUrl =
+        pokemon.formName && pokemon.formName !== 'plain'
+          ? `/pokemon/${normalizedName}?form=${encodeURIComponent(pokemon.formName)}`
+          : `/pokemon/${normalizedName}`;
       return (
         <div className="">
-          <Link
-            // href={formatPokemonUrlWithForm(pokemon.name, pokemon.formName)}
-            href={`/pokemon/${pokemon.name}`}
-            className="table-link"
-          >
+          <Link href={pokemonUrl} className="table-link">
             <PokemonSprite
               hoverAnimate={true}
               pokemonName={pokemon.name}
@@ -97,14 +97,15 @@ export const createPokemonListColumns = (version: string): ColumnDef<PokemonMani
     },
     cell: ({ row }) => {
       const pokemon = row.original;
+      const normalizedName = normalizePokemonUrlKey(pokemon.name).toLowerCase();
+      const pokemonUrl =
+        pokemon.formName && pokemon.formName !== 'plain'
+          ? `/pokemon/${normalizedName}?form=${encodeURIComponent(pokemon.formName)}`
+          : `/pokemon/${normalizedName}`;
 
       return (
         <div className="min-w-0">
-          <Link
-            className="table-link"
-            // href={formatPokemonUrlWithForm(pokemon.name, pokemon.formName)}
-            href={`/pokemon/${pokemon.name}`}
-          >
+          <Link className="table-link" href={pokemonUrl}>
             {pokemon.name}
             {pokemon.formName && pokemon.formName !== 'plain' && (
               <span className={`text-xs text-muted-foreground block capitalize ml-1`}>
@@ -116,9 +117,9 @@ export const createPokemonListColumns = (version: string): ColumnDef<PokemonMani
         </div>
       );
     },
-    filterFn: (row, value) => {
+    filterFn: (row, id, value) => {
       const pokemon = row.original;
-      const searchText = value.toLowerCase();
+      const searchText = (value as string).toLowerCase();
 
       // Extract base name for search
       const baseNameLower = pokemon.name.toLowerCase();

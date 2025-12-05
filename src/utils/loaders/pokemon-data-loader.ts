@@ -127,7 +127,7 @@ export async function loadBasePokemonData(
     // Check if we're in a server environment
     if (typeof window === 'undefined') {
       // Server-side: Load the individual pokemon file directly
-      const pokemonData = await loadJsonFile<ComprehensivePokemonData>(`new/pokemon/${fileName}`);
+      const pokemonData = await loadJsonFile<ComprehensivePokemonData>(`public/new/pokemon/${fileName}`);
 
       if (!pokemonData) {
         console.error(`Pokemon data not found for: ${pokemonId} (${fileName})`);
