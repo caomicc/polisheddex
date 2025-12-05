@@ -190,25 +190,15 @@ interface PokemonCardProps {
 
 /**
  * Get the icon sprite URL for a Pokemon
- * Icons are stored as {name}.png or {name}_{form}.png for regional variants
+ * Icons are stored with normalized names (no underscores, spaces, etc.)
  */
 function getIconUrl(pokemonName: string, formName: string): string {
-  const baseName = pokemonName.toLowerCase().replace(/[^a-z0-9]/g, '_');
+  const baseName = pokemonName;
 
   // Map form names to file suffixes
   if (formName && formName !== 'plain') {
-    const formSuffix = formName.toLowerCase();
-    // Check for regional forms
-    if (
-      formSuffix.includes('alolan') ||
-      formSuffix.includes('galarian') ||
-      formSuffix.includes('hisuian') ||
-      formSuffix.includes('paldean')
-    ) {
-      return `/sprites/icons/${baseName}_${formSuffix}.png`;
-    }
-    // Other forms like armored, bloodmoon, etc.
-    return `/sprites/icons/${baseName}_${formSuffix}.png`;
+    const formSuffix = formName;
+    return `/sprites/icons/${baseName}${formSuffix}.png`;
   }
 
   return `/sprites/icons/${baseName}.png`;
@@ -238,7 +228,8 @@ function PokemonCard({ pokemon, isCurrent, methods, showArrow }: PokemonCardProp
       <Link
         href={pokemonUrl}
         className={cn(
-          'flex flex-col items-center justify-center gap-0.5 p-1 rounded-lg transition-all hover:bg-muted/50 size-20 inset-0',
+          'flex flex-col items-center justify-center gap-0.5 p-1 rounded-lg transition-all hover:bg-muted/50 size-28 inset-0',
+          isCurrent ? 'border-2 border-gray-200' : 'border border-transparent',
         )}
       >
         <div className="w-8 h-8 md:w-10 md:h-10 relative flex items-center justify-center p-2">

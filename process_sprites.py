@@ -17,6 +17,73 @@ from typing import Dict, List, Tuple, Optional
 from PIL import Image, ImagePalette
 import argparse
 
+
+def reduce_name(name: str) -> str:
+    """
+    Normalize a Pokemon name to match the extraction format.
+    Mirrors the TypeScript reduce() function in extract-utils.ts
+    - Lowercases everything
+    - Removes spaces, underscores, dashes, apostrophes, periods
+    - Removes angle brackets
+    """
+    return (name.lower()
+            .replace(' ', '')
+            .replace('<', '')
+            .replace('>', '')
+            .replace('_', '')
+            .replace('-', '')
+            .replace("'", '')
+            .replace('.', ''))
+
+
+def reduce_pokemon_folder_name(name: str) -> str:
+    """
+    Normalize a Pokemon folder name, preserving form suffixes with underscores.
+    - If name ends with '_plain', strip it and return just the reduced base name
+    - If name has another form suffix (e.g., '_alolan'), reduce the base name 
+      but keep the underscore and form suffix
+    - Otherwise, reduce the entire name
+    """
+    name_lower = name.lower()
+    
+    # Known form suffixes that should be preserved
+    form_suffixes = [
+        '_alolan', '_galarian', '_hisuian', '_paldean', 
+        '_paldean_fire', '_paldean_water', '_paldean_combat', '_paldean_blaze', '_paldean_aqua',
+        '_mega', '_mega_x', '_mega_y', '_gmax', '_primal',
+        '_origin', '_sky', '_therian', '_black', '_white',
+        '_attack', '_defense', '_speed', '_plant', '_sandy', '_trash',
+        '_heat', '_wash', '_frost', '_fan', '_mow',
+        '_zen', '_pirouette', '_blade', '_shield',
+        '_10', '_50', '_complete', '_school', '_meteor',
+        '_dusk', '_midnight', '_dawn', '_dusk_mane', '_dawn_wings', '_ultra',
+        '_crowned', '_eternamax', '_ice', '_shadow',
+        '_single_strike', '_rapid_strike', '_bloodmoon',
+        '_hero', '_wellspring', '_hearthflame', '_cornerstone',
+        '_terastal', '_stellar',
+        '_red', '_yellow', '_green', '_blue', '_orange', '_purple', '_pink', '_white', '_black',
+        '_chuchu', '_pika',
+        '_two_segment', '_three_segment',
+        '_johto',
+    ]
+    
+    # Check for _plain suffix - strip it entirely
+    if name_lower.endswith('_plain'):
+        base_name = name_lower[:-6]  # Remove '_plain'
+        return reduce_name(base_name)
+    
+    # Check for other form suffixes - preserve them with underscore
+    for suffix in form_suffixes:
+        if name_lower.endswith(suffix):
+            base_name = name_lower[:-len(suffix)]
+            reduced_base = reduce_name(base_name)
+            # The suffix is already lowercase, just need to ensure underscore is there
+            return f"{reduced_base}{suffix}"
+    
+    # No form suffix, just reduce the whole name
+    return reduce_name(name_lower)
+
+
 class GBCPaletteParser:
     """Parses Game Boy Color palette files (.pal format)"""
 
@@ -180,6 +247,10 @@ class GBCSpriteProcessor:
             'BLACK': [(27, 31, 27), (31, 19, 10), (5, 5, 5), (0, 0, 0)],
         }
 
+        # Mapping for Pokemon with palette files in different directories
+        # Used when a Pokemon's palette is stored in a shared/alternate location
+        self.palette_directory_mapping: Dict[str, str] = {}
+
         # Load icon palette mappings from overworld_icon_pals.asm
         self.icon_color_map = self._load_icon_palette_map()
 
@@ -228,25 +299,30 @@ class GBCSpriteProcessor:
         return True
 
     def get_output_name(self, pokemon_name: str) -> str:
-        """Get the output directory name for a Pokemon"""
+        """Get the output directory name for a Pokemon - normalized to match extraction format"""
+        # Handle special mappings first
+        mapped_name = pokemon_name
         # Map dudunsparce_two_segment to the default dudunsparce folder
         if pokemon_name == 'dudunsparce_two_segment':
-            return 'dudunsparce'
+            mapped_name = 'dudunsparce'
         # Map dudunsparce_three_segment to the default dudunsparce folder
-        if pokemon_name == 'dudunsparce_three_segment':
-            return 'dudunsparce'
-        if pokemon_name == 'arbok_johto':
-            return 'arbok'
+        elif pokemon_name == 'dudunsparce_three_segment':
+            mapped_name = 'dudunsparce'
+        elif pokemon_name == 'arbok_johto':
+            mapped_name = 'arbok'
         # Map arbok_johto to the default arbok folder
-        if pokemon_name == 'unown':
-            return 'unown_z'
+        elif pokemon_name == 'unown':
+            mapped_name = 'unown_z'
         # Map pikachu_chuchu to pikachu_yellow (chuchu = yellow)
-        if pokemon_name == 'pikachu_chuchu':
-            return 'pikachu_yellow'
+        elif pokemon_name == 'pikachu_chuchu':
+            mapped_name = 'pikachu_yellow'
         # Map pikachu_pika to pikachu_red (pika = red)
-        if pokemon_name == 'pikachu_pika':
-            return 'pikachu_red'
-        return pokemon_name
+        elif pokemon_name == 'pikachu_pika':
+            mapped_name = 'pikachu_red'
+
+        # Apply reduce_pokemon_folder_name to normalize the output 
+        # (reduces base name but preserves form suffixes with underscores)
+        return reduce_pokemon_folder_name(mapped_name)
 
     def extract_sprite_frames(self, sprite_path: str) -> List[Image.Image]:
         """Extract individual frames using auto-detection logic from crop_top_sprite.ts"""
@@ -536,10 +612,12 @@ class GBCSpriteProcessor:
             print(f"Trainer PNG not found: {trainer_name}")
             return False
 
-        print(f"Processing trainer {trainer_name}...")
+        # Normalize output name
+        output_name = reduce_name(trainer_name)
+        print(f"Processing trainer {trainer_name} -> {output_name}...")
 
-        # Create output directory for this trainer
-        output_dir = self.trainer_sprites_dir / trainer_name
+        # Create output directory for this trainer with normalized name
+        output_dir = self.trainer_sprites_dir / output_name
         output_dir.mkdir(exist_ok=True)
 
         # Get all palette variants for this trainer
@@ -570,14 +648,14 @@ class GBCSpriteProcessor:
                 processed_frame = self.apply_palette_to_sprite(frame, palette)
                 processed_frames.append(processed_frame)
 
-            # Determine output filename
+            # Determine output filename with normalized names
             if palette_name == trainer_name:
                 # Default palette
-                output_filename = f"{trainer_name}.png"
+                output_filename = f"{output_name}.png"
             else:
                 # Variant palette (e.g., kimono_girl_1.png)
                 variant = palette_name.replace(f"{trainer_name}_", "")
-                output_filename = f"{trainer_name}_{variant}.png"
+                output_filename = f"{output_name}_{reduce_name(variant)}.png"
 
             # Save static PNG (first frame)
             if processed_frames:
@@ -659,7 +737,9 @@ class GBCSpriteProcessor:
             print(f"Item PNG not found: {item_name}")
             return False
 
-        print(f"Processing item {item_name}...")
+        # Normalize output name
+        output_name = reduce_name(item_name)
+        print(f"Processing item {item_name} -> {output_name}...")
 
         # Items save directly to the items directory, no subdirectory needed
 
@@ -679,9 +759,9 @@ class GBCSpriteProcessor:
             processed_frame = self.apply_palette_to_sprite(frame, palette)
             processed_frames.append(processed_frame)
 
-        # Save static PNG (first frame) directly in items directory
+        # Save static PNG (first frame) directly in items directory with normalized name
         if processed_frames:
-            static_path = self.item_sprites_dir / f"{item_name}.png"
+            static_path = self.item_sprites_dir / f"{output_name}.png"
             processed_frames[0].save(static_path)
             print(f"Saved item sprite: {static_path}")
 
@@ -885,7 +965,9 @@ class GBCSpriteProcessor:
             print(f"Mini sprite not found: {mini_name}")
             return False
 
-        print(f"Processing mini sprite {mini_name}...")
+        # Normalize output name
+        output_name = reduce_name(mini_name)
+        print(f"Processing mini sprite {mini_name} -> {output_name}...")
 
         try:
             # Load the sprite image
@@ -921,9 +1003,9 @@ class GBCSpriteProcessor:
 
                 processed_frames.append(final_frame)
 
-            # Save static PNG (first frame)
+            # Save static PNG (first frame) with normalized name
             if processed_frames:
-                static_path = self.minis_sprites_dir / f"{mini_name}.png"
+                static_path = self.minis_sprites_dir / f"{output_name}.png"
                 processed_frames[0].save(static_path)
                 print(f"Saved static mini sprite: {static_path}")
 
@@ -933,11 +1015,17 @@ class GBCSpriteProcessor:
                     # Overworld sprites typically animate slower than battle sprites
                     durations = [800] * len(processed_frames)  # 800ms per frame for smooth overworld animation
 
-                    gif_path = self.minis_sprites_dir / f"{mini_name}_animated.gif"
+                    gif_path = self.minis_sprites_dir / f"{output_name}_animated.gif"
                     self.create_animated_gif(processed_frames, durations, str(gif_path))
                 else:
                     # For single frame sprites, create a simple "breathing" animation
-                    self.create_breathing_animation(processed_frames[0], mini_name)
+                    self.create_breathing_animation(processed_frames[0], output_name)
+
+            return True
+
+        except Exception as e:
+            print(f"Error processing mini sprite {mini_name}: {e}")
+            return False
 
             return True
 
@@ -1179,7 +1267,9 @@ class GBCSpriteProcessor:
             print(f"Icon PNG not found: {icon_name}")
             return False
 
-        print(f"Processing icon {icon_name}...")
+        # Normalize the output name to match evolution chain data format
+        output_name = reduce_name(icon_name)
+        print(f"Processing icon {icon_name} -> {output_name}...")
 
         try:
             # Load the icon image (16x32, grayscale with 2 frames stacked)
@@ -1207,9 +1297,9 @@ class GBCSpriteProcessor:
                 frame_rgba = self.apply_icon_palette(frame, palette1, palette2)
                 frames.append(frame_rgba)
 
-            # Save static PNG (first frame)
+            # Save static PNG (first frame) with normalized name
             if frames:
-                static_path = self.icons_sprites_dir / f"{icon_name}.png"
+                static_path = self.icons_sprites_dir / f"{output_name}.png"
                 frames[0].save(static_path)
                 print(f"Saved static icon: {static_path}")
 
@@ -1217,7 +1307,7 @@ class GBCSpriteProcessor:
                 # Icons animate at a slow pace - about 500ms per frame
                 if len(frames) > 1:
                     durations = [500, 500]  # 500ms per frame for gentle bobbing animation
-                    gif_path = self.icons_sprites_dir / f"{icon_name}_animated.gif"
+                    gif_path = self.icons_sprites_dir / f"{output_name}_animated.gif"
                     self.create_animated_gif(frames, durations, str(gif_path))
 
             return True
