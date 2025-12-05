@@ -77,28 +77,38 @@ export default function CalculationsPanel({
 
             const data = await response.json();
 
-            // Use faithful or polished stats based on context
-            const detailedStats = data.detailedStats;
-            const baseStats = showFaithful
-              ? detailedStats?.faithfulBaseStats
-              : detailedStats?.polishedBaseStats || detailedStats?.baseStats;
+            // Use the new data structure: data.versions.{polished|faithful}.forms.plain
+            const version = showFaithful ? 'faithful' : 'polished';
+            const formData =
+              data.versions?.[version]?.forms?.plain || data.versions?.polished?.forms?.plain;
 
-            const abilities = showFaithful
-              ? detailedStats?.faithfulAbilities
-              : detailedStats?.updatedAbilities || detailedStats?.abilities;
+            const baseStats = formData?.baseStats;
+            const abilities = formData?.abilities || [];
+
+            // Calculate total BST since it's not in the data
+            const total = baseStats
+              ? (baseStats.hp || 0) +
+                (baseStats.attack || 0) +
+                (baseStats.defense || 0) +
+                (baseStats.specialAttack || 0) +
+                (baseStats.specialDefense || 0) +
+                (baseStats.speed || 0)
+              : 0;
 
             return {
               name: pokemon.name,
-              baseStats: baseStats || {
-                hp: 0,
-                attack: 0,
-                defense: 0,
-                speed: 0,
-                specialAttack: 0,
-                specialDefense: 0,
-                total: 0,
-              },
-              abilities: abilities || [],
+              baseStats: baseStats
+                ? { ...baseStats, total }
+                : {
+                    hp: 0,
+                    attack: 0,
+                    defense: 0,
+                    speed: 0,
+                    specialAttack: 0,
+                    specialDefense: 0,
+                    total: 0,
+                  },
+              abilities: abilities,
               nature: pokemon.nature,
               item: pokemon.item,
             } as PokemonStats;

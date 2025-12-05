@@ -567,30 +567,46 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
   }, []); // Load once on mount
 
   // Load detailed Pokemon data when a Pokemon is selected
-  // useEffect(() => {
-  //   if (matched?.name) {
-  //     // Use fileName if available, otherwise fall back to name transformation
-  //     const fileName = matched.fileName
-  //       ? matched.fileName.replace('.json', '')
-  //       : matched.name.toLowerCase().replace(/[ -]/g, '-');
-  //     console.log('Loading Pokemon data for:', fileName, 'from matched:', matched);
+  useEffect(() => {
+    if (entry.name && entry.name.trim() !== '') {
+      // Strip form suffix and normalize name
+      const fileName = entry.name
+        .toLowerCase()
+        .replace(/\s*\([^)]*\)/g, '')
+        .replace(/[ -]/g, '-');
 
-  //     fetch(`/output/pokemon/${fileName}.json`)
-  //       .then((res) => {
-  //         if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-  //         return res.json();
-  //       })
-  //       .then((data) => {
-  //         setPokemonData(data);
-  //       })
-  //       .catch((err) => {
-  //         console.error('Failed to load Pokemon data:', err);
-  //         setPokemonData(null);
-  //       });
-  //   } else {
-  //     setPokemonData(null);
-  //   }
-  // }, [matched, showFaithful]);
+      fetch(`/new/pokemon/${fileName}.json`)
+        .then((res) => {
+          if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+          return res.json();
+        })
+        .then((data) => {
+          // Transform new data structure to expected format
+          const version = showFaithful ? 'faithful' : 'polished';
+          const formData =
+            data.versions?.[version]?.forms?.plain || data.versions?.polished?.forms?.plain;
+
+          if (formData) {
+            setPokemonData({
+              forms: {
+                plain: {
+                  baseStats: formData.baseStats,
+                  abilities: formData.abilities,
+                  movesets: formData.movesets,
+                  types: formData.types,
+                },
+              },
+            });
+          }
+        })
+        .catch((err) => {
+          console.error('Failed to load Pokemon data:', err);
+          setPokemonData(null);
+        });
+    } else {
+      setPokemonData(null);
+    }
+  }, [entry.name, showFaithful]);
 
   // Update types when detailed data loads or faithful preference changes
   // useEffect(() => {
@@ -806,17 +822,20 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
           const response = await fetch(`/new/pokemon/${fileName}.json`);
           if (response.ok) {
             const prevPokemonData = await response.json();
-            const formData = prevPokemonData.forms?.plain || prevPokemonData;
+            // Use new data structure
+            const version = showFaithful ? 'faithful' : 'polished';
+            const formData =
+              prevPokemonData.versions?.[version]?.forms?.plain ||
+              prevPokemonData.versions?.polished?.forms?.plain;
 
-            const prevMoves = showFaithful
-              ? formData.faithfulMoves || formData.moves || []
-              : formData.updatedMoves || formData.moves || [];
+            // Get level-up moves from movesets
+            const levelUpMoves = formData?.movesets?.levelUp || [];
 
-            prevMoves.forEach((move: { name: string; info?: { type: string } }) => {
-              if (!evolutionChainMoves.some((existing) => existing.name === move.name)) {
+            levelUpMoves.forEach((move: { id: string; level: number }) => {
+              if (!evolutionChainMoves.some((existing) => existing.name === move.id)) {
                 evolutionChainMoves.push({
-                  name: move.name,
-                  type: move.info?.type || 'Normal',
+                  name: move.id,
+                  type: null, // Type will be resolved from movesData if needed
                   category: `Previous Evolution (${prevEvolutionName})`,
                 });
               }
@@ -856,10 +875,8 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     const formToUse = 'plain';
     const formData = pokemonData.forms?.[formToUse] || pokemonData.forms?.plain || pokemonData;
 
-    // Get base stats based on faithful/polished preference
-    const stats = showFaithful
-      ? formData.faithfulBaseStats || formData.baseStats
-      : formData.polishedBaseStats || formData.baseStats;
+    // Get base stats - data is already transformed in useEffect based on faithful/polished preference
+    const stats = formData.baseStats;
 
     if (!stats) {
       return { hp: 0, attack: 0, defense: 0, spatk: 0, spdef: 0, speed: 0 };
@@ -873,7 +890,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
       spdef: stats.specialDefense || 0,
       speed: stats.speed || 0,
     };
-  }, [pokemonData, showFaithful]);
+  }, [pokemonData]);
   // }, [pokemonData, matched, showFaithful]);
 
   // Check if a Pokemon is selected based on entry.name
