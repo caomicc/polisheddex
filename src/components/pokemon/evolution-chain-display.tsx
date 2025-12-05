@@ -238,11 +238,10 @@ function PokemonCard({ pokemon, isCurrent, methods, showArrow }: PokemonCardProp
       <Link
         href={pokemonUrl}
         className={cn(
-          'flex flex-col items-center gap-0.5 p-1 rounded-lg transition-all hover:bg-muted/50',
-          isCurrent && 'ring-2 ring-primary bg-muted/30',
+          'flex flex-col items-center justify-center gap-0.5 p-1 rounded-lg transition-all hover:bg-muted/50 size-20 inset-0',
         )}
       >
-        <div className="w-8 h-8 md:w-10 md:h-10 relative flex items-center justify-center">
+        <div className="w-8 h-8 md:w-10 md:h-10 relative flex items-center justify-center p-2">
           <Image
             src={iconUrl}
             alt={pokemon.name}
@@ -255,17 +254,14 @@ function PokemonCard({ pokemon, isCurrent, methods, showArrow }: PokemonCardProp
         </div>
         <span
           className={cn(
-            'text-[9px] md:text-[10px] font-medium text-center leading-tight max-w-[50px] truncate',
-            isCurrent && 'text-primary font-bold',
+            'text-[9px] md:text-[10px] font-medium text-center leading-tight max-w-[100px] truncate',
           )}
         >
-          {formatPokemonName(pokemon.name)}
+          {formatPokemonName(pokemon.name)}{' '}
+          {pokemon.formName !== 'plain' && (
+            <span className="text-muted-foreground capitalize">({pokemon.formName})</span>
+          )}
         </span>
-        {pokemon.formName !== 'plain' && (
-          <span className="text-[7px] md:text-[8px] text-muted-foreground capitalize">
-            {pokemon.formName}
-          </span>
-        )}
       </Link>
     </div>
   );
@@ -330,7 +326,7 @@ export function EvolutionChainDisplay({
           <div className="flex items-center gap-1 text-muted-foreground">
             <ChevronRight className="w-3 h-3 rotate-90" />
           </div>
-          <div className="flex flex-wrap justify-center gap-1 w-full overflow-hidden">
+          <div className="flex flex-wrap justify-center gap-4 w-full">
             {root.evolvesTo.map((evo) => {
               const evoCurrent =
                 evo.pokemon.name.toLowerCase() === currentPokemon.toLowerCase() &&
@@ -374,7 +370,7 @@ export function EvolutionChainDisplay({
         )?.methods || [];
 
       return (
-        <div className="flex flex-col items-center gap-2 py-2 w-full overflow-hidden">
+        <div className="flex flex-col items-center gap-2 py-2 w-full">
           {/* Root Pokemon */}
           <div className="flex items-center gap-1 flex-wrap justify-center">
             <PokemonCard pokemon={root.pokemon} isCurrent={rootCurrent} />
@@ -395,7 +391,7 @@ export function EvolutionChainDisplay({
           </div>
 
           {/* Evolution targets in a wrapped grid */}
-          <div className="flex flex-wrap justify-center gap-1 w-full overflow-hidden">
+          <div className="flex flex-wrap justify-center gap-4 w-full">
             {branchingStage.evolvesTo.map((evo) => {
               const evoCurrent =
                 evo.pokemon.name.toLowerCase() === currentPokemon.toLowerCase() &&
@@ -407,7 +403,7 @@ export function EvolutionChainDisplay({
                   className="flex flex-col items-center"
                 >
                   <PokemonCard pokemon={evo.pokemon} isCurrent={evoCurrent} />
-                  <div className="text-[7px] md:text-[8px] text-muted-foreground text-center max-w-[60px] leading-tight mt-0.5">
+                  <div className="text-[8px] md:text-[10px] text-muted-foreground text-center max-w-[100px] leading-tight">
                     {evo.methods.slice(0, 1).map((m, i) => (
                       <div key={i}>{formatEvolutionMethod(m)}</div>
                     ))}
