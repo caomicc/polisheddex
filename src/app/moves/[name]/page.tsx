@@ -5,60 +5,6 @@ import path from 'path';
 import MoveDetailClient from '@/components/moves/move-detail-client';
 import { PokemonGridSkeleton } from '@/components/pokemon/pokemon-card-skeleton';
 
-interface TmInfo {
-  number: string;
-  locations: {
-    polished: Array<{ area: string; method: string }>;
-    faithful: Array<{ area: string; method: string }>;
-  };
-}
-
-async function findTmForMove(moveId: string): Promise<TmInfo | null> {
-  try {
-    // Load items manifest to find TM/HM items
-    const manifestPath = path.join(process.cwd(), 'public/new/items_manifest.json');
-    const manifestData = await fs.readFile(manifestPath, 'utf-8');
-    const itemsManifest = JSON.parse(manifestData);
-
-    // Filter to only TM/HM items
-    const tmHmItems = itemsManifest.filter((item: { versions?: { polished?: { category?: string }; faithful?: { category?: string } } }) => {
-      const category = item.versions?.polished?.category || item.versions?.faithful?.category;
-      return category === 'tm' || category === 'hm';
-    });
-
-    // Search through TM/HM item files to find the one that teaches this move
-    for (const item of tmHmItems) {
-      const itemFilePath = path.join(process.cwd(), 'public/new/items', `${item.id}.json`);
-      try {
-        const itemData = await fs.readFile(itemFilePath, 'utf-8');
-        const parsedItem = JSON.parse(itemData);
-
-        // Check if this item teaches the move
-        const polishedMoveName = parsedItem.versions?.polished?.attributes?.moveName;
-        const faithfulMoveName = parsedItem.versions?.faithful?.attributes?.moveName;
-
-        if (polishedMoveName === moveId || faithfulMoveName === moveId) {
-          return {
-            number: parsedItem.versions?.polished?.name || item.id.toUpperCase(),
-            locations: {
-              polished: parsedItem.versions?.polished?.locations || [],
-              faithful: parsedItem.versions?.faithful?.locations || [],
-            },
-          };
-        }
-      } catch {
-        // Skip items that can't be loaded
-        continue;
-      }
-    }
-
-    return null;
-  } catch (error) {
-    console.error(`Error finding TM for move ${moveId}:`, error);
-    return null;
-  }
-}
-
 export default async function MoveDetail({ params }: { params: Promise<{ name: string }> }) {
   const nameParam = (await params).name;
   const moveName = decodeURIComponent(nameParam);
@@ -66,14 +12,10 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
   // Load move data directly from individual move file
   const moveFilePath = path.join(process.cwd(), 'public/new/moves', `${moveName}.json`);
   let moveData = null;
-  let tmInfo: TmInfo | null = null;
 
   try {
     const moveFileData = await fs.readFile(moveFilePath, 'utf-8');
     moveData = JSON.parse(moveFileData);
-
-    // Find TM/HM info for this move
-    tmInfo = await findTmForMove(moveName);
   } catch (error) {
     console.error(`Error loading move data for ${moveName}:`, error);
   }
@@ -81,7 +23,7 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
   return (
     <>
       <Suspense fallback={<PokemonGridSkeleton count={8} />}>
-        <MoveDetailClient moveData={moveData} tmInfo={tmInfo} />
+        <MoveDetailClient moveData={moveData} />
       </Suspense>
     </>
   );
