@@ -91,11 +91,11 @@ export default function Home() {
           >
             <Button variant="default" size="lg" asChild>
               <Link
-                href="https://github.com/Rangi42/polishedcrystal/releases/tag/v3.1.1"
+                href="https://github.com/Rangi42/polishedcrystal/releases/tag/v3.2.1"
                 target="_blank"
                 className="flex items-center gap-2 w-60"
               >
-                Download ROM on GitHub
+                Download game on GitHub
                 <ExternalLink className="h-3 w-3 flex-shrink-0" />
               </Link>
             </Button>
