@@ -127,7 +127,7 @@ export default function TermsAndConditions() {
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               If you see any copyrighted material that clearly does not fall under fair use, please{' '}
               <a
-                href="https://www.notion.so/Polished-Dex-Roadmap-24662146b03a805e88f3c6db6b800837"
+                href="mailto:support@polisheddex.app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 dark:text-blue-400 hover:underline"

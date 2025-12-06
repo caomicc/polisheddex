@@ -15,14 +15,28 @@ import {
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
 import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
-import { BicepsFlexed, Crosshair, FolderOpen, HandFist } from 'lucide-react';
+import { BicepsFlexed, Crosshair, FolderOpen, HandFist, MapPin } from 'lucide-react';
 import { MoveData } from '@/types/new';
 
-export default function MoveDetailClient({ moveData }: { moveData: MoveData }) {
+interface TmInfo {
+  number: string;
+  locations: {
+    polished: Array<{ area: string; method: string }>;
+    faithful: Array<{ area: string; method: string }>;
+  };
+}
+
+interface MoveDetailClientProps {
+  moveData: MoveData;
+  tmInfo?: TmInfo | null;
+}
+
+export default function MoveDetailClient({ moveData, tmInfo }: MoveDetailClientProps) {
   const [learnMethodFilter, setLearnMethodFilter] = useState<string>('all');
   const { showFaithful } = useFaithfulPreferenceSafe();
 
   const version = showFaithful ? 'faithful' : 'polished';
+  const tmLocations = tmInfo?.locations?.[version] || [];
 
   return (
     <>
@@ -115,22 +129,32 @@ export default function MoveDetailClient({ moveData }: { moveData: MoveData }) {
               </div>
             </BentoGridNoLink>
 
-            {/* {tmInfo && (
+            {tmInfo && tmLocations.length > 0 && (
               <BentoGridNoLink className="md:col-span-4">
                 <div>
-                  <Crosshair className="size-4" />
+                  <MapPin className="size-4" />
                   <p className="mt-2 mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200 capitalize">
-                    TM/HM Location
+                    {tmInfo.number} Location{tmLocations.length > 1 ? 's' : ''}
                   </p>
-                  <p className="font-sans text-xs font-normal text-neutral-600 dark:text-neutral-300">
-                    {tmInfo.number} - {tmInfo.location?.area || 'Unknown location'}
-                    {tmInfo.location?.details && (
-                      <span className="text-muted-foreground"> ({tmInfo.location.details})</span>
-                    )}
-                  </p>
-                </div>{' '}
+                  <div className="flex flex-wrap gap-2">
+                    {tmLocations.map((loc, index) => (
+                      <Link
+                        key={`${loc.area}-${index}`}
+                        href={`/locations/${encodeURIComponent(loc.area.toLowerCase().replace(/\s+/g, '_'))}`}
+                        className="inline-flex items-center gap-1 text-xs font-normal text-neutral-600 dark:text-neutral-300 hover:text-primary transition-colors"
+                      >
+                        <Badge variant="outline" className="capitalize">
+                          {loc.area.replace(/_/g, ' ')}
+                        </Badge>
+                        {loc.method && (
+                          <span className="text-muted-foreground">({loc.method})</span>
+                        )}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </BentoGridNoLink>
-            )} */}
+            )}
           </BentoGrid>
         </div>
 
