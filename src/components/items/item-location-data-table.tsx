@@ -9,6 +9,7 @@ import {
   getPaginationRowModel,
   ColumnDef,
   flexRender,
+  PaginationState,
 } from '@tanstack/react-table';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -28,7 +29,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { usePaginationSearchParams } from '@/hooks/use-pagination-search-params';
 import TableWrapper from '../ui/table-wrapper';
 import { ItemData } from '@/types/new';
 import Link from 'next/link';
@@ -141,7 +141,13 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
     const methods = Array.from(new Set(filteredLocations.map((loc) => loc.method || 'Unknown')));
     return methods.sort();
   }, [filteredLocations]);
-  const [{ pageIndex, pageSize }, setPagination] = usePaginationSearchParams();
+
+  // Use local state for pagination instead of URL params to avoid conflicts
+  // when this table is embedded in item detail pages
+  const [pagination, setPagination] = useState<PaginationState>({
+    pageIndex: 0,
+    pageSize: 20,
+  });
 
   const table = useReactTable({
     data: filteredLocations,
@@ -161,11 +167,11 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
       return areaName.includes(searchText) || method.includes(searchText);
     },
     state: {
-      pagination: { pageIndex, pageSize },
+      pagination,
       globalFilter,
       columnFilters: methodFilter !== 'all' ? [{ id: 'method', value: methodFilter }] : [],
     },
-    pageCount: filteredLocations.length > 0 ? Math.ceil(filteredLocations.length / pageSize) : 1,
+    pageCount: filteredLocations.length > 0 ? Math.ceil(filteredLocations.length / pagination.pageSize) : 1,
   });
 
   return (
@@ -261,7 +267,7 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
               Locations per page:
             </Label>
             <Select
-              value={pageSize.toString()}
+              value={pagination.pageSize.toString()}
               onValueChange={(value) => setPagination({ pageSize: parseInt(value), pageIndex: 0 })}
             >
               <SelectTrigger id="page-size" className="bg-white w-[80px]">

@@ -26,6 +26,7 @@ import {
   getLocationData,
 } from '@/utils/location-data-server';
 import { getTrainersData } from '@/utils/loaders/trainer-data-loader';
+import { buildMoveToTmMapping } from '@/utils/loaders/item-data-loader';
 import { PokemonSprite } from '@/components/pokemon/pokemon-sprite';
 import Image from 'next/image';
 import { getItemSpriteName } from '@/utils/spriteUtils';
@@ -77,6 +78,9 @@ export default async function LocationDetailPage({
   const trainersData = locationData.trainers && locationData.trainers.length > 0
     ? await getTrainersData(locationData.trainers)
     : [];
+
+  // Load move-to-TM mapping for TM/HM items
+  const moveToTmMapping = await buildMoveToTmMapping();
 
   const displayName =
     locationData.name ||
@@ -327,8 +331,17 @@ export default async function LocationDetailPage({
                                 .replace(/([a-z])([A-Z])/g, '$1 $2')
                                 .replace(/_/g, ' ');
 
-                              // Get the sprite name
-                              const spriteName = getItemSpriteName(displayName);
+                              // Check if this is a TM/HM item
+                              const isTmHm = item.type === 'tm' || item.type === 'hm';
+
+                              // Get the sprite - use tm_hm.png for TM/HM items
+                              const spriteName = isTmHm ? 'tm_hm' : getItemSpriteName(displayName);
+
+                              // Get the correct item ID for linking
+                              // For TM/HM items, look up the TM ID from the move name
+                              const itemLinkId = isTmHm
+                                ? (moveToTmMapping[item.name.toLowerCase()] || item.name.toLowerCase())
+                                : item.name.toLowerCase();
 
                               return (
                                 <TableRow key={idx}>
@@ -343,10 +356,10 @@ export default async function LocationDetailPage({
                                   </TableCell>
                                   <TableCell>
                                     <Link
-                                      href={`/items/${item.name.toLowerCase()}`}
+                                      href={`/items/${itemLinkId}`}
                                       className="font-medium capitalize hover:text-blue-600 dark:hover:text-blue-400"
                                     >
-                                      {displayName}
+                                      {isTmHm ? `${itemLinkId.toUpperCase()} (${displayName})` : displayName}
                                     </Link>
                                   </TableCell>
                                   <TableCell>

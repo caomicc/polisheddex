@@ -196,3 +196,45 @@ export async function loadMultipleItemsById(itemIds: string[]): Promise<(any | n
     return itemIds.map(() => null);
   }
 }
+
+/**
+ * Build a mapping from move names to TM/HM item IDs
+ * This is useful for linking TM/HM items in location pages
+ * Returns a Record where keys are lowercase move names and values are TM/HM IDs (e.g., "attract" -> "tm45")
+ */
+export async function buildMoveToTmMapping(): Promise<Record<string, string>> {
+  try {
+    const mapping: Record<string, string> = {};
+
+    // Load all TM and HM items
+    const tmFiles = await import('fs').then(async (fs) => {
+      const path = await import('path');
+      const itemsDir = path.join(process.cwd(), 'public/new/items');
+      const files = fs.readdirSync(itemsDir);
+      return files.filter((f: string) => /^(tm|hm)\d+\.json$/.test(f));
+    });
+
+    for (const file of tmFiles) {
+      try {
+        const itemId = file.replace('.json', '');
+        const itemData = await loadDetailedItemData(itemId);
+        
+        // Check both polished and faithful versions for moveName
+        const polishedMoveName = itemData.versions?.polished?.attributes?.moveName;
+        const faithfulMoveName = itemData.versions?.faithful?.attributes?.moveName;
+        const moveName = polishedMoveName || faithfulMoveName;
+        
+        if (moveName) {
+          mapping[moveName.toLowerCase()] = itemId;
+        }
+      } catch (error) {
+        // Silently continue if a single file fails
+      }
+    }
+
+    return mapping;
+  } catch (error) {
+    console.error('Error building move to TM mapping:', error);
+    return {};
+  }
+}

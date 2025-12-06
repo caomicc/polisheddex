@@ -144,8 +144,9 @@ interface TeamDisplayProps {
 }
 
 function TeamDisplay({ team, matchLabel, movesData, version }: TeamDisplayProps) {
-  function getItemIdFromDisplayName(item: string) {
-    throw new Error('Function not implemented.');
+  function getItemIdFromDisplayName(item: string): string {
+    // Convert display name to item ID (e.g., "Ultra Ball" -> "ultraball")
+    return item.toLowerCase().replace(/[^a-z0-9]/g, '');
   }
 
   return (
