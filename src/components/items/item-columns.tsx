@@ -6,9 +6,8 @@ import Link from 'next/link';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { accentInsensitiveIncludes } from '@/utils/stringUtils';
-import Image from 'next/image';
 import { ItemsManifest } from '@/types/new';
-import { getItemSpriteName } from '@/utils/spriteUtils';
+import { ItemSprite } from './item-sprite';
 
 export const itemColumns = (version: string): ColumnDef<ItemsManifest>[] => [
   {
@@ -18,25 +17,15 @@ export const itemColumns = (version: string): ColumnDef<ItemsManifest>[] => [
     cell: ({ row }) => {
       const item = row.original;
 
-      // Check if this is a TM/HM item that should link to moves
-      const isTM =
-        item.versions[version].category === 'tm' || item.versions[version].category === 'hm';
-      const linkHref =
-        isTM && item.versions[version].name ? `TODO` : `/items/${encodeURIComponent(item.id)}`;
-
-      const spriteUrl = isTM
-        ? `/sprites/items/tm_hm.png`
-        : `/sprites/items/${getItemSpriteName(item.versions[version].name)}.png`;
+      const linkHref = `/items/${encodeURIComponent(item.id)}`;
 
       return (
         <div className="">
           <Link href={linkHref}>
-            <Image
-              src={spriteUrl}
-              alt={item.versions[version].name}
-              width={24}
-              height={24}
-              className="rounded-sm dark:bg-white rounded-sm"
+            <ItemSprite
+              itemName={item.versions[version].name}
+              category={item.versions[version].category}
+              size={24}
             />
           </Link>
         </div>

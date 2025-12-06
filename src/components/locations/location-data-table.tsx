@@ -102,13 +102,13 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
   // Sync search value with table filter
   React.useEffect(() => {
     const nameColumn = columns.find(
-      (col) => 'accessorKey' in col && col.accessorKey === 'displayName',
+      (col) => 'accessorKey' in col && col.accessorKey === 'name',
     );
     if (nameColumn) {
       setColumnFilters((prev) => {
-        const otherFilters = prev.filter((filter) => filter.id !== 'displayName');
+        const otherFilters = prev.filter((filter) => filter.id !== 'name');
         if (search) {
-          return [...otherFilters, { id: 'displayName', value: search }];
+          return [...otherFilters, { id: 'name', value: search }];
         }
         return otherFilters;
       });

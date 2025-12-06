@@ -2,14 +2,13 @@
 
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
-import Image from 'next/image';
 // import ItemLocationDataTable from './item-location-data-table';
 import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
 import { processItemEffect, getUsageDescription } from '@/utils/itemEffectProcessor';
 import { ComprehensiveItemsData } from '@/types/new';
 import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import ItemLocationDataTable from './item-location-data-table';
-import { getItemSpriteName } from '@/utils/spriteUtils';
+import { ItemSprite } from './item-sprite';
 
 interface ItemDetailClientProps {
   item: ComprehensiveItemsData;
@@ -28,12 +27,10 @@ export default function ItemDetailClient({ item }: ItemDetailClientProps) {
         <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-3 mb-4">
           <BentoGridNoLink className="col-span-1">
             <div>
-              <Image
-                src={`/sprites/items/${getItemSpriteName(item.versions[version].name)}.png`}
-                width={24}
-                height={24}
-                alt={item.versions[version].name}
-                className="rounded-sm"
+              <ItemSprite
+                itemName={item.versions[version].name}
+                category={item.versions[version].attributes?.category}
+                size={24}
               />
               <div className="mt-2 flex items-center gap-2 mb-2">
                 <div className="font-sans font-bold text-neutral-600 dark:text-neutral-200">
@@ -49,13 +46,7 @@ export default function ItemDetailClient({ item }: ItemDetailClientProps) {
 
           <BentoGridNoLink>
             <div>
-              <Image
-                src={`/sprites/items/coin_case.png`}
-                width={24}
-                height={24}
-                alt={item.versions[version].name}
-                className="rounded-sm"
-              />
+              <ItemSprite itemName="Coin Case" size={24} />
               <div className="mb-2 mt-2 font-sans font-bold text-neutral-600 dark:text-neutral-200">
                 Price
               </div>
@@ -67,13 +58,7 @@ export default function ItemDetailClient({ item }: ItemDetailClientProps) {
 
           <BentoGridNoLink>
             <div>
-              <Image
-                src={`/sprites/items/itemfinder.png`}
-                width={24}
-                height={24}
-                alt={item.versions[version].name}
-                className="rounded-sm"
-              />
+              <ItemSprite itemName="Itemfinder" size={24} />
               <div className="mt-2 mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200">
                 How to Use
               </div>

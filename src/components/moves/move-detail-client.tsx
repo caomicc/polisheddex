@@ -115,7 +115,7 @@ export default function MoveDetailClient({ moveData }: { moveData: MoveData }) {
               </div>
             </BentoGridNoLink>
 
-            {/* {moveData.tm && (
+            {moveData.tm && (
               <BentoGridNoLink className="md:col-span-4">
                 <div>
                   <MapPin className="size-4" />
@@ -128,9 +128,7 @@ export default function MoveDetailClient({ moveData }: { moveData: MoveData }) {
                         href={`/locations/${encodeURIComponent(moveData.tm.location.toLowerCase().replace(/\s+/g, '_'))}`}
                         className="inline-flex items-center gap-1 text-xs font-normal text-neutral-600 dark:text-neutral-300 hover:text-primary transition-colors"
                       >
-                        <Badge variant="outline" className="capitalize">
                           {moveData.tm.location.replace(/_/g, ' ')}
-                        </Badge>
                       </Link>
                     ) : (
                       <span className="text-xs text-muted-foreground">Unknown location</span>
@@ -138,7 +136,7 @@ export default function MoveDetailClient({ moveData }: { moveData: MoveData }) {
                   </div>
                 </div>
               </BentoGridNoLink>
-            )} */}
+            )}
           </BentoGrid>
         </div>
 
