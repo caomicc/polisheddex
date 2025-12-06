@@ -15,7 +15,7 @@ import {
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
 import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
-import { BicepsFlexed, Crosshair, FolderOpen, HandFist } from 'lucide-react';
+import { BicepsFlexed, Crosshair, FolderOpen, HandFist, MapPin } from 'lucide-react';
 import { MoveData } from '@/types/new';
 
 export default function MoveDetailClient({ moveData }: { moveData: MoveData }) {
@@ -114,6 +114,31 @@ export default function MoveDetailClient({ moveData }: { moveData: MoveData }) {
                 </p>
               </div>
             </BentoGridNoLink>
+
+            {/* {moveData.tm && (
+              <BentoGridNoLink className="md:col-span-4">
+                <div>
+                  <MapPin className="size-4" />
+                  <p className="mt-2 mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200 capitalize">
+                    {moveData.tm.number.toUpperCase()} Location
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {moveData.tm.location ? (
+                      <Link
+                        href={`/locations/${encodeURIComponent(moveData.tm.location.toLowerCase().replace(/\s+/g, '_'))}`}
+                        className="inline-flex items-center gap-1 text-xs font-normal text-neutral-600 dark:text-neutral-300 hover:text-primary transition-colors"
+                      >
+                        <Badge variant="outline" className="capitalize">
+                          {moveData.tm.location.replace(/_/g, ' ')}
+                        </Badge>
+                      </Link>
+                    ) : (
+                      <span className="text-xs text-muted-foreground">Unknown location</span>
+                    )}
+                  </div>
+                </div>
+              </BentoGridNoLink>
+            )} */}
           </BentoGrid>
         </div>
 

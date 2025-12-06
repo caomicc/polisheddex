@@ -63,7 +63,8 @@ def reduce_pokemon_folder_name(name: str) -> str:
         '_terastal', '_stellar',
         '_red', '_yellow', '_green', '_blue', '_orange', '_purple', '_pink', '_white', '_black',
         '_chuchu', '_pika', '_spark', '_fly', '_surf', '_spiky', '_spikyeared',
-        '_two_segment', '_three_segment',
+        # '_two_segment', '_three_segment', '_twosegment', '_threesegment',
+        # '_two_segment_form', '_three_segment_form', '_twosegment_form', '_threesegment_form',
         '_johto',
         # Arbok regional/trainer variants
         '_agatha', '_ariana', '_kanto', '_koga',
@@ -304,12 +305,12 @@ class GBCSpriteProcessor:
         """Get the output directory name for a Pokemon - normalized to match extraction format"""
         # Handle special mappings first
         mapped_name = pokemon_name
-        # Map dudunsparce_two_segment to the default dudunsparce folder
+        # Map dudunsparce_two_segment to the default dudunsparce folder (this is the "plain" form)
         if pokemon_name == 'dudunsparce_two_segment':
             mapped_name = 'dudunsparce'
-        # Map dudunsparce_three_segment to the default dudunsparce folder
+        # Map dudunsparce_three_segment to dudunsparce_threesegment (separate form)
         elif pokemon_name == 'dudunsparce_three_segment':
-            mapped_name = 'dudunsparce'
+            mapped_name = 'dudunsparce_threesegment'
         elif pokemon_name == 'arbok_johto':
             mapped_name = 'arbok'
         # Map arbok_johto to the default arbok folder
@@ -474,8 +475,9 @@ class GBCSpriteProcessor:
                 # Extract base name by removing the form suffix
                 for suffix in ['_plain', '_alolan', '_galarian', '_hisuian', '_paldean',
                                '_fly', '_surf', '_spark', '_spiky', '_chuchu', '_pika',
-                               '_koga', '_agatha', '_lance', '_dudunsparce_two_segment',
-                               '_dudunsparce_three_segment',
+                               '_koga', '_agatha', '_lance',
+                               '_two_segment', '_twosegment',
+                               '_three_segment', '_threesegment',
                                '_kanto', '_ariana',
                                '_red', '_yellow', '_green', '_blue']:
                     if pokemon_name.endswith(suffix):
