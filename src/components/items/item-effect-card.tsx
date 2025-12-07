@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
+import { DetailCard } from '@/components/ui/detail-card';
 import { Badge } from '@/components/ui/badge';
 import TypeBadge from '@/components/type-badge';
 import { Sparkles } from 'lucide-react';
@@ -30,19 +30,7 @@ export function ItemEffectCard({ category, moveName, moveData, className }: Item
   const moveSlug = moveName.toLowerCase().replace(/\s+/g, '-').replace(/_/g, '-');
 
   return (
-    <div
-      className={cn(
-        'rounded-xl border border-neutral-200 bg-white p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800',
-        className
-      )}
-    >
-      <div className="flex items-center gap-2 mb-3">
-        <Sparkles className="h-4 w-4 text-purple-500" />
-        <h3 className="text-sm font-semibold text-neutral-600 dark:text-neutral-400 uppercase tracking-wide">
-          Teaches Move
-        </h3>
-      </div>
-
+    <DetailCard icon={Sparkles} title="Teaches Move" className={className}>
       <Link
         href={`/moves/${moveSlug}`}
         className="inline-block text-xl font-bold text-neutral-800 dark:text-neutral-100 hover:text-primary dark:hover:text-primary transition-colors capitalize mb-3"
@@ -94,6 +82,6 @@ export function ItemEffectCard({ category, moveName, moveData, className }: Item
           View move details →
         </p>
       )}
-    </div>
+    </DetailCard>
   );
 }
