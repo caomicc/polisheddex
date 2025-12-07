@@ -4,8 +4,6 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '.
 import { Badge } from '../ui/badge';
 import { cn } from '@/lib/utils';
 import { Progress } from '../ui/progress';
-import { PokemonAbilities } from './pokemon-abilities';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import PokedexHeader from './pokemon-header';
 import { WeaknessChart } from './weakness-chart';
 import PokemonTypeSetter from './pokemon-type-setter';
@@ -15,8 +13,9 @@ import { PokemonSprite } from './pokemon-sprite';
 import { BentoGrid, BentoGridNoLink } from '../ui/bento-box';
 import { MoveRow } from '../moves';
 import Link from 'next/link';
-import { EvolutionChainDisplay } from './evolution-chain-display';
+import { EvolutionTable } from './evolution-table';
 import { EvolutionChain } from '@/utils/evolution-data-server';
+import { PokemonInfoTable } from './pokemon-info-table';
 
 // Type for location encounter data
 interface PokemonLocationEncounter {
@@ -61,9 +60,6 @@ export default function PokemonFormClient({
 }) {
   const [selectedForm, setSelectedForm] = useQueryState('form', {
     defaultValue: 'plain',
-  });
-  const [activeTab, setActiveTab] = useQueryState('tab', {
-    defaultValue: 'stats',
   });
   const { showFaithful } = useFaithfulPreferenceSafe();
 
@@ -180,524 +176,397 @@ export default function PokemonFormClient({
           setSelectedForm={setSelectedForm}
         />
 
-        <Tabs
-          defaultValue={activeTab}
-          onValueChange={(value) => setActiveTab(value)}
-          className="w-full z-10 relative"
-        >
-          <TabsList
-            className={cn(
-              `grid w-full grid-cols-3 bg-white p-1 h-12 border-1`,
-              'pokemon-tab-background',
-            )}
-          >
-            <TabsTrigger className="pokemon-hero-text" value="stats">
-              Stats
-            </TabsTrigger>
-            <TabsTrigger className="pokemon-hero-text" value="moves">
-              Moves
-            </TabsTrigger>
-            <TabsTrigger className="pokemon-hero-text" value="location">
-              Location
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent
-            value="stats"
-            className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
-          >
-            <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
-              <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-6">
-                <BentoGridNoLink className="md:col-span-3">
-                  {currentFormData?.baseStats ? (
-                    <div className="space-y-4 w-full">
-                      <h3 className={'text-neutral-600 dark:text-neutral-200'}>
-                        Base Stats ({showFaithful ? 'Faithful' : 'Polished'}):
-                      </h3>
-                      {[
-                        { label: 'HP', value: currentFormData.baseStats.hp, color: '*:bg-red-400' },
-                        {
-                          label: 'Atk',
-                          value: currentFormData.baseStats.attack,
-                          color: '*:bg-orange-400',
-                        },
-                        {
-                          label: 'Def',
-                          value: currentFormData.baseStats.defense,
-                          color: '*:bg-yellow-400',
-                        },
-                        {
-                          label: 'Sp. Atk',
-                          value: currentFormData.baseStats.specialAttack,
-                          color: '*:bg-blue-400',
-                        },
-                        {
-                          label: 'Sp. Def',
-                          value: currentFormData.baseStats.specialDefense,
-                          color: '*:bg-green-400',
-                        },
-                        {
-                          label: 'Spd',
-                          value: currentFormData.baseStats.speed,
-                          color: '*:bg-purple-400',
-                        },
-                      ].map(({ label, value, color }) => (
-                        <div key={label} className="flex flex-row gap-4 items-center">
-                          <div className="flex justify-between items-center w-[120px]">
-                            <span className="label-text">{label}</span>
-                            <span className="text-xs leading-none text-muted-foreground">
-                              {value ?? 'N/A'}
-                            </span>
-                          </div>
-                          <Progress
-                            value={typeof value === 'number' ? Math.round((value / 255) * 100) : 0}
-                            aria-label={`${label} stat`}
-                            className={cn(
-                              color,
-                              'dark:bg-slate-800 h-2 w-full rounded-full',
-                              'transition-all duration-300 ease-in-out',
-                            )}
-                          />
-                        </div>
-                      ))}
-                      <div className="flex justify-between items-center mt-2 border-t pt-2 border-gray-200 dark:border-gray-700">
-                        <span className="font-semibold">Total</span>
-                        <span className="text-xs text-neutral-600 dark:text-neutral-200 font-bold">
-                          {Object.values(currentFormData.baseStats).reduce(
-                            (sum: number, stat) => (typeof stat === 'number' ? sum + stat : sum),
-                            0,
-                          )}
-                        </span>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="text-gray-400 text-sm mb-6">No base stat data</div>
-                  )}
-                </BentoGridNoLink>
-                <BentoGridNoLink className="md:col-span-3">
-                  <div className={cn('flex flex-col gap-6')}>
-                    <WeaknessChart
-                      types={currentTypes.map((t: string) => t.toLowerCase())}
-                      variant={showFaithful ? 'Faithful' : 'Polished'}
-                    />
-                  </div>
-                </BentoGridNoLink>
-                {/* Abilities Section */}
-                <PokemonAbilities abilities={currentAbilities} />
-              </BentoGrid>
-            </div>
+        {/* Pokemon Info Table */}
+        <PokemonInfoTable
+          name={pokemonData.name}
+          dexNo={pokemonData.dexNo}
+          types={currentTypes}
+          abilities={currentAbilities}
+          selectedForm={selectedForm}
+          evolutionChain={
+            showFaithful
+              ? (evolutionChainData?.faithful ?? null)
+              : (evolutionChainData?.polished ?? null)
+          }
+          growthRate={currentFormData?.growthRate}
+          hasGender={currentFormData?.hasGender}
+          availableForms={uniqueForms}
+        />
 
-            {/* Training Stats Section */}
-            <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
-              <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-2">
-                <BentoGridNoLink className="md:col-span-1">
-                  <h3 className={'font-bold text-neutral-600 dark:text-neutral-200 capitalize'}>
-                    Training Stats:
-                  </h3>
-                  <div className="flex flex-row gap-4 items-center">
-                    <div className="flex justify-between items-center w-[120px]">
-                      <span className="label-text">Growth Rate</span>
-                    </div>
-                    <span className="text-xs text-left">
-                      {currentFormData?.growthRate || 'N/A'}
-                    </span>
-                  </div>
+        <EvolutionTable
+          chain={
+            showFaithful
+              ? (evolutionChainData?.faithful ?? null)
+              : (evolutionChainData?.polished ?? null)
+          }
+          currentPokemon={pokemonData.id}
+          currentForm={selectedForm}
+        />
 
-                  <div className="flex flex-row gap-4 items-center">
-                    <div className="flex justify-between items-center w-[120px]">
-                      <span className="label-text">Has Gender</span>
-                    </div>
-                    <span className="text-xs text-left">
-                      {currentFormData?.hasGender ? 'Yes' : 'No'}
-                    </span>
-                  </div>
-                </BentoGridNoLink>
-                <BentoGridNoLink className="md:col-span-1">
-                  <h3 className={'font-bold text-neutral-600 dark:text-neutral-200 capitalize'}>
-                    Forms Available:
-                  </h3>
-                  <div className="text-xs text-left">
-                    {uniqueForms.length > 1 ? (
-                      <div className="grid grid-cols-2 gap-2">
-                        {uniqueForms.map((form) => (
-                          <div key={form} className="flex flex-col items-center gap-1">
-                            <PokemonSprite
-                              form={form}
-                              pokemonName={pokemonData.name}
-                              className="w-16 h-16 shadow-none"
-                            />
-                            <span className="text-xs text-center capitalize">
-                              {form === 'plain'
-                                ? 'Default'
-                                : form.replace(/([A-Z])/g, ' $1').trim()}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    ) : (
-                      <div className="flex flex-col items-center gap-1">
-                        <PokemonSprite
-                          form="plain"
-                          pokemonName={pokemonData.name}
-                          className="w-12 h-12 shadow-none"
-                        />
-                        <span className="text-xs text-center">Default form only</span>
-                      </div>
-                    )}
-                  </div>
-                </BentoGridNoLink>
-              </BentoGrid>
-            </div>
-
-            {/* Sprites and Evolution Section */}
-            <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
-              <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-3">
-                <BentoGridNoLink className="md:col-span-1">
-                  <div className="mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200 capitalize">
-                    Sprites
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="flex flex-col items-center justify-center gap-2">
-                      <PokemonSprite
-                        form={selectedForm}
-                        pokemonName={pokemonData.name}
-                        className="shadow-none"
-                      />
-                      <span className="flex text-xs font-black text-neutral-600 dark:text-neutral-200 capitalize leading-none">
-                        Static
-                      </span>
-                    </div>
-                    <div className="flex flex-col items-center justify-center gap-2">
-                      <PokemonSprite
-                        form={selectedForm}
-                        pokemonName={pokemonData.name}
-                        type="animated"
-                        className="shadow-none"
-                      />
-                      <span className="flex text-xs font-black text-neutral-600 dark:text-neutral-200 capitalize leading-none">
-                        Animated
-                      </span>
-                    </div>
-                    <div className="flex flex-col items-center justify-center gap-2">
-                      <PokemonSprite
-                        form={selectedForm}
-                        pokemonName={pokemonData.name}
-                        variant="shiny"
-                        className="shadow-none"
-                      />
-                      <span className="flex text-xs font-black text-neutral-600 dark:text-neutral-200 capitalize leading-none">
-                        Shiny Static
-                      </span>
-                    </div>
-                    <div className="flex flex-col items-center justify-center gap-2">
-                      <PokemonSprite
-                        form={selectedForm}
-                        pokemonName={pokemonData.name}
-                        variant="shiny"
-                        type="animated"
-                        className="shadow-none"
-                      />
-                      <span className="flex text-xs font-black text-neutral-600 dark:text-neutral-200 capitalize leading-none">
-                        Shiny Animated
-                      </span>
-                    </div>
-                  </div>
-                </BentoGridNoLink>
-                <BentoGridNoLink className="md:col-span-2 justify-start">
-                  <div className="mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200 capitalize">
-                    Evolution Chain
-                  </div>
-                  <EvolutionChainDisplay
-                    chain={
-                      showFaithful
-                        ? (evolutionChainData?.faithful ?? null)
-                        : (evolutionChainData?.polished ?? null)
-                    }
-                    currentPokemon={pokemonData.id}
-                    currentForm={selectedForm}
-                  />
-                </BentoGridNoLink>
-              </BentoGrid>
-            </div>
-          </TabsContent>
-
-          <TabsContent
-            value="moves"
-            className="text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
-          >
-            <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
-              <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-1">
-                <BentoGridNoLink>
-                  <Tabs defaultValue="level-up" className="w-full">
-                    <TabsList className="grid w-full grid-cols-3 p-1 h-12">
-                      <TabsTrigger value="level-up">Level Up</TabsTrigger>
-                      <TabsTrigger value="egg">Egg Moves</TabsTrigger>
-                      <TabsTrigger value="tm-hm">TM/HM</TabsTrigger>
-                    </TabsList>
-                    <TabsContent value="level-up">
-                      {currentFormData?.movesets?.levelUp &&
-                      currentFormData.movesets.levelUp.length > 0 ? (
-                        <div>
-                          <Table>
-                            <TableHeader className={'hidden md:table-header-group'}>
-                              <TableRow>
-                                <TableHead className="attheader cen align-middle text-left md:w-[60px] label-text">
-                                  Level
-                                </TableHead>
-                                <TableHead className="attheader cen align-middle text-left md:w-[180px] label-text">
-                                  Attack Name
-                                </TableHead>
-                                <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
-                                  Type
-                                </TableHead>
-                                <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
-                                  Cat.
-                                </TableHead>
-                                <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
-                                  Att.
-                                </TableHead>
-                                <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
-                                  Acc.
-                                </TableHead>
-                                <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
-                                  PP
-                                </TableHead>
-                                <TableHead className="attheader cen align-middle text-left w-[80px] label-text">
-                                  TM/HM
-                                </TableHead>
-                              </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                              {currentFormData.movesets.levelUp
-                                .sort((a, b) => a.level - b.level)
-                                .map((move, index) => {
-                                  // Move data is already enriched from the server
-                                  const moveInfo = move as EnrichedMove;
-
-                                  return (
-                                    <MoveRow
-                                      key={`levelup-${move.id}-${index}`}
-                                      id={move.id || ''}
-                                      level={move.level}
-                                      info={{
-                                        name: moveInfo.name || move.id,
-                                        type: moveInfo.type || 'normal',
-                                        category: moveInfo.category || 'physical',
-                                        power: moveInfo.power || 0,
-                                        pp: moveInfo.pp || 0,
-                                        accuracy: moveInfo.accuracy || 0,
-                                        effectChance: moveInfo.effectChance || 0,
-                                        description: moveInfo.description || '',
-                                      }}
-                                    />
-                                  );
-                                })}
-                            </TableBody>
-                          </Table>
-                        </div>
-                      ) : (
-                        <div className="text-gray-400 text-sm mb-6">
-                          No level-up moves available
-                        </div>
-                      )}
-                    </TabsContent>
-                    <TabsContent value="egg">
-                      {currentFormData?.movesets?.eggMoves &&
-                      currentFormData.movesets.eggMoves.length > 0 ? (
-                        <Table>
-                          <TableHeader className={'hidden md:table-header-group'}>
-                            <TableRow>
-                              <TableHead className="attheader cen align-middle text-left md:w-[238px] label-text">
-                                Attack Name
-                              </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
-                                Type
-                              </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
-                                Cat.
-                              </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
-                                Att.
-                              </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
-                                Acc.
-                              </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
-                                PP
-                              </TableHead>
-                              <TableHead className="attheader cen align-middle text-left w-[80px] label-text">
-                                TM/HM
-                              </TableHead>
-                            </TableRow>
-                          </TableHeader>
-                          <TableBody>
-                            {currentFormData.movesets.eggMoves.map((move, index) => {
-                              // Move data is already enriched from the server
-                              const moveInfo = move as EnrichedMove;
-
-                              return (
-                                <MoveRow
-                                  key={`eggmove-${move.id}-${index}`}
-                                  id={move.id}
-                                  info={{
-                                    name: moveInfo.name || move.id,
-                                    type: moveInfo.type || 'normal',
-                                    category: moveInfo.category || 'physical',
-                                    power: moveInfo.power || 0,
-                                    pp: moveInfo.pp || 0,
-                                    accuracy: moveInfo.accuracy || 0,
-                                    effectChance: moveInfo.effectChance || 0,
-                                    description: moveInfo.description || '',
-                                  }}
-                                />
-                              );
-                            })}
-                          </TableBody>
-                        </Table>
-                      ) : (
-                        <div className="text-gray-400 text-sm mb-6 mx-auto text-center py-8">
-                          No egg moves
-                        </div>
-                      )}
-                    </TabsContent>
-                    <TabsContent value="tm-hm">
-                      {currentFormData?.movesets?.tm && currentFormData.movesets.tm.length > 0 ? (
-                        <Table>
-                          <TableHeader className={'hidden md:table-header-group'}>
-                            <TableRow>
-                              <TableHead className="attheader cen align-middle text-left md:w-[238px] label-text">
-                                Attack Name
-                              </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
-                                Type
-                              </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
-                                Cat.
-                              </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
-                                Att.
-                              </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
-                                Acc.
-                              </TableHead>
-                              <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
-                                PP
-                              </TableHead>
-                              <TableHead className="attheader cen align-middle text-left w-[80px] label-text">
-                                TM/HM
-                              </TableHead>
-                            </TableRow>
-                          </TableHeader>
-                          <TableBody>
-                            {currentFormData.movesets.tm.map((move, index) => {
-                              // Move data is already enriched from the server
-                              const moveInfo = move as EnrichedMove;
-
-                              return (
-                                <MoveRow
-                                  key={`tm-${move.id}-${index}`}
-                                  id={move.id}
-                                  info={{
-                                    name: moveInfo.name || move.id,
-                                    type: moveInfo.type || 'normal',
-                                    category: moveInfo.category || 'physical',
-                                    power: moveInfo.power || 0,
-                                    pp: moveInfo.pp || 0,
-                                    accuracy: moveInfo.accuracy || 0,
-                                    effectChance: moveInfo.effectChance || 0,
-                                    description: moveInfo.description || '',
-                                  }}
-                                />
-                              );
-                            })}
-                          </TableBody>
-                        </Table>
-                      ) : (
-                        <div className="text-gray-400 text-sm mb-6">No TM/HM moves</div>
-                      )}
-                    </TabsContent>
-                  </Tabs>
-                </BentoGridNoLink>
-              </BentoGrid>
-            </div>
-          </TabsContent>
-          <TabsContent
-            value="location"
-            className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
-          >
-            <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
-              <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-1">
-                {consolidatedLocations.length > 0 ? (
-                  <BentoGridNoLink>
-                    <h3 className="text-lg font-semibold mb-3 flex items-center gap-2 text-neutral-600 dark:text-neutral-200">
-                      Wild Encounters
+        {/* Stats Section */}
+        <div className="text-center md:text-left w-full space-y-6">
+          <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
+            <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-6">
+              <BentoGridNoLink className="md:col-span-3">
+                {currentFormData?.baseStats ? (
+                  <div className="space-y-4 w-full">
+                    <h3 className={'text-neutral-600 dark:text-neutral-200'}>
+                      Base Stats ({showFaithful ? 'Faithful' : 'Polished'}):
                     </h3>
-                    <Table>
-                      <TableHeader>
-                        <TableRow>
-                          <TableHead className="text-left">
-                            <span className="label-text">Location</span>
-                          </TableHead>
-                          <TableHead className="text-left">
-                            <span className="label-text">Method</span>
-                          </TableHead>
-                          <TableHead className="text-left">
-                            <span className="label-text">Time</span>
-                          </TableHead>
-                          <TableHead className="text-left">
-                            <span className="label-text">Levels</span>
-                          </TableHead>
-                          <TableHead className="text-left">
-                            <span className="label-text">Rate</span>
-                          </TableHead>
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                        {consolidatedLocations.map((loc, idx) => (
-                          <TableRow key={`${loc.locationId}-${loc.method}-${loc.version}-${idx}`}>
-                            <TableCell className="text-left">
-                              <Link
-                                href={`/locations/${loc.locationId}`}
-                                className="table-link text-sm"
-                              >
-                                {loc.locationName}
-                                <span className="text-xs text-muted-foreground ml-1">
-                                  ({loc.region})
-                                </span>
-                              </Link>
-                            </TableCell>
-                            <TableCell className="text-left">
-                              <Badge variant="secondary" className="text-xs capitalize">
-                                {loc.method.replace(/_/g, ' ')}
-                              </Badge>
-                            </TableCell>
-                            <TableCell className="text-left">
-                              <span className="text-sm capitalize">{loc.version}</span>
-                            </TableCell>
-                            <TableCell className="text-left">
-                              <span className="text-sm">
-                                {loc.levelRange === 'Varies' ? 'Varies' : `Lv. ${loc.levelRange}`}
-                              </span>
-                            </TableCell>
-                            <TableCell className="text-left">
-                              <span className="text-sm">{loc.totalRate}%</span>
-                            </TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </BentoGridNoLink>
-                ) : (
-                  <BentoGridNoLink>
-                    <div className="text-gray-400 text-sm my-6 text-center">
-                      No wild encounter data found. This Pokémon may only be available through
-                      breeding, events, or trades.
+                    {[
+                      { label: 'HP', value: currentFormData.baseStats.hp, color: '*:bg-red-400' },
+                      {
+                        label: 'Atk',
+                        value: currentFormData.baseStats.attack,
+                        color: '*:bg-orange-400',
+                      },
+                      {
+                        label: 'Def',
+                        value: currentFormData.baseStats.defense,
+                        color: '*:bg-yellow-400',
+                      },
+                      {
+                        label: 'Sp. Atk',
+                        value: currentFormData.baseStats.specialAttack,
+                        color: '*:bg-blue-400',
+                      },
+                      {
+                        label: 'Sp. Def',
+                        value: currentFormData.baseStats.specialDefense,
+                        color: '*:bg-green-400',
+                      },
+                      {
+                        label: 'Spd',
+                        value: currentFormData.baseStats.speed,
+                        color: '*:bg-purple-400',
+                      },
+                    ].map(({ label, value, color }) => (
+                      <div key={label} className="flex flex-row gap-4 items-center">
+                        <div className="flex justify-between items-center w-[120px]">
+                          <span className="label-text">{label}</span>
+                          <span className="text-xs leading-none text-muted-foreground">
+                            {value ?? 'N/A'}
+                          </span>
+                        </div>
+                        <Progress
+                          value={typeof value === 'number' ? Math.round((value / 255) * 100) : 0}
+                          aria-label={`${label} stat`}
+                          className={cn(
+                            color,
+                            'dark:bg-slate-800 h-2 w-full rounded-full',
+                            'transition-all duration-300 ease-in-out',
+                          )}
+                        />
+                      </div>
+                    ))}
+                    <div className="flex justify-between items-center mt-2 border-t pt-2 border-gray-200 dark:border-gray-700">
+                      <span className="font-semibold">Total</span>
+                      <span className="text-xs text-neutral-600 dark:text-neutral-200 font-bold">
+                        {Object.values(currentFormData.baseStats).reduce(
+                          (sum: number, stat) => (typeof stat === 'number' ? sum + stat : sum),
+                          0,
+                        )}
+                      </span>
                     </div>
-                  </BentoGridNoLink>
+                  </div>
+                ) : (
+                  <div className="text-gray-400 text-sm mb-6">No base stat data</div>
                 )}
-              </BentoGrid>
-            </div>
-          </TabsContent>
-        </Tabs>
+              </BentoGridNoLink>
+              <BentoGridNoLink className="md:col-span-3">
+                <div className={cn('flex flex-col gap-6')}>
+                  <WeaknessChart
+                    types={currentTypes.map((t: string) => t.toLowerCase())}
+                    variant={showFaithful ? 'Faithful' : 'Polished'}
+                  />
+                </div>
+              </BentoGridNoLink>
+            </BentoGrid>
+          </div>
+        </div>
+
+        {/* Level Up Moves Section */}
+        <div className="text-left w-full">
+          <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
+            <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-1">
+              <BentoGridNoLink>
+                <h3 className="text-lg font-semibold mb-3 text-neutral-600 dark:text-neutral-200">
+                  Level Up Moves
+                </h3>
+                {currentFormData?.movesets?.levelUp &&
+                currentFormData.movesets.levelUp.length > 0 ? (
+                  <Table>
+                    <TableHeader className={'hidden md:table-header-group'}>
+                      <TableRow>
+                        <TableHead className="attheader cen align-middle text-left md:w-[60px] label-text">
+                          Level
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left md:w-[180px] label-text">
+                          Attack Name
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
+                          Type
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
+                          Cat.
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
+                          Att.
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
+                          Acc.
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
+                          PP
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left w-[80px] label-text">
+                          TM/HM
+                        </TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {currentFormData.movesets.levelUp
+                        .sort((a, b) => a.level - b.level)
+                        .map((move, index) => {
+                          const moveInfo = move as EnrichedMove;
+                          return (
+                            <MoveRow
+                              key={`levelup-${move.id}-${index}`}
+                              id={move.id || ''}
+                              level={move.level}
+                              info={{
+                                name: moveInfo.name || move.id,
+                                type: moveInfo.type || 'normal',
+                                category: moveInfo.category || 'physical',
+                                power: moveInfo.power || 0,
+                                pp: moveInfo.pp || 0,
+                                accuracy: moveInfo.accuracy || 0,
+                                effectChance: moveInfo.effectChance || 0,
+                                description: moveInfo.description || '',
+                              }}
+                            />
+                          );
+                        })}
+                    </TableBody>
+                  </Table>
+                ) : (
+                  <div className="text-gray-400 text-sm py-4 text-center">
+                    No level-up moves available
+                  </div>
+                )}
+              </BentoGridNoLink>
+            </BentoGrid>
+          </div>
+        </div>
+
+        {/* Egg Moves Section */}
+        <div className="text-left w-full">
+          <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
+            <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-1">
+              <BentoGridNoLink>
+                <h3 className="text-lg font-semibold mb-3 text-neutral-600 dark:text-neutral-200">
+                  Egg Moves
+                </h3>
+                {currentFormData?.movesets?.eggMoves &&
+                currentFormData.movesets.eggMoves.length > 0 ? (
+                  <Table>
+                    <TableHeader className={'hidden md:table-header-group'}>
+                      <TableRow>
+                        <TableHead className="attheader cen align-middle text-left md:w-[238px] label-text">
+                          Attack Name
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
+                          Type
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
+                          Cat.
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
+                          Att.
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
+                          Acc.
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
+                          PP
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left w-[80px] label-text">
+                          TM/HM
+                        </TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {currentFormData.movesets.eggMoves.map((move, index) => {
+                        const moveInfo = move as EnrichedMove;
+                        return (
+                          <MoveRow
+                            key={`eggmove-${move.id}-${index}`}
+                            id={move.id}
+                            info={{
+                              name: moveInfo.name || move.id,
+                              type: moveInfo.type || 'normal',
+                              category: moveInfo.category || 'physical',
+                              power: moveInfo.power || 0,
+                              pp: moveInfo.pp || 0,
+                              accuracy: moveInfo.accuracy || 0,
+                              effectChance: moveInfo.effectChance || 0,
+                              description: moveInfo.description || '',
+                            }}
+                          />
+                        );
+                      })}
+                    </TableBody>
+                  </Table>
+                ) : (
+                  <div className="text-gray-400 text-sm py-4 text-center">
+                    No egg moves
+                  </div>
+                )}
+              </BentoGridNoLink>
+            </BentoGrid>
+          </div>
+        </div>
+
+        {/* TM/HM Moves Section */}
+        <div className="text-left w-full">
+          <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
+            <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-1">
+              <BentoGridNoLink>
+                <h3 className="text-lg font-semibold mb-3 text-neutral-600 dark:text-neutral-200">
+                  TM/HM Moves
+                </h3>
+                {currentFormData?.movesets?.tm && currentFormData.movesets.tm.length > 0 ? (
+                  <Table>
+                    <TableHeader className={'hidden md:table-header-group'}>
+                      <TableRow>
+                        <TableHead className="attheader cen align-middle text-left md:w-[238px] label-text">
+                          Attack Name
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
+                          Type
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
+                          Cat.
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
+                          Att.
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
+                          Acc.
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left md:w-[80px] label-text">
+                          PP
+                        </TableHead>
+                        <TableHead className="attheader cen align-middle text-left w-[80px] label-text">
+                          TM/HM
+                        </TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {currentFormData.movesets.tm.map((move, index) => {
+                        const moveInfo = move as EnrichedMove;
+                        return (
+                          <MoveRow
+                            key={`tm-${move.id}-${index}`}
+                            id={move.id}
+                            info={{
+                              name: moveInfo.name || move.id,
+                              type: moveInfo.type || 'normal',
+                              category: moveInfo.category || 'physical',
+                              power: moveInfo.power || 0,
+                              pp: moveInfo.pp || 0,
+                              accuracy: moveInfo.accuracy || 0,
+                              effectChance: moveInfo.effectChance || 0,
+                              description: moveInfo.description || '',
+                            }}
+                          />
+                        );
+                      })}
+                    </TableBody>
+                  </Table>
+                ) : (
+                  <div className="text-gray-400 text-sm py-4 text-center">No TM/HM moves</div>
+                )}
+              </BentoGridNoLink>
+            </BentoGrid>
+          </div>
+        </div>
+
+        {/* Location Section */}
+        <div className="text-center md:text-left w-full">
+          <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
+            <BentoGrid className="max-w-4xl mx-auto md:auto-rows-auto md:grid-cols-1">
+              {consolidatedLocations.length > 0 ? (
+                <BentoGridNoLink>
+                  <h3 className="text-lg font-semibold mb-3 flex items-center gap-2 text-neutral-600 dark:text-neutral-200">
+                    Wild Encounters
+                  </h3>
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="text-left">
+                          <span className="label-text">Location</span>
+                        </TableHead>
+                        <TableHead className="text-left">
+                          <span className="label-text">Method</span>
+                        </TableHead>
+                        <TableHead className="text-left">
+                          <span className="label-text">Time</span>
+                        </TableHead>
+                        <TableHead className="text-left">
+                          <span className="label-text">Levels</span>
+                        </TableHead>
+                        <TableHead className="text-left">
+                          <span className="label-text">Rate</span>
+                        </TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {consolidatedLocations.map((loc, idx) => (
+                        <TableRow key={`${loc.locationId}-${loc.method}-${loc.version}-${idx}`}>
+                          <TableCell className="text-left">
+                            <Link
+                              href={`/locations/${loc.locationId}`}
+                              className="table-link text-sm"
+                            >
+                              {loc.locationName}
+                              <span className="text-xs text-muted-foreground ml-1">
+                                ({loc.region})
+                              </span>
+                            </Link>
+                          </TableCell>
+                          <TableCell className="text-left">
+                            <Badge variant="secondary" className="text-xs capitalize">
+                              {loc.method.replace(/_/g, ' ')}
+                            </Badge>
+                          </TableCell>
+                          <TableCell className="text-left">
+                            <span className="text-sm capitalize">{loc.version}</span>
+                          </TableCell>
+                          <TableCell className="text-left">
+                            <span className="text-sm">
+                              {loc.levelRange === 'Varies' ? 'Varies' : `Lv. ${loc.levelRange}`}
+                            </span>
+                          </TableCell>
+                          <TableCell className="text-left">
+                            <span className="text-sm">{loc.totalRate}%</span>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </BentoGridNoLink>
+              ) : (
+                <BentoGridNoLink>
+                  <div className="text-gray-400 text-sm my-6 text-center">
+                    No wild encounter data found. This Pokémon may only be available through
+                    breeding, events, or trades.
+                  </div>
+                </BentoGridNoLink>
+              )}
+            </BentoGrid>
+          </div>
+        </div>
         {process.env.NODE_ENV === 'development' && (
           <div className="rounded-lg border border-dashed border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/60 p-4 mb-4 text-xs text-left overflow-x-auto">
             <details>
