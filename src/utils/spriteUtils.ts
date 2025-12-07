@@ -560,6 +560,14 @@ export const ITEM_SPRITE_MAP: Record<string, string> = {
   ylw_apricorn: 'apricorn',
   pnk_apricorn: 'apricorn',
   blk_apricorn: 'apricorn',
+  // Apricorns without underscores (as stored in location data)
+  redapricorn: 'apricorn',
+  bluapricorn: 'apricorn',
+  whtapricorn: 'apricorn',
+  grnapricorn: 'apricorn',
+  ylwapricorn: 'apricorn',
+  pnkapricorn: 'apricorn',
+  blkapricorn: 'apricorn',
 
   // Add more mappings as needed
 };

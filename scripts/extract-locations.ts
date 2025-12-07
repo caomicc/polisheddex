@@ -37,6 +37,12 @@ const landmarks: {
   regionMap: new Map(),
 };
 
+// Flyable locations (from flypoints.asm)
+const flyableLocations: Set<string> = new Set();
+
+// Hidden grotto locations (from map scripts)
+const hiddenGrottoLocations: Set<string> = new Set();
+
 // Move-to-TM mapping (e.g., "attract" -> "tm45")
 // Built from extract-items and used to add tmId to TM/HM items
 let moveToTmMapping: Record<string, string> = {};
@@ -49,6 +55,7 @@ const martData: Map<number, string[]> = new Map(); // 3 -> ["CHARCOAL", "POKE_BA
 const attributesASM = join(__dirname, '../polishedcrystal/data/maps/attributes.asm');
 const mapsASM = join(__dirname, '../polishedcrystal/data/maps/maps.asm');
 const landmarkConstantsASM = join(__dirname, '../polishedcrystal/constants/landmark_constants.asm');
+const flypointsASM = join(__dirname, '../polishedcrystal/data/maps/flypoints.asm');
 const mapsDir = join(__dirname, '../polishedcrystal/maps');
 
 // Wild encounter files
@@ -106,6 +113,46 @@ const extractLandmarks = async () => {
   }
 
   console.log(`Extracted ${landmarks.locationRefs.size} landmarks`);
+};
+
+// Extract flyable locations from flypoints.asm
+const extractFlypoints = async () => {
+  const raw = await readFile(flypointsASM, 'utf-8');
+  const lines = raw.split('\n');
+
+  for (const line of lines) {
+    // Parse: db NEW_BARK_TOWN, SPAWN_NEW_BARK
+    const match = line.match(/^\s*db\s+([A-Z_][A-Z0-9_]*)\s*,/);
+    if (match) {
+      const landmarkConstant = match[1];
+      const locationKey = reduce(landmarkConstant);
+      flyableLocations.add(locationKey);
+    }
+  }
+
+  console.log(`Extracted ${flyableLocations.size} flyable locations`);
+};
+
+// Extract hidden grotto locations from map scripts
+const extractHiddenGrottoes = async () => {
+  const { readdir } = await import('fs/promises');
+  const mapFiles = await readdir(mapsDir);
+
+  for (const mapFile of mapFiles) {
+    if (!mapFile.endsWith('.asm')) continue;
+
+    const mapPath = join(mapsDir, mapFile);
+    const content = await readFile(mapPath, 'utf-8');
+
+    // Look for grotto warps or bg_events (e.g., HIDDEN_TREE_GROTTO, HIDDEN_CAVE_GROTTO, treegrotto, cavegrotto)
+    if (content.includes('GROTTO') || content.includes('grotto')) {
+      // Extract the location name from the filename (e.g., "Route42.asm" -> "route42")
+      const locationName = mapFile.replace('.asm', '').toLowerCase();
+      hiddenGrottoLocations.add(locationName);
+    }
+  }
+
+  console.log(`Extracted ${hiddenGrottoLocations.size} hidden grotto locations`);
 };
 
 // Legacy mart extraction functions removed - now using manual mapping
@@ -576,6 +623,8 @@ const mergeLocationData = async () => {
 // Main execution using Promise.all pattern for operations that don't depend on Pokemon data
 await Promise.all([
   extractLandmarks(),
+  extractFlypoints(),
+  extractHiddenGrottoes(),
   // Mart extraction replaced with manual mapping
   // extractMartConstants(),
   // extractMartData(),
@@ -640,6 +689,8 @@ await Promise.all(
           : undefined,
       trainerCount: location.trainers?.length,
       itemCount: (location.items?.length || 0) + getMartItemCount(location.id),
+      flyable: flyableLocations.has(location.id) || undefined,
+      hasHiddenGrotto: hiddenGrottoLocations.has(location.id) || undefined,
     });
   }),
 );

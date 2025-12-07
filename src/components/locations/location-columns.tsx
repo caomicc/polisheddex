@@ -32,7 +32,7 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
       const location = row.original;
 
       return (
-        <div className="flex items-center space-x-2 min-w-0 text-xs ">
+        <div className="flex items-center space-x-2 min-w-[180px] text-xs ">
           <Link href={`/locations/${encodeURIComponent(location.id)}`} className="table-link">
             {location.name}
             <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
@@ -166,39 +166,6 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
     },
     cell: ({ row }) => {
       const count = row.getValue('trainerCount') as number;
-      return (
-        <div className="">
-          {count && count > 0 ? (
-            <span className="text-cell">{count}</span>
-          ) : (
-            <span className="text-cell text-cell-muted">—</span>
-          )}
-        </div>
-      );
-    },
-  },
-  {
-    accessorKey: 'eventCount',
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
-        >
-          Events
-          {column.getIsSorted() === 'desc' ? (
-            <ArrowDown className="size-3" />
-          ) : column.getIsSorted() === 'asc' ? (
-            <ArrowUp className="size-3" />
-          ) : (
-            <ArrowUpDown className="size-3" />
-          )}
-        </Button>
-      );
-    },
-    cell: ({ row }) => {
-      const count = row.getValue('eventCount') as number;
       return (
         <div className="">
           {count && count > 0 ? (

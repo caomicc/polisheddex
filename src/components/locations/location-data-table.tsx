@@ -133,8 +133,8 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
 
       // Use correct field names from LocationManifest
       const matchesPokemon = !pokemon || (location.encounterCount && location.encounterCount > 0);
-      const matchesFlyable = !flyable || location.flyable; // Note: flyable not yet extracted
-      const matchesGrottoes = !grottoes || location.hasHiddenGrottoes; // Note: grottoes not yet extracted
+      const matchesFlyable = !flyable || location.flyable;
+      const matchesGrottoes = !grottoes || location.hasHiddenGrotto;
       const matchesTrainers = !trainers || (location.trainerCount && location.trainerCount > 0);
       const matchesItems = !items || (location.itemCount && location.itemCount > 0);
       const matchesRegion = region === 'all' || location.region === region;

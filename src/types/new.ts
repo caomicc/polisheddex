@@ -247,6 +247,8 @@ export interface LocationManifest {
   eventCount?: number;
   trainerCount?: number;
   itemCount?: number;
+  flyable?: boolean;
+  hasHiddenGrotto?: boolean;
 }
 
 export interface TrainerData {
