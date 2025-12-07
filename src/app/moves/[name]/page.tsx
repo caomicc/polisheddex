@@ -1,30 +1,92 @@
 import { Suspense } from 'react';
+import { notFound } from 'next/navigation';
 import { promises as fs } from 'fs';
 import path from 'path';
+import Link from 'next/link';
 
 import MoveDetailClient from '@/components/moves/move-detail-client';
 import { PokemonGridSkeleton } from '@/components/pokemon/pokemon-card-skeleton';
+import { Hero } from '@/components/ui/Hero';
+import { Badge } from '@/components/ui/badge';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
+
+async function loadMoveData(moveName: string) {
+  const moveFilePath = path.join(process.cwd(), 'public/new/moves', `${moveName}.json`);
+  try {
+    const moveFileData = await fs.readFile(moveFilePath, 'utf-8');
+    return JSON.parse(moveFileData);
+  } catch (error) {
+    console.error(`Error loading move data for ${moveName}:`, error);
+    return null;
+  }
+}
 
 export default async function MoveDetail({ params }: { params: Promise<{ name: string }> }) {
   const nameParam = (await params).name;
   const moveName = decodeURIComponent(nameParam);
 
-  // Load move data directly from individual move file
-  const moveFilePath = path.join(process.cwd(), 'public/new/moves', `${moveName}.json`);
-  let moveData = null;
+  const moveData = await loadMoveData(moveName);
 
-  try {
-    const moveFileData = await fs.readFile(moveFilePath, 'utf-8');
-    moveData = JSON.parse(moveFileData);
-  } catch (error) {
-    console.error(`Error loading move data for ${moveName}:`, error);
+  if (!moveData) {
+    return notFound();
   }
+
+  // Use polished as default for server-rendered content
+  const displayName = moveData.versions['polished']?.name || moveName;
+  const description = moveData.versions['polished']?.description || 'Move details and Pokémon that can learn it';
+  const moveType = moveData.versions['polished']?.type || 'Unknown';
 
   return (
     <>
-      <Suspense fallback={<PokemonGridSkeleton count={8} />}>
-        <MoveDetailClient moveData={moveData} />
-      </Suspense>
+      <Hero
+        headline={displayName}
+        description={description}
+        types={
+          <div className="flex flex-wrap gap-2" aria-label="Move Type" role="group">
+            <Badge variant={moveType.toLowerCase() as any}>
+              {moveType}
+            </Badge>
+          </div>
+        }
+        breadcrumbs={
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/" className="hover:underline">
+                    Home
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/moves" className="hover:underline">
+                    Moves
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{displayName}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        }
+      />
+
+      <div className="max-w-xl md:max-w-4xl mx-auto">
+        <Suspense fallback={<PokemonGridSkeleton count={4} />}>
+          <MoveDetailClient moveData={moveData} />
+        </Suspense>
+      </div>
     </>
   );
 }
@@ -57,35 +119,31 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   const nameParam = (await params).name;
   const moveName = decodeURIComponent(nameParam);
 
-  try {
-    // Load move data from individual file
-    const moveFilePath = path.join(process.cwd(), 'public/new/moves', `${moveName}.json`);
-    const moveFileData = await fs.readFile(moveFilePath, 'utf-8');
-    const moveData = JSON.parse(moveFileData);
+  const moveData = await loadMoveData(moveName);
 
-    if (!moveData) {
-      return {
-        title: 'Move Not Found',
-        description: 'The requested move could not be found.',
-      };
-    }
-
-    const title = `${moveData.versions['polished'].name} | PolishedDex`;
-    const description = `${moveData.versions['polished'].description || 'Move details'} View all Pokémon that can learn ${moveData.versions['polished'].name} in Pokémon Polished Crystal.`;
-    const url = `https://www.polisheddex.app/moves/${nameParam}`;
-
-    // Build move stats text
-    const moveStats = moveData.versions['polished'];
-    const statsText = moveStats
-      ? ` Type: ${moveStats.type}, Power: ${moveStats.power || 'N/A'}, Accuracy: ${moveStats.accuracy || 'N/A'}, PP: ${moveStats.pp || 'N/A'}.`
-      : '';
-
-    const socialDescription = `${moveData.versions['polished'].description || 'Move details'}.${statsText}`;
-
+  if (!moveData) {
     return {
-      title,
-      description,
-      keywords: [
+      title: 'Move Not Found',
+      description: 'The requested move could not be found.',
+    };
+  }
+
+  const title = `${moveData.versions['polished'].name} | PolishedDex`;
+  const description = `${moveData.versions['polished'].description || 'Move details'} View all Pokémon that can learn ${moveData.versions['polished'].name} in Pokémon Polished Crystal.`;
+  const url = `https://www.polisheddex.app/moves/${nameParam}`;
+
+  // Build move stats text
+  const moveStats = moveData.versions['polished'];
+  const statsText = moveStats
+    ? ` Type: ${moveStats.type}, Power: ${moveStats.power || 'N/A'}, Accuracy: ${moveStats.accuracy || 'N/A'}, PP: ${moveStats.pp || 'N/A'}.`
+    : '';
+
+  const socialDescription = `${moveData.versions['polished'].description || 'Move details'}.${statsText}`;
+
+  return {
+    title,
+    description,
+    keywords: [
         'pokemon polished crystal',
         moveData.versions['polished'].name?.toLowerCase() || moveName.toLowerCase(),
         'move',
@@ -141,13 +199,6 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
         canonical: url,
       },
     };
-  } catch (error) {
-    console.error('Error generating metadata for move:', error);
-    return {
-      title: 'Move | PolishedDex',
-      description: 'Move details and Pokémon that can learn it in Pokémon Polished Crystal.',
-    };
-  }
 }
 
 // Export viewport separately as required by Next.js 15+
