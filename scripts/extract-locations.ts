@@ -15,7 +15,7 @@ import {
 import { mapEncounterRatesToPokemon } from '@/utils/encounterRates';
 import splitFile from '@/lib/split';
 import extractTrainers from './extract-trainers';
-import { extractItemsFromMapData } from './extract-items';
+import { extractItemsFromMapData, buildMoveToTmMapping } from './extract-items';
 import { getMartItemCount } from './mart-items-mapping';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -45,6 +45,10 @@ const landmarks: {
   orderMap: new Map(),
   regionMap: new Map(),
 };
+
+// Move-to-TM mapping (e.g., "attract" -> "tm45")
+// Built from extract-items and used to add tmId to TM/HM items
+let moveToTmMapping: Record<string, string> = {};
 
 // Mart data storage (legacy - replaced with manual mapping)
 const martConstants: Map<string, number> = new Map(); // MART_AZALEA -> 3 (index)
@@ -590,13 +594,24 @@ const mergeLocationData = async () => {
       const martItems = extractMartItemsFromMapData(mapData);
       const allItems = [...locationItems, ...martItems];
 
+      // Add tmId for TM/HM items using the move-to-TM mapping
+      const itemsWithTmId = allItems.map((item) => {
+        if ((item.type === 'tm' || item.type === 'hm') && item.name) {
+          const tmId = moveToTmMapping[item.name.toLowerCase()];
+          if (tmId) {
+            return { ...item, tmId };
+          }
+        }
+        return item;
+      });
+
       if (isMart) {
         console.log(`   Extracted ${locationItems.length} regular items:`, locationItems);
         console.log(`   Extracted ${martItems.length} mart items:`, martItems);
-        console.log(`   Total ${allItems.length} items:`, allItems);
+        console.log(`   Total ${itemsWithTmId.length} items:`, itemsWithTmId);
       }
 
-      itemNames = allItems.length > 0 ? allItems : undefined;
+      itemNames = itemsWithTmId.length > 0 ? itemsWithTmId : undefined;
       if (isMart && itemNames) {
         console.log(`   Final item names for ${locationKey}:`, itemNames);
       } else if (isMart && !itemNames) {
@@ -651,6 +666,11 @@ await Promise.all([
 
 // Run trainer extraction after other operations since it depends on Pokemon data
 await extractTrainers();
+
+// Build move-to-TM mapping before merging location data
+// We use 'polished' version as default since that's the primary version
+moveToTmMapping = await buildMoveToTmMapping('polished');
+console.log(`Built move-to-TM mapping with ${Object.keys(moveToTmMapping).length} entries`);
 
 // Merge all extracted data
 await mergeLocationData();

@@ -26,7 +26,6 @@ import {
   getLocationData,
 } from '@/utils/location-data-server';
 import { getTrainersData } from '@/utils/loaders/trainer-data-loader';
-import { buildMoveToTmMapping } from '@/utils/loaders/item-data-loader';
 import { PokemonSprite } from '@/components/pokemon/pokemon-sprite';
 import Image from 'next/image';
 import { getItemSpriteName } from '@/utils/spriteUtils';
@@ -80,7 +79,6 @@ export default async function LocationDetailPage({
     : [];
 
   // Load move-to-TM mapping for TM/HM items
-  const moveToTmMapping = await buildMoveToTmMapping();
 
   const displayName =
     locationData.name ||
@@ -338,9 +336,9 @@ export default async function LocationDetailPage({
                               const spriteName = isTmHm ? 'tm_hm' : getItemSpriteName(displayName);
 
                               // Get the correct item ID for linking
-                              // For TM/HM items, look up the TM ID from the move name
+                              // For TM/HM items, use tmId from the item data (or fall back to mapping lookup)
                               const itemLinkId = isTmHm
-                                ? (moveToTmMapping[item.name.toLowerCase()] || item.name.toLowerCase())
+                                ? (item.tmId || item.name.toLowerCase())
                                 : item.name.toLowerCase();
 
                               return (

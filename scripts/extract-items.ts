@@ -12,6 +12,7 @@ import {
   parseMartItem,
   parseVerboseGiveTMHMEvent,
   parseGiveItemEvent,
+  parseTmHmBallEvent,
 } from '@/lib/extract-utils';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -40,6 +41,13 @@ const itemsByLocation: Record<'polished' | 'faithful', Record<string, ItemLocati
   faithful: {},
 };
 
+// Mapping from move names to TM/HM item IDs (e.g., "attract" -> "tm45")
+// Built during extractTMHMData and used to resolve TM locations
+const moveToTmId: Record<'polished' | 'faithful', Record<string, string>> = {
+  polished: {},
+  faithful: {},
+};
+
 /**
  * Extracts all items from a map file's content
  */
@@ -53,6 +61,12 @@ export const extractItemsFromMapData = (mapData: string[]): ItemLocation[] => {
     // Parse visible items (itemball_event)
     if (trimmedLine.startsWith('itemball_event ')) {
       const item = parseItemballEvent(trimmedLine);
+      if (item) items.push(item);
+    }
+
+    // Parse TM/HM ball items (tmhmball_event)
+    else if (trimmedLine.startsWith('tmhmball_event ')) {
+      const item = parseTmHmBallEvent(trimmedLine);
       if (item) items.push(item);
     }
 
@@ -71,6 +85,11 @@ export const extractItemsFromMapData = (mapData: string[]): ItemLocation[] => {
       if (item) items.push(item);
     } else if (trimmedLine.startsWith('verbosegivetmhm ')) {
       const item = parseVerboseGiveTMHMEvent(trimmedLine);
+      if (item) items.push(item);
+    } else if (trimmedLine.startsWith('givetmhm ') && !trimmedLine.includes('givetmhm x')) {
+      // Parse givetmhm (non-verbose, typically from game corners/prizes)
+      // Format: givetmhm TM_MOVE_NAME
+      const item = parseVerboseGiveTMHMEvent(trimmedLine.replace('givetmhm', 'verbosegivetmhm'));
       if (item) items.push(item);
     } else if (trimmedLine.startsWith('giveitem ')) {
       // Collect context lines (10 lines before and 5 lines after) for purchase detection
@@ -144,7 +163,7 @@ const extractMartData = (data: string[], version: 'polished' | 'faithful') => {
       console.log(`🏪 Extracting mart items for: ${martLabels.join(', ')} in ${version}`);
 
       // Parse the item list that follows all the labels
-      const items: string[] = [];
+      const items: Array<{ name: string; type: string }> = [];
       i = currentIndex; // Start from after all labels
 
       // Look for the item count line (db #)
@@ -160,7 +179,7 @@ const extractMartData = (data: string[], version: 'polished' | 'faithful') => {
               for (let j = i + 1; j < i + 1 + itemCount && j < data.length; j++) {
                 const itemLine = data[j].trim();
                 const item = parseMartItem(itemLine);
-                if (item) items.push(item.name);
+                if (item) items.push(item);
               }
             }
           }
@@ -173,10 +192,10 @@ const extractMartData = (data: string[], version: 'polished' | 'faithful') => {
           itemsByLocation[version][martName] = [];
         }
 
-        for (const itemName of items) {
+        for (const item of items) {
           itemsByLocation[version][martName].push({
-            name: itemName,
-            type: 'purchase',
+            name: item.name,
+            type: item.type, // Preserve the type (purchase for regular items, tm/hm for TM items)
           });
         }
       }
@@ -260,6 +279,113 @@ const getItemLocations = (
 };
 
 /**
+ * Gets TM/HM locations by looking up the move name in itemsByLocation
+ * TM/HM items are stored in maps with their move names (e.g., "attract" not "tm45")
+ */
+const getTmHmLocations = (
+  moveName: string,
+  version: 'polished' | 'faithful',
+): Array<{ area: string; method: string }> => {
+  const locations: Array<{ area: string; method: string }> = [];
+
+  for (const [locationName, locationItems] of Object.entries(itemsByLocation[version])) {
+    if (reduce(locationName) === 'playershouse2f') {
+      continue;
+    }
+    // TM/HM items are stored with their move name and type 'tm' or 'hm'
+    const itemsFound = locationItems.filter(
+      (item) => item.name === moveName && (item.type === 'tm' || item.type === 'hm')
+    );
+    for (const item of itemsFound) {
+      // Determine method:
+      // - If item has coordinates, it's found on the ground
+      // - If location name contains 'mart', it's a purchase
+      // - Otherwise, it's a gift from an NPC
+      let method: string;
+      if (item.coordinates) {
+        method = 'item';
+      } else if (reduce(locationName).includes('mart')) {
+        method = 'purchase';
+      } else {
+        method = 'gift';
+      }
+      locations.push({
+        area: reduce(locationName),
+        method,
+      });
+    }
+  }
+
+  // Deduplicate locations that are variations of the same place
+  // (e.g., nationalpark and nationalparkbugcontest are the same physical location)
+  const locationVariantMappings: Record<string, string> = {
+    nationalparkbugcontest: 'nationalpark',
+    // Add more mappings as needed
+  };
+
+  const deduplicatedLocations: Array<{ area: string; method: string }> = [];
+  const seenAreas = new Set<string>();
+
+  for (const loc of locations) {
+    // Normalize location name
+    const normalizedArea = locationVariantMappings[loc.area] || loc.area;
+    const key = `${normalizedArea}:${loc.method}`;
+    
+    if (!seenAreas.has(key)) {
+      seenAreas.add(key);
+      deduplicatedLocations.push({
+        area: normalizedArea,
+        method: loc.method,
+      });
+    }
+  }
+
+  return deduplicatedLocations;
+};
+
+/**
+ * Builds the move-to-TM mapping first (before extracting locations)
+ * This allows us to map move names to TM item IDs
+ * Returns the mapping so it can be used by other scripts
+ */
+export const buildMoveToTmMapping = async (version: 'polished' | 'faithful'): Promise<Record<string, string>> => {
+  const movesRaw = await readFile(tmhmMovesASM, 'utf-8');
+  const movesFiles = splitFile(movesRaw, false);
+  const movesData = (version === 'polished' ? movesFiles[0] : movesFiles[1]) as string[];
+
+  for (const line of movesData) {
+    const trimmedLine = line.trim();
+
+    if (
+      trimmedLine.startsWith(';') ||
+      trimmedLine.startsWith('TMHMMoves:') ||
+      trimmedLine.startsWith('table_width') ||
+      trimmedLine.includes('; end') ||
+      !trimmedLine.startsWith('db ')
+    ) {
+      continue;
+    }
+
+    if (trimmedLine.startsWith('db ')) {
+      const parts = trimmedLine.split(';');
+      const moveName = parts[0].replace('db ', '').trim();
+      const itemName = parts[1].trim().split(' (')[0];
+
+      if (itemName.startsWith('MT')) {
+        continue;
+      }
+
+      const itemId = reduce(itemName);
+      const moveId = reduce(moveName);
+      moveToTmId[version][moveId] = itemId;
+    }
+  }
+  
+  console.log(`Built move-to-TM mapping for ${version}: ${Object.keys(moveToTmId[version]).length} entries`);
+  return moveToTmId[version];
+};
+
+/**
  * Extracts TM/HM data and adds to itemData
  */
 const extractTMHMData = async (version: 'polished' | 'faithful') => {
@@ -293,26 +419,23 @@ const extractTMHMData = async (version: 'polished' | 'faithful') => {
         continue;
       }
 
-      // Extract location info if available
-      let location = undefined;
-      if (parts.length > 1) {
-        const commentPart = parts[1].trim();
-        const locationMatch = commentPart.match(/\(([^)]+)\)/);
-        if (locationMatch) {
-          location = locationMatch[1];
-        }
-      }
+      const itemId = reduce(itemName);
+      const moveId = reduce(moveName);
+      
+      // Get locations from the actual map files using the move name
+      // This gives us the real location (e.g., "goldenrodgym") instead of trainer names (e.g., "whitney")
+      const mapLocations = getTmHmLocations(moveId, version);
 
       // Create TM/HM item entry
       itemData[version].push({
-        id: reduce(itemName),
+        id: itemId,
         name: itemName,
         description: `Teaches the move ${moveName.replace(/_/g, ' ').toLowerCase()} to a compatible Pokémon.`,
         attributes: {
-          moveName: reduce(moveName),
+          moveName: moveId,
           category: itemName.startsWith('TM') ? 'tm' : 'hm',
         },
-        locations: location ? [{ area: reduce(location), method: 'gift' }] : [],
+        locations: mapLocations,
       });
     }
   }

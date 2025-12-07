@@ -191,6 +191,7 @@ export interface ItemsManifest {
 export interface ItemLocation {
   type: string;
   name: string;
+  tmId?: string; // For TM/HM items, the TM ID (e.g., "tm45")
   coordinates?: {
     x: number;
     y: number;

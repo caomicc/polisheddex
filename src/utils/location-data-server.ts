@@ -23,6 +23,7 @@ export interface LocationData {
   items?: Array<{
     name: string;
     type: string;
+    tmId?: string;
     coordinates?: {
       x: number;
       y: number;

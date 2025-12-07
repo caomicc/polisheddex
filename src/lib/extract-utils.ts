@@ -226,14 +226,26 @@ export const parseHiddenItemEvent = (line: string) => {
 };
 
 export const parseMartItem = (line: string) => {
-  const match = line.match(/db\s+([A-Z_]+)/);
-  if (match) {
-    const [, itemName] = match;
+  // Parse regular mart items: db ITEM_NAME
+  const dbMatch = line.match(/db\s+([A-Z_]+)/);
+  if (dbMatch) {
+    const [, itemName] = dbMatch;
     return {
       name: reduce(itemName),
       type: 'purchase' as const,
     };
   }
+  
+  // Parse TM/HM mart items: dbw TM_NAME, PRICE or dbw HM_NAME, PRICE
+  const dbwMatch = line.match(/dbw\s+(TM|HM)_([A-Z_]+),\s*\d+/);
+  if (dbwMatch) {
+    const [, tmOrHm, moveName] = dbwMatch;
+    return {
+      name: normalizeTmMoveName(reduce(moveName)), // Return the move name, normalized
+      type: reduce(tmOrHm) as 'tm' | 'hm', // "tm" or "hm" to match TM extraction
+    };
+  }
+  
   return null;
 };
 
@@ -323,15 +335,53 @@ export const parseGiveItemEvent = (line: string, context?: string[]) => {
 };
 
 /**
+ * Normalizes TM/HM move names to handle edge cases where the TM item name
+ * differs from the move constant name (e.g., TM_PSYCHIC -> PSYCHIC_M)
+ * This maps the TM item name to match the move name used in tmhm_moves.asm
+ */
+const TM_NAME_TO_MOVE_NAME: Record<string, string> = {
+  psychic: 'psychicm', // TM_PSYCHIC -> PSYCHIC_M
+};
+
+/**
+ * Normalizes a TM/HM name extracted from map files to match move names
+ */
+export const normalizeTmMoveName = (name: string): string => {
+  const normalized = reduce(name);
+  return TM_NAME_TO_MOVE_NAME[normalized] || normalized;
+};
+
+/**
  * Parses a verbosegivetmhm line
  * Format: verbosegivetmhm ITEM_NAME
  */
 export const parseVerboseGiveTMHMEvent = (line: string) => {
   if (line.match(/verbosegivetmhm\s+/)) {
     const parts = line.split(/verbosegivetmhm\s+/)[1].split('_');
+    const rawName = parts.length > 1 ? reduce(parts.slice(1).join('_')) : reduce(parts[0]);
     return {
-      name: parts.length > 1 ? reduce(parts.slice(1).join('_')) : reduce(parts[0]),
+      name: normalizeTmMoveName(rawName),
       type: reduce(parts[0]),
+    };
+  }
+  return null;
+};
+
+/**
+ * Parses a tmhmball_event line (TM/HM items found on the ground)
+ * Format: tmhmball_event x, y, TM_MOVE_NAME or HM_MOVE_NAME, EVENT_NAME
+ */
+export const parseTmHmBallEvent = (line: string) => {
+  const match = line.match(/tmhmball_event\s+(\d+),\s*(\d+),\s*([A-Z]+)_([A-Z_]+),\s*([A-Z_]+)/);
+  if (match) {
+    const [, x, y, tmOrHm, moveName] = match;
+    return {
+      name: normalizeTmMoveName(reduce(moveName)), // The move name, normalized
+      type: reduce(tmOrHm), // "tm" or "hm"
+      coordinates: {
+        x: parseInt(x),
+        y: parseInt(y),
+      },
     };
   }
   return null;
