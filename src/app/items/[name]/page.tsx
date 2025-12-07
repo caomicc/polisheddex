@@ -13,6 +13,7 @@ import { Hero } from '@/components/ui/Hero';
 import { loadDetailedItemData, loadItemsData } from '@/utils/loaders/item-data-loader';
 import ItemDetailClient from '@/components/items/item-detail-client';
 import { PokemonGridSkeleton } from '@/components/pokemon/pokemon-card-skeleton';
+import { getMoveData } from '@/utils/move-data-server';
 
 interface ItemPageProps {
   params: Promise<{ name: string }>;
@@ -24,17 +25,60 @@ export default async function ItemPage({ params }: ItemPageProps) {
   // Load the item using the optimized loader
   const item = await loadDetailedItemData(name);
 
-  console.log('Loaded item:', item);
-
   if (!item) {
     notFound();
   }
 
+  // Load move data for both versions if this is a TM/HM
+  const polishedData = item.versions['polished'];
+  const faithfulData = item.versions['faithful'];
+
+  const polishedIsTmHm =
+    polishedData?.attributes?.category === 'tm' || polishedData?.attributes?.category === 'hm';
+  const faithfulIsTmHm =
+    faithfulData?.attributes?.category === 'tm' || faithfulData?.attributes?.category === 'hm';
+
+  let polishedMoveData = null;
+  let faithfulMoveData = null;
+
+  if (polishedIsTmHm && polishedData?.attributes?.moveName) {
+    const moveId = polishedData.attributes.moveName.toLowerCase().replace(/\s+/g, '-');
+    const rawMoveData = await getMoveData(moveId, 'polished');
+    if (rawMoveData) {
+      polishedMoveData = {
+        name: rawMoveData.name || moveId,
+        type: rawMoveData.type || 'normal',
+        category: rawMoveData.category || 'Status',
+        power: rawMoveData.power || 0,
+        accuracy: rawMoveData.accuracy || 0,
+        pp: rawMoveData.pp || 0,
+      };
+    }
+  }
+
+  if (faithfulIsTmHm && faithfulData?.attributes?.moveName) {
+    const moveId = faithfulData.attributes.moveName.toLowerCase().replace(/\s+/g, '-');
+    const rawMoveData = await getMoveData(moveId, 'faithful');
+    if (rawMoveData) {
+      faithfulMoveData = {
+        name: rawMoveData.name || moveId,
+        type: rawMoveData.type || 'normal',
+        category: rawMoveData.category || 'Status',
+        power: rawMoveData.power || 0,
+        accuracy: rawMoveData.accuracy || 0,
+        pp: rawMoveData.pp || 0,
+      };
+    }
+  }
+
+  // Get display name for hero (use polished as default)
+  const displayName = polishedData?.name || item.id;
+
   return (
     <>
       <Hero
-        headline={item.id}
-        description={item.id}
+        headline={displayName}
+        description={polishedData?.description || ''}
         breadcrumbs={
           <Breadcrumb>
             <BreadcrumbList>
@@ -55,7 +99,7 @@ export default async function ItemPage({ params }: ItemPageProps) {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage className="">{item.id}</BreadcrumbPage>
+                <BreadcrumbPage className="">{displayName}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -64,7 +108,11 @@ export default async function ItemPage({ params }: ItemPageProps) {
 
       <div className="max-w-xl md:max-w-4xl mx-auto ">
         <Suspense fallback={<PokemonGridSkeleton count={4} />}>
-          <ItemDetailClient item={item} />
+          <ItemDetailClient
+            item={item}
+            polishedMoveData={polishedMoveData}
+            faithfulMoveData={faithfulMoveData}
+          />
         </Suspense>
       </div>
     </>
