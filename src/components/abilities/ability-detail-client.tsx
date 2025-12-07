@@ -1,6 +1,6 @@
 "use client";
 
-import { useFaithfulPreferenceSafe } from "@/hooks/use-faithful-preference-safe";
+import { useFaithfulPreferenceSafe } from "@/hooks/useFaithfulPreferenceSafe";
 import { AbilityData } from "@/types/new";
 import { AbilityDescriptionCard } from "./ability-description-card";
 import { AbilityPokemonCard } from "./ability-pokemon-card";

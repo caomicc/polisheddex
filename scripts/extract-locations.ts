@@ -1,7 +1,7 @@
 import { readFile, writeFile, mkdir, rm } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { LocationData, LocationManifest, EventsManifest } from '@/types/new';
+import { LocationData, LocationManifest } from '@/types/new';
 import {
   reduce,
   normalizeString,
@@ -10,7 +10,6 @@ import {
   countConnections,
   displayName,
   parseTrainerLine,
-  parseMapEvent,
 } from '@/lib/extract-utils';
 import { mapEncounterRatesToPokemon } from '@/utils/encounterRates';
 import splitFile from '@/lib/split';
@@ -26,14 +25,6 @@ const locations: LocationData[] = [];
 const encounters: Record<string, LocationData['encounters']> = {};
 const connections: Record<string, number> = {};
 const locationTrainerNames: Record<string, string[]> = {}; // Store trainer names by location
-const locationEvents: Record<
-  string,
-  {
-    name: string;
-    description: string;
-    type: string;
-  }[]
-> = {}; // Store event names by location
 const locationTypes: Record<string, string[]> = {}; // Store map names by location
 const locationParent: Record<string, string> = {}; // Store map names by location
 const landmarks: {
@@ -445,68 +436,6 @@ const extractMapTrainers = async () => {
   }
 };
 
-/**
- * Extracts all events from a map file's content
- */
-const extractEventFromMapData = (mapData: string[]) => {
-  const events: LocationData['events'] = [];
-
-  for (const line of mapData) {
-    const trimmedLine = line.trim();
-
-    // Parse setevent events
-    if (trimmedLine.startsWith('setevent ')) {
-      const event = parseMapEvent(trimmedLine);
-      if (event) {
-        events.push({
-          name: event.name,
-          description: event.description,
-          type: event.type,
-          item: event.item,
-        });
-      }
-    }
-  }
-
-  return events;
-};
-
-// uses set data above
-const extractMapEvents = async () => {
-  const { readdir } = await import('fs/promises');
-
-  try {
-    const mapFiles = await readdir(mapsDir);
-
-    for (const mapFile of mapFiles) {
-      if (!mapFile.endsWith('.asm')) continue;
-      if (mapFile.endsWith('PlayersHouse2F.asm')) continue;
-
-      const mapFilePath = join(mapsDir, mapFile);
-      const mapName = reduce(mapFile.replace('.asm', ''));
-
-      try {
-        const raw = await readFile(mapFilePath, 'utf-8');
-        const mapData = splitFile(raw)[0] as string[]; // Don't remove @ symbols
-
-        const mapEvents = extractEventFromMapData(mapData);
-
-        if (mapEvents.length > 0) {
-          locationEvents[mapName] = mapEvents;
-        }
-      } catch (error) {
-        console.warn(`Could not read map file: ${mapFilePath}`, error);
-        // Skip files that can't be read - some might be binary or have permissions issues
-        continue;
-      }
-    }
-
-    console.log(`Extracted events from ${Object.keys(locationEvents).length} maps`);
-  } catch (error) {
-    console.error('Error reading maps directory:', error);
-  }
-};
-
 // Create ordered locations array similar to old implementation
 const createOrderedLocations = () => {
   const orderedLocationIds: string[] = [];
@@ -625,9 +554,6 @@ const mergeLocationData = async () => {
     // Find trainers for this location
     const locationTrainers = locationTrainerNames[locationId] || undefined;
 
-    // Find events for this location
-    const mapEvents = locationEvents[locationId] || undefined;
-
     locations.push({
       id: locationId,
       name: locationName,
@@ -640,7 +566,6 @@ const mergeLocationData = async () => {
       encounters: locationEncounters,
       items: locationId === 'playershouse2f' ? undefined : itemNames, // skip players house 2F which has debug items
       trainers: locationTrainers,
-      events: mapEvents,
     });
   }
 
@@ -655,7 +580,6 @@ await Promise.all([
   // extractMartConstants(),
   // extractMartData(),
   extractConnections(),
-  extractMapEvents(),
   extractMapTrainers(),
   extractEncounters(grassFiles, 'grass'),
   extractEncounters(waterFiles, 'surfing'),
@@ -694,7 +618,6 @@ try {
 
 // Write individual location files
 const locationManifest: LocationManifest[] = [];
-const eventsManifest: EventsManifest[] = [];
 
 await Promise.all(
   locations.map(async (location) => {
@@ -716,20 +639,8 @@ await Promise.all(
           ? new Set(location.encounters.map((e) => e.pokemon)).size
           : undefined,
       trainerCount: location.trainers?.length,
-      eventCount: location.events?.length,
       itemCount: (location.items?.length || 0) + getMartItemCount(location.id),
     });
-
-    // Add events to events manifest if location has events
-    if (location.events && location.events.length > 0) {
-      location.events.forEach((event) => {
-        eventsManifest.push({
-          id: event.name,
-          location: location.id,
-          ...event,
-        });
-      });
-    }
   }),
 );
 
@@ -750,14 +661,9 @@ locationManifest.sort((a, b) => {
   return a.name.localeCompare(b.name);
 });
 
-eventsManifest.sort((a, b) => a.id.localeCompare(b.id));
-
 // Write manifest files
 const locationManifestPath = join(outputDir, 'locations_manifest.json');
 await writeFile(locationManifestPath, JSON.stringify(locationManifest, null, 2), 'utf-8');
-
-const eventsManifestPath = join(outputDir, 'events_manifest.json');
-await writeFile(eventsManifestPath, JSON.stringify(eventsManifest, null, 2), 'utf-8');
 
 console.log('Location extraction complete!');
 
