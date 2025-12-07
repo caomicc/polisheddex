@@ -1,7 +1,7 @@
 'use client';
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { TeamPokemon } from '@/hooks/use-team-search-params';
 // import { Move } from '@/types/types';
 import { Button } from '@/components/ui/button';
@@ -10,9 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { Search, Plus, X } from 'lucide-react';
 // import { PokemonType } from '@/types/types';
 import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
-// import movesData from '@/output/manifests/moves.json';
-
-import movesData from '../../../new/moves_manifest.json';
+import { MoveData } from '../pokemon-slot';
 
 interface MoveSelectorProps {
   isOpen: boolean;
@@ -44,6 +42,15 @@ export function MoveSelector({
   const { showFaithful } = useFaithfulPreferenceSafe();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedMoves, setSelectedMoves] = useState<string[]>(currentMoves);
+  const [movesData, setMovesData] = useState<MoveData[]>([]);
+
+  // Load moves data on mount
+  useEffect(() => {
+    fetch('/new/moves_manifest.json')
+      .then((res) => res.json())
+      .then((data: MoveData[]) => setMovesData(data))
+      .catch((err) => console.error('Failed to load moves:', err));
+  }, []);
 
   // Get available moves for this Pokemon
   const availableMoves = useMemo((): MoveOption[] => {
@@ -140,7 +147,7 @@ export function MoveSelector({
     }
 
     return moves;
-  }, [pokemon, showFaithful]);
+  }, [pokemon, showFaithful, movesData]);
 
   // Filter moves based on search term
   const filteredMoves = useMemo(() => {

@@ -34,31 +34,51 @@ export type MoveEntry = {
   category?: string;
 };
 
-export type MoveData = {
+export type MoveStats = {
   name: string;
-  description?: string;
-  type?: string;
-  updated?: {
-    type: string;
-    category: string;
-    power: number;
-    accuracy: number;
-    pp: number;
+  type: string;
+  power: number;
+  accuracy: number;
+  pp: number;
+  effectChance: number;
+  category: string;
+  description: string;
+};
+
+export type MoveData = {
+  id: string;
+  versions: {
+    faithful: MoveStats;
+    polished: MoveStats;
   };
-  faithful?: {
-    type: string;
-    category: string;
-    power: number;
-    accuracy: number;
-    pp: number;
+};
+
+export type ItemVersionData = {
+  name: string;
+  category: string;
+  locationCount?: number;
+  price?: number;
+};
+
+export type ItemData = {
+  id: string;
+  versions: {
+    faithful: ItemVersionData;
+    polished: ItemVersionData;
   };
-  tm?: {
-    number: string;
-    location?: {
-      area: string;
-    };
+};
+
+export type AbilityVersionData = {
+  description: string;
+};
+
+export type AbilityData = {
+  id: string;
+  name: string;
+  versions: {
+    faithful: AbilityVersionData;
+    polished: AbilityVersionData;
   };
-  [key: string]: unknown;
 };
 
 export type Nature =
@@ -238,14 +258,8 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     }[]
   >([]);
   const [movesData, setMovesData] = useState<Record<string, MoveData> | null>(null);
-  const [itemsData, setItemsData] = useState<Record<
-    string,
-    { name: string; description: string; attributes?: { category: string } }
-  > | null>(null);
-  const [abilitiesData, setAbilitiesData] = useState<Record<
-    string,
-    { name: string; description: string }
-  > | null>(null);
+  const [itemsData, setItemsData] = useState<Record<string, ItemData> | null>(null);
+  const [abilitiesData, setAbilitiesData] = useState<Record<string, AbilityData> | null>(null);
   const [evolutionChainMoves, setEvolutionChainMoves] = useState<MoveEntry[]>([]);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [pokemonSearchQuery, setPokemonSearchQuery] = useState('');
@@ -275,14 +289,13 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
   const getMoveStats = useCallback(
     (moveName: string) => {
       if (!movesData || !moveName) return null;
-      const moveKey = moveName.toLowerCase().replace(/[ '-.]/g, '-');
-      const moveInfo =
-        movesData[moveKey] ||
-        movesData[moveName.toLowerCase()] ||
-        movesData[moveName.replace(/\s+/g, '-').toLowerCase()] ||
-        movesData[moveName];
+      // Convert display name to ID format (e.g., "Thunder Shock" -> "thundershock")
+      const moveKey = moveName.toLowerCase().replace(/[ '-]/g, '');
+      const moveInfo = movesData[moveKey];
 
-      const stats = showFaithful ? moveInfo?.faithful : moveInfo?.updated;
+      if (!moveInfo) return null;
+
+      const stats = showFaithful ? moveInfo.versions.faithful : moveInfo.versions.polished;
       return stats
         ? {
             power: stats.power,
@@ -321,53 +334,49 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     (abilityName: string): string => {
       if (!abilitiesData) return '';
 
-      // Convert ability name to kebab-case to match the abilities data keys
-      const abilityKey = abilityName.toLowerCase().replace(/\s+/g, '-').replace(/[.']/g, '');
+      // Convert ability name to ID format (e.g., "Lightning Rod" -> "lightningrod")
+      const abilityKey = abilityName.toLowerCase().replace(/[\s'-]/g, '');
 
-      return abilitiesData[abilityKey]?.description || '';
+      const abilityInfo = abilitiesData[abilityKey];
+      if (!abilityInfo) return '';
+
+      const versionData = showFaithful
+        ? abilityInfo.versions.faithful
+        : abilityInfo.versions.polished;
+      return versionData?.description || '';
     },
-    [abilitiesData],
+    [abilitiesData, showFaithful],
   );
 
   // Filter abilities based on search query
   const filteredAbilityOptions = useMemo(() => {
-    // Use individual Pokemon data if available, fall back to matched data
-    // const sourceData = pokemonData || matched;
-    const sourceData = pokemonData;
-    if (!sourceData) return [];
+    if (!pokemonData) return [];
 
-    // Check for forms structure (individual files) or direct structure (manifest)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const formData: any = pokemonData?.forms?.plain || sourceData;
+    // Get abilities from the transformed data structure
+    const formData = pokemonData?.forms?.plain;
+    const abilities: string[] = formData?.abilities || [];
 
-    // Use faithful or polished abilities based on context
-    const abilities = showFaithful
-      ? formData.detailedStats?.faithfulAbilities || formData.abilities || []
-      : formData.detailedStats?.updatedAbilities || formData.updatedAbilities || [];
-
+    // Convert kebab-case ability names to title case
     const abilityList = abilities
-      .map((ability: any) => {
-        if (typeof ability === 'string') return ability;
-        if (ability && ability.id) {
-          // Convert kebab-case to title case
-          return ability.id
-            .split('-')
-            .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(' ');
-        }
-        return ability?.name || 'Unknown';
+      .map((ability: string) => {
+        if (!ability) return null;
+        // Convert kebab-case to title case (e.g., "lightning-rod" -> "Lightning Rod")
+        return ability
+          .split('-')
+          .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
       })
-      .filter(Boolean);
+      .filter(Boolean) as string[];
 
     if (!abilitySearchQuery.trim()) return abilityList;
 
     const query = abilitySearchQuery.toLowerCase();
     return abilityList.filter(
-      (ability: any) =>
+      (ability: string) =>
         ability.toLowerCase().includes(query) ||
         getAbilityDescription(ability).toLowerCase().includes(query),
     );
-  }, [pokemonData, showFaithful, abilitySearchQuery, getAbilityDescription]);
+  }, [pokemonData, abilitySearchQuery, getAbilityDescription]);
 
   // Filter natures based on search query
   const filteredNatureOptions = useMemo(() => {
@@ -409,8 +418,8 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
   const filteredItemOptions = useMemo(() => {
     if (!itemsData) return [];
 
-    // Filter items that are commonly used as held items
-    const heldItemCategories = ['Item', 'Berry'];
+    // Categories that are typically held items
+    const heldItemCategories = ['medicine', 'berry', 'battle', 'held'];
     const excludePatterns = [
       /ball$/i,
       /potion$/i,
@@ -433,87 +442,96 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
       /coupon$/i,
     ];
 
+    const version = showFaithful ? 'faithful' : 'polished';
     const itemList = Object.entries(itemsData)
       .filter(([, item]) => {
-        if (!item.attributes?.category || !heldItemCategories.includes(item.attributes.category))
-          return false;
-        const itemName = item.name.toLowerCase();
+        const versionData = item.versions[version] || item.versions.polished;
+        if (!versionData) return false;
+        const category = versionData.category?.toLowerCase() || '';
+        // Include items from held-item categories or all if not strictly categorized
+        const isHeldCategory =
+          heldItemCategories.some((cat) => category.includes(cat)) || category === '';
+        if (!isHeldCategory && category !== 'ball') return true; // Include most items except balls
+        const itemName = versionData.name.toLowerCase();
         return !excludePatterns.some((pattern) => pattern.test(itemName));
       })
-      .map(([itemKey, item]) => ({
-        id: itemKey,
-        name: item.name,
-        description: item.description,
-      }))
+      .map(([, item]) => {
+        const versionData = item.versions[version] || item.versions.polished;
+        return {
+          id: item.id,
+          name: versionData.name,
+          category: versionData.category,
+        };
+      })
       .sort((a, b) => a.name.localeCompare(b.name));
 
     if (!itemSearchQuery.trim()) return itemList;
 
     const query = itemSearchQuery.toLowerCase();
-    return itemList.filter(
-      (item) =>
-        item.name.toLowerCase().includes(query) || item.description.toLowerCase().includes(query),
-    );
-  }, [itemsData, itemSearchQuery]);
+    return itemList.filter((item) => item.name.toLowerCase().includes(query));
+  }, [itemsData, itemSearchQuery, showFaithful]);
 
   // Filter moves based on search query
   const filteredMoveOptions = useMemo(() => {
-    // Use individual Pokemon data if available
-    const sourceData = pokemonData;
-    // if (!sourceData && !matched) return [];
-    if (!sourceData) return [];
+    if (!pokemonData || !movesData) return [];
 
-    if (!sourceData) {
-      return [];
-    }
+    const formData = pokemonData.forms?.plain;
+    if (!formData?.movesets) return [];
 
-    // Check for forms structure (individual files) - use the specific form if available
-    // const formToUse = matched?.formName || 'plain';
-
-    const formToUse = 'plain';
-    const formData = sourceData.forms?.[formToUse] || sourceData.forms?.plain || sourceData;
-
-    // Get moves based on faithful/polished preference
-    const levelUpMoves = showFaithful
-      ? formData.faithfulMoves || formData.moves || []
-      : formData.updatedMoves || formData.moves || [];
-
-    // Get egg moves and TM/HM moves
-    const eggMoves = formData.eggMoves || [];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const tmHmMoves = (formData as any).tmHmMoves || [];
+    // Get moves from the movesets structure
+    const levelUpMoves = formData.movesets.levelUp || [];
+    const eggMoves = formData.movesets.eggMoves || [];
+    const tmMoves = formData.movesets.tm || [];
 
     // Helper function to get move type from moves data
-    const getMoveType = (moveName: string): string => {
-      if (!movesData || !moveName) return 'Normal';
-      const moveKey = moveName.toLowerCase().replace(/[ '-.]/g, '-');
-      const moveInfo =
-        movesData[moveKey] ||
-        movesData[moveName.toLowerCase()] ||
-        movesData[moveName.replace(/\s+/g, '-').toLowerCase()] ||
-        movesData[moveName];
-      return moveInfo?.updated?.type || moveInfo?.type || 'Normal';
+    const getMoveType = (moveId: string): string => {
+      if (!movesData || !moveId) {
+        return 'Normal';
+      }
+      const moveInfo = movesData[moveId];
+      if (!moveInfo?.versions) {
+        return 'Normal';
+      }
+      const stats = showFaithful ? moveInfo.versions.faithful : moveInfo.versions.polished;
+      const type = stats?.type || 'normal';
+      // Capitalize first letter
+      return type.charAt(0).toUpperCase() + type.slice(1);
+    };
+
+    // Helper function to convert move id to display name
+    const formatMoveName = (moveId: string): string => {
+      // Check if we have the actual name from moves data
+      if (movesData?.[moveId]) {
+        const stats = showFaithful
+          ? movesData[moveId].versions.faithful
+          : movesData[moveId].versions.polished;
+        return stats?.name || moveId;
+      }
+      // Fallback: convert ID to title case (e.g., "thundershock" -> "Thundershock")
+      return moveId.charAt(0).toUpperCase() + moveId.slice(1);
     };
 
     // Combine all moves
     const allMoves = [
-      ...levelUpMoves.map((move: any) => ({ ...move, category: 'Level-up' })),
-      ...eggMoves.map((move: any) => ({
-        name: typeof move === 'string' ? move : move.name || 'Unknown Move',
-        type: getMoveType(typeof move === 'string' ? move : move.name || 'Unknown Move'),
+      ...levelUpMoves.map((move: { id: string; level?: number }) => ({
+        name: formatMoveName(move.id),
+        type: getMoveType(move.id),
+        category: 'Level-up',
+      })),
+      ...eggMoves.map((move: { id: string }) => ({
+        name: formatMoveName(move.id),
+        type: getMoveType(move.id),
         category: 'Egg Move',
       })),
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ...tmHmMoves.map((move: any) => ({ ...move, category: 'TM/HM' })),
+      ...tmMoves.map((move: { id: string }) => ({
+        name: formatMoveName(move.id),
+        type: getMoveType(move.id),
+        category: 'TM/HM',
+      })),
       ...evolutionChainMoves,
     ];
 
     const moveList = allMoves
-      .map((move) => ({
-        name: String(move.name || 'Unknown Move'),
-        type: String(move.info?.type || move.type || 'Normal'),
-        category: move.category || 'Level-up',
-      }))
       .filter((move) => move.name && move.name !== 'Unknown Move')
       .filter((move, index, self) => index === self.findIndex((m) => m.name === move.name))
       .sort((a, b) => {
@@ -557,18 +575,42 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
           ]);
 
         if (movesResponse.ok) {
-          const movesData = await movesResponse.json();
-          setMovesData(movesData);
+          const movesArray: MoveData[] = await movesResponse.json();
+          // Transform array to object keyed by id for O(1) lookups
+          const movesMap = movesArray.reduce(
+            (acc, move) => {
+              acc[move.id] = move;
+              return acc;
+            },
+            {} as Record<string, MoveData>,
+          );
+          setMovesData(movesMap);
         }
 
         if (itemsResponse.ok) {
-          const itemsData = await itemsResponse.json();
-          setItemsData(itemsData);
+          const itemsArray: ItemData[] = await itemsResponse.json();
+          // Transform array to object keyed by id for O(1) lookups
+          const itemsMap = itemsArray.reduce(
+            (acc, item) => {
+              acc[item.id] = item;
+              return acc;
+            },
+            {} as Record<string, ItemData>,
+          );
+          setItemsData(itemsMap);
         }
 
         if (abilitiesResponse.ok) {
-          const abilitiesData = await abilitiesResponse.json();
-          setAbilitiesData(abilitiesData);
+          const abilitiesArray: AbilityData[] = await abilitiesResponse.json();
+          // Transform array to object keyed by id for O(1) lookups
+          const abilitiesMap = abilitiesArray.reduce(
+            (acc, ability) => {
+              acc[ability.id] = ability;
+              return acc;
+            },
+            {} as Record<string, AbilityData>,
+          );
+          setAbilitiesData(abilitiesMap);
         }
 
         if (pokemonResponse.ok) {
@@ -1087,16 +1129,14 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
               hoverAnimate={true}
               className="shadow-none lg:mt-6"
               primaryType={entry.types[0] || 'normal'}
-              pokemonName={entry.name || 'egg'}
-              // pokemonName={
-              //   matched?.fileName
-              //     ? matched.fileName.replace('.json', '')
-              //     : (entry.name || 'egg')
-              //         .toLowerCase()
-              //         .replace(/\s*\([^)]*\).*/, '')
-              //         .replace(/\s+/g, '-')
-              // }
-              // form={matched?.formName}
+              pokemonName={
+                entry.name
+                  ? entry.name
+                      .toLowerCase()
+                      .replace(/\s*\(([^)]+)\)/g, '_$1') // Convert "Slowking (Galarian)" to "slowking_galarian"
+                      .replace(/\s+/g, '')
+                  : 'egg'
+              }
             />
             <div className="flex gap-2 text-center flex-col w-full items-center">
               <h2 className="text-xl font-bold">{entry.name}</h2>
@@ -1555,11 +1595,14 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                 >
                   {entry.item ? (
                     <Image
-                      src={`/sprites/items/${entry.item?.toLowerCase()?.replace(/\s+/g, '-') || 'unknown'}.png`}
+                      src={`/sprites/items/${entry.item?.toLowerCase()?.replace(/[\s'-]/g, '') || 'unknown'}.png`}
                       width={24}
                       height={24}
                       alt={entry.item}
                       className="rounded-sm"
+                      onError={(e) => {
+                        e.currentTarget.src = '/sprites/items/pokeball.png';
+                      }}
                     />
                   ) : (
                     <></>
@@ -1620,16 +1663,19 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                               }}
                             >
                               <Image
-                                src={`/sprites/items/${item.name?.toLowerCase()?.replace(/\s+/g, '-') || 'unknown'}.png`}
+                                src={`/sprites/items/${item.id || 'unknown'}.png`}
                                 width={24}
                                 height={24}
                                 alt={item.name}
                                 className="rounded-sm"
+                                onError={(e) => {
+                                  e.currentTarget.src = '/sprites/items/pokeball.png';
+                                }}
                               />
                               <div className="flex flex-col items-start">
                                 <span className="font-medium">{item.name}</span>
-                                <span className="text-xs text-muted-foreground">
-                                  {item.description}
+                                <span className="text-xs text-muted-foreground capitalize">
+                                  {item.category}
                                 </span>
                               </div>
                             </Button>

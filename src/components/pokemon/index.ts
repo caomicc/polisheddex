@@ -1,1 +1,1 @@
-export * from './pokemon-evolution-chain';
+export * from './evolution-chain-display';

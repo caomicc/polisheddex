@@ -103,11 +103,11 @@ function calculateTeamTypeCoverage(team: (TeamPokemon | null)[]): TypeCoverage {
   activePokemon.forEach((pokemon) => {
     if (pokemon.moves && pokemon.moves.length > 0) {
       pokemon.moves.forEach((moveName) => {
-        const moveKey = moveName.toLowerCase().replace(/\s+/g, '-');
+        const moveKey = moveName.toLowerCase().replace(/[\s'-]/g, '');
         const moveInfo = (movesData as unknown as Record<string, MoveData>)[moveKey];
-        if (moveInfo) {
-          // Try to get move type from faithful or updated data
-          const typeInfo = moveInfo.faithful || moveInfo.updated;
+        if (moveInfo?.versions) {
+          // Try to get move type from versions
+          const typeInfo = moveInfo.versions.polished || moveInfo.versions.faithful;
           if (typeInfo?.type) {
             const moveType = typeInfo.type.toLowerCase();
             moveTypeCounts[moveType] = (moveTypeCounts[moveType] || 0) + 1;
