@@ -97,6 +97,8 @@ export const metadata: Metadata = {
   },
 };
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -104,6 +106,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {isProduction && (
+          <>
+            <script async src="https://cmp.gatekeeperconsent.com/min.js" data-cfasync="false" />
+            <script async src="https://the.gatekeeperconsent.com/cmp.min.js" data-cfasync="false" />
+            <script async src="//www.ezojs.com/ezoic/sa.min.js" />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.ezstandalone = window.ezstandalone || {};
+                ezstandalone.cmd = ezstandalone.cmd || [];`,
+              }}
+            />
+          </>
+        )}
+      </head>
       <body className={`${rubik.variable} ${geistMono.variable} font-sans antialiased relative`}>
         <ThemeProvider
           attribute="class"
