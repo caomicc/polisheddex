@@ -120,21 +120,23 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return data.filter((location: any) => {
       // Filter out empty buildings with no content
+      // Note: manifest uses encounterCount (pokemon), trainerCount, itemCount, eventCount
       const hasAnyContent =
-        (location.pokemonCount && location.pokemonCount > 0) ||
+        (location.encounterCount && location.encounterCount > 0) ||
         (location.trainerCount && location.trainerCount > 0) ||
-        (location.items && location.items.length > 0) ||
+        (location.itemCount && location.itemCount > 0) ||
         (location.eventCount && location.eventCount > 0);
 
       if (!hasAnyContent) {
         return false;
       }
 
-      const matchesPokemon = !pokemon || (location.pokemonCount && location.pokemonCount > 0);
-      const matchesFlyable = !flyable || location.flyable;
-      const matchesGrottoes = !grottoes || location.hasHiddenGrottoes;
-      const matchesTrainers = !trainers || location.hasTrainers;
-      const matchesItems = !items || (location.items && location.items.length > 0);
+      // Use correct field names from LocationManifest
+      const matchesPokemon = !pokemon || (location.encounterCount && location.encounterCount > 0);
+      const matchesFlyable = !flyable || location.flyable; // Note: flyable not yet extracted
+      const matchesGrottoes = !grottoes || location.hasHiddenGrottoes; // Note: grottoes not yet extracted
+      const matchesTrainers = !trainers || (location.trainerCount && location.trainerCount > 0);
+      const matchesItems = !items || (location.itemCount && location.itemCount > 0);
       const matchesRegion = region === 'all' || location.region === region;
 
       return (
