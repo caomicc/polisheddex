@@ -10,7 +10,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { Hero } from '@/components/ui/Hero';
-import AbilityDetailClient from '@/components/abilities/ability-detail-client';
+import { AbilityDetailClient } from '@/components/abilities/ability-detail-client';
 import { PokemonGridSkeleton } from '@/components/pokemon/pokemon-card-skeleton';
 import { promises as fs } from 'fs';
 import path from 'path';
@@ -57,7 +57,7 @@ export default async function AbilityDetail({ params }: { params: Promise<Abilit
 
         <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
           <Suspense fallback={<PokemonGridSkeleton count={8} />}>
-            <AbilityDetailClient abilityData={abilityData} />
+            <AbilityDetailClient ability={abilityData} />
           </Suspense>
         </div>
       </>

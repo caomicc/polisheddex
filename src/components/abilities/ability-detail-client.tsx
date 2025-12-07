@@ -1,25 +1,26 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
-import PokemonWithAbilityDataTable from './pokemon-with-ability-data-table';
-import { AbilityData } from '@/types/new';
+import { useFaithfulPreferenceSafe } from "@/hooks/use-faithful-preference-safe";
+import { AbilityData } from "@/types/new";
+import { AbilityDescriptionCard } from "./ability-description-card";
+import { AbilityPokemonCard } from "./ability-pokemon-card";
 
 interface AbilityDetailClientProps {
-  abilityData: AbilityData;
+  ability: AbilityData;
 }
 
-export default function AbilityDetailClient({ abilityData }: AbilityDetailClientProps) {
-  const [abilityTypeFilter, setAbilityTypeFilter] = useState<string>('all');
-  const { showFaithful } = useFaithfulPreferenceSafe();
-  const version = showFaithful ? 'faithful' : 'polished';
+export function AbilityDetailClient({ ability }: AbilityDetailClientProps) {
+  const { version } = useFaithfulPreferenceSafe();
+  const versionData = ability.versions[version] || ability.versions.polished;
 
   return (
-    <PokemonWithAbilityDataTable
-      abilityData={abilityData}
-      abilityTypeFilter={abilityTypeFilter}
-      onAbilityTypeFilterChange={setAbilityTypeFilter}
-      version={version}
-    />
+    <div className="grid gap-6 md:grid-cols-2">
+      <div className="md:col-span-2">
+        <AbilityDescriptionCard description={versionData?.description} />
+      </div>
+      <div className="md:col-span-2">
+        <AbilityPokemonCard pokemon={versionData?.pokemon} />
+      </div>
+    </div>
   );
 }
