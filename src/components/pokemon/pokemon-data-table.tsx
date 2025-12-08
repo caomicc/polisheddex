@@ -54,7 +54,7 @@ export function PokemonDataTable<TData, TValue>({
 
   return (
     <TableWrapper>
-      <Table className="table-fixed w-full min-w-[500px]">
+      <Table className="data-table">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
@@ -65,7 +65,7 @@ export function PokemonDataTable<TData, TValue>({
                     className={
                       header.column.columnDef.size === 60
                         ? 'w-11 md:w-[60px]! max-w-16 text-center'
-                        : 'label-text'
+                        : 'table-header-label'
                     }
                   >
                     {header.isPlaceholder

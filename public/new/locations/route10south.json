@@ -1,0 +1,36 @@
+{
+  "id": "route10south",
+  "name": "Route 10 South",
+  "constantName": "ROUTE_10_SOUTH",
+  "connectionCount": 2,
+  "parent": "route10",
+  "type": [
+    "route"
+  ],
+  "order": 389,
+  "region": "Kanto",
+  "items": [
+    {
+      "name": "maxether",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 16,
+        "y": 3
+      }
+    },
+    {
+      "name": "voltswitch",
+      "type": "tm",
+      "coordinates": {
+        "x": 9,
+        "y": 7
+      },
+      "tmId": "tm72"
+    }
+  ],
+  "trainers": [
+    "hikerjim",
+    "pokefanmrobert",
+    "hexmaniacamy"
+  ]
+}

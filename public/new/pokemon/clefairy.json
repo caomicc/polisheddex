@@ -1,0 +1,651 @@
+{
+  "id": "clefairy",
+  "name": "Clefairy",
+  "dexNo": 41,
+  "versions": {
+    "polished": {
+      "forms": {
+        "plain": {
+          "formNumber": 1,
+          "types": [
+            "fairy"
+          ],
+          "abilities": [
+            "cutecharm",
+            "magicguard",
+            "cutecharm"
+          ],
+          "baseStats": {
+            "hp": 70,
+            "attack": 45,
+            "defense": 48,
+            "specialAttack": 35,
+            "specialDefense": 60,
+            "speed": 65
+          },
+          "growthRate": "growthfast",
+          "genderRatio": "75",
+          "hatchRate": "faster",
+          "catchRate": 150,
+          "baseExp": 68,
+          "evYield": {
+            "hp": 2
+          },
+          "eggGroups": [
+            "fairy"
+          ],
+          "heldItems": [
+            {
+              "id": "leppaberry",
+              "rarity": "common"
+            },
+            {
+              "id": "moonstone",
+              "rarity": "rare"
+            }
+          ],
+          "movesets": {
+            "levelUp": [
+              {
+                "id": "disarmvoice",
+                "level": 1
+              },
+              {
+                "id": "tackle",
+                "level": 1
+              },
+              {
+                "id": "growl",
+                "level": 1
+              },
+              {
+                "id": "encore",
+                "level": 1
+              },
+              {
+                "id": "sing",
+                "level": 7
+              },
+              {
+                "id": "doubleslap",
+                "level": 10
+              },
+              {
+                "id": "defensecurl",
+                "level": 13
+              },
+              {
+                "id": "sweetkiss",
+                "level": 16
+              },
+              {
+                "id": "dizzypunch",
+                "level": 19
+              },
+              {
+                "id": "triattack",
+                "level": 22
+              },
+              {
+                "id": "minimize",
+                "level": 25
+              },
+              {
+                "id": "drainingkiss",
+                "level": 28
+              },
+              {
+                "id": "metronome",
+                "level": 31
+              },
+              {
+                "id": "reflect",
+                "level": 34
+              },
+              {
+                "id": "lightscreen",
+                "level": 37
+              },
+              {
+                "id": "bodyslam",
+                "level": 40
+              },
+              {
+                "id": "healinglight",
+                "level": 43
+              },
+              {
+                "id": "moonblast",
+                "level": 46
+              },
+              {
+                "id": "bellydrum",
+                "level": 49
+              },
+              {
+                "id": "extrasensory",
+                "level": 50
+              },
+              {
+                "id": "healbell",
+                "level": 55
+              }
+            ],
+            "tm": [
+              {
+                "id": "dynamicpunch"
+              },
+              {
+                "id": "curse"
+              },
+              {
+                "id": "calmmind"
+              },
+              {
+                "id": "toxic"
+              },
+              {
+                "id": "hiddenpower"
+              },
+              {
+                "id": "sunnyday"
+              },
+              {
+                "id": "icebeam"
+              },
+              {
+                "id": "blizzard"
+              },
+              {
+                "id": "lightscreen"
+              },
+              {
+                "id": "protect"
+              },
+              {
+                "id": "raindance"
+              },
+              {
+                "id": "safeguard"
+              },
+              {
+                "id": "solarbeam"
+              },
+              {
+                "id": "irontail"
+              },
+              {
+                "id": "thunderbolt"
+              },
+              {
+                "id": "thunder"
+              },
+              {
+                "id": "return"
+              },
+              {
+                "id": "dig"
+              },
+              {
+                "id": "psychic"
+              },
+              {
+                "id": "shadowball"
+              },
+              {
+                "id": "rocksmash"
+              },
+              {
+                "id": "doubleteam"
+              },
+              {
+                "id": "reflect"
+              },
+              {
+                "id": "flamethrower"
+              },
+              {
+                "id": "fireblast"
+              },
+              {
+                "id": "substitute"
+              },
+              {
+                "id": "facade"
+              },
+              {
+                "id": "rest"
+              },
+              {
+                "id": "attract"
+              },
+              {
+                "id": "dazzlingleam"
+              },
+              {
+                "id": "drainpunch"
+              },
+              {
+                "id": "waterpulse"
+              },
+              {
+                "id": "flash"
+              },
+              {
+                "id": "thunderwave"
+              },
+              {
+                "id": "strength"
+              },
+              {
+                "id": "batonpass"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "charm"
+              },
+              {
+                "id": "counter"
+              },
+              {
+                "id": "defensecurl"
+              },
+              {
+                "id": "doubleedge"
+              },
+              {
+                "id": "dreameater"
+              },
+              {
+                "id": "endure"
+              },
+              {
+                "id": "firepunch"
+              },
+              {
+                "id": "headbutt"
+              },
+              {
+                "id": "hypervoice"
+              },
+              {
+                "id": "icepunch"
+              },
+              {
+                "id": "icywind"
+              },
+              {
+                "id": "knockoff"
+              },
+              {
+                "id": "rollout"
+              },
+              {
+                "id": "seismictoss"
+              },
+              {
+                "id": "sleeptalk"
+              },
+              {
+                "id": "swagger"
+              },
+              {
+                "id": "thunderpunch"
+              },
+              {
+                "id": "trick"
+              },
+              {
+                "id": "zapcannon"
+              },
+              {
+                "id": "zenheadbutt"
+              }
+            ],
+            "eggMoves": [
+              {
+                "id": "calmmind"
+              },
+              {
+                "id": "bellydrum"
+              },
+              {
+                "id": "amnesia"
+              },
+              {
+                "id": "splash"
+              },
+              {
+                "id": "freshsnack"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "faithful": {
+      "forms": {
+        "plain": {
+          "formNumber": 1,
+          "types": [
+            "fairy"
+          ],
+          "abilities": [
+            "cutecharm",
+            "magicguard",
+            "cutecharm"
+          ],
+          "baseStats": {
+            "hp": 70,
+            "attack": 45,
+            "defense": 48,
+            "specialAttack": 35,
+            "specialDefense": 60,
+            "speed": 65
+          },
+          "growthRate": "growthfast",
+          "genderRatio": "75",
+          "hatchRate": "faster",
+          "catchRate": 150,
+          "baseExp": 68,
+          "evYield": {
+            "hp": 2
+          },
+          "eggGroups": [
+            "fairy"
+          ],
+          "heldItems": [
+            {
+              "id": "leppaberry",
+              "rarity": "common"
+            },
+            {
+              "id": "moonstone",
+              "rarity": "rare"
+            }
+          ],
+          "movesets": {
+            "levelUp": [
+              {
+                "id": "disarmvoice",
+                "level": 1
+              },
+              {
+                "id": "tackle",
+                "level": 1
+              },
+              {
+                "id": "growl",
+                "level": 1
+              },
+              {
+                "id": "encore",
+                "level": 1
+              },
+              {
+                "id": "sing",
+                "level": 7
+              },
+              {
+                "id": "doubleslap",
+                "level": 10
+              },
+              {
+                "id": "defensecurl",
+                "level": 13
+              },
+              {
+                "id": "sweetkiss",
+                "level": 16
+              },
+              {
+                "id": "dizzypunch",
+                "level": 19
+              },
+              {
+                "id": "triattack",
+                "level": 22
+              },
+              {
+                "id": "minimize",
+                "level": 25
+              },
+              {
+                "id": "drainingkiss",
+                "level": 28
+              },
+              {
+                "id": "metronome",
+                "level": 31
+              },
+              {
+                "id": "reflect",
+                "level": 34
+              },
+              {
+                "id": "lightscreen",
+                "level": 37
+              },
+              {
+                "id": "bodyslam",
+                "level": 40
+              },
+              {
+                "id": "healinglight",
+                "level": 43
+              },
+              {
+                "id": "moonblast",
+                "level": 46
+              },
+              {
+                "id": "bellydrum",
+                "level": 49
+              },
+              {
+                "id": "extrasensory",
+                "level": 50
+              },
+              {
+                "id": "healbell",
+                "level": 55
+              }
+            ],
+            "tm": [
+              {
+                "id": "dynamicpunch"
+              },
+              {
+                "id": "curse"
+              },
+              {
+                "id": "calmmind"
+              },
+              {
+                "id": "toxic"
+              },
+              {
+                "id": "hiddenpower"
+              },
+              {
+                "id": "sunnyday"
+              },
+              {
+                "id": "icebeam"
+              },
+              {
+                "id": "blizzard"
+              },
+              {
+                "id": "lightscreen"
+              },
+              {
+                "id": "protect"
+              },
+              {
+                "id": "raindance"
+              },
+              {
+                "id": "safeguard"
+              },
+              {
+                "id": "solarbeam"
+              },
+              {
+                "id": "irontail"
+              },
+              {
+                "id": "thunderbolt"
+              },
+              {
+                "id": "thunder"
+              },
+              {
+                "id": "return"
+              },
+              {
+                "id": "dig"
+              },
+              {
+                "id": "psychic"
+              },
+              {
+                "id": "shadowball"
+              },
+              {
+                "id": "rocksmash"
+              },
+              {
+                "id": "doubleteam"
+              },
+              {
+                "id": "reflect"
+              },
+              {
+                "id": "flamethrower"
+              },
+              {
+                "id": "fireblast"
+              },
+              {
+                "id": "substitute"
+              },
+              {
+                "id": "facade"
+              },
+              {
+                "id": "rest"
+              },
+              {
+                "id": "attract"
+              },
+              {
+                "id": "dazzlingleam"
+              },
+              {
+                "id": "drainpunch"
+              },
+              {
+                "id": "waterpulse"
+              },
+              {
+                "id": "flash"
+              },
+              {
+                "id": "thunderwave"
+              },
+              {
+                "id": "strength"
+              },
+              {
+                "id": "batonpass"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "charm"
+              },
+              {
+                "id": "counter"
+              },
+              {
+                "id": "defensecurl"
+              },
+              {
+                "id": "doubleedge"
+              },
+              {
+                "id": "dreameater"
+              },
+              {
+                "id": "endure"
+              },
+              {
+                "id": "firepunch"
+              },
+              {
+                "id": "headbutt"
+              },
+              {
+                "id": "hypervoice"
+              },
+              {
+                "id": "icepunch"
+              },
+              {
+                "id": "icywind"
+              },
+              {
+                "id": "knockoff"
+              },
+              {
+                "id": "rollout"
+              },
+              {
+                "id": "seismictoss"
+              },
+              {
+                "id": "sleeptalk"
+              },
+              {
+                "id": "swagger"
+              },
+              {
+                "id": "thunderpunch"
+              },
+              {
+                "id": "trick"
+              },
+              {
+                "id": "zapcannon"
+              },
+              {
+                "id": "zenheadbutt"
+              }
+            ],
+            "eggMoves": [
+              {
+                "id": "calmmind"
+              },
+              {
+                "id": "bellydrum"
+              },
+              {
+                "id": "amnesia"
+              },
+              {
+                "id": "splash"
+              },
+              {
+                "id": "freshsnack"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

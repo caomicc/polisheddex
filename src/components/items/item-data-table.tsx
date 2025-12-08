@@ -35,8 +35,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { AnyItemData, isRegularItem, isTMHMItem } from '@/types/types';
 import TableWrapper from '../ui/table-wrapper';
+import { ItemsManifest } from '@/types/new';
 
 /**
  * ItemDataTable - A data table component with persistent state
@@ -51,8 +51,8 @@ import TableWrapper from '../ui/table-wrapper';
  */
 
 interface ItemDataTableProps {
-  columns: ColumnDef<AnyItemData, unknown>[];
-  data: AnyItemData[];
+  columns: ColumnDef<ItemsManifest, unknown>[];
+  data: ItemsManifest[];
 }
 
 export function ItemDataTable({ columns, data }: ItemDataTableProps) {
@@ -116,15 +116,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
   const categories = React.useMemo(() => {
     const categorySet = new Set<string>();
     data.forEach((item) => {
-      if (isRegularItem(item)) {
-        if (item.attributes?.isKeyItem) {
-          categorySet.add('Key Item');
-        } else if (item.attributes?.category) {
-          categorySet.add(item.attributes.category);
-        }
-      } else if (isTMHMItem(item)) {
-        categorySet.add('TM/HM');
-      }
+      categorySet.add(item.versions[Object.keys(item.versions)[0]]?.category || 'Item');
     });
     return Array.from(categorySet).sort();
   }, [data]);
@@ -132,20 +124,15 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
   // Apply checkbox filters and category filter to the data
   const filteredData = React.useMemo(() => {
     return data.filter((item) => {
-      const matchesTMHM = !tmhm || isTMHMItem(item);
-      const matchesPrice = !price || (isRegularItem(item) && (item.attributes?.price || 0) > 0);
+      const matchesTMHM =
+        !tmhm ||
+        item.versions[Object.keys(item.versions)[0]]?.category === 'tm' ||
+        item.versions[Object.keys(item.versions)[0]]?.category === 'hm';
+      const matchesPrice = !price || (item.versions[Object.keys(item.versions)[0]]?.price || 0) > 0;
       const matchesLocations =
-        !locations ||
-        (isRegularItem(item) && (item.locations?.length || 0) > 0) ||
-        (isTMHMItem(item) && item.location);
+        !locations || (item.versions[Object.keys(item.versions)[0]]?.locationCount || 0) > 0;
 
-      const itemCategory = isRegularItem(item)
-        ? item.attributes?.isKeyItem
-          ? 'Key Item'
-          : item.attributes?.category || 'Item'
-        : isTMHMItem(item)
-          ? 'TM/HM'
-          : 'Unknown';
+      const itemCategory = item.versions[Object.keys(item.versions)[0]]?.category || 'Item';
       const matchesCategory = category === 'all' || itemCategory === category;
 
       return matchesTMHM && matchesPrice && matchesLocations && matchesCategory;
@@ -175,43 +162,13 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
     pageCount: Math.ceil(filteredData.length / pageSize),
   });
 
-  // Save non-URL state to localStorage whenever it changes
-  // React.useEffect(() => {
-  //   if (typeof window === 'undefined') return;
-
-  //   // Skip saving on initial render if we just loaded from storage
-  //   const isInitialLoad =
-  //     !storedState ||
-  //     (JSON.stringify(sorting) === JSON.stringify(storedState.sorting) &&
-  //       JSON.stringify(columnFilters) === JSON.stringify(storedState.columnFilters));
-
-  //   if (isInitialLoad) return;
-
-  //   const stateToSave = {
-  //     sorting,
-  //     columnFilters,
-  //     columnVisibility,
-  //   };
-
-  //   try {
-  //     localStorage.setItem(STORAGE_KEY, JSON.stringify(stateToSave));
-  //   } catch (error) {
-  //     console.warn('Failed to save table state to localStorage:', error);
-  //   }
-  // }, [sorting, columnFilters, columnVisibility, storedState]);
-
-  // Reset page to 0 when filters change
-  // React.useEffect(() => {
-  //   setPagination({ pageIndex: 0 });
-  // }, [columnFilters, tmhm, price, locations, category, setPagination]);
-
   return (
     <div className="w-full">
       <div className="flex flex-col gap-4 border border-neutral-200 bg-white p-4 rounded-xl mb-2 md:mb-4 dark:border-white/[0.2] dark:bg-black dark:shadow-none">
         {/* Primary search */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex flex-col gap-2">
-            <Label className="label-text" htmlFor="item-filter">
+            <Label className="table-header-label" htmlFor="item-filter">
               Item Name
             </Label>
             <Input
@@ -225,7 +182,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
 
           {/* Category filter */}
           <div className="flex flex-col gap-2">
-            <Label className="label-text" htmlFor="category-select">
+            <Label className="table-header-label" htmlFor="category-select">
               Category
             </Label>
             <Select
@@ -255,7 +212,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
               checked={tmhm}
               onCheckedChange={(checked) => setUrlState({ tmhm: checked ? true : null })}
             />
-            <Label htmlFor="tm-hm" className="label-text">
+            <Label htmlFor="tm-hm" className="table-header-label">
               TMs/HMs only
             </Label>
           </div>
@@ -266,7 +223,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
               checked={price}
               onCheckedChange={(checked) => setUrlState({ price: checked ? true : null })}
             />
-            <Label htmlFor="with-price" className="label-text">
+            <Label htmlFor="with-price" className="table-header-label">
               Has price
             </Label>
           </div>
@@ -277,14 +234,14 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
               checked={locations}
               onCheckedChange={(checked) => setUrlState({ locations: checked ? true : null })}
             />
-            <Label htmlFor="with-locations" className="label-text">
+            <Label htmlFor="with-locations" className="table-header-label">
               Has locations
             </Label>
           </div>
         </div>
 
         {/* Results Summary */}
-        <div className="flex flex-col sm:items-start gap-2 label-text">
+        <div className="flex flex-col sm:items-start gap-2 table-header-label">
           {(Boolean(search) ||
             category !== 'all' ||
             sorting.length > 0 ||
@@ -343,7 +300,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
         </div>
       </div>
       <TableWrapper>
-        <Table className="table-fixed w-full min-w-[500px]">
+        <Table className="data-table">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
@@ -354,7 +311,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
                       className={
                         header.column.columnDef.size === 60
                           ? 'w-11 md:w-[60px]! max-w-16 text-center'
-                          : 'label-text'
+                          : 'table-header-label'
                       }
                     >
                       {header.isPlaceholder
@@ -372,7 +329,6 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && 'selected'}
-                  className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
@@ -423,7 +379,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
         <div className="flex flex-col sm:flex-row items-center gap-4">
           {/* Page size selector */}
           <div className="flex items-center gap-2">
-            <Label htmlFor="page-size" className="label-text">
+            <Label htmlFor="page-size" className="table-header-label">
               Items per page:
             </Label>
             <Select

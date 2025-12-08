@@ -1,0 +1,511 @@
+{
+  "id": "nightshade",
+  "versions": {
+    "faithful": {
+      "name": "Night Shade",
+      "description": "Damage equals the user's level.",
+      "power": 1,
+      "type": "ghost",
+      "accuracy": 100,
+      "pp": 15,
+      "effectChance": 0,
+      "category": "special",
+      "learners": [
+        {
+          "id": "alakazam",
+          "name": "Alakazam",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "ariados",
+          "name": "Ariados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "corsola",
+          "name": "Corsola",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            }
+          ],
+          "types": [
+            "ghost"
+          ]
+        },
+        {
+          "id": "cursola",
+          "name": "Cursola",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            }
+          ],
+          "types": [
+            "ghost"
+          ]
+        },
+        {
+          "id": "gastly",
+          "name": "Gastly",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "ghost",
+            "poison"
+          ]
+        },
+        {
+          "id": "gengar",
+          "name": "Gengar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "ghost",
+            "poison"
+          ]
+        },
+        {
+          "id": "haunter",
+          "name": "Haunter",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "ghost",
+            "poison"
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "name": "Hoothoot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "kadabra",
+          "name": "Kadabra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "murkrow",
+          "name": "Murkrow",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "dark",
+            "flying"
+          ]
+        },
+        {
+          "id": "natu",
+          "name": "Natu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "noctowl",
+          "name": "Noctowl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "spinarak",
+          "name": "Spinarak",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "vulpix",
+          "name": "Vulpix",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 18
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "vulpix",
+          "name": "Vulpix",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 18
+            }
+          ],
+          "types": [
+            "ice"
+          ]
+        },
+        {
+          "id": "xatu",
+          "name": "Xatu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Night Shade",
+      "description": "Damage equals the user's level.",
+      "power": 1,
+      "type": "ghost",
+      "accuracy": 100,
+      "pp": 15,
+      "effectChance": 0,
+      "category": "special",
+      "learners": [
+        {
+          "id": "alakazam",
+          "name": "Alakazam",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "ariados",
+          "name": "Ariados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "bug",
+            "dark"
+          ]
+        },
+        {
+          "id": "corsola",
+          "name": "Corsola",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            }
+          ],
+          "types": [
+            "ghost",
+            "rock"
+          ]
+        },
+        {
+          "id": "cursola",
+          "name": "Cursola",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            }
+          ],
+          "types": [
+            "ghost",
+            "rock"
+          ]
+        },
+        {
+          "id": "gastly",
+          "name": "Gastly",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "ghost",
+            "poison"
+          ]
+        },
+        {
+          "id": "gengar",
+          "name": "Gengar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "ghost",
+            "poison"
+          ]
+        },
+        {
+          "id": "haunter",
+          "name": "Haunter",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "ghost",
+            "poison"
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "name": "Hoothoot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "kadabra",
+          "name": "Kadabra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "murkrow",
+          "name": "Murkrow",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "dark",
+            "flying"
+          ]
+        },
+        {
+          "id": "natu",
+          "name": "Natu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "noctowl",
+          "name": "Noctowl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ghost",
+            "flying"
+          ]
+        },
+        {
+          "id": "spinarak",
+          "name": "Spinarak",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "vulpix",
+          "name": "Vulpix",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 18
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "vulpix",
+          "name": "Vulpix",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 18
+            }
+          ],
+          "types": [
+            "ice"
+          ]
+        },
+        {
+          "id": "xatu",
+          "name": "Xatu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        }
+      ]
+    }
+  }
+}

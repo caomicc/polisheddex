@@ -1,9 +1,10 @@
+'use client';
+
 import * as React from 'react';
 import { useState } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { PokemonType } from '@/types/types';
-import { SpriteVariant, SpriteType } from '@/types/spriteTypes';
+import { SpriteVariant, SpriteType, SpriteFacing } from '@/types/spriteTypes';
 import { useSpriteData } from '@/hooks/useSpriteData';
 import { cva } from 'class-variance-authority';
 
@@ -11,16 +12,19 @@ interface PokemonSpriteProps {
   className?: string;
   pokemonName: string;
   alt?: string;
-  primaryType?: PokemonType['name'];
+  primaryType?: string;
   variant?: SpriteVariant;
   type?: SpriteType;
-  form?: string; // Optional form prop for specific Pokemon forms
+  facing?: SpriteFacing;
+  form?: string | null; // Optional form prop for specific Pokemon forms
   // Legacy prop for backward compatibility
   src?: string;
   size?: 'default' | 'sm';
   // New hover animation prop
   hoverAnimate?: boolean;
 }
+
+export type { PokemonSpriteProps };
 
 const spriteVariants = cva('relative bg-white flex', {
   variants: {
@@ -35,23 +39,28 @@ const spriteVariants = cva('relative bg-white flex', {
 });
 
 export function PokemonSprite({
-  className,
+...props
+}: PokemonSpriteProps) {
+  const [isHovered, setIsHovered] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+
+const {className,
   pokemonName,
   alt,
   primaryType,
   variant = 'normal',
   type = 'static',
+  facing = 'front',
   src,
   size,
   form, // Optional form prop for specific Pokemon forms
-  hoverAnimate = false,
-}: PokemonSpriteProps) {
-  const [isHovered, setIsHovered] = useState(false);
+  hoverAnimate = false } = props;
 
   // Determine the sprite type: use hover state if hoverAnimate is enabled, otherwise use the type prop
   const actualType = hoverAnimate ? (isHovered ? 'animated' : 'static') : type;
 
-  const { spriteInfo, isLoading } = useSpriteData(pokemonName, variant, actualType, form);
+  const { spriteInfo, isLoading } = useSpriteData(pokemonName, variant, actualType, form, facing);
 
   // Fallback to legacy src prop if provided and sprite data not available
   const finalSrc = spriteInfo?.url || src;
@@ -71,7 +80,7 @@ export function PokemonSprite({
     );
   }
 
-  if (!finalSrc) {
+  if (!finalSrc || hasError) {
     return (
       <div
         className={cn(
@@ -108,6 +117,8 @@ export function PokemonSprite({
         className="mx-auto relative object-contain"
         priority={false}
         quality={85}
+        onError={() => setHasError(true)}
+        unoptimized
       />
     </div>
   );

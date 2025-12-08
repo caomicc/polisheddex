@@ -1,0 +1,258 @@
+{
+  "id": "yellowforest",
+  "name": "Yellow Forest",
+  "constantName": "YELLOW_FOREST",
+  "connectionCount": 0,
+  "parent": "yellowforest",
+  "type": [
+    "route"
+  ],
+  "order": 230,
+  "region": "Johto",
+  "encounters": [
+    {
+      "pokemon": "sentret",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "-2",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "snubbull",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "+0",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pikachu",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "-4",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "ledyba",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "-2",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "marill",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "-4",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "marill",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "-3",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pichu",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "-14",
+      "rate": 2,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "sentret",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "-2",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "snubbull",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "+0",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pikachu",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "-4",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "paras",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "-2",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "marill",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "-2",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "marill",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "-3",
+      "rate": 3,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "pichu",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "-14",
+      "rate": 2,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "hoothoot",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "-1",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "meowth",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "-4",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "paras",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "-2",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "spinarak",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "-1",
+      "rate": 10,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "psyduck",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "+0",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "noctowl",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "+1",
+      "rate": 5,
+      "formName": "plain"
+    }
+  ],
+  "items": [
+    {
+      "name": "bigmushroom",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 39,
+        "y": 14
+      }
+    },
+    {
+      "name": "balmmushroom",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 43,
+        "y": 36
+      }
+    },
+    {
+      "name": "goldleaf",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 32,
+        "y": 11
+      }
+    },
+    {
+      "name": "goldleaf",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 9,
+        "y": 40
+      }
+    },
+    {
+      "name": "leechlife",
+      "type": "tm",
+      "coordinates": {
+        "x": 25,
+        "y": 18
+      },
+      "tmId": "tm50"
+    },
+    {
+      "name": "miracleseed",
+      "type": "item",
+      "coordinates": {
+        "x": 32,
+        "y": 26
+      }
+    },
+    {
+      "name": "bigroot",
+      "type": "item",
+      "coordinates": {
+        "x": 11,
+        "y": 23
+      }
+    },
+    {
+      "name": "lemonade",
+      "type": "item",
+      "coordinates": {
+        "x": 50,
+        "y": 13
+      }
+    },
+    {
+      "name": "fly",
+      "type": "hm",
+      "tmId": "hm02"
+    },
+    {
+      "name": "lightball",
+      "type": "gift"
+    }
+  ],
+  "trainers": [
+    "schoolgirlsarah",
+    "schoolgirlisabel",
+    "teacherfkathryn",
+    "breedersophie",
+    "walker",
+    "yellow"
+  ]
+}

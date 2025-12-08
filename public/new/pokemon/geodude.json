@@ -1,0 +1,949 @@
+{
+  "id": "geodude",
+  "name": "Geodude",
+  "dexNo": 34,
+  "versions": {
+    "polished": {
+      "forms": {
+        "plain": {
+          "formNumber": 1,
+          "types": [
+            "rock",
+            "ground"
+          ],
+          "abilities": [
+            "rockhead",
+            "sturdy",
+            "sandveil"
+          ],
+          "baseStats": {
+            "hp": 40,
+            "attack": 80,
+            "defense": 100,
+            "specialAttack": 20,
+            "specialDefense": 30,
+            "speed": 30
+          },
+          "growthRate": "growthmediumslow",
+          "genderRatio": "50",
+          "hatchRate": "fast",
+          "catchRate": 255,
+          "baseExp": 86,
+          "evYield": {
+            "defense": 1
+          },
+          "eggGroups": [
+            "mineral"
+          ],
+          "heldItems": [
+            {
+              "id": "everstone",
+              "rarity": "rare"
+            }
+          ],
+          "movesets": {
+            "levelUp": [
+              {
+                "id": "tackle",
+                "level": 1
+              },
+              {
+                "id": "defensecurl",
+                "level": 1
+              },
+              {
+                "id": "mudslap",
+                "level": 4
+              },
+              {
+                "id": "rapidspin",
+                "level": 6
+              },
+              {
+                "id": "rollout",
+                "level": 10
+              },
+              {
+                "id": "magnitude",
+                "level": 12
+              },
+              {
+                "id": "rockthrow",
+                "level": 16
+              },
+              {
+                "id": "ancientpower",
+                "level": 18
+              },
+              {
+                "id": "bulldoze",
+                "level": 22
+              },
+              {
+                "id": "rockblast",
+                "level": 24
+              },
+              {
+                "id": "sandstorm",
+                "level": 28
+              },
+              {
+                "id": "rockslide",
+                "level": 30
+              },
+              {
+                "id": "earthquake",
+                "level": 34
+              },
+              {
+                "id": "explosion",
+                "level": 36
+              },
+              {
+                "id": "doubleedge",
+                "level": 40
+              },
+              {
+                "id": "stoneedge",
+                "level": 42
+              }
+            ],
+            "tm": [
+              {
+                "id": "dynamicpunch"
+              },
+              {
+                "id": "curse"
+              },
+              {
+                "id": "toxic"
+              },
+              {
+                "id": "hiddenpower"
+              },
+              {
+                "id": "sunnyday"
+              },
+              {
+                "id": "protect"
+              },
+              {
+                "id": "bulldoze"
+              },
+              {
+                "id": "earthquake"
+              },
+              {
+                "id": "return"
+              },
+              {
+                "id": "dig"
+              },
+              {
+                "id": "rocksmash"
+              },
+              {
+                "id": "doubleteam"
+              },
+              {
+                "id": "flamethrower"
+              },
+              {
+                "id": "sandstorm"
+              },
+              {
+                "id": "fireblast"
+              },
+              {
+                "id": "substitute"
+              },
+              {
+                "id": "facade"
+              },
+              {
+                "id": "rest"
+              },
+              {
+                "id": "attract"
+              },
+              {
+                "id": "rockslide"
+              },
+              {
+                "id": "explosion"
+              },
+              {
+                "id": "stoneedge"
+              },
+              {
+                "id": "gyroball"
+              },
+              {
+                "id": "strength"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "counter"
+              },
+              {
+                "id": "defensecurl"
+              },
+              {
+                "id": "doubleedge"
+              },
+              {
+                "id": "earthpower"
+              },
+              {
+                "id": "endure"
+              },
+              {
+                "id": "firepunch"
+              },
+              {
+                "id": "headbutt"
+              },
+              {
+                "id": "rollout"
+              },
+              {
+                "id": "seismictoss"
+              },
+              {
+                "id": "sleeptalk"
+              },
+              {
+                "id": "suckerpunch"
+              },
+              {
+                "id": "swagger"
+              },
+              {
+                "id": "thunderpunch"
+              }
+            ],
+            "eggMoves": [
+              {
+                "id": "rockslide"
+              }
+            ]
+          }
+        },
+        "alolan": {
+          "formNumber": 2,
+          "types": [
+            "rock",
+            "electric"
+          ],
+          "abilities": [
+            "magnetpull",
+            "sturdy",
+            "galvanize"
+          ],
+          "baseStats": {
+            "hp": 40,
+            "attack": 80,
+            "defense": 100,
+            "specialAttack": 20,
+            "specialDefense": 30,
+            "speed": 30
+          },
+          "growthRate": "growthmediumslow",
+          "genderRatio": "50",
+          "hatchRate": "fast",
+          "catchRate": 255,
+          "baseExp": 86,
+          "evYield": {
+            "defense": 1
+          },
+          "eggGroups": [
+            "mineral"
+          ],
+          "heldItems": [
+            {
+              "id": "everstone",
+              "rarity": "rare"
+            }
+          ],
+          "movesets": {
+            "levelUp": [
+              {
+                "id": "tackle",
+                "level": 1
+              },
+              {
+                "id": "defensecurl",
+                "level": 1
+              },
+              {
+                "id": "thundershock",
+                "level": 4
+              },
+              {
+                "id": "rapidspin",
+                "level": 6
+              },
+              {
+                "id": "rollout",
+                "level": 10
+              },
+              {
+                "id": "spark",
+                "level": 12
+              },
+              {
+                "id": "rockthrow",
+                "level": 16
+              },
+              {
+                "id": "ancientpower",
+                "level": 18
+              },
+              {
+                "id": "thunderpunch",
+                "level": 22
+              },
+              {
+                "id": "rockblast",
+                "level": 24
+              },
+              {
+                "id": "sandstorm",
+                "level": 28
+              },
+              {
+                "id": "rockslide",
+                "level": 30
+              },
+              {
+                "id": "wildcharge",
+                "level": 34
+              },
+              {
+                "id": "explosion",
+                "level": 36
+              },
+              {
+                "id": "doubleedge",
+                "level": 40
+              },
+              {
+                "id": "stoneedge",
+                "level": 42
+              }
+            ],
+            "tm": [
+              {
+                "id": "dynamicpunch"
+              },
+              {
+                "id": "curse"
+              },
+              {
+                "id": "toxic"
+              },
+              {
+                "id": "hiddenpower"
+              },
+              {
+                "id": "sunnyday"
+              },
+              {
+                "id": "protect"
+              },
+              {
+                "id": "bulldoze"
+              },
+              {
+                "id": "thunderbolt"
+              },
+              {
+                "id": "thunder"
+              },
+              {
+                "id": "earthquake"
+              },
+              {
+                "id": "return"
+              },
+              {
+                "id": "dig"
+              },
+              {
+                "id": "rocksmash"
+              },
+              {
+                "id": "doubleteam"
+              },
+              {
+                "id": "flamethrower"
+              },
+              {
+                "id": "sandstorm"
+              },
+              {
+                "id": "fireblast"
+              },
+              {
+                "id": "substitute"
+              },
+              {
+                "id": "facade"
+              },
+              {
+                "id": "rest"
+              },
+              {
+                "id": "attract"
+              },
+              {
+                "id": "rockslide"
+              },
+              {
+                "id": "wildcharge"
+              },
+              {
+                "id": "explosion"
+              },
+              {
+                "id": "stoneedge"
+              },
+              {
+                "id": "voltswitch"
+              },
+              {
+                "id": "thunderwave"
+              },
+              {
+                "id": "gyroball"
+              },
+              {
+                "id": "strength"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "counter"
+              },
+              {
+                "id": "defensecurl"
+              },
+              {
+                "id": "doubleedge"
+              },
+              {
+                "id": "earthpower"
+              },
+              {
+                "id": "endure"
+              },
+              {
+                "id": "firepunch"
+              },
+              {
+                "id": "headbutt"
+              },
+              {
+                "id": "rollout"
+              },
+              {
+                "id": "seismictoss"
+              },
+              {
+                "id": "sleeptalk"
+              },
+              {
+                "id": "suckerpunch"
+              },
+              {
+                "id": "swagger"
+              },
+              {
+                "id": "thunderpunch"
+              }
+            ],
+            "eggMoves": [
+              {
+                "id": "rockslide"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "faithful": {
+      "forms": {
+        "plain": {
+          "formNumber": 1,
+          "types": [
+            "rock",
+            "ground"
+          ],
+          "abilities": [
+            "rockhead",
+            "sturdy",
+            "sandveil"
+          ],
+          "baseStats": {
+            "hp": 40,
+            "attack": 80,
+            "defense": 100,
+            "specialAttack": 20,
+            "specialDefense": 30,
+            "speed": 30
+          },
+          "growthRate": "growthmediumslow",
+          "genderRatio": "50",
+          "hatchRate": "fast",
+          "catchRate": 255,
+          "baseExp": 86,
+          "evYield": {
+            "defense": 1
+          },
+          "eggGroups": [
+            "mineral"
+          ],
+          "heldItems": [
+            {
+              "id": "everstone",
+              "rarity": "rare"
+            }
+          ],
+          "movesets": {
+            "levelUp": [
+              {
+                "id": "tackle",
+                "level": 1
+              },
+              {
+                "id": "defensecurl",
+                "level": 1
+              },
+              {
+                "id": "mudslap",
+                "level": 4
+              },
+              {
+                "id": "rapidspin",
+                "level": 6
+              },
+              {
+                "id": "rollout",
+                "level": 10
+              },
+              {
+                "id": "magnitude",
+                "level": 12
+              },
+              {
+                "id": "rockthrow",
+                "level": 16
+              },
+              {
+                "id": "ancientpower",
+                "level": 18
+              },
+              {
+                "id": "bulldoze",
+                "level": 22
+              },
+              {
+                "id": "rockblast",
+                "level": 24
+              },
+              {
+                "id": "sandstorm",
+                "level": 28
+              },
+              {
+                "id": "rockslide",
+                "level": 30
+              },
+              {
+                "id": "earthquake",
+                "level": 34
+              },
+              {
+                "id": "explosion",
+                "level": 36
+              },
+              {
+                "id": "doubleedge",
+                "level": 40
+              },
+              {
+                "id": "stoneedge",
+                "level": 42
+              }
+            ],
+            "tm": [
+              {
+                "id": "dynamicpunch"
+              },
+              {
+                "id": "curse"
+              },
+              {
+                "id": "toxic"
+              },
+              {
+                "id": "hiddenpower"
+              },
+              {
+                "id": "sunnyday"
+              },
+              {
+                "id": "protect"
+              },
+              {
+                "id": "bulldoze"
+              },
+              {
+                "id": "earthquake"
+              },
+              {
+                "id": "return"
+              },
+              {
+                "id": "dig"
+              },
+              {
+                "id": "rocksmash"
+              },
+              {
+                "id": "doubleteam"
+              },
+              {
+                "id": "flamethrower"
+              },
+              {
+                "id": "sandstorm"
+              },
+              {
+                "id": "fireblast"
+              },
+              {
+                "id": "substitute"
+              },
+              {
+                "id": "facade"
+              },
+              {
+                "id": "rest"
+              },
+              {
+                "id": "attract"
+              },
+              {
+                "id": "rockslide"
+              },
+              {
+                "id": "explosion"
+              },
+              {
+                "id": "stoneedge"
+              },
+              {
+                "id": "gyroball"
+              },
+              {
+                "id": "strength"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "counter"
+              },
+              {
+                "id": "defensecurl"
+              },
+              {
+                "id": "doubleedge"
+              },
+              {
+                "id": "earthpower"
+              },
+              {
+                "id": "endure"
+              },
+              {
+                "id": "firepunch"
+              },
+              {
+                "id": "headbutt"
+              },
+              {
+                "id": "rollout"
+              },
+              {
+                "id": "seismictoss"
+              },
+              {
+                "id": "sleeptalk"
+              },
+              {
+                "id": "suckerpunch"
+              },
+              {
+                "id": "swagger"
+              },
+              {
+                "id": "thunderpunch"
+              }
+            ],
+            "eggMoves": [
+              {
+                "id": "rockslide"
+              }
+            ]
+          }
+        },
+        "alolan": {
+          "formNumber": 2,
+          "types": [
+            "rock",
+            "electric"
+          ],
+          "abilities": [
+            "magnetpull",
+            "sturdy",
+            "galvanize"
+          ],
+          "baseStats": {
+            "hp": 40,
+            "attack": 80,
+            "defense": 100,
+            "specialAttack": 20,
+            "specialDefense": 30,
+            "speed": 30
+          },
+          "growthRate": "growthmediumslow",
+          "genderRatio": "50",
+          "hatchRate": "fast",
+          "catchRate": 255,
+          "baseExp": 86,
+          "evYield": {
+            "defense": 1
+          },
+          "eggGroups": [
+            "mineral"
+          ],
+          "heldItems": [
+            {
+              "id": "everstone",
+              "rarity": "rare"
+            }
+          ],
+          "movesets": {
+            "levelUp": [
+              {
+                "id": "tackle",
+                "level": 1
+              },
+              {
+                "id": "defensecurl",
+                "level": 1
+              },
+              {
+                "id": "thundershock",
+                "level": 4
+              },
+              {
+                "id": "rapidspin",
+                "level": 6
+              },
+              {
+                "id": "rollout",
+                "level": 10
+              },
+              {
+                "id": "spark",
+                "level": 12
+              },
+              {
+                "id": "rockthrow",
+                "level": 16
+              },
+              {
+                "id": "ancientpower",
+                "level": 18
+              },
+              {
+                "id": "thunderpunch",
+                "level": 22
+              },
+              {
+                "id": "rockblast",
+                "level": 24
+              },
+              {
+                "id": "sandstorm",
+                "level": 28
+              },
+              {
+                "id": "rockslide",
+                "level": 30
+              },
+              {
+                "id": "wildcharge",
+                "level": 34
+              },
+              {
+                "id": "explosion",
+                "level": 36
+              },
+              {
+                "id": "doubleedge",
+                "level": 40
+              },
+              {
+                "id": "stoneedge",
+                "level": 42
+              }
+            ],
+            "tm": [
+              {
+                "id": "dynamicpunch"
+              },
+              {
+                "id": "curse"
+              },
+              {
+                "id": "toxic"
+              },
+              {
+                "id": "hiddenpower"
+              },
+              {
+                "id": "sunnyday"
+              },
+              {
+                "id": "protect"
+              },
+              {
+                "id": "bulldoze"
+              },
+              {
+                "id": "thunderbolt"
+              },
+              {
+                "id": "thunder"
+              },
+              {
+                "id": "earthquake"
+              },
+              {
+                "id": "return"
+              },
+              {
+                "id": "dig"
+              },
+              {
+                "id": "rocksmash"
+              },
+              {
+                "id": "doubleteam"
+              },
+              {
+                "id": "flamethrower"
+              },
+              {
+                "id": "sandstorm"
+              },
+              {
+                "id": "fireblast"
+              },
+              {
+                "id": "substitute"
+              },
+              {
+                "id": "facade"
+              },
+              {
+                "id": "rest"
+              },
+              {
+                "id": "attract"
+              },
+              {
+                "id": "rockslide"
+              },
+              {
+                "id": "wildcharge"
+              },
+              {
+                "id": "explosion"
+              },
+              {
+                "id": "stoneedge"
+              },
+              {
+                "id": "voltswitch"
+              },
+              {
+                "id": "thunderwave"
+              },
+              {
+                "id": "gyroball"
+              },
+              {
+                "id": "strength"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "counter"
+              },
+              {
+                "id": "defensecurl"
+              },
+              {
+                "id": "doubleedge"
+              },
+              {
+                "id": "earthpower"
+              },
+              {
+                "id": "endure"
+              },
+              {
+                "id": "firepunch"
+              },
+              {
+                "id": "headbutt"
+              },
+              {
+                "id": "rollout"
+              },
+              {
+                "id": "seismictoss"
+              },
+              {
+                "id": "sleeptalk"
+              },
+              {
+                "id": "suckerpunch"
+              },
+              {
+                "id": "swagger"
+              },
+              {
+                "id": "thunderpunch"
+              }
+            ],
+            "eggMoves": [
+              {
+                "id": "rockslide"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

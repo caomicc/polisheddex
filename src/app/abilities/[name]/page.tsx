@@ -1,86 +1,42 @@
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import { Suspense } from 'react';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
-import { Hero } from '@/components/ui/Hero';
-import { loadAbilityById, getPokemonThatHaveAbility } from '@/utils/loaders/ability-data-loader';
-import AbilityDetailClient from '@/components/abilities/ability-detail-client';
+import { AbilityDetailClient } from '@/components/abilities/ability-detail-client';
 import { PokemonGridSkeleton } from '@/components/pokemon/pokemon-card-skeleton';
+import { promises as fs } from 'fs';
+import path from 'path';
+import { AbilityData } from '@/types/new';
 
-export default async function AbilityDetail({ params }: { params: Promise<{ name: string }> }) {
-  const nameParam = (await params).name;
-  const abilityName = decodeURIComponent(nameParam);
+export default async function AbilityDetail({ params }: { params: Promise<AbilityData> }) {
+  const abilityId = (await params).name;
 
   // Load ability data
-  const abilityData = await loadAbilityById(abilityName.toLowerCase());
+  try {
+    const abilityPath = path.join(process.cwd(), `public/new/abilities/${abilityId}.json`);
+    const abilityData = JSON.parse(await fs.readFile(abilityPath, 'utf-8'));
 
-  if (!abilityData) {
+    return (
+      <Suspense fallback={<PokemonGridSkeleton count={8} />}>
+        <AbilityDetailClient ability={abilityData} />
+      </Suspense>
+    );
+  } catch (error) {
+    console.error('Error loading ability data:', error);
     return notFound();
   }
-
-  // Load Pokemon that have this ability
-  const pokemonWithAbility = await getPokemonThatHaveAbility(abilityName.toLowerCase());
-
-  return (
-    <>
-      <Hero
-        headline={abilityData.name || abilityName}
-        description={abilityData.description || 'Ability details and Pokemon that have it'}
-        breadcrumbs={
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/" className="hover:underline">
-                    Home
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/abilities" className="hover:underline">
-                    Abilities
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage className="">{abilityData.name || abilityName}</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-        }
-      />
-
-      <div className="max-w-xl md:max-w-4xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
-        <Suspense fallback={<PokemonGridSkeleton count={8} />}>
-          <AbilityDetailClient
-            abilityData={abilityData}
-            pokemonWithAbility={pokemonWithAbility}
-            abilityName={abilityData.name || abilityName}
-          />
-        </Suspense>
-      </div>
-    </>
-  );
 }
+
+// Disable dynamic params - only pre-generated routes are valid
+export const dynamicParams = false;
 
 // Generate static params for all abilities
 export async function generateStaticParams() {
   try {
-    const { loadAbilitiesData } = await import('@/utils/loaders/ability-data-loader');
-    const abilitiesData = await loadAbilitiesData();
+    const manifestPath = path.join(process.cwd(), 'public/new/abilities_manifest.json');
+    const manifestData = await fs.readFile(manifestPath, 'utf-8');
+    const allAbilities = JSON.parse(manifestData);
 
-    return Object.keys(abilitiesData).map((abilityKey) => ({
-      name: abilityKey.toLowerCase(),
+    return allAbilities.map((ability: any) => ({
+      name: ability.id,
     }));
   } catch (error) {
     console.error('Error generating static params for abilities:', error);
@@ -90,11 +46,11 @@ export async function generateStaticParams() {
 
 // Generate metadata for SEO and social sharing
 export async function generateMetadata({ params }: { params: Promise<{ name: string }> }) {
-  const nameParam = (await params).name;
-  const abilityName = decodeURIComponent(nameParam);
+  const abilityId = (await params).name;
 
   try {
-    const abilityData = await loadAbilityById(abilityName.toLowerCase());
+    const abilityPath = path.join(process.cwd(), `public/new/abilities/${abilityId}.json`);
+    const abilityData = JSON.parse(await fs.readFile(abilityPath, 'utf-8'));
 
     if (!abilityData) {
       return {
@@ -103,22 +59,18 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
       };
     }
 
-    const pokemonCount = await getPokemonThatHaveAbility(abilityName.toLowerCase());
-    const pokemonCountText =
-      pokemonCount.length > 0 ? ` ${pokemonCount.length} Pokémon have this ability.` : '';
+    const title = `${abilityData.name} | PolishedDex`;
+    const description = `${abilityData.versions['polished'].description || 'Ability details'} View all Pokémon that have ${abilityData.name} in Pokémon Polished Crystal.`;
+    const url = `https://www.polisheddex.app/abilities/${abilityId}`;
 
-    const title = `${abilityData.name || abilityName} | PolishedDex`;
-    const description = `${abilityData.description || 'Ability details'}${pokemonCountText} View all Pokémon that have ${abilityData.name || abilityName} in Pokémon Polished Crystal.`;
-    const url = `https://www.polisheddex.app/abilities/${nameParam}`;
-
-    const socialDescription = `${abilityData.description || 'Ability details'}.${pokemonCountText}`;
+    const socialDescription = `${abilityData.versions['polished'].description || 'Ability details'}`;
 
     return {
       title,
       description,
       keywords: [
         'pokemon polished crystal',
-        abilityData.name?.toLowerCase() || abilityName.toLowerCase(),
+        abilityData.name,
         'ability',
         'pokemon abilities',
         'polisheddex',
@@ -136,7 +88,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
             url: '/og-image.png',
             width: 1200,
             height: 630,
-            alt: `${abilityData.name || abilityName} - PolishedDex`,
+            alt: `${abilityData.name} - PolishedDex`,
           },
         ],
         locale: 'en_US',

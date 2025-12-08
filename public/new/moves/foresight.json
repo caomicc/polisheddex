@@ -1,0 +1,1711 @@
+{
+  "id": "foresight",
+  "versions": {
+    "faithful": {
+      "name": "Foresight",
+      "description": "Negates foe's evasion and immunity.",
+      "power": 0,
+      "type": "normal",
+      "accuracy": 100,
+      "pp": 40,
+      "effectChance": 0,
+      "category": "status",
+      "learners": [
+        {
+          "id": "aerodactyl",
+          "name": "Aerodactyl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "flying"
+          ]
+        },
+        {
+          "id": "alakazam",
+          "name": "Alakazam",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "annihilape",
+          "name": "Annihilape",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting",
+            "ghost"
+          ]
+        },
+        {
+          "id": "azumarill",
+          "name": "Azumarill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "fairy"
+          ]
+        },
+        {
+          "id": "azurill",
+          "name": "Azurill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "blastoise",
+          "name": "Blastoise",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "cyndaquil",
+          "name": "Cyndaquil",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "name": "Farfetch'd",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "name": "Farfetch'd",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "furret",
+          "name": "Furret",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "girafarig",
+          "name": "Girafarig",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "golduck",
+          "name": "Golduck",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "hitmonchan",
+          "name": "Hitmonchan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "hitmonlee",
+          "name": "Hitmonlee",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "hitmontop",
+          "name": "Hitmontop",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "name": "Hoothoot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "houndoom",
+          "name": "Houndoom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "dark",
+            "fire"
+          ]
+        },
+        {
+          "id": "houndour",
+          "name": "Houndour",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "dark",
+            "fire"
+          ]
+        },
+        {
+          "id": "kabuto",
+          "name": "Kabuto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "kabutops",
+          "name": "Kabutops",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "kadabra",
+          "name": "Kadabra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "kangaskhan",
+          "name": "Kangaskhan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "lapras",
+          "name": "Lapras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "ice"
+          ]
+        },
+        {
+          "id": "machamp",
+          "name": "Machamp",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "machoke",
+          "name": "Machoke",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "machop",
+          "name": "Machop",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "mamoswine",
+          "name": "Mamoswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "mankey",
+          "name": "Mankey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "marill",
+          "name": "Marill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "fairy"
+          ]
+        },
+        {
+          "id": "noctowl",
+          "name": "Noctowl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "octillery",
+          "name": "Octillery",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "phanpy",
+          "name": "Phanpy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "pidgeot",
+          "name": "Pidgeot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgeotto",
+          "name": "Pidgeotto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgey",
+          "name": "Pidgey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "piloswine",
+          "name": "Piloswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "primeape",
+          "name": "Primeape",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "psyduck",
+          "name": "Psyduck",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "quilava",
+          "name": "Quilava",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "remoraid",
+          "name": "Remoraid",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "sentret",
+          "name": "Sentret",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "sirfetchd",
+          "name": "Sirfetch'd",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "sneasel",
+          "name": "Sneasel",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dark",
+            "ice"
+          ]
+        },
+        {
+          "id": "sneasel",
+          "name": "Sneasel",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "fighting"
+          ]
+        },
+        {
+          "id": "sneasler",
+          "name": "Sneasler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "fighting"
+          ]
+        },
+        {
+          "id": "squirtle",
+          "name": "Squirtle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "swinub",
+          "name": "Swinub",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "togekiss",
+          "name": "Togekiss",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "togepi",
+          "name": "Togepi",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "togetic",
+          "name": "Togetic",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "name": "Typhlosion",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "name": "Typhlosion",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire",
+            "ghost"
+          ]
+        },
+        {
+          "id": "tyrogue",
+          "name": "Tyrogue",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "venomoth",
+          "name": "Venomoth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "venonat",
+          "name": "Venonat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "wartortle",
+          "name": "Wartortle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "weavile",
+          "name": "Weavile",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dark",
+            "ice"
+          ]
+        },
+        {
+          "id": "yanma",
+          "name": "Yanma",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "bug",
+            "flying"
+          ]
+        },
+        {
+          "id": "yanmega",
+          "name": "Yanmega",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "bug",
+            "flying"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Foresight",
+      "description": "Negates foe's evasion and immunity.",
+      "power": 0,
+      "type": "normal",
+      "accuracy": 100,
+      "pp": 40,
+      "effectChance": 0,
+      "category": "status",
+      "learners": [
+        {
+          "id": "aerodactyl",
+          "name": "Aerodactyl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "flying"
+          ]
+        },
+        {
+          "id": "alakazam",
+          "name": "Alakazam",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "annihilape",
+          "name": "Annihilape",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting",
+            "ghost"
+          ]
+        },
+        {
+          "id": "azumarill",
+          "name": "Azumarill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "fairy"
+          ]
+        },
+        {
+          "id": "azurill",
+          "name": "Azurill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "blastoise",
+          "name": "Blastoise",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "steel"
+          ]
+        },
+        {
+          "id": "cyndaquil",
+          "name": "Cyndaquil",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "name": "Farfetch'd",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "name": "Farfetch'd",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "furret",
+          "name": "Furret",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "girafarig",
+          "name": "Girafarig",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "psychic",
+            "dark"
+          ]
+        },
+        {
+          "id": "golduck",
+          "name": "Golduck",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "hitmonchan",
+          "name": "Hitmonchan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "hitmonlee",
+          "name": "Hitmonlee",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "hitmontop",
+          "name": "Hitmontop",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "name": "Hoothoot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "houndoom",
+          "name": "Houndoom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "dark",
+            "fire"
+          ]
+        },
+        {
+          "id": "houndour",
+          "name": "Houndour",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "dark",
+            "fire"
+          ]
+        },
+        {
+          "id": "kabuto",
+          "name": "Kabuto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "kabutops",
+          "name": "Kabutops",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "kadabra",
+          "name": "Kadabra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "kangaskhan",
+          "name": "Kangaskhan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "lapras",
+          "name": "Lapras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "ice"
+          ]
+        },
+        {
+          "id": "machamp",
+          "name": "Machamp",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "machoke",
+          "name": "Machoke",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "machop",
+          "name": "Machop",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 9
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "mamoswine",
+          "name": "Mamoswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "mankey",
+          "name": "Mankey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "marill",
+          "name": "Marill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 5
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "fairy"
+          ]
+        },
+        {
+          "id": "noctowl",
+          "name": "Noctowl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ghost",
+            "flying"
+          ]
+        },
+        {
+          "id": "octillery",
+          "name": "Octillery",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "water",
+            "fire"
+          ]
+        },
+        {
+          "id": "phanpy",
+          "name": "Phanpy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "pidgeot",
+          "name": "Pidgeot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgeotto",
+          "name": "Pidgeotto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgey",
+          "name": "Pidgey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "piloswine",
+          "name": "Piloswine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "primeape",
+          "name": "Primeape",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "psyduck",
+          "name": "Psyduck",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "quilava",
+          "name": "Quilava",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "remoraid",
+          "name": "Remoraid",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 6
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "sentret",
+          "name": "Sentret",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "sirfetchd",
+          "name": "Sirfetch'd",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "sneasel",
+          "name": "Sneasel",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dark",
+            "ice"
+          ]
+        },
+        {
+          "id": "sneasel",
+          "name": "Sneasel",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "fighting"
+          ]
+        },
+        {
+          "id": "sneasler",
+          "name": "Sneasler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "fighting"
+          ]
+        },
+        {
+          "id": "squirtle",
+          "name": "Squirtle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "swinub",
+          "name": "Swinub",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ice",
+            "ground"
+          ]
+        },
+        {
+          "id": "togekiss",
+          "name": "Togekiss",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "togepi",
+          "name": "Togepi",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "togetic",
+          "name": "Togetic",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "name": "Typhlosion",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire",
+            "ground"
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "name": "Typhlosion",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire",
+            "ghost"
+          ]
+        },
+        {
+          "id": "tyrogue",
+          "name": "Tyrogue",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "venomoth",
+          "name": "Venomoth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "venonat",
+          "name": "Venonat",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "wartortle",
+          "name": "Wartortle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "weavile",
+          "name": "Weavile",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dark",
+            "ice"
+          ]
+        },
+        {
+          "id": "yanma",
+          "name": "Yanma",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "bug",
+            "flying"
+          ]
+        },
+        {
+          "id": "yanmega",
+          "name": "Yanmega",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "bug",
+            "dragon"
+          ]
+        }
+      ]
+    }
+  }
+}

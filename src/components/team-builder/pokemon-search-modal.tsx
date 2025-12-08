@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { DetailedStats, PokemonType } from '@/types/types';
 import { TeamPokemon } from '@/hooks/use-team-search-params';
 import { Badge } from '@/components/ui/badge';
 import { X, Search, Filter, ChevronDown, ChevronUp } from 'lucide-react';
@@ -16,11 +15,7 @@ const normalizeTypes = (types: string | string[]): string[] => {
   return Array.isArray(types) ? types.map((t) => t.toLowerCase()) : [];
 };
 
-const getTypesForMode = (
-  data: DetailedStats,
-  showFaithful: boolean,
-  formName?: string,
-): string[] => {
+const getTypesForMode = (data: any, showFaithful: boolean, formName?: string): string[] => {
   let types;
 
   // If form is specified and exists, use form types
@@ -40,13 +35,13 @@ const getTypesForMode = (
 interface PokemonEntry {
   name: string;
   formName?: string;
-  data: DetailedStats;
+  data: any;
   displayName: string;
 }
 
 interface PokemonSearchModalProps {
-  pokemonData: Record<string, DetailedStats>;
-  onSelect: (name: string, data: DetailedStats, formName?: string) => void;
+  pokemonData: Record<string, any>;
+  onSelect: (name: string, data: any, formName?: string) => void;
   onClose: () => void;
   currentTeam: (TeamPokemon | null)[];
   showFaithful: boolean;
@@ -156,7 +151,7 @@ export function PokemonSearchModal({
       });
   }, [pokemonData, searchTerm, selectedTypes, currentTeam, showFaithful]);
 
-  const handlePokemonSelect = (name: string, data: DetailedStats, formName?: string) => {
+  const handlePokemonSelect = (name: string, data: any, formName?: string) => {
     onSelect(name, data, formName);
   };
 
@@ -219,9 +214,7 @@ export function PokemonSearchModal({
                   {allTypes.map((type) => (
                     <Badge
                       key={type}
-                      variant={
-                        selectedTypes.includes(type) ? (type as PokemonType['name']) : 'outline'
-                      }
+                      variant={selectedTypes.includes(type) ? type : ('outline' as any)}
                       className="cursor-pointer text-center justify-center py-2 text-xs"
                       onClick={() => toggleTypeFilter(type)}
                     >
@@ -264,9 +257,7 @@ export function PokemonSearchModal({
                         hoverAnimate={true}
                         pokemonName={entry.name}
                         primaryType={
-                          Array.isArray(entry.data.types)
-                            ? (entry.data.types[0] as PokemonType['name'])
-                            : (entry.data.types as PokemonType['name'])
+                          Array.isArray(entry.data.types) ? entry.data.types[0] : entry.data.types
                         }
                         src={
                           entry.formName
@@ -279,10 +270,10 @@ export function PokemonSearchModal({
 
                     <div className="text-center">
                       <div className="flex items-center justify-center gap-1 mb-1">
-                        <span className="text-cell">
+                        <span className="table-cell-text">
                           #
                           {entry.data.johtoDex || (
-                            <span className="text-cell text-cell-muted">—</span>
+                            <span className="table-cell-text table-cell-muted">—</span>
                           )}
                         </span>
                       </div>
@@ -290,11 +281,7 @@ export function PokemonSearchModal({
 
                       <div className="flex flex-wrap gap-1 justify-center mt-1">
                         {types.map((type) => (
-                          <Badge
-                            key={type}
-                            variant={type as PokemonType['name']}
-                            className="text-xs px-1 py-0"
-                          >
+                          <Badge key={type} variant={type as any} className="text-xs px-1 py-0">
                             {type}
                           </Badge>
                         ))}

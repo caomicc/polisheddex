@@ -1,0 +1,495 @@
+{
+  "id": "megadrain",
+  "versions": {
+    "faithful": {
+      "name": "Mega Drain",
+      "description": "Steals 1/2 of the damage inflicted.",
+      "power": 40,
+      "type": "grass",
+      "accuracy": 100,
+      "pp": 15,
+      "effectChance": 0,
+      "category": "special",
+      "learners": [
+        {
+          "id": "bellossom",
+          "name": "Bellossom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "exeggcute",
+          "name": "Exeggcute",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "grass",
+            "psychic"
+          ]
+        },
+        {
+          "id": "exeggutor",
+          "name": "Exeggutor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "grass",
+            "psychic"
+          ]
+        },
+        {
+          "id": "exeggutor",
+          "name": "Exeggutor",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "grass",
+            "dragon"
+          ]
+        },
+        {
+          "id": "gloom",
+          "name": "Gloom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "hoppip",
+          "name": "Hoppip",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "jumpluff",
+          "name": "Jumpluff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "kabuto",
+          "name": "Kabuto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 36
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "kabutops",
+          "name": "Kabutops",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 36
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "oddish",
+          "name": "Oddish",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "skiploom",
+          "name": "Skiploom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "sunflora",
+          "name": "Sunflora",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "sunkern",
+          "name": "Sunkern",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "tangela",
+          "name": "Tangela",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "tangrowth",
+          "name": "Tangrowth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "vileplume",
+          "name": "Vileplume",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Mega Drain",
+      "description": "Steals 1/2 of the damage inflicted.",
+      "power": 40,
+      "type": "grass",
+      "accuracy": 100,
+      "pp": 15,
+      "effectChance": 0,
+      "category": "special",
+      "learners": [
+        {
+          "id": "bellossom",
+          "name": "Bellossom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass",
+            "fairy"
+          ]
+        },
+        {
+          "id": "exeggcute",
+          "name": "Exeggcute",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "grass",
+            "psychic"
+          ]
+        },
+        {
+          "id": "exeggutor",
+          "name": "Exeggutor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "grass",
+            "psychic"
+          ]
+        },
+        {
+          "id": "exeggutor",
+          "name": "Exeggutor",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "grass",
+            "dragon"
+          ]
+        },
+        {
+          "id": "gloom",
+          "name": "Gloom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "hoppip",
+          "name": "Hoppip",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "jumpluff",
+          "name": "Jumpluff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "kabuto",
+          "name": "Kabuto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 36
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "kabutops",
+          "name": "Kabutops",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 36
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "oddish",
+          "name": "Oddish",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "skiploom",
+          "name": "Skiploom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "sunflora",
+          "name": "Sunflora",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ],
+          "types": [
+            "grass",
+            "fire"
+          ]
+        },
+        {
+          "id": "sunkern",
+          "name": "Sunkern",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 10
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "tangela",
+          "name": "Tangela",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "tangrowth",
+          "name": "Tangrowth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "vileplume",
+          "name": "Vileplume",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        }
+      ]
+    }
+  }
+}

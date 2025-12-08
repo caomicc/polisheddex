@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { BaseData } from '@/types/types';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -9,68 +8,16 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { Hero } from '@/components/ui/Hero';
-import { loadPokemonBaseDataFromManifest } from '@/utils/loaders/pokemon-data-loader';
+import { loadPokemonFromNewManifest } from '@/utils/loaders/pokemon-data-loader';
 import { Suspense } from 'react';
 import PokemonListDisplay from '@/components/pokemon/pokemon-list-display';
 
 export default async function PokemonTableList() {
-  // Load Pokemon data from manifest system
-  const pokemonData = await loadPokemonBaseDataFromManifest();
+  // Load Pokemon data from new manifest system
+  const pokemonData = await loadPokemonFromNewManifest();
 
-  // Prepare an array of Pokémon with their names and dex numbers
-  // Flatten Pokémon data to include forms as separate items next to their parent species
-  const pokemonList: BaseData[] = await Promise.all(
-    Object.values(pokemonData).flatMap(async (pokemon: BaseData) => {
-      if (pokemon.forms && Array.isArray(pokemon.forms) && pokemon.forms.length > 0) {
-        // Load the full Pokemon data to get form-specific information
-        const fullPokemonData = await import(
-          `../../../output/pokemon/${pokemon.normalizedUrl}.json`
-        )
-          .then((m) => m.default)
-          .catch(() => null);
-
-        // Place parent first, then each form as a separate item
-        return [
-          // Parent species (not a form)
-          { ...pokemon, isForm: false, parentSpecies: undefined, form: undefined },
-          // Each form as a separate item with form-specific data
-          ...pokemon.forms
-            .filter((formName) => formName !== 'plain' && formName !== 'normal')
-            .map((formName) => {
-              // Get form-specific data if available
-              const formData = fullPokemonData?.forms?.[formName];
-
-              if (formData) {
-                // Use form-specific data
-                return {
-                  ...pokemon, // Base data
-                  ...formData, // Override with form-specific data
-                  name: pokemon.name, // Keep parent name for consistency and sprite loading
-                  form: formName,
-                  parentSpecies: pokemon.name,
-                  isForm: true,
-                  forms: undefined, // Remove forms array from form entry
-                  // Ensure form types are properly set - fallback to parent types if form types are empty
-                  types: (formData.types && formData.types.length > 0) ? formData.types : pokemon.types,
-                  updatedTypes: (formData.updatedTypes && formData.updatedTypes.length > 0) ? formData.updatedTypes : pokemon.updatedTypes,
-                  faithfulTypes: (formData.faithfulTypes && formData.faithfulTypes.length > 0) ? formData.faithfulTypes : pokemon.faithfulTypes,
-                };
-              } else {
-                // Fallback to parent data if no form-specific data
-                return {
-                  ...pokemon,
-                  form: formName,
-                  parentSpecies: pokemon.name,
-                  isForm: true,
-                  forms: undefined,
-                };
-              }
-            }),
-        ];
-      }
-      return [pokemon];
-    }),
-  ).then((results) => results.flat());
+  // Just use the PokemonManifest data directly
+  const pokemonList = Object.values(pokemonData);
 
   return (
     <>

@@ -1,0 +1,672 @@
+{
+  "id": "extremespeed",
+  "versions": {
+    "faithful": {
+      "name": "Extremespeed",
+      "description": "A powerful firststrike attack.",
+      "power": 80,
+      "type": "normal",
+      "accuracy": 100,
+      "pp": 5,
+      "effectChance": 0,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "arcanine",
+          "name": "Arcanine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "arcanine",
+          "name": "Arcanine",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fire",
+            "rock"
+          ]
+        },
+        {
+          "id": "dragonair",
+          "name": "Dragonair",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dragon"
+          ]
+        },
+        {
+          "id": "dragonite",
+          "name": "Dragonite",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dragon",
+            "flying"
+          ]
+        },
+        {
+          "id": "dratini",
+          "name": "Dratini",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dragon"
+          ]
+        },
+        {
+          "id": "entei",
+          "name": "Entei",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "pidgeot",
+          "name": "Pidgeot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgeotto",
+          "name": "Pidgeotto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgey",
+          "name": "Pidgey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "fly",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "surf",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "red",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "yellow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "spark",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "ponyta",
+          "name": "Ponyta",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "ponyta",
+          "name": "Ponyta",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "raikou",
+          "name": "Raikou",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "rapidash",
+          "name": "Rapidash",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "rapidash",
+          "name": "Rapidash",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "psychic",
+            "fairy"
+          ]
+        },
+        {
+          "id": "suicune",
+          "name": "Suicune",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "togekiss",
+          "name": "Togekiss",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Extremespeed",
+      "description": "A powerful firststrike attack.",
+      "power": 80,
+      "type": "normal",
+      "accuracy": 100,
+      "pp": 5,
+      "effectChance": 0,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "arcanine",
+          "name": "Arcanine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "arcanine",
+          "name": "Arcanine",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fire",
+            "rock"
+          ]
+        },
+        {
+          "id": "dragonair",
+          "name": "Dragonair",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dragon"
+          ]
+        },
+        {
+          "id": "dragonite",
+          "name": "Dragonite",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dragon",
+            "flying"
+          ]
+        },
+        {
+          "id": "dratini",
+          "name": "Dratini",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "dragon"
+          ]
+        },
+        {
+          "id": "entei",
+          "name": "Entei",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "pidgeot",
+          "name": "Pidgeot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgeotto",
+          "name": "Pidgeotto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgey",
+          "name": "Pidgey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "fly",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "surf",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "red",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "yellow",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "spark",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "ponyta",
+          "name": "Ponyta",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "ponyta",
+          "name": "Ponyta",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "raikou",
+          "name": "Raikou",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "rapidash",
+          "name": "Rapidash",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "fire",
+            "fairy"
+          ]
+        },
+        {
+          "id": "rapidash",
+          "name": "Rapidash",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "psychic",
+            "fairy"
+          ]
+        },
+        {
+          "id": "suicune",
+          "name": "Suicune",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "togekiss",
+          "name": "Togekiss",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        }
+      ]
+    }
+  }
+}

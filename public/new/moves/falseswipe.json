@@ -1,0 +1,1051 @@
+{
+  "id": "falseswipe",
+  "versions": {
+    "faithful": {
+      "name": "False Swipe",
+      "description": "Leaves the foe with at least 1HP.",
+      "power": 40,
+      "type": "normal",
+      "accuracy": 100,
+      "pp": 40,
+      "effectChance": 0,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "beedrill",
+          "name": "Beedrill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "cubone",
+          "name": "Cubone",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "name": "Farfetch'd",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "fearow",
+          "name": "Fearow",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "gligar",
+          "name": "Gligar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "flying"
+          ]
+        },
+        {
+          "id": "gliscor",
+          "name": "Gliscor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "flying"
+          ]
+        },
+        {
+          "id": "heracross",
+          "name": "Heracross",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "fighting"
+          ]
+        },
+        {
+          "id": "jumpluff",
+          "name": "Jumpluff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "kingler",
+          "name": "Kingler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "kleavor",
+          "name": "Kleavor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "rock"
+          ]
+        },
+        {
+          "id": "krabby",
+          "name": "Krabby",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "machamp",
+          "name": "Machamp",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "machoke",
+          "name": "Machoke",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "machop",
+          "name": "Machop",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "marowak",
+          "name": "Marowak",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "marowak",
+          "name": "Marowak",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "ghost"
+          ]
+        },
+        {
+          "id": "meowth",
+          "name": "Meowth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "meowth",
+          "name": "Meowth",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "mew",
+          "name": "Mew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "paras",
+          "name": "Paras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "parasect",
+          "name": "Parasect",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "persian",
+          "name": "Persian",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "persian",
+          "name": "Persian",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "pinsir",
+          "name": "Pinsir",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug"
+          ]
+        },
+        {
+          "id": "scizor",
+          "name": "Scizor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "steel"
+          ]
+        },
+        {
+          "id": "scyther",
+          "name": "Scyther",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "flying"
+          ]
+        },
+        {
+          "id": "sneasel",
+          "name": "Sneasel",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark",
+            "ice"
+          ]
+        },
+        {
+          "id": "sneasel",
+          "name": "Sneasel",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "fighting"
+          ]
+        },
+        {
+          "id": "sneasler",
+          "name": "Sneasler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "fighting"
+          ]
+        },
+        {
+          "id": "spearow",
+          "name": "Spearow",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "teddiursa",
+          "name": "Teddiursa",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "name": "Ursaluna",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "normal"
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "name": "Ursaluna",
+          "form": "bloodmoon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "normal"
+          ]
+        },
+        {
+          "id": "ursaring",
+          "name": "Ursaring",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "weavile",
+          "name": "Weavile",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark",
+            "ice"
+          ]
+        },
+        {
+          "id": "zapdos",
+          "name": "Zapdos",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fighting",
+            "flying"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "False Swipe",
+      "description": "Leaves the foe with at least 1HP.",
+      "power": 40,
+      "type": "normal",
+      "accuracy": 100,
+      "pp": 40,
+      "effectChance": 0,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "beedrill",
+          "name": "Beedrill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "cubone",
+          "name": "Cubone",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "farfetchd",
+          "name": "Farfetch'd",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "fearow",
+          "name": "Fearow",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "gligar",
+          "name": "Gligar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "flying"
+          ]
+        },
+        {
+          "id": "gliscor",
+          "name": "Gliscor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "flying"
+          ]
+        },
+        {
+          "id": "heracross",
+          "name": "Heracross",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "fighting"
+          ]
+        },
+        {
+          "id": "jumpluff",
+          "name": "Jumpluff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "grass",
+            "flying"
+          ]
+        },
+        {
+          "id": "kingler",
+          "name": "Kingler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "kleavor",
+          "name": "Kleavor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "rock"
+          ]
+        },
+        {
+          "id": "krabby",
+          "name": "Krabby",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "machamp",
+          "name": "Machamp",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "machoke",
+          "name": "Machoke",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "machop",
+          "name": "Machop",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "marowak",
+          "name": "Marowak",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "marowak",
+          "name": "Marowak",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "ghost"
+          ]
+        },
+        {
+          "id": "meowth",
+          "name": "Meowth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "meowth",
+          "name": "Meowth",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "mew",
+          "name": "Mew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "paras",
+          "name": "Paras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "parasect",
+          "name": "Parasect",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "persian",
+          "name": "Persian",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "persian",
+          "name": "Persian",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "pinsir",
+          "name": "Pinsir",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug"
+          ]
+        },
+        {
+          "id": "scizor",
+          "name": "Scizor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "steel"
+          ]
+        },
+        {
+          "id": "scyther",
+          "name": "Scyther",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "flying"
+          ]
+        },
+        {
+          "id": "sneasel",
+          "name": "Sneasel",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark",
+            "ice"
+          ]
+        },
+        {
+          "id": "sneasel",
+          "name": "Sneasel",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "fighting"
+          ]
+        },
+        {
+          "id": "sneasler",
+          "name": "Sneasler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "fighting"
+          ]
+        },
+        {
+          "id": "spearow",
+          "name": "Spearow",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "teddiursa",
+          "name": "Teddiursa",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "name": "Ursaluna",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "normal"
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "name": "Ursaluna",
+          "form": "bloodmoon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "normal"
+          ]
+        },
+        {
+          "id": "ursaring",
+          "name": "Ursaring",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "weavile",
+          "name": "Weavile",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark",
+            "ice"
+          ]
+        },
+        {
+          "id": "zapdos",
+          "name": "Zapdos",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fighting",
+            "flying"
+          ]
+        }
+      ]
+    }
+  },
+  "tm": {
+    "number": "tm54",
+    "location": "ilexforestgate"
+  }
+}

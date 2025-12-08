@@ -1,13 +1,14 @@
 'use client';
 
 import { ColumnDef } from '@tanstack/react-table';
-import { ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react';
+import { ArrowUpDown, ArrowUp, ArrowDown, ExternalLink } from 'lucide-react';
+import Link from 'next/link';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
-import { MoveDescription } from '@/types/types';
 import { accentInsensitiveIncludes } from '@/utils/stringUtils';
+import { MoveData } from '@/types/new';
 
-export const moveColumns: ColumnDef<MoveDescription>[] = [
+export const moveColumns: ColumnDef<MoveData>[] = [
   {
     accessorKey: 'name',
     header: ({ column }) => {
@@ -15,7 +16,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           Name
           {column.getIsSorted() === 'desc' ? (
@@ -31,7 +32,12 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
     cell: ({ row }) => {
       const move = row.original;
       return (
-        <div className="flex items-center space-x-2 min-w-0 word-wrap table-link">{move.name}</div>
+        <div className="flex items-center space-x-2 min-w-0">
+          <Link href={`/moves/${encodeURIComponent(move.id)}`} className="table-link">
+            {move.name}
+            <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
+          </Link>
+        </div>
       );
     },
     filterFn: (row, id, value) => {
@@ -47,7 +53,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           Type
           {column.getIsSorted() === 'desc' ? (
@@ -62,15 +68,15 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
     },
     cell: ({ row }) => {
       const move = row.original;
-      // Prefer updated, fallback to faithful, fallback to undefined
-      const type = move.updated?.type ?? move.faithful?.type ?? move.type ?? 'Unknown';
+      // Use the new versions structure
+      const type = move.versions?.polished?.type ?? move.versions?.faithful?.type ?? 'Unknown';
       return (
         <Badge variant="outline" className="text-xs">
           {type}
         </Badge>
       );
     },
-    accessorFn: (row) => row.updated?.type ?? row.faithful?.type ?? row.type ?? 'Unknown',
+    accessorFn: (row) => row.versions?.polished?.type ?? row.versions?.faithful?.type ?? 'Unknown',
   },
   {
     accessorKey: 'category',
@@ -79,7 +85,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           <span className="hidden md:inline">Category</span>
           <span className="inline md:hidden">Cat.</span>
@@ -95,14 +101,16 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
     },
     cell: ({ row }) => {
       const move = row.original;
-      const category = move.updated?.category ?? move.faithful?.category ?? 'Unknown';
+      const category =
+        move.versions?.polished?.category ?? move.versions?.faithful?.category ?? 'Unknown';
       return (
         <Badge variant="secondary" className="text-xs">
           {category}
         </Badge>
       );
     },
-    accessorFn: (row) => row.updated?.category ?? row.faithful?.category ?? 'Unknown',
+    accessorFn: (row) =>
+      row.versions?.polished?.category ?? row.versions?.faithful?.category ?? 'Unknown',
   },
 
   {
@@ -112,7 +120,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           <span className="hidden md:inline">Power</span>
           <span className="inline md:hidden">Pwr.</span>
@@ -128,12 +136,12 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
     },
     cell: ({ row }) => {
       const move = row.original;
-      const power = move.updated?.power ?? move.faithful?.power ?? (
-        <span className="text-cell text-cell-muted">—</span>
+      const power = move.versions?.polished?.power ?? move.versions?.faithful?.power ?? (
+        <span className="table-cell-text table-cell-muted">—</span>
       );
-      return <span className="text-cell">{power}</span>;
+      return <span className="table-cell-text">{power}</span>;
     },
-    accessorFn: (row) => row.updated?.power ?? row.faithful?.power ?? null,
+    accessorFn: (row) => row.versions?.polished?.power ?? row.versions?.faithful?.power ?? null,
   },
   {
     accessorKey: 'accuracy',
@@ -142,7 +150,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           <span className="hidden md:inline">Accuracy</span>
           <span className="inline md:hidden">Acc.</span>
@@ -158,12 +166,13 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
     },
     cell: ({ row }) => {
       const move = row.original;
-      const accuracy = move.updated?.accuracy ?? move.faithful?.accuracy ?? (
-        <span className="text-cell text-cell-muted">—</span>
+      const accuracy = move.versions?.polished?.accuracy ?? move.versions?.faithful?.accuracy ?? (
+        <span className="table-cell-text table-cell-muted">—</span>
       );
-      return <span className="text-cell">{accuracy}</span>;
+      return <span className="table-cell-text">{accuracy}</span>;
     },
-    accessorFn: (row) => row.updated?.accuracy ?? row.faithful?.accuracy ?? null,
+    accessorFn: (row) =>
+      row.versions?.polished?.accuracy ?? row.versions?.faithful?.accuracy ?? null,
   },
   {
     accessorKey: 'pp',
@@ -172,7 +181,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           PP
           {column.getIsSorted() === 'desc' ? (
@@ -187,12 +196,12 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
     },
     cell: ({ row }) => {
       const move = row.original;
-      const pp = move.updated?.pp ?? move.faithful?.pp ?? (
-        <span className="text-cell text-cell-muted">—</span>
+      const pp = move.versions?.polished?.pp ?? move.versions?.faithful?.pp ?? (
+        <span className="table-cell-text table-cell-muted">—</span>
       );
-      return <span className="text-cell">{pp}</span>;
+      return <span className="table-cell-text">{pp}</span>;
     },
-    accessorFn: (row) => row.updated?.pp ?? row.faithful?.pp ?? null,
+    accessorFn: (row) => row.versions?.polished?.pp ?? row.versions?.faithful?.pp ?? null,
   },
   {
     accessorKey: 'tm',
@@ -201,7 +210,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           TM/HM
           {column.getIsSorted() === 'desc' ? (
@@ -222,7 +231,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
           {tm}
         </Badge>
       ) : (
-        <span className="text-cell text-cell-muted">—</span>
+        <span className="table-cell-text table-cell-muted">—</span>
       );
     },
     accessorFn: (row) => {

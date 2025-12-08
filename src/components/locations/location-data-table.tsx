@@ -102,13 +102,13 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
   // Sync search value with table filter
   React.useEffect(() => {
     const nameColumn = columns.find(
-      (col) => 'accessorKey' in col && col.accessorKey === 'displayName',
+      (col) => 'accessorKey' in col && col.accessorKey === 'name',
     );
     if (nameColumn) {
       setColumnFilters((prev) => {
-        const otherFilters = prev.filter((filter) => filter.id !== 'displayName');
+        const otherFilters = prev.filter((filter) => filter.id !== 'name');
         if (search) {
-          return [...otherFilters, { id: 'displayName', value: search }];
+          return [...otherFilters, { id: 'name', value: search }];
         }
         return otherFilters;
       });
@@ -120,21 +120,23 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return data.filter((location: any) => {
       // Filter out empty buildings with no content
+      // Note: manifest uses encounterCount (pokemon), trainerCount, itemCount, eventCount
       const hasAnyContent =
-        (location.pokemonCount && location.pokemonCount > 0) ||
+        (location.encounterCount && location.encounterCount > 0) ||
         (location.trainerCount && location.trainerCount > 0) ||
-        (location.items && location.items.length > 0) ||
+        (location.itemCount && location.itemCount > 0) ||
         (location.eventCount && location.eventCount > 0);
 
       if (!hasAnyContent) {
         return false;
       }
 
-      const matchesPokemon = !pokemon || (location.pokemonCount && location.pokemonCount > 0);
+      // Use correct field names from LocationManifest
+      const matchesPokemon = !pokemon || (location.encounterCount && location.encounterCount > 0);
       const matchesFlyable = !flyable || location.flyable;
-      const matchesGrottoes = !grottoes || location.hasHiddenGrottoes;
-      const matchesTrainers = !trainers || location.hasTrainers;
-      const matchesItems = !items || (location.items && location.items.length > 0);
+      const matchesGrottoes = !grottoes || location.hasHiddenGrotto;
+      const matchesTrainers = !trainers || (location.trainerCount && location.trainerCount > 0);
+      const matchesItems = !items || (location.itemCount && location.itemCount > 0);
       const matchesRegion = region === 'all' || location.region === region;
 
       return (
@@ -291,7 +293,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
         {/* Primary search */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex flex-col gap-2">
-            <Label className="label-text" htmlFor="location-filter">
+            <Label className="table-header-label" htmlFor="location-filter">
               Location Name
             </Label>
             <Input
@@ -305,7 +307,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
 
           {/* Region filter */}
           <div className="flex flex-col gap-2">
-            <Label className="label-text" htmlFor="region-filter">
+            <Label className="table-header-label" htmlFor="region-filter">
               Region
             </Label>
             <Select
@@ -328,7 +330,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
 
           {/* Sort options */}
           <div className="flex flex-col gap-2">
-            <Label className="label-text" htmlFor="sort-select">
+            <Label className="table-header-label" htmlFor="sort-select">
               Sort By
             </Label>
             <Select value={getCurrentSortValue()} onValueChange={handleSortChange}>
@@ -354,7 +356,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
               checked={pokemon}
               onCheckedChange={(checked) => setUrlState({ pokemon: checked ? true : null })}
             />
-            <Label htmlFor="has-pokemon" className="label-text">
+            <Label htmlFor="has-pokemon" className="table-header-label">
               Has Pokémon encounters
             </Label>
           </div>
@@ -365,7 +367,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
               checked={trainers}
               onCheckedChange={(checked) => setUrlState({ trainers: checked ? true : null })}
             />
-            <Label htmlFor="has-trainers" className="label-text">
+            <Label htmlFor="has-trainers" className="table-header-label">
               Has trainers
             </Label>
           </div>
@@ -376,7 +378,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
               checked={flyable}
               onCheckedChange={(checked) => setUrlState({ flyable: checked ? true : null })}
             />
-            <Label htmlFor="flyable" className="label-text">
+            <Label htmlFor="flyable" className="table-header-label">
               Flyable locations
             </Label>
           </div>
@@ -387,7 +389,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
               checked={grottoes}
               onCheckedChange={(checked) => setUrlState({ grottoes: checked ? true : null })}
             />
-            <Label htmlFor="hidden-grotto" className="label-text">
+            <Label htmlFor="hidden-grotto" className="table-header-label">
               Has Hidden Grottoes
             </Label>
           </div>
@@ -398,7 +400,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
               checked={items}
               onCheckedChange={(checked) => setUrlState({ items: checked ? true : null })}
             />
-            <Label htmlFor="has-items" className="label-text">
+            <Label htmlFor="has-items" className="table-header-label">
               Has Items
             </Label>
           </div>
@@ -488,7 +490,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
       </div>
 
       <TableWrapper>
-        <Table className="table-fixed w-full min-w-[500px]">
+        <Table className="data-table">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
@@ -496,7 +498,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
                   return (
                     <TableHead
                       key={header.id}
-                      className="whitespace-nowrap label-text"
+                      className="whitespace-nowrap table-header-label"
                       style={{ width: getColumnWidth(header.id) }}
                     >
                       {header.isPlaceholder
@@ -514,7 +516,6 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && 'selected'}
-                  className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell
@@ -549,7 +550,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
         <div className="flex flex-col sm:flex-row items-center gap-4">
           {/* Page size selector */}
           <div className="flex items-center gap-2">
-            <Label htmlFor="page-size" className="label-text">
+            <Label htmlFor="page-size" className="table-header-label">
               Areas per page:
             </Label>
             <Select

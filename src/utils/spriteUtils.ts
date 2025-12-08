@@ -10,6 +10,141 @@ import {
   SpriteCategory,
 } from '@/types/spriteTypes';
 
+// Known form suffixes that should be preserved with underscores
+const FORM_SUFFIXES = [
+  '_alolan',
+  '_galarian',
+  '_hisuian',
+  '_paldean',
+  '_paldean_fire',
+  '_paldean_water',
+  '_paldeanfire', // Reduced form - will be mapped
+  '_paldeanwater', // Reduced form - will be mapped
+  '_mega',
+  '_mega_x',
+  '_mega_y',
+  '_gmax',
+  '_primal',
+  '_origin',
+  '_sky',
+  '_therian',
+  '_black',
+  '_white',
+  '_attack',
+  '_defense',
+  '_speed',
+  '_plant',
+  '_sandy',
+  '_trash',
+  '_heat',
+  '_wash',
+  '_frost',
+  '_fan',
+  '_mow',
+  '_zen',
+  '_pirouette',
+  '_blade',
+  '_shield',
+  '_10',
+  '_50',
+  '_complete',
+  '_school',
+  '_meteor',
+  '_dusk',
+  '_midnight',
+  '_dawn',
+  '_dusk_mane',
+  '_dawn_wings',
+  '_ultra',
+  '_crowned',
+  '_eternamax',
+  '_ice',
+  '_shadow',
+  '_single_strike',
+  '_rapid_strike',
+  '_bloodmoon',
+  '_hero',
+  '_wellspring',
+  '_hearthflame',
+  '_cornerstone',
+  '_terastal',
+  '_stellar',
+  '_red',
+  '_yellow',
+  '_green',
+  '_blue',
+  '_orange',
+  '_purple',
+  '_pink',
+  '_two_segment',
+  '_three_segment',
+  '_johto',
+  '_kanto',
+  '_agatha',
+  '_ariana',
+  '_koga',
+  // Pikachu/Pichu specific forms
+  '_fly',
+  '_surf',
+  '_spark',
+  '_spikyeared',
+  '_spiky',
+];
+
+// Map reduced form names to their folder-friendly versions
+const FORM_SUFFIX_MAP: Record<string, string> = {
+  _paldeanfire: '_paldean_fire',
+  _paldeanwater: '_paldean_water',
+  _spikyeared: '_spikyeared',
+};
+
+/**
+ * Normalize a Pokemon name for sprite lookup.
+ * Reduces the base name (removes special chars, underscores) but preserves form suffixes.
+ * Examples:
+ *   - "Ho-Oh" -> "hooh"
+ *   - "Mr. Mime" -> "mrmime"
+ *   - "ninetales_alolan" -> "ninetales_alolan"
+ *   - "Mr. Mime_galarian" -> "mrmime_galarian"
+ *   - "tauros_paldeanfire" -> "tauros_paldean_fire"
+ */
+function normalizePokemonName(name: string): string {
+  const nameLower = name.toLowerCase();
+
+  // Check for form suffixes (longest first to handle _paldean_fire before _paldean)
+  const sortedSuffixes = [...FORM_SUFFIXES].sort((a, b) => b.length - a.length);
+
+  for (const suffix of sortedSuffixes) {
+    if (nameLower.endsWith(suffix)) {
+      const baseName = nameLower.slice(0, -suffix.length);
+      // Reduce the base name (remove special chars including underscores)
+      const reducedBase = baseName
+        .replace(/\s/g, '')
+        .replace(/-/g, '')
+        .replace(/_/g, '')
+        .replace(/'/g, '')
+        .replace(/\./g, '')
+        .replace(/♂/g, 'm')
+        .replace(/♀/g, 'f')
+        .replace(/é/g, 'e');
+      // Map reduced form names to folder-friendly versions
+      const mappedSuffix = FORM_SUFFIX_MAP[suffix] || suffix;
+      return `${reducedBase}${mappedSuffix}`;
+    }
+  }
+
+  // No form suffix, reduce the whole name
+  return nameLower
+    .replace(/\s/g, '')
+    .replace(/-/g, '')
+    .replace(/_/g, '')
+    .replace(/'/g, '')
+    .replace(/\./g, '')
+    .replace(/♂/g, 'm')
+    .replace(/♀/g, 'f')
+    .replace(/é/g, 'e');
+}
+
 let unifiedManifest: UnifiedSpriteManifest | null = null;
 
 /**
@@ -49,13 +184,10 @@ export function getSprite(
   pokemonName: string,
   variant: SpriteVariant = 'normal',
   type: SpriteType = 'static',
+  facing: 'front' | 'back' = 'front',
 ): SpriteInfo | null {
-  const normalizedName = pokemonName
-    .toLowerCase()
-    .replace(/-/g, '_')
-    .replace(/\(/g, '_')
-    .replace(/\)/g, '')
-    .replace(/\s/g, '');
+  // Normalize Pokemon names: reduce base name but preserve form suffixes
+  const normalizedName = normalizePokemonName(pokemonName);
 
   // Handle both unified and legacy manifests
   const pokemonData =
@@ -67,18 +199,16 @@ export function getSprite(
     return null;
   }
 
-  // Determine which sprite to return based on variant and type
-  if (variant === 'normal') {
-    if (type === 'animated' && pokemonData.normal_animated) {
-      return pokemonData.normal_animated;
-    }
-    return pokemonData.normal_front;
-  } else {
-    if (type === 'animated' && pokemonData.shiny_animated) {
-      return pokemonData.shiny_animated;
-    }
-    return pokemonData.shiny_front;
-  }
+  // Back sprites don't have animation frames in GBC Pokemon games
+  // Always use static for back sprites
+  const effectiveType = facing === 'back' ? 'static' : type;
+
+  // Build the key based on variant, facing, and type
+  // Format: {variant}_{facing} or {variant}_{facing}_animated (front only)
+  const animatedSuffix = effectiveType === 'animated' ? '_animated' : '';
+  const key = `${variant}_${facing}${animatedSuffix}` as keyof PokemonSpriteData;
+
+  return pokemonData[key] || null;
 }
 
 /**
@@ -88,21 +218,19 @@ export function getFallbackSprite(
   pokemonName: string,
   variant: SpriteVariant = 'normal',
   type: SpriteType = 'static',
+  facing: 'front' | 'back' = 'front',
 ): SpriteInfo {
-  let normalizedName = pokemonName.toLowerCase().replace(/-/g, '_');
+  // Normalize Pokemon names: reduce base name but preserve form suffixes
+  const normalizedName = normalizePokemonName(pokemonName);
 
-  // If this is a form and the form-specific fallback doesn't work, try the base pokemon
-  if (normalizedName.includes('_')) {
-    const baseName = normalizedName.split('_')[0];
-    // Return the base pokemon fallback instead of the form-specific one
-    normalizedName = baseName;
-  }
+  // Back sprites don't have animation frames in GBC Pokemon games
+  const effectiveType = facing === 'back' ? 'static' : type;
 
-  const extension = type === 'animated' ? 'gif' : 'png';
+  const extension = effectiveType === 'animated' ? 'gif' : 'png';
   const filename =
-    type === 'animated'
-      ? `${variant}_front_animated.${extension}`
-      : `${variant}_front.${extension}`;
+    effectiveType === 'animated'
+      ? `${variant}_${facing}_animated.${extension}`
+      : `${variant}_${facing}.${extension}`;
 
   return {
     url: `/sprites/pokemon/${normalizedName}/${filename}`,
@@ -256,8 +384,6 @@ export function getFallbackTrainerSprite(
       break;
   }
 
-  // const filename = type === 'animated' ? `animated.${extension}` : `static.${extension}`;
-  console.log('trainerSpritePath', `/sprites/trainers/${normalizedName}/${normalizedName}.png`);
   return {
     url: `/sprites/trainers/${normalizedName}/${normalizedName}.png`,
     width: 64, // fallback dimensions
@@ -286,9 +412,10 @@ export function getUnifiedSprite(
   category: SpriteCategory,
   variant?: SpriteVariant | string,
   type?: SpriteType,
+  facing?: 'front' | 'back',
 ): SpriteInfo | null {
   if (category === 'pokemon') {
-    return getSprite(manifest, spriteName, variant as SpriteVariant, type);
+    return getSprite(manifest, spriteName, variant as SpriteVariant, type, facing);
   } else {
     return getTrainerSprite(manifest, spriteName, variant as string);
   }
@@ -303,10 +430,9 @@ export function getUnifiedSpriteWithFallback(
   category: SpriteCategory,
   variant?: SpriteVariant | string,
   type?: SpriteType,
+  facing?: 'front' | 'back',
 ): SpriteInfo {
-  const sprite = getUnifiedSprite(manifest, spriteName, category, variant, type);
-
-  console.log('Unified sprite', sprite, manifest, spriteName, category, variant, type);
+  const sprite = getUnifiedSprite(manifest, spriteName, category, variant, type, facing);
 
   if (sprite) {
     return sprite;
@@ -316,14 +442,142 @@ export function getUnifiedSpriteWithFallback(
     // If sprite not found and name contains form (has underscore), try base pokemon
     if (spriteName.includes('_')) {
       const baseName = spriteName.split('_')[0];
-      const baseSprite = getUnifiedSprite(manifest, baseName, category, variant, type);
+      const baseSprite = getUnifiedSprite(manifest, baseName, category, variant, type, facing);
       if (baseSprite) {
         return baseSprite;
       }
     }
-    return getFallbackSprite(spriteName, variant as SpriteVariant, type);
+    return getFallbackSprite(spriteName, variant as SpriteVariant, type, facing);
   } else {
-    console.log('spriteName', spriteName);
     return getFallbackTrainerSprite(spriteName, type || 'static');
   }
+}
+
+/**
+ * Maps specific item names to their shared sprite image file names.
+ * Add new mappings here as needed for items that share a sprite.
+ */
+export const ITEM_SPRITE_MAP: Record<string, string> = {
+  quick_powder: 'sand',
+  sacred_ash: 'sand',
+  metal_powder: 'sand',
+  bright_powder: 'sand',
+  stardust: 'sand',
+  soft_sand: 'sand',
+  energy_powder: 'powder',
+  heal_powder: 'powder',
+  silver_powder: 'powder',
+  ice_heal: 'antidote',
+  burn_heal: 'antidote',
+  paralyze_heal: 'antidote',
+  awakening: 'antidote',
+
+  xattack: 'battle_item',
+  xdefend: 'battle_item',
+  xspeed: 'battle_item',
+  xsp_atk: 'battle_item',
+  xsp_def: 'battle_item',
+  xaccuracy: 'battle_item',
+  dire_hit: 'battle_item',
+  guard_spec: 'battle_item',
+
+  repel: 'repel',
+  super_repel: 'repel',
+  max_repel: 'repel',
+
+  ether: 'ether',
+  max_ether: 'ether',
+  elixir: 'ether',
+  max_elixir: 'ether',
+
+  silk_scarf: 'scarf',
+  choice_scarf: 'scarf',
+  thick_club: 'bone',
+  rare_bone: 'bone',
+
+  mental_herb: 'herb',
+  power_herb: 'herb',
+  white_herb: 'herb',
+
+  silver_leaf: 'leaf',
+  gold_leaf: 'leaf',
+
+  surf_mail: 'mail',
+  lite_blue_mail: 'mail',
+  blue_sky_mail: 'bluesky_mail',
+
+  harsh_lure: 'lure',
+  potent_lure: 'lure',
+  malign_lure: 'lure',
+
+  potion: 'potion',
+  super_potion: 'potion',
+  hyper_potion: 'potion',
+
+  ssticket: 's_s_ticket',
+
+  gbcsounds: 'gbc_sounds',
+
+  never_melt_ice: 'nevermeltice',
+
+  hpup: 'hp_up',
+  protein: 'vitamin',
+  zinc: 'vitamin',
+  carbos: 'vitamin',
+  calcium: 'vitamin',
+  ppmax: 'pp_max',
+  ppup: 'pp_up',
+
+  full_restore: 'max_potion',
+  poké_doll: 'poke_doll',
+  poké_ball: 'poke_ball',
+
+  weak_policy: 'policy',
+  blundr_policy: 'policy',
+
+  squirt_bottle: 'squirtbottle',
+
+  ability_patch: 'abilitypatch',
+  balm_mushroom: 'balmmushroom',
+  black_glasses: 'blackglasses',
+  maranga_berry: 'marangaberry',
+  metronome: 'metronome_i',
+  mystic_ticket: 'mysticticket',
+  orange_ticket: 'orangeticket',
+  pewter_crunch: 'pewtercrunch',
+  portrait_mail: 'portraitmail',
+  punchin_glove: 'punchinglove',
+  slowpoke_tail: 'slowpoketail',
+  tiny_mushroom: 'tinymushroom',
+  twisted_spoon: 'twistedspoon',
+  thunder_stone: 'thunderstone',
+
+  rage_candy_bar: 'ragecandybar',
+  secret_potion: 'secretpotion',
+  gsball: 'gs_ball',
+  silph_scope2: 'silphscope2',
+
+  // Apricorns - all use the generic apricorn sprite
+  red_apricorn: 'apricorn',
+  blu_apricorn: 'apricorn',
+  wht_apricorn: 'apricorn',
+  grn_apricorn: 'apricorn',
+  ylw_apricorn: 'apricorn',
+  pnk_apricorn: 'apricorn',
+  blk_apricorn: 'apricorn',
+  // Apricorns without underscores (as stored in location data)
+  redapricorn: 'apricorn',
+  bluapricorn: 'apricorn',
+  whtapricorn: 'apricorn',
+  grnapricorn: 'apricorn',
+  ylwapricorn: 'apricorn',
+  pnkapricorn: 'apricorn',
+  blkapricorn: 'apricorn',
+
+  // Add more mappings as needed
+};
+
+export function getItemSpriteName(itemName: string): string {
+  const normalized = itemName.toLowerCase().replace(/ /g, '_');
+  return ITEM_SPRITE_MAP[normalized] ?? normalized;
 }

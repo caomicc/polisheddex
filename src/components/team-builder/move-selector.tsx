@@ -1,15 +1,16 @@
 'use client';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { TeamPokemon } from '@/hooks/use-team-search-params';
-import { Move } from '@/types/types';
+// import { Move } from '@/types/types';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Search, Plus, X } from 'lucide-react';
-import { PokemonType } from '@/types/types';
-import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
-import movesData from '@/output/manifests/moves.json';
+// import { PokemonType } from '@/types/types';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
+import { MoveData } from '../pokemon-slot';
 
 interface MoveSelectorProps {
   isOpen: boolean;
@@ -38,9 +39,18 @@ export function MoveSelector({
   currentMoves,
   onMovesUpdate,
 }: MoveSelectorProps) {
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedMoves, setSelectedMoves] = useState<string[]>(currentMoves);
+  const [movesData, setMovesData] = useState<MoveData[]>([]);
+
+  // Load moves data on mount
+  useEffect(() => {
+    fetch('/new/moves_manifest.json')
+      .then((res) => res.json())
+      .then((data: MoveData[]) => setMovesData(data))
+      .catch((err) => console.error('Failed to load moves:', err));
+  }, []);
 
   // Get available moves for this Pokemon
   const availableMoves = useMemo((): MoveOption[] => {
@@ -57,16 +67,18 @@ export function MoveSelector({
 
     // Level-up moves - ensure we access the right properties
     const levelMoves = showFaithful
-      ? (formData as any).faithfulMoves || (formData as any).moves
-      : (formData as any).updatedMoves || (formData as any).moves;
+      ? formData.faithfulMoves || formData.moves
+      : formData.updatedMoves || formData.moves;
     if (levelMoves) {
-      levelMoves.forEach((move: Move) => {
+      levelMoves.forEach((move: any) => {
         const moveKey = move.name.toLowerCase().replace(/\s+/g, '-');
-        const moveInfo = (movesData as any)[moveKey];
+        const moveInfo = (movesData as any[]).find((m: any) => m.id === moveKey);
         if (moveInfo) {
-          const typeInfo = showFaithful
-            ? moveInfo.faithful || moveInfo.updated
-            : moveInfo.updated || moveInfo.faithful;
+          const version = showFaithful ? 'faithful' : 'polished';
+          const typeInfo =
+            moveInfo.versions?.[version] ||
+            moveInfo.versions?.polished ||
+            moveInfo.versions?.faithful;
           moves.push({
             name: moveKey,
             displayName: move.name,
@@ -75,7 +87,7 @@ export function MoveSelector({
             power: typeInfo?.power,
             accuracy: typeInfo?.accuracy,
             pp: typeInfo?.pp,
-            description: moveInfo.description || '',
+            description: typeInfo?.description || '',
             source: 'level',
           });
         }
@@ -83,14 +95,16 @@ export function MoveSelector({
     }
 
     // TM/HM moves
-    if ((formData as any).tmHmMoves) {
-      (formData as any).tmHmMoves.forEach((move: any) => {
+    if (formData.tmHmMoves) {
+      formData.tmHmMoves.forEach((move: any) => {
         const moveKey = move.name.toLowerCase().replace(/\s+/g, '-');
-        const moveInfo = (movesData as any)[moveKey];
+        const moveInfo = (movesData as any[]).find((m: any) => m.id === moveKey);
         if (moveInfo && !moves.find((m) => m.name === moveKey)) {
-          const typeInfo = showFaithful
-            ? moveInfo.faithful || moveInfo.updated
-            : moveInfo.updated || moveInfo.faithful;
+          const version = showFaithful ? 'faithful' : 'polished';
+          const typeInfo =
+            moveInfo.versions?.[version] ||
+            moveInfo.versions?.polished ||
+            moveInfo.versions?.faithful;
           moves.push({
             name: moveKey,
             displayName: move.name,
@@ -99,7 +113,7 @@ export function MoveSelector({
             power: typeInfo?.power || move.power,
             accuracy: typeInfo?.accuracy || move.accuracy,
             pp: typeInfo?.pp || move.pp,
-            description: moveInfo.description || move.description || '',
+            description: typeInfo?.description || move.description || '',
             source: 'tm',
           });
         }
@@ -107,14 +121,16 @@ export function MoveSelector({
     }
 
     // Egg moves
-    if ((formData as any).eggMoves) {
-      (formData as any).eggMoves.forEach((moveName: string) => {
+    if (formData.eggMoves) {
+      formData.eggMoves.forEach((moveName: string) => {
         const moveKey = moveName.toLowerCase().replace(/\s+/g, '-');
-        const moveInfo = (movesData as any)[moveKey];
+        const moveInfo = (movesData as any[]).find((m: any) => m.id === moveKey);
         if (moveInfo && !moves.find((m) => m.name === moveKey)) {
-          const typeInfo = showFaithful
-            ? moveInfo.faithful || moveInfo.updated
-            : moveInfo.updated || moveInfo.faithful;
+          const version = showFaithful ? 'faithful' : 'polished';
+          const typeInfo =
+            moveInfo.versions?.[version] ||
+            moveInfo.versions?.polished ||
+            moveInfo.versions?.faithful;
           moves.push({
             name: moveKey,
             displayName: moveName,
@@ -123,7 +139,7 @@ export function MoveSelector({
             power: typeInfo?.power,
             accuracy: typeInfo?.accuracy,
             pp: typeInfo?.pp,
-            description: moveInfo.description || '',
+            description: typeInfo?.description || '',
             source: 'egg',
           });
         }
@@ -131,7 +147,7 @@ export function MoveSelector({
     }
 
     return moves;
-  }, [pokemon, showFaithful]);
+  }, [pokemon, showFaithful, movesData]);
 
   // Filter moves based on search term
   const filteredMoves = useMemo(() => {
@@ -201,10 +217,7 @@ export function MoveSelector({
                     key={moveName}
                     className="flex items-center gap-1 bg-white px-2 py-1 rounded border"
                   >
-                    <Badge
-                      variant={move.type.toLowerCase() as PokemonType['name']}
-                      className="text-xs"
-                    >
+                    <Badge variant={move.type.toLowerCase() as any} className="text-xs">
                       {move.type}
                     </Badge>
                     <span className="text-sm">{move.displayName}</span>
@@ -247,10 +260,7 @@ export function MoveSelector({
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <div className="flex items-center gap-2">
-                        <Badge
-                          variant={move.type.toLowerCase() as PokemonType['name']}
-                          className="text-xs"
-                        >
+                        <Badge variant={move.type.toLowerCase() as any} className="text-xs">
                           {move.type}
                         </Badge>
                         <span
@@ -267,7 +277,7 @@ export function MoveSelector({
                         <span>
                           Acc:{' '}
                           {String(move.accuracy) === '--' ? (
-                            <span className="text-cell text-cell-muted">—</span>
+                            <span className="table-cell-text table-cell-muted">—</span>
                           ) : (
                             `${move.accuracy}%`
                           )}

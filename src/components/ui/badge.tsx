@@ -3,7 +3,7 @@ import { Slot } from '@radix-ui/react-slot';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
-import type { LocationData, MoveDescription, PokemonEncounter, PokemonType } from '@/types/types';
+// import type { LocationData, MoveDescription, PokemonEncounter, PokemonType } from '@/types/types';
 
 // All possible badge variants, including Pokémon types and UI variants
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -46,12 +46,12 @@ const badgeVariantNames = [
 export type BadgeVariant = (typeof badgeVariantNames)[number];
 
 const badgeVariants = cva(
-  'inline-flex items-center justify-center rounded-sm border px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px] uppercase tracking-wide font-bold w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden',
+  'inline-flex items-center justify-center rounded-sm border px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px] uppercase tracking-wide font-bold w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden uppercase',
   // 'inline-flex items-center justify-center rounded-sm border px-1 md:px-2 md:px-3 py-[2px] md:py-1 text-[10px] md:text-xs uppercase tracking-wider font-bold w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden',
   {
     variants: {
       variant: {
-        default: 'border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90',
+        default: 'border-transparent bg-primary text-primary-foreground! [a&]:hover:bg-primary/90',
         secondary:
           'border-gray-200 bg-secondary/90 text-secondary-foreground [a&]:hover:bg-secondary/90',
         destructive:
@@ -125,11 +125,6 @@ const badgeVariants = cva(
 interface BadgeProps extends React.ComponentProps<'span'> {
   variant?:
     | BadgeVariant
-    | PokemonType['name']
-    | LocationData['region']
-    | PokemonEncounter['time']
-    | MoveDescription['type']
-    // fix
     | 'unknown'
     | 'physical'
     | 'special'
@@ -139,7 +134,8 @@ interface BadgeProps extends React.ComponentProps<'span'> {
     | 'pokeball'
     | 'item'
     | 'berry'
-    | 'medicine';
+    | 'medicine'
+    | any;
   asChild?: boolean;
 }
 

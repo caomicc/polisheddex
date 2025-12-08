@@ -1,0 +1,2996 @@
+{
+  "id": "zapcannon",
+  "versions": {
+    "faithful": {
+      "name": "Zap Cannon",
+      "description": "An attack that always paralyzes.",
+      "power": 120,
+      "type": "electric",
+      "accuracy": 50,
+      "pp": 5,
+      "effectChance": 100,
+      "category": "special",
+      "learners": [
+        {
+          "id": "abra",
+          "name": "Abra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "aipom",
+          "name": "Aipom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "alakazam",
+          "name": "Alakazam",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "ambipom",
+          "name": "Ambipom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "ampharos",
+          "name": "Ampharos",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "blastoise",
+          "name": "Blastoise",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "blissey",
+          "name": "Blissey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "chansey",
+          "name": "Chansey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "chinchou",
+          "name": "Chinchou",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "electric"
+          ]
+        },
+        {
+          "id": "clefable",
+          "name": "Clefable",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "clefairy",
+          "name": "Clefairy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "cleffa",
+          "name": "Cleffa",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "dragonair",
+          "name": "Dragonair",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dragon"
+          ]
+        },
+        {
+          "id": "dragonite",
+          "name": "Dragonite",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dragon",
+            "flying"
+          ]
+        },
+        {
+          "id": "dratini",
+          "name": "Dratini",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dragon"
+          ]
+        },
+        {
+          "id": "drowzee",
+          "name": "Drowzee",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "threesegment",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "dunsparce",
+          "name": "Dunsparce",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "electabuzz",
+          "name": "Electabuzz",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "electivire",
+          "name": "Electivire",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "electrode",
+          "name": "Electrode",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "electrode",
+          "name": "Electrode",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "grass"
+          ]
+        },
+        {
+          "id": "elekid",
+          "name": "Elekid",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "espeon",
+          "name": "Espeon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "farigiraf",
+          "name": "Farigiraf",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "flaaffy",
+          "name": "Flaaffy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "flareon",
+          "name": "Flareon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "forretress",
+          "name": "Forretress",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 56
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "steel"
+          ]
+        },
+        {
+          "id": "gastly",
+          "name": "Gastly",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ghost",
+            "poison"
+          ]
+        },
+        {
+          "id": "gengar",
+          "name": "Gengar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ghost",
+            "poison"
+          ]
+        },
+        {
+          "id": "girafarig",
+          "name": "Girafarig",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "granbull",
+          "name": "Granbull",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "grimer",
+          "name": "Grimer",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "red",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "haunter",
+          "name": "Haunter",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ghost",
+            "poison"
+          ]
+        },
+        {
+          "id": "hooh",
+          "name": "Ho-Oh",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "flying"
+          ]
+        },
+        {
+          "id": "hypno",
+          "name": "Hypno",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "igglybuff",
+          "name": "Igglybuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "jigglypuff",
+          "name": "Jigglypuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "jolteon",
+          "name": "Jolteon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "kadabra",
+          "name": "Kadabra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "kangaskhan",
+          "name": "Kangaskhan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "koffing",
+          "name": "Koffing",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "lanturn",
+          "name": "Lanturn",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "electric"
+          ]
+        },
+        {
+          "id": "lapras",
+          "name": "Lapras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "ice"
+          ]
+        },
+        {
+          "id": "lugia",
+          "name": "Lugia",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "magnemite",
+          "name": "Magnemite",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "steel"
+          ]
+        },
+        {
+          "id": "magneton",
+          "name": "Magneton",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 63
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "steel"
+          ]
+        },
+        {
+          "id": "magnezone",
+          "name": "Magnezone",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 63
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "steel"
+          ]
+        },
+        {
+          "id": "mareep",
+          "name": "Mareep",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "meowth",
+          "name": "Meowth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "meowth",
+          "name": "Meowth",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "meowth",
+          "name": "Meowth",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel"
+          ]
+        },
+        {
+          "id": "mew",
+          "name": "Mew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "mewtwo",
+          "name": "Mewtwo",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "mewtwo",
+          "name": "Mewtwo",
+          "form": "armored",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "miltank",
+          "name": "Miltank",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "misdreavus",
+          "name": "Misdreavus",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ghost"
+          ]
+        },
+        {
+          "id": "mrmime",
+          "name": "Mr.Mime",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "fairy"
+          ]
+        },
+        {
+          "id": "mrmime",
+          "name": "Mr.Mime",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "psychic"
+          ]
+        },
+        {
+          "id": "mrrime",
+          "name": "Mr.Rime",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "psychic"
+          ]
+        },
+        {
+          "id": "muk",
+          "name": "Muk",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "perrserker",
+          "name": "Perrserker",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel"
+          ]
+        },
+        {
+          "id": "persian",
+          "name": "Persian",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "persian",
+          "name": "Persian",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "pichu",
+          "name": "Pichu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pichu",
+          "name": "Pichu",
+          "form": "spikyeared",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "fly",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "surf",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "red",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "yellow",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "spark",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "porygon",
+          "name": "Porygon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 62
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "porygon2",
+          "name": "Porygon2",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 62
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "porygonz",
+          "name": "Porygon-Z",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 62
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "raichu",
+          "name": "Raichu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "raichu",
+          "name": "Raichu",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "psychic"
+          ]
+        },
+        {
+          "id": "raikou",
+          "name": "Raikou",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "rhydon",
+          "name": "Rhydon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyhorn",
+          "name": "Rhyhorn",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyperior",
+          "name": "Rhyperior",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "slowbro",
+          "name": "Slowbro",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowbro",
+          "name": "Slowbro",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowking",
+          "name": "Slowking",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowking",
+          "name": "Slowking",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "name": "Slowpoke",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "name": "Slowpoke",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "snorlax",
+          "name": "Snorlax",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "snubbull",
+          "name": "Snubbull",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "starmie",
+          "name": "Starmie",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "staryu",
+          "name": "Staryu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "tauros",
+          "name": "Tauros",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "teddiursa",
+          "name": "Teddiursa",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "togepi",
+          "name": "Togepi",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "togetic",
+          "name": "Togetic",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "umbreon",
+          "name": "Umbreon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "name": "Ursaluna",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "normal"
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "name": "Ursaluna",
+          "form": "bloodmoon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "normal"
+          ]
+        },
+        {
+          "id": "ursaring",
+          "name": "Ursaring",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "voltorb",
+          "name": "Voltorb",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "voltorb",
+          "name": "Voltorb",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "grass"
+          ]
+        },
+        {
+          "id": "weezing",
+          "name": "Weezing",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "weezing",
+          "name": "Weezing",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "fairy"
+          ]
+        },
+        {
+          "id": "wigglytuff",
+          "name": "Wigglytuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "zapdos",
+          "name": "Zapdos",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 99
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "flying"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Zap Cannon",
+      "description": "An attack that always paralyzes.",
+      "power": 120,
+      "type": "electric",
+      "accuracy": 50,
+      "pp": 5,
+      "effectChance": 100,
+      "category": "special",
+      "learners": [
+        {
+          "id": "abra",
+          "name": "Abra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "aipom",
+          "name": "Aipom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "alakazam",
+          "name": "Alakazam",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "ambipom",
+          "name": "Ambipom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "ampharos",
+          "name": "Ampharos",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "dragon"
+          ]
+        },
+        {
+          "id": "blastoise",
+          "name": "Blastoise",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "steel"
+          ]
+        },
+        {
+          "id": "blissey",
+          "name": "Blissey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "chansey",
+          "name": "Chansey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "chinchou",
+          "name": "Chinchou",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "electric"
+          ]
+        },
+        {
+          "id": "clefable",
+          "name": "Clefable",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "clefairy",
+          "name": "Clefairy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "cleffa",
+          "name": "Cleffa",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "dragonair",
+          "name": "Dragonair",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dragon"
+          ]
+        },
+        {
+          "id": "dragonite",
+          "name": "Dragonite",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dragon",
+            "flying"
+          ]
+        },
+        {
+          "id": "dratini",
+          "name": "Dratini",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dragon"
+          ]
+        },
+        {
+          "id": "drowzee",
+          "name": "Drowzee",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "dragon"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "threesegment",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "dragon"
+          ]
+        },
+        {
+          "id": "dunsparce",
+          "name": "Dunsparce",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "ground"
+          ]
+        },
+        {
+          "id": "electabuzz",
+          "name": "Electabuzz",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "electivire",
+          "name": "Electivire",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "fighting"
+          ]
+        },
+        {
+          "id": "electrode",
+          "name": "Electrode",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "electrode",
+          "name": "Electrode",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "grass"
+          ]
+        },
+        {
+          "id": "elekid",
+          "name": "Elekid",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "espeon",
+          "name": "Espeon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "farigiraf",
+          "name": "Farigiraf",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "dark"
+          ]
+        },
+        {
+          "id": "flaaffy",
+          "name": "Flaaffy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "flareon",
+          "name": "Flareon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "forretress",
+          "name": "Forretress",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 56
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "steel"
+          ]
+        },
+        {
+          "id": "gastly",
+          "name": "Gastly",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ghost",
+            "poison"
+          ]
+        },
+        {
+          "id": "gengar",
+          "name": "Gengar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ghost",
+            "poison"
+          ]
+        },
+        {
+          "id": "girafarig",
+          "name": "Girafarig",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "dark"
+          ]
+        },
+        {
+          "id": "granbull",
+          "name": "Granbull",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "grimer",
+          "name": "Grimer",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "red",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "haunter",
+          "name": "Haunter",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ghost",
+            "poison"
+          ]
+        },
+        {
+          "id": "hooh",
+          "name": "Ho-Oh",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "flying"
+          ]
+        },
+        {
+          "id": "hypno",
+          "name": "Hypno",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "igglybuff",
+          "name": "Igglybuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "jigglypuff",
+          "name": "Jigglypuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "jolteon",
+          "name": "Jolteon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "kadabra",
+          "name": "Kadabra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "kangaskhan",
+          "name": "Kangaskhan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "koffing",
+          "name": "Koffing",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "lanturn",
+          "name": "Lanturn",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "electric"
+          ]
+        },
+        {
+          "id": "lapras",
+          "name": "Lapras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "ice"
+          ]
+        },
+        {
+          "id": "lugia",
+          "name": "Lugia",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "magnemite",
+          "name": "Magnemite",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "steel"
+          ]
+        },
+        {
+          "id": "magneton",
+          "name": "Magneton",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 63
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "steel"
+          ]
+        },
+        {
+          "id": "magnezone",
+          "name": "Magnezone",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 63
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "steel"
+          ]
+        },
+        {
+          "id": "mareep",
+          "name": "Mareep",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "meowth",
+          "name": "Meowth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "meowth",
+          "name": "Meowth",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "meowth",
+          "name": "Meowth",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel"
+          ]
+        },
+        {
+          "id": "mew",
+          "name": "Mew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "mewtwo",
+          "name": "Mewtwo",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "mewtwo",
+          "name": "Mewtwo",
+          "form": "armored",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "steel"
+          ]
+        },
+        {
+          "id": "miltank",
+          "name": "Miltank",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "misdreavus",
+          "name": "Misdreavus",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ghost"
+          ]
+        },
+        {
+          "id": "mrmime",
+          "name": "Mr.Mime",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic",
+            "fairy"
+          ]
+        },
+        {
+          "id": "mrmime",
+          "name": "Mr.Mime",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "psychic"
+          ]
+        },
+        {
+          "id": "mrrime",
+          "name": "Mr.Rime",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "psychic"
+          ]
+        },
+        {
+          "id": "muk",
+          "name": "Muk",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "perrserker",
+          "name": "Perrserker",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel"
+          ]
+        },
+        {
+          "id": "persian",
+          "name": "Persian",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "persian",
+          "name": "Persian",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "pichu",
+          "name": "Pichu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pichu",
+          "name": "Pichu",
+          "form": "spikyeared",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "fly",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "surf",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "red",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "yellow",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "spark",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "porygon",
+          "name": "Porygon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 62
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "porygon2",
+          "name": "Porygon2",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 62
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "porygonz",
+          "name": "Porygon-Z",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 62
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "raichu",
+          "name": "Raichu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "raichu",
+          "name": "Raichu",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "psychic"
+          ]
+        },
+        {
+          "id": "raikou",
+          "name": "Raikou",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "rhydon",
+          "name": "Rhydon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyhorn",
+          "name": "Rhyhorn",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyperior",
+          "name": "Rhyperior",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel",
+            "rock"
+          ]
+        },
+        {
+          "id": "slowbro",
+          "name": "Slowbro",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowbro",
+          "name": "Slowbro",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowking",
+          "name": "Slowking",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowking",
+          "name": "Slowking",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "name": "Slowpoke",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "name": "Slowpoke",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "snorlax",
+          "name": "Snorlax",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "snubbull",
+          "name": "Snubbull",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "starmie",
+          "name": "Starmie",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "staryu",
+          "name": "Staryu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "tauros",
+          "name": "Tauros",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "teddiursa",
+          "name": "Teddiursa",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "togepi",
+          "name": "Togepi",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "togetic",
+          "name": "Togetic",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "umbreon",
+          "name": "Umbreon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark"
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "name": "Ursaluna",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "normal"
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "name": "Ursaluna",
+          "form": "bloodmoon",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground",
+            "normal"
+          ]
+        },
+        {
+          "id": "ursaring",
+          "name": "Ursaring",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "voltorb",
+          "name": "Voltorb",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "voltorb",
+          "name": "Voltorb",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "grass"
+          ]
+        },
+        {
+          "id": "weezing",
+          "name": "Weezing",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "weezing",
+          "name": "Weezing",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "fairy"
+          ]
+        },
+        {
+          "id": "wigglytuff",
+          "name": "Wigglytuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "zapdos",
+          "name": "Zapdos",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 99
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "flying"
+          ]
+        }
+      ]
+    }
+  }
+}

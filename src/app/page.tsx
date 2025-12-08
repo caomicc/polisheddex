@@ -9,10 +9,10 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { PokemonSprite } from '@/components/pokemon/pokemon-sprite';
-import { useFaithfulPreference } from '@/contexts';
+// import { useFaithfulPreference } from '@/contexts';
 
 export default function Home() {
-  const { showFaithful } = useFaithfulPreference(); // This should be determined by your app logic
+  // const { showFaithful } = useFaithfulPreference(); // This should be determined by your app logic
 
   return (
     <div className="mb-10 pb-12 px-4 lg:p-4">
@@ -91,11 +91,11 @@ export default function Home() {
           >
             <Button variant="default" size="lg" asChild>
               <Link
-                href="https://github.com/Rangi42/polishedcrystal/releases/tag/v3.1.1"
+                href="https://github.com/Rangi42/polishedcrystal/releases/tag/v3.2.1"
                 target="_blank"
                 className="flex items-center gap-2 w-60"
               >
-                Download ROM on GitHub
+                Download game on GitHub
                 <ExternalLink className="h-3 w-3 flex-shrink-0" />
               </Link>
             </Button>
@@ -116,7 +116,7 @@ export default function Home() {
             className="relative z-10 mt-20 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900"
           >
             <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-              {getItems(showFaithful).map((item, i) => (
+              {getItems(false).map((item, i) => (
                 <BentoGridItem
                   key={i}
                   title={item.title}
@@ -345,20 +345,6 @@ const HelpSkeleton = () => {
           What files do I need? What emulator should I be using?
         </p>
       </motion.div>
-      <motion.div
-        variants={variantsSecond}
-        className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center justify-end space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
-      >
-        <p className="text-xs text-neutral-500">Check the FAQ first!</p>
-        {/* <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 shrink-0" /> */}
-        <Image
-          src="/sprites/helper-avatar.png"
-          alt="avatar"
-          height="100"
-          width="100"
-          className="rounded-full h-8 w-8 bg-white"
-        />
-      </motion.div>
     </motion.div>
   );
 };
@@ -392,7 +378,7 @@ const LocationsSkeleton = () => {
         src="/tiles/6/21/25.webp"
         alt="Poke Center"
         fill
-        className="w-full h-full object-cover object-top opacity-80"
+        className="w-full h-full object-cover object-left opacity-80"
       />
     </motion.div>
   );
@@ -688,14 +674,6 @@ const getItems = (showFaithful: boolean) => [
     icon: <Image src="/sprites/poke-ball.png" width={24} height={24} alt="Icon 1" />,
   },
   {
-    title: 'Need Help?',
-    description: <span className="text-sm">Quick answers to common queries</span>,
-    header: <HelpSkeleton />,
-    href: '/faq',
-    className: 'col-span-1 lg:col-span-1',
-    icon: <Image src="/sprites/escape-rope.png" width={24} height={24} alt="Icon 1" />,
-  },
-  {
     title: 'Attackdex',
     description: <span className="text-sm">From Tackle to Thunder</span>,
     header: <AttackdexSkeleton />,
@@ -703,14 +681,7 @@ const getItems = (showFaithful: boolean) => [
     className: 'col-span-1 lg:col-span-1',
     icon: <Image src="/sprites/tm-case.png" width={24} height={24} alt="Icon 1" />,
   },
-  {
-    title: 'Locations',
-    description: <span className="text-sm">From Kanto to the Orange Islands</span>,
-    header: <LocationsSkeleton />,
-    href: '/locations',
-    className: 'col-span-1 lg:col-span-1',
-    icon: <Image src="/sprites/town-map.png" width={24} height={24} alt="Icon 1" />,
-  },
+
   {
     title: 'Items',
     description: <span className="text-sm">Every item, every effect</span>,
@@ -718,6 +689,14 @@ const getItems = (showFaithful: boolean) => [
     href: '/items',
     className: 'col-span-1 lg:col-span-1',
     icon: <Image src="/sprites/forage-bag.png" width={24} height={24} alt="Icon 1" />,
+  },
+    {
+    title: 'Locations',
+    description: <span className="text-sm">From Kanto to the Orange Islands</span>,
+    header: <LocationsSkeleton />,
+    href: '/locations',
+    className: 'col-span-1 sm:col-span-2 lg:col-span-2',
+    icon: <Image src="/sprites/town-map.png" width={24} height={24} alt="Icon 1" />,
   },
   {
     title: 'Special Events',

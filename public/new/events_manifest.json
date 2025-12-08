@@ -1,0 +1,179 @@
+{
+  "dailyEvents": [
+    {
+      "id": "sunny",
+      "name": "Sunny",
+      "day": "sunday",
+      "location": "route37",
+      "locationName": "Route 37",
+      "type": "daily-sibling",
+      "item": "magnet",
+      "itemName": "Magnet",
+      "description": "Sunny appears on Route 37 every Sunday and gives you a Magnet."
+    },
+    {
+      "id": "monica",
+      "name": "Monica",
+      "day": "monday",
+      "location": "route40",
+      "locationName": "Route 40",
+      "type": "daily-sibling",
+      "item": "sharpbeak",
+      "itemName": "Sharp Beak",
+      "description": "Monica appears on Route 40 every Monday and gives you a Sharp Beak."
+    },
+    {
+      "id": "tuscany",
+      "name": "Tuscany",
+      "day": "tuesday",
+      "location": "route29",
+      "locationName": "Route 29",
+      "type": "daily-sibling",
+      "item": "silkscarf",
+      "itemName": "Silk Scarf",
+      "description": "Tuscany appears on Route 29 every Tuesday and gives you a Silk Scarf."
+    },
+    {
+      "id": "wesley",
+      "name": "Wesley",
+      "day": "wednesday",
+      "location": "lakeofrage",
+      "locationName": "Lake of Rage",
+      "type": "daily-sibling",
+      "item": "blackbelt",
+      "itemName": "Black Belt",
+      "description": "Wesley appears at the Lake of Rage every Wednesday and gives you a Black Belt."
+    },
+    {
+      "id": "arthur",
+      "name": "Arthur",
+      "day": "thursday",
+      "location": "route36",
+      "locationName": "Route 36",
+      "type": "daily-sibling",
+      "item": "hardstone",
+      "itemName": "Hard Stone",
+      "description": "Arthur appears on Route 36 every Thursday and gives you a Hard Stone."
+    },
+    {
+      "id": "frieda",
+      "name": "Frieda",
+      "day": "friday",
+      "location": "route32",
+      "locationName": "Route 32",
+      "type": "daily-sibling",
+      "item": "poisonbarb",
+      "itemName": "Poison Barb",
+      "description": "Frieda appears on Route 32 every Friday and gives you a Poison Barb."
+    },
+    {
+      "id": "santos",
+      "name": "Santos",
+      "day": "saturday",
+      "location": "blackthorncity",
+      "locationName": "Blackthorn City",
+      "type": "daily-sibling",
+      "item": "spelltag",
+      "itemName": "Spell Tag",
+      "description": "Santos appears in Blackthorn City every Saturday and gives you a Spell Tag."
+    }
+  ],
+  "weeklyEvents": [
+    {
+      "id": "lapras",
+      "name": "Lapras",
+      "days": [
+        "friday"
+      ],
+      "location": "unioncaveb2f",
+      "locationName": "Union Cave B2F",
+      "type": "weekly",
+      "subtype": "wild-pokemon",
+      "pokemon": "lapras",
+      "level": 25,
+      "description": "A wild Lapras appears in the basement of Union Cave every Friday. It can be battled and caught."
+    },
+    {
+      "id": "bug-catching-contest",
+      "name": "Bug Catching Contest",
+      "days": [
+        "tuesday",
+        "thursday",
+        "saturday"
+      ],
+      "location": "nationalpark",
+      "locationName": "National Park",
+      "type": "weekly",
+      "subtype": "contest",
+      "description": "The Bug Catching Contest is held at National Park on Tuesdays, Thursdays, and Saturdays. Compete to catch the best Bug-type Pokémon!"
+    },
+    {
+      "id": "ss-aqua",
+      "name": "S.S. Aqua",
+      "days": [
+        "monday",
+        "friday"
+      ],
+      "location": "olivineport",
+      "locationName": "Olivine Port",
+      "type": "weekly",
+      "subtype": "travel",
+      "description": "The S.S. Aqua departs from Olivine Port on Mondays and Fridays, traveling between Johto and Kanto."
+    },
+    {
+      "id": "older-haircut-brother",
+      "name": "Older Haircut Brother",
+      "days": [
+        "tuesday",
+        "thursday",
+        "saturday"
+      ],
+      "location": "warehouseentrance",
+      "locationName": "Goldenrod Underground",
+      "type": "weekly",
+      "subtype": "service",
+      "price": 500,
+      "description": "The older haircut brother works on Tuesdays, Thursdays, and Saturdays for ¥500. He has a higher chance of making your Pokémon much happier."
+    },
+    {
+      "id": "younger-haircut-brother",
+      "name": "Younger Haircut Brother",
+      "days": [
+        "sunday",
+        "wednesday",
+        "friday"
+      ],
+      "location": "warehouseentrance",
+      "locationName": "Goldenrod Underground",
+      "type": "weekly",
+      "subtype": "service",
+      "price": 300,
+      "description": "The younger haircut brother works on Sundays, Wednesdays, and Fridays for ¥300. He has more variable results but costs less."
+    },
+    {
+      "id": "bargain-merchant",
+      "name": "Bargain Merchant",
+      "days": [
+        "monday"
+      ],
+      "location": "warehouseentrance",
+      "locationName": "Goldenrod Underground",
+      "type": "weekly",
+      "subtype": "shop",
+      "description": "The Bargain Merchant appears on Monday mornings only in the Goldenrod Underground, selling items at discounted prices."
+    },
+    {
+      "id": "bitter-merchant",
+      "name": "Bitter Merchant",
+      "days": [
+        "saturday",
+        "sunday"
+      ],
+      "location": "warehouseentrance",
+      "locationName": "Goldenrod Underground",
+      "type": "weekly",
+      "subtype": "shop",
+      "description": "The Bitter Merchant appears on weekends (Saturday and Sunday) in the Goldenrod Underground, selling bitter herbs that heal Pokémon but reduce happiness."
+    }
+  ]
+}

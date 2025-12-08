@@ -11,22 +11,22 @@ import {
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { X, Search, Plus } from 'lucide-react';
-import {
-  POKEMON_LIST,
-  emptyPokemonEntry,
-  normalizeTypeName,
-  type PokemonBasic,
-} from '@/lib/pokemon-data';
-import { Ability, BaseData, PokemonType } from '@/types/types';
+import { Search, Plus, X } from 'lucide-react';
+// import {
+//   POKEMON_LIST,
+//   emptyPokemonEntry,
+//   normalizeTypeName,
+//   type PokemonBasic,
+// } from '@/lib/pokemon-data';
+// import { Ability, BaseData, PokemonType } from '@/types/types';
 import { Badge } from './ui/badge';
-import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import { PokemonSprite } from './pokemon/pokemon-sprite';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Slider } from './ui/slider';
 import StatHexagon, { type StatData } from './pokemon/stat-hexagon';
-import { getItemSpriteName } from '@/utils/itemUtils';
+// import { getItemSpriteName } from '@/utils/itemUtils';
 
 export type MoveEntry = {
   name: string;
@@ -34,31 +34,51 @@ export type MoveEntry = {
   category?: string;
 };
 
-export type MoveData = {
+export type MoveStats = {
   name: string;
-  description?: string;
-  type?: string;
-  updated?: {
-    type: string;
-    category: string;
-    power: number;
-    accuracy: number;
-    pp: number;
+  type: string;
+  power: number;
+  accuracy: number;
+  pp: number;
+  effectChance: number;
+  category: string;
+  description: string;
+};
+
+export type MoveData = {
+  id: string;
+  versions: {
+    faithful: MoveStats;
+    polished: MoveStats;
   };
-  faithful?: {
-    type: string;
-    category: string;
-    power: number;
-    accuracy: number;
-    pp: number;
+};
+
+export type ItemVersionData = {
+  name: string;
+  category: string;
+  locationCount?: number;
+  price?: number;
+};
+
+export type ItemData = {
+  id: string;
+  versions: {
+    faithful: ItemVersionData;
+    polished: ItemVersionData;
   };
-  tm?: {
-    number: string;
-    location?: {
-      area: string;
-    };
+};
+
+export type AbilityVersionData = {
+  description: string;
+};
+
+export type AbilityData = {
+  id: string;
+  name: string;
+  versions: {
+    faithful: AbilityVersionData;
+    polished: AbilityVersionData;
   };
-  [key: string]: unknown;
 };
 
 export type Nature =
@@ -192,7 +212,7 @@ export const MAX_IV = 31;
 
 export type PokemonEntry = {
   name: string;
-  types: PokemonType['name'][]; // [type1, type2]
+  types: any;
   ability: string;
   nature?: Nature;
   item?: string;
@@ -202,6 +222,23 @@ export type PokemonEntry = {
   level?: number;
 };
 
+export const emptyPokemonEntry: PokemonEntry = {
+  name: '',
+  types: [],
+  ability: '',
+  nature: undefined,
+  item: undefined,
+  moves: [
+    { name: '', type: null },
+    { name: '', type: null },
+    { name: '', type: null },
+    { name: '', type: null },
+  ],
+  ivs: { hp: 31, attack: 31, defense: 31, spatk: 31, spdef: 31, speed: 31 },
+  evs: { hp: 0, attack: 0, defense: 0, spatk: 0, spdef: 0, speed: 0 },
+  level: 50,
+};
+
 export type PokemonSlotProps = {
   index: number;
   entry: PokemonEntry;
@@ -209,16 +246,20 @@ export type PokemonSlotProps = {
 };
 
 export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps) {
-  const [pokemonData, setPokemonData] = useState<BaseData | null>(null);
+  const [pokemonData, setPokemonData] = useState<any | null>(null);
+  const [pokemonList, setPokemonList] = useState<
+    {
+      id: string;
+      name: string;
+      versions: {
+        polished?: { plain?: { types: string[] } };
+        faithful?: { plain?: { types: string[] } };
+      };
+    }[]
+  >([]);
   const [movesData, setMovesData] = useState<Record<string, MoveData> | null>(null);
-  const [itemsData, setItemsData] = useState<Record<
-    string,
-    { name: string; description: string; attributes?: { category: string } }
-  > | null>(null);
-  const [abilitiesData, setAbilitiesData] = useState<Record<
-    string,
-    { name: string; description: string }
-  > | null>(null);
+  const [itemsData, setItemsData] = useState<Record<string, ItemData> | null>(null);
+  const [abilitiesData, setAbilitiesData] = useState<Record<string, AbilityData> | null>(null);
   const [evolutionChainMoves, setEvolutionChainMoves] = useState<MoveEntry[]>([]);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [pokemonSearchQuery, setPokemonSearchQuery] = useState('');
@@ -237,7 +278,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
   const natureSearchInputRef = useRef<HTMLInputElement>(null);
   const itemSearchInputRef = useRef<HTMLInputElement>(null);
   const moveSearchInputRef = useRef<HTMLInputElement>(null);
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
   const previousTypesRef = useRef<string | null>(null);
   const previousFaithfulRef = useRef<boolean | null>(null);
 
@@ -248,14 +289,13 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
   const getMoveStats = useCallback(
     (moveName: string) => {
       if (!movesData || !moveName) return null;
-      const moveKey = moveName.toLowerCase().replace(/[ '-.]/g, '-');
-      const moveInfo =
-        movesData[moveKey] ||
-        movesData[moveName.toLowerCase()] ||
-        movesData[moveName.replace(/\s+/g, '-').toLowerCase()] ||
-        movesData[moveName];
+      // Convert display name to ID format (e.g., "Thunder Shock" -> "thundershock")
+      const moveKey = moveName.toLowerCase().replace(/[ '-]/g, '');
+      const moveInfo = movesData[moveKey];
 
-      const stats = showFaithful ? moveInfo?.faithful : moveInfo?.updated;
+      if (!moveInfo) return null;
+
+      const stats = showFaithful ? moveInfo.versions.faithful : moveInfo.versions.polished;
       return stats
         ? {
             power: stats.power,
@@ -268,74 +308,75 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     [movesData, showFaithful],
   );
 
-  const matched: PokemonBasic | undefined = useMemo(
-    () => POKEMON_LIST.find((p) => p.name.toLowerCase() === (entry.name || '').toLowerCase()),
-    [entry.name],
-  );
+  // const matched: PokemonBasic | undefined = useMemo(
+  //   () => POKEMON_LIST.find((p) => p.name.toLowerCase() === (entry.name || '').toLowerCase()),
+  //   [entry.name],
+  // );
 
   // Filter Pokemon based on search query
   const filteredPokemonList = useMemo(() => {
-    if (!pokemonSearchQuery.trim()) return POKEMON_LIST;
+    const version = showFaithful ? 'faithful' : 'polished';
+    if (!pokemonSearchQuery.trim()) return pokemonList;
 
     const query = pokemonSearchQuery.toLowerCase();
-    return POKEMON_LIST.filter(
-      (pokemon) =>
+    return pokemonList.filter((pokemon) => {
+      const types = pokemon.versions?.[version]?.plain?.types || [];
+      return (
         pokemon.name.toLowerCase().includes(query) ||
-        pokemon.types.some((type) => type?.toLowerCase().includes(query)),
-    );
-  }, [pokemonSearchQuery]);
+        pokemon.id.toLowerCase().includes(query) ||
+        types.some((type) => type?.toLowerCase().includes(query))
+      );
+    });
+  }, [pokemonSearchQuery, pokemonList, showFaithful]);
 
   // Helper function to get ability description
   const getAbilityDescription = useCallback(
     (abilityName: string): string => {
       if (!abilitiesData) return '';
 
-      // Convert ability name to kebab-case to match the abilities data keys
-      const abilityKey = abilityName.toLowerCase().replace(/\s+/g, '-').replace(/[.']/g, '');
+      // Convert ability name to ID format (e.g., "Lightning Rod" -> "lightningrod")
+      const abilityKey = abilityName.toLowerCase().replace(/[\s'-]/g, '');
 
-      return abilitiesData[abilityKey]?.description || '';
+      const abilityInfo = abilitiesData[abilityKey];
+      if (!abilityInfo) return '';
+
+      const versionData = showFaithful
+        ? abilityInfo.versions.faithful
+        : abilityInfo.versions.polished;
+      return versionData?.description || '';
     },
-    [abilitiesData],
+    [abilitiesData, showFaithful],
   );
 
   // Filter abilities based on search query
   const filteredAbilityOptions = useMemo(() => {
-    // Use individual Pokemon data if available, fall back to matched data
-    const sourceData = pokemonData || matched;
-    if (!sourceData) return [];
+    if (!pokemonData) return [];
 
-    // Check for forms structure (individual files) or direct structure (manifest)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const formData: any = pokemonData?.forms?.plain || sourceData;
+    // Get abilities from the transformed data structure
+    const formData = pokemonData?.forms?.plain;
+    const abilities: string[] = formData?.abilities || [];
 
-    // Use faithful or polished abilities based on context
-    const abilities: Ability[] = showFaithful
-      ? formData.detailedStats?.faithfulAbilities || formData.abilities || []
-      : formData.detailedStats?.updatedAbilities || formData.updatedAbilities || [];
-
+    // Convert kebab-case ability names to title case
     const abilityList = abilities
-      .map((ability) => {
-        if (typeof ability === 'string') return ability;
-        if (ability && ability.id) {
-          // Convert kebab-case to title case
-          return ability.id
-            .split('-')
-            .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(' ');
-        }
-        return ability?.name || 'Unknown';
+      .map((ability: string) => {
+        if (!ability) return null;
+        // Convert kebab-case to title case (e.g., "lightning-rod" -> "Lightning Rod")
+        return ability
+          .split('-')
+          .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
       })
-      .filter(Boolean);
+      .filter(Boolean) as string[];
 
     if (!abilitySearchQuery.trim()) return abilityList;
 
     const query = abilitySearchQuery.toLowerCase();
     return abilityList.filter(
-      (ability) =>
+      (ability: string) =>
         ability.toLowerCase().includes(query) ||
         getAbilityDescription(ability).toLowerCase().includes(query),
     );
-  }, [pokemonData, matched, showFaithful, abilitySearchQuery, getAbilityDescription]);
+  }, [pokemonData, abilitySearchQuery, getAbilityDescription]);
 
   // Filter natures based on search query
   const filteredNatureOptions = useMemo(() => {
@@ -377,8 +418,8 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
   const filteredItemOptions = useMemo(() => {
     if (!itemsData) return [];
 
-    // Filter items that are commonly used as held items
-    const heldItemCategories = ['Item', 'Berry'];
+    // Categories that are typically held items
+    const heldItemCategories = ['medicine', 'berry', 'battle', 'held'];
     const excludePatterns = [
       /ball$/i,
       /potion$/i,
@@ -401,84 +442,97 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
       /coupon$/i,
     ];
 
+    const version = showFaithful ? 'faithful' : 'polished';
     const itemList = Object.entries(itemsData)
       .filter(([, item]) => {
-        if (!item.attributes?.category || !heldItemCategories.includes(item.attributes.category))
-          return false;
-        const itemName = item.name.toLowerCase();
+        const versionData = item.versions[version] || item.versions.polished;
+        if (!versionData) return false;
+        const category = versionData.category?.toLowerCase() || '';
+        // Include items from held-item categories or all if not strictly categorized
+        const isHeldCategory =
+          heldItemCategories.some((cat) => category.includes(cat)) || category === '';
+        if (!isHeldCategory && category !== 'ball') return true; // Include most items except balls
+        const itemName = versionData.name.toLowerCase();
         return !excludePatterns.some((pattern) => pattern.test(itemName));
       })
-      .map(([itemKey, item]) => ({
-        id: itemKey,
-        name: item.name,
-        description: item.description,
-      }))
+      .map(([, item]) => {
+        const versionData = item.versions[version] || item.versions.polished;
+        return {
+          id: item.id,
+          name: versionData.name,
+          category: versionData.category,
+        };
+      })
       .sort((a, b) => a.name.localeCompare(b.name));
 
     if (!itemSearchQuery.trim()) return itemList;
 
     const query = itemSearchQuery.toLowerCase();
-    return itemList.filter(
-      (item) =>
-        item.name.toLowerCase().includes(query) || item.description.toLowerCase().includes(query),
-    );
-  }, [itemsData, itemSearchQuery]);
+    return itemList.filter((item) => item.name.toLowerCase().includes(query));
+  }, [itemsData, itemSearchQuery, showFaithful]);
 
   // Filter moves based on search query
   const filteredMoveOptions = useMemo(() => {
-    // Use individual Pokemon data if available
-    const sourceData = pokemonData;
-    if (!sourceData && !matched) return [];
+    if (!pokemonData || !movesData) return [];
 
-    if (!sourceData) {
-      return [];
-    }
+    const formData = pokemonData.forms?.plain;
+    if (!formData?.movesets) return [];
 
-    // Check for forms structure (individual files) - use the specific form if available
-    const formToUse = matched?.formName || 'plain';
-    const formData = sourceData.forms?.[formToUse] || sourceData.forms?.plain || sourceData;
-
-    // Get moves based on faithful/polished preference
-    const levelUpMoves = showFaithful
-      ? formData.faithfulMoves || formData.moves || []
-      : formData.updatedMoves || formData.moves || [];
-
-    // Get egg moves and TM/HM moves
-    const eggMoves = formData.eggMoves || [];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const tmHmMoves = (formData as any).tmHmMoves || [];
+    // Get moves from the movesets structure
+    const levelUpMoves = formData.movesets.levelUp || [];
+    const eggMoves = formData.movesets.eggMoves || [];
+    const tmMoves = formData.movesets.tm || [];
 
     // Helper function to get move type from moves data
-    const getMoveType = (moveName: string): string => {
-      if (!movesData || !moveName) return 'Normal';
-      const moveKey = moveName.toLowerCase().replace(/[ '-.]/g, '-');
-      const moveInfo =
-        movesData[moveKey] ||
-        movesData[moveName.toLowerCase()] ||
-        movesData[moveName.replace(/\s+/g, '-').toLowerCase()] ||
-        movesData[moveName];
-      return moveInfo?.updated?.type || moveInfo?.type || 'Normal';
+    const getMoveType = (moveId: string): string => {
+      if (!movesData || !moveId) {
+        return 'Normal';
+      }
+      const moveInfo = movesData[moveId];
+      if (!moveInfo?.versions) {
+        return 'Normal';
+      }
+      const stats = showFaithful ? moveInfo.versions.faithful : moveInfo.versions.polished;
+      const type = stats?.type || 'normal';
+      // Capitalize first letter
+      return type.charAt(0).toUpperCase() + type.slice(1);
+    };
+
+    // Helper function to convert move id to display name
+    // slightly different than one in stringUtils to handle missing moves data
+    const formatMoveName = (moveId: string): string => {
+      // Check if we have the actual name from moves data
+      if (movesData?.[moveId]) {
+        const stats = showFaithful
+          ? movesData[moveId].versions.faithful
+          : movesData[moveId].versions.polished;
+        return stats?.name || moveId;
+      }
+      // Fallback: convert ID to title case (e.g., "thundershock" -> "Thundershock")
+      return moveId.charAt(0).toUpperCase() + moveId.slice(1);
     };
 
     // Combine all moves
     const allMoves = [
-      ...levelUpMoves.map((move) => ({ ...move, category: 'Level-up' })),
-      ...eggMoves.map((move) => ({
-        name: typeof move === 'string' ? move : move.name || 'Unknown Move',
-        type: getMoveType(typeof move === 'string' ? move : move.name || 'Unknown Move'),
+      ...levelUpMoves.map((move: { id: string; level?: number }) => ({
+        name: formatMoveName(move.id),
+        type: getMoveType(move.id),
+        category: 'Level-up',
+      })),
+      ...eggMoves.map((move: { id: string }) => ({
+        name: formatMoveName(move.id),
+        type: getMoveType(move.id),
         category: 'Egg Move',
       })),
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ...tmHmMoves.map((move: any) => ({ ...move, category: 'TM/HM' })),
+      ...tmMoves.map((move: { id: string }) => ({
+        name: formatMoveName(move.id),
+        type: getMoveType(move.id),
+        category: 'TM/HM',
+      })),
       ...evolutionChainMoves,
     ];
 
     const moveList = allMoves
-      .map((move) => ({
-        name: String(move.name || 'Unknown Move'),
-        type: String(move.info?.type || move.type || 'Normal'),
-        category: move.category || 'Level-up',
-      }))
       .filter((move) => move.name && move.name !== 'Unknown Move')
       .filter((move, index, self) => index === self.findIndex((m) => m.name === move.name))
       .sort((a, b) => {
@@ -506,34 +560,66 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
         move.type.toLowerCase().includes(query) ||
         move.category?.toLowerCase().includes(query),
     );
-  }, [pokemonData, matched, showFaithful, movesData, evolutionChainMoves, moveSearchQuery]);
+    // }, [pokemonData, matched, showFaithful, movesData, evolutionChainMoves, moveSearchQuery]);
+  }, [pokemonData, showFaithful, movesData, evolutionChainMoves, moveSearchQuery]);
 
-  // Load moves, items, and abilities data in parallel, only once
+  // Load moves, items, abilities, and pokemon data in parallel, only once
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [movesResponse, itemsResponse, abilitiesResponse] = await Promise.all([
-          fetch('/output/manifests/moves.json'),
-          fetch('/output/manifests/items.json'),
-          fetch('/output/manifests/abilities.json'),
-        ]);
+        const [movesResponse, itemsResponse, abilitiesResponse, pokemonResponse] =
+          await Promise.all([
+            fetch('/new/moves_manifest.json'),
+            fetch('/new/items_manifest.json'),
+            fetch('/new/abilities_manifest.json'),
+            fetch('/new/pokemon_manifest.json'),
+          ]);
 
         if (movesResponse.ok) {
-          const movesData = await movesResponse.json();
-          setMovesData(movesData);
+          const movesArray: MoveData[] = await movesResponse.json();
+          // Transform array to object keyed by id for O(1) lookups
+          const movesMap = movesArray.reduce(
+            (acc, move) => {
+              acc[move.id] = move;
+              return acc;
+            },
+            {} as Record<string, MoveData>,
+          );
+          setMovesData(movesMap);
         }
 
         if (itemsResponse.ok) {
-          const itemsData = await itemsResponse.json();
-          setItemsData(itemsData);
+          const itemsArray: ItemData[] = await itemsResponse.json();
+          // Transform array to object keyed by id for O(1) lookups
+          const itemsMap = itemsArray.reduce(
+            (acc, item) => {
+              acc[item.id] = item;
+              return acc;
+            },
+            {} as Record<string, ItemData>,
+          );
+          setItemsData(itemsMap);
         }
 
         if (abilitiesResponse.ok) {
-          const abilitiesData = await abilitiesResponse.json();
-          setAbilitiesData(abilitiesData);
+          const abilitiesArray: AbilityData[] = await abilitiesResponse.json();
+          // Transform array to object keyed by id for O(1) lookups
+          const abilitiesMap = abilitiesArray.reduce(
+            (acc, ability) => {
+              acc[ability.id] = ability;
+              return acc;
+            },
+            {} as Record<string, AbilityData>,
+          );
+          setAbilitiesData(abilitiesMap);
+        }
+
+        if (pokemonResponse.ok) {
+          const pokemonData = await pokemonResponse.json();
+          setPokemonList(pokemonData);
         }
       } catch (error) {
-        console.error('Failed to load moves/items/abilities data:', error);
+        console.error('Failed to load moves/items/abilities/pokemon data:', error);
       }
     };
 
@@ -542,20 +628,36 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
 
   // Load detailed Pokemon data when a Pokemon is selected
   useEffect(() => {
-    if (matched?.name) {
-      // Use fileName if available, otherwise fall back to name transformation
-      const fileName = matched.fileName
-        ? matched.fileName.replace('.json', '')
-        : matched.name.toLowerCase().replace(/[ -]/g, '-');
-      console.log('Loading Pokemon data for:', fileName, 'from matched:', matched);
+    if (entry.name && entry.name.trim() !== '') {
+      // Strip form suffix and normalize name
+      const fileName = entry.name
+        .toLowerCase()
+        .replace(/\s*\([^)]*\)/g, '')
+        .replace(/[ -]/g, '-');
 
-      fetch(`/output/pokemon/${fileName}.json`)
+      fetch(`/new/pokemon/${fileName}.json`)
         .then((res) => {
           if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
           return res.json();
         })
         .then((data) => {
-          setPokemonData(data);
+          // Transform new data structure to expected format
+          const version = showFaithful ? 'faithful' : 'polished';
+          const formData =
+            data.versions?.[version]?.forms?.plain || data.versions?.polished?.forms?.plain;
+
+          if (formData) {
+            setPokemonData({
+              forms: {
+                plain: {
+                  baseStats: formData.baseStats,
+                  abilities: formData.abilities,
+                  movesets: formData.movesets,
+                  types: formData.types,
+                },
+              },
+            });
+          }
         })
         .catch((err) => {
           console.error('Failed to load Pokemon data:', err);
@@ -564,122 +666,122 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     } else {
       setPokemonData(null);
     }
-  }, [matched, showFaithful]);
+  }, [entry.name, showFaithful]);
 
   // Update types when detailed data loads or faithful preference changes
-  useEffect(() => {
-    if (pokemonData && matched?.name) {
-      // Determine which form to use - if matched has a formName, use that form, otherwise use plain
-      const formToUse = matched.formName || 'plain';
-      const formData = pokemonData.forms?.[formToUse] || pokemonData.forms?.plain || pokemonData;
+  // useEffect(() => {
+  //   if (pokemonData && matched?.name) {
+  //     // Determine which form to use - if matched has a formName, use that form, otherwise use plain
+  //     const formToUse = matched.formName || 'plain';
+  //     const formData = pokemonData.forms?.[formToUse] || pokemonData.forms?.plain || pokemonData;
 
-      console.log('Using form:', formToUse, 'for Pokemon:', matched.name);
-      console.log('Form data available:', Object.keys(pokemonData.forms || {}));
+  //     console.log('Using form:', formToUse, 'for Pokemon:', matched.name);
+  //     console.log('Form data available:', Object.keys(pokemonData.forms || {}));
 
-      // For plain forms, prefer base data if form data is empty
-      let correctTypes = showFaithful
-        ? formData.faithfulTypes || formData.types || []
-        : formData.updatedTypes || formData.types || [];
+  //     // For plain forms, prefer base data if form data is empty
+  //     let correctTypes = showFaithful
+  //       ? formData.faithfulTypes || formData.types || []
+  //       : formData.updatedTypes || formData.types || [];
 
-      // If form data has empty types but base data has types, use base data (only for plain form)
-      const isEmpty =
-        !correctTypes ||
-        (Array.isArray(correctTypes) && correctTypes.length === 0) ||
-        (typeof correctTypes === 'string' && !correctTypes.trim());
+  //     // If form data has empty types but base data has types, use base data (only for plain form)
+  //     const isEmpty =
+  //       !correctTypes ||
+  //       (Array.isArray(correctTypes) && correctTypes.length === 0) ||
+  //       (typeof correctTypes === 'string' && !correctTypes.trim());
 
-      if (isEmpty && formToUse === 'plain' && pokemonData.forms?.plain) {
-        console.log('Plain form data is empty, trying base data...');
-        const detailedStats = pokemonData.detailedStats || {};
-        const baseTypes = showFaithful
-          ? (detailedStats as Record<string, unknown>)['faithfulTypes'] ||
-            (detailedStats as Record<string, unknown>)['types']
-          : (detailedStats as Record<string, unknown>)['updatedTypes'] ||
-            (detailedStats as Record<string, unknown>)['types'];
+  //     if (isEmpty && formToUse === 'plain' && pokemonData.forms?.plain) {
+  //       console.log('Plain form data is empty, trying base data...');
+  //       const detailedStats = pokemonData.detailedStats || {};
+  //       const baseTypes = showFaithful
+  //         ? (detailedStats as Record<string, unknown>)['faithfulTypes'] ||
+  //           (detailedStats as Record<string, unknown>)['types']
+  //         : (detailedStats as Record<string, unknown>)['updatedTypes'] ||
+  //           (detailedStats as Record<string, unknown>)['types'];
 
-        if (baseTypes) {
-          correctTypes = baseTypes as string | string[];
-        }
-        console.log('Fallback correctTypes from base:', correctTypes);
-      }
+  //       if (baseTypes) {
+  //         correctTypes = baseTypes as string | string[];
+  //       }
+  //       console.log('Fallback correctTypes from base:', correctTypes);
+  //     }
 
-      // console.log('Type update effect - Pokemon:', matched.name);
-      // console.log('Form data:', formData);
-      // console.log(
-      //   'Base data types:',
-      //   pokemonData.types,
-      //   pokemonData.updatedTypes,
-      //   pokemonData.faithfulTypes,
-      // );
-      // console.log('Detailed stats types:', pokemonData.detailedStats);
-      // console.log('Correct types found:', correctTypes);
-      // console.log('Show faithful:', showFaithful);
+  //     // console.log('Type update effect - Pokemon:', matched.name);
+  //     // console.log('Form data:', formData);
+  //     // console.log(
+  //     //   'Base data types:',
+  //     //   pokemonData.types,
+  //     //   pokemonData.updatedTypes,
+  //     //   pokemonData.faithfulTypes,
+  //     // );
+  //     // console.log('Detailed stats types:', pokemonData.detailedStats);
+  //     // console.log('Correct types found:', correctTypes);
+  //     // console.log('Show faithful:', showFaithful);
 
-      // Always ensure types is [type1, type2] with nulls if missing, and normalize them
-      const newTypes = Array.isArray(correctTypes)
-        ? [
-            correctTypes[0] ? normalizeTypeName(correctTypes[0]) : null,
-            correctTypes[1] ? normalizeTypeName(correctTypes[1]) : null,
-          ]
-        : typeof correctTypes === 'string'
-          ? [normalizeTypeName(correctTypes), null]
-          : [null, null];
+  //     // Always ensure types is [type1, type2] with nulls if missing, and normalize them
+  //     const newTypes = Array.isArray(correctTypes)
+  //       ? [
+  //           correctTypes[0] ? normalizeTypeName(correctTypes[0]) : null,
+  //           correctTypes[1] ? normalizeTypeName(correctTypes[1]) : null,
+  //         ]
+  //       : typeof correctTypes === 'string'
+  //         ? [normalizeTypeName(correctTypes), null]
+  //         : [null, null];
 
-      // console.log('New types processed:', newTypes);
+  //     // console.log('New types processed:', newTypes);
 
-      // Normalize current types for comparison
-      const normalizedCurrentTypes = [
-        entry.types[0] ? normalizeTypeName(entry.types[0]) : null,
-        entry.types[1] ? normalizeTypeName(entry.types[1]) : null,
-      ];
+  //     // Normalize current types for comparison
+  //     const normalizedCurrentTypes = [
+  //       entry.types[0] ? normalizeTypeName(entry.types[0]) : null,
+  //       entry.types[1] ? normalizeTypeName(entry.types[1]) : null,
+  //     ];
 
-      // Create a string representation for comparison
-      const newTypesString = JSON.stringify(newTypes);
-      const currentTypesString = JSON.stringify(normalizedCurrentTypes);
+  //     // Create a string representation for comparison
+  //     const newTypesString = JSON.stringify(newTypes);
+  //     const currentTypesString = JSON.stringify(normalizedCurrentTypes);
 
-      console.log('Types comparison - current:', currentTypesString, 'new:', newTypesString);
-      console.log('Previous ref:', previousTypesRef.current);
+  //     console.log('Types comparison - current:', currentTypesString, 'new:', newTypesString);
+  //     console.log('Previous ref:', previousTypesRef.current);
 
-      // Only update if we found valid types AND they're different from current
-      if (newTypesString !== currentTypesString && previousTypesRef.current !== newTypesString) {
-        // Only update if we actually have valid types, don't clear existing ones
-        const validTypes = newTypes.filter(
-          (t): t is PokemonType['name'] =>
-            typeof t === 'string' &&
-            [
-              'normal',
-              'fire',
-              'water',
-              'electric',
-              'grass',
-              'ice',
-              'fighting',
-              'poison',
-              'ground',
-              'flying',
-              'psychic',
-              'bug',
-              'rock',
-              'ghost',
-              'dragon',
-              'dark',
-              'steel',
-              'fairy',
-            ].includes(t),
-        );
+  //     // Only update if we found valid types AND they're different from current
+  //     if (newTypesString !== currentTypesString && previousTypesRef.current !== newTypesString) {
+  //       // Only update if we actually have valid types, don't clear existing ones
+  //       const validTypes = newTypes.filter(
+  //         (t): t is PokemonType['name'] =>
+  //           typeof t === 'string' &&
+  //           [
+  //             'normal',
+  //             'fire',
+  //             'water',
+  //             'electric',
+  //             'grass',
+  //             'ice',
+  //             'fighting',
+  //             'poison',
+  //             'ground',
+  //             'flying',
+  //             'psychic',
+  //             'bug',
+  //             'rock',
+  //             'ghost',
+  //             'dragon',
+  //             'dark',
+  //             'steel',
+  //             'fairy',
+  //           ].includes(t),
+  //       );
 
-        // Only update if we have valid types or if current types are empty
-        if (validTypes.length > 0 || entry.types.length === 0) {
-          previousTypesRef.current = newTypesString;
-          console.log('Setting valid types:', validTypes);
-          onChange({ types: validTypes });
-        } else {
-          console.log('Skipping type update - would clear valid types with empty types');
-        }
-      } else {
-        console.log('Skipping type update - no change or already set');
-      }
-    }
-  }, [pokemonData, showFaithful, matched?.name, matched?.formName, entry.types, onChange]);
+  //       // Only update if we have valid types or if current types are empty
+  //       if (validTypes.length > 0 || entry.types.length === 0) {
+  //         previousTypesRef.current = newTypesString;
+  //         console.log('Setting valid types:', validTypes);
+  //         onChange({ types: validTypes });
+  //       } else {
+  //         console.log('Skipping type update - would clear valid types with empty types');
+  //       }
+  //     } else {
+  //       console.log('Skipping type update - no change or already set');
+  //     }
+  //   }
+  // }, [pokemonData, showFaithful, matched?.name, matched?.formName, entry.types, onChange]);
 
   // Update ability when faithful preference changes
   useEffect(() => {
@@ -691,12 +793,12 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
         const formData: any = pokemonData?.forms?.plain || pokemonData;
 
         // Get abilities for current context
-        const abilities: Ability[] = showFaithful
+        const abilities = showFaithful
           ? formData.detailedStats?.faithfulAbilities || formData.abilities || []
           : formData.detailedStats?.updatedAbilities || formData.updatedAbilities || [];
 
         const abilityList = abilities
-          .map((ability) => {
+          .map((ability: any) => {
             if (typeof ability === 'string') return ability;
             if (ability && ability.id) {
               // Convert kebab-case to title case
@@ -772,21 +874,28 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
         const prevEvolutionName = evolutionChain[i];
 
         try {
-          const fileName = prevEvolutionName.toLowerCase().replace(/[ -]/g, '-');
-          const response = await fetch(`/output/pokemon/${fileName}.json`);
+          // Strip form suffix (e.g., "Slowking (Galarian)" -> "slowking")
+          const fileName = prevEvolutionName
+            .toLowerCase()
+            .replace(/\s*\([^)]*\)/g, '')
+            .replace(/[ -]/g, '-');
+          const response = await fetch(`/new/pokemon/${fileName}.json`);
           if (response.ok) {
             const prevPokemonData = await response.json();
-            const formData = prevPokemonData.forms?.plain || prevPokemonData;
+            // Use new data structure
+            const version = showFaithful ? 'faithful' : 'polished';
+            const formData =
+              prevPokemonData.versions?.[version]?.forms?.plain ||
+              prevPokemonData.versions?.polished?.forms?.plain;
 
-            const prevMoves = showFaithful
-              ? formData.faithfulMoves || formData.moves || []
-              : formData.updatedMoves || formData.moves || [];
+            // Get level-up moves from movesets
+            const levelUpMoves = formData?.movesets?.levelUp || [];
 
-            prevMoves.forEach((move: { name: string; info?: { type: string } }) => {
-              if (!evolutionChainMoves.some((existing) => existing.name === move.name)) {
+            levelUpMoves.forEach((move: { id: string; level: number }) => {
+              if (!evolutionChainMoves.some((existing) => existing.name === move.id)) {
                 evolutionChainMoves.push({
-                  name: move.name,
-                  type: move.info?.type || 'Normal',
+                  name: move.id,
+                  type: null, // Type will be resolved from movesData if needed
                   category: `Previous Evolution (${prevEvolutionName})`,
                 });
               }
@@ -815,17 +924,19 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
 
   // Extract base stats from Pokemon data for hexagon
   const baseStats: StatData = useMemo(() => {
-    if (!pokemonData || !matched) {
+    // if (!pokemonData || !matched) {
+    //   return { hp: 0, attack: 0, defense: 0, spatk: 0, spdef: 0, speed: 0 };
+    // }
+    if (!pokemonData) {
       return { hp: 0, attack: 0, defense: 0, spatk: 0, spdef: 0, speed: 0 };
     }
 
-    const formToUse = matched.formName || 'plain';
+    // const formToUse = matched.formName || 'plain';
+    const formToUse = 'plain';
     const formData = pokemonData.forms?.[formToUse] || pokemonData.forms?.plain || pokemonData;
 
-    // Get base stats based on faithful/polished preference
-    const stats = showFaithful
-      ? formData.faithfulBaseStats || formData.baseStats
-      : formData.polishedBaseStats || formData.baseStats;
+    // Get base stats - data is already transformed in useEffect based on faithful/polished preference
+    const stats = formData.baseStats;
 
     if (!stats) {
       return { hp: 0, attack: 0, defense: 0, spatk: 0, spdef: 0, speed: 0 };
@@ -839,9 +950,11 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
       spdef: stats.specialDefense || 0,
       speed: stats.speed || 0,
     };
-  }, [pokemonData, matched, showFaithful]);
+  }, [pokemonData]);
+  // }, [pokemonData, matched, showFaithful]);
 
-  const isPokemonSelected = Boolean(matched);
+  // Check if a Pokemon is selected based on entry.name
+  const isPokemonSelected = Boolean(entry.name && entry.name.trim() !== '');
 
   const setMove = (i: number, move: Partial<MoveEntry>) => {
     const copy = [...entry.moves];
@@ -849,53 +962,16 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     onChange({ moves: copy });
   };
 
-  const autofillFromPokemon = (pokemonName: string) => {
-    console.log('autofillFromPokemon called with:', pokemonName);
-    const found = POKEMON_LIST.find((p) => p.name === pokemonName);
-    if (!found) {
-      console.log('Pokemon not found in POKEMON_LIST, setting name only');
-      onChange({ name: pokemonName });
-      setSearchModalOpen(false);
-      setPokemonSearchQuery('');
-      return;
-    }
+  const autofillFromPokemon = (pokemon: (typeof pokemonList)[0]) => {
+    const version = showFaithful ? 'faithful' : 'polished';
+    const types = pokemon.versions?.[version]?.plain?.types || [];
 
-    console.log('Found Pokemon in POKEMON_LIST:', found);
-    console.log('Found types:', found.types);
-
-    // Use basic types as default - types will be updated when detailed data loads
-    const validTypes = [found.types[0], found.types[1]].filter(
-      (t): t is PokemonType['name'] =>
-        typeof t === 'string' &&
-        [
-          'normal',
-          'fire',
-          'water',
-          'electric',
-          'grass',
-          'ice',
-          'fighting',
-          'poison',
-          'ground',
-          'flying',
-          'psychic',
-          'bug',
-          'rock',
-          'ghost',
-          'dragon',
-          'dark',
-          'steel',
-          'fairy',
-        ].includes(t),
-    );
-
-    console.log('Setting autofill types:', validTypes);
     // Reset the ref when manually selecting a Pokemon
     previousTypesRef.current = null;
 
     onChange({
-      name: found.name,
-      types: validTypes,
+      name: pokemon.name,
+      types: types,
     });
 
     // Close modal and clear search
@@ -954,7 +1030,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
           isPokemonSelected && 'hidden',
         )}
       >
-        {/* <Label htmlFor={`name-${index}`} className="label-text">
+        {/* <Label htmlFor={`name-${index}`} className="table-header-label">
           Pokémon
         </Label> */}
 
@@ -996,7 +1072,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                   onKeyDown={(e) => {
                     // Allow Enter to select the first filtered Pokemon if only one result
                     if (e.key === 'Enter' && filteredPokemonList.length === 1) {
-                      autofillFromPokemon(filteredPokemonList[0].name);
+                      autofillFromPokemon(filteredPokemonList[0]);
                     }
                   }}
                   className="pl-10"
@@ -1006,20 +1082,22 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                 <div className="p-2">
                   {filteredPokemonList.length === 0 ? (
                     <div className="text-center text-muted-foreground py-4">
-                      No Pokémon found matching &ldquo;{pokemonSearchQuery}&rdquo;
+                      {pokemonList.length === 0
+                        ? 'Loading Pokémon...'
+                        : `No Pokémon found matching "${pokemonSearchQuery}"`}
                     </div>
                   ) : (
                     <div className="grid gap-1">
                       {filteredPokemonList.map((pokemon, idx) => (
                         <Button
-                          key={`pokemon-${idx}-${pokemon.name}`}
+                          key={`pokemon-${idx}-${pokemon.id}`}
                           variant="ghost"
                           className="w-full justify-start h-auto p-3"
-                          onClick={() => autofillFromPokemon(pokemon.name)}
+                          onClick={() => autofillFromPokemon(pokemon)}
                         >
                           <div className="flex items-center gap-3 w-full">
                             <div className="flex flex-row items-center gap-4">
-                              <PokemonSprite pokemonName={pokemon.name} className="" size="sm" />
+                              <PokemonSprite pokemonName={pokemon.id} className="" size="sm" />
                               <span className="font-medium">{pokemon.name}</span>
                             </div>
                           </div>
@@ -1049,19 +1127,17 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
         <div className={cn('flex flex-col gap-4 lg:gap-6 w-full md:w-1/2')}>
           <div className="flex flex-col items-center gap-4 relative">
             <PokemonSprite
-              // size="sm"
               hoverAnimate={true}
               className="shadow-none lg:mt-6"
               primaryType={entry.types[0] || 'normal'}
               pokemonName={
-                matched?.fileName
-                  ? matched.fileName.replace('.json', '')
-                  : (entry.name || 'egg')
+                entry.name
+                  ? entry.name
                       .toLowerCase()
-                      .replace(/\s*\([^)]*\).*/, '')
-                      .replace(/\s+/g, '-')
+                      .replace(/\s*\(([^)]+)\)/g, '_$1') // Convert "Slowking (Galarian)" to "slowking_galarian"
+                      .replace(/\s+/g, '')
+                  : 'egg'
               }
-              form={matched?.formName} // Pass the form name for sprites
             />
             <div className="flex gap-2 text-center flex-col w-full items-center">
               <h2 className="text-xl font-bold">{entry.name}</h2>
@@ -1078,7 +1154,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
             </div>
           </div>
           <div className={cn('flex flex-col gap-2')}>
-            <Label htmlFor={`ability-${index}`} className="label-text">
+            <Label htmlFor={`ability-${index}`} className="table-header-label">
               Ability
             </Label>
             <Dialog
@@ -1135,7 +1211,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                         </div>
                       ) : (
                         <div className="grid gap-1">
-                          {filteredAbilityOptions.map((ability, idx) => {
+                          {filteredAbilityOptions.map((ability: any, idx: number) => {
                             const description = getAbilityDescription(ability);
                             return (
                               <Button
@@ -1170,7 +1246,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
           </div>
 
           <div className="flex flex-col gap-2">
-            <Label className="label-text">Moves</Label>
+            <Label className="table-header-label">Moves</Label>
             <Dialog
               open={moveModalOpen}
               onOpenChange={(open) => {
@@ -1203,7 +1279,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                             className="flex items-center gap-2 bg-white/90 dark:bg-black/40 p-2 rounded-md"
                           >
                             <Badge
-                              variant={mv.type?.toLowerCase() || 'any'}
+                              variant={mv.type?.toLowerCase() as any}
                               className="text-xs w-[20px]"
                             >
                               {i + 1}
@@ -1311,7 +1387,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
 
                                 return (
                                   <div key={category}>
-                                    <div className="label-text mb-2 px-2">{category}</div>
+                                    <div className="table-header-label mb-2 px-2">{category}</div>
                                     <div className="grid gap-1 mb-4">
                                       {movesInCategory.map((move, idx) => {
                                         const moveStats = getMoveStats(move.name);
@@ -1380,7 +1456,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                                               </div>
                                               <div className="flex items-center gap-2">
                                                 <Badge
-                                                  variant={move.type?.toLowerCase() || 'any'}
+                                                  variant={move.type?.toLowerCase() as any}
                                                   className="text-xs"
                                                 >
                                                   {move.type}
@@ -1410,7 +1486,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
             </Dialog>
           </div>
           <div className="flex flex-col gap-2">
-            <Label htmlFor={`nature-${index}`} className="label-text">
+            <Label htmlFor={`nature-${index}`} className="table-header-label">
               Nature
             </Label>
             <Dialog
@@ -1495,7 +1571,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
             </Dialog>
           </div>
           <div className="flex flex-col gap-2">
-            <Label htmlFor={`item-${index}`} className="label-text">
+            <Label htmlFor={`item-${index}`} className="table-header-label">
               Held Item
             </Label>
             <Dialog
@@ -1520,11 +1596,14 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                 >
                   {entry.item ? (
                     <Image
-                      src={`/sprites/items/${getItemSpriteName(entry.item)}.png`}
+                      src={`/sprites/items/${entry.item?.toLowerCase()?.replace(/[\s'-]/g, '') || 'unknown'}.png`}
                       width={24}
                       height={24}
                       alt={entry.item}
                       className="rounded-sm"
+                      onError={(e) => {
+                        e.currentTarget.src = '/sprites/items/pokeball.png';
+                      }}
                     />
                   ) : (
                     <></>
@@ -1585,16 +1664,19 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                               }}
                             >
                               <Image
-                                src={`/sprites/items/${getItemSpriteName(item.name)}.png`}
+                                src={`/sprites/items/${item.id || 'unknown'}.png`}
                                 width={24}
                                 height={24}
                                 alt={item.name}
                                 className="rounded-sm"
+                                onError={(e) => {
+                                  e.currentTarget.src = '/sprites/items/pokeball.png';
+                                }}
                               />
                               <div className="flex flex-col items-start">
                                 <span className="font-medium">{item.name}</span>
-                                <span className="text-xs text-muted-foreground">
-                                  {item.description}
+                                <span className="text-xs text-muted-foreground capitalize">
+                                  {item.category}
                                 </span>
                               </div>
                             </Button>
@@ -1705,7 +1787,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                     <div className="flex items-center gap-3">
                       <div className="flex-1 flex flex-col gap-1">
                         <div className="flex items-center gap-2">
-                          <label className="label-text w-10">{STAT_NAMES[stat]}</label>
+                          <label className="table-header-label w-10">{STAT_NAMES[stat]}</label>
                           <span className="text-xs w-8 text-center">{currentEV}</span>
                           <Slider
                             value={[currentEV]}

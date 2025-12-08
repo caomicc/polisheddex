@@ -1,0 +1,667 @@
+{
+  "id": "moonblast",
+  "versions": {
+    "faithful": {
+      "name": "Moonblast",
+      "description": "An attack that may lower Sp.Atk.",
+      "power": 95,
+      "type": "fairy",
+      "accuracy": 100,
+      "pp": 15,
+      "effectChance": 30,
+      "category": "special",
+      "learners": [
+        {
+          "id": "bayleef",
+          "name": "Bayleef",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 64
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "bellossom",
+          "name": "Bellossom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "celebi",
+          "name": "Celebi",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ],
+          "types": [
+            "psychic",
+            "grass"
+          ]
+        },
+        {
+          "id": "chikorita",
+          "name": "Chikorita",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 56
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "clefairy",
+          "name": "Clefairy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "gloom",
+          "name": "Gloom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "name": "Hoothoot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "igglybuff",
+          "name": "Igglybuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "jigglypuff",
+          "name": "Jigglypuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "meganium",
+          "name": "Meganium",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 80
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "muk",
+          "name": "Muk",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "muk",
+          "name": "Muk",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "poison",
+            "dark"
+          ]
+        },
+        {
+          "id": "noctowl",
+          "name": "Noctowl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 51
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "oddish",
+          "name": "Oddish",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "ponyta",
+          "name": "Ponyta",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "rapidash",
+          "name": "Rapidash",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            }
+          ],
+          "types": [
+            "psychic",
+            "fairy"
+          ]
+        },
+        {
+          "id": "sylveon",
+          "name": "Sylveon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "name": "Ursaluna",
+          "form": "bloodmoon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 58
+            }
+          ],
+          "types": [
+            "ground",
+            "normal"
+          ]
+        },
+        {
+          "id": "vileplume",
+          "name": "Vileplume",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "vulpix",
+          "name": "Vulpix",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ],
+          "types": [
+            "ice"
+          ]
+        },
+        {
+          "id": "weezing",
+          "name": "Weezing",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ],
+          "types": [
+            "poison",
+            "fairy"
+          ]
+        },
+        {
+          "id": "wigglytuff",
+          "name": "Wigglytuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Moonblast",
+      "description": "An attack that may lower Sp.Atk.",
+      "power": 95,
+      "type": "fairy",
+      "accuracy": 100,
+      "pp": 15,
+      "effectChance": 30,
+      "category": "special",
+      "learners": [
+        {
+          "id": "bayleef",
+          "name": "Bayleef",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 64
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "bellossom",
+          "name": "Bellossom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            }
+          ],
+          "types": [
+            "grass",
+            "fairy"
+          ]
+        },
+        {
+          "id": "celebi",
+          "name": "Celebi",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ],
+          "types": [
+            "grass",
+            "fairy"
+          ]
+        },
+        {
+          "id": "chikorita",
+          "name": "Chikorita",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 56
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "clefairy",
+          "name": "Clefairy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "gloom",
+          "name": "Gloom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "name": "Hoothoot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "igglybuff",
+          "name": "Igglybuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "jigglypuff",
+          "name": "Jigglypuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "meganium",
+          "name": "Meganium",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 80
+            }
+          ],
+          "types": [
+            "grass",
+            "fairy"
+          ]
+        },
+        {
+          "id": "muk",
+          "name": "Muk",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "muk",
+          "name": "Muk",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "poison",
+            "dark"
+          ]
+        },
+        {
+          "id": "noctowl",
+          "name": "Noctowl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 51
+            }
+          ],
+          "types": [
+            "ghost",
+            "flying"
+          ]
+        },
+        {
+          "id": "oddish",
+          "name": "Oddish",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "ponyta",
+          "name": "Ponyta",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "rapidash",
+          "name": "Rapidash",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            }
+          ],
+          "types": [
+            "psychic",
+            "fairy"
+          ]
+        },
+        {
+          "id": "sylveon",
+          "name": "Sylveon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "ursaluna",
+          "name": "Ursaluna",
+          "form": "bloodmoon",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 58
+            }
+          ],
+          "types": [
+            "ground",
+            "normal"
+          ]
+        },
+        {
+          "id": "vileplume",
+          "name": "Vileplume",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "vulpix",
+          "name": "Vulpix",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ],
+          "types": [
+            "ice"
+          ]
+        },
+        {
+          "id": "weezing",
+          "name": "Weezing",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ],
+          "types": [
+            "poison",
+            "fairy"
+          ]
+        },
+        {
+          "id": "wigglytuff",
+          "name": "Wigglytuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        }
+      ]
+    }
+  }
+}

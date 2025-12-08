@@ -1,0 +1,1570 @@
+{
+  "id": "gyroball",
+  "versions": {
+    "faithful": {
+      "name": "Gyro Ball",
+      "description": "Does more damage at lower speed.",
+      "power": 1,
+      "type": "steel",
+      "accuracy": 100,
+      "pp": 5,
+      "effectChance": 0,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "blastoise",
+          "name": "Blastoise",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "donphan",
+          "name": "Donphan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "threesegment",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "dunsparce",
+          "name": "Dunsparce",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "electrode",
+          "name": "Electrode",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 54
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "electrode",
+          "name": "Electrode",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 54
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "grass"
+          ]
+        },
+        {
+          "id": "forretress",
+          "name": "Forretress",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "steel"
+          ]
+        },
+        {
+          "id": "geodude",
+          "name": "Geodude",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "geodude",
+          "name": "Geodude",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "electric"
+          ]
+        },
+        {
+          "id": "golem",
+          "name": "Golem",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 60
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "golem",
+          "name": "Golem",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 60
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "electric"
+          ]
+        },
+        {
+          "id": "graveler",
+          "name": "Graveler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "graveler",
+          "name": "Graveler",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "electric"
+          ]
+        },
+        {
+          "id": "hitmontop",
+          "name": "Hitmontop",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 42
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "jigglypuff",
+          "name": "Jigglypuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 35
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "koffing",
+          "name": "Koffing",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "lickilicky",
+          "name": "Lickilicky",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 61
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "magcargo",
+          "name": "Magcargo",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "rock"
+          ]
+        },
+        {
+          "id": "magnemite",
+          "name": "Magnemite",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "steel"
+          ]
+        },
+        {
+          "id": "magneton",
+          "name": "Magneton",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 53
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "steel"
+          ]
+        },
+        {
+          "id": "magnezone",
+          "name": "Magnezone",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 53
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "steel"
+          ]
+        },
+        {
+          "id": "meowth",
+          "name": "Meowth",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel"
+          ]
+        },
+        {
+          "id": "mew",
+          "name": "Mew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "miltank",
+          "name": "Miltank",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "omanyte",
+          "name": "Omanyte",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "omastar",
+          "name": "Omastar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "onix",
+          "name": "Onix",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "overqwil",
+          "name": "Overqwil",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark",
+            "poison"
+          ]
+        },
+        {
+          "id": "perrserker",
+          "name": "Perrserker",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel"
+          ]
+        },
+        {
+          "id": "pineco",
+          "name": "Pineco",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 42
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug"
+          ]
+        },
+        {
+          "id": "qwilfish",
+          "name": "Qwilfish",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "poison"
+          ]
+        },
+        {
+          "id": "qwilfish",
+          "name": "Qwilfish",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark",
+            "poison"
+          ]
+        },
+        {
+          "id": "sandshrew",
+          "name": "Sandshrew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "sandshrew",
+          "name": "Sandshrew",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "steel"
+          ]
+        },
+        {
+          "id": "sandslash",
+          "name": "Sandslash",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 38
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "sandslash",
+          "name": "Sandslash",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "steel"
+          ]
+        },
+        {
+          "id": "shuckle",
+          "name": "Shuckle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "rock"
+          ]
+        },
+        {
+          "id": "squirtle",
+          "name": "Squirtle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "starmie",
+          "name": "Starmie",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "staryu",
+          "name": "Staryu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "steelix",
+          "name": "Steelix",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel",
+            "ground"
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "name": "Typhlosion",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "name": "Typhlosion",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "ghost"
+          ]
+        },
+        {
+          "id": "voltorb",
+          "name": "Voltorb",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "voltorb",
+          "name": "Voltorb",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "grass"
+          ]
+        },
+        {
+          "id": "wartortle",
+          "name": "Wartortle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "weezing",
+          "name": "Weezing",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "weezing",
+          "name": "Weezing",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "fairy"
+          ]
+        },
+        {
+          "id": "wigglytuff",
+          "name": "Wigglytuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Gyro Ball",
+      "description": "Does more damage at lower speed.",
+      "power": 1,
+      "type": "steel",
+      "accuracy": 100,
+      "pp": 5,
+      "effectChance": 0,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "blastoise",
+          "name": "Blastoise",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "steel"
+          ]
+        },
+        {
+          "id": "donphan",
+          "name": "Donphan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "dragon"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "threesegment",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "dragon"
+          ]
+        },
+        {
+          "id": "dunsparce",
+          "name": "Dunsparce",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "ground"
+          ]
+        },
+        {
+          "id": "electrode",
+          "name": "Electrode",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 54
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "electrode",
+          "name": "Electrode",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 54
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "grass"
+          ]
+        },
+        {
+          "id": "forretress",
+          "name": "Forretress",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "steel"
+          ]
+        },
+        {
+          "id": "geodude",
+          "name": "Geodude",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "geodude",
+          "name": "Geodude",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "electric"
+          ]
+        },
+        {
+          "id": "golem",
+          "name": "Golem",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 60
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "golem",
+          "name": "Golem",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 60
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "electric"
+          ]
+        },
+        {
+          "id": "graveler",
+          "name": "Graveler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "graveler",
+          "name": "Graveler",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "electric"
+          ]
+        },
+        {
+          "id": "hitmontop",
+          "name": "Hitmontop",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 42
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "jigglypuff",
+          "name": "Jigglypuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 35
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "koffing",
+          "name": "Koffing",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "lickilicky",
+          "name": "Lickilicky",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 61
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "magcargo",
+          "name": "Magcargo",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "rock"
+          ]
+        },
+        {
+          "id": "magnemite",
+          "name": "Magnemite",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "steel"
+          ]
+        },
+        {
+          "id": "magneton",
+          "name": "Magneton",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 53
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "steel"
+          ]
+        },
+        {
+          "id": "magnezone",
+          "name": "Magnezone",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 53
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "steel"
+          ]
+        },
+        {
+          "id": "meowth",
+          "name": "Meowth",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel"
+          ]
+        },
+        {
+          "id": "mew",
+          "name": "Mew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "miltank",
+          "name": "Miltank",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "omanyte",
+          "name": "Omanyte",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "omastar",
+          "name": "Omastar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "onix",
+          "name": "Onix",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "overqwil",
+          "name": "Overqwil",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark",
+            "poison"
+          ]
+        },
+        {
+          "id": "perrserker",
+          "name": "Perrserker",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel"
+          ]
+        },
+        {
+          "id": "pineco",
+          "name": "Pineco",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 42
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug"
+          ]
+        },
+        {
+          "id": "qwilfish",
+          "name": "Qwilfish",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "poison"
+          ]
+        },
+        {
+          "id": "qwilfish",
+          "name": "Qwilfish",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "dark",
+            "poison"
+          ]
+        },
+        {
+          "id": "sandshrew",
+          "name": "Sandshrew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "sandshrew",
+          "name": "Sandshrew",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 34
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "steel"
+          ]
+        },
+        {
+          "id": "sandslash",
+          "name": "Sandslash",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 38
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ground"
+          ]
+        },
+        {
+          "id": "sandslash",
+          "name": "Sandslash",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "ice",
+            "steel"
+          ]
+        },
+        {
+          "id": "shuckle",
+          "name": "Shuckle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "bug",
+            "rock"
+          ]
+        },
+        {
+          "id": "squirtle",
+          "name": "Squirtle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "starmie",
+          "name": "Starmie",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "staryu",
+          "name": "Staryu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 24
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "steelix",
+          "name": "Steelix",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "steel",
+            "ground"
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "name": "Typhlosion",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "ground"
+          ]
+        },
+        {
+          "id": "typhlosion",
+          "name": "Typhlosion",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "fire",
+            "ghost"
+          ]
+        },
+        {
+          "id": "voltorb",
+          "name": "Voltorb",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "voltorb",
+          "name": "Voltorb",
+          "form": "hisuian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "electric",
+            "grass"
+          ]
+        },
+        {
+          "id": "wartortle",
+          "name": "Wartortle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "weezing",
+          "name": "Weezing",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison"
+          ]
+        },
+        {
+          "id": "weezing",
+          "name": "Weezing",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            },
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "poison",
+            "fairy"
+          ]
+        },
+        {
+          "id": "wigglytuff",
+          "name": "Wigglytuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "tm"
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        }
+      ]
+    }
+  },
+  "tm": {
+    "number": "tm74",
+    "location": "magnettunnel"
+  }
+}

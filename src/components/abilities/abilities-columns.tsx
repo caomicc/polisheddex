@@ -5,14 +5,9 @@ import { ArrowUpDown, ArrowUp, ArrowDown, ExternalLink } from 'lucide-react';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import { accentInsensitiveIncludes } from '@/utils/stringUtils';
+import { AbilityData } from '@/types/new';
 
-interface Ability {
-  id: string;
-  name?: string;
-  description?: string;
-}
-
-export const abilityColumns: ColumnDef<Ability>[] = [
+export const abilityColumns = (version: string): ColumnDef<AbilityData>[] => [
   {
     accessorKey: 'name',
     header: ({ column }) => {
@@ -20,7 +15,7 @@ export const abilityColumns: ColumnDef<Ability>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           Name
           {column.getIsSorted() === 'desc' ? (
@@ -66,7 +61,7 @@ export const abilityColumns: ColumnDef<Ability>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           Description
           {column.getIsSorted() === 'desc' ? (
@@ -82,8 +77,8 @@ export const abilityColumns: ColumnDef<Ability>[] = [
     cell: ({ row }) => {
       const ability = row.original;
       return (
-        <div className="text-cell max-w-md truncate">
-          {ability.description || 'No description available'}
+        <div className="table-cell-text max-w-md truncate">
+          {ability.versions[version].description || 'No description available'}
         </div>
       );
     },

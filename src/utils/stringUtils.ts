@@ -1,5 +1,291 @@
-import { KNOWN_FORMS } from '../data/constants.ts';
-import { normalizeString } from './stringNormalizer/stringNormalizer.ts';
+// import { KNOWN_FORMS } from '../data/constants.ts';
+/**
+ * String normalizer for Pokémon move names and related strings
+ * Handles various formats like camelCase, SNAKE_CASE, prefixed and suffixed variants
+ */
+
+/**
+ * Removes common prefixes and suffixes from move-related strings
+ */
+const stripAffixes = (str: string): string => {
+  // Common prefixes to strip
+  const prefixes = ['BattleAnim_', 'Sfx_'];
+
+  // Common suffixes to strip
+  const suffixes = ['Description'];
+
+  let result = str;
+
+  // Strip prefixes
+  for (const prefix of prefixes) {
+    if (result.startsWith(prefix)) {
+      result = result.substring(prefix.length);
+      break;
+    }
+  }
+
+  // Strip suffixes
+  for (const suffix of suffixes) {
+    if (result.endsWith(suffix)) {
+      result = result.substring(0, result.length - suffix.length);
+      break;
+    }
+  }
+
+  return result;
+};
+
+/**
+ * Converts a string to a standardized format
+ * - Strips common prefixes and suffixes
+ * - Normalizes to Capital Case (e.g., "Thunder Shock")
+ * - Handles special cases
+ */
+export const normalizeString = (str: string): string => {
+  // Special cases that need direct mapping due to conflicts or inconsistencies
+  const specialCases: Record<string, string> = {
+    NIGHT_SLASH: 'Night Slash',
+    SLASH: 'Slash',
+    NightSlashDescription: 'Night Slash',
+    SlashDescription: 'Slash',
+    PSYCHIC_M: 'Psychic', // Special case for PSYCHIC move constant
+    PsychicM: 'Psychic', // CamelCase variant
+    'Psychic M': 'Psychic', // Space variant
+    'Ho-Oh': 'Ho-Oh', // Special case for Ho-Oh
+    'Ho Oh': 'Ho-Oh', // Special case for Ho-Oh
+    Hooh: 'Ho-Oh', // Another variant for Ho-Oh
+    HoOh: 'Ho-Oh', // Another variant for Ho-Oh
+    HOOH: 'Ho-Oh', // Uppercase variant
+    'ho oh': 'Ho-Oh', // Lowercase with space
+    'ho-oh': 'Ho-Oh', // Lowercase with hyphen
+    ho_oh: 'Ho-Oh', // Special case for file name format
+    HO_OH: 'Ho-Oh', // Special case for ASM constant format
+    'porygon -z': 'porygon-z', // Special case for porygon-z
+    'porygon-z': 'porygon-Z', // Special case for porygon-z
+    'Porygon Z': 'porygon-z', // Special case for porygon-z
+    PorygonZ: 'porygon-z', // Another variant for porygon-z
+    'PORYGON-Z': 'porygon-z', // Uppercase variant
+    'PORYGON -Z': 'porygon-z', // Uppercase variant
+    // 'porygon-z': 'porygon-z', // Lowercase with hyphen
+    'porygon z': 'porygon-z', // Lowercase with space
+    porygon_z: 'porygon-z', // Special case for file name format
+    PORYGON_Z: 'porygon-z', // Special case for ASM constant format
+    'Mr. Mime': 'Mr-Mime', // Special case for Mr. Mime
+    'Mr Mime': 'Mr-Mime', // Special case for Mr. Mime
+    'MR. MIME': 'Mr-Mime', // Uppercase variant
+    'mr. mime': 'Mr-Mime', // Lowercase with space
+    'mr mime': 'Mr-Mime', // Lowercase with space
+    mr_mime: 'Mr-Mime', // Special case for file name format
+    mr__mime: 'Mr-Mime', // Special case for file name format with double underscore
+    MR_MIME: 'Mr-Mime', // Special case for ASM constant format
+    MR__MIME: 'Mr-Mime', // Special case for ASM constant format with double underscore
+    'Mr. Rime': 'mr-rime', // Special case for Mr. Rime
+    'Mr Rime': 'mr-rime', // Special case for Mr. Rime
+    'MR. RIME': 'mr-rime', // Uppercase variant
+    'mr. rime': 'mr-rime', // Lowercase with space
+    'mr rime': 'mr-rime', // Lowercase with space
+    mr_rime: 'mr-rime', // Special case for file name format
+    mr__rime: 'mr-rime', // Special case for file name format with double underscore
+    MR_RIME: 'mr-rime', // Special case for ASM constant format
+    MR__RIME: 'mr-rime', // Special case for ASM constant format with double underscore
+    MrMime: 'Mr-Mime', // CamelCase variant
+    MrRime: 'mr-rime', // CamelCase variant for Mr. Rime
+
+    'Mime Jr.': 'Mime-Jr', // Special case for Mime Jr.
+    'Mime Jr': 'Mime-Jr', // Special case for Mime Jr.
+    'MIME JR.': 'Mime-Jr', // Uppercase variant
+    'mime jr.': 'Mime-Jr', // Lowercase with space
+    'mime jr': 'Mime-Jr', // Lowercase with space
+    mime_jr: 'Mime-Jr', // Special case for file name format
+    mime_jr_: 'Mime-Jr', // Special case for file name format with trailing underscore
+    MIME_JR: 'Mime-Jr', // Special case for ASM constant format
+    MIME_JR_: 'Mime-Jr', // Special case for ASM constant format with trailing underscore
+    MimeJr: 'Mime-Jr', // CamelCase variant
+
+    // Nidoran♀ special cases
+    'nidoran F': 'Nidoran-F',
+    'Nidoran F': 'Nidoran-F',
+    'Nidoran♀': 'Nidoran-F',
+    'Nidoran♀Description': 'Nidoran-F',
+    'NIDORAN♀': 'Nidoran-F',
+    'nidoran♀': 'Nidoran-F',
+    'Nidoran-F': 'Nidoran-F',
+    NIDORAN_F: 'Nidoran-F',
+    nidoran_f: 'Nidoran-F',
+    NidoranF: 'Nidoran-F',
+    NIDORANF: 'Nidoran-F',
+    nidoranf: 'Nidoran-F',
+
+    'nidoran M': 'Nidoran-M',
+    'Nidoran M': 'Nidoran-M',
+    'Nidoran♂': 'Nidoran-M',
+    'Nidoran♂Description': 'Nidoran-M',
+    'NIDORAN♂': 'Nidoran-M',
+    'nidoran♂': 'Nidoran-M',
+    'Nidoran-M': 'Nidoran-M',
+    NIDORAN_M: 'Nidoran-M',
+    nidoran_m: 'Nidoran-M',
+    NidoranM: 'Nidoran-M',
+    NIDORANM: 'Nidoran-M',
+    nidoranm: 'Nidoran-M',
+
+    "Farfetch'd": 'Farfetch-d', // Special case for Farfetch'd
+    'Farfetch D': 'Farfetch-d', // Special case for Farfetch'd
+    "FARFETCH'D": 'Farfetch-d', // Uppercase variant
+    "farfetch'd": 'Farfetch-d', // Lowercase with apostrophe
+    'farfetch d': 'Farfetch-d', // Lowercase with space
+    farfetch_d: 'Farfetch-d', // Special case for file name format
+    FARFETCH_D: 'Farfetch-d', // Special case for ASM constant format
+    Farfetchd: 'Farfetch-d', // CamelCase variant
+    FarfetchdDescription: 'Farfetch-d', // Description variant
+    FarfetchD: 'Farfetch-d', // Another variant for Farfetch'd
+
+    "Sirfetch'd": 'Sirfetch-d', // Special case for Sirfetch'd
+    'Sirfetch D': 'Sirfetch-d', // Special case for Sirfetch'd
+    "SIRFETCH'D": 'Sirfetch-d', // Uppercase variant
+    "sirfetch'd": 'Sirfetch-d', // Lowercase with apostrophe
+    'sirfetch d': 'Sirfetch-d', // Lowercase with space
+    sirfetch_d: 'Sirfetch-d', // Special case for file name format
+    SIRFETCH_D: 'Sirfetch-d', // Special case for ASM constant format
+    Sirfetchd: 'Sirfetch-d', // CamelCase variant
+    SirfetchdDescription: 'Sirfetch-d', // Description variant
+    SirfetchD: 'Sirfetch-d', // Another variant for Sirfetch'd
+  };
+
+  // Check if this is a special case that needs direct mapping
+  if (specialCases[str]) {
+    console.log(`Found special case: "${str}" → "${specialCases[str]}"`);
+    return specialCases[str];
+  }
+
+  // Remove common prefixes and suffixes
+  let normalized = stripAffixes(str);
+
+  // Convert to words array for processing
+  let words: string[] = [];
+
+  // Handle SNAKE_CASE (all uppercase with underscores)
+  if (normalized === normalized.toUpperCase() && normalized.includes('_')) {
+    // Split by underscore
+    words = normalized.toLowerCase().split('_');
+  }
+  // Handle space separated strings (e.g., "Wild Charge")
+  else if (normalized.includes(' ')) {
+    words = normalized.toLowerCase().split(' ');
+  }
+  // Handle PascalCase (e.g., "ThunderShock") or camelCase
+  else if (!normalized.includes('_') && normalized !== normalized.toUpperCase()) {
+    // Insert space before capital letters to split into words
+    const withSpaces = normalized.replace(/([A-Z])/g, ' $1').trim();
+    words = withSpaces
+      .toLowerCase()
+      .split(' ')
+      .filter((word) => word.length > 0);
+  }
+  // Handle ALL_CAPS without underscores
+  else if (normalized === normalized.toUpperCase() && !normalized.includes('_')) {
+    words = [normalized.toLowerCase()];
+  }
+
+  // Convert to Capital Case (first letter of each word capitalized)
+  normalized = words
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+
+  return normalized;
+};
+
+/**
+ * Get a move name from any variant of the string
+ * @param str Any variant of a move name string
+ * @returns Normalized move name
+ */
+export const normalizeMoveString = (str: string): string => {
+  return normalizeString(str);
+};
+
+/**
+ * Tests the normalizer with various edge cases
+ */
+export const runNormalizerTests = (): void => {
+  const testCases: [string, string][] = [
+    // Format: [input, expected output]
+    ['ThunderShock', 'Thunder Shock'],
+    ['ThundershockDescription', 'Thundershock'],
+    ['Sfx_Thundershock', 'Thundershock'],
+    ['THUNDERSHOCK', 'Thundershock'],
+
+    ['EXTREMESPEED', 'Extreme Speed'],
+    ['BattleAnim_Extremespeed', 'Extremespeed'],
+    ['ExtremespeedDescription', 'Extremespeed'],
+    ['ExtremeSpeed', 'Extreme Speed'],
+
+    ['DOUBLE_SLAP', 'Double Slap'],
+    ['DoubleSlap', 'Double Slap'],
+    ['DoubleSlapDescription', 'Double Slap'],
+    ['BattleAnim_DoubleSlap', 'Double Slap'],
+
+    ['Wild Charge', 'Wild Charge'],
+    ['WildChargeDescription', 'Wild Charge'],
+    ['WILD_CHARGE', 'Wild Charge'],
+    ['BattleAnim_WildCharge', 'Wild Charge'],
+
+    ['Disarm Voice', 'Disarm Voice'],
+    ['DisarmVoiceDescription', 'Disarm Voice'],
+    ['DISARM_VOICE', 'Disarm Voice'],
+
+    ['Slash', 'Slash'],
+    ['SLASH', 'Slash'],
+    ['SlashDescription', 'Slash'],
+
+    ['Night Slash', 'Night Slash'],
+    ['NIGHT_SLASH', 'Night Slash'],
+    ['NightSlashDescription', 'Night Slash'],
+
+    ['Extrasensory', 'Extrasensory'],
+    ['EXTRASENSORY', 'Extrasensory'],
+
+    ['Healinglight', 'Healing Light'],
+    ['HEALINGLIGHT', 'Healing Light'],
+    ['BattleAnim_HealingLight', 'Healing Light'],
+    ['HealingLight', 'Healing Light'],
+
+    ['Future Sight', 'Future Sight'],
+    ['FutureSight', 'Future Sight'],
+    ['FUTURE_SIGHT', 'Future Sight'],
+
+    ['Nasty Plot', 'Nasty Plot'],
+    ['NASTY_PLOT', 'Nasty Plot'],
+    ['NastyPlot', 'Nasty Plot'],
+
+    ['Foresight', 'Foresight'],
+    ['FORESIGHT', 'Foresight'],
+    ['ForesightDescription', 'Foresight'],
+  ];
+
+  console.log('Running normalizer tests:');
+  console.log('------------------------');
+
+  let passed = 0;
+  let failed = 0;
+
+  for (const [input, expected] of testCases) {
+    const result = normalizeMoveString(input);
+    const testPassed = result === expected;
+
+    if (testPassed) {
+      passed++;
+      console.log(`✅ "${input}" → "${result}"`);
+    } else {
+      failed++;
+      console.log(`❌ "${input}" → "${result}" (expected: "${expected}")`);
+    }
+  }
+
+  console.log('------------------------');
+  console.log(`Results: ${passed} passed, ${failed} failed`);
+  console.log(`Success rate: ${Math.round((passed / testCases.length) * 100)}%`);
+};
 
 // Helper to convert move names to Capital Case with spaces
 // This is useful for displaying move names in a user-friendly format
@@ -18,44 +304,6 @@ export function normalizeAsmLabelToMoveKey(label: string) {
     .replace(/([a-z])([A-Z])/g, '$1_$2') // lowerUpper -> lower_Upper
     .replace(/([A-Z]+)([A-Z][a-z])/g, '$1_$2') // ABBRWord -> ABBR_Word
     .toUpperCase();
-}
-
-// old alias
-export function toTitleCase(str: string) {
-  return normalizeString(str);
-  // .toLowerCase()
-  // .replace(/(^|_|\s|-)([a-z])/g, (_, sep, c) => sep + c.toUpperCase())
-  // .replace(/_/g, '');
-}
-
-// Helper to standardize Pokemon key names across the codebase
-export function standardizePokemonKey(name: string): string {
-  // First, trim any whitespace from the name to avoid trailing space
-  let trimmedName = name.trim();
-
-  // Special handling for Paldean forms that need specific treatment
-  if (trimmedName.toLowerCase().includes(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase())) {
-    return toTitleCase(
-      trimmedName
-        .substring(0, trimmedName.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase()))
-        .toLowerCase(),
-    );
-  } else if (trimmedName.toLowerCase().includes(KNOWN_FORMS.PALDEAN_WATER.toLowerCase())) {
-    return toTitleCase(
-      trimmedName
-        .substring(0, trimmedName.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_WATER.toLowerCase()))
-        .toLowerCase(),
-    );
-  }
-
-  // Create a regex pattern using all the known forms from our constant
-  const formSuffixPattern = new RegExp(`(${Object.values(KNOWN_FORMS).join('|')})$`, 'i');
-
-  // Remove any form suffixes
-  const baseName = trimmedName.replace(formSuffixPattern, '');
-
-  // Convert to title case and remove any case inconsistencies
-  return toTitleCase(baseName.trim());
 }
 
 // --- NOTE: parseDexEntries has been moved to a Node-only file (parseDexEntries.node.ts) ---
@@ -89,37 +337,6 @@ export function parseWildmonLine(
   };
 }
 
-export function normalizeMonName(
-  name: string,
-  formStr: string | null,
-): { baseName: string; formName: string | null } {
-  // Trim and convert to TitleCase, then remove any trailing spaces
-  const baseName = toTitleCase(name).trimEnd();
-
-  let formName: string | null = null;
-
-  if (formStr) {
-    if (formStr === 'ALOLAN_FORM') {
-      formName = KNOWN_FORMS.ALOLAN;
-    } else if (formStr === 'GALARIAN_FORM') {
-      formName = KNOWN_FORMS.GALARIAN;
-    } else if (formStr === 'HISUIAN_FORM') {
-      formName = KNOWN_FORMS.HISUIAN;
-    } else if (formStr === 'PALDEAN_FORM') {
-      formName = KNOWN_FORMS.PALDEAN;
-    } else if (formStr === 'TAUROS_PALDEAN_FIRE_FORM') {
-      formName = KNOWN_FORMS.PALDEAN_FIRE;
-    } else if (formStr === 'TAUROS_PALDEAN_WATER_FORM') {
-      formName = KNOWN_FORMS.PALDEAN_WATER;
-    } else if (formStr === 'PLAIN_FORM' || formStr.includes('PLAIN')) {
-      formName = null;
-    } else {
-      formName = toTitleCase(formStr).trimEnd();
-    }
-  }
-
-  return { baseName, formName };
-}
 // Helper functions to convert game codes to human-readable strings
 export function convertGenderCode(code: string): { male: number; female: number } {
   const genderCodes: Record<string, { male: number; female: number }> = {
@@ -495,15 +712,21 @@ export function inferLocationRegion(locationKey: string): 'johto' | 'kanto' | 'o
   return 'johto';
 }
 /**
- * Format move name from ASM format to display format
+ * Format move name from ASM format or camelCase to display format
+ * Handles: PSYCHIC_M, takedown, wingAttack, WING_ATTACK, etc.
  */
-export function formatMoveName(asmName: string): string {
-  // Special cases
-  if (asmName === 'PSYCHIC_M') return 'Psychic';
+export function formatMoveName(move: string): string {
+  if (!move) return '';
 
-  // Replace underscores with spaces and convert to title case
-  return asmName
+  // Special cases
+  if (move === 'PSYCHIC_M' || move === 'psychic_m') return 'Psychic';
+
+  return move
+    // Insert space before uppercase letters in camelCase (e.g., wingAttack -> wing Attack)
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    // Replace underscores with spaces
     .replace(/_/g, ' ')
+    // Split and capitalize each word
     .split(' ')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(' ');
@@ -541,4 +764,16 @@ export function accentInsensitiveIncludes(text: string, searchTerm: string): boo
 // Helper function to capitalize first letter
 export function capitalizeFirstLetter(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+
+export function formatItemName(item: string): string {
+  return item
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/_/g, ' ')
+    .replace(/stone$/i, ' Stone')
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ')
+    .trim();
 }

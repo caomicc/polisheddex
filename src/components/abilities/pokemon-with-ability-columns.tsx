@@ -2,17 +2,15 @@
 
 import { ColumnDef } from '@tanstack/react-table';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react';
+import { ArrowDown, ArrowUp, ArrowUpDown, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
-import { PokemonWithAbility } from '@/utils/loaders/ability-data-loader';
-import {
-  formatPokemonDisplayWithForm,
-  formatPokemonUrlWithForm,
-  getFormTypeClass,
-} from '@/utils/pokemonFormUtils';
+import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
 import { PokemonSprite } from '../pokemon/pokemon-sprite';
-import { PokemonType } from '@/types/types';
+import { AbilityData } from '@/types/new';
+
+// Define the type for individual Pokemon with ability entries
+type PokemonWithAbility = NonNullable<AbilityData['versions'][string]['pokemon']>[number];
 
 export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
   {
@@ -20,30 +18,22 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     id: 'sprite',
     header: '',
     cell: ({ row }) => {
-      const { pokemon } = row.original;
-      const primaryType =
-        Array.isArray(pokemon.types) && pokemon.types.length > 0
-          ? pokemon.types[0].toLowerCase()
-          : 'unknown';
-
+      const pokemon = row.original;
+      const normalizedName = normalizePokemonUrlKey(pokemon.name).toLowerCase();
+      const pokemonUrl =
+        pokemon.form && pokemon.form !== 'plain'
+          ? `/pokemon/${normalizedName}?form=${encodeURIComponent(String(pokemon.form))}`
+          : `/pokemon/${normalizedName}`;
       return (
         <div className="">
-          <Link
-            className="table-link"
-            href={formatPokemonUrlWithForm(
-              pokemon.name,
-              pokemon.form ? pokemon.form.toString() : 'plain',
-            )}
-          >
+          <Link className="table-link" href={pokemonUrl}>
             <PokemonSprite
               hoverAnimate={true}
               pokemonName={pokemon.name}
               alt={`${pokemon.name} sprite`}
-              primaryType={primaryType as PokemonType['name']}
               variant="normal"
               type="static"
               form={typeof pokemon.form === 'string' ? pokemon.form : 'plain'}
-              src={pokemon.frontSpriteUrl}
               size="sm"
               className="shadow-none"
             />
@@ -59,7 +49,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     id: 'pokemon',
     header: ({ column }) => {
       return (
-        <Button className="-ml-3 label-text" variant="ghost" onClick={() => column.toggleSorting()}>
+        <Button className="-ml-3 table-header-label" variant="ghost" onClick={() => column.toggleSorting()}>
           <>Pokémon</>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -73,34 +63,37 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     },
 
     cell: ({ row }) => {
-      const { pokemon } = row.original;
+      const pokemon = row.original;
+      const normalizedName = normalizePokemonUrlKey(pokemon.name).toLowerCase();
+      const pokemonUrl =
+        pokemon.form && pokemon.form !== 'plain'
+          ? `/pokemon/${normalizedName}?form=${encodeURIComponent(String(pokemon.form))}`
+          : `/pokemon/${normalizedName}`;
       return (
-        <Link
-          href={formatPokemonUrlWithForm(pokemon.name, pokemon.formName || '')}
-          className="table-link"
-        >
-          {formatPokemonDisplayWithForm(pokemon.name)}
-          {pokemon.formName && (
+        <Link href={pokemonUrl} className="table-link">
+          {pokemon.name}
+          {pokemon.form && pokemon.form !== 'plain' && (
             <span
-              className={`text-xs text-muted-foreground block capitalize ${getFormTypeClass(pokemon.formName)}`}
+              // className={`text-xs text-muted-foreground block capitalize ${getFormTypeClass(pokemon.form)}`}
+              className={`text-xs text-muted-foreground block capitalize`}
             >
-              {formatPokemonDisplayWithForm(pokemon.formName.replace(/_form$/, '')) ||
-                pokemon.formName}
+              ({pokemon.form})
             </span>
           )}
+          <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
         </Link>
       );
     },
 
     filterFn: (row, id, value) => {
-      const { pokemon } = row.original;
+      const pokemon = row.original;
       const searchText = value.toLowerCase();
       const pokemonName = pokemon.name.toLowerCase();
       return pokemonName.includes(searchText);
     },
     sortingFn: (rowA, rowB) => {
-      const a = rowA.original.pokemon.name.toLowerCase();
-      const b = rowB.original.pokemon.name.toLowerCase();
+      const a = rowA.original.name.toLowerCase();
+      const b = rowB.original.name.toLowerCase();
       if (a < b) return -1;
       if (a > b) return 1;
       return 0;
@@ -111,7 +104,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     id: 'abilityTypes',
     header: ({ column }) => {
       return (
-        <Button className="-ml-3 label-text" variant="ghost" onClick={() => column.toggleSorting()}>
+        <Button className="-ml-3 table-header-label" variant="ghost" onClick={() => column.toggleSorting()}>
           <>Ability Type</>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -128,8 +121,8 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
 
       return (
         <div className="flex gap-1 flex-wrap">
-          {abilityTypes.map((abilityType) => (
-            <Badge key={abilityType} variant={abilityType}>
+          {abilityTypes.map((abilityType: string) => (
+            <Badge key={abilityType} variant={abilityType as any}>
               {abilityType === 'primary' && 'Primary'}
               {abilityType === 'secondary' && 'Secondary'}
               {abilityType === 'hidden' && 'Hidden'}
@@ -160,45 +153,47 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
   {
     accessorKey: 'types',
     id: 'types',
-    header: () => <span className="label-text">Types</span>,
+    header: ({ column }) => {
+      return (
+        <Button className="-ml-3 table-header-label" variant="ghost" onClick={() => column.toggleSorting()}>
+          <>Type(s)</>
+          {column.getIsSorted() === 'desc' ? (
+            <ArrowDown className="size-3" />
+          ) : column.getIsSorted() === 'asc' ? (
+            <ArrowUp className="size-3" />
+          ) : (
+            <ArrowUpDown className="size-3" />
+          )}
+        </Button>
+      );
+    },
     cell: ({ row }) => {
-      const { pokemon } = row.original;
-      const types = Array.isArray(pokemon.types) ? pokemon.types : [pokemon.types];
-
+      const types = row.original.types;
       return (
         <div className="flex gap-1 flex-wrap">
-          {types.filter(Boolean).map((type: string) => (
-            <Badge
-              key={type}
-              variant={
-                type.toLowerCase() as
-                  | 'normal'
-                  | 'fire'
-                  | 'water'
-                  | 'electric'
-                  | 'grass'
-                  | 'ice'
-                  | 'fighting'
-                  | 'poison'
-                  | 'ground'
-                  | 'flying'
-                  | 'psychic'
-                  | 'bug'
-                  | 'rock'
-                  | 'ghost'
-                  | 'dragon'
-                  | 'dark'
-                  | 'steel'
-                  | 'fairy'
-              }
-              className="text-xs"
-            >
-              {type}
-            </Badge>
-          ))}
+          {types && types.length > 0 ? (
+            types.map((type) => (
+              <Badge key={type} variant={type.toLowerCase() as any}>
+                {type}
+              </Badge>
+            ))
+          ) : (
+            <span className="text-sm text-muted-foreground">Unknown</span>
+          )}
         </div>
       );
     },
-    enableSorting: false,
+    filterFn: (row, id, value) => {
+      const { types } = row.original;
+      if (value === 'all') return true;
+      return types?.includes(value) ?? false;
+    },
+    sortingFn: (rowA, rowB) => {
+      const a = rowA.original.types ? rowA.original.types[0] : '';
+      const b = rowB.original.types ? rowB.original.types[0] : '';
+      if (a < b) return -1;
+      if (a > b) return 1;
+      return 0;
+    },
   },
 ];

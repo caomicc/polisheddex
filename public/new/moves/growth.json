@@ -1,0 +1,707 @@
+{
+  "id": "growth",
+  "versions": {
+    "faithful": {
+      "name": "Growth",
+      "description": "Raises the user's Atk and Sp.Atk.",
+      "power": 0,
+      "type": "normal",
+      "accuracy": 100,
+      "pp": 20,
+      "effectChance": 0,
+      "category": "status",
+      "learners": [
+        {
+          "id": "ariados",
+          "name": "Ariados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "bellossom",
+          "name": "Bellossom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "bellsprout",
+          "name": "Bellsprout",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "bulbasaur",
+          "name": "Bulbasaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "eevee",
+          "name": "Eevee",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "gloom",
+          "name": "Gloom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 54
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "ivysaur",
+          "name": "Ivysaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "oddish",
+          "name": "Oddish",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "paras",
+          "name": "Paras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "parasect",
+          "name": "Parasect",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "poliwag",
+          "name": "Poliwag",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 35
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "poliwhirl",
+          "name": "Poliwhirl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "porygon",
+          "name": "Porygon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "porygon2",
+          "name": "Porygon2",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "porygonz",
+          "name": "Porygon-Z",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "spinarak",
+          "name": "Spinarak",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "sunflora",
+          "name": "Sunflora",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "sunkern",
+          "name": "Sunkern",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "tangela",
+          "name": "Tangela",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "tangrowth",
+          "name": "Tangrowth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "venusaur",
+          "name": "Venusaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "vileplume",
+          "name": "Vileplume",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "weepinbell",
+          "name": "Weepinbell",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Growth",
+      "description": "Raises the user's Atk and Sp.Atk.",
+      "power": 0,
+      "type": "normal",
+      "accuracy": 100,
+      "pp": 20,
+      "effectChance": 0,
+      "category": "status",
+      "learners": [
+        {
+          "id": "ariados",
+          "name": "Ariados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ],
+          "types": [
+            "bug",
+            "dark"
+          ]
+        },
+        {
+          "id": "bellossom",
+          "name": "Bellossom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            }
+          ],
+          "types": [
+            "grass",
+            "fairy"
+          ]
+        },
+        {
+          "id": "bellsprout",
+          "name": "Bellsprout",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "bulbasaur",
+          "name": "Bulbasaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "eevee",
+          "name": "Eevee",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 41
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "gloom",
+          "name": "Gloom",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 54
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "ivysaur",
+          "name": "Ivysaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "oddish",
+          "name": "Oddish",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "paras",
+          "name": "Paras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 33
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "parasect",
+          "name": "Parasect",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ],
+          "types": [
+            "bug",
+            "grass"
+          ]
+        },
+        {
+          "id": "poliwag",
+          "name": "Poliwag",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 35
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "poliwhirl",
+          "name": "Poliwhirl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 43
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "porygon",
+          "name": "Porygon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "porygon2",
+          "name": "Porygon2",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "porygonz",
+          "name": "Porygon-Z",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 23
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "spinarak",
+          "name": "Spinarak",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 19
+            }
+          ],
+          "types": [
+            "bug",
+            "poison"
+          ]
+        },
+        {
+          "id": "sunflora",
+          "name": "Sunflora",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "grass",
+            "fire"
+          ]
+        },
+        {
+          "id": "sunkern",
+          "name": "Sunkern",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 4
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "tangela",
+          "name": "Tangela",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "tangrowth",
+          "name": "Tangrowth",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "venusaur",
+          "name": "Venusaur",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 28
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "vileplume",
+          "name": "Vileplume",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 39
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        },
+        {
+          "id": "weepinbell",
+          "name": "Weepinbell",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 7
+            }
+          ],
+          "types": [
+            "grass",
+            "poison"
+          ]
+        }
+      ]
+    }
+  }
+}

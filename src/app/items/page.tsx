@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { AnyItemData } from '@/types/types';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -11,13 +10,14 @@ import {
 import ItemDataTableSearch from '@/components/items/item-data-table-search';
 import { Hero } from '@/components/ui/Hero';
 import { loadItemsData } from '@/utils/loaders/item-data-loader';
+import { ItemsManifest } from '@/types/new';
 
 export default async function ItemsList() {
   // Load items using the optimized loader
   const itemsData = await loadItemsData();
 
   // Convert to array for the data table
-  const allItems: AnyItemData[] = Object.values(itemsData);
+  const allItems: ItemsManifest[] = Object.values(itemsData);
 
   return (
     <>

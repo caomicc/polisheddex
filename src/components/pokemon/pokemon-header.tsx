@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormData, PokemonType } from '@/types/types';
+// import { PokemonType } from '@/types/types';
 import { Badge } from '../ui/badge';
 import PokemonFormSelect from './pokemon-form-select';
 import {
@@ -12,7 +12,6 @@ import {
 } from '../ui/breadcrumb';
 import Link from 'next/link';
 import { Hero } from '../ui/Hero';
-import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 
 const PokedexHeader = ({
   formData,
@@ -20,45 +19,22 @@ const PokedexHeader = ({
   pokemonName,
   selectedForm,
   setSelectedForm,
-  // usePolished,
 }: {
-  formData: FormData;
+  formData: {
+    name: string;
+    nationalDex: number;
+    types: string[];
+    species: string;
+    description: string;
+  };
   uniqueForms: string[];
   pokemonName: string;
   selectedForm: string;
   setSelectedForm: React.Dispatch<React.SetStateAction<string>>;
-  // usePolished: boolean;
   breadcrumbs?: React.ReactNode;
 }) => {
-  // Desktop version uses the original two-row layout
-
-  // Mobile version uses a compact layout with each row
-  // Determine which types to use for the gradient: faithful (original) or polished (updated)
-  // const usePolished = selectedForm === 'polished' || selectedForm === 'updated'; // Adjust this logic if you have a more explicit trigger
-  const { showFaithful } = useFaithfulPreference();
-  // const faithfulTypes = Array.isArray(formData.types)
-  //   ? formData.types
-  //   : [formData.types].filter(Boolean);
-  // const polishedTypes = Array.isArray(formData.updatedTypes)
-  //   ? formData.updatedTypes
-  //   : [formData.updatedTypes].filter(Boolean);
-
-  // Use selected types based on trigger
-  // const [primaryType, secondaryType] =
-  //   !showFaithful && polishedTypes.length > 0 ? polishedTypes : faithfulTypes;
-
-  // const gradientProps = primaryType
-  //   ? getTypeGradientProps(primaryType.toLowerCase(), secondaryType?.toLowerCase())
-  //   : { className: '', style: {} };
-
   return (
     <Hero
-      // style={gradientProps.style}
-      // className={cn(
-      //   gradientProps.className,
-      //   'pt-24 md:pb-[26px] shadow-lg',
-      //   `shadow-${secondaryType?.toLowerCase() || primaryType?.toLowerCase()}`,
-      // )}
       breadcrumbs={
         <Breadcrumb>
           <BreadcrumbList>
@@ -87,37 +63,20 @@ const PokedexHeader = ({
         </Breadcrumb>
       }
       types={
-        showFaithful ? (
-          <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
-            {(() => {
-              const types = formData.faithfulTypes || formData.types;
-              if (!types) return <Badge variant="secondary">Unknown</Badge>;
-
-              const typeArray = Array.isArray(types) ? types : [types];
-              return typeArray.map((type: string) => (
-                <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
-                  {type}
-                </Badge>
-              ));
-            })()}
-          </div>
-        ) : (
-          <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
-            {(() => {
-              const types = formData.updatedTypes || formData.types;
-              if (!types) return <Badge variant="secondary">Unknown</Badge>;
-
-              const typeArray = Array.isArray(types) ? types : [types];
-              return typeArray.map((type: string) => (
-                <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
-                  {type}
-                </Badge>
-              ));
-            })()}
-          </div>
-        )
+        <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
+          {(() => {
+            const types = formData.types;
+            if (!types) return <Badge variant="secondary">Unknown</Badge>;
+            const typeArray = Array.isArray(types) ? types : [types];
+            return typeArray.map((type: string) => (
+              <Badge key={type} variant={type.toLowerCase() as any}>
+                {type}
+              </Badge>
+            ));
+          })()}
+        </div>
       }
-      image={`/sprites/pokemon/${pokemonName.toLowerCase().replace(/-/g, '_')}${selectedForm && selectedForm !== 'default' ? `_${selectedForm.toLowerCase().replace(/-/g, '_')}` : ''}/normal_front.png`}
+      image={`/sprites/pokemon/${pokemonName.toLowerCase().replace(/-/g, '_')}${selectedForm && selectedForm !== 'plain' ? `_${selectedForm.toLowerCase().replace(/-/g, '_')}` : ''}/normal_front.png`}
       form={selectedForm}
       headline={pokemonName}
     >

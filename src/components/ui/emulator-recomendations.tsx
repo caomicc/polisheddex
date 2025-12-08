@@ -127,14 +127,7 @@ export default function EmulatorRecommendations() {
         </p>
       </div>
 
-      <div className="text-center mt-4 mb-8">
-        <Button variant="outline" asChild>
-          <Link href="/wiki/faq" className="flex items-center gap-2">
-            View Full Compatibility Guide
-            <ExternalLink className="h-3 w-3" />
-          </Link>
-        </Button>
-      </div>
+
     </div>
   );
 }

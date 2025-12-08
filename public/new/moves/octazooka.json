@@ -1,0 +1,170 @@
+{
+  "id": "octazooka",
+  "versions": {
+    "faithful": {
+      "name": "Octazooka",
+      "description": "An attack that may lower accuracy.",
+      "power": 65,
+      "type": "water",
+      "accuracy": 85,
+      "pp": 10,
+      "effectChance": 50,
+      "category": "special",
+      "learners": [
+        {
+          "id": "horsea",
+          "name": "Horsea",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "kingdra",
+          "name": "Kingdra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "dragon"
+          ]
+        },
+        {
+          "id": "octillery",
+          "name": "Octillery",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "remoraid",
+          "name": "Remoraid",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "seadra",
+          "name": "Seadra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Octazooka",
+      "description": "An attack that may lower accuracy.",
+      "power": 75,
+      "type": "water",
+      "accuracy": 95,
+      "pp": 10,
+      "effectChance": 30,
+      "category": "special",
+      "learners": [
+        {
+          "id": "horsea",
+          "name": "Horsea",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "kingdra",
+          "name": "Kingdra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "dragon"
+          ]
+        },
+        {
+          "id": "octillery",
+          "name": "Octillery",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "fire"
+          ]
+        },
+        {
+          "id": "remoraid",
+          "name": "Remoraid",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "seadra",
+          "name": "Seadra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        }
+      ]
+    }
+  }
+}

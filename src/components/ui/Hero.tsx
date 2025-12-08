@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { cn } from '@/lib/utils';
-import { usePokemonType } from '@/contexts/PokemonTypeContext';
+// import { usePokemonType } from '@/contexts/PokemonTypeContext';
 import { PokemonSprite } from '../pokemon/pokemon-sprite';
 
 type HeroProps = React.PropsWithChildren & {
@@ -13,14 +13,25 @@ type HeroProps = React.PropsWithChildren & {
   types?: React.ReactNode;
   style?: React.CSSProperties;
   image?: string;
+  icon?: React.ReactNode; // Custom icon/sprite element
   form?: string; // Optional form prop for specific Pokemon forms
 };
 
 export const Hero: React.FC<HeroProps> = ({ ...props }) => {
-  const { className, headline, description, breadcrumbs, children, style, image, types, form } =
-    props;
+  const {
+    className,
+    headline,
+    description,
+    breadcrumbs,
+    children,
+    style,
+    image,
+    icon,
+    types,
+    form,
+  } = props;
   const heroRef = React.useRef<HTMLDivElement>(null);
-  const { primaryType, getTypeBasedStyles } = usePokemonType();
+  // const { primaryType, getTypeBasedStyles } = usePokemonType();
 
   React.useEffect(() => {
     const heroElement = heroRef.current;
@@ -46,8 +57,8 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
   }, []);
 
   // Get Pokemon type-based styles
-  const typeStyles = getTypeBasedStyles();
-  const hasPokemonTheme = primaryType !== null;
+  // const typeStyles = getTypeBasedStyles();
+  const hasPokemonTheme = false;
 
   // Combine the provided style with type-based styling
   const combinedStyle = React.useMemo(() => {
@@ -73,17 +84,18 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
       {breadcrumbs ? (
         <div
           className="mb-1"
-          style={hasPokemonTheme ? { color: `${typeStyles.textColor} !important` } : undefined}
+          // style={hasPokemonTheme ? { color: `${typeStyles.textColor} !important` } : undefined}
         >
           {breadcrumbs}
         </div>
       ) : null}
       <div className="flex items-center gap-4 relative">
-        {image && (
+        {icon && <div className="relative">{icon}</div>}
+        {image && !icon && (
           <div className="relative">
             <PokemonSprite
               src={image ?? ''}
-              primaryType={primaryType ?? undefined}
+              // primaryType={primaryType ?? undefined}
               alt={`Accent Image to accompany hero`}
               className="mx-auto relative"
               pokemonName={headline?.toString().toLowerCase() || 'egg'}
@@ -108,7 +120,7 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
       {description && (
         <p
           className="text-lg"
-          style={hasPokemonTheme ? { color: `${typeStyles.textColor}CC` } : undefined}
+          // style={hasPokemonTheme ? { color: `${typeStyles.textColor}CC` } : undefined}
         >
           {description}
         </p>

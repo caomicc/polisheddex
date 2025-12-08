@@ -9,17 +9,14 @@ import {
 } from '@/components/ui/breadcrumb';
 import { Hero } from '@/components/ui/Hero';
 import AbilitiesDataTableSearch from '@/components/abilities/abilities-data-table-search';
-import { loadAbilitiesData } from '@/utils/loaders/ability-data-loader';
+import path from 'path';
+import { promises as fs } from 'fs';
 
 export default async function AbilitiesList() {
-  // Load abilities using the optimized loader
-  const abilitiesData = await loadAbilitiesData();
-
-  // Convert to array for the data table with id included
-  const allAbilities = Object.entries(abilitiesData).map(([id, ability]) => ({
-    id,
-    ...ability,
-  }));
+  // Load abilities from manifest
+  const manifestPath = path.join(process.cwd(), 'public/new/abilities_manifest.json');
+  const manifestData = await fs.readFile(manifestPath, 'utf-8');
+  const allAbilities = JSON.parse(manifestData);
 
   return (
     <>

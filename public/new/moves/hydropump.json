@@ -1,0 +1,1247 @@
+{
+  "id": "hydropump",
+  "versions": {
+    "faithful": {
+      "name": "Hydro Pump",
+      "description": "A powerful Watertype attack.",
+      "power": 110,
+      "type": "water",
+      "accuracy": 80,
+      "pp": 5,
+      "effectChance": 0,
+      "category": "special",
+      "learners": [
+        {
+          "id": "azumarill",
+          "name": "Azumarill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 55
+            }
+          ],
+          "types": [
+            "water",
+            "fairy"
+          ]
+        },
+        {
+          "id": "blastoise",
+          "name": "Blastoise",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 60
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "chinchou",
+          "name": "Chinchou",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ],
+          "types": [
+            "water",
+            "electric"
+          ]
+        },
+        {
+          "id": "cloyster",
+          "name": "Cloyster",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "water",
+            "ice"
+          ]
+        },
+        {
+          "id": "corsola",
+          "name": "Corsola",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 38
+            }
+          ],
+          "types": [
+            "water",
+            "rock"
+          ]
+        },
+        {
+          "id": "corsola",
+          "name": "Corsola",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ],
+          "types": [
+            "ghost"
+          ]
+        },
+        {
+          "id": "croconaw",
+          "name": "Croconaw",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 66
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "cursola",
+          "name": "Cursola",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ],
+          "types": [
+            "ghost"
+          ]
+        },
+        {
+          "id": "feraligatr",
+          "name": "Feraligatr",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 84
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "goldeen",
+          "name": "Goldeen",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "golduck",
+          "name": "Golduck",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 42
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "red",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 42
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "horsea",
+          "name": "Horsea",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 52
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "kingdra",
+          "name": "Kingdra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 60
+            }
+          ],
+          "types": [
+            "water",
+            "dragon"
+          ]
+        },
+        {
+          "id": "lanturn",
+          "name": "Lanturn",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 54
+            }
+          ],
+          "types": [
+            "water",
+            "electric"
+          ]
+        },
+        {
+          "id": "lapras",
+          "name": "Lapras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ],
+          "types": [
+            "water",
+            "ice"
+          ]
+        },
+        {
+          "id": "lugia",
+          "name": "Lugia",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "mantine",
+          "name": "Mantine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "mantyke",
+          "name": "Mantyke",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "marill",
+          "name": "Marill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ],
+          "types": [
+            "water",
+            "fairy"
+          ]
+        },
+        {
+          "id": "octillery",
+          "name": "Octillery",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 58
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "omanyte",
+          "name": "Omanyte",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 55
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "omastar",
+          "name": "Omastar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 75
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "poliwag",
+          "name": "Poliwag",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 38
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "poliwhirl",
+          "name": "Poliwhirl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 48
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "psyduck",
+          "name": "Psyduck",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "qwilfish",
+          "name": "Qwilfish",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ],
+          "types": [
+            "water",
+            "poison"
+          ]
+        },
+        {
+          "id": "remoraid",
+          "name": "Remoraid",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "seadra",
+          "name": "Seadra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 60
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "seaking",
+          "name": "Seaking",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "shellder",
+          "name": "Shellder",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 61
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "squirtle",
+          "name": "Squirtle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "starmie",
+          "name": "Starmie",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "staryu",
+          "name": "Staryu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "suicune",
+          "name": "Suicune",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 71
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "tentacool",
+          "name": "Tentacool",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ],
+          "types": [
+            "water",
+            "poison"
+          ]
+        },
+        {
+          "id": "tentacruel",
+          "name": "Tentacruel",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 52
+            }
+          ],
+          "types": [
+            "water",
+            "poison"
+          ]
+        },
+        {
+          "id": "totodile",
+          "name": "Totodile",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 56
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "vaporeon",
+          "name": "Vaporeon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "wartortle",
+          "name": "Wartortle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 48
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Hydro Pump",
+      "description": "A powerful Watertype attack.",
+      "power": 110,
+      "type": "water",
+      "accuracy": 80,
+      "pp": 5,
+      "effectChance": 0,
+      "category": "special",
+      "learners": [
+        {
+          "id": "azumarill",
+          "name": "Azumarill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 55
+            }
+          ],
+          "types": [
+            "water",
+            "fairy"
+          ]
+        },
+        {
+          "id": "blastoise",
+          "name": "Blastoise",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 60
+            }
+          ],
+          "types": [
+            "water",
+            "steel"
+          ]
+        },
+        {
+          "id": "chinchou",
+          "name": "Chinchou",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ],
+          "types": [
+            "water",
+            "electric"
+          ]
+        },
+        {
+          "id": "cloyster",
+          "name": "Cloyster",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "water",
+            "ice"
+          ]
+        },
+        {
+          "id": "corsola",
+          "name": "Corsola",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 38
+            }
+          ],
+          "types": [
+            "water",
+            "rock"
+          ]
+        },
+        {
+          "id": "corsola",
+          "name": "Corsola",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ],
+          "types": [
+            "ghost",
+            "rock"
+          ]
+        },
+        {
+          "id": "croconaw",
+          "name": "Croconaw",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 66
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "cursola",
+          "name": "Cursola",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 50
+            }
+          ],
+          "types": [
+            "ghost",
+            "rock"
+          ]
+        },
+        {
+          "id": "feraligatr",
+          "name": "Feraligatr",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 84
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "dark"
+          ]
+        },
+        {
+          "id": "goldeen",
+          "name": "Goldeen",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "golduck",
+          "name": "Golduck",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 42
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "red",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 42
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "horsea",
+          "name": "Horsea",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 52
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "kingdra",
+          "name": "Kingdra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 60
+            }
+          ],
+          "types": [
+            "water",
+            "dragon"
+          ]
+        },
+        {
+          "id": "lanturn",
+          "name": "Lanturn",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 54
+            }
+          ],
+          "types": [
+            "water",
+            "electric"
+          ]
+        },
+        {
+          "id": "lapras",
+          "name": "Lapras",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ],
+          "types": [
+            "water",
+            "ice"
+          ]
+        },
+        {
+          "id": "lugia",
+          "name": "Lugia",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 37
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "mantine",
+          "name": "Mantine",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "mantyke",
+          "name": "Mantyke",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "marill",
+          "name": "Marill",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 47
+            }
+          ],
+          "types": [
+            "water",
+            "fairy"
+          ]
+        },
+        {
+          "id": "octillery",
+          "name": "Octillery",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 58
+            }
+          ],
+          "types": [
+            "water",
+            "fire"
+          ]
+        },
+        {
+          "id": "omanyte",
+          "name": "Omanyte",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 55
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "omastar",
+          "name": "Omastar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 75
+            }
+          ],
+          "types": [
+            "rock",
+            "water"
+          ]
+        },
+        {
+          "id": "poliwag",
+          "name": "Poliwag",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 38
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "poliwhirl",
+          "name": "Poliwhirl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 48
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "psyduck",
+          "name": "Psyduck",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "qwilfish",
+          "name": "Qwilfish",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 57
+            }
+          ],
+          "types": [
+            "water",
+            "poison"
+          ]
+        },
+        {
+          "id": "remoraid",
+          "name": "Remoraid",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "seadra",
+          "name": "Seadra",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 60
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "seaking",
+          "name": "Seaking",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "shellder",
+          "name": "Shellder",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 61
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "squirtle",
+          "name": "Squirtle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 40
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "starmie",
+          "name": "Starmie",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "staryu",
+          "name": "Staryu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 49
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "suicune",
+          "name": "Suicune",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 71
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "tentacool",
+          "name": "Tentacool",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 46
+            }
+          ],
+          "types": [
+            "water",
+            "poison"
+          ]
+        },
+        {
+          "id": "tentacruel",
+          "name": "Tentacruel",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 52
+            }
+          ],
+          "types": [
+            "water",
+            "poison"
+          ]
+        },
+        {
+          "id": "totodile",
+          "name": "Totodile",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 56
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "vaporeon",
+          "name": "Vaporeon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 45
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "wartortle",
+          "name": "Wartortle",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 48
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        }
+      ]
+    }
+  }
+}

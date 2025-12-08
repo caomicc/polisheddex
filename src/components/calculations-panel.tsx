@@ -13,21 +13,117 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import type { PokemonEntry, Nature } from './pokemon-slot';
-import { TYPES } from '@/lib/types-data';
-import {
-  // computeDefensiveSummary,
-  computeOffensiveCoverage,
-  analyzeAbilitySynergies,
-  loadTypeChart,
-  defensiveMultiplierAgainst,
-} from '@/lib/calculations';
 import { useEffect, useState } from 'react';
-import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import TableWrapper from './ui/table-wrapper';
 import { BentoGridNoLink } from './ui/bento-box';
 
+// All Pokemon types
+const TYPES = [
+  'normal',
+  'fire',
+  'water',
+  'electric',
+  'grass',
+  'ice',
+  'fighting',
+  'poison',
+  'ground',
+  'flying',
+  'psychic',
+  'bug',
+  'rock',
+  'ghost',
+  'dragon',
+  'dark',
+  'steel',
+  'fairy',
+] as const;
+
+type PokemonType = (typeof TYPES)[number];
+
+// Type effectiveness chart: attacking type -> defending type -> multiplier
+// 0 = immune, 0.5 = not very effective, 1 = normal, 2 = super effective
+const TYPE_CHART: Record<PokemonType, Partial<Record<PokemonType, number>>> = {
+  normal: { rock: 0.5, ghost: 0, steel: 0.5 },
+  fire: { fire: 0.5, water: 0.5, grass: 2, ice: 2, bug: 2, rock: 0.5, dragon: 0.5, steel: 2 },
+  water: { fire: 2, water: 0.5, grass: 0.5, ground: 2, rock: 2, dragon: 0.5 },
+  electric: { water: 2, electric: 0.5, grass: 0.5, ground: 0, flying: 2, dragon: 0.5 },
+  grass: {
+    fire: 0.5,
+    water: 2,
+    grass: 0.5,
+    poison: 0.5,
+    ground: 2,
+    flying: 0.5,
+    bug: 0.5,
+    rock: 2,
+    dragon: 0.5,
+    steel: 0.5,
+  },
+  ice: { fire: 0.5, water: 0.5, grass: 2, ice: 0.5, ground: 2, flying: 2, dragon: 2, steel: 0.5 },
+  fighting: {
+    normal: 2,
+    ice: 2,
+    poison: 0.5,
+    flying: 0.5,
+    psychic: 0.5,
+    bug: 0.5,
+    rock: 2,
+    ghost: 0,
+    dark: 2,
+    steel: 2,
+    fairy: 0.5,
+  },
+  poison: { grass: 2, poison: 0.5, ground: 0.5, rock: 0.5, ghost: 0.5, steel: 0, fairy: 2 },
+  ground: {
+    fire: 2,
+    electric: 2,
+    grass: 0.5,
+    poison: 2,
+    flying: 0,
+    bug: 0.5,
+    rock: 2,
+    steel: 2,
+  },
+  flying: { electric: 0.5, grass: 2, fighting: 2, bug: 2, rock: 0.5, steel: 0.5 },
+  psychic: { fighting: 2, poison: 2, psychic: 0.5, dark: 0, steel: 0.5 },
+  bug: {
+    fire: 0.5,
+    grass: 2,
+    fighting: 0.5,
+    poison: 0.5,
+    flying: 0.5,
+    psychic: 2,
+    ghost: 0.5,
+    dark: 2,
+    steel: 0.5,
+    fairy: 0.5,
+  },
+  rock: { fire: 2, ice: 2, fighting: 0.5, ground: 0.5, flying: 2, bug: 2, steel: 0.5 },
+  ghost: { normal: 0, psychic: 2, ghost: 2, dark: 0.5 },
+  dragon: { dragon: 2, steel: 0.5, fairy: 0 },
+  dark: { fighting: 0.5, psychic: 2, ghost: 2, dark: 0.5, fairy: 0.5 },
+  steel: { fire: 0.5, water: 0.5, electric: 0.5, ice: 2, rock: 2, steel: 0.5, fairy: 2 },
+  fairy: { fire: 0.5, fighting: 2, poison: 0.5, dragon: 2, dark: 2, steel: 0.5 },
+};
+
+// Calculate defensive multiplier (how much damage a Pokemon takes from an attacking type)
+function getDefensiveMultiplier(defenderTypes: string[], attackingType: PokemonType): number {
+  let multiplier = 1;
+  for (const defType of defenderTypes) {
+    const normalizedDefType = defType.toLowerCase() as PokemonType;
+    const effectiveness = TYPE_CHART[attackingType]?.[normalizedDefType];
+    if (effectiveness !== undefined) {
+      multiplier *= effectiveness;
+    }
+  }
+  return multiplier;
+}
+
 type PokemonStats = {
   name: string;
+  types: string[];
   baseStats: {
     hp: number;
     attack: number;
@@ -37,7 +133,7 @@ type PokemonStats = {
     specialDefense: number;
     total: number;
   };
-  abilities: Array<{ name: string; isHidden: boolean }>;
+  abilities: string[];
   nature?: Nature;
   item?: string;
 };
@@ -51,12 +147,12 @@ export default function CalculationsPanel({
 }) {
   const [pokemonStats, setPokemonStats] = useState<PokemonStats[]>([]);
   const [loading, setLoading] = useState(false);
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
 
   // Load type chart when faithful preference changes
-  useEffect(() => {
-    loadTypeChart();
-  }, [showFaithful]);
+  // useEffect(() => {
+  //   loadTypeChart();
+  // }, [showFaithful]);
 
   // Load detailed stats for all Pokemon in the team
   useEffect(() => {
@@ -67,34 +163,60 @@ export default function CalculationsPanel({
           if (!pokemon.name) return null;
 
           try {
-            const fileName = pokemon.name.toLowerCase().replace(/[ -]/g, '-');
-            const response = await fetch(`/output/pokemon/${fileName}.json`);
+            // Extract form from name (e.g., "Slowking (Galarian)" -> form: "galarian")
+            const formMatch = pokemon.name.match(/\(([^)]+)\)/);
+            const formKey = formMatch ? formMatch[1].toLowerCase().replace(/\s+/g, '') : 'plain';
+
+            // Strip form suffix (e.g., "Slowking (Galarian)" -> "slowking")
+            const fileName = pokemon.name
+              .toLowerCase()
+              .replace(/\s*\([^)]*\)/g, '')
+              .trim()
+              .replace(/['']/g, '')
+              .replace(/[^a-z0-9-]/g, '-')
+              .replace(/-+/g, '-')
+              .replace(/^-|-$/g, '');
+            const response = await fetch(`/new/pokemon/${fileName}.json`);
             if (!response.ok) throw new Error('Pokemon not found');
 
             const data = await response.json();
 
-            // Use faithful or polished stats based on context
-            const detailedStats = data.detailedStats;
-            const baseStats = showFaithful
-              ? detailedStats?.faithfulBaseStats
-              : detailedStats?.polishedBaseStats || detailedStats?.baseStats;
+            // Use the new data structure: data.versions.{polished|faithful}.forms.{formKey}
+            const version = showFaithful ? 'faithful' : 'polished';
+            const formData =
+              data.versions?.[version]?.forms?.[formKey] ||
+              data.versions?.[version]?.forms?.plain ||
+              data.versions?.polished?.forms?.plain;
 
-            const abilities = showFaithful
-              ? detailedStats?.faithfulAbilities
-              : detailedStats?.updatedAbilities || detailedStats?.abilities;
+            const baseStats = formData?.baseStats;
+            const abilities = formData?.abilities || [];
+            const types = formData?.types || pokemon.types || [];
+
+            // Calculate total BST since it's not in the data
+            const total = baseStats
+              ? (baseStats.hp || 0) +
+                (baseStats.attack || 0) +
+                (baseStats.defense || 0) +
+                (baseStats.specialAttack || 0) +
+                (baseStats.specialDefense || 0) +
+                (baseStats.speed || 0)
+              : 0;
 
             return {
               name: pokemon.name,
-              baseStats: baseStats || {
-                hp: 0,
-                attack: 0,
-                defense: 0,
-                speed: 0,
-                specialAttack: 0,
-                specialDefense: 0,
-                total: 0,
-              },
-              abilities: abilities || [],
+              types: types,
+              baseStats: baseStats
+                ? { ...baseStats, total }
+                : {
+                    hp: 0,
+                    attack: 0,
+                    defense: 0,
+                    speed: 0,
+                    specialAttack: 0,
+                    specialDefense: 0,
+                    total: 0,
+                  },
+              abilities: abilities,
               nature: pokemon.nature,
               item: pokemon.item,
             } as PokemonStats;
@@ -130,25 +252,25 @@ export default function CalculationsPanel({
   }
 
   // Create enriched team data with faithful/polished context
-  const enrichedTeam = team.map((pokemon) => {
-    if (!pokemon.name) return pokemon;
+  // const enrichedTeam = team.map((pokemon) => {
+  //   if (!pokemon.name) return pokemon;
 
-    const pokemonStatData = pokemonStats.find((p) => p.name === pokemon.name);
-    if (pokemonStatData && pokemonStatData.abilities.length > 0) {
-      // Always use the first ability from the loaded stats data which respects faithful/polished context
-      // This ensures calculations are always correct regardless of what's stored in the team data
-      return {
-        ...pokemon,
-        ability: pokemonStatData.abilities[0]?.name || pokemon.ability,
-        types: pokemon.types,
-      };
-    }
-    return pokemon;
-  });
+  //   const pokemonStatData = pokemonStats.find((p) => p.name === pokemon.name);
+  //   if (pokemonStatData && pokemonStatData.abilities.length > 0) {
+  //     // Always use the first ability from the loaded stats data which respects faithful/polished context
+  //     // This ensures calculations are always correct regardless of what's stored in the team data
+  //     return {
+  //       ...pokemon,
+  //       ability: pokemonStatData.abilities[0]?.name || pokemon.ability,
+  //       types: pokemon.types,
+  //     };
+  //   }
+  //   return pokemon;
+  // });
 
   // const defensive = computeDefensiveSummary(enrichedTeam);
-  const offensive = computeOffensiveCoverage(enrichedTeam);
-  const abilitySynergies = analyzeAbilitySynergies(enrichedTeam);
+  // const offensive = computeOffensiveCoverage(enrichedTeam);
+  // const abilitySynergies = analyzeAbilitySynergies(enrichedTeam);
 
   // const maxWeak = Math.max(...TYPES.map((t) => defensive[t]?.weak ?? 0));
 
@@ -183,7 +305,7 @@ export default function CalculationsPanel({
             specialDefense: Math.max(...pokemonStats.map((p) => p.baseStats.specialDefense)),
           },
           abilities: pokemonStats
-            .flatMap((p) => p.abilities.map((a) => a.name))
+            .flatMap((p) => p.abilities)
             .filter((ability, index, self) => self.indexOf(ability) === index),
           natures: pokemonStats.map((p) => p.nature).filter(Boolean) as Nature[],
           items: pokemonStats.map((p) => p.item).filter(Boolean) as string[],
@@ -197,20 +319,19 @@ export default function CalculationsPanel({
           <TableCaption>Individual Pokémon weaknesses by attacking type</TableCaption>
           <TableHeader>
             <TableRow>
-              <TableHead className="label-text">Type</TableHead>
-              {team
+              <TableHead className="table-header-label">Type</TableHead>
+              {pokemonStats
                 .map((pokemon, index) =>
                   pokemon.name ? (
-                    <TableHead key={`${pokemon.name}-${index}`} className="label-text">
+                    <TableHead key={`${pokemon.name}-${index}`} className="table-header-label">
                       {pokemon.name}
-                      {/* , {pokemon.types.join('/')} */}
                     </TableHead>
                   ) : null,
                 )
                 .filter(Boolean)}
-              <TableHead className="label-text text-center">Weaknesses</TableHead>
-              <TableHead className="label-text text-center">Resistances</TableHead>
-              <TableHead className="label-text text-center">Total</TableHead>
+              <TableHead className="table-header-label text-center">Weaknesses</TableHead>
+              <TableHead className="table-header-label text-center">Resistances</TableHead>
+              <TableHead className="table-header-label text-center">Total</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -219,9 +340,9 @@ export default function CalculationsPanel({
               let weaknessCount = 0;
               let resistanceCount = 0;
 
-              team.forEach((pokemon) => {
-                if (!pokemon.name) return;
-                const multiplier = defensiveMultiplierAgainst(pokemon, type);
+              pokemonStats.forEach((pokemon) => {
+                if (!pokemon.name || !pokemon.types?.length) return;
+                const multiplier = getDefensiveMultiplier(pokemon.types, type);
                 if (multiplier >= 2) {
                   weaknessCount++;
                 } else if (multiplier > 0 && multiplier <= 0.5) {
@@ -232,33 +353,38 @@ export default function CalculationsPanel({
               return (
                 <TableRow key={type}>
                   <TableCell className="font-medium">
-                    <Badge variant={type.toLowerCase()}>{type}</Badge>
+                    <Badge variant={type.toLowerCase() as never}>{type}</Badge>
                   </TableCell>
-                  {team
+                  {pokemonStats
                     .map((pokemon, index) => {
-                      if (!pokemon.name) return null;
+                      if (!pokemon.name || !pokemon.types?.length) return null;
 
                       // Calculate exact effectiveness multiplier for this pokemon vs this attacking type
-                      const multiplier = defensiveMultiplierAgainst(pokemon, type);
+                      const multiplier = getDefensiveMultiplier(pokemon.types, type);
 
-                      let effectiveness = '1x';
+                      let effectiveness = '1×';
                       let cellClass = 'text-center font-medium';
 
                       if (multiplier === 0) {
-                        effectiveness = '—';
-                        cellClass += ' bg-gray-100 text-gray-600';
+                        effectiveness = '0×';
+                        cellClass +=
+                          ' bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400';
                       } else if (multiplier === 4) {
-                        effectiveness = '4x';
-                        cellClass += ' bg-red-200 text-red-900 font-black';
+                        effectiveness = '4×';
+                        cellClass +=
+                          ' bg-red-200 dark:bg-red-900 text-red-900 dark:text-red-200 font-black';
                       } else if (multiplier === 2) {
-                        effectiveness = '2x';
-                        cellClass += ' bg-red-100 text-red-800 font-semibold';
+                        effectiveness = '2×';
+                        cellClass +=
+                          ' bg-red-100 dark:bg-red-950 text-red-800 dark:text-red-300 font-semibold';
                       } else if (multiplier === 0.25) {
-                        effectiveness = '4x';
-                        cellClass += ' bg-green-200 text-green-900 font-black';
+                        effectiveness = '¼×';
+                        cellClass +=
+                          ' bg-green-200 dark:bg-green-900 text-green-900 dark:text-green-200 font-black';
                       } else if (multiplier === 0.5) {
-                        effectiveness = '0.5x';
-                        cellClass += ' bg-green-100 text-green-800 font-semibold';
+                        effectiveness = '½×';
+                        cellClass +=
+                          ' bg-green-100 dark:bg-green-950 text-green-800 dark:text-green-300 font-semibold';
                       }
 
                       return (
@@ -270,14 +396,14 @@ export default function CalculationsPanel({
                     .filter(Boolean)}
                   <TableCell className="text-center font-medium">
                     {weaknessCount > 0 ? (
-                      <span className="text-red-800">{weaknessCount}</span>
+                      <span className="text-red-800 dark:text-red-400">{weaknessCount}</span>
                     ) : (
                       <span className="text-muted-foreground">0</span>
                     )}
                   </TableCell>
                   <TableCell className="text-center font-medium">
                     {resistanceCount > 0 ? (
-                      <span className="text-green-800">{resistanceCount}</span>
+                      <span className="text-green-800 dark:text-green-400">{resistanceCount}</span>
                     ) : (
                       <span className="text-muted-foreground">0</span>
                     )}
@@ -421,7 +547,7 @@ export default function CalculationsPanel({
       </div>
 
       {/* Enhanced offensive analysis */}
-      {offensive.typeEffectiveness && Object.keys(offensive.typeEffectiveness).length > 0 && (
+      {/* {offensive.typeEffectiveness && Object.keys(offensive.typeEffectiveness).length > 0 && (
         <div className="mt-6">
           <h3 className="mb-4">Detailed Type Effectiveness</h3>
           <div className="grid gap-4 lg:grid-cols-3">
@@ -431,7 +557,7 @@ export default function CalculationsPanel({
                   <h3 className=" font-medium">{moveType}</h3>
                 </div>
                 <div>
-                  <div className="label-text text-green-700! mb-1">
+                  <div className="table-header-label text-green-700! mb-1">
                     Super Effective ({[...new Set(effectiveness.superEffective)].length})
                   </div>
                   <div className="flex flex-wrap gap-1">
@@ -443,7 +569,7 @@ export default function CalculationsPanel({
                   </div>
                 </div>
                 <div>
-                  <div className="label-text text-red-700! mb-1">
+                  <div className="table-header-label text-red-700! mb-1">
                     Not Very Effective ({[...new Set(effectiveness.notVeryEffective)].length})
                   </div>
                   <div className="flex flex-wrap gap-1">
@@ -458,7 +584,7 @@ export default function CalculationsPanel({
             ))}
           </div>
         </div>
-      )}
+      )} */}
 
       {/* Ability synergies section */}
       <div className="mt-6">
@@ -466,53 +592,136 @@ export default function CalculationsPanel({
         <div className="grid gap-4 lg:grid-cols-2">
           <BentoGridNoLink>
             <h2 className="text-lg">Team Abilities</h2>
-            {abilitySynergies.synergies.length > 0 ? (
+            {pokemonStats.length > 0 ? (
               <div className="space-y-2">
-                {abilitySynergies.synergies.map((synergy, i) => (
-                  <div key={`${synergy.ability}-${i}`} className="p-2 border rounded">
-                    <div className="flex items-center gap-2 mb-1">
-                      <Badge variant="secondary">{synergy.ability}</Badge>
-                      <Badge variant="outline" className="text-xs">
-                        {synergy.category}
-                      </Badge>
+                {pokemonStats.map((pokemon, i) => {
+                  if (!pokemon.abilities?.length) return null;
+                  // abilities is an array of strings like ["intimidate", "intimidate", "moxie"]
+                  // First two are regular abilities, third is hidden
+                  const regularAbilities = pokemon.abilities
+                    .slice(0, 2)
+                    .filter((a, idx, arr) => a && arr.indexOf(a) === idx);
+                  const hiddenAbility = pokemon.abilities[2];
+
+                  return (
+                    <div key={`${pokemon.name}-${i}`} className="p-2 border rounded">
+                      <div className="font-medium text-sm mb-1">{pokemon.name}</div>
+                      <div className="flex flex-wrap gap-1">
+                        {regularAbilities.map((ability, idx) => (
+                          <Badge key={idx} variant="secondary" className="text-xs capitalize">
+                            {ability}
+                          </Badge>
+                        ))}
+                        {hiddenAbility && (
+                          <Badge variant="outline" className="text-xs capitalize opacity-70">
+                            {hiddenAbility} (HA)
+                          </Badge>
+                        )}
+                      </div>
                     </div>
-                    <p className="text-xs text-muted-foreground">{synergy.description}</p>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             ) : (
-              <p className="text-sm text-muted-foreground">
-                No recognized abilities with special effects.
-              </p>
+              <p className="text-sm text-muted-foreground">Add Pokémon to see their abilities.</p>
             )}
           </BentoGridNoLink>
 
           <BentoGridNoLink>
             <h2 className="text-lg">Potential Synergies</h2>
-            {abilitySynergies.potentialSynergies.length > 0 ? (
-              <div className="space-y-2">
-                {abilitySynergies.potentialSynergies.map((synergy, i) => (
-                  <div key={i} className="p-2 bg-blue-50 border border-blue-200 rounded">
-                    <p className="text-sm text-blue-800">{synergy}</p>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <p className="text-sm text-muted-foreground">No obvious synergies detected.</p>
-            )}
+            {(() => {
+              // Collect all abilities from the team
+              const allAbilities = pokemonStats
+                .flatMap((p) => p.abilities || [])
+                .map((a) => a.toLowerCase());
 
-            {Object.keys(abilitySynergies.categoryCounts).length > 0 && (
-              <div className="mt-4">
-                <div className="text-xs font-medium mb-2">Ability Categories</div>
-                <div className="flex flex-wrap gap-1">
-                  {Object.entries(abilitySynergies.categoryCounts).map(([category, count]) => (
-                    <Badge key={category} variant="outline" className="text-xs">
-                      {category} ({count})
-                    </Badge>
+              const synergies: string[] = [];
+
+              // Weather synergies
+              const weatherSetters = {
+                drought: 'Sun',
+                drizzle: 'Rain',
+                sandstream: 'Sandstorm',
+                snowwarning: 'Hail',
+              };
+              const weatherBeneficiaries: Record<string, string[]> = {
+                Sun: ['chlorophyll', 'solarpower', 'leafguard', 'flowergift', 'harvest'],
+                Rain: ['swiftswim', 'raindish', 'hydration', 'dryskin'],
+                Sandstorm: ['sandrush', 'sandforce', 'sandveil'],
+                Hail: ['slushrush', 'icebody', 'snowcloak'],
+              };
+
+              for (const [setter, weather] of Object.entries(weatherSetters)) {
+                if (allAbilities.includes(setter)) {
+                  const beneficiaries = weatherBeneficiaries[weather] || [];
+                  const hasPartner = beneficiaries.some((b) => allAbilities.includes(b));
+                  if (hasPartner) {
+                    synergies.push(
+                      `${weather} team: ${setter} + ${beneficiaries.find((b) => allAbilities.includes(b))}`,
+                    );
+                  }
+                }
+              }
+
+              // Terrain synergies
+              if (allAbilities.includes('electricsurge') && allAbilities.includes('surgesurfer')) {
+                synergies.push('Electric Terrain: electricsurge + surgesurfer');
+              }
+              if (allAbilities.includes('psychicsurge') && allAbilities.includes('telepathy')) {
+                synergies.push('Psychic Terrain team support');
+              }
+
+              // Intimidate stacking
+              const intimidateCount = allAbilities.filter((a) => a === 'intimidate').length;
+              if (intimidateCount >= 2) {
+                synergies.push(`Intimidate cycling (${intimidateCount} users)`);
+              }
+
+              // Regenerator core
+              const regeneratorCount = allAbilities.filter((a) => a === 'regenerator').length;
+              if (regeneratorCount >= 2) {
+                synergies.push(`Regenerator core (${regeneratorCount} users)`);
+              }
+
+              // Flash Fire + Fire moves
+              if (allAbilities.includes('flashfire')) {
+                synergies.push('Flash Fire immunity - redirect Fire attacks');
+              }
+
+              // Volt Absorb / Lightning Rod
+              if (allAbilities.includes('voltabsorb') || allAbilities.includes('lightningrod')) {
+                synergies.push('Electric immunity - protect teammates');
+              }
+
+              // Storm Drain / Water Absorb
+              if (allAbilities.includes('stormdrain') || allAbilities.includes('waterabsorb')) {
+                synergies.push('Water immunity - protect teammates');
+              }
+
+              // Levitate
+              if (allAbilities.includes('levitate')) {
+                synergies.push('Levitate - immune to Ground, Earthquake safe');
+              }
+
+              return synergies.length > 0 ? (
+                <div className="space-y-2">
+                  {synergies.map((synergy, i) => (
+                    <div
+                      key={i}
+                      className="p-2 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded"
+                    >
+                      <p className="text-sm text-blue-800 dark:text-blue-200">{synergy}</p>
+                    </div>
                   ))}
                 </div>
-              </div>
-            )}
+              ) : (
+                <p className="text-sm text-muted-foreground">
+                  {pokemonStats.length > 0
+                    ? 'No obvious synergies detected. Consider abilities that complement each other!'
+                    : 'Add Pokémon to analyze ability synergies.'}
+                </p>
+              );
+            })()}
           </BentoGridNoLink>
         </div>
       </div>

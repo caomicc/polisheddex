@@ -13,7 +13,7 @@ export default function PokemonFormSelect({
 }) {
   return (
     <div className={classes}>
-      <label className="label-text" htmlFor="form-select">
+      <label className="table-header-label" htmlFor="form-select">
         Form:
       </label>
       <Select value={selectedForm} onValueChange={setSelectedForm}>
@@ -21,7 +21,7 @@ export default function PokemonFormSelect({
           <SelectValue placeholder="Select form" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="default">Plain</SelectItem>
+          <SelectItem value="plain">Plain</SelectItem>
           {uniqueForms
             .filter((form) => form !== 'plain' && form.trim() !== '')
             .map((form) => (

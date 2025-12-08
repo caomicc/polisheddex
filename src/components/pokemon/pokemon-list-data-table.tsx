@@ -33,11 +33,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { BaseData } from '@/types/types';
-import { useFaithfulPreference } from '@/contexts';
 import { createPokemonListColumns } from './pokemon-list-columns';
 import { cn } from '@/lib/utils';
 import TableWrapper from '../ui/table-wrapper';
+import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
+import { PokemonManifest } from '@/types/new';
 
 /**
  * PokemonListDataTable - A data table component for Pokemon list data with persistent state
@@ -52,32 +52,30 @@ import TableWrapper from '../ui/table-wrapper';
  */
 
 interface PokemonListDataTableProps {
-  data: BaseData[];
+  pokemonData: PokemonManifest[];
+  itemsPerPage?: number;
 }
 
-export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
+export function PokemonListDataTable({ pokemonData }: PokemonListDataTableProps) {
   // Storage key for persisting non-URL table state
   const STORAGE_KEY = 'pokemonListDataTable';
 
-  const { showFaithful } = useFaithfulPreference();
+  const { showFaithful } = useFaithfulPreferenceSafe();
+
+  const version = showFaithful ? 'faithful' : 'polished';
 
   // Create columns dynamically based on faithful preference
-  const columns = React.useMemo(() => createPokemonListColumns(showFaithful), [showFaithful]);
+  const columns = React.useMemo(() => createPokemonListColumns(version), [version]);
 
   // URL-based state for filters that should persist across navigation
   const [urlState] = useQueryStates(
     {
       search: parseAsString.withDefault(''),
       type: parseAsString.withDefault('all'),
-      generation: parseAsString.withDefault('all'),
-      hasJohtoDex: parseAsBoolean.withDefault(false),
-      hasNationalDex: parseAsBoolean.withDefault(false),
-      hasForms: parseAsBoolean.withDefault(false),
+      showForms: parseAsBoolean.withDefault(false),
     },
     {
-      // Configure shallow routing to avoid full page reloads
       shallow: true,
-      // Clear empty params from URL for cleaner URLs
       clearOnDefault: true,
     },
   );
@@ -96,7 +94,7 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
   const storedState = loadStoredState();
 
   const [sorting, setSorting] = React.useState<SortingState>(
-    storedState?.sorting || [{ id: 'johtoDex', desc: false }],
+    storedState?.sorting || [{ id: 'dexNo', desc: false }],
   );
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>(
@@ -104,7 +102,7 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
   );
 
   // Extract URL state values
-  const { search, type, generation, hasJohtoDex, hasNationalDex, hasForms } = urlState;
+  const { search, type, showForms } = urlState;
 
   // Sync search value with table filter for name column
   React.useEffect(() => {
@@ -120,84 +118,50 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
     }
   }, [search, columns]);
 
-  // // Get unique types from the data
-  // const types = React.useMemo(() => {
-  //   const typeSet = new Set<string>();
-
-  //   data.forEach((pokemon) => {
-  //     const displayTypes = showFaithful
-  //       ? pokemon.faithfulTypes || pokemon.types
-  //       : pokemon.updatedTypes || pokemon.types;
-  //     const typesArray = Array.isArray(displayTypes) ? displayTypes : [displayTypes];
-  //     typesArray.forEach((type) => {
-  //       if (type) typeSet.add(type);
-  //     });
-  //   });
-
-  //   return Array.from(typeSet).sort();
-  // }, [data, showFaithful]);
-
-  // Apply filters to the data
+  // Apply filters to the data and expand forms if needed
   const filteredData = React.useMemo(() => {
-    return data.filter((pokemon) => {
-      // Type filter
-      const displayTypes = showFaithful
-        ? pokemon.faithfulTypes || pokemon.types
-        : pokemon.updatedTypes || pokemon.types;
-      const typesArray = Array.isArray(displayTypes) ? displayTypes : [displayTypes];
+    // Define extended type for internal processing
+    type PokemonWithCurrentForm = PokemonManifest;
+    let dataToFilter: PokemonWithCurrentForm[] = [];
+
+    if (showForms) {
+      pokemonData.forEach((pokemon) => {
+        const forms = Object.keys(pokemon.versions[version] || {});
+        forms.forEach((formKey) => {
+          // For forms, modify the name to include form designation for display
+
+          dataToFilter.push({
+            ...pokemon,
+            formName: formKey,
+            id: formKey === 'plain' ? pokemon.id : `${pokemon.id}_${formKey}`,
+          });
+        });
+      });
+    } else {
+      // Just use the base pokemon data with plain form
+      dataToFilter = pokemonData.map((pokemon) => ({
+        ...pokemon,
+        currentForm: 'plain',
+      }));
+    }
+
+    // Now apply type filtering based on the current form
+    const filtered = dataToFilter.filter((pokemon) => {
+      const currentForm = pokemon.formName || 'plain';
+      const displayTypes = pokemon.versions[version]?.[currentForm]?.types;
+      const typesArray = Array.isArray(displayTypes)
+        ? displayTypes
+        : displayTypes
+          ? [displayTypes]
+          : [];
       const matchesType = type === 'all' || typesArray.some((t) => t === type);
 
-      // Generation filter (based on national dex ranges)
-      let matchesGeneration = true;
-      if (generation !== 'all') {
-        const nationalDex = pokemon.nationalDex;
-        if (nationalDex) {
-          switch (generation) {
-            case 'gen1':
-              matchesGeneration = nationalDex >= 1 && nationalDex <= 151;
-              break;
-            case 'gen2':
-              matchesGeneration = nationalDex >= 152 && nationalDex <= 251;
-              break;
-            case 'gen3':
-              matchesGeneration = nationalDex >= 252 && nationalDex <= 386;
-              break;
-            case 'gen4':
-              matchesGeneration = nationalDex >= 387 && nationalDex <= 493;
-              break;
-            case 'gen5':
-              matchesGeneration = nationalDex >= 494 && nationalDex <= 649;
-              break;
-            case 'gen6':
-              matchesGeneration = nationalDex >= 650 && nationalDex <= 721;
-              break;
-            case 'gen7':
-              matchesGeneration = nationalDex >= 722 && nationalDex <= 809;
-              break;
-            case 'gen8':
-              matchesGeneration = nationalDex >= 810 && nationalDex <= 905;
-              break;
-            case 'gen9':
-              matchesGeneration = nationalDex >= 906;
-              break;
-            default:
-              matchesGeneration = true;
-          }
-        } else {
-          matchesGeneration = false;
-        }
-      }
-
-      // Checkbox filters
-      const matchesJohtoDex = !hasJohtoDex || (pokemon.johtoDex !== null && pokemon.johtoDex < 999);
-      const matchesNationalDex = !hasNationalDex || pokemon.nationalDex !== null;
-      const matchesForms = !hasForms || (Array.isArray(pokemon.forms) && pokemon.forms.length > 1);
-
-      return (
-        matchesType && matchesGeneration && matchesJohtoDex && matchesNationalDex && matchesForms
-      );
+      return matchesType;
     });
-  }, [data, type, generation, showFaithful, hasJohtoDex, hasNationalDex, hasForms]);
+
+    // Return as PokemonManifest[] for compatibility with existing table code
+    return filtered as PokemonManifest[];
+  }, [pokemonData, version, type, showForms]);
 
   // URL-based pagination state
   const [{ pageIndex, pageSize }, setPagination] = usePaginationSearchParams();
@@ -250,21 +214,12 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
   // Reset page to 0 when filters change
   React.useEffect(() => {
     setPagination({ pageIndex: 0 });
-  }, [
-    columnFilters,
-    type,
-    generation,
-    showFaithful,
-    hasJohtoDex,
-    hasNationalDex,
-    hasForms,
-    setPagination,
-  ]);
+  }, [columnFilters, type, version, showForms, setPagination]);
 
   return (
     <div>
       <TableWrapper>
-        <Table className="table-fixed w-full min-w-[500px]">
+        <Table className="data-table">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
@@ -275,7 +230,7 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
                       className={
                         header.column.columnDef.size === 60
                           ? 'w-11 md:w-[60px]! max-w-16 text-center'
-                          : 'label-text'
+                          : 'table-header-label'
                       }
                     >
                       {header.isPlaceholder

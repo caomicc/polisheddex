@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { SpriteInfo, SpriteVariant, SpriteType, UnifiedSpriteManifest } from '@/types/spriteTypes';
+import { SpriteInfo, SpriteVariant, SpriteType, SpriteFacing, UnifiedSpriteManifest } from '@/types/spriteTypes';
 import { loadUnifiedSpriteManifest, getUnifiedSpriteWithFallback } from '@/utils/spriteUtils';
 
 interface UseSpriteDataResult {
@@ -13,6 +13,7 @@ export function useSpriteData(
   variant: SpriteVariant = 'normal',
   type: SpriteType = 'static',
   form?: string | null,
+  facing: SpriteFacing = 'front',
 ): UseSpriteDataResult {
   const [spriteInfo, setSpriteInfo] = useState<SpriteInfo | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -52,9 +53,6 @@ export function useSpriteData(
       // Construct the full sprite name including form if provided
       const fullSpriteName =
         form !== undefined && form !== 'plain' ? `${spriteName}_${form}` : spriteName;
-      console.log(
-        `DEBUG: Fetching sprite for ${fullSpriteName} with variant=${variant} and type=${type}`,
-      );
       // Try with form first if provided, then fallback to base pokemon
       const sprite = getUnifiedSpriteWithFallback(
         manifest,
@@ -62,14 +60,17 @@ export function useSpriteData(
         'pokemon',
         variant,
         type,
+        facing,
       );
+
+      console.log('Fetched sprite for', fullSpriteName, ':', sprite);
       setSpriteInfo(sprite);
       setIsLoading(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unknown error');
       setIsLoading(false);
     }
-  }, [manifest, spriteName, variant, type, form]);
+  }, [manifest, spriteName, variant, type, form, facing]);
 
   return {
     spriteInfo,

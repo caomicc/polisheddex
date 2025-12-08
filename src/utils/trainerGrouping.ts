@@ -1,10 +1,10 @@
-import type { GroupedTrainer, LocationTrainer } from '../types/types.ts';
+// import type { GroupedTrainer, LocationTrainer } from '../types/types.ts';
 
 /**
  * Detect if a group of trainers represents starter variations
  * rather than traditional rematches
  */
-function isStarterVariationGroup(group: LocationTrainer[]): boolean {
+function isStarterVariationGroup(group: any): boolean {
   if (group.length < 2) return false;
 
   const firstTrainer = group[0];
@@ -22,12 +22,13 @@ function isStarterVariationGroup(group: LocationTrainer[]): boolean {
 
   // Check if all trainers have similar levels (starter variations should be at similar levels)
   // Unlike rematches which typically have increasing levels
-  const levels = group.flatMap((trainer) => 
-    trainer.pokemon?.map((p) => {
-      // Convert badge levels to numbers for comparison, default to 25
-      const level = p.level || 0;
-      return typeof level === 'string' ? 25 : level;
-    }) || []
+  const levels = group.flatMap(
+    (trainer: any) =>
+      trainer.pokemon?.map((p: any) => {
+        // Convert badge levels to numbers for comparison, default to 25
+        const level = p.level || 0;
+        return typeof level === 'string' ? 25 : level;
+      }) || [],
   );
 
   if (levels.length === 0) return false;
@@ -44,9 +45,7 @@ function isStarterVariationGroup(group: LocationTrainer[]): boolean {
 /**
  * Analyze a trainer group to determine the most likely grouping type
  */
-function determineGroupType(
-  group: LocationTrainer[],
-): 'rematch' | 'starter_variation' | 'double_battle' {
+function determineGroupType(group: any[]): 'rematch' | 'starter_variation' | 'double_battle' {
   const firstTrainer = group[0];
 
   // Check for starter variations first
@@ -83,8 +82,8 @@ function determineGroupType(
   return 'rematch';
 }
 
-export function groupRematchTrainers(trainers: LocationTrainer[]): GroupedTrainer[] {
-  const trainerGroups = new Map<string, LocationTrainer[]>();
+export function groupRematchTrainers(trainers: any[]): any[] {
+  const trainerGroups = new Map<string, any[]>();
 
   // First, group trainers by base identity
   trainers.forEach((trainer) => {
@@ -102,7 +101,7 @@ export function groupRematchTrainers(trainers: LocationTrainer[]): GroupedTraine
     trainerGroups.get(groupKey)!.push(trainer);
   });
 
-  const groupedTrainers: GroupedTrainer[] = [];
+  const groupedTrainers: any[] = [];
 
   // Process each group
   trainerGroups.forEach((group) => {
@@ -249,10 +248,10 @@ export function groupRematchTrainers(trainers: LocationTrainer[]): GroupedTraine
   return groupedTrainers;
 }
 
-/**
- * Get the unique trainer count (grouped trainers count as 1)
- */
-export function getUniqueTrainerCount(trainers: LocationTrainer[]): number {
-  const groupedTrainers = groupRematchTrainers(trainers);
-  return groupedTrainers.length;
-}
+// /**
+//  * Get the unique trainer count (grouped trainers count as 1)
+//  */
+// export function getUniqueTrainerCount(trainers: LocationTrainer[]): number {
+//   const groupedTrainers = groupRematchTrainers(trainers);
+//   return groupedTrainers.length;
+// }

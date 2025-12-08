@@ -35,20 +35,16 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import TableWrapper from '../ui/table-wrapper';
-import { cn } from '@/lib/utils';
+import { AbilityRow } from './ability-row';
 
-interface Ability {
-  id: string;
-  name?: string;
-  description?: string;
-}
-
+import { AbilityData } from '@/types/new';
 interface AbilitiesDataTableProps {
-  columns: ColumnDef<Ability, unknown>[];
-  data: Ability[];
+  columns: ColumnDef<AbilityData, unknown>[];
+  data: AbilityData[];
+  version: string;
 }
 
-export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
+export function AbilitiesDataTable({ columns, data, version }: AbilitiesDataTableProps) {
   // Storage key for persisting non-URL table state
   const STORAGE_KEY = 'abilitiesDataTable';
 
@@ -177,7 +173,7 @@ export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
         {/* Primary search and filters */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex flex-col gap-2">
-            <Label htmlFor="ability-filter" className="label-text">
+            <Label htmlFor="ability-filter" className="table-header-label">
               Ability Name
             </Label>
             <Input
@@ -189,7 +185,7 @@ export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
             />
           </div>
           <div className="flex flex-col gap-2">
-            <Label htmlFor="desc-filter" className="label-text">
+            <Label htmlFor="desc-filter" className="table-header-label">
               Description
             </Label>
             <Input
@@ -243,8 +239,8 @@ export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
 
       {/* Data Table */}
       <TableWrapper>
-        <Table className="table-fixed w-full min-w-[500px]">
-          <TableHeader>
+        <Table className="data-table">
+          <TableHeader className="hidden md:table-header-group">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
@@ -253,8 +249,8 @@ export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
                       key={header.id}
                       className={
                         header.column.columnDef.size === 200
-                          ? 'w-[150px] sm:w-[200px]! label-text'
-                          : 'label-text'
+                          ? 'w-[200px] table-header-label'
+                          : 'table-header-label'
                       }
                     >
                       {header.isPlaceholder
@@ -269,21 +265,11 @@ export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
           <TableBody>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow key={row.id}>
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell
-                      key={cell.id}
-                      className={cn(
-                        cell.column.columnDef.size === 200
-                          ? 'w-[100px] sm:w-[200px]! text-center'
-                          : '',
-                        'p-1 md:p-2',
-                      )}
-                    >
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </TableCell>
-                  ))}
-                </TableRow>
+                <AbilityRow
+                  key={row.id}
+                  ability={row.original}
+                  version={version}
+                />
               ))
             ) : (
               <TableRow>
@@ -303,7 +289,7 @@ export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
         <div className="flex flex-col sm:flex-row items-center gap-4">
           {/* Page size selector */}
           <div className="flex items-center gap-2">
-            <Label htmlFor="page-size" className="label-text">
+            <Label htmlFor="page-size" className="table-header-label">
               Abilities per page:
             </Label>
             <Select

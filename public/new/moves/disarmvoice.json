@@ -1,0 +1,779 @@
+{
+  "id": "disarmvoice",
+  "versions": {
+    "faithful": {
+      "name": "Disarm Voice",
+      "description": "An attack that never misses.",
+      "power": 40,
+      "type": "fairy",
+      "accuracy": 100,
+      "pp": 15,
+      "effectChance": 0,
+      "category": "special",
+      "learners": [
+        {
+          "id": "bayleef",
+          "name": "Bayleef",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "chikorita",
+          "name": "Chikorita",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "clefable",
+          "name": "Clefable",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "clefairy",
+          "name": "Clefairy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "cleffa",
+          "name": "Cleffa",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "happiny",
+          "name": "Happiny",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "igglybuff",
+          "name": "Igglybuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "jigglypuff",
+          "name": "Jigglypuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "meganium",
+          "name": "Meganium",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "misdreavus",
+          "name": "Misdreavus",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ghost"
+          ]
+        },
+        {
+          "id": "mismagius",
+          "name": "Mismagius",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ghost"
+          ]
+        },
+        {
+          "id": "pichu",
+          "name": "Pichu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pichu",
+          "name": "Pichu",
+          "form": "spikyeared",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "fly",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "surf",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "red",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "yellow",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "spark",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "ponyta",
+          "name": "Ponyta",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "raichu",
+          "name": "Raichu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "raichu",
+          "name": "Raichu",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric",
+            "psychic"
+          ]
+        },
+        {
+          "id": "rapidash",
+          "name": "Rapidash",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "psychic",
+            "fairy"
+          ]
+        },
+        {
+          "id": "sylveon",
+          "name": "Sylveon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "togekiss",
+          "name": "Togekiss",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "togetic",
+          "name": "Togetic",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "vulpix",
+          "name": "Vulpix",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "ice"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Disarm Voice",
+      "description": "An attack that never misses.",
+      "power": 40,
+      "type": "fairy",
+      "accuracy": 100,
+      "pp": 15,
+      "effectChance": 0,
+      "category": "special",
+      "learners": [
+        {
+          "id": "bayleef",
+          "name": "Bayleef",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "chikorita",
+          "name": "Chikorita",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 20
+            }
+          ],
+          "types": [
+            "grass"
+          ]
+        },
+        {
+          "id": "clefable",
+          "name": "Clefable",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "clefairy",
+          "name": "Clefairy",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "cleffa",
+          "name": "Cleffa",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "happiny",
+          "name": "Happiny",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "igglybuff",
+          "name": "Igglybuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 12
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "jigglypuff",
+          "name": "Jigglypuff",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 11
+            }
+          ],
+          "types": [
+            "normal",
+            "fairy"
+          ]
+        },
+        {
+          "id": "meganium",
+          "name": "Meganium",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 22
+            }
+          ],
+          "types": [
+            "grass",
+            "fairy"
+          ]
+        },
+        {
+          "id": "misdreavus",
+          "name": "Misdreavus",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ghost"
+          ]
+        },
+        {
+          "id": "mismagius",
+          "name": "Mismagius",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "ghost",
+            "fairy"
+          ]
+        },
+        {
+          "id": "pichu",
+          "name": "Pichu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pichu",
+          "name": "Pichu",
+          "form": "spikyeared",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "fly",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "surf",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "red",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "yellow",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "pikachu",
+          "name": "Pikachu",
+          "form": "spark",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "ponyta",
+          "name": "Ponyta",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "raichu",
+          "name": "Raichu",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric"
+          ]
+        },
+        {
+          "id": "raichu",
+          "name": "Raichu",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "electric",
+            "psychic"
+          ]
+        },
+        {
+          "id": "rapidash",
+          "name": "Rapidash",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "psychic",
+            "fairy"
+          ]
+        },
+        {
+          "id": "sylveon",
+          "name": "Sylveon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fairy"
+          ]
+        },
+        {
+          "id": "togekiss",
+          "name": "Togekiss",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "togetic",
+          "name": "Togetic",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "vulpix",
+          "name": "Vulpix",
+          "form": "alolan",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 15
+            }
+          ],
+          "types": [
+            "ice"
+          ]
+        }
+      ]
+    }
+  }
+}

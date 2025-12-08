@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import { MoveDescription } from '@/types/types';
+import { promises as fs } from 'fs';
+import path from 'path';
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -10,14 +12,13 @@ import {
 } from '@/components/ui/breadcrumb';
 import { Hero } from '@/components/ui/Hero';
 import MovesDataTableSearch from '@/components/moves/moves-data-table-search';
-import { loadMovesData } from '@/utils/loaders/move-data-loader';
+import { MovesManifest } from '@/types/new';
 
 export default async function MovesList() {
-  // Load moves using the optimized loader
-  const movesData = await loadMovesData();
-
-  // Convert to array for the data table
-  const allMoves: MoveDescription[] = Object.values(movesData);
+  // Load moves directly from manifest
+  const manifestPath = path.join(process.cwd(), 'public/new/moves_manifest.json');
+  const manifestData = await fs.readFile(manifestPath, 'utf-8');
+  const allMoves: MovesManifest[] = JSON.parse(manifestData);
 
   return (
     <>

@@ -4,40 +4,35 @@ import { useEffect, useMemo, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Trash2, Upload, Download, Calculator, Share } from 'lucide-react';
-import PokemonSlot, { type PokemonEntry } from './pokemon-slot';
+import { Trash2, Upload, Download, Calculator, Share, Plus, ChevronDown, ChevronUp } from 'lucide-react';
+import PokemonSlot, { type PokemonEntry, emptyPokemonEntry } from './pokemon-slot';
 import CalculationsPanel from './calculations-panel';
-import { DEFAULT_TEAM, emptyPokemonEntry, loadPokemonData } from '@/lib/pokemon-data';
-import { loadMovesData } from '@/lib/moves-data';
-import { loadAbilitiesData } from '@/lib/abilities-data';
-import { loadTypesData } from '@/lib/types-data';
-import { loadTypeChart } from '@/lib/calculations';
 import { useLocalStorage } from '@/lib/use-local-storage';
 import { generateShareUrl, getTeamFromUrl, copyToClipboard } from '@/lib/team-url-sharing';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
-import StatsDisplay from './pokemon/stats-display';
-import { BentoGrid, BentoGridNoLink } from './ui/bento-box';
 import { PokemonSprite } from './pokemon/pokemon-sprite';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
+import { Badge } from './ui/badge';
+import { cn } from '@/lib/utils';
 
 export default function TeamBuilder() {
-  const [team, setTeam] = useLocalStorage<PokemonEntry[]>('pokedex-team', DEFAULT_TEAM);
+  const [team, setTeam] = useLocalStorage<PokemonEntry[]>('pokedex-team', []);
   const [importing, setImporting] = useState(false);
   const [importText, setImportText] = useState('');
   const [dataLoaded, setDataLoaded] = useState(false);
   const [essentialDataLoaded, setEssentialDataLoaded] = useState(false);
   const [shareMessage, setShareMessage] = useState<string | null>(null);
+  const [selectedSlot, setSelectedSlot] = useState<number | null>(null);
+  const [showAnalysis, setShowAnalysis] = useState(false);
 
   useEffect(() => {
     // Progressive loading strategy: Load essential data first, then background data
     const loadEssentialData = async () => {
       try {
         // Load only Pokemon data first to show the team builder quickly
-        await loadPokemonData();
+        // await loadPokemonData();
         setEssentialDataLoaded(true);
 
         // Then load the rest in the background
-        await Promise.all([loadMovesData(), loadAbilitiesData(), loadTypesData(), loadTypeChart()]);
+        // await Promise.all([loadMovesData(), loadAbilitiesData(), loadTypesData(), loadTypeChart()]);
         setDataLoaded(true);
       } catch (error) {
         console.error('Failed to load data:', error);
@@ -60,13 +55,9 @@ export default function TeamBuilder() {
         url.searchParams.delete('team');
         window.history.replaceState({}, '', url.toString());
       }
-    } else {
-      // Ensure length is 6 for existing teams
-      if (!team || team.length !== 6) {
-        setTeam(new Array(6).fill(0).map(() => ({ ...emptyPokemonEntry })));
-      }
     }
-  }, [setTeam, team]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Only run on mount
 
   const handleUpdate = (index: number, data: Partial<PokemonEntry>) => {
     setTeam((prev) => {
@@ -77,7 +68,7 @@ export default function TeamBuilder() {
   };
 
   const clearTeam = () => {
-    setTeam(new Array(6).fill(0).map(() => ({ ...emptyPokemonEntry })));
+    setTeam([]);
   };
 
   const exportTeam = () => {
@@ -150,158 +141,191 @@ export default function TeamBuilder() {
     );
   }
 
+  // Helper to format pokemon name for sprite
+  const formatPokemonNameForSprite = (name: string) => {
+    if (!name) return 'egg';
+    return name
+      .toLowerCase()
+      .replace(/\s*\(([^)]+)\)/g, '_$1')
+      .replace(/\s+/g, '');
+  };
+
   return (
-    <>
-      <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-end max-w-xl md:max-w-5xl mx-auto mb-4">
-        <Button variant="secondary" onClick={shareTeam} disabled={isEmptyTeam}>
-          <Share className="mr-2 h-4 w-4" />
-          Share Team
-        </Button>
-        <Button variant="secondary" onClick={() => setImporting((v) => !v)}>
-          <Upload className="mr-2 h-4 w-4" />
-          Import JSON
-        </Button>
-        <Button variant="secondary" onClick={exportTeam}>
-          <Download className="mr-2 h-4 w-4" />
-          Export JSON
-        </Button>
-        <Button variant="destructive" onClick={clearTeam}>
-          <Trash2 className="mr-2 h-4 w-4" />
-          Clear Team
-        </Button>
+    <div className="max-w-4xl mx-auto">
+      {/* Compact Header Toolbar */}
+      <header className="flex flex-wrap gap-2 items-center justify-between mb-4">
+        <h1 className="text-xl font-bold">Team Builder</h1>
+        <div className="flex flex-wrap gap-2">
+          <Button variant="ghost" size="sm" onClick={shareTeam} disabled={isEmptyTeam}>
+            <Share className="h-4 w-4" />
+            <span className="hidden sm:inline ml-1">Share</span>
+          </Button>
+          <Button variant="ghost" size="sm" onClick={() => setImporting((v) => !v)}>
+            <Upload className="h-4 w-4" />
+            <span className="hidden sm:inline ml-1">Import</span>
+          </Button>
+          <Button variant="ghost" size="sm" onClick={exportTeam}>
+            <Download className="h-4 w-4" />
+            <span className="hidden sm:inline ml-1">Export</span>
+          </Button>
+          <Button variant="ghost" size="sm" onClick={clearTeam} className="text-destructive hover:text-destructive">
+            <Trash2 className="h-4 w-4" />
+            <span className="hidden sm:inline ml-1">Clear</span>
+          </Button>
+        </div>
       </header>
 
-      <div className="max-w-xl md:max-w-5xl mx-auto relative z-10 rounded-3xl border border-neutral-200 bg-neutral-100 p-2 md:p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900 w-full">
-        {!dataLoaded && (
-          <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg">
-            <div className="flex items-center gap-2 text-sm text-blue-700 dark:text-blue-300">
-              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
-              Loading additional features (moves, abilities, calculations)...
+      {/* Share/Import Messages */}
+      {shareMessage && (
+        <div className="mb-4 p-3 bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-lg text-sm text-green-700 dark:text-green-300 text-center">
+          {shareMessage}
+        </div>
+      )}
+
+      {importing && (
+        <Card className="mb-4">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-base">Import Team JSON</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <textarea
+              value={importText}
+              onChange={(e) => setImportText(e.target.value)}
+              placeholder="Paste team.json content here"
+              rows={4}
+              className="w-full rounded-md border border-border bg-background p-3 text-sm outline-none"
+              aria-label="Import JSON"
+            />
+            <div className="mt-2 flex gap-2">
+              <Button size="sm" onClick={tryImport}>Import</Button>
+              <Button size="sm" variant="ghost" onClick={() => setImporting(false)}>Cancel</Button>
             </div>
-          </div>
-        )}
+          </CardContent>
+        </Card>
+      )}
 
-        {shareMessage && (
-          <Card className="my-4">
-            <CardContent className="pt-0">
-              <p className="text-sm text-center text-green-600 dark:text-green-400">
-                {shareMessage}
-              </p>
-            </CardContent>
-          </Card>
-        )}
-
-        {importing && (
-          <Card className="my-4">
-            <CardHeader>
-              <CardTitle>Import Team JSON</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <textarea
-                value={importText}
-                onChange={(e) => setImportText(e.target.value)}
-                placeholder="Paste team.json content here"
-                rows={6}
-                className="w-full rounded-md border bg-background p-3 text-sm outline-none"
-                aria-label="Import JSON"
-              />
-              <div className="mt-3 flex gap-2">
-                <Button onClick={tryImport}>Import</Button>
-                <Button variant="ghost" onClick={() => setImporting(false)}>
-                  Cancel
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        )}
-
-        {/* <section aria-label="Team slots" className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3"> */}
-        <Tabs defaultValue="0" className="mb-4" aria-label="Team slots">
-          <TabsList className="w-full flex-col sm:flex-row h-auto md:h-9">
-            {team.map((entry, i) => (
-              <TabsTrigger
-                key={i}
-                value={`${i}`}
-                className="text-xs data-[state=active]:bg-cyan-200 data-[state=active]:text-cyan-900 data-[state=active]:border-cyan-300 h-auto"
-              >
-                {entry.name ? entry.name : `Slot ${i + 1}`}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-
+      {/* Visual Team Strip - Always Visible */}
+      <div className="bg-card border border-border rounded-xl p-3 mb-4">
+        <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
           {team.map((entry, i) => (
-            <TabsContent key={i} value={`${i}`} className="">
-              <PokemonSlot index={i} entry={entry} onChange={(data) => handleUpdate(i, data)} />
-            </TabsContent>
-          ))}
-        </Tabs>
-
-        {/* Display calculated stats for each team member */}
-        {team.some((entry) => entry.name) && (
-          <>
-            <Separator className="my-2" />
-            <Accordion type="multiple" className="w-full">
-              <AccordionItem value="weakness-table">
-                <AccordionTrigger>
-                  <div className="flex items-center gap-2">
-                    <Calculator className="h-5 w-5" />
-                    <h2 className="text-lg font-semibold">Team Summary</h2>
+            <button
+              key={i}
+              onClick={() => setSelectedSlot(selectedSlot === i ? null : i)}
+              className={cn(
+                'relative flex flex-col items-center p-2 rounded-lg transition-all',
+                'hover:bg-accent/50 cursor-pointer',
+                selectedSlot === i && 'ring-2 ring-primary bg-accent',
+                !entry.name && 'border-2 border-dashed border-muted-foreground/30'
+              )}
+            >
+              {entry.name ? (
+                <>
+                  <PokemonSprite
+                    pokemonName={formatPokemonNameForSprite(entry.name)}
+                    size="sm"
+                    className="shadow-none"
+                    primaryType={entry.types?.[0] || 'normal'}
+                  />
+                  <span className="text-xs font-medium mt-1 truncate w-full text-center">
+                    {entry.name.replace(/\s*\([^)]+\)/g, '')}
+                  </span>
+                  <div className="flex gap-0.5 mt-0.5">
+                    {entry.types?.[0] && (
+                      <Badge variant={entry.types[0].toLowerCase()} className="text-[10px] px-1 py-0">
+                        {entry.types[0].slice(0, 3)}
+                      </Badge>
+                    )}
+                    {entry.types?.[1] && entry.types[1] !== entry.types[0] && (
+                      <Badge variant={entry.types[1].toLowerCase()} className="text-[10px] px-1 py-0">
+                        {entry.types[1].slice(0, 3)}
+                      </Badge>
+                    )}
                   </div>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <BentoGrid className="mx-auto md:auto-rows-auto md:grid-cols-3">
-                    {team.map((entry, i) => {
-                      if (!entry.name) return null;
-                      return (
-                        <BentoGridNoLink key={i}>
-                          <div className="flex flex-row gap-4">
-                            <PokemonSprite hoverAnimate pokemonName={entry.name} />
-                            <div className="flex gap-0 flex-col">
-                              <div className="font-bold">{entry.name}</div>
-                              <div className="text-xs">{entry.nature}</div>
-                              {entry.level && <div className="text-xs">Lv. {entry.level}</div>}
-                              {entry.item && <div className="text-xs">Item: {entry.item}</div>}
-                            </div>
-                          </div>
-                          <StatsDisplay
-                            pokemonName={entry.name}
-                            ivs={entry.ivs}
-                            evs={entry.evs}
-                            level={entry.level || 50}
-                            nature={entry.nature}
-                          />
-                        </BentoGridNoLink>
-                      );
-                    })}
-                  </BentoGrid>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </>
-        )}
-
-        <Separator className="my-2" />
-
-        <Accordion type="multiple" className="w-full">
-          <AccordionItem value="weakness-table">
-            <AccordionTrigger>
-              <div className="flex items-center gap-2">
-                <Calculator className="h-5 w-5" />
-                <h2 className="text-lg font-semibold">Calculations</h2>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent>
-              {!dataLoaded && (
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-gray-400"></div>
-                  Loading...
+                </>
+              ) : (
+                <div className="flex flex-col items-center justify-center h-16">
+                  <Plus className="h-6 w-6 text-muted-foreground/50" />
+                  <span className="text-xs text-muted-foreground mt-1">Slot {i + 1}</span>
                 </div>
               )}
-              <CalculationsPanel team={team} disabled={isEmptyTeam || !dataLoaded} />
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+            </button>
+          ))}
+        </div>
       </div>
-    </>
+
+      {/* Pokemon Editor - Always visible, shows placeholder or content */}
+      <div className="bg-card border border-border rounded-xl p-4 mb-4 min-h-[400px]">
+        {selectedSlot !== null ? (
+          <PokemonSlot
+            index={selectedSlot}
+            entry={team[selectedSlot]}
+            onChange={(data) => handleUpdate(selectedSlot, data)}
+          />
+        ) : (
+          <div className="flex flex-col items-center justify-center h-full min-h-[350px] text-muted-foreground">
+            <div className="text-6xl mb-4">👆</div>
+            <p className="text-lg font-medium">Select a slot to edit</p>
+            <p className="text-sm mt-1">Click on any of the 6 slots above to add or edit a Pokémon</p>
+          </div>
+        )}
+      </div>
+
+      {/* Team Analysis Section */}
+      {team.some((entry) => entry.name) && (
+        <div className="bg-card border border-border rounded-xl overflow-hidden mb-4">
+          <button
+            onClick={() => setShowAnalysis(!showAnalysis)}
+            className="w-full flex items-center justify-between p-4 hover:bg-accent/50 transition-colors"
+          >
+            <div className="flex items-center gap-2">
+              <Calculator className="h-5 w-5" />
+              <span className="font-semibold">Team Analysis</span>
+            </div>
+            {showAnalysis ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+          </button>
+
+          {showAnalysis && (
+            <div className="p-4 pt-0 border-t">
+              {/* Quick Stats Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+                {team.map((entry, i) => {
+                  if (!entry.name) return null;
+                  return (
+                    <div
+                      key={i}
+                      className="flex items-start gap-3 p-3 bg-accent/30 rounded-lg cursor-pointer hover:bg-accent/50 transition-colors"
+                      onClick={() => setSelectedSlot(i)}
+                    >
+                      <PokemonSprite
+                        pokemonName={formatPokemonNameForSprite(entry.name)}
+                        size="sm"
+                        className="shadow-none flex-shrink-0"
+                        primaryType={entry.types?.[0] || 'normal'}
+                      />
+                      <div className="flex-1 min-w-0">
+                        <div className="font-medium text-sm truncate">{entry.name}</div>
+                        <div className="text-xs text-muted-foreground">
+                          {entry.ability && <span>{entry.ability}</span>}
+                          {entry.nature && <span> • {entry.nature}</span>}
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          {entry.item && <span>🎒 {entry.item}</span>}
+                          {entry.level && <span className="ml-2">Lv.{entry.level}</span>}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <Separator className="my-4" />
+
+              {/* Calculations Panel */}
+              <CalculationsPanel team={team} disabled={isEmptyTeam || !dataLoaded} />
+            </div>
+          )}
+        </div>
+      )}
+    </div>
   );
 }

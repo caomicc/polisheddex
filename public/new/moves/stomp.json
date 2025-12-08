@@ -1,0 +1,841 @@
+{
+  "id": "stomp",
+  "versions": {
+    "faithful": {
+      "name": "Stomp",
+      "description": "An attack that may cause flinching.",
+      "power": 65,
+      "type": "normal",
+      "accuracy": 100,
+      "pp": 20,
+      "effectChance": 30,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "entei",
+          "name": "Entei",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "exeggutor",
+          "name": "Exeggutor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass",
+            "psychic"
+          ]
+        },
+        {
+          "id": "girafarig",
+          "name": "Girafarig",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "hitmonlee",
+          "name": "Hitmonlee",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "kangaskhan",
+          "name": "Kangaskhan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "kingler",
+          "name": "Kingler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "krabby",
+          "name": "Krabby",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "larvitar",
+          "name": "Larvitar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "lickilicky",
+          "name": "Lickilicky",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "lickitung",
+          "name": "Lickitung",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "miltank",
+          "name": "Miltank",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "ponyta",
+          "name": "Ponyta",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "ponyta",
+          "name": "Ponyta",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "pupitar",
+          "name": "Pupitar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "rapidash",
+          "name": "Rapidash",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "rapidash",
+          "name": "Rapidash",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "psychic",
+            "fairy"
+          ]
+        },
+        {
+          "id": "rhydon",
+          "name": "Rhydon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyhorn",
+          "name": "Rhyhorn",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyperior",
+          "name": "Rhyperior",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "slowbro",
+          "name": "Slowbro",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowbro",
+          "name": "Slowbro",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowking",
+          "name": "Slowking",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowking",
+          "name": "Slowking",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "name": "Slowpoke",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "name": "Slowpoke",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "stantler",
+          "name": "Stantler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "tyranitar",
+          "name": "Tyranitar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "dark"
+          ]
+        },
+        {
+          "id": "wyrdeer",
+          "name": "Wyrdeer",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Stomp",
+      "description": "An attack that may cause flinching.",
+      "power": 65,
+      "type": "normal",
+      "accuracy": 100,
+      "pp": 20,
+      "effectChance": 30,
+      "category": "physical",
+      "learners": [
+        {
+          "id": "entei",
+          "name": "Entei",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 29
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "exeggutor",
+          "name": "Exeggutor",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "grass",
+            "psychic"
+          ]
+        },
+        {
+          "id": "girafarig",
+          "name": "Girafarig",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 14
+            }
+          ],
+          "types": [
+            "psychic",
+            "dark"
+          ]
+        },
+        {
+          "id": "hitmonlee",
+          "name": "Hitmonlee",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "fighting"
+          ]
+        },
+        {
+          "id": "kangaskhan",
+          "name": "Kangaskhan",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 31
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "kingler",
+          "name": "Kingler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "krabby",
+          "name": "Krabby",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 25
+            }
+          ],
+          "types": [
+            "water"
+          ]
+        },
+        {
+          "id": "larvitar",
+          "name": "Larvitar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "lickilicky",
+          "name": "Lickilicky",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "lickitung",
+          "name": "Lickitung",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 21
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "miltank",
+          "name": "Miltank",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 8
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "ponyta",
+          "name": "Ponyta",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "fire"
+          ]
+        },
+        {
+          "id": "ponyta",
+          "name": "Ponyta",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "pupitar",
+          "name": "Pupitar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "ground"
+          ]
+        },
+        {
+          "id": "rapidash",
+          "name": "Rapidash",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "fire",
+            "fairy"
+          ]
+        },
+        {
+          "id": "rapidash",
+          "name": "Rapidash",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "psychic",
+            "fairy"
+          ]
+        },
+        {
+          "id": "rhydon",
+          "name": "Rhydon",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyhorn",
+          "name": "Rhyhorn",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "ground",
+            "rock"
+          ]
+        },
+        {
+          "id": "rhyperior",
+          "name": "Rhyperior",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 17
+            }
+          ],
+          "types": [
+            "steel",
+            "rock"
+          ]
+        },
+        {
+          "id": "slowbro",
+          "name": "Slowbro",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowbro",
+          "name": "Slowbro",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowking",
+          "name": "Slowking",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowking",
+          "name": "Slowking",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "poison",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "name": "Slowpoke",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "water",
+            "psychic"
+          ]
+        },
+        {
+          "id": "slowpoke",
+          "name": "Slowpoke",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        },
+        {
+          "id": "stantler",
+          "name": "Stantler",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        },
+        {
+          "id": "tyranitar",
+          "name": "Tyranitar",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "rock",
+            "dark"
+          ]
+        },
+        {
+          "id": "wyrdeer",
+          "name": "Wyrdeer",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 13
+            }
+          ],
+          "types": [
+            "normal",
+            "psychic"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { TeamBuilderClient } from './team-builder-client';
-import { DetailedStats } from '@/types/types';
+// import { DetailedStats } from '@/types/types';
 
 export function TeamBuilderPageContent() {
-  const [pokemonData, setPokemonData] = useState<Record<string, DetailedStats> | null>(null);
+  const [pokemonData, setPokemonData] = useState<Record<string, any> | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

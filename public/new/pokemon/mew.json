@@ -1,0 +1,887 @@
+{
+  "id": "mew",
+  "name": "Mew",
+  "dexNo": 288,
+  "versions": {
+    "polished": {
+      "forms": {
+        "plain": {
+          "formNumber": 1,
+          "types": [
+            "psychic"
+          ],
+          "abilities": [
+            "synchronize",
+            "synchronize",
+            "magicguard"
+          ],
+          "baseStats": {
+            "hp": 100,
+            "attack": 100,
+            "defense": 100,
+            "specialAttack": 100,
+            "specialDefense": 100,
+            "speed": 100
+          },
+          "growthRate": "growthmediumslow",
+          "genderRatio": "unknown",
+          "hatchRate": "unknown",
+          "catchRate": 45,
+          "baseExp": 64,
+          "evYield": {
+            "hp": 3
+          },
+          "heldItems": [
+            {
+              "id": "lumberry",
+              "rarity": "always"
+            }
+          ],
+          "movesets": {
+            "levelUp": [
+              {
+                "id": "sketch",
+                "level": 1
+              },
+              {
+                "id": "teleport",
+                "level": 1
+              },
+              {
+                "id": "tackle",
+                "level": 1
+              },
+              {
+                "id": "transform",
+                "level": 1
+              },
+              {
+                "id": "confusion",
+                "level": 1
+              },
+              {
+                "id": "headbutt",
+                "level": 10
+              },
+              {
+                "id": "metronome",
+                "level": 20
+              },
+              {
+                "id": "psychicm",
+                "level": 30
+              },
+              {
+                "id": "barrier",
+                "level": 40
+              },
+              {
+                "id": "ancientpower",
+                "level": 50
+              },
+              {
+                "id": "batonpass",
+                "level": 60
+              },
+              {
+                "id": "safeguard",
+                "level": 70
+              },
+              {
+                "id": "amnesia",
+                "level": 80
+              },
+              {
+                "id": "nastyplot",
+                "level": 90
+              },
+              {
+                "id": "aurasphere",
+                "level": 100
+              }
+            ],
+            "tm": [
+              {
+                "id": "dynamicpunch"
+              },
+              {
+                "id": "dragonclaw"
+              },
+              {
+                "id": "curse"
+              },
+              {
+                "id": "calmmind"
+              },
+              {
+                "id": "roar"
+              },
+              {
+                "id": "toxic"
+              },
+              {
+                "id": "hail"
+              },
+              {
+                "id": "bulkup"
+              },
+              {
+                "id": "venoshock"
+              },
+              {
+                "id": "hiddenpower"
+              },
+              {
+                "id": "sunnyday"
+              },
+              {
+                "id": "honeclaws"
+              },
+              {
+                "id": "icebeam"
+              },
+              {
+                "id": "blizzard"
+              },
+              {
+                "id": "hyperbeam"
+              },
+              {
+                "id": "lightscreen"
+              },
+              {
+                "id": "protect"
+              },
+              {
+                "id": "raindance"
+              },
+              {
+                "id": "gigadrain"
+              },
+              {
+                "id": "safeguard"
+              },
+              {
+                "id": "bulldoze"
+              },
+              {
+                "id": "solarbeam"
+              },
+              {
+                "id": "irontail"
+              },
+              {
+                "id": "thunderbolt"
+              },
+              {
+                "id": "thunder"
+              },
+              {
+                "id": "earthquake"
+              },
+              {
+                "id": "return"
+              },
+              {
+                "id": "dig"
+              },
+              {
+                "id": "psychic"
+              },
+              {
+                "id": "shadowball"
+              },
+              {
+                "id": "rocksmash"
+              },
+              {
+                "id": "doubleteam"
+              },
+              {
+                "id": "reflect"
+              },
+              {
+                "id": "flashcannon"
+              },
+              {
+                "id": "flamethrower"
+              },
+              {
+                "id": "sludgebomb"
+              },
+              {
+                "id": "sandstorm"
+              },
+              {
+                "id": "fireblast"
+              },
+              {
+                "id": "swift"
+              },
+              {
+                "id": "aerialace"
+              },
+              {
+                "id": "substitute"
+              },
+              {
+                "id": "facade"
+              },
+              {
+                "id": "flamecharge"
+              },
+              {
+                "id": "rest"
+              },
+              {
+                "id": "attract"
+              },
+              {
+                "id": "thief"
+              },
+              {
+                "id": "steelwing"
+              },
+              {
+                "id": "rockslide"
+              },
+              {
+                "id": "dazzlingleam"
+              },
+              {
+                "id": "leechlife"
+              },
+              {
+                "id": "roost"
+              },
+              {
+                "id": "focusblast"
+              },
+              {
+                "id": "energyball"
+              },
+              {
+                "id": "falseswipe"
+              },
+              {
+                "id": "scald"
+              },
+              {
+                "id": "xscissor"
+              },
+              {
+                "id": "wildcharge"
+              },
+              {
+                "id": "darkpulse"
+              },
+              {
+                "id": "dragonpulse"
+              },
+              {
+                "id": "drainpunch"
+              },
+              {
+                "id": "willowisp"
+              },
+              {
+                "id": "acrobatics"
+              },
+              {
+                "id": "waterpulse"
+              },
+              {
+                "id": "explosion"
+              },
+              {
+                "id": "shadowclaw"
+              },
+              {
+                "id": "poisonjab"
+              },
+              {
+                "id": "avalanche"
+              },
+              {
+                "id": "gigaimpact"
+              },
+              {
+                "id": "uturn"
+              },
+              {
+                "id": "flash"
+              },
+              {
+                "id": "stoneedge"
+              },
+              {
+                "id": "voltswitch"
+              },
+              {
+                "id": "thunderwave"
+              },
+              {
+                "id": "gyroball"
+              },
+              {
+                "id": "swordsdance"
+              },
+              {
+                "id": "cut"
+              },
+              {
+                "id": "fly"
+              },
+              {
+                "id": "surf"
+              },
+              {
+                "id": "strength"
+              },
+              {
+                "id": "whirlpool"
+              },
+              {
+                "id": "waterfall"
+              },
+              {
+                "id": "agility"
+              },
+              {
+                "id": "aquatail"
+              },
+              {
+                "id": "batonpass"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "charm"
+              },
+              {
+                "id": "counter"
+              },
+              {
+                "id": "defensecurl"
+              },
+              {
+                "id": "doubleedge"
+              },
+              {
+                "id": "dreameater"
+              },
+              {
+                "id": "earthpower"
+              },
+              {
+                "id": "endure"
+              },
+              {
+                "id": "firepunch"
+              },
+              {
+                "id": "headbutt"
+              },
+              {
+                "id": "hypervoice"
+              },
+              {
+                "id": "icepunch"
+              },
+              {
+                "id": "icywind"
+              },
+              {
+                "id": "ironhead"
+              },
+              {
+                "id": "knockoff"
+              },
+              {
+                "id": "payday"
+              },
+              {
+                "id": "rollout"
+              },
+              {
+                "id": "seedbomb"
+              },
+              {
+                "id": "seismictoss"
+              },
+              {
+                "id": "skillswap"
+              },
+              {
+                "id": "sleeptalk"
+              },
+              {
+                "id": "suckerpunch"
+              },
+              {
+                "id": "swagger"
+              },
+              {
+                "id": "thunderpunch"
+              },
+              {
+                "id": "trick"
+              },
+              {
+                "id": "trickroom"
+              },
+              {
+                "id": "zapcannon"
+              },
+              {
+                "id": "zenheadbutt"
+              }
+            ],
+            "eggMoves": []
+          }
+        }
+      }
+    },
+    "faithful": {
+      "forms": {
+        "plain": {
+          "formNumber": 1,
+          "types": [
+            "psychic"
+          ],
+          "abilities": [
+            "synchronize",
+            "synchronize",
+            "synchronize"
+          ],
+          "baseStats": {
+            "hp": 100,
+            "attack": 100,
+            "defense": 100,
+            "specialAttack": 100,
+            "specialDefense": 100,
+            "speed": 100
+          },
+          "growthRate": "growthmediumslow",
+          "genderRatio": "unknown",
+          "hatchRate": "unknown",
+          "catchRate": 45,
+          "baseExp": 64,
+          "evYield": {
+            "hp": 3
+          },
+          "heldItems": [
+            {
+              "id": "lumberry",
+              "rarity": "always"
+            }
+          ],
+          "movesets": {
+            "levelUp": [
+              {
+                "id": "sketch",
+                "level": 1
+              },
+              {
+                "id": "teleport",
+                "level": 1
+              },
+              {
+                "id": "tackle",
+                "level": 1
+              },
+              {
+                "id": "transform",
+                "level": 1
+              },
+              {
+                "id": "confusion",
+                "level": 1
+              },
+              {
+                "id": "headbutt",
+                "level": 10
+              },
+              {
+                "id": "metronome",
+                "level": 20
+              },
+              {
+                "id": "psychicm",
+                "level": 30
+              },
+              {
+                "id": "barrier",
+                "level": 40
+              },
+              {
+                "id": "ancientpower",
+                "level": 50
+              },
+              {
+                "id": "batonpass",
+                "level": 60
+              },
+              {
+                "id": "safeguard",
+                "level": 70
+              },
+              {
+                "id": "amnesia",
+                "level": 80
+              },
+              {
+                "id": "nastyplot",
+                "level": 90
+              },
+              {
+                "id": "aurasphere",
+                "level": 100
+              }
+            ],
+            "tm": [
+              {
+                "id": "dynamicpunch"
+              },
+              {
+                "id": "dragonclaw"
+              },
+              {
+                "id": "curse"
+              },
+              {
+                "id": "calmmind"
+              },
+              {
+                "id": "roar"
+              },
+              {
+                "id": "toxic"
+              },
+              {
+                "id": "hail"
+              },
+              {
+                "id": "bulkup"
+              },
+              {
+                "id": "venoshock"
+              },
+              {
+                "id": "hiddenpower"
+              },
+              {
+                "id": "sunnyday"
+              },
+              {
+                "id": "honeclaws"
+              },
+              {
+                "id": "icebeam"
+              },
+              {
+                "id": "blizzard"
+              },
+              {
+                "id": "hyperbeam"
+              },
+              {
+                "id": "lightscreen"
+              },
+              {
+                "id": "protect"
+              },
+              {
+                "id": "raindance"
+              },
+              {
+                "id": "gigadrain"
+              },
+              {
+                "id": "safeguard"
+              },
+              {
+                "id": "bulldoze"
+              },
+              {
+                "id": "solarbeam"
+              },
+              {
+                "id": "irontail"
+              },
+              {
+                "id": "thunderbolt"
+              },
+              {
+                "id": "thunder"
+              },
+              {
+                "id": "earthquake"
+              },
+              {
+                "id": "return"
+              },
+              {
+                "id": "dig"
+              },
+              {
+                "id": "psychic"
+              },
+              {
+                "id": "shadowball"
+              },
+              {
+                "id": "rocksmash"
+              },
+              {
+                "id": "doubleteam"
+              },
+              {
+                "id": "reflect"
+              },
+              {
+                "id": "flashcannon"
+              },
+              {
+                "id": "flamethrower"
+              },
+              {
+                "id": "sludgebomb"
+              },
+              {
+                "id": "sandstorm"
+              },
+              {
+                "id": "fireblast"
+              },
+              {
+                "id": "swift"
+              },
+              {
+                "id": "aerialace"
+              },
+              {
+                "id": "substitute"
+              },
+              {
+                "id": "facade"
+              },
+              {
+                "id": "flamecharge"
+              },
+              {
+                "id": "rest"
+              },
+              {
+                "id": "attract"
+              },
+              {
+                "id": "thief"
+              },
+              {
+                "id": "steelwing"
+              },
+              {
+                "id": "rockslide"
+              },
+              {
+                "id": "dazzlingleam"
+              },
+              {
+                "id": "leechlife"
+              },
+              {
+                "id": "roost"
+              },
+              {
+                "id": "focusblast"
+              },
+              {
+                "id": "energyball"
+              },
+              {
+                "id": "falseswipe"
+              },
+              {
+                "id": "scald"
+              },
+              {
+                "id": "xscissor"
+              },
+              {
+                "id": "wildcharge"
+              },
+              {
+                "id": "darkpulse"
+              },
+              {
+                "id": "dragonpulse"
+              },
+              {
+                "id": "drainpunch"
+              },
+              {
+                "id": "willowisp"
+              },
+              {
+                "id": "acrobatics"
+              },
+              {
+                "id": "waterpulse"
+              },
+              {
+                "id": "explosion"
+              },
+              {
+                "id": "shadowclaw"
+              },
+              {
+                "id": "poisonjab"
+              },
+              {
+                "id": "avalanche"
+              },
+              {
+                "id": "gigaimpact"
+              },
+              {
+                "id": "uturn"
+              },
+              {
+                "id": "flash"
+              },
+              {
+                "id": "stoneedge"
+              },
+              {
+                "id": "voltswitch"
+              },
+              {
+                "id": "thunderwave"
+              },
+              {
+                "id": "gyroball"
+              },
+              {
+                "id": "swordsdance"
+              },
+              {
+                "id": "cut"
+              },
+              {
+                "id": "fly"
+              },
+              {
+                "id": "surf"
+              },
+              {
+                "id": "strength"
+              },
+              {
+                "id": "whirlpool"
+              },
+              {
+                "id": "waterfall"
+              },
+              {
+                "id": "agility"
+              },
+              {
+                "id": "aquatail"
+              },
+              {
+                "id": "batonpass"
+              },
+              {
+                "id": "bodyslam"
+              },
+              {
+                "id": "charm"
+              },
+              {
+                "id": "counter"
+              },
+              {
+                "id": "defensecurl"
+              },
+              {
+                "id": "doubleedge"
+              },
+              {
+                "id": "dreameater"
+              },
+              {
+                "id": "earthpower"
+              },
+              {
+                "id": "endure"
+              },
+              {
+                "id": "firepunch"
+              },
+              {
+                "id": "headbutt"
+              },
+              {
+                "id": "hypervoice"
+              },
+              {
+                "id": "icepunch"
+              },
+              {
+                "id": "icywind"
+              },
+              {
+                "id": "ironhead"
+              },
+              {
+                "id": "knockoff"
+              },
+              {
+                "id": "payday"
+              },
+              {
+                "id": "rollout"
+              },
+              {
+                "id": "seedbomb"
+              },
+              {
+                "id": "seismictoss"
+              },
+              {
+                "id": "skillswap"
+              },
+              {
+                "id": "sleeptalk"
+              },
+              {
+                "id": "suckerpunch"
+              },
+              {
+                "id": "swagger"
+              },
+              {
+                "id": "thunderpunch"
+              },
+              {
+                "id": "trick"
+              },
+              {
+                "id": "trickroom"
+              },
+              {
+                "id": "zapcannon"
+              },
+              {
+                "id": "zenheadbutt"
+              }
+            ],
+            "eggMoves": []
+          }
+        }
+      }
+    }
+  }
+}

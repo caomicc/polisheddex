@@ -1,0 +1,85 @@
+{
+  "id": "transform",
+  "versions": {
+    "faithful": {
+      "name": "Transform",
+      "description": "The user assumes the foe's guise.",
+      "power": 0,
+      "type": "normal",
+      "accuracy": 100,
+      "pp": 10,
+      "effectChance": 0,
+      "category": "status",
+      "learners": [
+        {
+          "id": "ditto",
+          "name": "Ditto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "mew",
+          "name": "Mew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Transform",
+      "description": "The user assumes the foe's guise.",
+      "power": 0,
+      "type": "normal",
+      "accuracy": 100,
+      "pp": 10,
+      "effectChance": 0,
+      "category": "status",
+      "learners": [
+        {
+          "id": "ditto",
+          "name": "Ditto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "mew",
+          "name": "Mew",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "psychic"
+          ]
+        }
+      ]
+    }
+  }
+}

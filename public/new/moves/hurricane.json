@@ -1,0 +1,631 @@
+{
+  "id": "hurricane",
+  "versions": {
+    "faithful": {
+      "name": "Hurricane",
+      "description": "An attack that may confuse the foe.",
+      "power": 110,
+      "type": "flying",
+      "accuracy": 70,
+      "pp": 10,
+      "effectChance": 30,
+      "category": "special",
+      "learners": [
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 92
+            }
+          ],
+          "types": [
+            "ice",
+            "flying"
+          ]
+        },
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 92
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "charizard",
+          "name": "Charizard",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 77
+            }
+          ],
+          "types": [
+            "fire",
+            "flying"
+          ]
+        },
+        {
+          "id": "delibird",
+          "name": "Delibird",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 53
+            }
+          ],
+          "types": [
+            "ice",
+            "flying"
+          ]
+        },
+        {
+          "id": "dragonite",
+          "name": "Dragonite",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "levelUp",
+              "level": 81
+            }
+          ],
+          "types": [
+            "dragon",
+            "flying"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 53
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "threesegment",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 53
+            }
+          ],
+          "types": [
+            "normal"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 48
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "red",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 48
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "name": "Hoothoot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "lugia",
+          "name": "Lugia",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 99
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "moltres",
+          "name": "Moltres",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 92
+            }
+          ],
+          "types": [
+            "fire",
+            "flying"
+          ]
+        },
+        {
+          "id": "moltres",
+          "name": "Moltres",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 92
+            }
+          ],
+          "types": [
+            "dark",
+            "flying"
+          ]
+        },
+        {
+          "id": "noctowl",
+          "name": "Noctowl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgeot",
+          "name": "Pidgeot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 68
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgeotto",
+          "name": "Pidgeotto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 62
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgey",
+          "name": "Pidgey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 53
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "togekiss",
+          "name": "Togekiss",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "zapdos",
+          "name": "Zapdos",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 92
+            }
+          ],
+          "types": [
+            "electric",
+            "flying"
+          ]
+        },
+        {
+          "id": "zapdos",
+          "name": "Zapdos",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 92
+            }
+          ],
+          "types": [
+            "fighting",
+            "flying"
+          ]
+        }
+      ]
+    },
+    "polished": {
+      "name": "Hurricane",
+      "description": "An attack that may confuse the foe.",
+      "power": 110,
+      "type": "flying",
+      "accuracy": 70,
+      "pp": 10,
+      "effectChance": 30,
+      "category": "special",
+      "learners": [
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 92
+            }
+          ],
+          "types": [
+            "ice",
+            "flying"
+          ]
+        },
+        {
+          "id": "articuno",
+          "name": "Articuno",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 92
+            }
+          ],
+          "types": [
+            "psychic",
+            "flying"
+          ]
+        },
+        {
+          "id": "charizard",
+          "name": "Charizard",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 77
+            }
+          ],
+          "types": [
+            "fire",
+            "dragon"
+          ]
+        },
+        {
+          "id": "delibird",
+          "name": "Delibird",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 53
+            }
+          ],
+          "types": [
+            "ice",
+            "flying"
+          ]
+        },
+        {
+          "id": "dragonite",
+          "name": "Dragonite",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            },
+            {
+              "method": "levelUp",
+              "level": 81
+            }
+          ],
+          "types": [
+            "dragon",
+            "flying"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 53
+            }
+          ],
+          "types": [
+            "normal",
+            "dragon"
+          ]
+        },
+        {
+          "id": "dudunsparce",
+          "name": "Dudunsparce",
+          "form": "threesegment",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 53
+            }
+          ],
+          "types": [
+            "normal",
+            "dragon"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 48
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "gyarados",
+          "name": "Gyarados",
+          "form": "red",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 48
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "hoothoot",
+          "name": "Hoothoot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "lugia",
+          "name": "Lugia",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 99
+            }
+          ],
+          "types": [
+            "water",
+            "flying"
+          ]
+        },
+        {
+          "id": "moltres",
+          "name": "Moltres",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 92
+            }
+          ],
+          "types": [
+            "fire",
+            "flying"
+          ]
+        },
+        {
+          "id": "moltres",
+          "name": "Moltres",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 92
+            }
+          ],
+          "types": [
+            "dark",
+            "flying"
+          ]
+        },
+        {
+          "id": "noctowl",
+          "name": "Noctowl",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "eggMove"
+            }
+          ],
+          "types": [
+            "ghost",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgeot",
+          "name": "Pidgeot",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 68
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgeotto",
+          "name": "Pidgeotto",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 62
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "pidgey",
+          "name": "Pidgey",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 53
+            }
+          ],
+          "types": [
+            "normal",
+            "flying"
+          ]
+        },
+        {
+          "id": "togekiss",
+          "name": "Togekiss",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 1
+            }
+          ],
+          "types": [
+            "fairy",
+            "flying"
+          ]
+        },
+        {
+          "id": "zapdos",
+          "name": "Zapdos",
+          "form": "plain",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 92
+            }
+          ],
+          "types": [
+            "electric",
+            "flying"
+          ]
+        },
+        {
+          "id": "zapdos",
+          "name": "Zapdos",
+          "form": "galarian",
+          "methods": [
+            {
+              "method": "levelUp",
+              "level": 92
+            }
+          ],
+          "types": [
+            "fighting",
+            "flying"
+          ]
+        }
+      ]
+    }
+  }
+}

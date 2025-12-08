@@ -1,0 +1,41 @@
+{
+  "id": "sandstream",
+  "name": "Sand Stream",
+  "versions": {
+    "polished": {
+      "description": "Summons sandstorm when switched in.",
+      "pokemon": [
+        {
+          "id": "dunsparce",
+          "name": "Dunsparce",
+          "form": "plain",
+          "abilityTypes": [
+            "hidden"
+          ]
+        },
+        {
+          "id": "tyranitar",
+          "name": "Tyranitar",
+          "form": "plain",
+          "abilityTypes": [
+            "primary"
+          ]
+        }
+      ]
+    },
+    "faithful": {
+      "description": "Summons sandstorm when switched in.",
+      "pokemon": [
+        {
+          "id": "tyranitar",
+          "name": "Tyranitar",
+          "form": "plain",
+          "abilityTypes": [
+            "primary",
+            "secondary"
+          ]
+        }
+      ]
+    }
+  }
+}
