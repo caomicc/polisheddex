@@ -679,6 +679,41 @@ const extractMon = (data: string[], pokemonForm: string) => {
     pokemonTMCompatibility[pokemonForm][reduce(name_form)] = tmMoves;
   }
 
+  // Extract held items
+  // Format: db ITEM1, ITEM2 ; held items
+  // ITEM1 is common (25% chance), ITEM2 is rare (5% chance)
+  // ALWAYS_ITEM_2 means 100% chance to hold the rare item
+  // NO_ITEM means no held item
+  interface HeldItem {
+    id: string;
+    rarity: 'common' | 'rare' | 'always';
+  }
+  const heldItems: HeldItem[] = [];
+  const heldItemsLine = data.find((line: string) => line.includes('; held items'));
+  if (heldItemsLine) {
+    const itemsPart = heldItemsLine.split(';')[0].trim();
+    const itemsMatch = itemsPart.match(/^db\s+(.+),\s*(.+)$/);
+    if (itemsMatch) {
+      const commonItem = itemsMatch[1].trim();
+      const rareItem = itemsMatch[2].trim();
+
+      if (commonItem === 'ALWAYS_ITEM_2') {
+        // 100% chance to hold the rare item
+        if (rareItem !== 'NO_ITEM') {
+          heldItems.push({ id: reduce(rareItem), rarity: 'always' });
+        }
+      } else {
+        // Normal held item chances (25% common, 5% rare)
+        if (commonItem !== 'NO_ITEM') {
+          heldItems.push({ id: reduce(commonItem), rarity: 'common' });
+        }
+        if (rareItem !== 'NO_ITEM') {
+          heldItems.push({ id: reduce(rareItem), rarity: 'rare' });
+        }
+      }
+    }
+  }
+
   //Add it in!
   //Special Case: Armored Mewtwo (labelled as Mewtwo in file)
   //If Polished, Armored Mewtwo is a functional variant
@@ -694,6 +729,9 @@ const extractMon = (data: string[], pokemonForm: string) => {
       form['baseStats'] = bsts;
       form['growthRate'] = growthRate;
       form['hasGender'] = hasGender;
+      if (heldItems.length > 0) {
+        form['heldItems'] = heldItems;
+      }
     }
     return;
   }
@@ -709,6 +747,9 @@ const extractMon = (data: string[], pokemonForm: string) => {
       form['baseStats'] = bsts;
       form['growthRate'] = growthRate;
       form['hasGender'] = hasGender;
+      if (heldItems.length > 0) {
+        form['heldItems'] = heldItems;
+      }
     }
     return;
   }
@@ -726,6 +767,9 @@ const extractMon = (data: string[], pokemonForm: string) => {
         form['baseStats'] = bsts;
         form['growthRate'] = growthRate;
         form['hasGender'] = hasGender;
+        if (heldItems.length > 0) {
+          form['heldItems'] = heldItems;
+        }
         return;
       }
     }
@@ -751,6 +795,7 @@ const extractCosmetic = (pokemonForm: string) => {
           form['baseStats'] = plainForm['baseStats'];
           form['growthRate'] = plainForm['growthRate'];
           form['hasGender'] = plainForm['hasGender'];
+          form['heldItems'] = plainForm['heldItems'];
         }
       }
     }

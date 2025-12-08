@@ -7,6 +7,11 @@ interface BaseStats {
   speed: number;
 }
 
+interface HeldItem {
+  id: string;
+  rarity: 'common' | 'rare' | 'always';
+}
+
 interface Forms {
   [formName: string]: {
     formNumber: number;
@@ -16,6 +21,7 @@ interface Forms {
     growthRate?: string;
     hasGender?: boolean;
     movesets?: PokemonMovesets;
+    heldItems?: HeldItem[];
   };
 }
 

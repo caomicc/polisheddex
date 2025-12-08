@@ -14,6 +14,13 @@ interface EnrichedAbility {
   description?: string;
 }
 
+// Held item structure from extraction (enriched with name)
+interface HeldItem {
+  id: string;
+  name?: string;
+  rarity: 'common' | 'rare' | 'always';
+}
+
 interface PokemonInfoTableProps {
   name: string;
   dexNo: number;
@@ -22,7 +29,7 @@ interface PokemonInfoTableProps {
   selectedForm: string;
   evolutionChain: EvolutionChainStep[][] | null;
   eggGroups?: string[];
-  wildHeldItems?: string[];
+  heldItems?: HeldItem[];
   growthRate?: string;
   hasGender?: boolean;
   availableForms?: string[];
@@ -171,7 +178,7 @@ export function PokemonInfoTable({
   selectedForm,
   evolutionChain,
   eggGroups = [],
-  wildHeldItems = [],
+  heldItems = [],
   growthRate,
   hasGender,
   availableForms = [],
@@ -328,7 +335,7 @@ export function PokemonInfoTable({
                 const abilityType = index === 0 ? 'Primary' : index === 1 ? 'Secondary' : 'Hidden';
 
                 return (
-                  <TableRow key={abilityId || index}>
+                  <TableRow key={index}>
                     {index === 0 && (
                       <TableHead
                         rowSpan={abilities.length}
@@ -393,7 +400,24 @@ export function PokemonInfoTable({
               Wild Held Items
             </TableHead>
             <TableCell colSpan={2} className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
-              {wildHeldItems.length > 0 ? wildHeldItems.join(', ') : 'None'}
+              {heldItems.length > 0 ? (
+                <div className="flex flex-wrap gap-2">
+                  {heldItems.map((item, index) => (
+                    <Link
+                      key={`${item.id}-${index}`}
+                      href={`/items/${item.id}`}
+                      className="inline-flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400"
+                    >
+                      <span>{item.name || formatItemName(item.id)}</span>
+                      <span className="text-xs text-neutral-500">
+                        ({item.rarity === 'always' ? '100%' : item.rarity === 'common' ? '25%' : '5%'})
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <span className="text-neutral-500">None</span>
+              )}
             </TableCell>
           </TableRow>
 

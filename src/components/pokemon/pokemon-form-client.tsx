@@ -186,6 +186,7 @@ export default function PokemonFormClient({
           }
           growthRate={currentFormData?.growthRate}
           hasGender={currentFormData?.hasGender}
+          heldItems={currentFormData?.heldItems}
           availableForms={uniqueForms}
         />
 

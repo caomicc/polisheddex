@@ -5,6 +5,7 @@ import { PokemonManifest, ComprehensivePokemonData, PokemonMovesets } from '@/ty
 import { getMoveData } from '../move-data-server';
 import { getAbilityData } from '../ability-data-server';
 import { getPokemonFileName } from '@/lib/extract-utils';
+import { loadDetailedItemData } from './item-data-loader';
 
 /**
  * Load Pokemon data from the new manifest structure (new/pokemon_manifest.json)
@@ -197,10 +198,16 @@ export async function loadEnrichedPokemonData(
           ? await enrichAbilities(formData.abilities, versionName)
           : undefined;
 
+        // Enrich held items
+        const enrichedHeldItems = formData.heldItems
+          ? await enrichHeldItems(formData.heldItems as HeldItem[], versionName)
+          : undefined;
+
         enrichedForms[formName] = {
           ...formData,
           movesets: enrichedMovesets,
           abilities: enrichedAbilities,
+          heldItems: enrichedHeldItems,
         };
       }
 
@@ -334,6 +341,62 @@ async function enrichAbilities(abilities: string[], versionName: string): Promis
           id: abilityName,
           name: abilityName,
           description: '',
+        };
+      }
+    }),
+  );
+}
+
+interface HeldItem {
+  id: string;
+  rarity: 'common' | 'rare' | 'always';
+}
+
+interface EnrichedHeldItem extends HeldItem {
+  name: string;
+}
+
+/**
+ * Helper function to enrich held items with display names
+ */
+async function enrichHeldItems(
+  heldItems: HeldItem[],
+  versionName: string,
+): Promise<EnrichedHeldItem[]> {
+  return await Promise.all(
+    heldItems.map(async (item) => {
+      try {
+        const itemData = await loadDetailedItemData(item.id);
+        const versionData = itemData?.versions?.[versionName];
+
+        if (versionData?.name) {
+          return {
+            ...item,
+            name: versionData.name,
+          };
+        } else {
+          // Fallback: format the ID as a readable name
+          return {
+            ...item,
+            name: item.id
+              .replace(/([a-z])([A-Z])/g, '$1 $2')
+              .replace(/_/g, ' ')
+              .split(' ')
+              .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(' '),
+          };
+        }
+      } catch (error) {
+        console.warn(`Failed to load item data for: ${item.id}`, error);
+        // Fallback: format the ID as a readable name
+        return {
+          ...item,
+          name: item.id
+            .replace(/([a-z])([A-Z])/g, '$1 $2')
+            .replace(/_/g, ' ')
+            .split(' ')
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' '),
         };
       }
     }),
