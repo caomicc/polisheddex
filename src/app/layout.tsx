@@ -3,7 +3,7 @@ import { Geist_Mono, Manrope } from 'next/font/google';
 import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Footer, Navigation } from '@/components/ui';
+import { Footer, Navigation, FeedbackForm } from '@/components/ui';
 // import { PokemonTypeProvider, FaithfulPreferenceProvider } from '@/contexts';
 import { NuqsProvider } from '@/components/providers/nuqs-provider';
 import { ThemeProvider } from '@/components/providers/theme-provider';
@@ -140,6 +140,7 @@ export default function RootLayout({
               <div className="flex flex-col min-h-screen relative z-10">
                 <Navigation />
                 <main className="flex-grow">{children}</main>
+                <FeedbackForm />
                 <Footer />
               </div>
             </PokemonTypeProvider>
