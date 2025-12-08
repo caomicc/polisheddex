@@ -15,7 +15,7 @@ import {
 import TableWrapper from '@/components/ui/table-wrapper';
 import { PokemonSprite } from '@/components/pokemon/pokemon-sprite';
 import { cn } from '@/lib/utils';
-import { Footprints } from 'lucide-react';
+import { Footprints, ExternalLink } from 'lucide-react';
 
 interface LocationEncounter {
   pokemon: string;
@@ -96,36 +96,38 @@ function EncounterTable({
 }) {
   return (
     <TableWrapper>
-      <Table className="data-table">
+      <Table className="w-full min-w-[500px]">
         <TableHeader>
           <TableRow>
             <TableHead className="w-[60px]"></TableHead>
             <TableHead className="table-header-label">Pokémon</TableHead>
             <TableHead className="table-header-label">Method</TableHead>
-            <TableHead className="table-header-label">Level</TableHead>
-            <TableHead className="table-header-label">Rate</TableHead>
-            {showTimeColumn && <TableHead className="table-header-label">Time</TableHead>}
+            <TableHead className="table-header-label w-[80px]">Level</TableHead>
+            <TableHead className="table-header-label w-[60px]">Rate</TableHead>
+            {showTimeColumn && <TableHead className="table-header-label w-[100px]">Time</TableHead>}
           </TableRow>
         </TableHeader>
       <TableBody>
         {encounters.map((enc, idx) => (
           <TableRow key={idx}>
-            <TableCell>
+            <TableCell className="w-[60px]">
               <PokemonSprite
                 pokemonName={enc.pokemon}
                 form={enc.formName}
-                className="w-10 h-10 shadow-none"
+                size="sm"
+                className="shadow-none"
               />
             </TableCell>
             <TableCell>
               <Link
                 href={`/pokemon/${enc.pokemon}${enc.formName !== 'plain' ? `?form=${enc.formName}` : ''}`}
-                className="font-medium capitalize hover:text-blue-600 dark:hover:text-blue-400"
+                className="table-link capitalize"
               >
                 {enc.pokemon.replace(/-/g, ' ')}
                 {enc.formName !== 'plain' && (
                   <span className="text-xs text-neutral-500 ml-1">({enc.formName})</span>
                 )}
+                <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
               </Link>
             </TableCell>
             <TableCell>
@@ -133,10 +135,10 @@ function EncounterTable({
                 {enc.method.replace(/_/g, ' ')}
               </Badge>
             </TableCell>
-            <TableCell>Lv. {enc.levelRange}</TableCell>
-            <TableCell>{enc.totalRate}%</TableCell>
+            <TableCell className="table-cell-text">Lv. {enc.levelRange}</TableCell>
+            <TableCell className="table-cell-text">{enc.totalRate}%</TableCell>
             {showTimeColumn && (
-              <TableCell className="capitalize">{Array.from(enc.times).join(', ')}</TableCell>
+              <TableCell className="table-cell-text capitalize">{Array.from(enc.times).join(', ')}</TableCell>
             )}
           </TableRow>
         ))}
