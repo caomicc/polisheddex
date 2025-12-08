@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import path from 'path';
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -26,18 +27,13 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizeServerReact: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     ignoreBuildErrors: false,
   },
-  webpack: (config) => {
-    config.watchOptions = {
-      ...config.watchOptions,
-      ignored: ['**/src/utils/extractors/**', '**/extract_pokemon_data.ts'],
-    };
-    return config;
+  // Turbopack configuration
+  turbopack: {
+    // Set root to current directory to prevent resolving symlinks outside project
+    root: path.resolve(__dirname),
   },
 };
 

@@ -116,10 +116,10 @@ function filterChainByForm(chain: EvolutionChain, selectedForm: string): Evoluti
 function buildEvolutionRows(chain: EvolutionChain, selectedForm: string): EvolutionRow[] {
   // Filter chain to only include paths relevant to the selected form
   const filteredChain = filterChainByForm(chain, selectedForm);
-  
+
   // If no paths match the selected form, fall back to plain form
   const chainToUse = filteredChain.length > 0 ? filteredChain : filterChainByForm(chain, 'plain');
-  
+
   const rows: EvolutionRow[] = [];
   const seenPokemon = new Set<string>();
   const basePokemon = new Set<string>();
@@ -185,7 +185,10 @@ export function EvolutionTable({ chain, currentPokemon, currentForm = 'plain' }:
     );
   }
 
+
   const rows = buildEvolutionRows(chain, currentForm);
+
+  console.log('Evolution table rows:', rows);
 
   if (rows.length === 0) {
     return (
@@ -240,6 +243,18 @@ export function EvolutionTable({ chain, currentPokemon, currentForm = 'plain' }:
                 <>
                   <TableCell
                   className="info-table-cell">
+                   <div className='flex items-center'>
+                     <Link
+                      href={`/pokemon/${row.fromName}`}
+                      className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400"
+                    >
+                      <PokemonSprite
+                        pokemonName={row.fromName!}
+                        // form={row.fromName === row.pokemon.name ? row.pokemon.formName : 'plain'}
+                        size='sm'
+                      />
+                    </Link>
+                    <span className="mx-2">→</span>
                     <Link
                       href={`/pokemon/${row.pokemon.name}`}
                       className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400"
@@ -251,6 +266,7 @@ export function EvolutionTable({ chain, currentPokemon, currentForm = 'plain' }:
                       />
                       <span className="capitalize">{formatPokemonName(row.pokemon.name)}</span>
                     </Link>
+                   </div>
                   </TableCell>
                 </>
               )}

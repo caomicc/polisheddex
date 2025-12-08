@@ -17,7 +17,7 @@ export async function loadJsonFile<T>(relativePath: string): Promise<T | null> {
   if (typeof window !== 'undefined') {
     throw new Error('loadJsonFile can only be called on the server side');
   }
-  
+
   if (!fs || !path) {
     throw new Error('File system modules not available');
   }
@@ -63,7 +63,7 @@ export async function loadJsonData<T>(filePath: string): Promise<T | null> {
   if (typeof window !== 'undefined') {
     throw new Error('loadJsonData can only be called on the server side');
   }
-  
+
   if (!fs) {
     throw new Error('File system module not available');
   }

@@ -170,6 +170,12 @@ const extractMoveData = async () => {
           // Extract move name (first part after 'move ')
           let moveNamePart = parts[0].replace('move ', '').trim();
 
+          // Normalize special move names that differ from their display names
+          // PSYCHIC_M is the move constant (to avoid conflict with PSYCHIC type)
+          if (moveNamePart.toUpperCase() === 'PSYCHIC_M') {
+            moveNamePart = 'PSYCHIC';
+          }
+
           // fake brick break
           if (
             moveNamePart.toLowerCase().includes('brick_break') ||
