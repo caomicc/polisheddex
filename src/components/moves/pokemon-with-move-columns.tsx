@@ -50,7 +50,7 @@ export const pokemonWithMoveColumns: ColumnDef<MoveLearner>[] = [
     header: ({ column }) => {
       return (
         <Button
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
         >
@@ -104,7 +104,7 @@ export const pokemonWithMoveColumns: ColumnDef<MoveLearner>[] = [
     id: 'learnMethod',
     header: ({ column }) => {
       return (
-        <Button className="-ml-3 label-text" variant="ghost" onClick={() => column.toggleSorting()}>
+        <Button className="-ml-3 table-header-label" variant="ghost" onClick={() => column.toggleSorting()}>
           <>Method</>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -176,7 +176,7 @@ export const pokemonWithMoveColumns: ColumnDef<MoveLearner>[] = [
     id: 'level',
     header: ({ column }) => {
       return (
-        <Button className="-ml-3 label-text" variant="ghost" onClick={() => column.toggleSorting()}>
+        <Button className="-ml-3 table-header-label" variant="ghost" onClick={() => column.toggleSorting()}>
           <>Level</>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -193,9 +193,9 @@ export const pokemonWithMoveColumns: ColumnDef<MoveLearner>[] = [
       const primaryMethod = Array.isArray(methods) ? methods[0]?.method : methods;
 
       if (primaryMethod !== 'levelUp') {
-        return <span className="text-cell text-cell-muted">—</span>;
+        return <span className="table-cell-text table-cell-muted">—</span>;
       }
-      return <span className="text-cell">Level: {row.original.methods[0]?.level}</span>;
+      return <span className="table-cell-text">Level: {row.original.methods[0]?.level}</span>;
     },
     sortingFn: (rowA, rowB) => {
       const a = rowA.original;

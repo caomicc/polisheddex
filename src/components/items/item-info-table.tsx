@@ -49,25 +49,25 @@ export function ItemInfoTable({
   const moveSlug = moveName?.toLowerCase().replace(/\s+/g, '-').replace(/_/g, '-');
 
   return (
-    <div className="w-full mx-auto md:mx-0 relative z-10 rounded-xl border border-neutral-200 bg-neutral-100 overflow-hidden shadow-md dark:border-neutral-800 dark:bg-neutral-900">
-      <Table className="w-full text-sm table-auto">
-        <TableBody className="divide-y divide-neutral-200 dark:divide-neutral-700">
+    <div className="info-table-wrapper">
+      <Table className="info-table">
+        <TableBody className="info-table-body">
           {/* Category */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 w-[120px] align-top">
+            <TableHead className="info-table-label">
               Category
             </TableHead>
-            <TableCell className="px-4 py-2">
+            <TableCell className="info-table-cell">
               <Badge variant="secondary">{categoryLabel}</Badge>
             </TableCell>
           </TableRow>
 
           {/* Price */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+            <TableHead className="info-table-label">
               Price
             </TableHead>
-            <TableCell className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+            <TableCell className="info-table-cell">
               {price !== undefined && price > 0 ? (
                 <span className="font-medium text-green-600 dark:text-green-400">₽{price.toLocaleString()}</span>
               ) : (
@@ -78,10 +78,10 @@ export function ItemInfoTable({
 
           {/* Description */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+            <TableHead className="info-table-label">
               Effect
             </TableHead>
-            <TableCell className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+            <TableCell className="info-table-cell">
               {description}
             </TableCell>
           </TableRow>
@@ -89,10 +89,10 @@ export function ItemInfoTable({
           {/* Usage */}
           {usage && (
             <TableRow>
-              <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+              <TableHead className="info-table-label">
                 How to Use
               </TableHead>
-              <TableCell className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+              <TableCell className="info-table-cell">
                 {usage}
               </TableCell>
             </TableRow>
@@ -101,10 +101,10 @@ export function ItemInfoTable({
           {/* TM/HM Move */}
           {isTmHm && moveName && (
             <TableRow>
-              <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+              <TableHead className="info-table-label">
                 Teaches
               </TableHead>
-              <TableCell className="px-4 py-2">
+              <TableCell className="info-table-cell">
                 <div className="space-y-2">
                   <Link
                     href={`/moves/${moveSlug}`}

@@ -164,42 +164,42 @@ export default function StatsDisplay({
       <div className="grid grid-cols-1 gap-x-4 gap-y-2 text-sm relative">
         <div>
           <div className="flex justify-between">
-            <span className="label-text">HP:</span>
+            <span className="table-header-label">HP:</span>
             <span className="font-mono font-medium">{calculatedStats.hp}</span>
           </div>
           <Progress value={calculatedStats.hp / 5} max={500} />
         </div>
         <div>
           <div className="flex justify-between">
-            <span className="label-text">Att:</span>
+            <span className="table-header-label">Att:</span>
             <span className="font-mono font-medium">{calculatedStats.attack}</span>
           </div>
           <Progress value={calculatedStats.attack / 5} max={500} />
         </div>
         <div>
           <div className="flex justify-between">
-            <span className="label-text">Def:</span>
+            <span className="table-header-label">Def:</span>
             <span className="font-mono font-medium">{calculatedStats.defense}</span>
           </div>
           <Progress value={calculatedStats.defense / 5} max={500} />
         </div>
         <div>
           <div className="flex justify-between">
-            <span className="label-text">SpA:</span>
+            <span className="table-header-label">SpA:</span>
             <span className="font-mono font-medium">{calculatedStats.spatk}</span>
           </div>
           <Progress value={calculatedStats.spatk / 5} max={500} />
         </div>
         <div>
           <div className="flex justify-between">
-            <span className="label-text">SpD:</span>
+            <span className="table-header-label">SpD:</span>
             <span className="font-mono font-medium">{calculatedStats.spdef}</span>
           </div>
           <Progress value={calculatedStats.spdef / 5} max={500} />
         </div>
         <div>
           <div className="flex justify-between">
-            <span className="label-text">Spe:</span>
+            <span className="table-header-label">Spe:</span>
             <span className="font-mono font-medium">{calculatedStats.speed}</span>
           </div>
           <Progress value={calculatedStats.speed / 5} max={500} />

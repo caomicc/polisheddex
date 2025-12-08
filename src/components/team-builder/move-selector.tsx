@@ -277,7 +277,7 @@ export function MoveSelector({
                         <span>
                           Acc:{' '}
                           {String(move.accuracy) === '--' ? (
-                            <span className="text-cell text-cell-muted">—</span>
+                            <span className="table-cell-text table-cell-muted">—</span>
                           ) : (
                             `${move.accuracy}%`
                           )}

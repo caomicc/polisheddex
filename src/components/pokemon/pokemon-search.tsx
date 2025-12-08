@@ -55,7 +55,7 @@ export default function PokemonSearch({
   return (
     <>
       <div className="grid w-full items-center gap-2">
-        <Label className="label-text" htmlFor="pokemon-search">
+        <Label className="table-header-label" htmlFor="pokemon-search">
           Search Pokémon
         </Label>
         <Input
@@ -69,7 +69,7 @@ export default function PokemonSearch({
 
       <div className="my-4 flex items-center gap-2 relative flex-wrap">
         <div className="flex items-center gap-2">
-          <Label className="label-text" htmlFor="sort-select">
+          <Label className="table-header-label" htmlFor="sort-select">
             Sort:
           </Label>
           <Select value={sortType} onValueChange={(value) => setSortType(value)}>

@@ -285,7 +285,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
         {/* Primary search and filters */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex flex-col gap-2">
-            <Label className="label-text" htmlFor="move-filter">
+            <Label className="table-header-label" htmlFor="move-filter">
               Move Name
             </Label>
             <Input
@@ -298,7 +298,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
           </div>
           <div className="flex flex-row gap-4 w-full sm:w-auto">
             <div className="flex flex-col gap-2 w-1/2 md:w-auto">
-              <Label className="label-text" htmlFor="type-select">
+              <Label className="table-header-label" htmlFor="type-select">
                 Type
               </Label>
               <Select
@@ -321,7 +321,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
 
             {/* Category filter */}
             <div className="flex flex-col gap-2 w-1/2 md:w-auto">
-              <Label className="label-text" htmlFor="category-select">
+              <Label className="table-header-label" htmlFor="category-select">
                 Category
               </Label>
               <Select
@@ -352,7 +352,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
               checked={highPower}
               onCheckedChange={(checked) => setUrlState({ highPower: checked ? true : null })}
             />
-            <Label htmlFor="high-power" className="label-text">
+            <Label htmlFor="high-power" className="table-header-label">
               High power (80+)
             </Label>
           </div>
@@ -363,7 +363,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
               checked={hasTm}
               onCheckedChange={(checked) => setUrlState({ hasTm: checked ? true : null })}
             />
-            <Label htmlFor="tm-hm" className="label-text">
+            <Label htmlFor="tm-hm" className="table-header-label">
               Has TM/HM
             </Label>
           </div>
@@ -465,7 +465,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
                   return (
                     <TableHead
                       key={header.id}
-                      className={isNameColumn ? 'hidden sm:table-cell' : 'label-text'}
+                      className={isNameColumn ? 'hidden sm:table-cell' : 'table-header-label'}
                     >
                       {header.isPlaceholder
                         ? null
@@ -507,7 +507,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
         <div className="flex flex-col sm:flex-row items-center gap-4">
           {/* Page size selector */}
           <div className="flex items-center gap-2">
-            <Label htmlFor="page-size" className="label-text whitespace-nowrap">
+            <Label htmlFor="page-size" className="table-header-label whitespace-nowrap">
               Moves per page:
             </Label>
             <Select

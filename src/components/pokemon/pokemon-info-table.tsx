@@ -223,8 +223,8 @@ export function PokemonInfoTable({
   const immunities = ALL_TYPES.filter((type) => effectiveness[type] === 0);
 
   return (
-    <div className="w-full mx-auto md:mx-0 relative z-10 rounded-xl border border-neutral-200 bg-neutral-100 overflow-hidden shadow-md dark:border-neutral-800 dark:bg-neutral-900">
-      <Table className="w-full text-sm table-auto">
+    <div className="info-table-wrapper">
+      <Table className="info-table">
         <TableHeader>
 
           <TableRow>
@@ -318,13 +318,13 @@ export function PokemonInfoTable({
             </TableCell>
           </TableRow>
         </TableHeader>
-        <TableBody className="divide-y divide-neutral-200 dark:divide-neutral-700">
+        <TableBody className="info-table-body">
           {/* Type */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 w-[100px] align-top">
+            <TableHead className="info-table-label">
               Type
             </TableHead>
-            <TableCell className="px-4 py-2">
+            <TableCell className="info-table-cell">
               <div className="flex gap-1 flex-wrap">
                 {types.map((type) => (
                   <Badge key={type} variant={type.toLowerCase() as any}>
@@ -338,20 +338,20 @@ export function PokemonInfoTable({
 
           {/* National Dex */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+            <TableHead className="info-table-label">
               Dex
             </TableHead>
-            <TableCell  className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+            <TableCell className="info-table-cell">
               #{dexNo.toString().padStart(3, '0')}
             </TableCell>
           </TableRow>
 
           {/* Location / How to Obtain */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+            <TableHead className="info-table-label">
               Best obtain method
             </TableHead>
-            <TableCell className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+            <TableCell className="info-table-cell">
               {obtainMethod}
             </TableCell>
           </TableRow>
@@ -370,12 +370,12 @@ export function PokemonInfoTable({
                     {index === 0 && (
                       <TableHead
                         rowSpan={abilities.length}
-                        className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top"
+                        className="info-table-label"
                       >
                         Abilities
                       </TableHead>
                     )}
-                    <TableCell className="px-4 py-2 font-medium text-neutral-700 dark:text-neutral-200 min-w-[120px] max-w-[200px]">
+                    <TableCell className="info-table-cell font-medium min-w-[120px] max-w-[200px]">
                       <Link
                         href={`/abilities/${abilityId}`}
                         className="hover:text-blue-600 dark:hover:text-blue-400 capitalize"
@@ -386,7 +386,7 @@ export function PokemonInfoTable({
                         <span className="text-xs text-neutral-500 ml-1">({abilityType})</span>
                       )}
                     </TableCell>
-                    <TableCell className="px-4 py-2 text-neutral-600 dark:text-neutral-400 text-xs">
+                    <TableCell className="info-table-cell text-neutral-600 dark:text-neutral-400 text-xs">
                       {abilityDescription}
                     </TableCell>
                   </TableRow>
@@ -397,70 +397,70 @@ export function PokemonInfoTable({
 
           {/* Growth Rate */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+            <TableHead className="info-table-label">
               Growth Rate
             </TableHead>
-            <TableCell colSpan={2} className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+            <TableCell colSpan={2} className="info-table-cell">
               {growthRate ? formatGrowthRate(growthRate) : 'Unknown'}
             </TableCell>
           </TableRow>
 
           {/* Gender */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+            <TableHead className="info-table-label">
               Gender Ratio
             </TableHead>
-            <TableCell colSpan={2} className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+            <TableCell colSpan={2} className="info-table-cell">
               {genderRatio !== undefined ? formatGenderRatio(genderRatio) : 'Unknown'}
             </TableCell>
           </TableRow>
 
           {/* Egg Groups */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+            <TableHead className="info-table-label">
               Egg Groups
             </TableHead>
-            <TableCell colSpan={2} className="px-4 py-2 text-neutral-700 dark:text-neutral-200 capitalize">
+            <TableCell colSpan={2} className="info-table-cell capitalize">
               {eggGroups.length > 0 ? eggGroups.join(', ') : 'Unknown'}
             </TableCell>
           </TableRow>
 
           {/* Hatch Rate */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+            <TableHead className="info-table-label">
               Hatch Rate
             </TableHead>
-            <TableCell colSpan={2} className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+            <TableCell colSpan={2} className="info-table-cell">
               {hatchRate ? formatHatchRate(hatchRate) : 'Unknown'}
             </TableCell>
           </TableRow>
 
           {/* Catch Rate */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+            <TableHead className="info-table-label">
               Catch Rate
             </TableHead>
-            <TableCell colSpan={2} className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+            <TableCell colSpan={2} className="info-table-cell">
               {catchRate !== undefined ? catchRate : 'Unknown'}
             </TableCell>
           </TableRow>
 
           {/* Base Experience */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+            <TableHead className="info-table-label">
               Base Exp
             </TableHead>
-            <TableCell colSpan={2} className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+            <TableCell colSpan={2} className="info-table-cell">
               {baseExp !== undefined ? baseExp : 'Unknown'}
             </TableCell>
           </TableRow>
 
           {/* Wild Held Items */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+            <TableHead className="info-table-label">
               Wild Held Items
             </TableHead>
-            <TableCell colSpan={2} className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+            <TableCell colSpan={2} className="info-table-cell">
               {heldItems.length > 0 ? (
                 <div className="flex flex-wrap gap-2">
                   {heldItems.map((item, index) => (
@@ -484,10 +484,10 @@ export function PokemonInfoTable({
 
           {/* Weaknesses */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+            <TableHead className="info-table-label">
               Weak To
             </TableHead>
-            <TableCell colSpan={2} className="px-4 py-2">
+            <TableCell colSpan={2} className="info-table-cell">
               <div className="flex gap-1 flex-wrap">
                 {weaknesses.length === 0 ? (
                   <span className="text-neutral-500">None</span>
@@ -504,10 +504,10 @@ export function PokemonInfoTable({
 
           {/* Resistances */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+            <TableHead className="info-table-label">
               Resists
             </TableHead>
-            <TableCell colSpan={2} className="px-4 py-2">
+            <TableCell colSpan={2} className="info-table-cell">
               <div className="flex gap-1 flex-wrap">
                 {resistances.length === 0 ? (
                   <span className="text-neutral-500">None</span>
@@ -525,10 +525,10 @@ export function PokemonInfoTable({
           {/* Immunities */}
           {immunities.length > 0 && (
             <TableRow>
-              <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+              <TableHead className="info-table-label">
                 Immune To
               </TableHead>
-              <TableCell colSpan={2} className="px-4 py-2">
+              <TableCell colSpan={2} className="info-table-cell">
                 <div className="flex gap-1 flex-wrap">
                   {immunities.map((type) => (
                     <Badge key={type} variant={type.toLowerCase() as any} className="text-xs">
@@ -544,10 +544,10 @@ export function PokemonInfoTable({
           {/* Available Forms */}
           {availableForms.length > 1 && (
             <TableRow>
-              <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+              <TableHead className="info-table-label">
                 Forms
               </TableHead>
-              <TableCell colSpan={2} className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+              <TableCell colSpan={2} className="info-table-cell">
                 {availableForms.map(formatFormName).join(', ')}
               </TableCell>
             </TableRow>

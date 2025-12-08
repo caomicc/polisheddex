@@ -81,7 +81,7 @@ export const pokemonColumns: ColumnDef<any>[] = [
     id: 'pokemon',
     header: ({ column }) => {
       return (
-        <Button className="-ml-3 label-text" variant="ghost" onClick={() => column.toggleSorting()}>
+        <Button className="-ml-3 table-header-label" variant="ghost" onClick={() => column.toggleSorting()}>
           <>Pokémon</>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -160,7 +160,7 @@ export const pokemonColumns: ColumnDef<any>[] = [
     accessorKey: 'method',
     header: ({ column }) => {
       return (
-        <Button variant="ghost" onClick={() => column.toggleSorting()} className="-ml-3 label-text">
+        <Button variant="ghost" onClick={() => column.toggleSorting()} className="-ml-3 table-header-label">
           Method
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -174,14 +174,14 @@ export const pokemonColumns: ColumnDef<any>[] = [
     },
     cell: ({ row }) => {
       const method = row.getValue('method') as string | undefined;
-      return <div className="text-cell">{method ? formatMethod(method) : '-'}</div>;
+      return <div className="table-cell-text">{method ? formatMethod(method) : '-'}</div>;
     },
   },
   {
     accessorKey: 'time',
     header: ({ column }) => {
       return (
-        <Button variant="ghost" onClick={() => column.toggleSorting()} className="-ml-3 label-text">
+        <Button variant="ghost" onClick={() => column.toggleSorting()} className="-ml-3 table-header-label">
           Time
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -209,7 +209,7 @@ export const pokemonColumns: ColumnDef<any>[] = [
     accessorKey: 'level',
     header: ({ column }) => {
       return (
-        <Button variant="ghost" onClick={() => column.toggleSorting()} className="-ml-3 label-text">
+        <Button variant="ghost" onClick={() => column.toggleSorting()} className="-ml-3 table-header-label">
           Level
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -222,14 +222,14 @@ export const pokemonColumns: ColumnDef<any>[] = [
       );
     },
     cell: ({ row }) => {
-      return <div className="text-cell">Lv. {row.getValue('level')}</div>;
+      return <div className="table-cell-text">Lv. {row.getValue('level')}</div>;
     },
   },
   {
     accessorKey: 'chance',
     header: ({ column }) => {
       return (
-        <Button variant="ghost" onClick={() => column.toggleSorting()} className="-ml-3 label-text">
+        <Button variant="ghost" onClick={() => column.toggleSorting()} className="-ml-3 table-header-label">
           Chance
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -242,7 +242,7 @@ export const pokemonColumns: ColumnDef<any>[] = [
       );
     },
     cell: ({ row }) => {
-      return <div className="text-cell">{row.getValue('chance')}%</div>;
+      return <div className="table-cell-text">{row.getValue('chance')}%</div>;
     },
   },
 ];

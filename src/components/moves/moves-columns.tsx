@@ -15,7 +15,7 @@ export const moveColumns: ColumnDef<MoveData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           Name
           {column.getIsSorted() === 'desc' ? (
@@ -47,7 +47,7 @@ export const moveColumns: ColumnDef<MoveData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           Type
           {column.getIsSorted() === 'desc' ? (
@@ -79,7 +79,7 @@ export const moveColumns: ColumnDef<MoveData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           <span className="hidden md:inline">Category</span>
           <span className="inline md:hidden">Cat.</span>
@@ -114,7 +114,7 @@ export const moveColumns: ColumnDef<MoveData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           <span className="hidden md:inline">Power</span>
           <span className="inline md:hidden">Pwr.</span>
@@ -131,9 +131,9 @@ export const moveColumns: ColumnDef<MoveData>[] = [
     cell: ({ row }) => {
       const move = row.original;
       const power = move.versions?.polished?.power ?? move.versions?.faithful?.power ?? (
-        <span className="text-cell text-cell-muted">—</span>
+        <span className="table-cell-text table-cell-muted">—</span>
       );
-      return <span className="text-cell">{power}</span>;
+      return <span className="table-cell-text">{power}</span>;
     },
     accessorFn: (row) => row.versions?.polished?.power ?? row.versions?.faithful?.power ?? null,
   },
@@ -144,7 +144,7 @@ export const moveColumns: ColumnDef<MoveData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           <span className="hidden md:inline">Accuracy</span>
           <span className="inline md:hidden">Acc.</span>
@@ -161,9 +161,9 @@ export const moveColumns: ColumnDef<MoveData>[] = [
     cell: ({ row }) => {
       const move = row.original;
       const accuracy = move.versions?.polished?.accuracy ?? move.versions?.faithful?.accuracy ?? (
-        <span className="text-cell text-cell-muted">—</span>
+        <span className="table-cell-text table-cell-muted">—</span>
       );
-      return <span className="text-cell">{accuracy}</span>;
+      return <span className="table-cell-text">{accuracy}</span>;
     },
     accessorFn: (row) =>
       row.versions?.polished?.accuracy ?? row.versions?.faithful?.accuracy ?? null,
@@ -175,7 +175,7 @@ export const moveColumns: ColumnDef<MoveData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           PP
           {column.getIsSorted() === 'desc' ? (
@@ -191,9 +191,9 @@ export const moveColumns: ColumnDef<MoveData>[] = [
     cell: ({ row }) => {
       const move = row.original;
       const pp = move.versions?.polished?.pp ?? move.versions?.faithful?.pp ?? (
-        <span className="text-cell text-cell-muted">—</span>
+        <span className="table-cell-text table-cell-muted">—</span>
       );
-      return <span className="text-cell">{pp}</span>;
+      return <span className="table-cell-text">{pp}</span>;
     },
     accessorFn: (row) => row.versions?.polished?.pp ?? row.versions?.faithful?.pp ?? null,
   },
@@ -204,7 +204,7 @@ export const moveColumns: ColumnDef<MoveData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           TM/HM
           {column.getIsSorted() === 'desc' ? (
@@ -225,7 +225,7 @@ export const moveColumns: ColumnDef<MoveData>[] = [
           {tm}
         </Badge>
       ) : (
-        <span className="text-cell text-cell-muted">—</span>
+        <span className="table-cell-text table-cell-muted">—</span>
       );
     },
     accessorFn: (row) => {

@@ -41,7 +41,7 @@ export const itemColumns = (version: string): ColumnDef<ItemsManifest>[] => [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           Item Name
           {column.getIsSorted() === 'desc' ? (
@@ -85,7 +85,7 @@ export const itemColumns = (version: string): ColumnDef<ItemsManifest>[] => [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           Price
           {column.getIsSorted() === 'desc' ? (
@@ -102,8 +102,8 @@ export const itemColumns = (version: string): ColumnDef<ItemsManifest>[] => [
       const item = row.original;
       const price = item.versions[version]?.price;
       if (price)
-        return <span className="text-cell text-green-600 dark:text-green-400">₽{price}</span>;
-      return <span className="text-cell text-cell-muted">—</span>;
+        return <span className="table-cell-text text-green-600 dark:text-green-400">₽{price}</span>;
+      return <span className="table-cell-text table-cell-muted">—</span>;
     },
     // Custom accessor for sorting
     accessorFn: (row) => {
@@ -117,7 +117,7 @@ export const itemColumns = (version: string): ColumnDef<ItemsManifest>[] => [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           Category
           {column.getIsSorted() === 'desc' ? (
@@ -158,7 +158,7 @@ export const itemColumns = (version: string): ColumnDef<ItemsManifest>[] => [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           Locations
           {column.getIsSorted() === 'desc' ? (
@@ -177,9 +177,9 @@ export const itemColumns = (version: string): ColumnDef<ItemsManifest>[] => [
       return (
         <span className="">
           {locationCount > 0 ? (
-            <span className="text-cell">{`${locationCount} location${locationCount !== 1 ? 's' : ''}`}</span>
+            <span className="table-cell-text">{`${locationCount} location${locationCount !== 1 ? 's' : ''}`}</span>
           ) : (
-            <span className="text-cell text-cell-muted">—</span>
+            <span className="table-cell-text table-cell-muted">—</span>
           )}
         </span>
       );

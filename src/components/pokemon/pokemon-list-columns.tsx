@@ -50,7 +50,7 @@ export const createPokemonListColumns = (version: string): ColumnDef<PokemonMani
       return (
         <Button
           variant="ghost"
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
         >
           #
@@ -67,8 +67,8 @@ export const createPokemonListColumns = (version: string): ColumnDef<PokemonMani
     cell: ({ row }) => {
       const dexNo = row.getValue('dexNo') as number | null;
       return (
-        <div className="text-cell">
-          {dexNo !== null ? `#${dexNo}` : <span className="text-cell text-cell-muted">—</span>}
+        <div className="table-cell-text">
+          {dexNo !== null ? `#${dexNo}` : <span className="table-cell-text table-cell-muted">—</span>}
         </div>
       );
     },
@@ -80,7 +80,7 @@ export const createPokemonListColumns = (version: string): ColumnDef<PokemonMani
     header: ({ column }) => {
       return (
         <Button
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
         >

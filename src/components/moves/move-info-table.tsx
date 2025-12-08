@@ -23,15 +23,15 @@ export function MoveInfoTable({
   description,
 }: MoveInfoTableProps) {
   return (
-    <div className="w-full mx-auto md:mx-0 relative z-10 rounded-xl border border-neutral-200 bg-neutral-100 overflow-hidden shadow-md dark:border-neutral-800 dark:bg-neutral-900">
-      <Table className="w-full text-sm table-auto">
-        <TableBody className="divide-y divide-neutral-200 dark:divide-neutral-700">
+    <div className="info-table-wrapper">
+      <Table className="info-table">
+        <TableBody className="info-table-body">
           {/* Type */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 w-[120px] align-top">
+            <TableHead className="info-table-label">
               Type
             </TableHead>
-            <TableCell className="px-4 py-2">
+            <TableCell className="info-table-cell">
               {type ? (
                 <Badge variant={type.toLowerCase() as any}>{type}</Badge>
               ) : (
@@ -42,20 +42,20 @@ export function MoveInfoTable({
 
           {/* Category */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+            <TableHead className="info-table-label">
               Category
             </TableHead>
-            <TableCell className="px-4 py-2 text-neutral-700 dark:text-neutral-200 capitalize">
+            <TableCell className="info-table-cell capitalize">
               {category || '—'}
             </TableCell>
           </TableRow>
 
           {/* Power */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+            <TableHead className="info-table-label">
               Power
             </TableHead>
-            <TableCell className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+            <TableCell className="info-table-cell">
               {power && power > 0 ? (
                 <span className="font-medium">{power}</span>
               ) : (
@@ -66,10 +66,10 @@ export function MoveInfoTable({
 
           {/* Accuracy */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+            <TableHead className="info-table-label">
               Accuracy
             </TableHead>
-            <TableCell className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+            <TableCell className="info-table-cell">
               {accuracy && Number(accuracy) > 0 ? (
                 <span className="font-medium">{accuracy}%</span>
               ) : (
@@ -80,10 +80,10 @@ export function MoveInfoTable({
 
           {/* PP */}
           <TableRow>
-            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+            <TableHead className="info-table-label">
               PP
             </TableHead>
-            <TableCell className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+            <TableCell className="info-table-cell">
               {pp ? (
                 <span className="font-medium">{pp}</span>
               ) : (
@@ -95,10 +95,10 @@ export function MoveInfoTable({
           {/* Effect Chance */}
           {effectChance !== undefined && effectChance > 0 && (
             <TableRow>
-              <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+              <TableHead className="info-table-label">
                 Effect Chance
               </TableHead>
-              <TableCell className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+              <TableCell className="info-table-cell">
                 <span className="font-medium">{effectChance}%</span>
               </TableCell>
             </TableRow>
@@ -107,10 +107,10 @@ export function MoveInfoTable({
           {/* Description */}
           {description && (
             <TableRow>
-              <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+              <TableHead className="info-table-label">
                 Effect
               </TableHead>
-              <TableCell className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+              <TableCell className="info-table-cell">
                 {description}
               </TableCell>
             </TableRow>

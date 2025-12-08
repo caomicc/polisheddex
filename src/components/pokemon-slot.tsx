@@ -1029,7 +1029,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
           isPokemonSelected && 'hidden',
         )}
       >
-        {/* <Label htmlFor={`name-${index}`} className="label-text">
+        {/* <Label htmlFor={`name-${index}`} className="table-header-label">
           Pokémon
         </Label> */}
 
@@ -1153,7 +1153,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
             </div>
           </div>
           <div className={cn('flex flex-col gap-2')}>
-            <Label htmlFor={`ability-${index}`} className="label-text">
+            <Label htmlFor={`ability-${index}`} className="table-header-label">
               Ability
             </Label>
             <Dialog
@@ -1245,7 +1245,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
           </div>
 
           <div className="flex flex-col gap-2">
-            <Label className="label-text">Moves</Label>
+            <Label className="table-header-label">Moves</Label>
             <Dialog
               open={moveModalOpen}
               onOpenChange={(open) => {
@@ -1386,7 +1386,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
 
                                 return (
                                   <div key={category}>
-                                    <div className="label-text mb-2 px-2">{category}</div>
+                                    <div className="table-header-label mb-2 px-2">{category}</div>
                                     <div className="grid gap-1 mb-4">
                                       {movesInCategory.map((move, idx) => {
                                         const moveStats = getMoveStats(move.name);
@@ -1485,7 +1485,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
             </Dialog>
           </div>
           <div className="flex flex-col gap-2">
-            <Label htmlFor={`nature-${index}`} className="label-text">
+            <Label htmlFor={`nature-${index}`} className="table-header-label">
               Nature
             </Label>
             <Dialog
@@ -1570,7 +1570,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
             </Dialog>
           </div>
           <div className="flex flex-col gap-2">
-            <Label htmlFor={`item-${index}`} className="label-text">
+            <Label htmlFor={`item-${index}`} className="table-header-label">
               Held Item
             </Label>
             <Dialog
@@ -1786,7 +1786,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                     <div className="flex items-center gap-3">
                       <div className="flex-1 flex flex-col gap-1">
                         <div className="flex items-center gap-2">
-                          <label className="label-text w-10">{STAT_NAMES[stat]}</label>
+                          <label className="table-header-label w-10">{STAT_NAMES[stat]}</label>
                           <span className="text-xs w-8 text-center">{currentEV}</span>
                           <Slider
                             value={[currentEV]}

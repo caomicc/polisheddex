@@ -232,7 +232,7 @@ export function PokemonListDataTable({ pokemonData }: PokemonListDataTableProps)
                       className={
                         header.column.columnDef.size === 60
                           ? 'w-11 md:w-[60px]! max-w-16 text-center'
-                          : 'label-text'
+                          : 'table-header-label'
                       }
                     >
                       {header.isPlaceholder

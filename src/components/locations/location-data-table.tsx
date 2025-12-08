@@ -293,7 +293,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
         {/* Primary search */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex flex-col gap-2">
-            <Label className="label-text" htmlFor="location-filter">
+            <Label className="table-header-label" htmlFor="location-filter">
               Location Name
             </Label>
             <Input
@@ -307,7 +307,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
 
           {/* Region filter */}
           <div className="flex flex-col gap-2">
-            <Label className="label-text" htmlFor="region-filter">
+            <Label className="table-header-label" htmlFor="region-filter">
               Region
             </Label>
             <Select
@@ -330,7 +330,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
 
           {/* Sort options */}
           <div className="flex flex-col gap-2">
-            <Label className="label-text" htmlFor="sort-select">
+            <Label className="table-header-label" htmlFor="sort-select">
               Sort By
             </Label>
             <Select value={getCurrentSortValue()} onValueChange={handleSortChange}>
@@ -356,7 +356,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
               checked={pokemon}
               onCheckedChange={(checked) => setUrlState({ pokemon: checked ? true : null })}
             />
-            <Label htmlFor="has-pokemon" className="label-text">
+            <Label htmlFor="has-pokemon" className="table-header-label">
               Has Pokémon encounters
             </Label>
           </div>
@@ -367,7 +367,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
               checked={trainers}
               onCheckedChange={(checked) => setUrlState({ trainers: checked ? true : null })}
             />
-            <Label htmlFor="has-trainers" className="label-text">
+            <Label htmlFor="has-trainers" className="table-header-label">
               Has trainers
             </Label>
           </div>
@@ -378,7 +378,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
               checked={flyable}
               onCheckedChange={(checked) => setUrlState({ flyable: checked ? true : null })}
             />
-            <Label htmlFor="flyable" className="label-text">
+            <Label htmlFor="flyable" className="table-header-label">
               Flyable locations
             </Label>
           </div>
@@ -389,7 +389,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
               checked={grottoes}
               onCheckedChange={(checked) => setUrlState({ grottoes: checked ? true : null })}
             />
-            <Label htmlFor="hidden-grotto" className="label-text">
+            <Label htmlFor="hidden-grotto" className="table-header-label">
               Has Hidden Grottoes
             </Label>
           </div>
@@ -400,7 +400,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
               checked={items}
               onCheckedChange={(checked) => setUrlState({ items: checked ? true : null })}
             />
-            <Label htmlFor="has-items" className="label-text">
+            <Label htmlFor="has-items" className="table-header-label">
               Has Items
             </Label>
           </div>
@@ -498,7 +498,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
                   return (
                     <TableHead
                       key={header.id}
-                      className="whitespace-nowrap label-text"
+                      className="whitespace-nowrap table-header-label"
                       style={{ width: getColumnWidth(header.id) }}
                     >
                       {header.isPlaceholder
@@ -516,7 +516,6 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && 'selected'}
-                  className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell
@@ -551,7 +550,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
         <div className="flex flex-col sm:flex-row items-center gap-4">
           {/* Page size selector */}
           <div className="flex items-center gap-2">
-            <Label htmlFor="page-size" className="label-text">
+            <Label htmlFor="page-size" className="table-header-label">
               Areas per page:
             </Label>
             <Select

@@ -26,20 +26,20 @@ export function LocationListItem({ area, method, time, level, chance }: any) {
         )}
       </TableCell>
       <TableCell className="text-xs">
-        {method ? formatMethod(method) : <span className="text-cell text-cell-muted">—</span>}
+        {method ? formatMethod(method) : <span className="table-cell-text table-cell-muted">—</span>}
       </TableCell>
       <TableCell className="text-xs">
         {time ? (
           <Badge variant={time as BadgeVariant}>{time}</Badge>
         ) : (
-          <span className="text-cell text-cell-muted">—</span>
+          <span className="table-cell-text table-cell-muted">—</span>
         )}
       </TableCell>
       <TableCell className="text-xs">
-        {level ? <span>Lv. {level}</span> : <span className="text-cell text-cell-muted">—</span>}
+        {level ? <span>Lv. {level}</span> : <span className="table-cell-text table-cell-muted">—</span>}
       </TableCell>
       <TableCell className="text-xs">
-        {chance ? <span>{chance}%</span> : <span className="text-cell text-cell-muted">—</span>}
+        {chance ? <span>{chance}%</span> : <span className="table-cell-text table-cell-muted">—</span>}
       </TableCell>
     </TableRow>,
   ];
@@ -65,7 +65,7 @@ export function LocationListItem({ area, method, time, level, chance }: any) {
 
       <TableCell className="align-middle py-2 px-1 text-xs">
         {/* <span className="font-medium text-xs text-muted-foreground mr-1">{chance}%</span> */}
-        {method ? formatMethod(method) : <span className="text-cell text-cell-muted">—</span>}
+        {method ? formatMethod(method) : <span className="table-cell-text table-cell-muted">—</span>}
       </TableCell>
       {/* Power - Always visible */}
       <TableCell className="align-middle p-2 text-center">
@@ -74,7 +74,7 @@ export function LocationListItem({ area, method, time, level, chance }: any) {
       </TableCell>
       <TableCell className={cn('text-xs px-2 pb-3 text-left')}>
         <span className="">
-          Lv. {level ?? <span className="text-cell text-cell-muted">—</span>}
+          Lv. {level ?? <span className="table-cell-text table-cell-muted">—</span>}
         </span>
       </TableCell>
       <TableCell className="align-middle py-2 px-1">

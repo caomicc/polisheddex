@@ -35,16 +35,16 @@ export function LocationInfoTable({
     'bg-neutral-500/20 text-neutral-700 dark:text-neutral-300 border-neutral-500/30';
 
   return (
-    <div className="w-full mx-auto md:mx-0 relative z-10 rounded-xl border border-neutral-200 bg-neutral-100 overflow-hidden shadow-md dark:border-neutral-800 dark:bg-neutral-900">
-      <Table className="w-full text-sm table-auto">
-        <TableBody className="divide-y divide-neutral-200 dark:divide-neutral-700">
+    <div className="info-table-wrapper">
+      <Table className="info-table">
+        <TableBody className="info-table-body">
           {/* Region */}
           {region && (
             <TableRow>
-              <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 w-[120px] align-top">
+              <TableHead className="info-table-label">
                 Region
               </TableHead>
-              <TableCell className="px-4 py-2">
+              <TableCell className="info-table-cell">
                 <Badge variant="outline" className={cn('border text-xs font-medium', regionColor)}>
                   {region}
                 </Badge>
@@ -55,10 +55,10 @@ export function LocationInfoTable({
           {/* Location Types */}
           {types && types.length > 0 && (
             <TableRow>
-              <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+              <TableHead className="info-table-label">
                 Type
               </TableHead>
-              <TableCell className="px-4 py-2 text-neutral-700 dark:text-neutral-200 capitalize">
+              <TableCell className="info-table-cell capitalize">
                 {types.join(', ')}
               </TableCell>
             </TableRow>
@@ -67,10 +67,10 @@ export function LocationInfoTable({
           {/* Connections */}
           {connectionCount !== undefined && connectionCount > 0 && (
             <TableRow>
-              <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+              <TableHead className="info-table-label">
                 Connections
               </TableHead>
-              <TableCell className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+              <TableCell className="info-table-cell">
                 {connectionCount} connected location{connectionCount !== 1 ? 's' : ''}
               </TableCell>
             </TableRow>
@@ -79,10 +79,10 @@ export function LocationInfoTable({
           {/* Wild Pokémon */}
           {encounterCount !== undefined && encounterCount > 0 && (
             <TableRow>
-              <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+              <TableHead className="info-table-label">
                 Wild Pokémon
               </TableHead>
-              <TableCell className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+              <TableCell className="info-table-cell">
                 {encounterCount} species
               </TableCell>
             </TableRow>
@@ -91,10 +91,10 @@ export function LocationInfoTable({
           {/* Items */}
           {itemCount !== undefined && itemCount > 0 && (
             <TableRow>
-              <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+              <TableHead className="info-table-label">
                 Items
               </TableHead>
-              <TableCell className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+              <TableCell className="info-table-cell">
                 {itemCount} item{itemCount !== 1 ? 's' : ''}
               </TableCell>
             </TableRow>
@@ -103,10 +103,10 @@ export function LocationInfoTable({
           {/* Events */}
           {eventCount !== undefined && eventCount > 0 && (
             <TableRow>
-              <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+              <TableHead className="info-table-label">
                 Events
               </TableHead>
-              <TableCell className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+              <TableCell className="info-table-cell">
                 {eventCount} event{eventCount !== 1 ? 's' : ''}
               </TableCell>
             </TableRow>
@@ -115,10 +115,10 @@ export function LocationInfoTable({
           {/* Trainers */}
           {trainerCount !== undefined && trainerCount > 0 && (
             <TableRow>
-              <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+              <TableHead className="info-table-label">
                 Trainers
               </TableHead>
-              <TableCell className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+              <TableCell className="info-table-cell">
                 {trainerCount} trainer{trainerCount !== 1 ? 's' : ''}
               </TableCell>
             </TableRow>

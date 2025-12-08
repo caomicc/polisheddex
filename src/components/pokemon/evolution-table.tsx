@@ -196,20 +196,20 @@ export function EvolutionTable({ chain, currentPokemon, currentForm = 'plain' }:
   }
 
   return (
-  <div className="w-full mx-auto md:mx-0 relative z-10 rounded-xl border border-neutral-200 bg-neutral-100 overflow-hidden shadow-md dark:border-neutral-800 dark:bg-neutral-900">
-    <Table className="w-full text-sm table-auto">
+  <div className="info-table-wrapper">
+    <Table className="info-table">
       <TableHeader>
         <TableRow>
-          <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 w-[100px] align-top">
+          <TableHead className="info-table-label">
             Pokemon
           </TableHead>
 
-          <TableCell  className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 ">
+          <TableCell className="info-table-label">
             Acquire At
           </TableCell>
         </TableRow>
       </TableHeader>
-      <TableBody className="divide-y divide-neutral-200 dark:divide-neutral-700">
+      <TableBody className="info-table-body">
         {rows.map((row, index) => {
           const pokemonKey = `${row.pokemon.name}|${row.pokemon.formName}`;
           const isCurrentPokemon =
@@ -223,7 +223,7 @@ export function EvolutionTable({ chain, currentPokemon, currentForm = 'plain' }:
             >
               {row.isBase ? (
                 <TableCell
-                  className="px-4 py-2 text-neutral-700 dark:text-neutral-200 min-w-[200px]">
+                  className="info-table-cell min-w-[200px]">
                   <Link
                     href={`/pokemon/${row.pokemon.name}`}
                     className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400"
@@ -239,7 +239,7 @@ export function EvolutionTable({ chain, currentPokemon, currentForm = 'plain' }:
               ) : (
                 <>
                   <TableCell
-                  className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+                  className="info-table-cell">
                     <Link
                       href={`/pokemon/${row.pokemon.name}`}
                       className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400"
@@ -254,7 +254,7 @@ export function EvolutionTable({ chain, currentPokemon, currentForm = 'plain' }:
                   </TableCell>
                 </>
               )}
-              <TableCell className="px-4 py-2 text-neutral-600 dark:text-neutral-400 text-xs">
+              <TableCell className="info-table-cell text-neutral-600 dark:text-neutral-400 text-xs">
                 {row.acquireMethod}
               </TableCell>
             </TableRow>

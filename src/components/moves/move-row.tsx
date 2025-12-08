@@ -18,17 +18,22 @@ type MoveRowProps = {
 };
 
 const MoveRow: React.FC<MoveRowProps> = ({ level, id, info, tm }) => {
+  // Guard against undefined info
+  if (!info) {
+    return null;
+  }
+
   // Desktop version uses the original two-row layout
 
   const desktopRows = [
     <TableRow
       key={`row-${info.name}-${level}`}
       id={info.name?.toLowerCase().replace(/\s+/g, '-') ?? `row-${info.name}-${level}`}
-      className="hover:bg-muted/0 border-b-0 group hidden md:table-row"
+      className="table-row-no-hover border-b-0 group hidden md:table-row"
     >
       {level !== undefined && (
-        <TableCell rowSpan={2} className="align-middle font-semibold w-12 p-2 text-cell">
-          {level ?? <span className="text-cell text-cell-muted">—</span>}
+        <TableCell rowSpan={2} className="align-middle font-semibold w-12 p-2 table-cell-text">
+          {level ?? <span className="table-cell-text table-cell-muted">—</span>}
         </TableCell>
       )}
 
@@ -61,18 +66,18 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, id, info, tm }) => {
         />
       </TableCell>
 
-      <TableCell className="align-middle p-2 text-cell">
-        {info?.power ?? <span className="text-cell text-cell-muted">—</span>}
+      <TableCell className="align-middle p-2 table-cell-text">
+        {info?.power ?? <span className="table-cell-text table-cell-muted">—</span>}
       </TableCell>
 
-      <TableCell className="align-middle p-2 text-cell">
-        {info?.accuracy ?? <span className="text-cell text-cell-muted">—</span>}
+      <TableCell className="align-middle p-2 table-cell-text">
+        {info?.accuracy ?? <span className="table-cell-text table-cell-muted">—</span>}
       </TableCell>
 
-      <TableCell className="align-middle p-2 text-cell">
-        {info?.pp ?? <span className="text-cell text-cell-muted">—</span>}
+      <TableCell className="align-middle p-2 table-cell-text">
+        {info?.pp ?? <span className="table-cell-text table-cell-muted">—</span>}
       </TableCell>
-      <TableCell className="align-middle p-2 text-cell">
+      <TableCell className="align-middle p-2 table-cell-text">
         {tm?.number ? (
           tm.number.toLowerCase().startsWith('mt') ? (
             <Link
@@ -100,16 +105,16 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, id, info, tm }) => {
             </Link>
           )
         ) : (
-          <span className="text-cell text-cell-muted">—</span>
+          <span className="table-cell-text table-cell-muted">—</span>
         )}
       </TableCell>
     </TableRow>,
     <TableRow
       key={`desc-${info.name}-${level}-desktop`}
-      className="group-hover:bg-muted/0 hover:bg-muted/0 hidden md:table-row"
+      className="table-row-no-hover hidden md:table-row"
     >
       <TableCell
-        className={cn('text-cell p-2 pb-3 md:pt-0', !info?.description && 'text-error')}
+        className={cn('table-cell-text p-2 pb-3 md:pt-0', !info?.description && 'text-error')}
         // colSpan={1}
       >
         {info?.description}
@@ -119,7 +124,7 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, id, info, tm }) => {
 
   const mobileRows = [
     <TableRow
-      className="md:hidden group border-b-0 hover:bg-muted/0"
+      className="md:hidden group border-b-0 table-row-no-hover"
       key={`mobile-header-${info.name}-${level}`}
       id={`mobile-header-${info.name}-${level}`}
     >
@@ -142,7 +147,7 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, id, info, tm }) => {
     <TableRow
       key={`row-${info.name}-${level}-mobile`}
       id={info.name?.toLowerCase().replace(/\s+/g, '-') ?? `row-${info.name}-${level}`}
-      className="hover:bg-muted/0 border-b-0 group md:hidden"
+      className="table-row-no-hover border-b-0 group md:hidden"
     >
       <TableCell className="align-middle p-1 md:p-2 ">
         <Badge
@@ -170,18 +175,18 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, id, info, tm }) => {
         </Badge>
       </TableCell>
 
-      <TableCell className="align-middle p-1 md:p-2 text-cell ">
-        {info?.power ?? <span className="text-cell text-cell-muted">—</span>}
+      <TableCell className="align-middle p-1 md:p-2 table-cell-text ">
+        {info?.power ?? <span className="table-cell-text table-cell-muted">—</span>}
       </TableCell>
 
-      <TableCell className="align-middle p-1 md:p-2 text-cell">
-        {info?.accuracy ?? <span className="text-cell text-cell-muted">—</span>}
+      <TableCell className="align-middle p-1 md:p-2 table-cell-text">
+        {info?.accuracy ?? <span className="table-cell-text table-cell-muted">—</span>}
       </TableCell>
 
-      <TableCell className="align-middle p-1 md:p-2 text-cell">
-        {info?.pp ?? <span className="text-cell text-cell-muted">—</span>}
+      <TableCell className="align-middle p-1 md:p-2 table-cell-text">
+        {info?.pp ?? <span className="table-cell-text table-cell-muted">—</span>}
       </TableCell>
-      <TableCell className="align-middle p-1 md:p-2 text-cell ">
+      <TableCell className="align-middle p-1 md:p-2 table-cell-text ">
         {tm?.number ? (
           <Link href={`/items/${tm.number.toLowerCase()}`} className="table-link">
             <Badge
@@ -193,17 +198,17 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, id, info, tm }) => {
             <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
           </Link>
         ) : (
-          <span className="text-cell text-cell-muted">—</span>
+          <span className="table-cell-text table-cell-muted">—</span>
         )}
       </TableCell>
     </TableRow>,
     <TableRow
       key={`desc-${info.name}-${level}-mobile`}
-      className="group-hover:bg-muted/0 hover:bg-muted/0 md:hidden"
+      className="table-row-no-hover md:hidden"
     >
       <TableCell
         className={cn(
-          'text-cell-muted text-cell p-1 md:p-2 pb-4',
+          'table-cell-muted table-cell-text p-1 md:p-2 pb-4',
           !info?.description && 'text-error',
         )}
         colSpan={6}

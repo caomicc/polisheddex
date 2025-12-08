@@ -49,7 +49,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     id: 'pokemon',
     header: ({ column }) => {
       return (
-        <Button className="-ml-3 label-text" variant="ghost" onClick={() => column.toggleSorting()}>
+        <Button className="-ml-3 table-header-label" variant="ghost" onClick={() => column.toggleSorting()}>
           <>Pokémon</>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -103,7 +103,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     id: 'abilityTypes',
     header: ({ column }) => {
       return (
-        <Button className="-ml-3 label-text" variant="ghost" onClick={() => column.toggleSorting()}>
+        <Button className="-ml-3 table-header-label" variant="ghost" onClick={() => column.toggleSorting()}>
           <>Ability Type</>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -154,7 +154,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     id: 'types',
     header: ({ column }) => {
       return (
-        <Button className="-ml-3 label-text" variant="ghost" onClick={() => column.toggleSorting()}>
+        <Button className="-ml-3 table-header-label" variant="ghost" onClick={() => column.toggleSorting()}>
           <>Type(s)</>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />

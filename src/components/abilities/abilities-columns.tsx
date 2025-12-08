@@ -15,7 +15,7 @@ export const abilityColumns = (version: string): ColumnDef<AbilityData>[] => [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           Name
           {column.getIsSorted() === 'desc' ? (
@@ -61,7 +61,7 @@ export const abilityColumns = (version: string): ColumnDef<AbilityData>[] => [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           Description
           {column.getIsSorted() === 'desc' ? (
@@ -77,7 +77,7 @@ export const abilityColumns = (version: string): ColumnDef<AbilityData>[] => [
     cell: ({ row }) => {
       const ability = row.original;
       return (
-        <div className="text-cell max-w-md truncate">
+        <div className="table-cell-text max-w-md truncate">
           {ability.versions[version].description || 'No description available'}
         </div>
       );

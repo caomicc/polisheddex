@@ -82,21 +82,21 @@ export function ItemLocationsTable({ locations, locationNameMap }: ItemLocations
   }
 
   return (
-    <div className="rounded-xl border border-neutral-200 bg-neutral-100 overflow-hidden shadow-md dark:border-neutral-800 dark:bg-neutral-900">
-      <Table className="w-full text-sm">
+    <div className="info-table-wrapper">
+      <Table className="info-table">
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[200px]">Location</TableHead>
-            <TableHead>Method</TableHead>
+            <TableHead className="info-table-label w-[200px]">Location</TableHead>
+            <TableHead className="info-table-label">Method</TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody>
+        <TableBody className="info-table-body">
           {locations.map((loc, idx) => {
             const locationSlug = loc.parentId || loc.area.toLowerCase().replace(/\s+/g, '_');
             const displayName = locationNameMap?.[locationSlug] || loc.area;
             return (
               <TableRow key={`${loc.area}-${loc.method}-${idx}`}>
-                <TableCell>
+                <TableCell className="info-table-cell">
                   <Link
                     href={`/locations/${locationSlug}`}
                     className="text-blue-600 dark:text-blue-400 hover:underline"
@@ -104,7 +104,7 @@ export function ItemLocationsTable({ locations, locationNameMap }: ItemLocations
                     {displayName}
                   </Link>
                 </TableCell>
-                <TableCell>
+                <TableCell className="info-table-cell">
                   <div className="flex items-center gap-2">
                     <span className={cn('flex-shrink-0', getMethodColor(loc.method))}>
                       {getMethodIcon(loc.method)}

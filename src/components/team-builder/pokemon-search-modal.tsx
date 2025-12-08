@@ -270,10 +270,10 @@ export function PokemonSearchModal({
 
                     <div className="text-center">
                       <div className="flex items-center justify-center gap-1 mb-1">
-                        <span className="text-cell">
+                        <span className="table-cell-text">
                           #
                           {entry.data.johtoDex || (
-                            <span className="text-cell text-cell-muted">—</span>
+                            <span className="table-cell-text table-cell-muted">—</span>
                           )}
                         </span>
                       </div>

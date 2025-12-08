@@ -15,7 +15,7 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           Location
           {column.getIsSorted() === 'desc' ? (
@@ -48,7 +48,7 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           Region
           {column.getIsSorted() === 'desc' ? (
@@ -63,7 +63,7 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
     },
     cell: ({ row }) => {
       const region = row.getValue('region') as string;
-      if (!region) return <span className="text-cell text-cell-muted">—</span>;
+      if (!region) return <span className="table-cell-text table-cell-muted">—</span>;
       return (
         <Badge variant={region.toLowerCase() as 'kanto' | 'johto' | 'orange'}>
           {region.charAt(0).toUpperCase() + region.slice(1)}
@@ -84,7 +84,7 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
   //       <Button
   //         variant="ghost"
   //         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-  //         className="-ml-3 label-text"
+  //         className="-ml-3 table-header-label"
   //       >
   //         Type
   //         {column.getIsSorted() === 'desc' ? (
@@ -99,7 +99,7 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
   //   },
   //   cell: ({ row }) => {
   //     const types = row.getValue('type') as string[];
-  //     if (!types || types.length === 0) return <span className="text-cell text-cell-muted">—</span>;
+  //     if (!types || types.length === 0) return <span className="table-cell-text table-cell-muted">—</span>;
   //     return (
   //       <div className="flex flex-wrap gap-1">
   //         {types.map((type, index) => (
@@ -118,7 +118,7 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           Pokemon
           {column.getIsSorted() === 'desc' ? (
@@ -136,9 +136,9 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
       return (
         <div className="">
           {count && count > 0 ? (
-            <span className="text-cell">{count}</span>
+            <span className="table-cell-text">{count}</span>
           ) : (
-            <span className="text-cell text-cell-muted">—</span>
+            <span className="table-cell-text table-cell-muted">—</span>
           )}
         </div>
       );
@@ -151,7 +151,7 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           Trainers
           {column.getIsSorted() === 'desc' ? (
@@ -169,9 +169,9 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
       return (
         <div className="">
           {count && count > 0 ? (
-            <span className="text-cell">{count}</span>
+            <span className="table-cell-text">{count}</span>
           ) : (
-            <span className="text-cell text-cell-muted">—</span>
+            <span className="table-cell-text table-cell-muted">—</span>
           )}
         </div>
       );
@@ -184,7 +184,7 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 label-text"
+          className="-ml-3 table-header-label"
         >
           Items
           {column.getIsSorted() === 'desc' ? (
@@ -202,9 +202,9 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
       return (
         <div className="">
           {count && count > 0 ? (
-            <span className="text-cell">{count}</span>
+            <span className="table-cell-text">{count}</span>
           ) : (
-            <span className="text-cell text-cell-muted">—</span>
+            <span className="table-cell-text table-cell-muted">—</span>
           )}
         </div>
       );
@@ -217,7 +217,7 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
   //       <Button
   //         variant="ghost"
   //         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-  //         className="-ml-3 label-text"
+  //         className="-ml-3 table-header-label"
   //       >
   //         Order
   //         {column.getIsSorted() === 'desc' ? (
@@ -235,9 +235,9 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
   //     return (
   //       <div className="">
   //         {order ? (
-  //           <span className="text-cell">{order}</span>
+  //           <span className="table-cell-text">{order}</span>
   //         ) : (
-  //           <span className="text-cell text-cell-muted">—</span>
+  //           <span className="table-cell-text table-cell-muted">—</span>
   //         )}
   //       </div>
   //     );

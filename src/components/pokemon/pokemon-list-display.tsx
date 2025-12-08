@@ -156,7 +156,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: Pokem
         {/* Primary search and filters */}
         <div className="flex flex-col sm:flex-row gap-4 ">
           <div className="flex flex-col gap-2 flex-1">
-            <Label className="label-text" htmlFor="pokemon-filter">
+            <Label className="table-header-label" htmlFor="pokemon-filter">
               Pokémon Name
             </Label>
             <Input
@@ -171,7 +171,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: Pokem
           {/* Type filter */}
           <div className="flex flex-row gap-4 flex-1">
             <div className="flex flex-col gap-2 w-full">
-              <Label className="label-text" htmlFor="type-select">
+              <Label className="table-header-label" htmlFor="type-select">
                 Type
               </Label>
               <Select
@@ -196,7 +196,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: Pokem
           {/* Form visibility toggle */}
           <div className="flex flex-row gap-4 w-full sm:w-auto flex-1">
             <div className="flex flex-col items-start gap-2 w-1/2 md:w-auto">
-              <Label className="label-text" htmlFor="forms-toggle">
+              <Label className="table-header-label" htmlFor="forms-toggle">
                 Show Forms
               </Label>
               <Checkbox

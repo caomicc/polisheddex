@@ -319,19 +319,19 @@ export default function CalculationsPanel({
           <TableCaption>Individual Pokémon weaknesses by attacking type</TableCaption>
           <TableHeader>
             <TableRow>
-              <TableHead className="label-text">Type</TableHead>
+              <TableHead className="table-header-label">Type</TableHead>
               {pokemonStats
                 .map((pokemon, index) =>
                   pokemon.name ? (
-                    <TableHead key={`${pokemon.name}-${index}`} className="label-text">
+                    <TableHead key={`${pokemon.name}-${index}`} className="table-header-label">
                       {pokemon.name}
                     </TableHead>
                   ) : null,
                 )
                 .filter(Boolean)}
-              <TableHead className="label-text text-center">Weaknesses</TableHead>
-              <TableHead className="label-text text-center">Resistances</TableHead>
-              <TableHead className="label-text text-center">Total</TableHead>
+              <TableHead className="table-header-label text-center">Weaknesses</TableHead>
+              <TableHead className="table-header-label text-center">Resistances</TableHead>
+              <TableHead className="table-header-label text-center">Total</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -557,7 +557,7 @@ export default function CalculationsPanel({
                   <h3 className=" font-medium">{moveType}</h3>
                 </div>
                 <div>
-                  <div className="label-text text-green-700! mb-1">
+                  <div className="table-header-label text-green-700! mb-1">
                     Super Effective ({[...new Set(effectiveness.superEffective)].length})
                   </div>
                   <div className="flex flex-wrap gap-1">
@@ -569,7 +569,7 @@ export default function CalculationsPanel({
                   </div>
                 </div>
                 <div>
-                  <div className="label-text text-red-700! mb-1">
+                  <div className="table-header-label text-red-700! mb-1">
                     Not Very Effective ({[...new Set(effectiveness.notVeryEffective)].length})
                   </div>
                   <div className="flex flex-wrap gap-1">

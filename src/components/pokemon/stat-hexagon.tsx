@@ -343,7 +343,7 @@ export default function StatHexagon({
           x={labelCoords.x}
           y={labelCoords.y}
           textAnchor="middle"
-          className="label-text relative z-10 fill-neutral-700 dark:fill-neutral-300"
+          className="table-header-label relative z-10 fill-neutral-700 dark:fill-neutral-300"
         >
           {label}
         </text>
