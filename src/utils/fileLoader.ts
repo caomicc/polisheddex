@@ -22,38 +22,19 @@ export async function loadJsonFile<T>(relativePath: string): Promise<T | null> {
     throw new Error('File system modules not available');
   }
 
-  const possiblePaths = [
-    // Standard path from project root
-    path.join(process.cwd(), relativePath),
-    // Alternative path in case of deployment differences
-    path.join(process.cwd(), '..', relativePath),
-    // Path relative to the current file
-    path.resolve(__dirname, '..', '..', '..', relativePath),
-  ];
+  // Use only the standard path from project root
+  const filePath = path.join(process.cwd(), relativePath);
 
-  // console.log(`Attempting to load file: ${relativePath}`);
-  // console.log(`Process cwd: ${process.cwd()}`);
-  // console.log(`__dirname: ${__dirname}`);
-
-  for (const filePath of possiblePaths) {
-    try {
-      console.log(`Trying path: ${filePath}`);
-      await fs.access(filePath); // Check if file exists
-      const data = await fs.readFile(filePath, 'utf8');
-      const parsed = JSON.parse(data) as T;
-      console.log(`Successfully loaded file from: ${filePath}`);
-      return parsed;
-    } catch (error) {
-      console.log(
-        `Failed to load from ${filePath}:`,
-        error instanceof Error ? error.message : String(error),
-      );
-      continue;
-    }
+  try {
+    const data = await fs.readFile(filePath, 'utf8');
+    return JSON.parse(data) as T;
+  } catch (error) {
+    console.error(
+      `Failed to load file ${relativePath}:`,
+      error instanceof Error ? error.message : String(error),
+    );
+    return null;
   }
-
-  console.error(`Failed to load file ${relativePath} from any path`);
-  return null;
 }
 
 // Function to safely load JSON data
