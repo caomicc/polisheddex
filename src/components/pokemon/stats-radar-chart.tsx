@@ -1,6 +1,6 @@
 'use client';
 
-import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from 'recharts';
+import { PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart } from 'recharts';
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 
 interface BaseStats {
@@ -67,6 +67,11 @@ export function StatsRadarChart({ stats }: StatsRadarChartProps) {
             <PolarGrid
               className="fill-neutral-200/50 stroke-neutral-300 dark:fill-neutral-800/50 dark:stroke-neutral-700"
               gridType="polygon"
+            />
+            <PolarRadiusAxis
+              domain={[0, 255]}
+              tick={false}
+              axisLine={false}
             />
             <PolarAngleAxis
               dataKey="stat"
