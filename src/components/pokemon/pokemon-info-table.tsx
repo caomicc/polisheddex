@@ -5,6 +5,7 @@ import { Badge } from '../ui/badge';
 import { EvolutionChainStep } from '@/utils/evolution-data-server';
 import Link from 'next/link';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
+import { PokemonType as TypeChartType, getTypeEffectiveness } from '@/data/typeChart';
 
 // Enriched ability structure from pokemon-data-loader
 interface EnrichedAbility {
@@ -137,6 +138,26 @@ function formatGrowthRate(growthRate: string): string {
 }
 
 // Format form name into readable text
+// All Pokemon types for effectiveness calculation
+const ALL_TYPES: TypeChartType[] = [
+  'NORMAL', 'FIRE', 'WATER', 'ELECTRIC', 'GRASS', 'ICE', 'FIGHTING', 'POISON',
+  'GROUND', 'FLYING', 'PSYCHIC', 'BUG', 'ROCK', 'GHOST', 'DRAGON', 'DARK', 'STEEL', 'FAIRY',
+];
+
+// Calculate defensive effectiveness against all types
+function getDefensiveEffectiveness(defTypes: string[]): Record<string, number> {
+  const result: Record<string, number> = {};
+  for (const attackType of ALL_TYPES) {
+    let multiplier = 1;
+    for (const defType of defTypes) {
+      const effectiveness = getTypeEffectiveness(attackType, defType.toUpperCase() as TypeChartType);
+      multiplier *= effectiveness;
+    }
+    result[attackType] = multiplier;
+  }
+  return result;
+}
+
 function formatFormName(form: string): string {
   if (form === 'plain') return 'Normal';
   return form.charAt(0).toUpperCase() + form.slice(1).replace(/([a-z])([A-Z])/g, '$1 $2');
@@ -156,6 +177,12 @@ export function PokemonInfoTable({
   availableForms = [],
 }: PokemonInfoTableProps) {
   const obtainMethod = getObtainMethod(name, selectedForm, evolutionChain);
+
+  // Calculate type effectiveness
+  const effectiveness = getDefensiveEffectiveness(types);
+  const weaknesses = ALL_TYPES.filter((type) => effectiveness[type] > 1);
+  const resistances = ALL_TYPES.filter((type) => effectiveness[type] < 1 && effectiveness[type] > 0);
+  const immunities = ALL_TYPES.filter((type) => effectiveness[type] === 0);
 
   return (
     <div className="w-full mx-auto md:mx-0 relative z-10 rounded-xl border border-neutral-200 bg-neutral-100 overflow-hidden shadow-md dark:border-neutral-800 dark:bg-neutral-900">
@@ -233,10 +260,11 @@ export function PokemonInfoTable({
             </TableCell>
           </TableRow>
 
+
           {/* National Dex */}
           <TableRow>
             <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
-              National Dex
+              Dex
             </TableHead>
             <TableCell  className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
               #{dexNo.toString().padStart(3, '0')}
@@ -331,6 +359,65 @@ export function PokemonInfoTable({
               {wildHeldItems.length > 0 ? wildHeldItems.join(', ') : 'None'}
             </TableCell>
           </TableRow>
+
+          {/* Weaknesses */}
+          <TableRow>
+            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+              Weak To
+            </TableHead>
+            <TableCell colSpan={2} className="px-4 py-2">
+              <div className="flex gap-1 flex-wrap">
+                {weaknesses.length === 0 ? (
+                  <span className="text-neutral-500">None</span>
+                ) : (
+                  weaknesses.map((type) => (
+                    <Badge key={type} variant={type.toLowerCase() as any} className="text-xs">
+                      {type} ×{effectiveness[type]}
+                    </Badge>
+                  ))
+                )}
+              </div>
+            </TableCell>
+          </TableRow>
+
+          {/* Resistances */}
+          <TableRow>
+            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+              Resists
+            </TableHead>
+            <TableCell colSpan={2} className="px-4 py-2">
+              <div className="flex gap-1 flex-wrap">
+                {resistances.length === 0 ? (
+                  <span className="text-neutral-500">None</span>
+                ) : (
+                  resistances.map((type) => (
+                    <Badge key={type} variant={type.toLowerCase() as any} className="text-xs">
+                      {type} ×{effectiveness[type]}
+                    </Badge>
+                  ))
+                )}
+              </div>
+            </TableCell>
+          </TableRow>
+
+          {/* Immunities */}
+          {immunities.length > 0 && (
+            <TableRow>
+              <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+                Immune To
+              </TableHead>
+              <TableCell colSpan={2} className="px-4 py-2">
+                <div className="flex gap-1 flex-wrap">
+                  {immunities.map((type) => (
+                    <Badge key={type} variant={type.toLowerCase() as any} className="text-xs">
+                      {type}
+                    </Badge>
+                  ))}
+                </div>
+              </TableCell>
+            </TableRow>
+          )}
+
 
           {/* Available Forms */}
           {availableForms.length > 1 && (
