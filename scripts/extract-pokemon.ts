@@ -1161,9 +1161,25 @@ const buildFullChains = (
   }
 
   // Start DFS from root Pokémon (those that never appear as "to")
+  // Also collect all unique forms for each root Pokemon
   for (const start of Object.keys(data)) {
     if (!allTos.has(start)) {
-      dfs({ name: start, formName: 'plain' }, []);
+      // Get all unique forms this Pokemon evolves from
+      const formsToProcess = new Set<string>();
+      const evosForPokemon = data[start];
+      if (evosForPokemon) {
+        for (const evo of evosForPokemon) {
+          formsToProcess.add(evo.from.formName || 'plain');
+        }
+      }
+      // If no evolutions found, at least process plain form
+      if (formsToProcess.size === 0) {
+        formsToProcess.add('plain');
+      }
+      // Start DFS from each form variant
+      for (const formName of formsToProcess) {
+        dfs({ name: start, formName }, []);
+      }
     }
   }
 

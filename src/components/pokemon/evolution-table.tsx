@@ -98,16 +98,35 @@ function formatPokemonName(name: string): string {
 }
 
 /**
+ * Filter the chain to only include paths relevant to the selected form
+ */
+function filterChainByForm(chain: EvolutionChain, selectedForm: string): EvolutionChain {
+  // Filter paths to only include those that have the selected form
+  // A path is relevant if any step involves the selected form
+  return chain.filter((path) => {
+    return path.some(
+      (step) => step.from.formName === selectedForm || step.to.formName === selectedForm
+    );
+  });
+}
+
+/**
  * Build a flat list of evolution rows from the chain data
  */
-function buildEvolutionRows(chain: EvolutionChain): EvolutionRow[] {
+function buildEvolutionRows(chain: EvolutionChain, selectedForm: string): EvolutionRow[] {
+  // Filter chain to only include paths relevant to the selected form
+  const filteredChain = filterChainByForm(chain, selectedForm);
+  
+  // If no paths match the selected form, fall back to plain form
+  const chainToUse = filteredChain.length > 0 ? filteredChain : filterChainByForm(chain, 'plain');
+  
   const rows: EvolutionRow[] = [];
   const seenPokemon = new Set<string>();
   const basePokemon = new Set<string>();
   const evolvedPokemon = new Set<string>();
 
   // First pass: identify all base and evolved pokemon
-  for (const path of chain) {
+  for (const path of chainToUse) {
     for (const step of path) {
       const fromKey = `${step.from.name}|${step.from.formName}`;
       const toKey = `${step.to.name}|${step.to.formName}`;
@@ -139,7 +158,7 @@ function buildEvolutionRows(chain: EvolutionChain): EvolutionRow[] {
   }
 
   // Add all evolutions
-  for (const path of chain) {
+  for (const path of chainToUse) {
     for (const step of path) {
       const toKey = `${step.to.name}|${step.to.formName}`;
       if (!seenPokemon.has(toKey)) {
@@ -166,7 +185,7 @@ export function EvolutionTable({ chain, currentPokemon, currentForm = 'plain' }:
     );
   }
 
-  const rows = buildEvolutionRows(chain);
+  const rows = buildEvolutionRows(chain, currentForm);
 
   if (rows.length === 0) {
     return (
