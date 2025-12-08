@@ -765,3 +765,15 @@ export function accentInsensitiveIncludes(text: string, searchTerm: string): boo
 export function capitalizeFirstLetter(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+
+export function formatItemName(item: string): string {
+  return item
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/_/g, ' ')
+    .replace(/stone$/i, ' Stone')
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ')
+    .trim();
+}

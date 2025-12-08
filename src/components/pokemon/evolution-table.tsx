@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { PokemonSprite } from './pokemon-sprite';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
+import { formatDisplayName, formatItemName } from '@/utils/stringUtils';
 
 interface EvolutionChainMember {
   name: string;
@@ -41,7 +42,7 @@ function formatAcquireMethod(
   fromName: string
 ): string {
   const { action, parameter } = method;
-  const formattedFrom = formatPokemonName(fromName);
+  const formattedFrom = formatDisplayName(fromName);
 
   switch (action) {
     case 'level':
@@ -79,23 +80,6 @@ function formatAcquireMethod(
   }
 }
 
-function formatItemName(item: string): string {
-  return item
-    .replace(/([a-z])([A-Z])/g, '$1 $2')
-    .replace(/_/g, ' ')
-    .replace(/stone$/i, ' Stone')
-    .split(' ')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(' ')
-    .trim();
-}
-
-function formatPokemonName(name: string): string {
-  return name
-    .split(/[\s-]/)
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(' ');
-}
 
 /**
  * Filter the chain to only include paths relevant to the selected form
@@ -236,7 +220,7 @@ export function EvolutionTable({ chain, currentPokemon, currentForm = 'plain' }:
                       form={row.pokemon.formName}
                       size='sm'
                     />
-                    <span className="capitalize">{formatPokemonName(row.pokemon.name)}</span>
+                    <span className="capitalize">{formatDisplayName(row.pokemon.name)}</span>
                   </Link>
                 </TableCell>
               ) : (
@@ -264,7 +248,7 @@ export function EvolutionTable({ chain, currentPokemon, currentForm = 'plain' }:
                         form={row.pokemon.formName}
                         size='sm'
                       />
-                      <span className="capitalize">{formatPokemonName(row.pokemon.name)}</span>
+                      <span className="capitalize">{formatDisplayName(row.pokemon.name)}</span>
                     </Link>
                    </div>
                   </TableCell>

@@ -16,6 +16,15 @@ const __dirname = dirname(__filename);
 
 const moves: MoveData[] = [];
 
+// Normalize move IDs to handle special cases like PSYCHIC_M -> psychic
+// This is needed because some move constants have suffixes to avoid naming conflicts with types
+const normalizeMoveId = (name: string): string => {
+  const reduced = reduce(name);
+  // PSYCHIC_M is used in the ASM to distinguish from PSYCHIC type constant
+  if (reduced === 'psychicm') return 'psychic';
+  return reduced;
+};
+
 // File paths
 const moveNamesASM = join(__dirname, '../polishedcrystal/data/moves/names.asm');
 const moveDescriptionsASM = join(__dirname, '../polishedcrystal/data/moves/descriptions.asm');
@@ -73,7 +82,7 @@ const extractDescriptionsFromData = (data: string[]) => {
           const description = parseMoveDescription(buffer.join(' '));
           for (const label of currentLabels) {
             console.log('Parsed description for', label, ':', description);
-            const moveId = reduce(label);
+            const moveId = normalizeMoveId(label);
             descriptions[moveId] = description;
           }
         }
@@ -97,7 +106,7 @@ const extractDescriptionsFromData = (data: string[]) => {
         if (currentLabels.length) {
           const description = parseMoveDescription(buffer.join(' '));
           for (const label of currentLabels) {
-            const moveId = reduce(label);
+            const moveId = normalizeMoveId(label);
             descriptions[moveId] = description;
           }
         }
@@ -112,7 +121,7 @@ const extractDescriptionsFromData = (data: string[]) => {
       if (currentLabels.length && buffer.length) {
         const description = parseMoveDescription(buffer.join(' '));
         for (const label of currentLabels) {
-          const moveId = reduce(label);
+          const moveId = normalizeMoveId(label);
           descriptions[moveId] = description;
         }
       }
@@ -126,7 +135,7 @@ const extractDescriptionsFromData = (data: string[]) => {
   if (currentLabels.length && buffer.length) {
     const description = buffer.join(' ').trim();
     for (const label of currentLabels) {
-      const moveId = reduce(label);
+      const moveId = normalizeMoveId(label);
       descriptions[moveId] = description;
     }
   }
@@ -176,15 +185,20 @@ const extractMoveData = async () => {
             moveNamePart = 'PSYCHIC';
           }
 
-          // fake brick break
+          // Store original name for display before normalizing for ID
+          const displayName = toTitleCase(moveNamePart);
+
+          // Normalize BRICK_BREAK and ROCK_SMASH to same ID since they're the same move slot
+          // but keep the original display name
+          let moveIdPart = moveNamePart;
           if (
             moveNamePart.toLowerCase().includes('brick_break') ||
             moveNamePart.toLowerCase().includes('rock_smash')
           ) {
-            moveNamePart = 'rock_smash';
+            moveIdPart = 'rock_smash';
           }
 
-          const moveId = reduce(moveNamePart);
+          const moveId = reduce(moveIdPart);
 
           // Parse the stats
           const power = parseInt(parts[2].trim()) || 0;
@@ -195,7 +209,7 @@ const extractMoveData = async () => {
           const category = parts[7].trim();
 
           stats[moveId] = {
-            name: toTitleCase(parts[0].replace('move ', '').trim()),
+            name: displayName, // Use original display name, not normalized
             description: '',
             power,
             type: reduce(type),
@@ -280,7 +294,7 @@ const extractTMHMInfo = async () => {
       const parts = trimmedLine.split(';');
       if (parts.length > 1) {
         const moveName = parts[0].replace('db ', '').trim();
-        const moveId = reduce(moveName);
+        const moveId = normalizeMoveId(moveName);
         const commentPart = parts[1].trim();
 
         // Extract TM/HM number and location
