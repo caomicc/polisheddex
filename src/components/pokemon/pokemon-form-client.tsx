@@ -12,6 +12,9 @@ import { EvolutionTable } from './evolution-table';
 import { EvolutionChain } from '@/utils/evolution-data-server';
 import { PokemonInfoTable } from './pokemon-info-table';
 import { StatsRadarChart } from './stats-radar-chart';
+import { DetailCard } from '@/components/ui/detail-card';
+import TableWrapper from '@/components/ui/table-wrapper';
+import { Sparkles, Egg, Disc, MapPin } from 'lucide-react';
 
 // Type for location encounter data
 interface PokemonLocationEncounter {
@@ -194,17 +197,7 @@ export default function PokemonFormClient({
           availableForms={uniqueForms}
         />
 
-        {/* Base Stats Section */}
-        <section>
-          <h2 className="text-lg font-semibold mb-4 text-neutral-700 dark:text-neutral-200 border-b border-neutral-200 dark:border-neutral-700 pb-2">
-            Base Stats
-          </h2>
-          {currentFormData?.baseStats ? (
-            <StatsRadarChart stats={currentFormData.baseStats} />
-          ) : (
-            <p className="text-sm text-neutral-500">No base stat data available.</p>
-          )}
-        </section>
+
 
         {/* Evolution Chain */}
         <section>
@@ -223,206 +216,180 @@ export default function PokemonFormClient({
         </section>
 
         {/* Level Up Moves */}
-        <section>
-          <h2 className="text-lg font-semibold mb-4 text-neutral-700 dark:text-neutral-200 border-b border-neutral-200 dark:border-neutral-700 pb-2">
-            Level Up Moves ({currentFormData?.movesets?.levelUp?.length || 0})
-          </h2>
-          {currentFormData?.movesets?.levelUp && currentFormData.movesets.levelUp.length > 0 ? (
-              <div className="rounded-xl border border-neutral-200 bg-neutral-100 overflow-hidden shadow-md dark:border-neutral-800 dark:bg-neutral-900">
-                <Table className="w-full text-sm">
-                  <TableHeader className="hidden md:table-header-group">
-                    <TableRow>
-                      <TableHead className="w-[60px]">Level</TableHead>
-                      <TableHead className="w-[180px]">Move</TableHead>
-                      <TableHead className="w-[80px]">Type</TableHead>
-                      <TableHead className="w-[80px]">Cat.</TableHead>
-                      <TableHead className="w-[60px]">Power</TableHead>
-                      <TableHead className="w-[60px]">Acc.</TableHead>
-                      <TableHead className="w-[60px]">PP</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {currentFormData.movesets.levelUp
-                      .sort((a, b) => a.level - b.level)
-                      .map((move, index) => {
-                        const moveInfo = move as EnrichedMove;
-                        return (
-                          <MoveRow
-                            key={`levelup-${move.id}-${index}`}
-                            id={move.id || ''}
-                            level={move.level}
-                            info={{
-                              name: moveInfo.name || move.id,
-                              type: moveInfo.type || 'normal',
-                              category: moveInfo.category || 'physical',
-                              power: moveInfo.power || 0,
-                              pp: moveInfo.pp || 0,
-                              accuracy: moveInfo.accuracy || 0,
-                              effectChance: moveInfo.effectChance || 0,
-                              description: moveInfo.description || '',
-                            }}
-                          />
-                        );
-                      })}
-                  </TableBody>
-                </Table>
-              </div>
-            ) : (
-              <p className="text-sm text-neutral-500 text-center py-4">No level-up moves available.</p>
-            )}
-        </section>
+        {currentFormData?.movesets?.levelUp && currentFormData.movesets.levelUp.length > 0 && (
+          <DetailCard icon={Sparkles} title={`Level Up Moves (${currentFormData.movesets.levelUp.length})`}>
+            <TableWrapper>
+              <Table className="data-table">
+                <TableHeader className="hidden md:table-header-group">
+                  <TableRow>
+                    <TableHead className="w-[60px] table-header-label">Level</TableHead>
+                    <TableHead className="w-[180px] table-header-label">Move</TableHead>
+                    <TableHead className="w-[80px] table-header-label">Type</TableHead>
+                    <TableHead className="w-[80px] table-header-label">Cat.</TableHead>
+                    <TableHead className="w-[60px] table-header-label">Power</TableHead>
+                    <TableHead className="w-[60px] table-header-label">Acc.</TableHead>
+                    <TableHead className="w-[60px] table-header-label">PP</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {currentFormData.movesets.levelUp
+                    .sort((a, b) => a.level - b.level)
+                    .map((move, index) => {
+                      const moveInfo = move as EnrichedMove;
+                      return (
+                        <MoveRow
+                          key={`levelup-${move.id}-${index}`}
+                          id={move.id || ''}
+                          level={move.level}
+                          info={{
+                            name: moveInfo.name || move.id,
+                            type: moveInfo.type || 'normal',
+                            category: moveInfo.category || 'physical',
+                            power: moveInfo.power || 0,
+                            pp: moveInfo.pp || 0,
+                            accuracy: moveInfo.accuracy || 0,
+                            effectChance: moveInfo.effectChance || 0,
+                            description: moveInfo.description || '',
+                          }}
+                        />
+                      );
+                    })}
+                </TableBody>
+              </Table>
+            </TableWrapper>
+          </DetailCard>
+        )}
 
         {/* Egg Moves */}
-        <section>
-          <h2 className="text-lg font-semibold mb-4 text-neutral-700 dark:text-neutral-200 border-b border-neutral-200 dark:border-neutral-700 pb-2">
-            Egg Moves ({currentFormData?.movesets?.eggMoves?.length || 0})
-          </h2>
-          {currentFormData?.movesets?.eggMoves && currentFormData.movesets.eggMoves.length > 0 ? (
-              <div className="rounded-xl border border-neutral-200 bg-neutral-100 overflow-hidden shadow-md dark:border-neutral-800 dark:bg-neutral-900">
-                <Table className="w-full text-sm">
-                  <TableHeader className="hidden md:table-header-group">
-                    <TableRow>
-                      <TableHead className="w-[240px]">Move</TableHead>
-                      <TableHead className="w-[80px]">Type</TableHead>
-                      <TableHead className="w-[80px]">Cat.</TableHead>
-                      <TableHead className="w-[60px]">Power</TableHead>
-                      <TableHead className="w-[60px]">Acc.</TableHead>
-                      <TableHead className="w-[60px]">PP</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {currentFormData.movesets.eggMoves.map((move, index) => {
-                      const moveInfo = move as EnrichedMove;
-                      return (
-                        <MoveRow
-                          key={`eggmove-${move.id}-${index}`}
-                          id={move.id}
-                          info={{
-                            name: moveInfo.name || move.id,
-                            type: moveInfo.type || 'normal',
-                            category: moveInfo.category || 'physical',
-                            power: moveInfo.power || 0,
-                            pp: moveInfo.pp || 0,
-                            accuracy: moveInfo.accuracy || 0,
-                            effectChance: moveInfo.effectChance || 0,
-                            description: moveInfo.description || '',
-                          }}
-                        />
-                      );
-                    })}
-                  </TableBody>
-                </Table>
-              </div>
-            ) : (
-              <p className="text-sm text-neutral-500 text-center py-4">No egg moves available.</p>
-            )}
-        </section>
+        {currentFormData?.movesets?.eggMoves && currentFormData.movesets.eggMoves.length > 0 && (
+          <DetailCard icon={Egg} title={`Egg Moves (${currentFormData.movesets.eggMoves.length})`}>
+            <TableWrapper>
+              <Table className="data-table">
+                <TableHeader className="hidden md:table-header-group">
+                  <TableRow>
+                    <TableHead className="w-[240px] table-header-label">Move</TableHead>
+                    <TableHead className="w-[80px] table-header-label">Type</TableHead>
+                    <TableHead className="w-[80px] table-header-label">Cat.</TableHead>
+                    <TableHead className="w-[60px] table-header-label">Power</TableHead>
+                    <TableHead className="w-[60px] table-header-label">Acc.</TableHead>
+                    <TableHead className="w-[60px] table-header-label">PP</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {currentFormData.movesets.eggMoves.map((move, index) => {
+                    const moveInfo = move as EnrichedMove;
+                    return (
+                      <MoveRow
+                        key={`eggmove-${move.id}-${index}`}
+                        id={move.id}
+                        info={{
+                          name: moveInfo.name || move.id,
+                          type: moveInfo.type || 'normal',
+                          category: moveInfo.category || 'physical',
+                          power: moveInfo.power || 0,
+                          pp: moveInfo.pp || 0,
+                          accuracy: moveInfo.accuracy || 0,
+                          effectChance: moveInfo.effectChance || 0,
+                          description: moveInfo.description || '',
+                        }}
+                      />
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            </TableWrapper>
+          </DetailCard>
+        )}
 
         {/* TM/HM Moves */}
-        <section>
-          <h2 className="text-lg font-semibold mb-4 text-neutral-700 dark:text-neutral-200 border-b border-neutral-200 dark:border-neutral-700 pb-2">
-            TM/HM Moves ({currentFormData?.movesets?.tm?.length || 0})
-          </h2>
-          {currentFormData?.movesets?.tm && currentFormData.movesets.tm.length > 0 ? (
-              <div className="rounded-xl border border-neutral-200 bg-neutral-100 overflow-hidden shadow-md dark:border-neutral-800 dark:bg-neutral-900">
-                <Table className="w-full text-sm">
-                  <TableHeader className="hidden md:table-header-group">
-                    <TableRow>
-                      <TableHead className="w-[240px]">Move</TableHead>
-                      <TableHead className="w-[80px]">Type</TableHead>
-                      <TableHead className="w-[80px]">Cat.</TableHead>
-                      <TableHead className="w-[60px]">Power</TableHead>
-                      <TableHead className="w-[60px]">Acc.</TableHead>
-                      <TableHead className="w-[60px]">PP</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {currentFormData.movesets.tm.map((move, index) => {
-                      const moveInfo = move as EnrichedMove;
-                      return (
-                        <MoveRow
-                          key={`tm-${move.id}-${index}`}
-                          id={move.id}
-                          info={{
-                            name: moveInfo.name || move.id,
-                            type: moveInfo.type || 'normal',
-                            category: moveInfo.category || 'physical',
-                            power: moveInfo.power || 0,
-                            pp: moveInfo.pp || 0,
-                            accuracy: moveInfo.accuracy || 0,
-                            effectChance: moveInfo.effectChance || 0,
-                            description: moveInfo.description || '',
-                          }}
-                        />
-                      );
-                    })}
-                  </TableBody>
-                </Table>
-              </div>
-            ) : (
-              <p className="text-sm text-neutral-500 text-center py-4">No TM/HM moves available.</p>
-            )}
-        </section>
+        {currentFormData?.movesets?.tm && currentFormData.movesets.tm.length > 0 && (
+          <DetailCard icon={Disc} title={`TM/HM Moves (${currentFormData.movesets.tm.length})`}>
+            <TableWrapper>
+              <Table className="data-table">
+                <TableHeader className="hidden md:table-header-group">
+                  <TableRow>
+                    <TableHead className="w-[240px] table-header-label">Move</TableHead>
+                    <TableHead className="w-[80px] table-header-label">Type</TableHead>
+                    <TableHead className="w-[80px] table-header-label">Cat.</TableHead>
+                    <TableHead className="w-[60px] table-header-label">Power</TableHead>
+                    <TableHead className="w-[60px] table-header-label">Acc.</TableHead>
+                    <TableHead className="w-[60px] table-header-label">PP</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {currentFormData.movesets.tm.map((move, index) => {
+                    const moveInfo = move as EnrichedMove;
+                    return (
+                      <MoveRow
+                        key={`tm-${move.id}-${index}`}
+                        id={move.id}
+                        info={{
+                          name: moveInfo.name || move.id,
+                          type: moveInfo.type || 'normal',
+                          category: moveInfo.category || 'physical',
+                          power: moveInfo.power || 0,
+                          pp: moveInfo.pp || 0,
+                          accuracy: moveInfo.accuracy || 0,
+                          effectChance: moveInfo.effectChance || 0,
+                          description: moveInfo.description || '',
+                        }}
+                      />
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            </TableWrapper>
+          </DetailCard>
+        )}
 
         {/* Wild Encounters */}
-        <section>
-          <h2 className="text-lg font-semibold mb-4 text-neutral-700 dark:text-neutral-200 border-b border-neutral-200 dark:border-neutral-700 pb-2">
-            Wild Encounters ({consolidatedLocations.length})
-          </h2>
-          {consolidatedLocations.length > 0 ? (
-              <div className="rounded-xl border border-neutral-200 bg-neutral-100 overflow-hidden shadow-md dark:border-neutral-800 dark:bg-neutral-900">
-                <Table className="w-full text-sm">
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Location</TableHead>
-                      <TableHead>Method</TableHead>
-                      <TableHead>Time</TableHead>
-                      <TableHead>Levels</TableHead>
-                      <TableHead>Rate</TableHead>
+        {consolidatedLocations.length > 0 && (
+          <DetailCard icon={MapPin} title={`Wild Encounters (${consolidatedLocations.length})`}>
+            <TableWrapper>
+              <Table className="data-table">
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="table-header-label">Location</TableHead>
+                    <TableHead className="table-header-label">Method</TableHead>
+                    <TableHead className="table-header-label">Time</TableHead>
+                    <TableHead className="table-header-label">Levels</TableHead>
+                    <TableHead className="table-header-label">Rate</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {consolidatedLocations.map((loc, idx) => (
+                    <TableRow key={`${loc.locationId}-${loc.method}-${loc.version}-${idx}`}>
+                      <TableCell>
+                        <Link href={`/locations/${loc.locationId}`} className="hover:text-blue-600 dark:hover:text-blue-400">
+                          {loc.locationName}
+                          <span className="text-xs text-neutral-500 ml-1">({loc.region})</span>
+                        </Link>
+                      </TableCell>
+                      <TableCell>
+                        <Badge variant="secondary" className="text-xs capitalize">
+                          {loc.method.replace(/_/g, ' ')}
+                        </Badge>
+                      </TableCell>
+                      <TableCell className="capitalize">{loc.version}</TableCell>
+                      <TableCell>{loc.levelRange === 'Varies' ? 'Varies' : `Lv. ${loc.levelRange}`}</TableCell>
+                      <TableCell>{loc.totalRate}%</TableCell>
                     </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {consolidatedLocations.map((loc, idx) => (
-                      <TableRow key={`${loc.locationId}-${loc.method}-${loc.version}-${idx}`}>
-                        <TableCell>
-                          <Link href={`/locations/${loc.locationId}`} className="hover:text-blue-600 dark:hover:text-blue-400">
-                            {loc.locationName}
-                            <span className="text-xs text-neutral-500 ml-1">({loc.region})</span>
-                          </Link>
-                        </TableCell>
-                        <TableCell>
-                          <Badge variant="secondary" className="text-xs capitalize">
-                            {loc.method.replace(/_/g, ' ')}
-                          </Badge>
-                        </TableCell>
-                        <TableCell className="capitalize">{loc.version}</TableCell>
-                        <TableCell>{loc.levelRange === 'Varies' ? 'Varies' : `Lv. ${loc.levelRange}`}</TableCell>
-                        <TableCell>{loc.totalRate}%</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </div>
-            ) : (
-              <p className="text-sm text-neutral-500 text-center py-4">
-                No wild encounter data. This Pokémon may only be available through breeding, events, or trades.
-              </p>
-            )}
-        </section>
-
-        {/* Debug Panel (Dev Only) */}
-        {process.env.NODE_ENV === 'development' && (
-          <details className="text-xs border border-dashed border-neutral-300 dark:border-neutral-700 rounded-lg p-4">
-            <summary className="cursor-pointer font-semibold">Debug Panel</summary>
-            <div className="mt-2 space-y-1">
-              <div><strong>ID:</strong> {pokemonData.id}</div>
-              <div><strong>Version:</strong> {version}</div>
-              <div><strong>Form:</strong> {selectedForm}</div>
-              <div><strong>Forms:</strong> {uniqueForms.join(', ')}</div>
-              <div><strong>Types:</strong> {currentTypes.join(', ')}</div>
-            </div>
-          </details>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableWrapper>
+          </DetailCard>
         )}
+
+        {/* Base Stats Section */}
+          <DetailCard icon={MapPin} title={`Base Stats`}>
+          {currentFormData?.baseStats ? (
+            <StatsRadarChart stats={currentFormData.baseStats} />
+          ) : (
+            <p className="text-sm text-neutral-500">No base stat data available.</p>
+          )}
+        </DetailCard>
+
       </div>
     </>
   );

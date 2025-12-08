@@ -727,7 +727,7 @@ h3,
 
 /* Info Table Styles (for detail/key-value pages) */
 .info-table-wrapper {
-  @apply w-full mx-auto md:mx-0 relative z-10 rounded-xl border border-neutral-200 bg-neutral-100 overflow-hidden shadow-md dark:border-neutral-800 dark:bg-neutral-900;
+  @apply w-full mx-auto md:mx-0 relative z-10 rounded-xl border border-neutral-200 bg-white overflow-hidden shadow-sm dark:border-neutral-700 dark:bg-neutral-800;
 }
 
 .info-table {
@@ -739,16 +739,16 @@ h3,
 }
 
 .info-table-label {
-  @apply px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 w-[140px] align-top;
+  @apply px-4 py-3 text-left text-xs font-bold text-neutral-700 dark:text-neutral-300 w-[140px] align-top uppercase tracking-wide;
 }
 
 .info-table-cell {
-  @apply px-4 py-2 text-neutral-700 dark:text-neutral-200;
+  @apply px-4 py-3 text-sm text-neutral-700 dark:text-neutral-200;
 }
 
 /* Data Table Styles (for list/sortable pages) */
 .data-table {
-  @apply table-fixed w-full;
+  @apply table-fixed w-full min-w-[500px];
 }
 
 .table-row-no-hover {
@@ -757,7 +757,7 @@ h3,
 
 /* Table Text Styles */
 .table-header-label {
-  @apply text-xs font-bold text-neutral-700 dark:text-neutral-300;
+  @apply text-xs font-bold text-neutral-700 dark:text-neutral-300 uppercase tracking-wide;
 }
 
 .table-link {

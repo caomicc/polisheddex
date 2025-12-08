@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
-import { MapPin, ShoppingCart, Gift, Search, Coins, Trophy } from 'lucide-react';
+import TableWrapper from '@/components/ui/table-wrapper';
+import { MapPin, ShoppingCart, Gift, Search, Coins, Trophy, ExternalLink } from 'lucide-react';
 
 interface LocationEntry {
   area: string;
@@ -82,29 +83,30 @@ export function ItemLocationsTable({ locations, locationNameMap }: ItemLocations
   }
 
   return (
-    <div className="info-table-wrapper">
-      <Table className="info-table">
+    <TableWrapper>
+      <Table className="data-table">
         <TableHeader>
           <TableRow>
-            <TableHead className="info-table-label w-[200px]">Location</TableHead>
-            <TableHead className="info-table-label">Method</TableHead>
+            <TableHead className="table-header-label w-[200px]">Location</TableHead>
+            <TableHead className="table-header-label">Method</TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody className="info-table-body">
+        <TableBody>
           {locations.map((loc, idx) => {
             const locationSlug = loc.parentId || loc.area.toLowerCase().replace(/\s+/g, '_');
             const displayName = locationNameMap?.[locationSlug] || loc.area;
             return (
               <TableRow key={`${loc.area}-${loc.method}-${idx}`}>
-                <TableCell className="info-table-cell">
+                <TableCell>
                   <Link
                     href={`/locations/${locationSlug}`}
-                    className="text-blue-600 dark:text-blue-400 hover:underline"
+                    className="table-link"
                   >
                     {displayName}
+                    <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
                   </Link>
                 </TableCell>
-                <TableCell className="info-table-cell">
+                <TableCell>
                   <div className="flex items-center gap-2">
                     <span className={cn('flex-shrink-0', getMethodColor(loc.method))}>
                       {getMethodIcon(loc.method)}
@@ -119,6 +121,6 @@ export function ItemLocationsTable({ locations, locationNameMap }: ItemLocations
           })}
         </TableBody>
       </Table>
-    </div>
+    </TableWrapper>
   );
 }

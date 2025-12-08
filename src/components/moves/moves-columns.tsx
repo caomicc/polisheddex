@@ -1,7 +1,8 @@
 'use client';
 
 import { ColumnDef } from '@tanstack/react-table';
-import { ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react';
+import { ArrowUpDown, ArrowUp, ArrowDown, ExternalLink } from 'lucide-react';
+import Link from 'next/link';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { accentInsensitiveIncludes } from '@/utils/stringUtils';
@@ -31,7 +32,12 @@ export const moveColumns: ColumnDef<MoveData>[] = [
     cell: ({ row }) => {
       const move = row.original;
       return (
-        <div className="flex items-center space-x-2 min-w-0 word-wrap table-link">{move.name}</div>
+        <div className="flex items-center space-x-2 min-w-0">
+          <Link href={`/moves/${encodeURIComponent(move.id)}`} className="table-link">
+            {move.name}
+            <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
+          </Link>
+        </div>
       );
     },
     filterFn: (row, id, value) => {

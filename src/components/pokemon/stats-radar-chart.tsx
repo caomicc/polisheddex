@@ -46,7 +46,7 @@ export function StatsRadarChart({ stats }: StatsRadarChartProps) {
   const topStat = chartData.reduce((max, curr) => (curr.value > max.value ? curr : max), chartData[0]);
 
   return (
-    <div className="rounded-xl border border-neutral-200 bg-neutral-100 overflow-hidden shadow-md dark:border-neutral-800 dark:bg-neutral-900 p-4">
+    <div className="">
       <div className="flex flex-col md:flex-row items-center gap-4">
         {/* Radar Chart */}
         <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[280px] w-full md:w-1/2">
@@ -97,12 +97,12 @@ export function StatsRadarChart({ stats }: StatsRadarChartProps) {
                 key={stat}
                 className={`flex justify-between px-3 py-1.5 rounded-md ${
                   value === topStat.value
-                    ? 'bg-pokemon-primary/20 dark:bg-pokemon-primary/30 font-semibold'
-                    : 'bg-neutral-200/50 dark:bg-neutral-800/50'
+                    ? 'bg-primary/10 dark:bg-primary/30 font-semibold'
+                    : 'bg-neutral-200/30 dark:bg-neutral-800/50'
                 }`}
               >
                 <span className="text-neutral-600 dark:text-neutral-400">{fullLabel}</span>
-                <span className={value === topStat.value ? 'text-pokemon-primary' : ''}>{value}</span>
+                <span className={value === topStat.value ? 'text-primary' : ''}>{value}</span>
               </div>
             ))}
           </div>

@@ -2,7 +2,7 @@
 
 import { ColumnDef } from '@tanstack/react-table';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react';
+import { ArrowDown, ArrowUp, ArrowUpDown, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from '../ui/badge';
 import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
@@ -80,6 +80,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
               ({pokemon.form})
             </span>
           )}
+          <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
         </Link>
       );
     },

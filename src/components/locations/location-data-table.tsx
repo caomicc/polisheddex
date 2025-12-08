@@ -490,7 +490,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
       </div>
 
       <TableWrapper>
-        <Table className="table-fixed w-full min-w-[500px]">
+        <Table className="data-table">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>

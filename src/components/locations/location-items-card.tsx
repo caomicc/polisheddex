@@ -13,6 +13,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import TableWrapper from '@/components/ui/table-wrapper';
 import { cn } from '@/lib/utils';
 import { Package } from 'lucide-react';
 import { getItemSpriteName } from '@/utils/spriteUtils';
@@ -56,15 +57,16 @@ function filterItems(data: LocationItem[], tabValue: string): LocationItem[] {
 
 function ItemsTable({ items }: { items: LocationItem[] }) {
   return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHead className="w-[60px]"></TableHead>
-          <TableHead>Item</TableHead>
-          <TableHead>Type</TableHead>
-          <TableHead>Location</TableHead>
-        </TableRow>
-      </TableHeader>
+    <TableWrapper>
+      <Table className="data-table">
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[60px]"></TableHead>
+            <TableHead className="table-header-label">Item</TableHead>
+            <TableHead className="table-header-label">Type</TableHead>
+            <TableHead className="table-header-label">Location</TableHead>
+          </TableRow>
+        </TableHeader>
       <TableBody>
         {items.map((item, idx) => {
           const displayName = item.name
@@ -115,6 +117,7 @@ function ItemsTable({ items }: { items: LocationItem[] }) {
         })}
       </TableBody>
     </Table>
+    </TableWrapper>
   );
 }
 

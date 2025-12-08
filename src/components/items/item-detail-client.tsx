@@ -5,6 +5,8 @@ import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import { getUsageDescription } from '@/utils/itemEffectProcessor';
 import { ItemInfoTable } from './item-info-table';
 import { ItemLocationsTable } from './item-locations-table';
+import { DetailCard } from '@/components/ui/detail-card';
+import { MapPin } from 'lucide-react';
 
 interface MoveInfo {
   name: string;
@@ -51,12 +53,9 @@ export default function ItemDetailClient({
 
       {/* Locations Section */}
       {versionData.locations && versionData.locations.length > 0 && (
-        <section>
-          <h2 className="text-lg font-semibold mb-4 text-neutral-700 dark:text-neutral-200 border-b border-neutral-200 dark:border-neutral-700 pb-2">
-            Locations ({versionData.locations.length})
-          </h2>
+        <DetailCard icon={MapPin} title={`Locations (${versionData.locations.length})`}>
           <ItemLocationsTable locations={versionData.locations} locationNameMap={locationNameMap} />
-        </section>
+        </DetailCard>
       )}
     </div>
   );

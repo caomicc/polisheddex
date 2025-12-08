@@ -15,7 +15,7 @@ const AbilitiesDataTableSearch: React.FC<AbilitiesDataTableSearchProps> = ({ abi
   const version = showFaithful ? 'faithful' : 'polished';
   return (
     <Suspense fallback={<div className="flex justify-center py-8">Loading abilities...</div>}>
-      <AbilitiesDataTable columns={abilityColumns(version)} data={abilities} />
+      <AbilitiesDataTable columns={abilityColumns(version)} data={abilities} version={version} />
     </Suspense>
   );
 };

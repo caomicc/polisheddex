@@ -35,15 +35,16 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import TableWrapper from '../ui/table-wrapper';
-import { cn } from '@/lib/utils';
+import { AbilityRow } from './ability-row';
 
 import { AbilityData } from '@/types/new';
 interface AbilitiesDataTableProps {
   columns: ColumnDef<AbilityData, unknown>[];
   data: AbilityData[];
+  version: string;
 }
 
-export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
+export function AbilitiesDataTable({ columns, data, version }: AbilitiesDataTableProps) {
   // Storage key for persisting non-URL table state
   const STORAGE_KEY = 'abilitiesDataTable';
 
@@ -238,8 +239,8 @@ export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
 
       {/* Data Table */}
       <TableWrapper>
-        <Table className="table-fixed w-full min-w-[500px]">
-          <TableHeader>
+        <Table className="data-table">
+          <TableHeader className="hidden md:table-header-group">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
@@ -248,7 +249,7 @@ export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
                       key={header.id}
                       className={
                         header.column.columnDef.size === 200
-                          ? 'w-[150px] sm:w-[200px]! table-header-label'
+                          ? 'w-[200px] table-header-label'
                           : 'table-header-label'
                       }
                     >
@@ -264,21 +265,11 @@ export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
           <TableBody>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow key={row.id}>
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell
-                      key={cell.id}
-                      className={cn(
-                        cell.column.columnDef.size === 200
-                          ? 'w-[100px] sm:w-[200px]! text-center'
-                          : '',
-                        'p-1 md:p-2',
-                      )}
-                    >
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </TableCell>
-                  ))}
-                </TableRow>
+                <AbilityRow
+                  key={row.id}
+                  ability={row.original}
+                  version={version}
+                />
               ))
             ) : (
               <TableRow>

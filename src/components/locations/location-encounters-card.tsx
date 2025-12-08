@@ -12,6 +12,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import TableWrapper from '@/components/ui/table-wrapper';
 import { PokemonSprite } from '@/components/pokemon/pokemon-sprite';
 import { cn } from '@/lib/utils';
 import { Footprints } from 'lucide-react';
@@ -94,17 +95,18 @@ function EncounterTable({
   showTimeColumn: boolean;
 }) {
   return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHead className="w-[60px]"></TableHead>
-          <TableHead>Pokémon</TableHead>
-          <TableHead>Method</TableHead>
-          <TableHead>Level</TableHead>
-          <TableHead>Rate</TableHead>
-          {showTimeColumn && <TableHead>Time</TableHead>}
-        </TableRow>
-      </TableHeader>
+    <TableWrapper>
+      <Table className="data-table">
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[60px]"></TableHead>
+            <TableHead className="table-header-label">Pokémon</TableHead>
+            <TableHead className="table-header-label">Method</TableHead>
+            <TableHead className="table-header-label">Level</TableHead>
+            <TableHead className="table-header-label">Rate</TableHead>
+            {showTimeColumn && <TableHead className="table-header-label">Time</TableHead>}
+          </TableRow>
+        </TableHeader>
       <TableBody>
         {encounters.map((enc, idx) => (
           <TableRow key={idx}>
@@ -140,6 +142,7 @@ function EncounterTable({
         ))}
       </TableBody>
     </Table>
+    </TableWrapper>
   );
 }
 
