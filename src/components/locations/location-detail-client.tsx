@@ -2,7 +2,7 @@
 
 import { LocationData } from '@/utils/location-data-server';
 import { ComprehensiveTrainerData } from '@/types/new';
-import { LocationHeader } from './location-header';
+import { LocationInfoTable } from './location-info-table';
 import { LocationMapPlaceholder } from './location-map-placeholder';
 import { LocationEncountersCard } from './location-encounters-card';
 import { LocationItemsCard } from './location-items-card';
@@ -23,11 +23,15 @@ export function LocationDetailClient({ location, trainers }: LocationDetailClien
 
   return (
     <div className="space-y-4">
-      {/* Header with region/type badges */}
-      <LocationHeader
+      {/* Location Info Table */}
+      <LocationInfoTable
         region={location.region}
         types={location.type}
         connectionCount={location.connectionCount}
+        encounterCount={location.encounters?.length}
+        itemCount={location.items?.length}
+        eventCount={location.events?.length}
+        trainerCount={trainers?.length}
       />
 
       {/* Map placeholder */}

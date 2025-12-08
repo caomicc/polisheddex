@@ -1,9 +1,18 @@
 "use client";
 
+import Link from "next/link";
 import { useFaithfulPreferenceSafe } from "@/hooks/useFaithfulPreferenceSafe";
 import { AbilityData } from "@/types/new";
-import { AbilityDescriptionCard } from "./ability-description-card";
 import { AbilityPokemonCard } from "./ability-pokemon-card";
+import { Hero } from "@/components/ui/Hero";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 interface AbilityPokemon {
   id: string;
@@ -24,9 +33,40 @@ export function AbilityDetailClient({ ability }: AbilityDetailClientProps) {
   const pokemon: AbilityPokemon[] = versionData?.pokemon || [];
 
   return (
-    <div className="space-y-4">
-      <AbilityDescriptionCard description={versionData?.description} />
-      <AbilityPokemonCard pokemon={pokemon} />
-    </div>
+    <>
+      <Hero
+        headline={ability.name}
+        description={versionData?.description}
+        breadcrumbs={
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/" className="hover:underline">
+                    Home
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/abilities" className="hover:underline">
+                    Abilities
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{ability.name}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        }
+      />
+
+      <div className="max-w-xl md:max-w-4xl mx-auto space-y-4">
+        <AbilityPokemonCard pokemon={pokemon} />
+      </div>
+    </>
   );
 }
