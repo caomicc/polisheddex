@@ -11,50 +11,102 @@
           "pokemon": [
             {
               "pokemonName": "noctowl",
-              "level": -1,
+              "level": 30,
+              "levelDisplay": "Badge Level +5",
               "formName": "plain",
               "moves": [
-                "aerialace",
-                "nightshade",
-                "reflect",
-                "extrasensory"
+                {
+                  "id": "aerialace",
+                  "type": "flying"
+                },
+                {
+                  "id": "nightshade",
+                  "type": "ghost"
+                },
+                {
+                  "id": "reflect",
+                  "type": "psychic"
+                },
+                {
+                  "id": "extrasensory",
+                  "type": "psychic"
+                }
               ],
               "evs": "184 Spe"
             },
             {
               "pokemonName": "pidgeotto",
-              "level": -1,
+              "level": 31,
+              "levelDisplay": "Badge Level +6",
               "formName": "plain",
               "moves": [
-                "mudslap",
-                "roost",
-                "swift",
-                "airslash"
+                {
+                  "id": "mudslap",
+                  "type": "ground"
+                },
+                {
+                  "id": "roost",
+                  "type": "flying"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                },
+                {
+                  "id": "airslash",
+                  "type": "flying"
+                }
               ],
               "evs": "184 SAt"
             },
             {
               "pokemonName": "aerodactyl",
-              "level": -1,
+              "level": 30,
+              "levelDisplay": "Badge Level +5",
               "formName": "plain",
               "moves": [
-                "wingattack",
-                "supersonic",
-                "bite",
-                "ancientpower"
+                {
+                  "id": "wingattack",
+                  "type": "flying"
+                },
+                {
+                  "id": "supersonic",
+                  "type": "normal"
+                },
+                {
+                  "id": "bite",
+                  "type": "dark"
+                },
+                {
+                  "id": "ancientpower",
+                  "type": "rock"
+                }
               ],
               "evs": "184 Atk"
             },
             {
               "pokemonName": "skarmory",
-              "level": -1,
+              "level": 33,
+              "levelDisplay": "Badge Level +8",
               "item": "sitrusberry",
               "formName": "plain",
               "moves": [
-                "metalclaw",
-                "furystrikes",
-                "drillpeck",
-                "swift"
+                {
+                  "id": "metalclaw",
+                  "type": "steel"
+                },
+                {
+                  "id": "furystrikes",
+                  "type": "normal"
+                },
+                {
+                  "id": "drillpeck",
+                  "type": "flying"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                }
               ],
               "evs": "184 HP"
             }
@@ -69,10 +121,22 @@
               "item": "leftovers",
               "formName": "plain",
               "moves": [
-                "screech",
-                "spikes",
-                "drillpeck",
-                "nightslash"
+                {
+                  "id": "screech",
+                  "type": "normal"
+                },
+                {
+                  "id": "spikes",
+                  "type": "ground"
+                },
+                {
+                  "id": "drillpeck",
+                  "type": "flying"
+                },
+                {
+                  "id": "nightslash",
+                  "type": "dark"
+                }
               ]
             },
             {
@@ -81,10 +145,22 @@
               "item": "sharpbeak",
               "formName": "plain",
               "moves": [
-                "airslash",
-                "psychicm",
-                "shadowball",
-                "reflect"
+                {
+                  "id": "airslash",
+                  "type": "flying"
+                },
+                {
+                  "id": "psychicm",
+                  "type": "normal"
+                },
+                {
+                  "id": "shadowball",
+                  "type": "ghost"
+                },
+                {
+                  "id": "reflect",
+                  "type": "psychic"
+                }
               ]
             },
             {
@@ -93,10 +169,22 @@
               "item": "brightpowder",
               "formName": "plain",
               "moves": [
-                "roost",
-                "extremespeed",
-                "hurricane",
-                "roar"
+                {
+                  "id": "roost",
+                  "type": "flying"
+                },
+                {
+                  "id": "extremespeed",
+                  "type": "normal"
+                },
+                {
+                  "id": "hurricane",
+                  "type": "flying"
+                },
+                {
+                  "id": "roar",
+                  "type": "normal"
+                }
               ]
             },
             {
@@ -105,10 +193,22 @@
               "item": "muscleband",
               "formName": "plain",
               "moves": [
-                "rockslide",
-                "crunch",
-                "ironhead",
-                "fly"
+                {
+                  "id": "rockslide",
+                  "type": "rock"
+                },
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "ironhead",
+                  "type": "steel"
+                },
+                {
+                  "id": "fly",
+                  "type": "flying"
+                }
               ]
             },
             {
@@ -117,10 +217,22 @@
               "item": "charcoal",
               "formName": "plain",
               "moves": [
-                "swordsdance",
-                "fireblast",
-                "rockslide",
-                "dragonclaw"
+                {
+                  "id": "swordsdance",
+                  "type": "normal"
+                },
+                {
+                  "id": "fireblast",
+                  "type": "fire"
+                },
+                {
+                  "id": "rockslide",
+                  "type": "rock"
+                },
+                {
+                  "id": "dragonclaw",
+                  "type": "dragon"
+                }
               ]
             },
             {
@@ -129,10 +241,22 @@
               "item": "quickclaw",
               "formName": "plain",
               "moves": [
-                "futuresight",
-                "painsplit",
-                "reflect",
-                "psychicm"
+                {
+                  "id": "futuresight",
+                  "type": "psychic"
+                },
+                {
+                  "id": "painsplit",
+                  "type": "ghost"
+                },
+                {
+                  "id": "reflect",
+                  "type": "psychic"
+                },
+                {
+                  "id": "psychicm",
+                  "type": "normal"
+                }
               ]
             }
           ]
@@ -146,50 +270,102 @@
           "pokemon": [
             {
               "pokemonName": "noctowl",
-              "level": -1,
+              "level": 30,
+              "levelDisplay": "Badge Level +5",
               "formName": "plain",
               "moves": [
-                "aerialace",
-                "nightshade",
-                "reflect",
-                "extrasensory"
+                {
+                  "id": "aerialace",
+                  "type": "flying"
+                },
+                {
+                  "id": "nightshade",
+                  "type": "ghost"
+                },
+                {
+                  "id": "reflect",
+                  "type": "psychic"
+                },
+                {
+                  "id": "extrasensory",
+                  "type": "psychic"
+                }
               ],
               "evs": "184 Spe"
             },
             {
               "pokemonName": "pidgeotto",
-              "level": -1,
+              "level": 31,
+              "levelDisplay": "Badge Level +6",
               "formName": "plain",
               "moves": [
-                "mudslap",
-                "roost",
-                "swift",
-                "airslash"
+                {
+                  "id": "mudslap",
+                  "type": "ground"
+                },
+                {
+                  "id": "roost",
+                  "type": "flying"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                },
+                {
+                  "id": "airslash",
+                  "type": "flying"
+                }
               ],
               "evs": "184 SAt"
             },
             {
               "pokemonName": "aerodactyl",
-              "level": -1,
+              "level": 30,
+              "levelDisplay": "Badge Level +5",
               "formName": "plain",
               "moves": [
-                "wingattack",
-                "supersonic",
-                "bite",
-                "ancientpower"
+                {
+                  "id": "wingattack",
+                  "type": "flying"
+                },
+                {
+                  "id": "supersonic",
+                  "type": "normal"
+                },
+                {
+                  "id": "bite",
+                  "type": "dark"
+                },
+                {
+                  "id": "ancientpower",
+                  "type": "rock"
+                }
               ],
               "evs": "184 Atk"
             },
             {
               "pokemonName": "skarmory",
-              "level": -1,
+              "level": 33,
+              "levelDisplay": "Badge Level +8",
               "item": "sitrusberry",
               "formName": "plain",
               "moves": [
-                "metalclaw",
-                "furystrikes",
-                "drillpeck",
-                "swift"
+                {
+                  "id": "metalclaw",
+                  "type": "steel"
+                },
+                {
+                  "id": "furystrikes",
+                  "type": "normal"
+                },
+                {
+                  "id": "drillpeck",
+                  "type": "flying"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                }
               ],
               "evs": "184 HP"
             }
@@ -204,10 +380,22 @@
               "item": "leftovers",
               "formName": "plain",
               "moves": [
-                "screech",
-                "spikes",
-                "drillpeck",
-                "nightslash"
+                {
+                  "id": "screech",
+                  "type": "normal"
+                },
+                {
+                  "id": "spikes",
+                  "type": "ground"
+                },
+                {
+                  "id": "drillpeck",
+                  "type": "flying"
+                },
+                {
+                  "id": "nightslash",
+                  "type": "dark"
+                }
               ]
             },
             {
@@ -216,10 +404,22 @@
               "item": "sharpbeak",
               "formName": "plain",
               "moves": [
-                "airslash",
-                "psychicm",
-                "shadowball",
-                "reflect"
+                {
+                  "id": "airslash",
+                  "type": "flying"
+                },
+                {
+                  "id": "psychicm",
+                  "type": "normal"
+                },
+                {
+                  "id": "shadowball",
+                  "type": "ghost"
+                },
+                {
+                  "id": "reflect",
+                  "type": "psychic"
+                }
               ]
             },
             {
@@ -228,10 +428,22 @@
               "item": "brightpowder",
               "formName": "plain",
               "moves": [
-                "roost",
-                "extremespeed",
-                "hurricane",
-                "roar"
+                {
+                  "id": "roost",
+                  "type": "flying"
+                },
+                {
+                  "id": "extremespeed",
+                  "type": "normal"
+                },
+                {
+                  "id": "hurricane",
+                  "type": "flying"
+                },
+                {
+                  "id": "roar",
+                  "type": "normal"
+                }
               ]
             },
             {
@@ -240,10 +452,22 @@
               "item": "muscleband",
               "formName": "plain",
               "moves": [
-                "rockslide",
-                "crunch",
-                "ironhead",
-                "fly"
+                {
+                  "id": "rockslide",
+                  "type": "rock"
+                },
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "ironhead",
+                  "type": "steel"
+                },
+                {
+                  "id": "fly",
+                  "type": "flying"
+                }
               ]
             },
             {
@@ -252,10 +476,22 @@
               "item": "charcoal",
               "formName": "plain",
               "moves": [
-                "swordsdance",
-                "fireblast",
-                "rockslide",
-                "aerialace"
+                {
+                  "id": "swordsdance",
+                  "type": "normal"
+                },
+                {
+                  "id": "fireblast",
+                  "type": "fire"
+                },
+                {
+                  "id": "rockslide",
+                  "type": "rock"
+                },
+                {
+                  "id": "aerialace",
+                  "type": "flying"
+                }
               ]
             },
             {
@@ -264,10 +500,22 @@
               "item": "quickclaw",
               "formName": "plain",
               "moves": [
-                "futuresight",
-                "painsplit",
-                "reflect",
-                "psychicm"
+                {
+                  "id": "futuresight",
+                  "type": "psychic"
+                },
+                {
+                  "id": "painsplit",
+                  "type": "normal"
+                },
+                {
+                  "id": "reflect",
+                  "type": "psychic"
+                },
+                {
+                  "id": "psychicm",
+                  "type": "normal"
+                }
               ]
             }
           ]

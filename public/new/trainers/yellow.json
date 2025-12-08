@@ -12,14 +12,27 @@
             {
               "pokemonName": "rattata",
               "nickname": "Ratty",
-              "level": -1,
+              "level": 30,
+              "levelDisplay": "Badge Level +5",
               "item": "sitrusberry",
               "formName": "plain",
               "moves": [
-                "suckerpunch",
-                "quickattack",
-                "hyperfang",
-                "swordsdance"
+                {
+                  "id": "suckerpunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "hyperfang",
+                  "type": "normal"
+                },
+                {
+                  "id": "swordsdance",
+                  "type": "normal"
+                }
               ],
               "ability": "guts",
               "nature": "atkupsatkdown",
@@ -28,14 +41,27 @@
             {
               "pokemonName": "butterfree",
               "nickname": "Kitty",
-              "level": -1,
+              "level": 28,
+              "levelDisplay": "Badge Level +3",
               "item": "sitrusberry",
               "formName": "plain",
               "moves": [
-                "bugbuzz",
-                "supersonic",
-                "stunspore",
-                "psychicm"
+                {
+                  "id": "bugbuzz",
+                  "type": "bug"
+                },
+                {
+                  "id": "supersonic",
+                  "type": "normal"
+                },
+                {
+                  "id": "stunspore",
+                  "type": "grass"
+                },
+                {
+                  "id": "psychicm",
+                  "type": "normal"
+                }
               ],
               "ability": "tintedlens",
               "nature": "satkupatkdown",
@@ -44,13 +70,26 @@
             {
               "pokemonName": "doduo",
               "nickname": "Dody",
-              "level": -1,
+              "level": 31,
+              "levelDisplay": "Badge Level +6",
               "formName": "plain",
               "moves": [
-                "swordsdance",
-                "acrobatics",
-                "return",
-                "mudslap"
+                {
+                  "id": "swordsdance",
+                  "type": "normal"
+                },
+                {
+                  "id": "acrobatics",
+                  "type": "flying"
+                },
+                {
+                  "id": "return",
+                  "type": "normal"
+                },
+                {
+                  "id": "mudslap",
+                  "type": "ground"
+                }
               ],
               "ability": "tangledfeet",
               "nature": "speupdefdown",
@@ -59,14 +98,27 @@
             {
               "pokemonName": "graveler",
               "nickname": "Gravvy",
-              "level": -1,
+              "level": 30,
+              "levelDisplay": "Badge Level +5",
               "item": "eviolite",
               "formName": "plain",
               "moves": [
-                "rollout",
-                "defensecurl",
-                "earthquake",
-                "rockblast"
+                {
+                  "id": "rollout",
+                  "type": "rock"
+                },
+                {
+                  "id": "defensecurl",
+                  "type": "normal"
+                },
+                {
+                  "id": "earthquake",
+                  "type": "ground"
+                },
+                {
+                  "id": "rockblast",
+                  "type": "rock"
+                }
               ],
               "ability": "sturdy",
               "nature": "atkupsatkdown",
@@ -75,14 +127,27 @@
             {
               "pokemonName": "omanyte",
               "nickname": "Omny",
-              "level": -1,
+              "level": 29,
+              "levelDisplay": "Badge Level +4",
               "item": "sitrusberry",
               "formName": "plain",
               "moves": [
-                "surf",
-                "protect",
-                "ancientpower",
-                "aurorabeam"
+                {
+                  "id": "surf",
+                  "type": "water"
+                },
+                {
+                  "id": "protect",
+                  "type": "normal"
+                },
+                {
+                  "id": "ancientpower",
+                  "type": "rock"
+                },
+                {
+                  "id": "aurorabeam",
+                  "type": "ice"
+                }
               ],
               "ability": "shellarmor",
               "evs": "240 HP"
@@ -90,14 +155,27 @@
             {
               "pokemonName": "pikachu",
               "nickname": "Chuchu",
-              "level": -1,
+              "level": 33,
+              "levelDisplay": "Badge Level +8",
               "item": "lightball",
               "formName": "yellow",
               "moves": [
-                "surf",
-                "fly",
-                "thunderbolt",
-                "quickattack"
+                {
+                  "id": "surf",
+                  "type": "water"
+                },
+                {
+                  "id": "fly",
+                  "type": "flying"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                },
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                }
               ],
               "ability": "static",
               "nature": "speupdefdown",
@@ -115,10 +193,22 @@
               "item": "wiseglasses",
               "formName": "plain",
               "moves": [
-                "scald",
-                "ancientpower",
-                "spikes",
-                "icebeam"
+                {
+                  "id": "scald",
+                  "type": "water"
+                },
+                {
+                  "id": "ancientpower",
+                  "type": "rock"
+                },
+                {
+                  "id": "spikes",
+                  "type": "ground"
+                },
+                {
+                  "id": "icebeam",
+                  "type": "ice"
+                }
               ],
               "ability": "shellarmor"
             },
@@ -129,10 +219,22 @@
               "item": "kingsrock",
               "formName": "plain",
               "moves": [
-                "swordsdance",
-                "quickattack",
-                "superfang",
-                "crunch"
+                {
+                  "id": "swordsdance",
+                  "type": "normal"
+                },
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "superfang",
+                  "type": "normal"
+                },
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                }
               ],
               "ability": "guts",
               "nature": "atkupsatkdown"
@@ -144,10 +246,22 @@
               "item": "brightpowder",
               "formName": "plain",
               "moves": [
-                "psychicm",
-                "bugbuzz",
-                "sleeppowder",
-                "stunspore"
+                {
+                  "id": "psychicm",
+                  "type": "normal"
+                },
+                {
+                  "id": "bugbuzz",
+                  "type": "bug"
+                },
+                {
+                  "id": "sleeppowder",
+                  "type": "grass"
+                },
+                {
+                  "id": "stunspore",
+                  "type": "grass"
+                }
               ],
               "ability": "tintedlens",
               "nature": "satkupatkdown"
@@ -159,10 +273,22 @@
               "item": "sharpbeak",
               "formName": "plain",
               "moves": [
-                "drillpeck",
-                "triattack",
-                "doubleteam",
-                "pursuit"
+                {
+                  "id": "drillpeck",
+                  "type": "flying"
+                },
+                {
+                  "id": "triattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "doubleteam",
+                  "type": "normal"
+                },
+                {
+                  "id": "pursuit",
+                  "type": "dark"
+                }
               ],
               "ability": "tangledfeet",
               "nature": "speupdefdown"
@@ -174,10 +300,22 @@
               "item": "muscleband",
               "formName": "plain",
               "moves": [
-                "rollout",
-                "defensecurl",
-                "earthquake",
-                "stoneedge"
+                {
+                  "id": "rollout",
+                  "type": "rock"
+                },
+                {
+                  "id": "defensecurl",
+                  "type": "normal"
+                },
+                {
+                  "id": "earthquake",
+                  "type": "ground"
+                },
+                {
+                  "id": "stoneedge",
+                  "type": "rock"
+                }
               ],
               "ability": "sturdy",
               "nature": "atkupsatkdown"
@@ -189,10 +327,22 @@
               "item": "lightball",
               "formName": "yellow",
               "moves": [
-                "surf",
-                "fly",
-                "thunderbolt",
-                "extremespeed"
+                {
+                  "id": "surf",
+                  "type": "water"
+                },
+                {
+                  "id": "fly",
+                  "type": "flying"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                },
+                {
+                  "id": "extremespeed",
+                  "type": "normal"
+                }
               ],
               "ability": "static",
               "nature": "speupdefdown"
@@ -209,14 +359,27 @@
             {
               "pokemonName": "rattata",
               "nickname": "Ratty",
-              "level": -1,
+              "level": 30,
+              "levelDisplay": "Badge Level +5",
               "item": "sitrusberry",
               "formName": "plain",
               "moves": [
-                "suckerpunch",
-                "quickattack",
-                "hyperfang",
-                "swordsdance"
+                {
+                  "id": "suckerpunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "hyperfang",
+                  "type": "normal"
+                },
+                {
+                  "id": "swordsdance",
+                  "type": "normal"
+                }
               ],
               "ability": "guts",
               "nature": "atkupsatkdown",
@@ -225,14 +388,27 @@
             {
               "pokemonName": "butterfree",
               "nickname": "Kitty",
-              "level": -1,
+              "level": 28,
+              "levelDisplay": "Badge Level +3",
               "item": "sitrusberry",
               "formName": "plain",
               "moves": [
-                "bugbuzz",
-                "supersonic",
-                "stunspore",
-                "psychicm"
+                {
+                  "id": "bugbuzz",
+                  "type": "bug"
+                },
+                {
+                  "id": "supersonic",
+                  "type": "normal"
+                },
+                {
+                  "id": "stunspore",
+                  "type": "grass"
+                },
+                {
+                  "id": "psychicm",
+                  "type": "normal"
+                }
               ],
               "ability": "tintedlens",
               "nature": "satkupatkdown",
@@ -241,13 +417,26 @@
             {
               "pokemonName": "doduo",
               "nickname": "Dody",
-              "level": -1,
+              "level": 31,
+              "levelDisplay": "Badge Level +6",
               "formName": "plain",
               "moves": [
-                "swordsdance",
-                "acrobatics",
-                "return",
-                "mudslap"
+                {
+                  "id": "swordsdance",
+                  "type": "normal"
+                },
+                {
+                  "id": "acrobatics",
+                  "type": "flying"
+                },
+                {
+                  "id": "return",
+                  "type": "normal"
+                },
+                {
+                  "id": "mudslap",
+                  "type": "ground"
+                }
               ],
               "ability": "tangledfeet",
               "nature": "speupdefdown",
@@ -256,14 +445,27 @@
             {
               "pokemonName": "graveler",
               "nickname": "Gravvy",
-              "level": -1,
+              "level": 30,
+              "levelDisplay": "Badge Level +5",
               "item": "eviolite",
               "formName": "plain",
               "moves": [
-                "rollout",
-                "defensecurl",
-                "earthquake",
-                "rockblast"
+                {
+                  "id": "rollout",
+                  "type": "rock"
+                },
+                {
+                  "id": "defensecurl",
+                  "type": "normal"
+                },
+                {
+                  "id": "earthquake",
+                  "type": "ground"
+                },
+                {
+                  "id": "rockblast",
+                  "type": "rock"
+                }
               ],
               "ability": "sturdy",
               "nature": "atkupsatkdown",
@@ -272,14 +474,27 @@
             {
               "pokemonName": "omanyte",
               "nickname": "Omny",
-              "level": -1,
+              "level": 29,
+              "levelDisplay": "Badge Level +4",
               "item": "sitrusberry",
               "formName": "plain",
               "moves": [
-                "surf",
-                "protect",
-                "ancientpower",
-                "aurorabeam"
+                {
+                  "id": "surf",
+                  "type": "water"
+                },
+                {
+                  "id": "protect",
+                  "type": "normal"
+                },
+                {
+                  "id": "ancientpower",
+                  "type": "rock"
+                },
+                {
+                  "id": "aurorabeam",
+                  "type": "ice"
+                }
               ],
               "ability": "shellarmor",
               "evs": "240 HP"
@@ -287,14 +502,27 @@
             {
               "pokemonName": "pikachu",
               "nickname": "Chuchu",
-              "level": -1,
+              "level": 33,
+              "levelDisplay": "Badge Level +8",
               "item": "lightball",
               "formName": "yellow",
               "moves": [
-                "surf",
-                "fly",
-                "thunderbolt",
-                "quickattack"
+                {
+                  "id": "surf",
+                  "type": "water"
+                },
+                {
+                  "id": "fly",
+                  "type": "flying"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                },
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                }
               ],
               "ability": "static",
               "nature": "speupdefdown",
@@ -312,10 +540,22 @@
               "item": "wiseglasses",
               "formName": "plain",
               "moves": [
-                "scald",
-                "ancientpower",
-                "spikes",
-                "icebeam"
+                {
+                  "id": "scald",
+                  "type": "water"
+                },
+                {
+                  "id": "ancientpower",
+                  "type": "rock"
+                },
+                {
+                  "id": "spikes",
+                  "type": "ground"
+                },
+                {
+                  "id": "icebeam",
+                  "type": "ice"
+                }
               ],
               "ability": "shellarmor"
             },
@@ -326,10 +566,22 @@
               "item": "kingsrock",
               "formName": "plain",
               "moves": [
-                "swordsdance",
-                "quickattack",
-                "superfang",
-                "crunch"
+                {
+                  "id": "swordsdance",
+                  "type": "normal"
+                },
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "superfang",
+                  "type": "normal"
+                },
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                }
               ],
               "ability": "guts",
               "nature": "atkupsatkdown"
@@ -341,10 +593,22 @@
               "item": "brightpowder",
               "formName": "plain",
               "moves": [
-                "psychicm",
-                "bugbuzz",
-                "sleeppowder",
-                "stunspore"
+                {
+                  "id": "psychicm",
+                  "type": "normal"
+                },
+                {
+                  "id": "bugbuzz",
+                  "type": "bug"
+                },
+                {
+                  "id": "sleeppowder",
+                  "type": "grass"
+                },
+                {
+                  "id": "stunspore",
+                  "type": "grass"
+                }
               ],
               "ability": "tintedlens",
               "nature": "satkupatkdown"
@@ -356,10 +620,22 @@
               "item": "sharpbeak",
               "formName": "plain",
               "moves": [
-                "drillpeck",
-                "triattack",
-                "doubleteam",
-                "pursuit"
+                {
+                  "id": "drillpeck",
+                  "type": "flying"
+                },
+                {
+                  "id": "triattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "doubleteam",
+                  "type": "normal"
+                },
+                {
+                  "id": "pursuit",
+                  "type": "dark"
+                }
               ],
               "ability": "tangledfeet",
               "nature": "speupdefdown"
@@ -371,10 +647,22 @@
               "item": "muscleband",
               "formName": "plain",
               "moves": [
-                "rollout",
-                "defensecurl",
-                "earthquake",
-                "stoneedge"
+                {
+                  "id": "rollout",
+                  "type": "rock"
+                },
+                {
+                  "id": "defensecurl",
+                  "type": "normal"
+                },
+                {
+                  "id": "earthquake",
+                  "type": "ground"
+                },
+                {
+                  "id": "stoneedge",
+                  "type": "rock"
+                }
               ],
               "ability": "sturdy",
               "nature": "atkupsatkdown"
@@ -386,10 +674,22 @@
               "item": "lightball",
               "formName": "yellow",
               "moves": [
-                "surf",
-                "fly",
-                "thunderbolt",
-                "extremespeed"
+                {
+                  "id": "surf",
+                  "type": "water"
+                },
+                {
+                  "id": "fly",
+                  "type": "flying"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                },
+                {
+                  "id": "extremespeed",
+                  "type": "normal"
+                }
               ],
               "ability": "static",
               "nature": "speupdefdown"

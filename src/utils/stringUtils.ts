@@ -712,15 +712,21 @@ export function inferLocationRegion(locationKey: string): 'johto' | 'kanto' | 'o
   return 'johto';
 }
 /**
- * Format move name from ASM format to display format
+ * Format move name from ASM format or camelCase to display format
+ * Handles: PSYCHIC_M, takedown, wingAttack, WING_ATTACK, etc.
  */
-export function formatMoveName(asmName: string): string {
-  // Special cases
-  if (asmName === 'PSYCHIC_M') return 'Psychic';
+export function formatMoveName(move: string): string {
+  if (!move) return '';
 
-  // Replace underscores with spaces and convert to title case
-  return asmName
+  // Special cases
+  if (move === 'PSYCHIC_M' || move === 'psychic_m') return 'Psychic';
+
+  return move
+    // Insert space before uppercase letters in camelCase (e.g., wingAttack -> wing Attack)
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    // Replace underscores with spaces
     .replace(/_/g, ' ')
+    // Split and capitalize each word
     .split(' ')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(' ');

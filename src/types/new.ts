@@ -262,6 +262,12 @@ export interface LocationManifest {
   hasHiddenGrotto?: boolean;
 }
 
+// Move with embedded type info for trainer Pokemon
+export interface TrainerMove {
+  id: string;
+  type: string;
+}
+
 export interface TrainerData {
   id: string;
   name: string;
@@ -274,8 +280,9 @@ export interface TrainerData {
       formName?: string;
       nickname?: string;
       level: number;
+      levelDisplay?: string; // For badge-dependent levels like "Badge Level +3"
       item?: string;
-      moves?: string[];
+      moves?: TrainerMove[];
       nature?: string;
       ability?: string;
       gender?: string;

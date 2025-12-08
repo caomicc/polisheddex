@@ -90,8 +90,10 @@ export function FeedbackForm() {
                 ) : (
                   <>
                     <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
-                      PolishedDex data is extracted from the Polished Crystal ROM source code.
-                      If you notice any issues or have suggestions, please let us know!
+                      PolishedDex data is extracted from the Polished Crystal repository source code.
+                      Because this process is mostly automated, sometimes errors can occur or data may be
+                      missing. If you find any issues or have suggestions, please let us know by filling
+                      out the form below.
                     </p>
                     <form onSubmit={handleSubmit} className="space-y-4">
                       {/* Feedback Type */}

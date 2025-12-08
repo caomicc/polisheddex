@@ -14,10 +14,22 @@
               "level": 14,
               "formName": "plain",
               "moves": [
-                "tackle",
-                "poisonpowder",
-                "sleeppowder",
-                "confusion"
+                {
+                  "id": "tackle",
+                  "type": "normal"
+                },
+                {
+                  "id": "poisonpowder",
+                  "type": "poison"
+                },
+                {
+                  "id": "sleeppowder",
+                  "type": "grass"
+                },
+                {
+                  "id": "confusion",
+                  "type": "psychic"
+                }
               ],
               "evs": "32 SAt, 32 Spe"
             },
@@ -26,10 +38,22 @@
               "level": 14,
               "formName": "plain",
               "moves": [
-                "poisonsting",
-                "stringshot",
-                "defensecurl",
-                "furystrikes"
+                {
+                  "id": "poisonsting",
+                  "type": "poison"
+                },
+                {
+                  "id": "stringshot",
+                  "type": "bug"
+                },
+                {
+                  "id": "defensecurl",
+                  "type": "normal"
+                },
+                {
+                  "id": "furystrikes",
+                  "type": "normal"
+                }
               ],
               "evs": "32 Atk, 32 Spe"
             },
@@ -38,10 +62,22 @@
               "level": 14,
               "formName": "plain",
               "moves": [
-                "foresight",
-                "quickattack",
-                "doubleteam",
-                "sonicboom"
+                {
+                  "id": "foresight",
+                  "type": "normal"
+                },
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "doubleteam",
+                  "type": "normal"
+                },
+                {
+                  "id": "sonicboom",
+                  "type": "normal"
+                }
               ],
               "evs": "64 Atk"
             },
@@ -50,10 +86,22 @@
               "level": 17,
               "formName": "plain",
               "moves": [
-                "quickattack",
-                "leer",
-                "pursuit",
-                "uturn"
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "leer",
+                  "type": "normal"
+                },
+                {
+                  "id": "pursuit",
+                  "type": "dark"
+                },
+                {
+                  "id": "uturn",
+                  "type": "bug"
+                }
               ],
               "evs": "64 Atk"
             }
@@ -68,10 +116,22 @@
               "item": "blackbelt",
               "formName": "plain",
               "moves": [
-                "megahorn",
-                "crosschop",
-                "rocksmash",
-                "stoneedge"
+                {
+                  "id": "megahorn",
+                  "type": "bug"
+                },
+                {
+                  "id": "crosschop",
+                  "type": "fighting"
+                },
+                {
+                  "id": "rocksmash",
+                  "type": "fighting"
+                },
+                {
+                  "id": "stoneedge",
+                  "type": "rock"
+                }
               ]
             },
             {
@@ -80,10 +140,22 @@
               "item": "kingsrock",
               "formName": "plain",
               "moves": [
-                "reflect",
-                "lightscreen",
-                "bugbuzz",
-                "icepunch"
+                {
+                  "id": "reflect",
+                  "type": "psychic"
+                },
+                {
+                  "id": "lightscreen",
+                  "type": "psychic"
+                },
+                {
+                  "id": "bugbuzz",
+                  "type": "bug"
+                },
+                {
+                  "id": "icepunch",
+                  "type": "ice"
+                }
               ]
             },
             {
@@ -92,10 +164,22 @@
               "item": "quickclaw",
               "formName": "plain",
               "moves": [
-                "bugbuzz",
-                "airslash",
-                "ancientpower",
-                "dragonpulse"
+                {
+                  "id": "bugbuzz",
+                  "type": "bug"
+                },
+                {
+                  "id": "airslash",
+                  "type": "flying"
+                },
+                {
+                  "id": "ancientpower",
+                  "type": "rock"
+                },
+                {
+                  "id": "dragonpulse",
+                  "type": "dragon"
+                }
               ]
             },
             {
@@ -104,10 +188,22 @@
               "item": "leftovers",
               "formName": "plain",
               "moves": [
-                "spore",
-                "healinglight",
-                "seedbomb",
-                "xscissor"
+                {
+                  "id": "spore",
+                  "type": "grass"
+                },
+                {
+                  "id": "healinglight",
+                  "type": "normal"
+                },
+                {
+                  "id": "seedbomb",
+                  "type": "grass"
+                },
+                {
+                  "id": "xscissor",
+                  "type": "bug"
+                }
               ]
             },
             {
@@ -116,10 +212,22 @@
               "item": "scopelens",
               "formName": "plain",
               "moves": [
-                "megahorn",
-                "swordsdance",
-                "closecombat",
-                "earthquake"
+                {
+                  "id": "megahorn",
+                  "type": "bug"
+                },
+                {
+                  "id": "swordsdance",
+                  "type": "normal"
+                },
+                {
+                  "id": "closecombat",
+                  "type": "fighting"
+                },
+                {
+                  "id": "earthquake",
+                  "type": "ground"
+                }
               ]
             },
             {
@@ -128,10 +236,22 @@
               "item": "eviolite",
               "formName": "plain",
               "moves": [
-                "swordsdance",
-                "nightslash",
-                "xscissor",
-                "aerialace"
+                {
+                  "id": "swordsdance",
+                  "type": "normal"
+                },
+                {
+                  "id": "nightslash",
+                  "type": "dark"
+                },
+                {
+                  "id": "xscissor",
+                  "type": "bug"
+                },
+                {
+                  "id": "aerialace",
+                  "type": "flying"
+                }
               ]
             }
           ]
@@ -148,10 +268,22 @@
               "level": 14,
               "formName": "plain",
               "moves": [
-                "tackle",
-                "poisonpowder",
-                "sleeppowder",
-                "confusion"
+                {
+                  "id": "tackle",
+                  "type": "normal"
+                },
+                {
+                  "id": "poisonpowder",
+                  "type": "poison"
+                },
+                {
+                  "id": "sleeppowder",
+                  "type": "grass"
+                },
+                {
+                  "id": "confusion",
+                  "type": "psychic"
+                }
               ],
               "evs": "32 SAt, 32 Spe"
             },
@@ -160,10 +292,22 @@
               "level": 14,
               "formName": "plain",
               "moves": [
-                "poisonsting",
-                "stringshot",
-                "defensecurl",
-                "furystrikes"
+                {
+                  "id": "poisonsting",
+                  "type": "poison"
+                },
+                {
+                  "id": "stringshot",
+                  "type": "bug"
+                },
+                {
+                  "id": "defensecurl",
+                  "type": "normal"
+                },
+                {
+                  "id": "furystrikes",
+                  "type": "normal"
+                }
               ],
               "evs": "32 Atk, 32 Spe"
             },
@@ -172,10 +316,22 @@
               "level": 14,
               "formName": "plain",
               "moves": [
-                "foresight",
-                "quickattack",
-                "doubleteam",
-                "sonicboom"
+                {
+                  "id": "foresight",
+                  "type": "normal"
+                },
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "doubleteam",
+                  "type": "normal"
+                },
+                {
+                  "id": "sonicboom",
+                  "type": "normal"
+                }
               ],
               "evs": "64 Atk"
             },
@@ -184,10 +340,22 @@
               "level": 17,
               "formName": "plain",
               "moves": [
-                "quickattack",
-                "leer",
-                "pursuit",
-                "uturn"
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "leer",
+                  "type": "normal"
+                },
+                {
+                  "id": "pursuit",
+                  "type": "dark"
+                },
+                {
+                  "id": "uturn",
+                  "type": "bug"
+                }
               ],
               "evs": "64 Atk"
             }
@@ -202,10 +370,22 @@
               "item": "blackbelt",
               "formName": "plain",
               "moves": [
-                "megahorn",
-                "crosschop",
-                "rocksmash",
-                "stoneedge"
+                {
+                  "id": "megahorn",
+                  "type": "bug"
+                },
+                {
+                  "id": "crosschop",
+                  "type": "fighting"
+                },
+                {
+                  "id": "rocksmash",
+                  "type": "fighting"
+                },
+                {
+                  "id": "stoneedge",
+                  "type": "rock"
+                }
               ]
             },
             {
@@ -214,10 +394,22 @@
               "item": "kingsrock",
               "formName": "plain",
               "moves": [
-                "reflect",
-                "lightscreen",
-                "bugbuzz",
-                "icepunch"
+                {
+                  "id": "reflect",
+                  "type": "psychic"
+                },
+                {
+                  "id": "lightscreen",
+                  "type": "psychic"
+                },
+                {
+                  "id": "bugbuzz",
+                  "type": "bug"
+                },
+                {
+                  "id": "icepunch",
+                  "type": "ice"
+                }
               ]
             },
             {
@@ -226,10 +418,22 @@
               "item": "quickclaw",
               "formName": "plain",
               "moves": [
-                "bugbuzz",
-                "airslash",
-                "ancientpower",
-                "protect"
+                {
+                  "id": "bugbuzz",
+                  "type": "bug"
+                },
+                {
+                  "id": "airslash",
+                  "type": "flying"
+                },
+                {
+                  "id": "ancientpower",
+                  "type": "rock"
+                },
+                {
+                  "id": "protect",
+                  "type": "normal"
+                }
               ]
             },
             {
@@ -238,10 +442,22 @@
               "item": "leftovers",
               "formName": "plain",
               "moves": [
-                "spore",
-                "healinglight",
-                "seedbomb",
-                "xscissor"
+                {
+                  "id": "spore",
+                  "type": "grass"
+                },
+                {
+                  "id": "healinglight",
+                  "type": "normal"
+                },
+                {
+                  "id": "seedbomb",
+                  "type": "grass"
+                },
+                {
+                  "id": "xscissor",
+                  "type": "bug"
+                }
               ]
             },
             {
@@ -250,10 +466,22 @@
               "item": "scopelens",
               "formName": "plain",
               "moves": [
-                "megahorn",
-                "swordsdance",
-                "closecombat",
-                "earthquake"
+                {
+                  "id": "megahorn",
+                  "type": "bug"
+                },
+                {
+                  "id": "swordsdance",
+                  "type": "normal"
+                },
+                {
+                  "id": "closecombat",
+                  "type": "fighting"
+                },
+                {
+                  "id": "earthquake",
+                  "type": "ground"
+                }
               ]
             },
             {
@@ -262,10 +490,22 @@
               "item": "eviolite",
               "formName": "plain",
               "moves": [
-                "swordsdance",
-                "nightslash",
-                "xscissor",
-                "aerialace"
+                {
+                  "id": "swordsdance",
+                  "type": "normal"
+                },
+                {
+                  "id": "nightslash",
+                  "type": "dark"
+                },
+                {
+                  "id": "xscissor",
+                  "type": "bug"
+                },
+                {
+                  "id": "aerialace",
+                  "type": "flying"
+                }
               ]
             }
           ]

@@ -5,6 +5,7 @@ import {
   ComprehensiveTrainerData,
   ComprehensivePokemonData,
   TrainerManifest,
+  TrainerMove,
 } from '@/types/new';
 import {
   createBaseTrainerKey,
@@ -34,6 +35,84 @@ const mapsDir = join(polishedcrystalDir, 'maps');
 
 const partiesASM = join(__dirname, '../polishedcrystal/data/trainers/parties.asm');
 const classNamesASM = join(__dirname, '../polishedcrystal/data/trainers/class_names.asm');
+const movesManifestPath = join(outputDir, 'moves_manifest.json');
+
+// Move type lookup cache (loaded from moves_manifest.json)
+interface MoveManifestEntry {
+  id: string;
+  versions: {
+    faithful: { type: string };
+    polished: { type: string };
+  };
+}
+let moveTypeLookup: Record<string, { faithful: string; polished: string }> = {};
+
+/**
+ * Load moves manifest and build type lookup
+ */
+async function loadMovesManifest(): Promise<void> {
+  try {
+    const raw = await readFile(movesManifestPath, 'utf-8');
+    const moves: MoveManifestEntry[] = JSON.parse(raw);
+    moveTypeLookup = {};
+    for (const move of moves) {
+      moveTypeLookup[move.id] = {
+        faithful: move.versions.faithful?.type || 'normal',
+        polished: move.versions.polished?.type || 'normal',
+      };
+    }
+    console.log(`Loaded ${Object.keys(moveTypeLookup).length} moves from manifest`);
+  } catch (error) {
+    console.warn('Could not load moves manifest, move types will default to normal:', error);
+  }
+}
+
+/**
+ * Get move type from lookup
+ */
+function getMoveType(moveId: string, version: string): string {
+  const types = moveTypeLookup[moveId.toLowerCase()];
+  if (!types) return 'normal';
+  return version === 'faithful' ? types.faithful : types.polished;
+}
+
+// Badge level mapping for moveset generation
+// Using level 25 as the default for badge-dependent Pokemon to get sensible early-game movesets
+const BADGE_LEVEL_BASE = 25; // Reasonable middle-ground for moveset generation
+
+/**
+ * Parse level from trainer data, handling LEVEL_FROM_BADGES format
+ * Returns { level: number, levelDisplay?: string }
+ */
+function parseBadgeLevel(levelStr: string): { level: number; levelDisplay?: string } {
+  const trimmed = levelStr.trim();
+
+  // Check for LEVEL_FROM_BADGES format
+  if (trimmed.startsWith('LEVEL_FROM_BADGES')) {
+    // Extract the modifier (e.g., "+ 3" or "- 2")
+    const match = trimmed.match(/LEVEL_FROM_BADGES\s*([+-])\s*(\d+)/);
+    if (match) {
+      const operator = match[1];
+      const modifier = parseInt(match[2]);
+      const displayLevel =
+        operator === '+'
+          ? `Badge Level +${modifier}`
+          : `Badge Level -${modifier}`;
+
+      // Calculate an estimated level for moveset generation
+      const estimatedLevel =
+        operator === '+' ? BADGE_LEVEL_BASE + modifier : BADGE_LEVEL_BASE - modifier;
+
+      return { level: estimatedLevel, levelDisplay: displayLevel };
+    }
+    // No modifier case: LEVEL_FROM_BADGES alone
+    return { level: BADGE_LEVEL_BASE, levelDisplay: 'Badge Level' };
+  }
+
+  // Standard numeric level
+  const level = parseInt(trimmed);
+  return { level: isNaN(level) ? 50 : level }; // Default to 50 if parsing fails
+}
 
 // Data structures
 const trainers: Record<string, Record<string, TrainerData[]>> = {
@@ -254,7 +333,8 @@ const processTrainerData = async (trainerData: string[], version: string) => {
       // Now split by comma to get main parts (without the form part)
       const mainParts = processLine.split(',');
       if (mainParts.length >= 2) {
-        const level = parseInt(mainParts[0].trim());
+        // Parse level, handling LEVEL_FROM_BADGES format
+        const { level, levelDisplay } = parseBadgeLevel(mainParts[0]);
 
         let pokemonPart: string;
         let nickname: string | undefined;
@@ -280,7 +360,8 @@ const processTrainerData = async (trainerData: string[], version: string) => {
         currentPokemon = {
           pokemonName: pokemon,
           nickname: nickname,
-          level: level || -1,
+          level: level,
+          levelDisplay: levelDisplay,
           item: item,
           formName: formName,
           moves: [],
@@ -293,12 +374,16 @@ const processTrainerData = async (trainerData: string[], version: string) => {
     if (line.startsWith('tr_moves ')) {
       if (currentPokemon) {
         const movesStr = parseLineWithPrefix(line, 'tr_moves ');
-        const moves = movesStr
+        const moveIds = movesStr
           .split(',')
           .map((move) => normalizeString(move))
           .filter((move) => move.length > 0);
 
-        currentPokemon.moves = moves;
+        // Convert to TrainerMove[] with type info
+        currentPokemon.moves = moveIds.map((moveId) => ({
+          id: moveId,
+          type: getMoveType(moveId, version),
+        }));
       }
       continue;
     }
@@ -396,13 +481,14 @@ const processTrainerData = async (trainerData: string[], version: string) => {
 };
 /**
  * Generate the most recent 4 moves that a Pokemon can learn at a given level
+ * Returns TrainerMove[] with embedded type information
  */
 const generateMovesetForPokemon = async (
   pokemonName: string,
   pokemonLevel: number,
   formName: string = 'plain',
   version: string = 'polished',
-): Promise<string[]> => {
+): Promise<TrainerMove[]> => {
   try {
     // Read Pokemon data to get movesets - use base pokemon name, not form-specific name
     const pokemonDataPath = join(outputDir, 'pokemon', `${pokemonName}.json`);
@@ -422,6 +508,15 @@ const generateMovesetForPokemon = async (
       levelUpMoves = pokemonData.versions?.[version]?.forms?.['plain']?.movesets?.levelUp;
     }
 
+    // Also try the other version if current version doesn't have movesets
+    if (!levelUpMoves) {
+      const otherVersion = version === 'polished' ? 'faithful' : 'polished';
+      levelUpMoves = pokemonData.versions?.[otherVersion]?.forms?.[formName]?.movesets?.levelUp;
+      if (!levelUpMoves && formName !== 'plain') {
+        levelUpMoves = pokemonData.versions?.[otherVersion]?.forms?.['plain']?.movesets?.levelUp;
+      }
+    }
+
     if (levelUpMoves) {
       for (const move of levelUpMoves) {
         const { id, level } = move;
@@ -436,17 +531,21 @@ const generateMovesetForPokemon = async (
 
     // Sort by level (newest first) and take the most recent 4
     availableMoves.sort((a, b) => b.level - a.level);
-    const lastFourMoves = availableMoves.slice(0, 4).map((m) => m.move);
+    let finalMoves = availableMoves.slice(0, 4).map((m) => m.move);
 
     // Ensure we have exactly 4 moves, pad with earlier moves if needed
-    if (lastFourMoves.length < 4 && availableMoves.length > 0) {
+    if (finalMoves.length < 4 && availableMoves.length > 0) {
       // Get all available moves sorted by level (oldest first)
       const allMoves = availableMoves.sort((a, b) => a.level - b.level);
       const uniqueMoves = Array.from(new Set(allMoves.map((m) => m.move)));
-      return uniqueMoves.slice(-4); // Take last 4 unique moves
+      finalMoves = uniqueMoves.slice(-4); // Take last 4 unique moves
     }
 
-    return lastFourMoves.length > 0 ? lastFourMoves : ['badge dependant'];
+    // Convert to TrainerMove[] with type info
+    return finalMoves.map((moveId) => ({
+      id: moveId,
+      type: getMoveType(moveId, version),
+    }));
   } catch {
     // Silently handle missing Pokemon files - this is expected for some Pokemon
     // that may not have been extracted yet
@@ -604,6 +703,9 @@ const clearTrainersDirectory = async () => {
  */
 export default async function extractTrainers() {
   try {
+    // Load moves manifest first for type lookups
+    await loadMovesManifest();
+
     await clearTrainersDirectory();
 
     await Promise.all([extractTrainerData(), extractTrainerLocations()]);

@@ -15,8 +15,14 @@
               "level": 5,
               "formName": "plain",
               "moves": [
-                "tackle",
-                "growl"
+                {
+                  "id": "tackle",
+                  "type": "normal"
+                },
+                {
+                  "id": "growl",
+                  "type": "normal"
+                }
               ]
             }
           ]
@@ -30,8 +36,14 @@
               "level": 5,
               "formName": "plain",
               "moves": [
-                "tackle",
-                "leer"
+                {
+                  "id": "tackle",
+                  "type": "normal"
+                },
+                {
+                  "id": "leer",
+                  "type": "normal"
+                }
               ]
             }
           ]
@@ -45,8 +57,14 @@
               "level": 5,
               "formName": "plain",
               "moves": [
-                "scratch",
-                "leer"
+                {
+                  "id": "scratch",
+                  "type": "normal"
+                },
+                {
+                  "id": "leer",
+                  "type": "normal"
+                }
               ]
             }
           ]
@@ -59,10 +77,22 @@
               "level": 16,
               "formName": "plain",
               "moves": [
-                "tackle",
-                "gust",
-                "mudslap",
-                "quickattack ; default for level"
+                {
+                  "id": "tackle",
+                  "type": "normal"
+                },
+                {
+                  "id": "gust",
+                  "type": "flying"
+                },
+                {
+                  "id": "mudslap",
+                  "type": "ground"
+                },
+                {
+                  "id": "quickattack ; default for level",
+                  "type": "normal"
+                }
               ],
               "evs": "36 HP, 36 Spe"
             },
@@ -71,10 +101,22 @@
               "level": 17,
               "formName": "plain",
               "moves": [
-                "defensecurl",
-                "rollout",
-                "bubblebeam",
-                "dizzypunch ; default for level"
+                {
+                  "id": "defensecurl",
+                  "type": "normal"
+                },
+                {
+                  "id": "rollout",
+                  "type": "rock"
+                },
+                {
+                  "id": "bubblebeam",
+                  "type": "water"
+                },
+                {
+                  "id": "dizzypunch ; default for level",
+                  "type": "normal"
+                }
               ],
               "evs": "72 Atk"
             },
@@ -83,10 +125,22 @@
               "level": 15,
               "formName": "plain",
               "moves": [
-                "thunderwave",
-                "thundershock",
-                "mudslap",
-                "spark ; default for level"
+                {
+                  "id": "thunderwave",
+                  "type": "electric"
+                },
+                {
+                  "id": "thundershock",
+                  "type": "electric"
+                },
+                {
+                  "id": "mudslap",
+                  "type": "ground"
+                },
+                {
+                  "id": "spark ; default for level",
+                  "type": "normal"
+                }
               ],
               "evs": "36 HP, 36 SAt"
             },
@@ -97,10 +151,22 @@
               "item": "oranberry",
               "formName": "plain",
               "moves": [
-                "razorleaf",
-                "poisonpowder",
-                "healinglight",
-                "reflect ; no light screen"
+                {
+                  "id": "razorleaf",
+                  "type": "grass"
+                },
+                {
+                  "id": "poisonpowder",
+                  "type": "poison"
+                },
+                {
+                  "id": "healinglight",
+                  "type": "normal"
+                },
+                {
+                  "id": "reflect ; no light screen",
+                  "type": "normal"
+                }
               ],
               "evs": "72 HP"
             }
@@ -114,10 +180,22 @@
               "level": 16,
               "formName": "plain",
               "moves": [
-                "quickattack",
-                "mudslap",
-                "gust",
-                "tackle"
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "mudslap",
+                  "type": "ground"
+                },
+                {
+                  "id": "gust",
+                  "type": "flying"
+                },
+                {
+                  "id": "tackle",
+                  "type": "normal"
+                }
               ],
               "evs": "36 HP, 36 Spe"
             },
@@ -126,10 +204,22 @@
               "level": 17,
               "formName": "plain",
               "moves": [
-                "razorleaf",
-                "leechseed",
-                "megadrain",
-                "defensecurl"
+                {
+                  "id": "razorleaf",
+                  "type": "grass"
+                },
+                {
+                  "id": "leechseed",
+                  "type": "grass"
+                },
+                {
+                  "id": "megadrain",
+                  "type": "grass"
+                },
+                {
+                  "id": "defensecurl",
+                  "type": "normal"
+                }
               ],
               "evs": "36 SAt, 36 Spe"
             },
@@ -138,10 +228,22 @@
               "level": 15,
               "formName": "plain",
               "moves": [
-                "spark",
-                "mudslap",
-                "thundershock",
-                "thunderwave"
+                {
+                  "id": "spark",
+                  "type": "electric"
+                },
+                {
+                  "id": "mudslap",
+                  "type": "ground"
+                },
+                {
+                  "id": "thundershock",
+                  "type": "electric"
+                },
+                {
+                  "id": "thunderwave",
+                  "type": "electric"
+                }
               ],
               "evs": "36 HP, 36 SAt"
             },
@@ -152,10 +254,22 @@
               "item": "oranberry",
               "formName": "plain",
               "moves": [
-                "quickattack",
-                "ember",
-                "smokescreen",
-                "tackle"
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "ember",
+                  "type": "fire"
+                },
+                {
+                  "id": "smokescreen",
+                  "type": "normal"
+                },
+                {
+                  "id": "tackle",
+                  "type": "normal"
+                }
               ],
               "evs": "72 Spe"
             }
@@ -169,10 +283,22 @@
               "level": 16,
               "formName": "plain",
               "moves": [
-                "quickattack",
-                "mudslap",
-                "gust",
-                "tackle"
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "mudslap",
+                  "type": "ground"
+                },
+                {
+                  "id": "gust",
+                  "type": "flying"
+                },
+                {
+                  "id": "tackle",
+                  "type": "normal"
+                }
               ],
               "evs": "36 HP, 36 Spe"
             },
@@ -181,10 +307,22 @@
               "level": 17,
               "formName": "plain",
               "moves": [
-                "firespin",
-                "batonpass",
-                "safeguard",
-                "leer"
+                {
+                  "id": "firespin",
+                  "type": "fire"
+                },
+                {
+                  "id": "batonpass",
+                  "type": "normal"
+                },
+                {
+                  "id": "safeguard",
+                  "type": "normal"
+                },
+                {
+                  "id": "leer",
+                  "type": "normal"
+                }
               ],
               "evs": "36 HP, 36 Atk"
             },
@@ -193,10 +331,22 @@
               "level": 15,
               "formName": "plain",
               "moves": [
-                "spark",
-                "mudslap",
-                "thundershock",
-                "thunderwave"
+                {
+                  "id": "spark",
+                  "type": "electric"
+                },
+                {
+                  "id": "mudslap",
+                  "type": "ground"
+                },
+                {
+                  "id": "thundershock",
+                  "type": "electric"
+                },
+                {
+                  "id": "thunderwave",
+                  "type": "electric"
+                }
               ],
               "evs": "36 HP, 36 SAt"
             },
@@ -207,10 +357,22 @@
               "item": "oranberry",
               "formName": "plain",
               "moves": [
-                "scaryface",
-                "bite",
-                "rage",
-                "watergun"
+                {
+                  "id": "scaryface",
+                  "type": "normal"
+                },
+                {
+                  "id": "bite",
+                  "type": "dark"
+                },
+                {
+                  "id": "rage",
+                  "type": "normal"
+                },
+                {
+                  "id": "watergun",
+                  "type": "water"
+                }
               ],
               "evs": "72 Atk"
             }
@@ -224,10 +386,22 @@
               "level": 33,
               "formName": "plain",
               "moves": [
-                "agility",
-                "swift",
-                "charm",
-                "rage"
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                },
+                {
+                  "id": "charm",
+                  "type": "fairy"
+                },
+                {
+                  "id": "rage",
+                  "type": "normal"
+                }
               ],
               "evs": "100 HP, 100 Spe"
             },
@@ -236,10 +410,22 @@
               "level": 34,
               "formName": "plain",
               "moves": [
-                "flamethrower",
-                "thrash",
-                "agility",
-                "flamecharge"
+                {
+                  "id": "flamethrower",
+                  "type": "fire"
+                },
+                {
+                  "id": "thrash",
+                  "type": "normal"
+                },
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "flamecharge",
+                  "type": "fire"
+                }
               ],
               "evs": "100 HP, 100 Atk"
             },
@@ -248,10 +434,22 @@
               "level": 34,
               "formName": "plain",
               "moves": [
-                "scaryface",
-                "playrough",
-                "aquatail",
-                "dizzypunch"
+                {
+                  "id": "scaryface",
+                  "type": "normal"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                },
+                {
+                  "id": "aquatail",
+                  "type": "water"
+                },
+                {
+                  "id": "dizzypunch",
+                  "type": "normal"
+                }
               ],
               "evs": "200 Atk"
             },
@@ -260,10 +458,22 @@
               "level": 32,
               "formName": "plain",
               "moves": [
-                "confuseray",
-                "takedown",
-                "healbell",
-                "spark"
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                },
+                {
+                  "id": "takedown",
+                  "type": "normal"
+                },
+                {
+                  "id": "healbell",
+                  "type": "normal"
+                },
+                {
+                  "id": "spark",
+                  "type": "electric"
+                }
               ],
               "evs": "100 HP, 100 SAt"
             },
@@ -274,10 +484,22 @@
               "item": "oranberry",
               "formName": "plain",
               "moves": [
-                "dazzlingleam",
-                "ancientpower",
-                "energyball",
-                "disarmvoice"
+                {
+                  "id": "dazzlingleam",
+                  "type": "fairy"
+                },
+                {
+                  "id": "ancientpower",
+                  "type": "rock"
+                },
+                {
+                  "id": "energyball",
+                  "type": "grass"
+                },
+                {
+                  "id": "disarmvoice",
+                  "type": "fairy"
+                }
               ],
               "evs": "200 HP"
             }
@@ -291,10 +513,22 @@
               "level": 33,
               "formName": "plain",
               "moves": [
-                "agility",
-                "swift",
-                "charm",
-                "rage"
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                },
+                {
+                  "id": "charm",
+                  "type": "fairy"
+                },
+                {
+                  "id": "rage",
+                  "type": "normal"
+                }
               ],
               "evs": "100 HP, 100 Spe"
             },
@@ -303,10 +537,22 @@
               "level": 34,
               "formName": "plain",
               "moves": [
-                "solarbeam",
-                "flamethrower",
-                "petaldance",
-                "agility"
+                {
+                  "id": "solarbeam",
+                  "type": "grass"
+                },
+                {
+                  "id": "flamethrower",
+                  "type": "fire"
+                },
+                {
+                  "id": "petaldance",
+                  "type": "grass"
+                },
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                }
               ],
               "evs": "100 SAt, 100 Spe"
             },
@@ -315,10 +561,22 @@
               "level": 34,
               "formName": "plain",
               "moves": [
-                "scaryface",
-                "playrough",
-                "aquatail",
-                "dizzypunch"
+                {
+                  "id": "scaryface",
+                  "type": "normal"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                },
+                {
+                  "id": "aquatail",
+                  "type": "water"
+                },
+                {
+                  "id": "dizzypunch",
+                  "type": "normal"
+                }
               ],
               "evs": "200 Atk"
             },
@@ -327,10 +585,22 @@
               "level": 32,
               "formName": "plain",
               "moves": [
-                "confuseray",
-                "takedown",
-                "healbell",
-                "spark"
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                },
+                {
+                  "id": "takedown",
+                  "type": "normal"
+                },
+                {
+                  "id": "healbell",
+                  "type": "normal"
+                },
+                {
+                  "id": "spark",
+                  "type": "electric"
+                }
               ],
               "evs": "100 HP, 100 SAt"
             },
@@ -341,10 +611,22 @@
               "item": "oranberry",
               "formName": "plain",
               "moves": [
-                "dig",
-                "swift",
-                "flamecharge",
-                "defensecurl"
+                {
+                  "id": "dig",
+                  "type": "ground"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                },
+                {
+                  "id": "flamecharge",
+                  "type": "fire"
+                },
+                {
+                  "id": "defensecurl",
+                  "type": "normal"
+                }
               ],
               "evs": "200 Spe"
             }
@@ -358,10 +640,22 @@
               "level": 33,
               "formName": "plain",
               "moves": [
-                "agility",
-                "swift",
-                "charm",
-                "rage"
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                },
+                {
+                  "id": "charm",
+                  "type": "fairy"
+                },
+                {
+                  "id": "rage",
+                  "type": "normal"
+                }
               ],
               "evs": "100 HP, 100 Spe"
             },
@@ -370,10 +664,22 @@
               "level": 34,
               "formName": "plain",
               "moves": [
-                "solarbeam",
-                "flamethrower",
-                "petaldance",
-                "agility"
+                {
+                  "id": "solarbeam",
+                  "type": "grass"
+                },
+                {
+                  "id": "flamethrower",
+                  "type": "fire"
+                },
+                {
+                  "id": "petaldance",
+                  "type": "grass"
+                },
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                }
               ],
               "evs": "100 SAt, 100 Spe"
             },
@@ -382,10 +688,22 @@
               "level": 34,
               "formName": "plain",
               "moves": [
-                "flamethrower",
-                "thrash",
-                "agility",
-                "flamecharge"
+                {
+                  "id": "flamethrower",
+                  "type": "fire"
+                },
+                {
+                  "id": "thrash",
+                  "type": "normal"
+                },
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "flamecharge",
+                  "type": "fire"
+                }
               ],
               "evs": "100 HP, 100 Atk"
             },
@@ -394,10 +712,22 @@
               "level": 32,
               "formName": "plain",
               "moves": [
-                "confuseray",
-                "takedown",
-                "healbell",
-                "spark"
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                },
+                {
+                  "id": "takedown",
+                  "type": "normal"
+                },
+                {
+                  "id": "healbell",
+                  "type": "normal"
+                },
+                {
+                  "id": "spark",
+                  "type": "electric"
+                }
               ],
               "evs": "100 HP, 100 SAt"
             },
@@ -408,10 +738,22 @@
               "item": "oranberry",
               "formName": "plain",
               "moves": [
-                "crunch",
-                "agility",
-                "reversal",
-                "metalclaw"
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "reversal",
+                  "type": "fighting"
+                },
+                {
+                  "id": "metalclaw",
+                  "type": "steel"
+                }
               ],
               "evs": "200 Atk"
             }
@@ -425,10 +767,22 @@
               "level": 44,
               "formName": "plain",
               "moves": [
-                "roost",
-                "wingattack",
-                "agility",
-                "swift"
+                {
+                  "id": "roost",
+                  "type": "flying"
+                },
+                {
+                  "id": "wingattack",
+                  "type": "flying"
+                },
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                }
               ],
               "evs": "132 HP, 132 Spe"
             },
@@ -437,10 +791,22 @@
               "level": 43,
               "formName": "plain",
               "moves": [
-                "batonpass",
-                "crunch",
-                "zenheadbutt",
-                "doublekick"
+                {
+                  "id": "batonpass",
+                  "type": "normal"
+                },
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "zenheadbutt",
+                  "type": "psychic"
+                },
+                {
+                  "id": "doublekick",
+                  "type": "fighting"
+                }
               ],
               "evs": "132 Atk, 132 Spe"
             },
@@ -449,10 +815,22 @@
               "level": 45,
               "formName": "plain",
               "moves": [
-                "dragondance",
-                "growl",
-                "bite",
-                "roar"
+                {
+                  "id": "dragondance",
+                  "type": "dragon"
+                },
+                {
+                  "id": "growl",
+                  "type": "normal"
+                },
+                {
+                  "id": "bite",
+                  "type": "dark"
+                },
+                {
+                  "id": "roar",
+                  "type": "normal"
+                }
               ],
               "evs": "132 HP, 132 Atk"
             },
@@ -461,10 +839,22 @@
               "level": 45,
               "formName": "plain",
               "moves": [
-                "doubleedge",
-                "raindance",
-                "scaryface",
-                "playrough"
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "raindance",
+                  "type": "water"
+                },
+                {
+                  "id": "scaryface",
+                  "type": "normal"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                }
               ],
               "evs": "252 Atk, 12 Spe"
             },
@@ -473,10 +863,22 @@
               "level": 46,
               "formName": "plain",
               "moves": [
-                "safeguard",
-                "thunderbolt",
-                "powergem",
-                "confuseray"
+                {
+                  "id": "safeguard",
+                  "type": "normal"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                },
+                {
+                  "id": "powergem",
+                  "type": "rock"
+                },
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                }
               ],
               "evs": "132 HP, 132 SAt"
             },
@@ -487,10 +889,22 @@
               "item": "sitrusberry",
               "formName": "plain",
               "moves": [
-                "bodyslam",
-                "dazzlingleam",
-                "ancientpower",
-                "energyball"
+                {
+                  "id": "bodyslam",
+                  "type": "normal"
+                },
+                {
+                  "id": "dazzlingleam",
+                  "type": "fairy"
+                },
+                {
+                  "id": "ancientpower",
+                  "type": "rock"
+                },
+                {
+                  "id": "energyball",
+                  "type": "grass"
+                }
               ],
               "evs": "252 HP, 12 SAt"
             }
@@ -504,10 +918,22 @@
               "level": 44,
               "formName": "plain",
               "moves": [
-                "roost",
-                "wingattack",
-                "agility",
-                "swift"
+                {
+                  "id": "roost",
+                  "type": "flying"
+                },
+                {
+                  "id": "wingattack",
+                  "type": "flying"
+                },
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                }
               ],
               "evs": "132 HP, 132 Spe"
             },
@@ -516,10 +942,22 @@
               "level": 43,
               "formName": "plain",
               "moves": [
-                "batonpass",
-                "crunch",
-                "zenheadbutt",
-                "doublekick"
+                {
+                  "id": "batonpass",
+                  "type": "normal"
+                },
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "zenheadbutt",
+                  "type": "psychic"
+                },
+                {
+                  "id": "doublekick",
+                  "type": "fighting"
+                }
               ],
               "evs": "132 Atk, 132 Spe"
             },
@@ -528,10 +966,22 @@
               "level": 45,
               "formName": "plain",
               "moves": [
-                "seedbomb",
-                "sunnyday",
-                "doubleedge",
-                "solarbeam"
+                {
+                  "id": "seedbomb",
+                  "type": "grass"
+                },
+                {
+                  "id": "sunnyday",
+                  "type": "fire"
+                },
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "solarbeam",
+                  "type": "grass"
+                }
               ],
               "evs": "132 SAt, 132 Spe"
             },
@@ -540,10 +990,22 @@
               "level": 45,
               "formName": "plain",
               "moves": [
-                "doubleedge",
-                "raindance",
-                "scaryface",
-                "playrough"
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "raindance",
+                  "type": "water"
+                },
+                {
+                  "id": "scaryface",
+                  "type": "normal"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                }
               ],
               "evs": "252 Atk, 12 Spe"
             },
@@ -552,10 +1014,22 @@
               "level": 46,
               "formName": "plain",
               "moves": [
-                "safeguard",
-                "thunderbolt",
-                "powergem",
-                "confuseray"
+                {
+                  "id": "safeguard",
+                  "type": "normal"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                },
+                {
+                  "id": "powergem",
+                  "type": "rock"
+                },
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                }
               ],
               "evs": "132 HP, 132 SAt"
             },
@@ -566,10 +1040,22 @@
               "item": "sitrusberry",
               "formName": "plain",
               "moves": [
-                "reversal",
-                "dig",
-                "swift",
-                "flamecharge"
+                {
+                  "id": "reversal",
+                  "type": "fighting"
+                },
+                {
+                  "id": "dig",
+                  "type": "ground"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                },
+                {
+                  "id": "flamecharge",
+                  "type": "fire"
+                }
               ],
               "evs": "12 Atk, 252 Spe"
             }
@@ -583,10 +1069,22 @@
               "level": 44,
               "formName": "plain",
               "moves": [
-                "roost",
-                "wingattack",
-                "agility",
-                "swift"
+                {
+                  "id": "roost",
+                  "type": "flying"
+                },
+                {
+                  "id": "wingattack",
+                  "type": "flying"
+                },
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                }
               ],
               "evs": "132 HP, 132 Spe"
             },
@@ -595,10 +1093,22 @@
               "level": 43,
               "formName": "plain",
               "moves": [
-                "batonpass",
-                "crunch",
-                "zenheadbutt",
-                "doublekick"
+                {
+                  "id": "batonpass",
+                  "type": "normal"
+                },
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "zenheadbutt",
+                  "type": "psychic"
+                },
+                {
+                  "id": "doublekick",
+                  "type": "fighting"
+                }
               ],
               "evs": "132 Atk, 132 Spe"
             },
@@ -607,10 +1117,22 @@
               "level": 45,
               "formName": "plain",
               "moves": [
-                "seedbomb",
-                "sunnyday",
-                "doubleedge",
-                "solarbeam"
+                {
+                  "id": "seedbomb",
+                  "type": "grass"
+                },
+                {
+                  "id": "sunnyday",
+                  "type": "fire"
+                },
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "solarbeam",
+                  "type": "grass"
+                }
               ],
               "evs": "132 SAt, 132 Spe"
             },
@@ -619,10 +1141,22 @@
               "level": 45,
               "formName": "plain",
               "moves": [
-                "dragondance",
-                "growl",
-                "bite",
-                "roar"
+                {
+                  "id": "dragondance",
+                  "type": "dragon"
+                },
+                {
+                  "id": "growl",
+                  "type": "normal"
+                },
+                {
+                  "id": "bite",
+                  "type": "dark"
+                },
+                {
+                  "id": "roar",
+                  "type": "normal"
+                }
               ],
               "evs": "132 HP, 132 Atk"
             },
@@ -631,10 +1165,22 @@
               "level": 46,
               "formName": "plain",
               "moves": [
-                "safeguard",
-                "thunderbolt",
-                "powergem",
-                "confuseray"
+                {
+                  "id": "safeguard",
+                  "type": "normal"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                },
+                {
+                  "id": "powergem",
+                  "type": "rock"
+                },
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                }
               ],
               "evs": "132 HP, 132 SAt"
             },
@@ -645,10 +1191,22 @@
               "item": "sitrusberry",
               "formName": "plain",
               "moves": [
-                "ancientpower",
-                "crunch",
-                "agility",
-                "reversal"
+                {
+                  "id": "ancientpower",
+                  "type": "rock"
+                },
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "reversal",
+                  "type": "fighting"
+                }
               ],
               "evs": "252 Atk, 12 Spe"
             }
@@ -667,8 +1225,14 @@
               "level": 5,
               "formName": "plain",
               "moves": [
-                "tackle",
-                "growl"
+                {
+                  "id": "tackle",
+                  "type": "normal"
+                },
+                {
+                  "id": "growl",
+                  "type": "normal"
+                }
               ]
             }
           ]
@@ -682,8 +1246,14 @@
               "level": 5,
               "formName": "plain",
               "moves": [
-                "tackle",
-                "leer"
+                {
+                  "id": "tackle",
+                  "type": "normal"
+                },
+                {
+                  "id": "leer",
+                  "type": "normal"
+                }
               ]
             }
           ]
@@ -697,8 +1267,14 @@
               "level": 5,
               "formName": "plain",
               "moves": [
-                "scratch",
-                "leer"
+                {
+                  "id": "scratch",
+                  "type": "normal"
+                },
+                {
+                  "id": "leer",
+                  "type": "normal"
+                }
               ]
             }
           ]
@@ -711,10 +1287,22 @@
               "level": 16,
               "formName": "plain",
               "moves": [
-                "tackle",
-                "gust",
-                "mudslap",
-                "quickattack ; default for level"
+                {
+                  "id": "tackle",
+                  "type": "normal"
+                },
+                {
+                  "id": "gust",
+                  "type": "flying"
+                },
+                {
+                  "id": "mudslap",
+                  "type": "ground"
+                },
+                {
+                  "id": "quickattack ; default for level",
+                  "type": "normal"
+                }
               ],
               "evs": "36 HP, 36 Spe"
             },
@@ -723,10 +1311,22 @@
               "level": 17,
               "formName": "plain",
               "moves": [
-                "defensecurl",
-                "rollout",
-                "bubblebeam",
-                "dizzypunch ; default for level"
+                {
+                  "id": "defensecurl",
+                  "type": "normal"
+                },
+                {
+                  "id": "rollout",
+                  "type": "rock"
+                },
+                {
+                  "id": "bubblebeam",
+                  "type": "water"
+                },
+                {
+                  "id": "dizzypunch ; default for level",
+                  "type": "normal"
+                }
               ],
               "evs": "72 Atk"
             },
@@ -735,10 +1335,22 @@
               "level": 15,
               "formName": "plain",
               "moves": [
-                "thunderwave",
-                "thundershock",
-                "mudslap",
-                "spark ; default for level"
+                {
+                  "id": "thunderwave",
+                  "type": "electric"
+                },
+                {
+                  "id": "thundershock",
+                  "type": "electric"
+                },
+                {
+                  "id": "mudslap",
+                  "type": "ground"
+                },
+                {
+                  "id": "spark ; default for level",
+                  "type": "normal"
+                }
               ],
               "evs": "36 HP, 36 SAt"
             },
@@ -749,10 +1361,22 @@
               "item": "oranberry",
               "formName": "plain",
               "moves": [
-                "razorleaf",
-                "poisonpowder",
-                "healinglight",
-                "reflect ; no light screen"
+                {
+                  "id": "razorleaf",
+                  "type": "grass"
+                },
+                {
+                  "id": "poisonpowder",
+                  "type": "poison"
+                },
+                {
+                  "id": "healinglight",
+                  "type": "normal"
+                },
+                {
+                  "id": "reflect ; no light screen",
+                  "type": "normal"
+                }
               ],
               "evs": "72 HP"
             }
@@ -766,10 +1390,22 @@
               "level": 16,
               "formName": "plain",
               "moves": [
-                "quickattack",
-                "mudslap",
-                "gust",
-                "tackle"
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "mudslap",
+                  "type": "ground"
+                },
+                {
+                  "id": "gust",
+                  "type": "flying"
+                },
+                {
+                  "id": "tackle",
+                  "type": "normal"
+                }
               ],
               "evs": "36 HP, 36 Spe"
             },
@@ -778,10 +1414,22 @@
               "level": 17,
               "formName": "plain",
               "moves": [
-                "razorleaf",
-                "leechseed",
-                "megadrain",
-                "defensecurl"
+                {
+                  "id": "razorleaf",
+                  "type": "grass"
+                },
+                {
+                  "id": "leechseed",
+                  "type": "grass"
+                },
+                {
+                  "id": "megadrain",
+                  "type": "grass"
+                },
+                {
+                  "id": "defensecurl",
+                  "type": "normal"
+                }
               ],
               "evs": "36 SAt, 36 Spe"
             },
@@ -790,10 +1438,22 @@
               "level": 15,
               "formName": "plain",
               "moves": [
-                "spark",
-                "mudslap",
-                "thundershock",
-                "thunderwave"
+                {
+                  "id": "spark",
+                  "type": "electric"
+                },
+                {
+                  "id": "mudslap",
+                  "type": "ground"
+                },
+                {
+                  "id": "thundershock",
+                  "type": "electric"
+                },
+                {
+                  "id": "thunderwave",
+                  "type": "electric"
+                }
               ],
               "evs": "36 HP, 36 SAt"
             },
@@ -804,10 +1464,22 @@
               "item": "oranberry",
               "formName": "plain",
               "moves": [
-                "quickattack",
-                "ember",
-                "smokescreen",
-                "tackle"
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "ember",
+                  "type": "fire"
+                },
+                {
+                  "id": "smokescreen",
+                  "type": "normal"
+                },
+                {
+                  "id": "tackle",
+                  "type": "normal"
+                }
               ],
               "evs": "72 Spe"
             }
@@ -821,10 +1493,22 @@
               "level": 16,
               "formName": "plain",
               "moves": [
-                "quickattack",
-                "mudslap",
-                "gust",
-                "tackle"
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "mudslap",
+                  "type": "ground"
+                },
+                {
+                  "id": "gust",
+                  "type": "flying"
+                },
+                {
+                  "id": "tackle",
+                  "type": "normal"
+                }
               ],
               "evs": "36 HP, 36 Spe"
             },
@@ -833,10 +1517,22 @@
               "level": 17,
               "formName": "plain",
               "moves": [
-                "firespin",
-                "batonpass",
-                "safeguard",
-                "leer"
+                {
+                  "id": "firespin",
+                  "type": "fire"
+                },
+                {
+                  "id": "batonpass",
+                  "type": "normal"
+                },
+                {
+                  "id": "safeguard",
+                  "type": "normal"
+                },
+                {
+                  "id": "leer",
+                  "type": "normal"
+                }
               ],
               "evs": "36 HP, 36 Atk"
             },
@@ -845,10 +1541,22 @@
               "level": 15,
               "formName": "plain",
               "moves": [
-                "spark",
-                "mudslap",
-                "thundershock",
-                "thunderwave"
+                {
+                  "id": "spark",
+                  "type": "electric"
+                },
+                {
+                  "id": "mudslap",
+                  "type": "ground"
+                },
+                {
+                  "id": "thundershock",
+                  "type": "electric"
+                },
+                {
+                  "id": "thunderwave",
+                  "type": "electric"
+                }
               ],
               "evs": "36 HP, 36 SAt"
             },
@@ -859,10 +1567,22 @@
               "item": "oranberry",
               "formName": "plain",
               "moves": [
-                "scaryface",
-                "bite",
-                "rage",
-                "watergun"
+                {
+                  "id": "scaryface",
+                  "type": "normal"
+                },
+                {
+                  "id": "bite",
+                  "type": "dark"
+                },
+                {
+                  "id": "rage",
+                  "type": "normal"
+                },
+                {
+                  "id": "watergun",
+                  "type": "water"
+                }
               ],
               "evs": "72 Atk"
             }
@@ -876,10 +1596,22 @@
               "level": 33,
               "formName": "plain",
               "moves": [
-                "agility",
-                "swift",
-                "charm",
-                "rage"
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                },
+                {
+                  "id": "charm",
+                  "type": "fairy"
+                },
+                {
+                  "id": "rage",
+                  "type": "normal"
+                }
               ],
               "evs": "100 HP, 100 Spe"
             },
@@ -888,10 +1620,22 @@
               "level": 34,
               "formName": "plain",
               "moves": [
-                "flamethrower",
-                "thrash",
-                "agility",
-                "flamecharge"
+                {
+                  "id": "flamethrower",
+                  "type": "fire"
+                },
+                {
+                  "id": "thrash",
+                  "type": "normal"
+                },
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "flamecharge",
+                  "type": "fire"
+                }
               ],
               "evs": "100 HP, 100 Atk"
             },
@@ -900,10 +1644,22 @@
               "level": 34,
               "formName": "plain",
               "moves": [
-                "scaryface",
-                "playrough",
-                "aquatail",
-                "dizzypunch"
+                {
+                  "id": "scaryface",
+                  "type": "normal"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                },
+                {
+                  "id": "aquatail",
+                  "type": "water"
+                },
+                {
+                  "id": "dizzypunch",
+                  "type": "normal"
+                }
               ],
               "evs": "200 Atk"
             },
@@ -912,10 +1668,22 @@
               "level": 32,
               "formName": "plain",
               "moves": [
-                "confuseray",
-                "takedown",
-                "healbell",
-                "spark"
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                },
+                {
+                  "id": "takedown",
+                  "type": "normal"
+                },
+                {
+                  "id": "healbell",
+                  "type": "normal"
+                },
+                {
+                  "id": "spark",
+                  "type": "electric"
+                }
               ],
               "evs": "100 HP, 100 SAt"
             },
@@ -926,10 +1694,22 @@
               "item": "oranberry",
               "formName": "plain",
               "moves": [
-                "dazzlingleam",
-                "ancientpower",
-                "energyball",
-                "disarmvoice"
+                {
+                  "id": "dazzlingleam",
+                  "type": "fairy"
+                },
+                {
+                  "id": "ancientpower",
+                  "type": "rock"
+                },
+                {
+                  "id": "energyball",
+                  "type": "grass"
+                },
+                {
+                  "id": "disarmvoice",
+                  "type": "fairy"
+                }
               ],
               "evs": "200 HP"
             }
@@ -943,10 +1723,22 @@
               "level": 33,
               "formName": "plain",
               "moves": [
-                "agility",
-                "swift",
-                "charm",
-                "rage"
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                },
+                {
+                  "id": "charm",
+                  "type": "fairy"
+                },
+                {
+                  "id": "rage",
+                  "type": "normal"
+                }
               ],
               "evs": "100 HP, 100 Spe"
             },
@@ -955,10 +1747,22 @@
               "level": 34,
               "formName": "plain",
               "moves": [
-                "solarbeam",
-                "earthpower",
-                "petaldance",
-                "agility"
+                {
+                  "id": "solarbeam",
+                  "type": "grass"
+                },
+                {
+                  "id": "earthpower",
+                  "type": "ground"
+                },
+                {
+                  "id": "petaldance",
+                  "type": "grass"
+                },
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                }
               ],
               "evs": "100 SAt, 100 Spe"
             },
@@ -967,10 +1771,22 @@
               "level": 34,
               "formName": "plain",
               "moves": [
-                "scaryface",
-                "playrough",
-                "aquatail",
-                "dizzypunch"
+                {
+                  "id": "scaryface",
+                  "type": "normal"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                },
+                {
+                  "id": "aquatail",
+                  "type": "water"
+                },
+                {
+                  "id": "dizzypunch",
+                  "type": "normal"
+                }
               ],
               "evs": "200 Atk"
             },
@@ -979,10 +1795,22 @@
               "level": 32,
               "formName": "plain",
               "moves": [
-                "confuseray",
-                "takedown",
-                "healbell",
-                "spark"
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                },
+                {
+                  "id": "takedown",
+                  "type": "normal"
+                },
+                {
+                  "id": "healbell",
+                  "type": "normal"
+                },
+                {
+                  "id": "spark",
+                  "type": "electric"
+                }
               ],
               "evs": "100 HP, 100 SAt"
             },
@@ -993,10 +1821,22 @@
               "item": "oranberry",
               "formName": "plain",
               "moves": [
-                "dig",
-                "swift",
-                "flamecharge",
-                "defensecurl"
+                {
+                  "id": "dig",
+                  "type": "ground"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                },
+                {
+                  "id": "flamecharge",
+                  "type": "fire"
+                },
+                {
+                  "id": "defensecurl",
+                  "type": "normal"
+                }
               ],
               "evs": "200 Spe"
             }
@@ -1010,10 +1850,22 @@
               "level": 33,
               "formName": "plain",
               "moves": [
-                "agility",
-                "swift",
-                "charm",
-                "rage"
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                },
+                {
+                  "id": "charm",
+                  "type": "fairy"
+                },
+                {
+                  "id": "rage",
+                  "type": "normal"
+                }
               ],
               "evs": "100 HP, 100 Spe"
             },
@@ -1022,10 +1874,22 @@
               "level": 34,
               "formName": "plain",
               "moves": [
-                "solarbeam",
-                "earthpower",
-                "petaldance",
-                "agility"
+                {
+                  "id": "solarbeam",
+                  "type": "grass"
+                },
+                {
+                  "id": "earthpower",
+                  "type": "ground"
+                },
+                {
+                  "id": "petaldance",
+                  "type": "grass"
+                },
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                }
               ],
               "evs": "100 SAt, 100 Spe"
             },
@@ -1034,10 +1898,22 @@
               "level": 34,
               "formName": "plain",
               "moves": [
-                "flamethrower",
-                "thrash",
-                "agility",
-                "flamecharge"
+                {
+                  "id": "flamethrower",
+                  "type": "fire"
+                },
+                {
+                  "id": "thrash",
+                  "type": "normal"
+                },
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "flamecharge",
+                  "type": "fire"
+                }
               ],
               "evs": "100 HP, 100 Atk"
             },
@@ -1046,10 +1922,22 @@
               "level": 32,
               "formName": "plain",
               "moves": [
-                "confuseray",
-                "takedown",
-                "healbell",
-                "spark"
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                },
+                {
+                  "id": "takedown",
+                  "type": "normal"
+                },
+                {
+                  "id": "healbell",
+                  "type": "normal"
+                },
+                {
+                  "id": "spark",
+                  "type": "electric"
+                }
               ],
               "evs": "100 HP, 100 SAt"
             },
@@ -1060,10 +1948,22 @@
               "item": "oranberry",
               "formName": "plain",
               "moves": [
-                "crunch",
-                "agility",
-                "reversal",
-                "metalclaw"
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "reversal",
+                  "type": "fighting"
+                },
+                {
+                  "id": "metalclaw",
+                  "type": "steel"
+                }
               ],
               "evs": "200 Atk"
             }
@@ -1077,10 +1977,22 @@
               "level": 44,
               "formName": "plain",
               "moves": [
-                "roost",
-                "wingattack",
-                "agility",
-                "swift"
+                {
+                  "id": "roost",
+                  "type": "flying"
+                },
+                {
+                  "id": "wingattack",
+                  "type": "flying"
+                },
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                }
               ],
               "evs": "132 HP, 132 Spe"
             },
@@ -1089,10 +2001,22 @@
               "level": 43,
               "formName": "plain",
               "moves": [
-                "batonpass",
-                "crunch",
-                "zenheadbutt",
-                "doublekick"
+                {
+                  "id": "batonpass",
+                  "type": "normal"
+                },
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "zenheadbutt",
+                  "type": "psychic"
+                },
+                {
+                  "id": "doublekick",
+                  "type": "fighting"
+                }
               ],
               "evs": "132 Atk, 132 Spe"
             },
@@ -1101,10 +2025,22 @@
               "level": 45,
               "formName": "plain",
               "moves": [
-                "dragondance",
-                "growl",
-                "bite",
-                "roar"
+                {
+                  "id": "dragondance",
+                  "type": "dragon"
+                },
+                {
+                  "id": "growl",
+                  "type": "normal"
+                },
+                {
+                  "id": "bite",
+                  "type": "dark"
+                },
+                {
+                  "id": "roar",
+                  "type": "normal"
+                }
               ],
               "evs": "132 HP, 132 Atk"
             },
@@ -1113,10 +2049,22 @@
               "level": 45,
               "formName": "plain",
               "moves": [
-                "doubleedge",
-                "raindance",
-                "scaryface",
-                "playrough"
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "raindance",
+                  "type": "water"
+                },
+                {
+                  "id": "scaryface",
+                  "type": "normal"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                }
               ],
               "evs": "252 Atk, 12 Spe"
             },
@@ -1125,10 +2073,22 @@
               "level": 46,
               "formName": "plain",
               "moves": [
-                "safeguard",
-                "thunderbolt",
-                "powergem",
-                "confuseray"
+                {
+                  "id": "safeguard",
+                  "type": "normal"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                },
+                {
+                  "id": "powergem",
+                  "type": "rock"
+                },
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                }
               ],
               "evs": "132 HP, 132 SAt"
             },
@@ -1139,10 +2099,22 @@
               "item": "sitrusberry",
               "formName": "plain",
               "moves": [
-                "bodyslam",
-                "dazzlingleam",
-                "ancientpower",
-                "energyball"
+                {
+                  "id": "bodyslam",
+                  "type": "normal"
+                },
+                {
+                  "id": "dazzlingleam",
+                  "type": "fairy"
+                },
+                {
+                  "id": "ancientpower",
+                  "type": "rock"
+                },
+                {
+                  "id": "energyball",
+                  "type": "grass"
+                }
               ],
               "evs": "252 HP, 12 SAt"
             }
@@ -1156,10 +2128,22 @@
               "level": 44,
               "formName": "plain",
               "moves": [
-                "roost",
-                "wingattack",
-                "agility",
-                "swift"
+                {
+                  "id": "roost",
+                  "type": "flying"
+                },
+                {
+                  "id": "wingattack",
+                  "type": "flying"
+                },
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                }
               ],
               "evs": "132 HP, 132 Spe"
             },
@@ -1168,10 +2152,22 @@
               "level": 43,
               "formName": "plain",
               "moves": [
-                "batonpass",
-                "crunch",
-                "zenheadbutt",
-                "doublekick"
+                {
+                  "id": "batonpass",
+                  "type": "normal"
+                },
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "zenheadbutt",
+                  "type": "psychic"
+                },
+                {
+                  "id": "doublekick",
+                  "type": "fighting"
+                }
               ],
               "evs": "132 Atk, 132 Spe"
             },
@@ -1180,10 +2176,22 @@
               "level": 45,
               "formName": "plain",
               "moves": [
-                "seedbomb",
-                "sunnyday",
-                "doubleedge",
-                "solarbeam"
+                {
+                  "id": "seedbomb",
+                  "type": "grass"
+                },
+                {
+                  "id": "sunnyday",
+                  "type": "fire"
+                },
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "solarbeam",
+                  "type": "grass"
+                }
               ],
               "evs": "132 SAt, 132 Spe"
             },
@@ -1192,10 +2200,22 @@
               "level": 45,
               "formName": "plain",
               "moves": [
-                "doubleedge",
-                "raindance",
-                "scaryface",
-                "playrough"
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "raindance",
+                  "type": "water"
+                },
+                {
+                  "id": "scaryface",
+                  "type": "normal"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                }
               ],
               "evs": "252 Atk, 12 Spe"
             },
@@ -1204,10 +2224,22 @@
               "level": 46,
               "formName": "plain",
               "moves": [
-                "safeguard",
-                "thunderbolt",
-                "powergem",
-                "confuseray"
+                {
+                  "id": "safeguard",
+                  "type": "normal"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                },
+                {
+                  "id": "powergem",
+                  "type": "rock"
+                },
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                }
               ],
               "evs": "132 HP, 132 SAt"
             },
@@ -1218,10 +2250,22 @@
               "item": "sitrusberry",
               "formName": "plain",
               "moves": [
-                "reversal",
-                "dig",
-                "swift",
-                "flamecharge"
+                {
+                  "id": "reversal",
+                  "type": "fighting"
+                },
+                {
+                  "id": "dig",
+                  "type": "ground"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                },
+                {
+                  "id": "flamecharge",
+                  "type": "fire"
+                }
               ],
               "evs": "12 Atk, 252 Spe"
             }
@@ -1235,10 +2279,22 @@
               "level": 44,
               "formName": "plain",
               "moves": [
-                "roost",
-                "wingattack",
-                "agility",
-                "swift"
+                {
+                  "id": "roost",
+                  "type": "flying"
+                },
+                {
+                  "id": "wingattack",
+                  "type": "flying"
+                },
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                }
               ],
               "evs": "132 HP, 132 Spe"
             },
@@ -1247,10 +2303,22 @@
               "level": 43,
               "formName": "plain",
               "moves": [
-                "batonpass",
-                "crunch",
-                "zenheadbutt",
-                "doublekick"
+                {
+                  "id": "batonpass",
+                  "type": "normal"
+                },
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "zenheadbutt",
+                  "type": "psychic"
+                },
+                {
+                  "id": "doublekick",
+                  "type": "fighting"
+                }
               ],
               "evs": "132 Atk, 132 Spe"
             },
@@ -1259,10 +2327,22 @@
               "level": 45,
               "formName": "plain",
               "moves": [
-                "seedbomb",
-                "sunnyday",
-                "doubleedge",
-                "solarbeam"
+                {
+                  "id": "seedbomb",
+                  "type": "grass"
+                },
+                {
+                  "id": "sunnyday",
+                  "type": "fire"
+                },
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "solarbeam",
+                  "type": "grass"
+                }
               ],
               "evs": "132 SAt, 132 Spe"
             },
@@ -1271,10 +2351,22 @@
               "level": 45,
               "formName": "plain",
               "moves": [
-                "dragondance",
-                "growl",
-                "bite",
-                "roar"
+                {
+                  "id": "dragondance",
+                  "type": "dragon"
+                },
+                {
+                  "id": "growl",
+                  "type": "normal"
+                },
+                {
+                  "id": "bite",
+                  "type": "dark"
+                },
+                {
+                  "id": "roar",
+                  "type": "normal"
+                }
               ],
               "evs": "132 HP, 132 Atk"
             },
@@ -1283,10 +2375,22 @@
               "level": 46,
               "formName": "plain",
               "moves": [
-                "safeguard",
-                "thunderbolt",
-                "powergem",
-                "confuseray"
+                {
+                  "id": "safeguard",
+                  "type": "normal"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                },
+                {
+                  "id": "powergem",
+                  "type": "rock"
+                },
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                }
               ],
               "evs": "132 HP, 132 SAt"
             },
@@ -1297,10 +2401,22 @@
               "item": "sitrusberry",
               "formName": "plain",
               "moves": [
-                "ancientpower",
-                "crunch",
-                "agility",
-                "reversal"
+                {
+                  "id": "ancientpower",
+                  "type": "rock"
+                },
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "agility",
+                  "type": "psychic"
+                },
+                {
+                  "id": "reversal",
+                  "type": "fighting"
+                }
               ],
               "evs": "252 Atk, 12 Spe"
             }

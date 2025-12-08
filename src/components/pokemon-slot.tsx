@@ -499,6 +499,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     };
 
     // Helper function to convert move id to display name
+    // slightly different than one in stringUtils to handle missing moves data
     const formatMoveName = (moveId: string): string => {
       // Check if we have the actual name from moves data
       if (movesData?.[moveId]) {

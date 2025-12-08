@@ -11,38 +11,102 @@
           "pokemon": [
             {
               "pokemonName": "kadabra",
-              "level": -1,
+              "level": 28,
+              "levelDisplay": "Badge Level +3",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "lightscreen",
+                  "type": "psychic"
+                },
+                {
+                  "id": "reflect",
+                  "type": "psychic"
+                },
+                {
+                  "id": "nightshade",
+                  "type": "ghost"
+                },
+                {
+                  "id": "psybeam",
+                  "type": "psychic"
+                }
               ],
               "evs": "120 Spe"
             },
             {
               "pokemonName": "noctowl",
-              "level": -1,
+              "level": 28,
+              "levelDisplay": "Badge Level +3",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "takedown",
+                  "type": "normal"
+                },
+                {
+                  "id": "wingattack",
+                  "type": "flying"
+                },
+                {
+                  "id": "hex",
+                  "type": "ghost"
+                },
+                {
+                  "id": "zenheadbutt",
+                  "type": "psychic"
+                }
               ],
               "evs": "120 Spe"
             },
             {
               "pokemonName": "murkrow",
-              "level": -1,
+              "level": 27,
+              "levelDisplay": "Badge Level +2",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "thief",
+                  "type": "dark"
+                },
+                {
+                  "id": "nightshade",
+                  "type": "ghost"
+                },
+                {
+                  "id": "wingattack",
+                  "type": "flying"
+                },
+                {
+                  "id": "haze",
+                  "type": "ice"
+                }
               ],
               "evs": "120 Spe"
             },
             {
               "pokemonName": "ninetales",
-              "level": -1,
+              "level": 29,
+              "levelDisplay": "Badge Level +4",
               "item": "sitrusberry",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "nastyplot",
+                  "type": "dark"
+                },
+                {
+                  "id": "flamethrower",
+                  "type": "fire"
+                },
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                }
               ],
               "evs": "120 Spe"
             }
@@ -57,10 +121,22 @@
               "item": "muscleband",
               "formName": "plain",
               "moves": [
-                "quickattack",
-                "rocksmash",
-                "doubleedge",
-                "flareblitz"
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "rocksmash",
+                  "type": "fighting"
+                },
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "flareblitz",
+                  "type": "fire"
+                }
               ],
               "evs": "68 Atk, 252 Spe"
             },
@@ -70,10 +146,22 @@
               "item": "blackglasses",
               "formName": "plain",
               "moves": [
-                "drillpeck",
-                "suckerpunch",
-                "pursuit",
-                "bravebird"
+                {
+                  "id": "drillpeck",
+                  "type": "flying"
+                },
+                {
+                  "id": "suckerpunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "pursuit",
+                  "type": "dark"
+                },
+                {
+                  "id": "bravebird",
+                  "type": "flying"
+                }
               ],
               "evs": "68 Atk, 252 Spe"
             },
@@ -83,10 +171,22 @@
               "item": "quickclaw",
               "formName": "plain",
               "moves": [
-                "shadowball",
-                "airslash",
-                "hypnosis",
-                "dreameater"
+                {
+                  "id": "shadowball",
+                  "type": "ghost"
+                },
+                {
+                  "id": "airslash",
+                  "type": "flying"
+                },
+                {
+                  "id": "hypnosis",
+                  "type": "psychic"
+                },
+                {
+                  "id": "dreameater",
+                  "type": "psychic"
+                }
               ],
               "evs": "68 SAt, 252 Spe"
             },
@@ -96,10 +196,22 @@
               "item": "wiseglasses",
               "formName": "plain",
               "moves": [
-                "psychicm",
-                "focusblast",
-                "shadowball",
-                "thunderwave"
+                {
+                  "id": "psychicm",
+                  "type": "normal"
+                },
+                {
+                  "id": "focusblast",
+                  "type": "fighting"
+                },
+                {
+                  "id": "shadowball",
+                  "type": "ghost"
+                },
+                {
+                  "id": "thunderwave",
+                  "type": "electric"
+                }
               ],
               "evs": "68 SAt, 252 Spe"
             },
@@ -109,10 +221,22 @@
               "item": "kingsrock",
               "formName": "plain",
               "moves": [
-                "fireblast",
-                "megahorn",
-                "poisonjab",
-                "willowisp"
+                {
+                  "id": "fireblast",
+                  "type": "fire"
+                },
+                {
+                  "id": "megahorn",
+                  "type": "bug"
+                },
+                {
+                  "id": "poisonjab",
+                  "type": "poison"
+                },
+                {
+                  "id": "willowisp",
+                  "type": "fire"
+                }
               ],
               "evs": "68 HP, 252 Spe"
             },
@@ -122,10 +246,22 @@
               "item": "leftovers",
               "formName": "plain",
               "moves": [
-                "nastyplot",
-                "flamethrower",
-                "darkpulse",
-                "shadowball"
+                {
+                  "id": "nastyplot",
+                  "type": "dark"
+                },
+                {
+                  "id": "flamethrower",
+                  "type": "fire"
+                },
+                {
+                  "id": "darkpulse",
+                  "type": "dark"
+                },
+                {
+                  "id": "shadowball",
+                  "type": "ghost"
+                }
               ],
               "evs": "68 SAt, 252 Spe"
             }
@@ -140,10 +276,22 @@
               "item": "muscleband",
               "formName": "plain",
               "moves": [
-                "quickattack",
-                "rocksmash",
-                "doubleedge",
-                "flareblitz"
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "rocksmash",
+                  "type": "fighting"
+                },
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "flareblitz",
+                  "type": "fire"
+                }
               ]
             },
             {
@@ -152,10 +300,22 @@
               "item": "blackglasses",
               "formName": "plain",
               "moves": [
-                "drillpeck",
-                "suckerpunch",
-                "pursuit",
-                "bravebird"
+                {
+                  "id": "drillpeck",
+                  "type": "flying"
+                },
+                {
+                  "id": "suckerpunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "pursuit",
+                  "type": "dark"
+                },
+                {
+                  "id": "bravebird",
+                  "type": "flying"
+                }
               ]
             },
             {
@@ -164,10 +324,22 @@
               "item": "quickclaw",
               "formName": "plain",
               "moves": [
-                "shadowball",
-                "airslash",
-                "hypnosis",
-                "dreameater"
+                {
+                  "id": "shadowball",
+                  "type": "ghost"
+                },
+                {
+                  "id": "airslash",
+                  "type": "flying"
+                },
+                {
+                  "id": "hypnosis",
+                  "type": "psychic"
+                },
+                {
+                  "id": "dreameater",
+                  "type": "psychic"
+                }
               ]
             },
             {
@@ -176,10 +348,22 @@
               "item": "wiseglasses",
               "formName": "plain",
               "moves": [
-                "psychicm",
-                "focusblast",
-                "shadowball",
-                "thunderwave"
+                {
+                  "id": "psychicm",
+                  "type": "normal"
+                },
+                {
+                  "id": "focusblast",
+                  "type": "fighting"
+                },
+                {
+                  "id": "shadowball",
+                  "type": "ghost"
+                },
+                {
+                  "id": "thunderwave",
+                  "type": "electric"
+                }
               ]
             },
             {
@@ -188,10 +372,22 @@
               "item": "kingsrock",
               "formName": "plain",
               "moves": [
-                "flareblitz",
-                "megahorn",
-                "poisonjab",
-                "willowisp"
+                {
+                  "id": "flareblitz",
+                  "type": "fire"
+                },
+                {
+                  "id": "megahorn",
+                  "type": "bug"
+                },
+                {
+                  "id": "poisonjab",
+                  "type": "poison"
+                },
+                {
+                  "id": "willowisp",
+                  "type": "fire"
+                }
               ]
             },
             {
@@ -200,10 +396,22 @@
               "item": "leftovers",
               "formName": "plain",
               "moves": [
-                "nastyplot",
-                "fireblast",
-                "darkpulse",
-                "shadowball"
+                {
+                  "id": "nastyplot",
+                  "type": "dark"
+                },
+                {
+                  "id": "fireblast",
+                  "type": "fire"
+                },
+                {
+                  "id": "darkpulse",
+                  "type": "dark"
+                },
+                {
+                  "id": "shadowball",
+                  "type": "ghost"
+                }
               ]
             }
           ]
@@ -217,38 +425,102 @@
           "pokemon": [
             {
               "pokemonName": "kadabra",
-              "level": -1,
+              "level": 28,
+              "levelDisplay": "Badge Level +3",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "lightscreen",
+                  "type": "psychic"
+                },
+                {
+                  "id": "reflect",
+                  "type": "psychic"
+                },
+                {
+                  "id": "nightshade",
+                  "type": "ghost"
+                },
+                {
+                  "id": "psybeam",
+                  "type": "psychic"
+                }
               ],
               "evs": "120 Spe"
             },
             {
               "pokemonName": "noctowl",
-              "level": -1,
+              "level": 28,
+              "levelDisplay": "Badge Level +3",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "takedown",
+                  "type": "normal"
+                },
+                {
+                  "id": "wingattack",
+                  "type": "flying"
+                },
+                {
+                  "id": "hex",
+                  "type": "ghost"
+                },
+                {
+                  "id": "zenheadbutt",
+                  "type": "psychic"
+                }
               ],
               "evs": "120 Spe"
             },
             {
               "pokemonName": "murkrow",
-              "level": -1,
+              "level": 27,
+              "levelDisplay": "Badge Level +2",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "thief",
+                  "type": "dark"
+                },
+                {
+                  "id": "nightshade",
+                  "type": "ghost"
+                },
+                {
+                  "id": "wingattack",
+                  "type": "flying"
+                },
+                {
+                  "id": "haze",
+                  "type": "ice"
+                }
               ],
               "evs": "120 Spe"
             },
             {
               "pokemonName": "ninetales",
-              "level": -1,
+              "level": 29,
+              "levelDisplay": "Badge Level +4",
               "item": "sitrusberry",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "nastyplot",
+                  "type": "dark"
+                },
+                {
+                  "id": "flamethrower",
+                  "type": "fire"
+                },
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                }
               ],
               "evs": "120 Spe"
             }
@@ -263,10 +535,22 @@
               "item": "muscleband",
               "formName": "plain",
               "moves": [
-                "quickattack",
-                "rocksmash",
-                "doubleedge",
-                "flareblitz"
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "rocksmash",
+                  "type": "fighting"
+                },
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "flareblitz",
+                  "type": "fire"
+                }
               ],
               "evs": "68 Atk, 252 Spe"
             },
@@ -276,10 +560,22 @@
               "item": "blackglasses",
               "formName": "plain",
               "moves": [
-                "drillpeck",
-                "suckerpunch",
-                "pursuit",
-                "bravebird"
+                {
+                  "id": "drillpeck",
+                  "type": "flying"
+                },
+                {
+                  "id": "suckerpunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "pursuit",
+                  "type": "dark"
+                },
+                {
+                  "id": "bravebird",
+                  "type": "flying"
+                }
               ],
               "evs": "68 Atk, 252 Spe"
             },
@@ -289,10 +585,22 @@
               "item": "quickclaw",
               "formName": "plain",
               "moves": [
-                "shadowball",
-                "airslash",
-                "hypnosis",
-                "dreameater"
+                {
+                  "id": "shadowball",
+                  "type": "ghost"
+                },
+                {
+                  "id": "airslash",
+                  "type": "flying"
+                },
+                {
+                  "id": "hypnosis",
+                  "type": "psychic"
+                },
+                {
+                  "id": "dreameater",
+                  "type": "psychic"
+                }
               ],
               "evs": "68 SAt, 252 Spe"
             },
@@ -302,10 +610,22 @@
               "item": "wiseglasses",
               "formName": "plain",
               "moves": [
-                "psychicm",
-                "focusblast",
-                "shadowball",
-                "thunderwave"
+                {
+                  "id": "psychicm",
+                  "type": "normal"
+                },
+                {
+                  "id": "focusblast",
+                  "type": "fighting"
+                },
+                {
+                  "id": "shadowball",
+                  "type": "ghost"
+                },
+                {
+                  "id": "thunderwave",
+                  "type": "electric"
+                }
               ],
               "evs": "68 SAt, 252 Spe"
             },
@@ -315,10 +635,22 @@
               "item": "kingsrock",
               "formName": "plain",
               "moves": [
-                "fireblast",
-                "megahorn",
-                "poisonjab",
-                "willowisp"
+                {
+                  "id": "fireblast",
+                  "type": "fire"
+                },
+                {
+                  "id": "megahorn",
+                  "type": "bug"
+                },
+                {
+                  "id": "poisonjab",
+                  "type": "poison"
+                },
+                {
+                  "id": "willowisp",
+                  "type": "fire"
+                }
               ],
               "evs": "68 HP, 252 Spe"
             },
@@ -328,10 +660,22 @@
               "item": "leftovers",
               "formName": "plain",
               "moves": [
-                "nastyplot",
-                "flamethrower",
-                "darkpulse",
-                "shadowball"
+                {
+                  "id": "nastyplot",
+                  "type": "dark"
+                },
+                {
+                  "id": "flamethrower",
+                  "type": "fire"
+                },
+                {
+                  "id": "darkpulse",
+                  "type": "dark"
+                },
+                {
+                  "id": "shadowball",
+                  "type": "ghost"
+                }
               ],
               "evs": "68 SAt, 252 Spe"
             }
@@ -346,10 +690,22 @@
               "item": "muscleband",
               "formName": "plain",
               "moves": [
-                "quickattack",
-                "rocksmash",
-                "doubleedge",
-                "flareblitz"
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "rocksmash",
+                  "type": "fighting"
+                },
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "flareblitz",
+                  "type": "fire"
+                }
               ]
             },
             {
@@ -358,10 +714,22 @@
               "item": "blackglasses",
               "formName": "plain",
               "moves": [
-                "drillpeck",
-                "suckerpunch",
-                "pursuit",
-                "bravebird"
+                {
+                  "id": "drillpeck",
+                  "type": "flying"
+                },
+                {
+                  "id": "suckerpunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "pursuit",
+                  "type": "dark"
+                },
+                {
+                  "id": "bravebird",
+                  "type": "flying"
+                }
               ]
             },
             {
@@ -370,10 +738,22 @@
               "item": "quickclaw",
               "formName": "plain",
               "moves": [
-                "shadowball",
-                "airslash",
-                "hypnosis",
-                "dreameater"
+                {
+                  "id": "shadowball",
+                  "type": "ghost"
+                },
+                {
+                  "id": "airslash",
+                  "type": "flying"
+                },
+                {
+                  "id": "hypnosis",
+                  "type": "psychic"
+                },
+                {
+                  "id": "dreameater",
+                  "type": "psychic"
+                }
               ]
             },
             {
@@ -382,10 +762,22 @@
               "item": "wiseglasses",
               "formName": "plain",
               "moves": [
-                "psychicm",
-                "focusblast",
-                "shadowball",
-                "thunderwave"
+                {
+                  "id": "psychicm",
+                  "type": "normal"
+                },
+                {
+                  "id": "focusblast",
+                  "type": "fighting"
+                },
+                {
+                  "id": "shadowball",
+                  "type": "ghost"
+                },
+                {
+                  "id": "thunderwave",
+                  "type": "electric"
+                }
               ]
             },
             {
@@ -394,10 +786,22 @@
               "item": "kingsrock",
               "formName": "plain",
               "moves": [
-                "flareblitz",
-                "megahorn",
-                "poisonjab",
-                "willowisp"
+                {
+                  "id": "flareblitz",
+                  "type": "fire"
+                },
+                {
+                  "id": "megahorn",
+                  "type": "bug"
+                },
+                {
+                  "id": "poisonjab",
+                  "type": "poison"
+                },
+                {
+                  "id": "willowisp",
+                  "type": "fire"
+                }
               ]
             },
             {
@@ -406,10 +810,22 @@
               "item": "leftovers",
               "formName": "plain",
               "moves": [
-                "nastyplot",
-                "fireblast",
-                "darkpulse",
-                "shadowball"
+                {
+                  "id": "nastyplot",
+                  "type": "dark"
+                },
+                {
+                  "id": "fireblast",
+                  "type": "fire"
+                },
+                {
+                  "id": "darkpulse",
+                  "type": "dark"
+                },
+                {
+                  "id": "shadowball",
+                  "type": "ghost"
+                }
               ]
             }
           ]

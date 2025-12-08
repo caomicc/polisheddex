@@ -6,6 +6,7 @@ import { EvolutionChainStep } from '@/utils/evolution-data-server';
 import Link from 'next/link';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
 import { PokemonType as TypeChartType, getTypeEffectiveness } from '@/data/typeChart';
+import { formatMoveName } from '@/utils/stringUtils';
 
 // Enriched ability structure from pokemon-data-loader
 interface EnrichedAbility {
@@ -83,15 +84,6 @@ function formatEvolutionMethod(step: EvolutionChainStep): string {
 
 function formatItemName(item: string): string {
   return item
-    .replace(/([a-z])([A-Z])/g, '$1 $2')
-    .replace(/_/g, ' ')
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-}
-
-function formatMoveName(move: string): string {
-  return move
     .replace(/([a-z])([A-Z])/g, '$1 $2')
     .replace(/_/g, ' ')
     .split(' ')

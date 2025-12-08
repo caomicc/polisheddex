@@ -11,46 +11,126 @@
           "pokemon": [
             {
               "pokemonName": "chansey",
-              "level": -1,
+              "level": 33,
+              "levelDisplay": "Badge Level +8",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "sing",
+                  "type": "normal"
+                },
+                {
+                  "id": "takedown",
+                  "type": "normal"
+                },
+                {
+                  "id": "minimize",
+                  "type": "normal"
+                },
+                {
+                  "id": "metronome",
+                  "type": "unknownt"
+                }
               ],
               "evs": "136 HP ; maybe 252 since these are \"stat trainers\"?"
             },
             {
               "pokemonName": "nidorina",
-              "level": -1,
+              "level": 32,
+              "levelDisplay": "Badge Level +7",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "sweetkiss",
+                  "type": "fairy"
+                },
+                {
+                  "id": "bite",
+                  "type": "dark"
+                },
+                {
+                  "id": "furystrikes",
+                  "type": "normal"
+                },
+                {
+                  "id": "poisonsting",
+                  "type": "poison"
+                }
               ],
               "evs": "136 HP"
             },
             {
               "pokemonName": "clefable",
-              "level": -1,
+              "level": 29,
+              "levelDisplay": "Badge Level +4",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "healinglight",
+                  "type": "normal"
+                },
+                {
+                  "id": "disarmvoice",
+                  "type": "fairy"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                },
+                {
+                  "id": "sing",
+                  "type": "normal"
+                }
               ],
               "evs": "136 HP"
             },
             {
               "pokemonName": "azumarill",
-              "level": -1,
+              "level": 31,
+              "levelDisplay": "Badge Level +6",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "scaryface",
+                  "type": "normal"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                },
+                {
+                  "id": "aquatail",
+                  "type": "water"
+                },
+                {
+                  "id": "dizzypunch",
+                  "type": "normal"
+                }
               ],
               "evs": "136 HP"
             },
             {
               "pokemonName": "wobbuffet",
-              "level": -1,
+              "level": 30,
+              "levelDisplay": "Badge Level +5",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "splash",
+                  "type": "normal"
+                },
+                {
+                  "id": "charm",
+                  "type": "fairy"
+                },
+                {
+                  "id": "encore",
+                  "type": "normal"
+                },
+                {
+                  "id": "amnesia",
+                  "type": "psychic"
+                }
               ],
               "evs": "136 HP"
             }
@@ -64,10 +144,22 @@
               "level": 60,
               "formName": "plain",
               "moves": [
-                "substitute",
-                "lightscreen",
-                "bodyslam",
-                "healbell"
+                {
+                  "id": "substitute",
+                  "type": "normal"
+                },
+                {
+                  "id": "lightscreen",
+                  "type": "psychic"
+                },
+                {
+                  "id": "bodyslam",
+                  "type": "normal"
+                },
+                {
+                  "id": "healbell",
+                  "type": "normal"
+                }
               ]
             },
             {
@@ -75,10 +167,22 @@
               "level": 59,
               "formName": "plain",
               "moves": [
-                "closecombat",
-                "earthpower",
-                "bodyslam",
-                "outrage"
+                {
+                  "id": "closecombat",
+                  "type": "fighting"
+                },
+                {
+                  "id": "earthpower",
+                  "type": "ground"
+                },
+                {
+                  "id": "bodyslam",
+                  "type": "normal"
+                },
+                {
+                  "id": "outrage",
+                  "type": "dragon"
+                }
               ]
             },
             {
@@ -86,10 +190,22 @@
               "level": 56,
               "formName": "plain",
               "moves": [
-                "healinglight",
-                "disarmvoice",
-                "playrough",
-                "sing"
+                {
+                  "id": "healinglight",
+                  "type": "normal"
+                },
+                {
+                  "id": "disarmvoice",
+                  "type": "fairy"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                },
+                {
+                  "id": "sing",
+                  "type": "normal"
+                }
               ]
             },
             {
@@ -97,10 +213,22 @@
               "level": 56,
               "formName": "plain",
               "moves": [
-                "minimize",
-                "nastyplot",
-                "doubleedge",
-                "playrough"
+                {
+                  "id": "minimize",
+                  "type": "normal"
+                },
+                {
+                  "id": "nastyplot",
+                  "type": "dark"
+                },
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                }
               ]
             },
             {
@@ -108,10 +236,22 @@
               "level": 58,
               "formName": "plain",
               "moves": [
-                "hydropump",
-                "closecombat",
-                "doubleedge",
-                "raindance"
+                {
+                  "id": "hydropump",
+                  "type": "water"
+                },
+                {
+                  "id": "closecombat",
+                  "type": "fighting"
+                },
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "raindance",
+                  "type": "water"
+                }
               ]
             },
             {
@@ -119,10 +259,22 @@
               "level": 57,
               "formName": "plain",
               "moves": [
-                "splash",
-                "charm",
-                "encore",
-                "amnesia"
+                {
+                  "id": "splash",
+                  "type": "normal"
+                },
+                {
+                  "id": "charm",
+                  "type": "fairy"
+                },
+                {
+                  "id": "encore",
+                  "type": "normal"
+                },
+                {
+                  "id": "amnesia",
+                  "type": "psychic"
+                }
               ]
             }
           ]
@@ -135,10 +287,22 @@
               "level": 75,
               "formName": "plain",
               "moves": [
-                "doubleedge",
-                "substitute",
-                "lightscreen",
-                "bodyslam"
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "substitute",
+                  "type": "normal"
+                },
+                {
+                  "id": "lightscreen",
+                  "type": "psychic"
+                },
+                {
+                  "id": "bodyslam",
+                  "type": "normal"
+                }
               ]
             },
             {
@@ -146,10 +310,22 @@
               "level": 74,
               "formName": "plain",
               "moves": [
-                "closecombat",
-                "earthpower",
-                "bodyslam",
-                "outrage"
+                {
+                  "id": "closecombat",
+                  "type": "fighting"
+                },
+                {
+                  "id": "earthpower",
+                  "type": "ground"
+                },
+                {
+                  "id": "bodyslam",
+                  "type": "normal"
+                },
+                {
+                  "id": "outrage",
+                  "type": "dragon"
+                }
               ]
             },
             {
@@ -157,10 +333,22 @@
               "level": 71,
               "formName": "plain",
               "moves": [
-                "healinglight",
-                "disarmvoice",
-                "playrough",
-                "sing"
+                {
+                  "id": "healinglight",
+                  "type": "normal"
+                },
+                {
+                  "id": "disarmvoice",
+                  "type": "fairy"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                },
+                {
+                  "id": "sing",
+                  "type": "normal"
+                }
               ]
             },
             {
@@ -168,10 +356,22 @@
               "level": 71,
               "formName": "plain",
               "moves": [
-                "minimize",
-                "nastyplot",
-                "doubleedge",
-                "playrough"
+                {
+                  "id": "minimize",
+                  "type": "normal"
+                },
+                {
+                  "id": "nastyplot",
+                  "type": "dark"
+                },
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                }
               ]
             },
             {
@@ -179,10 +379,22 @@
               "level": 73,
               "formName": "plain",
               "moves": [
-                "hydropump",
-                "closecombat",
-                "doubleedge",
-                "raindance"
+                {
+                  "id": "hydropump",
+                  "type": "water"
+                },
+                {
+                  "id": "closecombat",
+                  "type": "fighting"
+                },
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "raindance",
+                  "type": "water"
+                }
               ]
             },
             {
@@ -190,10 +402,22 @@
               "level": 72,
               "formName": "plain",
               "moves": [
-                "splash",
-                "charm",
-                "encore",
-                "amnesia"
+                {
+                  "id": "splash",
+                  "type": "normal"
+                },
+                {
+                  "id": "charm",
+                  "type": "fairy"
+                },
+                {
+                  "id": "encore",
+                  "type": "normal"
+                },
+                {
+                  "id": "amnesia",
+                  "type": "psychic"
+                }
               ]
             }
           ]
@@ -207,46 +431,126 @@
           "pokemon": [
             {
               "pokemonName": "chansey",
-              "level": -1,
+              "level": 33,
+              "levelDisplay": "Badge Level +8",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "sing",
+                  "type": "normal"
+                },
+                {
+                  "id": "takedown",
+                  "type": "normal"
+                },
+                {
+                  "id": "minimize",
+                  "type": "normal"
+                },
+                {
+                  "id": "metronome",
+                  "type": "normal"
+                }
               ],
               "evs": "136 HP ; maybe 252 since these are \"stat trainers\"?"
             },
             {
               "pokemonName": "nidorina",
-              "level": -1,
+              "level": 32,
+              "levelDisplay": "Badge Level +7",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "sweetkiss",
+                  "type": "fairy"
+                },
+                {
+                  "id": "bite",
+                  "type": "dark"
+                },
+                {
+                  "id": "furystrikes",
+                  "type": "normal"
+                },
+                {
+                  "id": "poisonsting",
+                  "type": "poison"
+                }
               ],
               "evs": "136 HP"
             },
             {
               "pokemonName": "clefable",
-              "level": -1,
+              "level": 29,
+              "levelDisplay": "Badge Level +4",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "healinglight",
+                  "type": "normal"
+                },
+                {
+                  "id": "disarmvoice",
+                  "type": "fairy"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                },
+                {
+                  "id": "sing",
+                  "type": "normal"
+                }
               ],
               "evs": "136 HP"
             },
             {
               "pokemonName": "azumarill",
-              "level": -1,
+              "level": 31,
+              "levelDisplay": "Badge Level +6",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "scaryface",
+                  "type": "normal"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                },
+                {
+                  "id": "aquatail",
+                  "type": "water"
+                },
+                {
+                  "id": "dizzypunch",
+                  "type": "normal"
+                }
               ],
               "evs": "136 HP"
             },
             {
               "pokemonName": "wobbuffet",
-              "level": -1,
+              "level": 30,
+              "levelDisplay": "Badge Level +5",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "splash",
+                  "type": "normal"
+                },
+                {
+                  "id": "charm",
+                  "type": "fairy"
+                },
+                {
+                  "id": "encore",
+                  "type": "normal"
+                },
+                {
+                  "id": "amnesia",
+                  "type": "psychic"
+                }
               ],
               "evs": "136 HP"
             }
@@ -260,10 +564,22 @@
               "level": 60,
               "formName": "plain",
               "moves": [
-                "substitute",
-                "lightscreen",
-                "bodyslam",
-                "healbell"
+                {
+                  "id": "substitute",
+                  "type": "normal"
+                },
+                {
+                  "id": "lightscreen",
+                  "type": "psychic"
+                },
+                {
+                  "id": "bodyslam",
+                  "type": "normal"
+                },
+                {
+                  "id": "healbell",
+                  "type": "normal"
+                }
               ]
             },
             {
@@ -271,10 +587,22 @@
               "level": 59,
               "formName": "plain",
               "moves": [
-                "closecombat",
-                "earthpower",
-                "bodyslam",
-                "outrage"
+                {
+                  "id": "closecombat",
+                  "type": "fighting"
+                },
+                {
+                  "id": "earthpower",
+                  "type": "ground"
+                },
+                {
+                  "id": "bodyslam",
+                  "type": "normal"
+                },
+                {
+                  "id": "outrage",
+                  "type": "dragon"
+                }
               ]
             },
             {
@@ -282,10 +610,22 @@
               "level": 56,
               "formName": "plain",
               "moves": [
-                "healinglight",
-                "disarmvoice",
-                "playrough",
-                "sing"
+                {
+                  "id": "healinglight",
+                  "type": "normal"
+                },
+                {
+                  "id": "disarmvoice",
+                  "type": "fairy"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                },
+                {
+                  "id": "sing",
+                  "type": "normal"
+                }
               ]
             },
             {
@@ -293,10 +633,22 @@
               "level": 56,
               "formName": "plain",
               "moves": [
-                "minimize",
-                "nastyplot",
-                "doubleedge",
-                "playrough"
+                {
+                  "id": "minimize",
+                  "type": "normal"
+                },
+                {
+                  "id": "nastyplot",
+                  "type": "dark"
+                },
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                }
               ]
             },
             {
@@ -304,10 +656,22 @@
               "level": 58,
               "formName": "plain",
               "moves": [
-                "hydropump",
-                "closecombat",
-                "doubleedge",
-                "raindance"
+                {
+                  "id": "hydropump",
+                  "type": "water"
+                },
+                {
+                  "id": "closecombat",
+                  "type": "fighting"
+                },
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "raindance",
+                  "type": "water"
+                }
               ]
             },
             {
@@ -315,10 +679,22 @@
               "level": 57,
               "formName": "plain",
               "moves": [
-                "splash",
-                "charm",
-                "encore",
-                "amnesia"
+                {
+                  "id": "splash",
+                  "type": "normal"
+                },
+                {
+                  "id": "charm",
+                  "type": "fairy"
+                },
+                {
+                  "id": "encore",
+                  "type": "normal"
+                },
+                {
+                  "id": "amnesia",
+                  "type": "psychic"
+                }
               ]
             }
           ]
@@ -331,10 +707,22 @@
               "level": 75,
               "formName": "plain",
               "moves": [
-                "doubleedge",
-                "substitute",
-                "lightscreen",
-                "bodyslam"
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "substitute",
+                  "type": "normal"
+                },
+                {
+                  "id": "lightscreen",
+                  "type": "psychic"
+                },
+                {
+                  "id": "bodyslam",
+                  "type": "normal"
+                }
               ]
             },
             {
@@ -342,10 +730,22 @@
               "level": 74,
               "formName": "plain",
               "moves": [
-                "closecombat",
-                "earthpower",
-                "bodyslam",
-                "outrage"
+                {
+                  "id": "closecombat",
+                  "type": "fighting"
+                },
+                {
+                  "id": "earthpower",
+                  "type": "ground"
+                },
+                {
+                  "id": "bodyslam",
+                  "type": "normal"
+                },
+                {
+                  "id": "outrage",
+                  "type": "dragon"
+                }
               ]
             },
             {
@@ -353,10 +753,22 @@
               "level": 71,
               "formName": "plain",
               "moves": [
-                "healinglight",
-                "disarmvoice",
-                "playrough",
-                "sing"
+                {
+                  "id": "healinglight",
+                  "type": "normal"
+                },
+                {
+                  "id": "disarmvoice",
+                  "type": "fairy"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                },
+                {
+                  "id": "sing",
+                  "type": "normal"
+                }
               ]
             },
             {
@@ -364,10 +776,22 @@
               "level": 71,
               "formName": "plain",
               "moves": [
-                "minimize",
-                "nastyplot",
-                "doubleedge",
-                "playrough"
+                {
+                  "id": "minimize",
+                  "type": "normal"
+                },
+                {
+                  "id": "nastyplot",
+                  "type": "dark"
+                },
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "playrough",
+                  "type": "fairy"
+                }
               ]
             },
             {
@@ -375,10 +799,22 @@
               "level": 73,
               "formName": "plain",
               "moves": [
-                "hydropump",
-                "closecombat",
-                "doubleedge",
-                "raindance"
+                {
+                  "id": "hydropump",
+                  "type": "water"
+                },
+                {
+                  "id": "closecombat",
+                  "type": "fighting"
+                },
+                {
+                  "id": "doubleedge",
+                  "type": "normal"
+                },
+                {
+                  "id": "raindance",
+                  "type": "water"
+                }
               ]
             },
             {
@@ -386,10 +822,22 @@
               "level": 72,
               "formName": "plain",
               "moves": [
-                "splash",
-                "charm",
-                "encore",
-                "amnesia"
+                {
+                  "id": "splash",
+                  "type": "normal"
+                },
+                {
+                  "id": "charm",
+                  "type": "fairy"
+                },
+                {
+                  "id": "encore",
+                  "type": "normal"
+                },
+                {
+                  "id": "amnesia",
+                  "type": "psychic"
+                }
               ]
             }
           ]

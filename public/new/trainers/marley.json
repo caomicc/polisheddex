@@ -11,46 +11,126 @@
           "pokemon": [
             {
               "pokemonName": "arcanine",
-              "level": -1,
+              "level": 33,
+              "levelDisplay": "Badge Level +8",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "dragondance",
+                  "type": "dragon"
+                },
+                {
+                  "id": "growl",
+                  "type": "normal"
+                },
+                {
+                  "id": "bite",
+                  "type": "dark"
+                },
+                {
+                  "id": "roar",
+                  "type": "normal"
+                }
               ],
               "evs": "240 Spe ; maybe 252 since these are \"stat trainers\"?"
             },
             {
               "pokemonName": "raichu",
-              "level": -1,
+              "level": 31,
+              "levelDisplay": "Badge Level +6",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "thundershock",
+                  "type": "electric"
+                },
+                {
+                  "id": "leer",
+                  "type": "normal"
+                },
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                }
               ],
               "evs": "240 Spe"
             },
             {
               "pokemonName": "crobat",
-              "level": -1,
+              "level": 30,
+              "levelDisplay": "Badge Level +5",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "superfang",
+                  "type": "normal"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                },
+                {
+                  "id": "wingattack",
+                  "type": "flying"
+                },
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                }
               ],
               "evs": "240 Spe"
             },
             {
               "pokemonName": "electrode",
-              "level": -1,
+              "level": 30,
+              "levelDisplay": "Badge Level +5",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "lightscreen",
+                  "type": "psychic"
+                },
+                {
+                  "id": "reflect",
+                  "type": "psychic"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                }
               ],
               "evs": "240 Spe"
             },
             {
               "pokemonName": "weavile",
-              "level": -1,
+              "level": 32,
+              "levelDisplay": "Badge Level +7",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "screech",
+                  "type": "normal"
+                },
+                {
+                  "id": "iciclecrash",
+                  "type": "ice"
+                },
+                {
+                  "id": "honeclaws",
+                  "type": "dark"
+                },
+                {
+                  "id": "metalclaw",
+                  "type": "steel"
+                }
               ],
               "evs": "240 Spe"
             }
@@ -64,10 +144,22 @@
               "level": 60,
               "formName": "plain",
               "moves": [
-                "dragondance",
-                "growl",
-                "bite",
-                "roar"
+                {
+                  "id": "dragondance",
+                  "type": "dragon"
+                },
+                {
+                  "id": "growl",
+                  "type": "normal"
+                },
+                {
+                  "id": "bite",
+                  "type": "dark"
+                },
+                {
+                  "id": "roar",
+                  "type": "normal"
+                }
               ]
             },
             {
@@ -75,10 +167,22 @@
               "level": 59,
               "formName": "plain",
               "moves": [
-                "steelwing",
-                "drillpeck",
-                "roost",
-                "wingattack"
+                {
+                  "id": "steelwing",
+                  "type": "steel"
+                },
+                {
+                  "id": "drillpeck",
+                  "type": "flying"
+                },
+                {
+                  "id": "roost",
+                  "type": "flying"
+                },
+                {
+                  "id": "wingattack",
+                  "type": "flying"
+                }
               ]
             },
             {
@@ -86,10 +190,22 @@
               "level": 58,
               "formName": "plain",
               "moves": [
-                "thundershock",
-                "leer",
-                "quickattack",
-                "thunderbolt"
+                {
+                  "id": "thundershock",
+                  "type": "electric"
+                },
+                {
+                  "id": "leer",
+                  "type": "normal"
+                },
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                }
               ]
             },
             {
@@ -97,10 +213,22 @@
               "level": 56,
               "formName": "plain",
               "moves": [
-                "crunch",
-                "airslash",
-                "venoshock",
-                "haze"
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "airslash",
+                  "type": "flying"
+                },
+                {
+                  "id": "venoshock",
+                  "type": "poison"
+                },
+                {
+                  "id": "haze",
+                  "type": "ice"
+                }
               ]
             },
             {
@@ -108,10 +236,22 @@
               "level": 56,
               "formName": "plain",
               "moves": [
-                "gyroball",
-                "bugbuzz",
-                "thunder",
-                "explosion"
+                {
+                  "id": "gyroball",
+                  "type": "steel"
+                },
+                {
+                  "id": "bugbuzz",
+                  "type": "bug"
+                },
+                {
+                  "id": "thunder",
+                  "type": "electric"
+                },
+                {
+                  "id": "explosion",
+                  "type": "normal"
+                }
               ]
             },
             {
@@ -119,10 +259,22 @@
               "level": 58,
               "formName": "plain",
               "moves": [
-                "ironhead",
-                "bravebird",
-                "takedown",
-                "crunch"
+                {
+                  "id": "ironhead",
+                  "type": "steel"
+                },
+                {
+                  "id": "bravebird",
+                  "type": "flying"
+                },
+                {
+                  "id": "takedown",
+                  "type": "normal"
+                },
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                }
               ]
             }
           ]
@@ -135,10 +287,22 @@
               "level": 75,
               "formName": "plain",
               "moves": [
-                "dragondance",
-                "growl",
-                "bite",
-                "roar"
+                {
+                  "id": "dragondance",
+                  "type": "dragon"
+                },
+                {
+                  "id": "growl",
+                  "type": "normal"
+                },
+                {
+                  "id": "bite",
+                  "type": "dark"
+                },
+                {
+                  "id": "roar",
+                  "type": "normal"
+                }
               ]
             },
             {
@@ -146,10 +310,22 @@
               "level": 74,
               "formName": "plain",
               "moves": [
-                "hurricane",
-                "airslash",
-                "steelwing",
-                "drillpeck"
+                {
+                  "id": "hurricane",
+                  "type": "flying"
+                },
+                {
+                  "id": "airslash",
+                  "type": "flying"
+                },
+                {
+                  "id": "steelwing",
+                  "type": "steel"
+                },
+                {
+                  "id": "drillpeck",
+                  "type": "flying"
+                }
               ]
             },
             {
@@ -157,10 +333,22 @@
               "level": 73,
               "formName": "plain",
               "moves": [
-                "thundershock",
-                "leer",
-                "quickattack",
-                "thunderbolt"
+                {
+                  "id": "thundershock",
+                  "type": "electric"
+                },
+                {
+                  "id": "leer",
+                  "type": "normal"
+                },
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                }
               ]
             },
             {
@@ -168,10 +356,22 @@
               "level": 71,
               "formName": "plain",
               "moves": [
-                "crunch",
-                "airslash",
-                "venoshock",
-                "haze"
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "airslash",
+                  "type": "flying"
+                },
+                {
+                  "id": "venoshock",
+                  "type": "poison"
+                },
+                {
+                  "id": "haze",
+                  "type": "ice"
+                }
               ]
             },
             {
@@ -179,10 +379,22 @@
               "level": 71,
               "formName": "plain",
               "moves": [
-                "mirrorcoat",
-                "gyroball",
-                "bugbuzz",
-                "thunder"
+                {
+                  "id": "mirrorcoat",
+                  "type": "psychic"
+                },
+                {
+                  "id": "gyroball",
+                  "type": "steel"
+                },
+                {
+                  "id": "bugbuzz",
+                  "type": "bug"
+                },
+                {
+                  "id": "thunder",
+                  "type": "electric"
+                }
               ]
             },
             {
@@ -190,10 +402,22 @@
               "level": 73,
               "formName": "plain",
               "moves": [
-                "rockslide",
-                "hyperbeam",
-                "ironhead",
-                "bravebird"
+                {
+                  "id": "rockslide",
+                  "type": "rock"
+                },
+                {
+                  "id": "hyperbeam",
+                  "type": "normal"
+                },
+                {
+                  "id": "ironhead",
+                  "type": "steel"
+                },
+                {
+                  "id": "bravebird",
+                  "type": "flying"
+                }
               ]
             }
           ]
@@ -207,46 +431,126 @@
           "pokemon": [
             {
               "pokemonName": "arcanine",
-              "level": -1,
+              "level": 33,
+              "levelDisplay": "Badge Level +8",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "dragondance",
+                  "type": "dragon"
+                },
+                {
+                  "id": "growl",
+                  "type": "normal"
+                },
+                {
+                  "id": "bite",
+                  "type": "dark"
+                },
+                {
+                  "id": "roar",
+                  "type": "normal"
+                }
               ],
               "evs": "240 Spe ; maybe 252 since these are \"stat trainers\"?"
             },
             {
               "pokemonName": "raichu",
-              "level": -1,
+              "level": 31,
+              "levelDisplay": "Badge Level +6",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "thundershock",
+                  "type": "electric"
+                },
+                {
+                  "id": "leer",
+                  "type": "normal"
+                },
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                }
               ],
               "evs": "240 Spe"
             },
             {
               "pokemonName": "crobat",
-              "level": -1,
+              "level": 30,
+              "levelDisplay": "Badge Level +5",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "superfang",
+                  "type": "normal"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                },
+                {
+                  "id": "wingattack",
+                  "type": "flying"
+                },
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                }
               ],
               "evs": "240 Spe"
             },
             {
               "pokemonName": "electrode",
-              "level": -1,
+              "level": 30,
+              "levelDisplay": "Badge Level +5",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "lightscreen",
+                  "type": "psychic"
+                },
+                {
+                  "id": "reflect",
+                  "type": "psychic"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                },
+                {
+                  "id": "swift",
+                  "type": "normal"
+                }
               ],
               "evs": "240 Spe"
             },
             {
               "pokemonName": "weavile",
-              "level": -1,
+              "level": 32,
+              "levelDisplay": "Badge Level +7",
               "formName": "plain",
               "moves": [
-                "badge dependant"
+                {
+                  "id": "screech",
+                  "type": "normal"
+                },
+                {
+                  "id": "iciclecrash",
+                  "type": "ice"
+                },
+                {
+                  "id": "honeclaws",
+                  "type": "dark"
+                },
+                {
+                  "id": "metalclaw",
+                  "type": "steel"
+                }
               ],
               "evs": "240 Spe"
             }
@@ -260,10 +564,22 @@
               "level": 60,
               "formName": "plain",
               "moves": [
-                "dragondance",
-                "growl",
-                "bite",
-                "roar"
+                {
+                  "id": "dragondance",
+                  "type": "dragon"
+                },
+                {
+                  "id": "growl",
+                  "type": "normal"
+                },
+                {
+                  "id": "bite",
+                  "type": "dark"
+                },
+                {
+                  "id": "roar",
+                  "type": "normal"
+                }
               ]
             },
             {
@@ -271,10 +587,22 @@
               "level": 59,
               "formName": "plain",
               "moves": [
-                "steelwing",
-                "drillpeck",
-                "roost",
-                "wingattack"
+                {
+                  "id": "steelwing",
+                  "type": "steel"
+                },
+                {
+                  "id": "drillpeck",
+                  "type": "flying"
+                },
+                {
+                  "id": "roost",
+                  "type": "flying"
+                },
+                {
+                  "id": "wingattack",
+                  "type": "flying"
+                }
               ]
             },
             {
@@ -282,10 +610,22 @@
               "level": 58,
               "formName": "plain",
               "moves": [
-                "thundershock",
-                "leer",
-                "quickattack",
-                "thunderbolt"
+                {
+                  "id": "thundershock",
+                  "type": "electric"
+                },
+                {
+                  "id": "leer",
+                  "type": "normal"
+                },
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                }
               ]
             },
             {
@@ -293,10 +633,22 @@
               "level": 56,
               "formName": "plain",
               "moves": [
-                "crunch",
-                "airslash",
-                "venoshock",
-                "haze"
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "airslash",
+                  "type": "flying"
+                },
+                {
+                  "id": "venoshock",
+                  "type": "poison"
+                },
+                {
+                  "id": "haze",
+                  "type": "ice"
+                }
               ]
             },
             {
@@ -304,10 +656,22 @@
               "level": 56,
               "formName": "plain",
               "moves": [
-                "gyroball",
-                "bugbuzz",
-                "thunder",
-                "explosion"
+                {
+                  "id": "gyroball",
+                  "type": "steel"
+                },
+                {
+                  "id": "bugbuzz",
+                  "type": "bug"
+                },
+                {
+                  "id": "thunder",
+                  "type": "electric"
+                },
+                {
+                  "id": "explosion",
+                  "type": "normal"
+                }
               ]
             },
             {
@@ -315,10 +679,22 @@
               "level": 58,
               "formName": "plain",
               "moves": [
-                "ironhead",
-                "bravebird",
-                "takedown",
-                "crunch"
+                {
+                  "id": "ironhead",
+                  "type": "steel"
+                },
+                {
+                  "id": "bravebird",
+                  "type": "flying"
+                },
+                {
+                  "id": "takedown",
+                  "type": "normal"
+                },
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                }
               ]
             }
           ]
@@ -331,10 +707,22 @@
               "level": 75,
               "formName": "plain",
               "moves": [
-                "dragondance",
-                "growl",
-                "bite",
-                "roar"
+                {
+                  "id": "dragondance",
+                  "type": "dragon"
+                },
+                {
+                  "id": "growl",
+                  "type": "normal"
+                },
+                {
+                  "id": "bite",
+                  "type": "dark"
+                },
+                {
+                  "id": "roar",
+                  "type": "normal"
+                }
               ]
             },
             {
@@ -342,10 +730,22 @@
               "level": 74,
               "formName": "plain",
               "moves": [
-                "hurricane",
-                "airslash",
-                "steelwing",
-                "drillpeck"
+                {
+                  "id": "hurricane",
+                  "type": "flying"
+                },
+                {
+                  "id": "airslash",
+                  "type": "flying"
+                },
+                {
+                  "id": "steelwing",
+                  "type": "steel"
+                },
+                {
+                  "id": "drillpeck",
+                  "type": "flying"
+                }
               ]
             },
             {
@@ -353,10 +753,22 @@
               "level": 73,
               "formName": "plain",
               "moves": [
-                "thundershock",
-                "leer",
-                "quickattack",
-                "thunderbolt"
+                {
+                  "id": "thundershock",
+                  "type": "electric"
+                },
+                {
+                  "id": "leer",
+                  "type": "normal"
+                },
+                {
+                  "id": "quickattack",
+                  "type": "normal"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                }
               ]
             },
             {
@@ -364,10 +776,22 @@
               "level": 71,
               "formName": "plain",
               "moves": [
-                "crunch",
-                "airslash",
-                "venoshock",
-                "haze"
+                {
+                  "id": "crunch",
+                  "type": "dark"
+                },
+                {
+                  "id": "airslash",
+                  "type": "flying"
+                },
+                {
+                  "id": "venoshock",
+                  "type": "poison"
+                },
+                {
+                  "id": "haze",
+                  "type": "ice"
+                }
               ]
             },
             {
@@ -375,10 +799,22 @@
               "level": 71,
               "formName": "plain",
               "moves": [
-                "mirrorcoat",
-                "gyroball",
-                "bugbuzz",
-                "thunder"
+                {
+                  "id": "mirrorcoat",
+                  "type": "psychic"
+                },
+                {
+                  "id": "gyroball",
+                  "type": "steel"
+                },
+                {
+                  "id": "bugbuzz",
+                  "type": "bug"
+                },
+                {
+                  "id": "thunder",
+                  "type": "electric"
+                }
               ]
             },
             {
@@ -386,10 +822,22 @@
               "level": 73,
               "formName": "plain",
               "moves": [
-                "rockslide",
-                "hyperbeam",
-                "ironhead",
-                "bravebird"
+                {
+                  "id": "rockslide",
+                  "type": "rock"
+                },
+                {
+                  "id": "hyperbeam",
+                  "type": "normal"
+                },
+                {
+                  "id": "ironhead",
+                  "type": "steel"
+                },
+                {
+                  "id": "bravebird",
+                  "type": "flying"
+                }
               ]
             }
           ]

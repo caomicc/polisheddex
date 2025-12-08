@@ -14,10 +14,22 @@
               "level": 61,
               "formName": "plain",
               "moves": [
-                "waterpulse",
-                "disable",
-                "calmmind",
-                "psychicm"
+                {
+                  "id": "waterpulse",
+                  "type": "water"
+                },
+                {
+                  "id": "disable",
+                  "type": "normal"
+                },
+                {
+                  "id": "calmmind",
+                  "type": "psychic"
+                },
+                {
+                  "id": "psychicm",
+                  "type": "normal"
+                }
               ],
               "evs": "100 HP, 252 SAt"
             },
@@ -26,10 +38,22 @@
               "level": 60,
               "formName": "plain",
               "moves": [
-                "scald",
-                "calmmind",
-                "earthquake",
-                "raindance"
+                {
+                  "id": "scald",
+                  "type": "water"
+                },
+                {
+                  "id": "calmmind",
+                  "type": "psychic"
+                },
+                {
+                  "id": "earthquake",
+                  "type": "ground"
+                },
+                {
+                  "id": "raindance",
+                  "type": "water"
+                }
               ],
               "evs": "100 HP, 252 SAt"
             },
@@ -38,10 +62,22 @@
               "level": 62,
               "formName": "plain",
               "moves": [
-                "surf",
-                "perishsong",
-                "blizzard",
-                "raindance"
+                {
+                  "id": "surf",
+                  "type": "water"
+                },
+                {
+                  "id": "perishsong",
+                  "type": "normal"
+                },
+                {
+                  "id": "blizzard",
+                  "type": "ice"
+                },
+                {
+                  "id": "raindance",
+                  "type": "water"
+                }
               ],
               "evs": "252 Def, 100 SDf"
             },
@@ -50,10 +86,22 @@
               "level": 60,
               "formName": "plain",
               "moves": [
-                "defensecurl",
-                "stomp",
-                "protect",
-                "crabhammer"
+                {
+                  "id": "defensecurl",
+                  "type": "normal"
+                },
+                {
+                  "id": "stomp",
+                  "type": "normal"
+                },
+                {
+                  "id": "protect",
+                  "type": "normal"
+                },
+                {
+                  "id": "crabhammer",
+                  "type": "water"
+                }
               ],
               "evs": "252 Atk, 100 Spe"
             },
@@ -62,10 +110,22 @@
               "level": 62,
               "formName": "plain",
               "moves": [
-                "waterpulse",
-                "thunderbolt",
-                "icebeam",
-                "recover"
+                {
+                  "id": "waterpulse",
+                  "type": "water"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                },
+                {
+                  "id": "icebeam",
+                  "type": "ice"
+                },
+                {
+                  "id": "recover",
+                  "type": "normal"
+                }
               ],
               "evs": "100 SAt, 252 Spe"
             },
@@ -75,10 +135,22 @@
               "item": "sitrusberry",
               "formName": "plain",
               "moves": [
-                "scald",
-                "confuseray",
-                "recover",
-                "icebeam"
+                {
+                  "id": "scald",
+                  "type": "water"
+                },
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                },
+                {
+                  "id": "recover",
+                  "type": "normal"
+                },
+                {
+                  "id": "icebeam",
+                  "type": "ice"
+                }
               ],
               "evs": "252 SAt, 100 Spe"
             }
@@ -93,10 +165,22 @@
               "item": "twistedspoon",
               "formName": "plain",
               "moves": [
-                "psychicm",
-                "scald",
-                "icebeam",
-                "calmmind"
+                {
+                  "id": "psychicm",
+                  "type": "normal"
+                },
+                {
+                  "id": "scald",
+                  "type": "water"
+                },
+                {
+                  "id": "icebeam",
+                  "type": "ice"
+                },
+                {
+                  "id": "calmmind",
+                  "type": "psychic"
+                }
               ]
             },
             {
@@ -104,10 +188,22 @@
               "level": 72,
               "formName": "plain",
               "moves": [
-                "earthquake",
-                "scald",
-                "recover",
-                "toxic"
+                {
+                  "id": "earthquake",
+                  "type": "ground"
+                },
+                {
+                  "id": "scald",
+                  "type": "water"
+                },
+                {
+                  "id": "recover",
+                  "type": "normal"
+                },
+                {
+                  "id": "toxic",
+                  "type": "poison"
+                }
               ]
             },
             {
@@ -116,10 +212,22 @@
               "item": "kingsrock",
               "formName": "plain",
               "moves": [
-                "swordsdance",
-                "crabhammer",
-                "xscissor",
-                "rockslide"
+                {
+                  "id": "swordsdance",
+                  "type": "normal"
+                },
+                {
+                  "id": "crabhammer",
+                  "type": "water"
+                },
+                {
+                  "id": "xscissor",
+                  "type": "bug"
+                },
+                {
+                  "id": "rockslide",
+                  "type": "rock"
+                }
               ]
             },
             {
@@ -128,10 +236,22 @@
               "item": "nevermeltice",
               "formName": "plain",
               "moves": [
-                "surf",
-                "thunderbolt",
-                "icebeam",
-                "confuseray"
+                {
+                  "id": "surf",
+                  "type": "water"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                },
+                {
+                  "id": "icebeam",
+                  "type": "ice"
+                },
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                }
               ]
             },
             {
@@ -140,10 +260,22 @@
               "item": "charcoal",
               "formName": "plain",
               "moves": [
-                "fireblast",
-                "icebeam",
-                "hydropump",
-                "powerwhip"
+                {
+                  "id": "fireblast",
+                  "type": "fire"
+                },
+                {
+                  "id": "icebeam",
+                  "type": "ice"
+                },
+                {
+                  "id": "hydropump",
+                  "type": "water"
+                },
+                {
+                  "id": "powerwhip",
+                  "type": "grass"
+                }
               ]
             },
             {
@@ -152,10 +284,22 @@
               "item": "leftovers",
               "formName": "plain",
               "moves": [
-                "recover",
-                "psychicm",
-                "thunderbolt",
-                "surf"
+                {
+                  "id": "recover",
+                  "type": "normal"
+                },
+                {
+                  "id": "psychicm",
+                  "type": "normal"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                },
+                {
+                  "id": "surf",
+                  "type": "water"
+                }
               ]
             }
           ]
@@ -172,10 +316,22 @@
               "level": 61,
               "formName": "plain",
               "moves": [
-                "waterpulse",
-                "disable",
-                "calmmind",
-                "psychicm"
+                {
+                  "id": "waterpulse",
+                  "type": "water"
+                },
+                {
+                  "id": "disable",
+                  "type": "normal"
+                },
+                {
+                  "id": "calmmind",
+                  "type": "psychic"
+                },
+                {
+                  "id": "psychicm",
+                  "type": "normal"
+                }
               ],
               "evs": "100 HP, 252 SAt"
             },
@@ -184,10 +340,22 @@
               "level": 60,
               "formName": "plain",
               "moves": [
-                "scald",
-                "calmmind",
-                "earthquake",
-                "raindance"
+                {
+                  "id": "scald",
+                  "type": "water"
+                },
+                {
+                  "id": "calmmind",
+                  "type": "psychic"
+                },
+                {
+                  "id": "earthquake",
+                  "type": "ground"
+                },
+                {
+                  "id": "raindance",
+                  "type": "water"
+                }
               ],
               "evs": "100 HP, 252 SAt"
             },
@@ -196,10 +364,22 @@
               "level": 62,
               "formName": "plain",
               "moves": [
-                "surf",
-                "perishsong",
-                "blizzard",
-                "raindance"
+                {
+                  "id": "surf",
+                  "type": "water"
+                },
+                {
+                  "id": "perishsong",
+                  "type": "normal"
+                },
+                {
+                  "id": "blizzard",
+                  "type": "ice"
+                },
+                {
+                  "id": "raindance",
+                  "type": "water"
+                }
               ],
               "evs": "252 Def, 100 SDf"
             },
@@ -208,10 +388,22 @@
               "level": 60,
               "formName": "plain",
               "moves": [
-                "defensecurl",
-                "stomp",
-                "protect",
-                "crabhammer"
+                {
+                  "id": "defensecurl",
+                  "type": "normal"
+                },
+                {
+                  "id": "stomp",
+                  "type": "normal"
+                },
+                {
+                  "id": "protect",
+                  "type": "normal"
+                },
+                {
+                  "id": "crabhammer",
+                  "type": "water"
+                }
               ],
               "evs": "252 Atk, 100 Spe"
             },
@@ -220,10 +412,22 @@
               "level": 62,
               "formName": "plain",
               "moves": [
-                "waterpulse",
-                "thunderbolt",
-                "icebeam",
-                "recover"
+                {
+                  "id": "waterpulse",
+                  "type": "water"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                },
+                {
+                  "id": "icebeam",
+                  "type": "ice"
+                },
+                {
+                  "id": "recover",
+                  "type": "normal"
+                }
               ],
               "evs": "100 SAt, 252 Spe"
             },
@@ -233,10 +437,22 @@
               "item": "sitrusberry",
               "formName": "plain",
               "moves": [
-                "scald",
-                "confuseray",
-                "recover",
-                "icebeam"
+                {
+                  "id": "scald",
+                  "type": "water"
+                },
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                },
+                {
+                  "id": "recover",
+                  "type": "normal"
+                },
+                {
+                  "id": "icebeam",
+                  "type": "ice"
+                }
               ],
               "evs": "252 SAt, 100 Spe"
             }
@@ -251,10 +467,22 @@
               "item": "twistedspoon",
               "formName": "plain",
               "moves": [
-                "psychicm",
-                "scald",
-                "icebeam",
-                "calmmind"
+                {
+                  "id": "psychicm",
+                  "type": "normal"
+                },
+                {
+                  "id": "scald",
+                  "type": "water"
+                },
+                {
+                  "id": "icebeam",
+                  "type": "ice"
+                },
+                {
+                  "id": "calmmind",
+                  "type": "psychic"
+                }
               ]
             },
             {
@@ -262,10 +490,22 @@
               "level": 72,
               "formName": "plain",
               "moves": [
-                "earthquake",
-                "scald",
-                "recover",
-                "toxic"
+                {
+                  "id": "earthquake",
+                  "type": "ground"
+                },
+                {
+                  "id": "scald",
+                  "type": "water"
+                },
+                {
+                  "id": "recover",
+                  "type": "normal"
+                },
+                {
+                  "id": "toxic",
+                  "type": "poison"
+                }
               ]
             },
             {
@@ -274,10 +514,22 @@
               "item": "kingsrock",
               "formName": "plain",
               "moves": [
-                "swordsdance",
-                "crabhammer",
-                "xscissor",
-                "rockslide"
+                {
+                  "id": "swordsdance",
+                  "type": "normal"
+                },
+                {
+                  "id": "crabhammer",
+                  "type": "water"
+                },
+                {
+                  "id": "xscissor",
+                  "type": "bug"
+                },
+                {
+                  "id": "rockslide",
+                  "type": "rock"
+                }
               ]
             },
             {
@@ -286,10 +538,22 @@
               "item": "nevermeltice",
               "formName": "plain",
               "moves": [
-                "surf",
-                "thunderbolt",
-                "icebeam",
-                "confuseray"
+                {
+                  "id": "surf",
+                  "type": "water"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                },
+                {
+                  "id": "icebeam",
+                  "type": "ice"
+                },
+                {
+                  "id": "confuseray",
+                  "type": "ghost"
+                }
               ]
             },
             {
@@ -298,10 +562,22 @@
               "item": "charcoal",
               "formName": "plain",
               "moves": [
-                "fireblast",
-                "icebeam",
-                "hydropump",
-                "powerwhip"
+                {
+                  "id": "fireblast",
+                  "type": "fire"
+                },
+                {
+                  "id": "icebeam",
+                  "type": "ice"
+                },
+                {
+                  "id": "hydropump",
+                  "type": "water"
+                },
+                {
+                  "id": "powerwhip",
+                  "type": "grass"
+                }
               ]
             },
             {
@@ -310,10 +586,22 @@
               "item": "leftovers",
               "formName": "plain",
               "moves": [
-                "recover",
-                "psychicm",
-                "thunderbolt",
-                "surf"
+                {
+                  "id": "recover",
+                  "type": "normal"
+                },
+                {
+                  "id": "psychicm",
+                  "type": "normal"
+                },
+                {
+                  "id": "thunderbolt",
+                  "type": "electric"
+                },
+                {
+                  "id": "surf",
+                  "type": "water"
+                }
               ]
             }
           ]

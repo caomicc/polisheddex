@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Badge, BadgeVariant } from '@/components/ui/badge';
@@ -9,59 +9,7 @@ import { TrainerSprite } from './trainer-sprite';
 import { PokemonSprite } from '@/components/pokemon/pokemon-sprite';
 import { ComprehensiveTrainerData } from '@/types/new';
 import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
-
-// Type for move data from manifest
-interface MoveInfo {
-  name: string;
-  type: string;
-  power: number;
-  accuracy: number;
-  pp: number;
-  category: string;
-}
-
-interface MovesManifestItem {
-  id: string;
-  versions: {
-    faithful: MoveInfo;
-    polished: MoveInfo;
-  };
-}
-
-// Cache for moves data
-let movesCache: Record<string, MovesManifestItem> | null = null;
-
-// Hook to load moves data
-function useMovesData() {
-  const [moves, setMoves] = useState<Record<string, MovesManifestItem>>(movesCache || {});
-  const [isLoading, setIsLoading] = useState(!movesCache);
-
-  useEffect(() => {
-    if (movesCache) {
-      setMoves(movesCache);
-      setIsLoading(false);
-      return;
-    }
-
-    fetch('/new/moves_manifest.json')
-      .then(res => res.json())
-      .then((data: MovesManifestItem[]) => {
-        const movesMap: Record<string, MovesManifestItem> = {};
-        data.forEach(move => {
-          movesMap[move.id] = move;
-        });
-        movesCache = movesMap;
-        setMoves(movesMap);
-        setIsLoading(false);
-      })
-      .catch(err => {
-        console.error('Error loading moves:', err);
-        setIsLoading(false);
-      });
-  }, []);
-
-  return { moves, isLoading };
-}
+import { formatMoveName } from '@/utils/stringUtils';
 
 interface NewTrainerCardProps {
   trainer: ComprehensiveTrainerData;
@@ -120,30 +68,31 @@ function getTrainerSpritePath(trainerClass: string): string {
   return spriteMap[classLower] || classLower;
 }
 
-// Format move name for display
-function formatMoveName(move: string): string {
-  return move
-    .replace(/([a-z])([A-Z])/g, '$1 $2')
-    .replace(/_/g, ' ')
-    .replace(/\b\w/g, c => c.toUpperCase());
-}
+// Get level range display for a team
+function getLevelRangeDisplay(pokemon: ComprehensiveTrainerData['versions'][string]['teams'][0]['pokemon']): string {
+  // Check if any Pokemon has badge-dependent levels
+  const hasBadgeLevels = pokemon.some(p => p.levelDisplay);
 
-// Format item name for display
-function formatItemName(item: string): string {
-  return item
-    .replace(/([a-z])([A-Z])/g, '$1 $2')
-    .replace(/_/g, ' ')
-    .replace(/\b\w/g, c => c.toUpperCase());
+  if (hasBadgeLevels) {
+    // For badge-dependent teams, show "Badge Dependent"
+    return 'Badge Dependent';
+  }
+
+  // For static levels, show the range
+  const levels = pokemon.map(p => p.level).filter(l => l > 0);
+  if (levels.length === 0) return 'Variable';
+
+  const minLevel = Math.min(...levels);
+  const maxLevel = Math.max(...levels);
+
+  return minLevel === maxLevel ? `Lv. ${minLevel}` : `Lv. ${minLevel}-${maxLevel}`;
 }
 
 interface TeamDisplayProps {
   team: ComprehensiveTrainerData['versions'][string]['teams'][0];
   matchLabel?: string;
-  movesData: Record<string, MovesManifestItem>;
-  version: 'faithful' | 'polished';
 }
-
-function TeamDisplay({ team, matchLabel, movesData, version }: TeamDisplayProps) {
+function TeamDisplay({ team, matchLabel }: TeamDisplayProps) {
   function getItemIdFromDisplayName(item: string): string {
     // Convert display name to item ID (e.g., "Ultra Ball" -> "ultraball")
     return item.toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -198,7 +147,11 @@ function TeamDisplay({ team, matchLabel, movesData, version }: TeamDisplayProps)
                   )}
                 </Link>
 
-                {poke.level && <p className="text-xs">Lv. {poke.level}</p>}
+                {(poke.level || poke.levelDisplay) && (
+                  <p className="text-xs">
+                    {poke.levelDisplay ? poke.levelDisplay : `Lv. ${poke.level}`}
+                  </p>
+                )}
                 {poke.item && (
                   <p className="text-xs">
                     Held item:{' '}
@@ -224,17 +177,16 @@ function TeamDisplay({ team, matchLabel, movesData, version }: TeamDisplayProps)
             {poke.moves && poke.moves.length > 0 && (
               <div className="grid grid-cols-2 gap-2">
                 {poke.moves.map((move, i) => {
-                  const moveData = movesData[move.toLowerCase()];
-                  const moveType = (moveData?.versions[version]?.type || 'normal') as BadgeVariant;
+                  const moveType = (move.type || 'normal') as BadgeVariant;
 
                   return (
                     <Link
                       key={i}
-                      href={`/moves/${move.toLowerCase()}`}
+                      href={`/moves/${move.id}`}
                       className="text-xs font-bold capitalize text-gray-700 dark:text-gray-300 flex flex-col items-center gap-2 p-2 rounded-md bg-black/5 dark:bg-black/30 hover:bg-gray-200 dark:hover:bg-black/50 transition-colors"
-                      title={formatMoveName(move)}
+                      title={formatMoveName(move.id)}
                     >
-                      <span className="capitalize truncate w-full text-center">{formatMoveName(move)}</span>
+                      <span className="capitalize truncate w-full text-center">{formatMoveName(move.id)}</span>
                       <Badge
                         variant={moveType}
                         className="px-1 py-0 text-[9px]"
@@ -246,20 +198,6 @@ function TeamDisplay({ team, matchLabel, movesData, version }: TeamDisplayProps)
                 })}
               </div>
             )}
-
-            {/* Additional info */}
-            {/* <div className="mt-2 flex flex-wrap gap-1">
-              {poke.ability && (
-                <Badge variant="outline" className="text-[10px]">
-                  {poke.ability}
-                </Badge>
-              )}
-              {poke.nature && (
-                <Badge variant="outline" className="text-[10px]">
-                  {poke.nature}
-                </Badge>
-              )}
-            </div> */}
           </div>
         ))}
       </div>
@@ -274,7 +212,6 @@ export default function NewTrainerCard({
   isGymLeader = false
 }: NewTrainerCardProps) {
   const { showFaithful } = useFaithfulPreferenceSafe();
-  const { moves: movesData } = useMovesData();
   const version = showFaithful ? 'faithful' : 'polished';
 
   const versionData = trainer.versions[version] || trainer.versions.polished || trainer.versions.faithful;
@@ -319,7 +256,7 @@ export default function NewTrainerCard({
                   )}
                 </div>
                 <div className="text-xs text-gray-500 dark:text-gray-400">
-                  {selectedTeam.pokemon.length} Pokémon • Lv. {Math.min(...selectedTeam.pokemon.map(p => p.level))}-{Math.max(...selectedTeam.pokemon.map(p => p.level))}
+                  {selectedTeam.pokemon.length} Pokémon • {getLevelRangeDisplay(selectedTeam.pokemon)}
                 </div>
               </div>
             </div>
@@ -332,13 +269,11 @@ export default function NewTrainerCard({
                     key={idx}
                     team={team}
                     matchLabel={`Battle ${team.matchCount}`}
-                    movesData={movesData}
-                    version={version}
                   />
                 ))}
               </div>
             ) : (
-              <TeamDisplay team={selectedTeam} movesData={movesData} version={version} />
+              <TeamDisplay team={selectedTeam} />
             )}
           </AccordionContent>
         </AccordionItem>

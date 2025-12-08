@@ -1,6 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { ChainLink } from '@/types/new';
+import { formatMoveName } from '@/utils/stringUtils';
 
 export interface EvolutionChainMember {
   name: string;
@@ -111,15 +112,6 @@ export function formatEvolutionMethod(method: {
 
 function formatItemName(item: string): string {
   return item
-    .replace(/([a-z])([A-Z])/g, '$1 $2')
-    .replace(/_/g, ' ')
-    .split(' ')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(' ');
-}
-
-function formatMoveName(move: string): string {
-  return move
     .replace(/([a-z])([A-Z])/g, '$1 $2')
     .replace(/_/g, ' ')
     .split(' ')
