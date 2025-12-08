@@ -274,7 +274,7 @@ export function PokemonInfoTable({
           {/* Location / How to Obtain */}
           <TableRow>
             <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
-              Location
+              Best obtain method
             </TableHead>
             <TableCell className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
               {obtainMethod}
