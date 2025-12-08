@@ -13,8 +13,6 @@ import Link from 'next/link';
 import { EvolutionTable } from './evolution-table';
 import { EvolutionChain } from '@/utils/evolution-data-server';
 import { PokemonInfoTable } from './pokemon-info-table';
-import { ChevronDown } from 'lucide-react';
-import { useState } from 'react';
 
 // Type for location encounter data
 interface PokemonLocationEncounter {
@@ -153,18 +151,6 @@ export default function PokemonFormClient({
     );
   });
 
-  // Collapsible section state
-  const [openSections, setOpenSections] = useState({
-    levelUp: true,
-    egg: false,
-    tm: false,
-    locations: true,
-  });
-
-  const toggleSection = (section: keyof typeof openSections) => {
-    setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }));
-  };
-
   return (
     <>
       {/* Set Pokemon type theme based on current form */}
@@ -260,19 +246,14 @@ export default function PokemonFormClient({
           />
         </section>
 
-        {/* Level Up Moves - Collapsible */}
+        {/* Level Up Moves */}
         <section>
-          <button
-            onClick={() => toggleSection('levelUp')}
-            className="w-full flex items-center justify-between text-lg font-semibold mb-4 text-neutral-700 dark:text-neutral-200 border-b border-neutral-200 dark:border-neutral-700 pb-2 hover:text-neutral-900 dark:hover:text-white transition-colors"
-          >
-            <span>Level Up Moves ({currentFormData?.movesets?.levelUp?.length || 0})</span>
-            <ChevronDown className={cn('w-5 h-5 transition-transform', openSections.levelUp && 'rotate-180')} />
-          </button>
-          {openSections.levelUp && (
-            currentFormData?.movesets?.levelUp && currentFormData.movesets.levelUp.length > 0 ? (
-              <div className="overflow-x-auto">
-                <Table>
+          <h2 className="text-lg font-semibold mb-4 text-neutral-700 dark:text-neutral-200 border-b border-neutral-200 dark:border-neutral-700 pb-2">
+            Level Up Moves ({currentFormData?.movesets?.levelUp?.length || 0})
+          </h2>
+          {currentFormData?.movesets?.levelUp && currentFormData.movesets.levelUp.length > 0 ? (
+              <div className="rounded-xl border border-neutral-200 bg-neutral-100 overflow-hidden shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+                <Table className="w-full text-sm">
                   <TableHeader className="hidden md:table-header-group">
                     <TableRow>
                       <TableHead className="w-[60px]">Level</TableHead>
@@ -312,23 +293,17 @@ export default function PokemonFormClient({
               </div>
             ) : (
               <p className="text-sm text-neutral-500 text-center py-4">No level-up moves available.</p>
-            )
-          )}
+            )}
         </section>
 
-        {/* Egg Moves - Collapsible */}
+        {/* Egg Moves */}
         <section>
-          <button
-            onClick={() => toggleSection('egg')}
-            className="w-full flex items-center justify-between text-lg font-semibold mb-4 text-neutral-700 dark:text-neutral-200 border-b border-neutral-200 dark:border-neutral-700 pb-2 hover:text-neutral-900 dark:hover:text-white transition-colors"
-          >
-            <span>Egg Moves ({currentFormData?.movesets?.eggMoves?.length || 0})</span>
-            <ChevronDown className={cn('w-5 h-5 transition-transform', openSections.egg && 'rotate-180')} />
-          </button>
-          {openSections.egg && (
-            currentFormData?.movesets?.eggMoves && currentFormData.movesets.eggMoves.length > 0 ? (
-              <div className="overflow-x-auto">
-                <Table>
+          <h2 className="text-lg font-semibold mb-4 text-neutral-700 dark:text-neutral-200 border-b border-neutral-200 dark:border-neutral-700 pb-2">
+            Egg Moves ({currentFormData?.movesets?.eggMoves?.length || 0})
+          </h2>
+          {currentFormData?.movesets?.eggMoves && currentFormData.movesets.eggMoves.length > 0 ? (
+              <div className="rounded-xl border border-neutral-200 bg-neutral-100 overflow-hidden shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+                <Table className="w-full text-sm">
                   <TableHeader className="hidden md:table-header-group">
                     <TableRow>
                       <TableHead className="w-[240px]">Move</TableHead>
@@ -364,23 +339,17 @@ export default function PokemonFormClient({
               </div>
             ) : (
               <p className="text-sm text-neutral-500 text-center py-4">No egg moves available.</p>
-            )
-          )}
+            )}
         </section>
 
-        {/* TM/HM Moves - Collapsible */}
+        {/* TM/HM Moves */}
         <section>
-          <button
-            onClick={() => toggleSection('tm')}
-            className="w-full flex items-center justify-between text-lg font-semibold mb-4 text-neutral-700 dark:text-neutral-200 border-b border-neutral-200 dark:border-neutral-700 pb-2 hover:text-neutral-900 dark:hover:text-white transition-colors"
-          >
-            <span>TM/HM Moves ({currentFormData?.movesets?.tm?.length || 0})</span>
-            <ChevronDown className={cn('w-5 h-5 transition-transform', openSections.tm && 'rotate-180')} />
-          </button>
-          {openSections.tm && (
-            currentFormData?.movesets?.tm && currentFormData.movesets.tm.length > 0 ? (
-              <div className="overflow-x-auto">
-                <Table>
+          <h2 className="text-lg font-semibold mb-4 text-neutral-700 dark:text-neutral-200 border-b border-neutral-200 dark:border-neutral-700 pb-2">
+            TM/HM Moves ({currentFormData?.movesets?.tm?.length || 0})
+          </h2>
+          {currentFormData?.movesets?.tm && currentFormData.movesets.tm.length > 0 ? (
+              <div className="rounded-xl border border-neutral-200 bg-neutral-100 overflow-hidden shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+                <Table className="w-full text-sm">
                   <TableHeader className="hidden md:table-header-group">
                     <TableRow>
                       <TableHead className="w-[240px]">Move</TableHead>
@@ -416,23 +385,17 @@ export default function PokemonFormClient({
               </div>
             ) : (
               <p className="text-sm text-neutral-500 text-center py-4">No TM/HM moves available.</p>
-            )
-          )}
+            )}
         </section>
 
-        {/* Wild Encounters - Collapsible */}
+        {/* Wild Encounters */}
         <section>
-          <button
-            onClick={() => toggleSection('locations')}
-            className="w-full flex items-center justify-between text-lg font-semibold mb-4 text-neutral-700 dark:text-neutral-200 border-b border-neutral-200 dark:border-neutral-700 pb-2 hover:text-neutral-900 dark:hover:text-white transition-colors"
-          >
-            <span>Wild Encounters ({consolidatedLocations.length})</span>
-            <ChevronDown className={cn('w-5 h-5 transition-transform', openSections.locations && 'rotate-180')} />
-          </button>
-          {openSections.locations && (
-            consolidatedLocations.length > 0 ? (
-              <div className="overflow-x-auto">
-                <Table>
+          <h2 className="text-lg font-semibold mb-4 text-neutral-700 dark:text-neutral-200 border-b border-neutral-200 dark:border-neutral-700 pb-2">
+            Wild Encounters ({consolidatedLocations.length})
+          </h2>
+          {consolidatedLocations.length > 0 ? (
+              <div className="rounded-xl border border-neutral-200 bg-neutral-100 overflow-hidden shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+                <Table className="w-full text-sm">
                   <TableHeader>
                     <TableRow>
                       <TableHead>Location</TableHead>
@@ -468,8 +431,7 @@ export default function PokemonFormClient({
               <p className="text-sm text-neutral-500 text-center py-4">
                 No wild encounter data. This Pokémon may only be available through breeding, events, or trades.
               </p>
-            )
-          )}
+            )}
         </section>
 
         {/* Debug Panel (Dev Only) */}
