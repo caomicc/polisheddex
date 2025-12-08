@@ -193,51 +193,88 @@ export function PokemonInfoTable({
             <TableCell className="text-center p-4 bg-neutral-50 dark:bg-neutral-900 w-full"
               colSpan={3}
             >
-              {/* Sprite Grid: Normal, Shiny, Animated Normal, Animated Shiny */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-md mx-auto">
-                {/* Normal Front */}
-                <div className="flex flex-col items-center gap-1">
-                  <PokemonSprite
-                    form={selectedForm}
-                    pokemonName={name}
-                    variant="normal"
-                    type="static"
-                    className="shadow-none w-16 h-16 md:w-20 md:h-20"
-                  />
-                  <span className="text-xs text-neutral-500 dark:text-neutral-400">Normal</span>
+              {/* Sprite Grid: Front and Back sprites for Normal and Shiny, static and animated */}
+              <div className="flex flex-col gap-4 max-w-2xl mx-auto">
+                {/* Front Sprites Row */}
+                <div>
+                  <span className="text-xs font-medium text-neutral-600 dark:text-neutral-300 mb-2 block">Front</span>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {/* Normal Front */}
+                    <div className="flex flex-col items-center gap-1">
+                      <PokemonSprite
+                        form={selectedForm}
+                        pokemonName={name}
+                        variant="normal"
+                        type="static"
+                        className="shadow-none w-16 h-16 md:w-20 md:h-20"
+                      />
+                      <span className="text-xs text-neutral-500 dark:text-neutral-400">Normal</span>
+                    </div>
+                    {/* Shiny Front */}
+                    <div className="flex flex-col items-center gap-1">
+                      <PokemonSprite
+                        form={selectedForm}
+                        pokemonName={name}
+                        variant="shiny"
+                        type="static"
+                        className="shadow-none w-16 h-16 md:w-20 md:h-20"
+                      />
+                      <span className="text-xs text-neutral-500 dark:text-neutral-400">Shiny</span>
+                    </div>
+                    {/* Animated Normal Front */}
+                    <div className="flex flex-col items-center gap-1">
+                      <PokemonSprite
+                        form={selectedForm}
+                        pokemonName={name}
+                        variant="normal"
+                        type="animated"
+                        className="shadow-none w-16 h-16 md:w-20 md:h-20"
+                      />
+                      <span className="text-xs text-neutral-500 dark:text-neutral-400">Animated</span>
+                    </div>
+                    {/* Animated Shiny Front */}
+                    <div className="flex flex-col items-center gap-1">
+                      <PokemonSprite
+                        form={selectedForm}
+                        pokemonName={name}
+                        variant="shiny"
+                        type="animated"
+                        className="shadow-none w-16 h-16 md:w-20 md:h-20"
+                      />
+                      <span className="text-xs text-neutral-500 dark:text-neutral-400">Shiny Animated</span>
+                    </div>
+                  </div>
                 </div>
-                {/* Shiny Front */}
-                <div className="flex flex-col items-center gap-1">
-                  <PokemonSprite
-                    form={selectedForm}
-                    pokemonName={name}
-                    variant="shiny"
-                    type="static"
-                    className="shadow-none w-16 h-16 md:w-20 md:h-20"
-                  />
-                  <span className="text-xs text-neutral-500 dark:text-neutral-400">Shiny</span>
-                </div>
-                {/* Animated Normal */}
-                <div className="flex flex-col items-center gap-1">
-                  <PokemonSprite
-                    form={selectedForm}
-                    pokemonName={name}
-                    variant="normal"
-                    type="animated"
-                    className="shadow-none w-16 h-16 md:w-20 md:h-20"
-                  />
-                  <span className="text-xs text-neutral-500 dark:text-neutral-400">Animated</span>
-                </div>
-                {/* Animated Shiny */}
-                <div className="flex flex-col items-center gap-1">
-                  <PokemonSprite
-                    form={selectedForm}
-                    pokemonName={name}
-                    variant="shiny"
-                    type="animated"
-                    className="shadow-none w-16 h-16 md:w-20 md:h-20"
-                  />
-                  <span className="text-xs text-neutral-500 dark:text-neutral-400">Shiny Animated</span>
+
+                {/* Back Sprites Row */}
+                <div>
+                  <span className="text-xs font-medium text-neutral-600 dark:text-neutral-300 mb-2 block">Back</span>
+                  <div className="grid grid-cols-2 gap-4 max-w-[200px] mx-auto">
+                    {/* Normal Back */}
+                    <div className="flex flex-col items-center gap-1">
+                      <PokemonSprite
+                        form={selectedForm}
+                        pokemonName={name}
+                        variant="normal"
+                        type="static"
+                        facing="back"
+                        className="shadow-none w-16 h-16 md:w-20 md:h-20"
+                      />
+                      <span className="text-xs text-neutral-500 dark:text-neutral-400">Normal</span>
+                    </div>
+                    {/* Shiny Back */}
+                    <div className="flex flex-col items-center gap-1">
+                      <PokemonSprite
+                        form={selectedForm}
+                        pokemonName={name}
+                        variant="shiny"
+                        type="static"
+                        facing="back"
+                        className="shadow-none w-16 h-16 md:w-20 md:h-20"
+                      />
+                      <span className="text-xs text-neutral-500 dark:text-neutral-400">Shiny</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </TableCell>

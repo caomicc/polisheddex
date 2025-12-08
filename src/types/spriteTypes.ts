@@ -7,8 +7,11 @@ export interface SpriteInfo {
 export interface PokemonSpriteData {
   normal_front: SpriteInfo | null;
   shiny_front: SpriteInfo | null;
-  normal_animated: SpriteInfo | null;
-  shiny_animated: SpriteInfo | null;
+  normal_front_animated: SpriteInfo | null;
+  shiny_front_animated: SpriteInfo | null;
+  normal_back: SpriteInfo | null;
+  shiny_back: SpriteInfo | null;
+  // Note: Back sprites don't have animation frames in GBC Pokemon games
 }
 
 export interface TrainerSpriteData {
@@ -32,4 +35,5 @@ export interface TrainerManifest {
 
 export type SpriteVariant = 'normal' | 'shiny';
 export type SpriteType = 'static' | 'animated';
+export type SpriteFacing = 'front' | 'back';
 export type SpriteCategory = 'pokemon' | 'trainer';

@@ -458,8 +458,9 @@ class GBCSpriteProcessor:
         print(f"DEBUG: Output name for {pokemon_name} is {output_name}")
         print(f"DEBUG: Output directory for {pokemon_name} is {output_dir}")
 
-        # Only process front sprites for normal and shiny variants
+        # Process front and back sprites for normal and shiny variants
         variants = ['normal', 'shiny']
+        sprite_types = ['front', 'back']
 
         for variant in variants:
             # Check if we need to look for palette files in a different directory
@@ -495,44 +496,49 @@ class GBCSpriteProcessor:
 
             palette = GBCPaletteParser.parse_palette_file(str(palette_file))
 
-            # Only process front sprites
-            sprite_file = pokemon_path / "front.png"
-            if not sprite_file.exists():
-                print(f"Sprite file not found: {sprite_file}")
-                continue
+            # Process both front and back sprites
+            for sprite_type in sprite_types:
+                sprite_file = pokemon_path / f"{sprite_type}.png"
+                if not sprite_file.exists():
+                    if sprite_type == 'front':
+                        print(f"Sprite file not found: {sprite_file}")
+                    # Back sprites may not exist for all Pokemon, skip silently
+                    continue
 
-            # Extract frames from sprite sheet
-            raw_frames = self.extract_sprite_frames(str(sprite_file))
-            if not raw_frames:
-                print(f"No frames extracted from sprite: {sprite_file}")
-                continue
+                # Extract frames from sprite sheet
+                raw_frames = self.extract_sprite_frames(str(sprite_file))
+                if not raw_frames:
+                    print(f"No frames extracted from sprite: {sprite_file}")
+                    continue
 
-            # Apply palette and transparency
-            processed_frames = [
-                self.apply_palette_to_sprite(frame, palette) for frame in raw_frames
-            ]
+                # Apply palette and transparency
+                processed_frames = [
+                    self.apply_palette_to_sprite(frame, palette) for frame in raw_frames
+                ]
 
-            # Use accurate Game Boy timing from animation data
-            animation_data = self.get_animation_data(pokemon_name, variant)  # Assume this method exists
-            durations = []
-            for i in range(len(processed_frames)):
-                if i < len(animation_data):
-                    # Use the parsed duration directly (already in milliseconds)
-                    duration = animation_data[i]['duration']
-                    durations.append(duration)
-                else:
-                    # Fallback to reasonable default if we run out of animation data
-                    durations.append(300)
+                # Save static PNG (first frame)
+                png_output_path = output_dir / f"{variant}_{sprite_type}.png"
+                if processed_frames:
+                    processed_frames[0].save(png_output_path)
+                    print(f"Saved static PNG: {png_output_path}")
 
-            # Save static PNG (first frame)
-            png_output_path = output_dir / f"{variant}_front.png"
-            if processed_frames:
-                processed_frames[0].save(png_output_path)
-                print(f"Saved static PNG: {png_output_path}")
+                # Only create animated GIFs for front sprites (back sprites are single frame)
+                if sprite_type == 'front' and len(processed_frames) > 1:
+                    # Use accurate Game Boy timing from animation data
+                    animation_data = self.get_animation_data(pokemon_name, variant)
+                    durations = []
+                    for i in range(len(processed_frames)):
+                        if i < len(animation_data):
+                            # Use the parsed duration directly (already in milliseconds)
+                            duration = animation_data[i]['duration']
+                            durations.append(duration)
+                        else:
+                            # Fallback to reasonable default if we run out of animation data
+                            durations.append(300)
 
-            # Save processed frames as an animated GIF
-            gif_output_path = output_dir / f"{variant}_front_animated.gif"
-            self.create_animated_gif(processed_frames, durations, str(gif_output_path))
+                    # Save processed frames as an animated GIF
+                    gif_output_path = output_dir / f"{variant}_{sprite_type}_animated.gif"
+                    self.create_animated_gif(processed_frames, durations, str(gif_output_path))
 
         return True
 
@@ -562,13 +568,16 @@ class GBCSpriteProcessor:
                 pokemon_data = {
                     "normal_front": None,
                     "shiny_front": None,
-                    "normal_animated": None,
-                    "shiny_animated": None
+                    "normal_front_animated": None,
+                    "shiny_front_animated": None,
+                    "normal_back": None,
+                    "shiny_back": None,
+                    # Note: Back sprites don't have animation frames in GBC Pokemon games
                 }
 
-                # Find the 4 expected files and get their dimensions
+                # Find all sprite files and get their dimensions
                 for sprite_file in pokemon_dir.iterdir():
-                    if sprite_file.suffix in ['.png', '.gif'] and "back" not in sprite_file.name:
+                    if sprite_file.suffix in ['.png', '.gif']:
                         rel_path = f"sprites/pokemon/{pokemon_name}/{sprite_file.name}"
 
                         # Get image dimensions
@@ -588,14 +597,19 @@ class GBCSpriteProcessor:
                                 "height": 64
                             }
 
+                        # Map file names to manifest keys
                         if sprite_file.name == "normal_front.png":
                             pokemon_data["normal_front"] = sprite_info
                         elif sprite_file.name == "shiny_front.png":
                             pokemon_data["shiny_front"] = sprite_info
                         elif sprite_file.name == "normal_front_animated.gif":
-                            pokemon_data["normal_animated"] = sprite_info
+                            pokemon_data["normal_front_animated"] = sprite_info
                         elif sprite_file.name == "shiny_front_animated.gif":
-                            pokemon_data["shiny_animated"] = sprite_info
+                            pokemon_data["shiny_front_animated"] = sprite_info
+                        elif sprite_file.name == "normal_back.png":
+                            pokemon_data["normal_back"] = sprite_info
+                        elif sprite_file.name == "shiny_back.png":
+                            pokemon_data["shiny_back"] = sprite_info
 
                 # Only add Pokemon that have at least normal front sprite
                 if pokemon_data["normal_front"]:

@@ -2,8 +2,6 @@
 import { AbilityData, ComprehensivePokemonData } from '@/types/new';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
 import { Badge } from '../ui/badge';
-import { cn } from '@/lib/utils';
-import { Progress } from '../ui/progress';
 import PokedexHeader from './pokemon-header';
 import PokemonTypeSetter from './pokemon-type-setter';
 import { useQueryState } from 'nuqs';
@@ -13,6 +11,7 @@ import Link from 'next/link';
 import { EvolutionTable } from './evolution-table';
 import { EvolutionChain } from '@/utils/evolution-data-server';
 import { PokemonInfoTable } from './pokemon-info-table';
+import { StatsRadarChart } from './stats-radar-chart';
 
 // Type for location encounter data
 interface PokemonLocationEncounter {
@@ -196,35 +195,7 @@ export default function PokemonFormClient({
             Base Stats
           </h2>
           {currentFormData?.baseStats ? (
-            <div className="space-y-3 max-w-lg">
-              {[
-                { label: 'HP', value: currentFormData.baseStats.hp, color: '*:bg-red-400' },
-                { label: 'Attack', value: currentFormData.baseStats.attack, color: '*:bg-orange-400' },
-                { label: 'Defense', value: currentFormData.baseStats.defense, color: '*:bg-yellow-400' },
-                { label: 'Sp. Atk', value: currentFormData.baseStats.specialAttack, color: '*:bg-blue-400' },
-                { label: 'Sp. Def', value: currentFormData.baseStats.specialDefense, color: '*:bg-green-400' },
-                { label: 'Speed', value: currentFormData.baseStats.speed, color: '*:bg-purple-400' },
-              ].map(({ label, value, color }) => (
-                <div key={label} className="flex items-center gap-3">
-                  <span className="w-16 text-sm text-neutral-600 dark:text-neutral-400">{label}</span>
-                  <span className="w-8 text-sm font-medium text-right">{value ?? '-'}</span>
-                  <Progress
-                    value={typeof value === 'number' ? Math.round((value / 255) * 100) : 0}
-                    aria-label={`${label} stat`}
-                    className={cn(color, 'flex-1 h-2 dark:bg-neutral-800')}
-                  />
-                </div>
-              ))}
-              <div className="flex items-center gap-3 pt-2 border-t border-neutral-200 dark:border-neutral-700">
-                <span className="w-16 text-sm font-semibold text-neutral-700 dark:text-neutral-200">Total</span>
-                <span className="w-8 text-sm font-bold text-right">
-                  {Object.values(currentFormData.baseStats).reduce(
-                    (sum: number, stat) => (typeof stat === 'number' ? sum + stat : sum),
-                    0,
-                  )}
-                </span>
-              </div>
-            </div>
+            <StatsRadarChart stats={currentFormData.baseStats} />
           ) : (
             <p className="text-sm text-neutral-500">No base stat data available.</p>
           )}

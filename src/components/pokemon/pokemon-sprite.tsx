@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { SpriteVariant, SpriteType } from '@/types/spriteTypes';
+import { SpriteVariant, SpriteType, SpriteFacing } from '@/types/spriteTypes';
 import { useSpriteData } from '@/hooks/useSpriteData';
 import { cva } from 'class-variance-authority';
 
@@ -15,6 +15,7 @@ interface PokemonSpriteProps {
   primaryType?: string;
   variant?: SpriteVariant;
   type?: SpriteType;
+  facing?: SpriteFacing;
   form?: string | null; // Optional form prop for specific Pokemon forms
   // Legacy prop for backward compatibility
   src?: string;
@@ -22,6 +23,8 @@ interface PokemonSpriteProps {
   // New hover animation prop
   hoverAnimate?: boolean;
 }
+
+export type { PokemonSpriteProps };
 
 const spriteVariants = cva('relative bg-white flex', {
   variants: {
@@ -48,6 +51,7 @@ const {className,
   primaryType,
   variant = 'normal',
   type = 'static',
+  facing = 'front',
   src,
   size,
   form, // Optional form prop for specific Pokemon forms
@@ -56,7 +60,7 @@ const {className,
   // Determine the sprite type: use hover state if hoverAnimate is enabled, otherwise use the type prop
   const actualType = hoverAnimate ? (isHovered ? 'animated' : 'static') : type;
 
-  const { spriteInfo, isLoading } = useSpriteData(pokemonName, variant, actualType, form);
+  const { spriteInfo, isLoading } = useSpriteData(pokemonName, variant, actualType, form, facing);
 
   console.log('Sprite Info:', spriteInfo);
 

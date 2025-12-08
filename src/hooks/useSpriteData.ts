@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { SpriteInfo, SpriteVariant, SpriteType, UnifiedSpriteManifest } from '@/types/spriteTypes';
+import { SpriteInfo, SpriteVariant, SpriteType, SpriteFacing, UnifiedSpriteManifest } from '@/types/spriteTypes';
 import { loadUnifiedSpriteManifest, getUnifiedSpriteWithFallback } from '@/utils/spriteUtils';
 
 interface UseSpriteDataResult {
@@ -13,6 +13,7 @@ export function useSpriteData(
   variant: SpriteVariant = 'normal',
   type: SpriteType = 'static',
   form?: string | null,
+  facing: SpriteFacing = 'front',
 ): UseSpriteDataResult {
   const [spriteInfo, setSpriteInfo] = useState<SpriteInfo | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -59,6 +60,7 @@ export function useSpriteData(
         'pokemon',
         variant,
         type,
+        facing,
       );
 
       console.log('Fetched sprite for', fullSpriteName, ':', sprite);
@@ -68,7 +70,7 @@ export function useSpriteData(
       setError(err instanceof Error ? err.message : 'Unknown error');
       setIsLoading(false);
     }
-  }, [manifest, spriteName, variant, type, form]);
+  }, [manifest, spriteName, variant, type, form, facing]);
 
   return {
     spriteInfo,

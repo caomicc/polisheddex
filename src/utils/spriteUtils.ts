@@ -184,6 +184,7 @@ export function getSprite(
   pokemonName: string,
   variant: SpriteVariant = 'normal',
   type: SpriteType = 'static',
+  facing: 'front' | 'back' = 'front',
 ): SpriteInfo | null {
   // Normalize Pokemon names: reduce base name but preserve form suffixes
   const normalizedName = normalizePokemonName(pokemonName);
@@ -198,18 +199,16 @@ export function getSprite(
     return null;
   }
 
-  // Determine which sprite to return based on variant and type
-  if (variant === 'normal') {
-    if (type === 'animated' && pokemonData.normal_animated) {
-      return pokemonData.normal_animated;
-    }
-    return pokemonData.normal_front;
-  } else {
-    if (type === 'animated' && pokemonData.shiny_animated) {
-      return pokemonData.shiny_animated;
-    }
-    return pokemonData.shiny_front;
-  }
+  // Back sprites don't have animation frames in GBC Pokemon games
+  // Always use static for back sprites
+  const effectiveType = facing === 'back' ? 'static' : type;
+
+  // Build the key based on variant, facing, and type
+  // Format: {variant}_{facing} or {variant}_{facing}_animated (front only)
+  const animatedSuffix = effectiveType === 'animated' ? '_animated' : '';
+  const key = `${variant}_${facing}${animatedSuffix}` as keyof PokemonSpriteData;
+
+  return pokemonData[key] || null;
 }
 
 /**
@@ -219,15 +218,19 @@ export function getFallbackSprite(
   pokemonName: string,
   variant: SpriteVariant = 'normal',
   type: SpriteType = 'static',
+  facing: 'front' | 'back' = 'front',
 ): SpriteInfo {
   // Normalize Pokemon names: reduce base name but preserve form suffixes
   const normalizedName = normalizePokemonName(pokemonName);
 
-  const extension = type === 'animated' ? 'gif' : 'png';
+  // Back sprites don't have animation frames in GBC Pokemon games
+  const effectiveType = facing === 'back' ? 'static' : type;
+
+  const extension = effectiveType === 'animated' ? 'gif' : 'png';
   const filename =
-    type === 'animated'
-      ? `${variant}_front_animated.${extension}`
-      : `${variant}_front.${extension}`;
+    effectiveType === 'animated'
+      ? `${variant}_${facing}_animated.${extension}`
+      : `${variant}_${facing}.${extension}`;
 
   return {
     url: `/sprites/pokemon/${normalizedName}/${filename}`,
@@ -409,9 +412,10 @@ export function getUnifiedSprite(
   category: SpriteCategory,
   variant?: SpriteVariant | string,
   type?: SpriteType,
+  facing?: 'front' | 'back',
 ): SpriteInfo | null {
   if (category === 'pokemon') {
-    return getSprite(manifest, spriteName, variant as SpriteVariant, type);
+    return getSprite(manifest, spriteName, variant as SpriteVariant, type, facing);
   } else {
     return getTrainerSprite(manifest, spriteName, variant as string);
   }
@@ -426,8 +430,9 @@ export function getUnifiedSpriteWithFallback(
   category: SpriteCategory,
   variant?: SpriteVariant | string,
   type?: SpriteType,
+  facing?: 'front' | 'back',
 ): SpriteInfo {
-  const sprite = getUnifiedSprite(manifest, spriteName, category, variant, type);
+  const sprite = getUnifiedSprite(manifest, spriteName, category, variant, type, facing);
 
   if (sprite) {
     return sprite;
@@ -437,12 +442,12 @@ export function getUnifiedSpriteWithFallback(
     // If sprite not found and name contains form (has underscore), try base pokemon
     if (spriteName.includes('_')) {
       const baseName = spriteName.split('_')[0];
-      const baseSprite = getUnifiedSprite(manifest, baseName, category, variant, type);
+      const baseSprite = getUnifiedSprite(manifest, baseName, category, variant, type, facing);
       if (baseSprite) {
         return baseSprite;
       }
     }
-    return getFallbackSprite(spriteName, variant as SpriteVariant, type);
+    return getFallbackSprite(spriteName, variant as SpriteVariant, type, facing);
   } else {
     return getFallbackTrainerSprite(spriteName, type || 'static');
   }
