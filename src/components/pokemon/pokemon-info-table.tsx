@@ -358,41 +358,42 @@ export function PokemonInfoTable({
 
           {/* Abilities */}
           {abilities.length > 0 && (
-            <>
-              {abilities.map((ability, index) => {
-                const abilityName = ability.name || ability.id || '';
-                const abilityId = ability.id || ability.name || '';
-                const abilityDescription = ability.description || '';
-                const abilityType = index === 0 ? 'Primary' : index === 1 ? 'Secondary' : 'Hidden';
+            <TableRow>
+              <TableHead className="info-table-label">
+                Abilities
+              </TableHead>
+              <TableCell colSpan={2} className="info-table-cell">
+                <div className="flex flex-col gap-3">
+                  {abilities.map((ability, index) => {
+                    const abilityName = ability.name || ability.id || '';
+                    const abilityId = ability.id || ability.name || '';
+                    const abilityDescription = ability.description || '';
+                    const abilityType = index === 0 ? 'Primary' : index === 1 ? 'Secondary' : 'Hidden';
 
-                return (
-                  <TableRow key={index}>
-                    {index === 0 && (
-                      <TableHead
-                        rowSpan={abilities.length}
-                        className="info-table-label"
-                      >
-                        Abilities
-                      </TableHead>
-                    )}
-                    <TableCell className="info-table-cell font-medium min-w-[120px] max-w-[200px]">
-                      <Link
-                        href={`/abilities/${abilityId}`}
-                        className="hover:text-blue-600 dark:hover:text-blue-400 capitalize"
-                      >
-                        {abilityName.replace(/([a-z])([A-Z])/g, '$1 $2')}
-                      </Link>
-                      {abilities.length > 1 && (
-                        <span className="text-xs text-neutral-500 ml-1">({abilityType})</span>
-                      )}
-                    </TableCell>
-                    <TableCell className="info-table-cell text-neutral-600 dark:text-neutral-400 text-xs">
-                      {abilityDescription}
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
-            </>
+                    return (
+                      <div key={index} className="flex flex-col gap-0.5">
+                        <div className="flex items-center gap-2">
+                          <Link
+                            href={`/abilities/${abilityId}`}
+                            className="font-medium hover:text-blue-600 dark:hover:text-blue-400 capitalize"
+                          >
+                            {abilityName.replace(/([a-z])([A-Z])/g, '$1 $2')}
+                          </Link>
+                          {abilities.length > 1 && (
+                            <span className="text-xs text-neutral-500">({abilityType})</span>
+                          )}
+                        </div>
+                        {abilityDescription && (
+                          <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                            {abilityDescription}
+                          </p>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </TableCell>
+            </TableRow>
           )}
 
           {/* Growth Rate */}

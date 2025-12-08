@@ -98,18 +98,6 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
                   <ExternalLink className="size-3" />
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://www.notion.so/Polished-Dex-Roadmap-24662146b03a805e88f3c6db6b800837"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-1"
-                >
-                  <Bug className="size-3.5" />
-                  Polished Dex Roadmap & Bug Tracker
-                  <ExternalLink className="size-3" />
-                </a>
-              </li>
             </ul>
           </div>
         </div>
