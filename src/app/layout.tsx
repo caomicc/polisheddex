@@ -10,6 +10,7 @@ import { ThemeProvider } from '@/components/providers/theme-provider';
 import ServiceWorkerRegister from '@/components/service-worker-register';
 import { cn } from '@/lib/utils';
 import { PokemonTypeProvider } from '@/contexts';
+import { EzoicAd } from '@/components/ads';
 
 const rubik = Manrope({
   variable: '--font-rubik',
@@ -141,6 +142,10 @@ export default function RootLayout({
                 <Navigation />
                 <main className="flex-grow">{children}</main>
                 <FeedbackForm />
+                <EzoicAd
+                  placeholderId={103}
+                  className="w-full flex justify-center py-4"
+                />
                 <Footer />
               </div>
             </PokemonTypeProvider>
