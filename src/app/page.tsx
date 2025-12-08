@@ -378,7 +378,7 @@ const LocationsSkeleton = () => {
         src="/tiles/6/21/25.webp"
         alt="Poke Center"
         fill
-        className="w-full h-full object-cover object-top opacity-80"
+        className="w-full h-full object-cover object-left opacity-80"
       />
     </motion.div>
   );
@@ -681,14 +681,7 @@ const getItems = (showFaithful: boolean) => [
     className: 'col-span-1 lg:col-span-1',
     icon: <Image src="/sprites/tm-case.png" width={24} height={24} alt="Icon 1" />,
   },
-  {
-    title: 'Locations',
-    description: <span className="text-sm">From Kanto to the Orange Islands</span>,
-    header: <LocationsSkeleton />,
-    href: '/locations',
-    className: 'col-span-1 lg:col-span-1',
-    icon: <Image src="/sprites/town-map.png" width={24} height={24} alt="Icon 1" />,
-  },
+
   {
     title: 'Items',
     description: <span className="text-sm">Every item, every effect</span>,
@@ -696,6 +689,14 @@ const getItems = (showFaithful: boolean) => [
     href: '/items',
     className: 'col-span-1 lg:col-span-1',
     icon: <Image src="/sprites/forage-bag.png" width={24} height={24} alt="Icon 1" />,
+  },
+    {
+    title: 'Locations',
+    description: <span className="text-sm">From Kanto to the Orange Islands</span>,
+    header: <LocationsSkeleton />,
+    href: '/locations',
+    className: 'col-span-1 sm:col-span-2 lg:col-span-2',
+    icon: <Image src="/sprites/town-map.png" width={24} height={24} alt="Icon 1" />,
   },
   {
     title: 'Special Events',
