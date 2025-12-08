@@ -3,7 +3,7 @@
 import { LocationData } from '@/utils/location-data-server';
 import { ComprehensiveTrainerData } from '@/types/new';
 import { LocationInfoTable } from './location-info-table';
-import { LocationMapPlaceholder } from './location-map-placeholder';
+import { LocationMap } from './location-map';
 import { LocationEncountersCard } from './location-encounters-card';
 import { LocationItemsCard } from './location-items-card';
 import { LocationEventsCard } from './location-events-card';
@@ -34,8 +34,8 @@ export function LocationDetailClient({ location, trainers }: LocationDetailClien
         trainerCount={trainers?.length}
       />
 
-      {/* Map placeholder */}
-      <LocationMapPlaceholder locationName={location.name} />
+      {/* Map */}
+      <LocationMap locationId={location.id} locationName={location.name} />
 
       {/* Wild Pokemon encounters */}
       <LocationEncountersCard encounters={location.encounters || []} />
