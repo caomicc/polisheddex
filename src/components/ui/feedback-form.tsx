@@ -22,23 +22,27 @@ export function FeedbackForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // For now, we'll just simulate a submission
-    // You can replace this with an actual API call later
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      // Log the feedback (you can send this to an API endpoint)
-      console.log('Feedback submitted:', {
-        ...formData,
-        pageUrl: window.location.href,
-        timestamp: new Date().toISOString(),
+      const response = await fetch('/api/feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          pageUrl: window.location.href,
+        }),
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit feedback');
+      }
 
       setIsSubmitted(true);
       setFormData({ type: 'data-error', email: '', message: '', pageUrl: '' });
     } catch (error) {
       console.error('Failed to submit feedback:', error);
+      alert('Failed to submit feedback. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
