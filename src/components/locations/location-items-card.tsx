@@ -14,8 +14,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import TableWrapper from '@/components/ui/table-wrapper';
-import { cn } from '@/lib/utils';
-import { Package } from 'lucide-react';
+import { Package, ExternalLink } from 'lucide-react';
 import { getItemSpriteName } from '@/utils/spriteUtils';
 
 interface LocationItem {
@@ -93,13 +92,14 @@ function ItemsTable({ items }: { items: LocationItem[] }) {
               <TableCell>
                 <Link
                   href={`/items/${itemLinkId}`}
-                  className="font-medium capitalize hover:text-blue-600 dark:hover:text-blue-400"
+                  className="table-link capitalize"
                 >
                   {isTmHm ? `${itemLinkId.toUpperCase()} (${displayName})` : displayName}
+                  <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
                 </Link>
               </TableCell>
               <TableCell>
-                <Badge variant="secondary" className="capitalize">
+                <Badge variant="secondary">
                   {formatItemType(item.type)}
                 </Badge>
               </TableCell>

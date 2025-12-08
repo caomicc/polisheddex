@@ -14,7 +14,6 @@ import {
 } from '@/components/ui/table';
 import TableWrapper from '@/components/ui/table-wrapper';
 import { PokemonSprite } from '@/components/pokemon/pokemon-sprite';
-import { cn } from '@/lib/utils';
 import { Footprints, ExternalLink } from 'lucide-react';
 
 interface LocationEncounter {
@@ -131,7 +130,7 @@ function EncounterTable({
               </Link>
             </TableCell>
             <TableCell>
-              <Badge variant="secondary" className="capitalize">
+              <Badge variant="secondary" className="uppercase">
                 {enc.method.replace(/_/g, ' ')}
               </Badge>
             </TableCell>

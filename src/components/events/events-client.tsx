@@ -74,7 +74,7 @@ function DailyEventCard({ event }: { event: DailyEvent }) {
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
           <h3 className="font-semibold text-lg">{event.name}</h3>
-          <Badge variant="secondary" className="capitalize">
+          <Badge variant="secondary" className="uppercase">
             {dayDisplayNames[event.day]}
           </Badge>
         </div>
@@ -115,7 +115,7 @@ function WeeklyEventCard({ event }: { event: WeeklyEvent }) {
         <p className="text-sm text-muted-foreground">{event.description}</p>
         <div className="flex flex-wrap gap-1 mt-1">
           {event.days.map((day) => (
-            <Badge key={day} variant="outline" className="capitalize text-xs">
+            <Badge key={day} variant="outline" className="uppercase text-xs">
               {dayDisplayNames[day]}
             </Badge>
           ))}
@@ -173,7 +173,7 @@ export function EventsClient({ dailyEvents, weeklyEvents }: EventsClientProps) {
           {todayCount > 0 && (
             <Badge
               variant="secondary"
-              className="ml-2 bg-amber-100 text-amber-900 dark:bg-amber-900 dark:text-amber-100"
+              className="ml-2 bg-amber-100 text-amber-900 dark:bg-amber-900 dark:text-amber-100 uppercase"
             >
               {todayCount}
             </Badge>
@@ -204,7 +204,6 @@ export function EventsClient({ dailyEvents, weeklyEvents }: EventsClientProps) {
               <h2 id="today-daily" className="text-lg font-medium">
                 Day of Week Sibling
               </h2>
-              <Badge variant="default">{todayDaily.length} available</Badge>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
               {todayDaily.map((event) => (

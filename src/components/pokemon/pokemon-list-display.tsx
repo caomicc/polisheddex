@@ -112,7 +112,6 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: Pokem
 
   // Apply sorting to the filtered data
   const sortedData = React.useMemo(() => {
-    console.log(`Sorting ${filteredData.length} filtered Pokemon entries`);
     // Sort by dexNo for consistent ordering
     return [...filteredData].sort((a, b) => a.dexNo - b.dexNo);
   }, [filteredData]);

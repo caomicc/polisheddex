@@ -111,9 +111,9 @@ export function ItemLocationsTable({ locations, locationNameMap }: ItemLocations
                     <span className={cn('flex-shrink-0', getMethodColor(loc.method))}>
                       {getMethodIcon(loc.method)}
                     </span>
-                    <Badge variant={getMethodVariant(loc.method)} className="text-xs">
+                    <span className="text-xs capitalize">
                       {loc.method || 'Found'}
-                    </Badge>
+                    </span>
                   </div>
                 </TableCell>
               </TableRow>

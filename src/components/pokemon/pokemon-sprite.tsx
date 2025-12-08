@@ -62,8 +62,6 @@ const {className,
 
   const { spriteInfo, isLoading } = useSpriteData(pokemonName, variant, actualType, form, facing);
 
-  console.log('Sprite Info:', spriteInfo);
-
   // Fallback to legacy src prop if provided and sprite data not available
   const finalSrc = spriteInfo?.url || src;
   const width = spriteInfo?.width || 64;

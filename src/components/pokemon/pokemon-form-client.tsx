@@ -366,7 +366,7 @@ export default function PokemonFormClient({
                         </Link>
                       </TableCell>
                       <TableCell>
-                        <Badge variant="secondary" className="text-xs capitalize">
+                        <Badge variant="secondary" className="text-xs">
                           {loc.method.replace(/_/g, ' ')}
                         </Badge>
                       </TableCell>

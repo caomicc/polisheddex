@@ -11,13 +11,8 @@ interface PokemonNavigationProps {
 export default function PokemonNavigation({ navigation }: PokemonNavigationProps) {
   const { previous, next, current } = navigation;
 
-  // Debug logging
-  console.log('PokemonNavigation render:', { navigation });
-  // console.log('Current index:', current.index, 'Total:', current.total);
-
   // If we don't have valid navigation data, don't render anything
   if (current.index === -1) {
-    console.log('PokemonNavigation: Not rendering because current.index is -1');
     return null;
   }
 

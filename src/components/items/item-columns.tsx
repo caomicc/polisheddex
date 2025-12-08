@@ -56,11 +56,8 @@ export const itemColumns = (version: string): ColumnDef<ItemsManifest>[] => [
     },
     cell: ({ row }) => {
       const item = row.original;
-      // Check if this is a TM/HM item that should link to moves
-      const linkHref =
-        item.versions[version].category === 'tm' || item.versions[version].category === 'hm'
-          ? `TODO`
-          : `/items/${encodeURIComponent(item.id)}`;
+      // TM/HM items link to items page (they have their own item pages)
+      const linkHref = `/items/${encodeURIComponent(item.id)}`;
 
       return (
         <div className="flex items-center space-x-2 min-w-0">
@@ -134,7 +131,7 @@ export const itemColumns = (version: string): ColumnDef<ItemsManifest>[] => [
       const item = row.original;
 
       return (
-        <Badge variant={'default'} className="text-xs">
+        <Badge variant={item.versions[version].category} className="text-xs">
           {item.versions[version].category}
         </Badge>
       );

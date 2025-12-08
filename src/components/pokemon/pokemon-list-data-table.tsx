@@ -166,8 +166,6 @@ export function PokemonListDataTable({ pokemonData }: PokemonListDataTableProps)
   // URL-based pagination state
   const [{ pageIndex, pageSize }, setPagination] = usePaginationSearchParams();
 
-  console.log('Pagination state:', { filteredData });
-
   const table = useReactTable({
     data: filteredData,
     columns,
