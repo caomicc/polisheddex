@@ -64,7 +64,7 @@ ${body.message}
     // Send email via Resend
     const { data, error } = await resend.emails.send({
       from: 'PolishedDex Feedback <feedback@polisheddex.app>',
-      to: ['support@polisheddex.app'],
+      to: ['caomicc@gmail.com'],
       replyTo: replyTo,
       subject: `[${typeLabel}] New Feedback from PolishedDex`,
       html: emailHtml,
