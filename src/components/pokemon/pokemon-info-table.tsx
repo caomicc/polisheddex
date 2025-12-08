@@ -31,49 +31,53 @@ interface PokemonInfoTableProps {
   eggGroups?: string[];
   heldItems?: HeldItem[];
   growthRate?: string;
-  hasGender?: boolean;
+  genderRatio?: string;
+  hatchRate?: string;
+  catchRate?: number;
+  baseExp?: number;
   availableForms?: string[];
 }
 
 // Format evolution method into readable text
 function formatEvolutionMethod(step: EvolutionChainStep): string {
   const { action, parameter } = step.method;
+  const fromName = step.from.name.charAt(0).toUpperCase() + step.from.name.slice(1);
 
   switch (action) {
     case 'level':
-      return `Evolves from ${step.from.name} at Lv. ${parameter}`;
+      return `Evolves from ${fromName} at Lv. ${parameter}`;
     case 'item':
-      return `Evolves from ${step.from.name} using ${formatItemName(parameter as string)}`;
+      return `Evolves from ${fromName} using ${formatItemName(parameter as string)}`;
     case 'trade':
       if (parameter) {
-        return `Evolves from ${step.from.name} when traded holding ${formatItemName(parameter as string)}`;
+        return `Evolves from ${fromName} when traded holding ${formatItemName(parameter as string)}`;
       }
-      return `Evolves from ${step.from.name} when traded`;
+      return `Evolves from ${fromName} when traded`;
     case 'friendship':
-      return `Evolves from ${step.from.name} with high friendship`;
+      return `Evolves from ${fromName} with high friendship`;
     case 'friendshipDay':
-      return `Evolves from ${step.from.name} with high friendship (Day)`;
+      return `Evolves from ${fromName} with high friendship (Day)`;
     case 'friendshipNight':
-      return `Evolves from ${step.from.name} with high friendship (Night)`;
+      return `Evolves from ${fromName} with high friendship (Night)`;
     case 'levelDay':
-      return `Evolves from ${step.from.name} at Lv. ${parameter} (Day)`;
+      return `Evolves from ${fromName} at Lv. ${parameter} (Day)`;
     case 'levelNight':
-      return `Evolves from ${step.from.name} at Lv. ${parameter} (Night)`;
+      return `Evolves from ${fromName} at Lv. ${parameter} (Night)`;
     case 'levelMale':
-      return `Evolves from ${step.from.name} at Lv. ${parameter} (Male)`;
+      return `Evolves from ${fromName} at Lv. ${parameter} (Male)`;
     case 'levelFemale':
-      return `Evolves from ${step.from.name} at Lv. ${parameter} (Female)`;
+      return `Evolves from ${fromName} at Lv. ${parameter} (Female)`;
     case 'levelMove':
-      return `Evolves from ${step.from.name} when leveled up knowing ${formatMoveName(parameter as string)}`;
+      return `Evolves from ${fromName} when leveled up knowing ${formatMoveName(parameter as string)}`;
     case 'levelLocation':
-      return `Evolves from ${step.from.name} when leveled up at ${parameter}`;
+      return `Evolves from ${fromName} when leveled up at ${parameter}`;
     case 'levelHoldItem':
-      return `Evolves from ${step.from.name} when leveled up holding ${formatItemName(parameter as string)}`;
+      return `Evolves from ${fromName} when leveled up holding ${formatItemName(parameter as string)}`;
     default:
       if (parameter) {
-        return `Evolves from ${step.from.name} (${action}: ${parameter})`;
+        return `Evolves from ${fromName} (${action}: ${parameter})`;
       }
-      return `Evolves from ${step.from.name}`;
+      return `Evolves from ${fromName}`;
   }
 }
 
@@ -170,6 +174,30 @@ function formatFormName(form: string): string {
   return form.charAt(0).toUpperCase() + form.slice(1).replace(/([a-z])([A-Z])/g, '$1 $2');
 }
 
+function formatGenderRatio(ratio: string): string {
+  if (ratio === 'unknown') return 'Genderless';
+  if (ratio === '0') return '100% Male';
+  if (ratio === '100') return '100% Female';
+  const femalePercent = parseFloat(ratio);
+  const malePercent = 100 - femalePercent;
+  return `${malePercent}% Male, ${femalePercent}% Female`;
+}
+
+function formatHatchRate(rate: string): string {
+  const rateMap: Record<string, string> = {
+    fastest: 'Fastest (5 cycles)',
+    faster: 'Faster (10 cycles)',
+    fast: 'Fast (15 cycles)',
+    mediumfast: 'Medium Fast (20 cycles)',
+    mediumslow: 'Medium Slow (25 cycles)',
+    slow: 'Slow (30 cycles)',
+    slower: 'Slower (35 cycles)',
+    slowest: 'Slowest (40 cycles)',
+    unknown: 'Unknown',
+  };
+  return rateMap[rate.toLowerCase()] || rate;
+}
+
 export function PokemonInfoTable({
   name,
   dexNo,
@@ -180,7 +208,10 @@ export function PokemonInfoTable({
   eggGroups = [],
   heldItems = [],
   growthRate,
-  hasGender,
+  genderRatio,
+  hatchRate,
+  catchRate,
+  baseExp,
   availableForms = [],
 }: PokemonInfoTableProps) {
   const obtainMethod = getObtainMethod(name, selectedForm, evolutionChain);
@@ -377,10 +408,10 @@ export function PokemonInfoTable({
           {/* Gender */}
           <TableRow>
             <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
-              Gender
+              Gender Ratio
             </TableHead>
             <TableCell colSpan={2} className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
-              {hasGender !== undefined ? (hasGender ? 'Male / Female' : 'Genderless') : 'Unknown'}
+              {genderRatio !== undefined ? formatGenderRatio(genderRatio) : 'Unknown'}
             </TableCell>
           </TableRow>
 
@@ -389,8 +420,38 @@ export function PokemonInfoTable({
             <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
               Egg Groups
             </TableHead>
-            <TableCell colSpan={2} className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+            <TableCell colSpan={2} className="px-4 py-2 text-neutral-700 dark:text-neutral-200 capitalize">
               {eggGroups.length > 0 ? eggGroups.join(', ') : 'Unknown'}
+            </TableCell>
+          </TableRow>
+
+          {/* Hatch Rate */}
+          <TableRow>
+            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+              Hatch Rate
+            </TableHead>
+            <TableCell colSpan={2} className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+              {hatchRate ? formatHatchRate(hatchRate) : 'Unknown'}
+            </TableCell>
+          </TableRow>
+
+          {/* Catch Rate */}
+          <TableRow>
+            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+              Catch Rate
+            </TableHead>
+            <TableCell colSpan={2} className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+              {catchRate !== undefined ? catchRate : 'Unknown'}
+            </TableCell>
+          </TableRow>
+
+          {/* Base Experience */}
+          <TableRow>
+            <TableHead className="px-4 py-2 text-left font-semibold text-neutral-600 dark:text-neutral-300 align-top">
+              Base Exp
+            </TableHead>
+            <TableCell colSpan={2} className="px-4 py-2 text-neutral-700 dark:text-neutral-200">
+              {baseExp !== undefined ? baseExp : 'Unknown'}
             </TableCell>
           </TableRow>
 

@@ -52,15 +52,16 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
         {navigation.current.index !== -1 ? (
           <PokemonNavigation navigation={navigation} />
         ) : (
-          <div className="flex flex-col gap-4 mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-            <div className="text-center">
-              <Button asChild variant="ghost" size="sm">
-                <Link href="/pokemon" className="flex items-center gap-1">
-                  <span className="text-xs">Back to List</span>
-                </Link>
-              </Button>
-            </div>
-          </div>
+          // <div className="flex flex-col gap-4 mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+          //   <div className="text-center">
+          //     <Button asChild variant="ghost" size="sm">
+          //       <Link href="/pokemon" className="flex items-center gap-1">
+          //         <span className="text-xs">Back to List</span>
+          //       </Link>
+          //     </Button>
+          //   </div>
+          // </div>
+          <></>
         )}
       </div>
     </>

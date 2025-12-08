@@ -185,7 +185,11 @@ export default function PokemonFormClient({
               : (evolutionChainData?.polished ?? null)
           }
           growthRate={currentFormData?.growthRate}
-          hasGender={currentFormData?.hasGender}
+          genderRatio={currentFormData?.genderRatio}
+          hatchRate={currentFormData?.hatchRate}
+          catchRate={currentFormData?.catchRate}
+          baseExp={currentFormData?.baseExp}
+          eggGroups={currentFormData?.eggGroups}
           heldItems={currentFormData?.heldItems}
           availableForms={uniqueForms}
         />

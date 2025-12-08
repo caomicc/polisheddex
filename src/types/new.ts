@@ -18,8 +18,13 @@ interface Forms {
     types?: string[];
     abilities?: AbilityData['name'][];
     baseStats?: Partial<BaseStats>;
+    evYield?: Partial<BaseStats>;
+    baseExp?: number;
+    catchRate?: number;
+    genderRatio?: string;
+    hatchRate?: string;
+    eggGroups?: string[];
     growthRate?: string;
-    hasGender?: boolean;
     movesets?: PokemonMovesets;
     heldItems?: HeldItem[];
   };

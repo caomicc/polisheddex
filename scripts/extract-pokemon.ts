@@ -41,6 +41,47 @@ const abilityDescriptionsASM = join(
   '../polishedcrystal/data/abilities/descriptions.asm',
 );
 const dexOrderNewASM = join(__dirname, '../polishedcrystal/data/pokemon/dex_order_new.asm');
+const baseExpExceptionsASM = join(__dirname, '../polishedcrystal/data/pokemon/base_exp_exceptions.asm');
+
+// Base experience exception overrides (Gen V+ adjustments)
+const baseExpExceptions: Record<string, number> = {};
+
+// EV stat abbreviation mapping to BaseStats keys
+const evStatMap: Record<string, string> = {
+  'HP': 'hp',
+  'Atk': 'attack',
+  'Def': 'defense',
+  'Spe': 'speed',
+  'SAt': 'specialAttack',
+  'SDf': 'specialDefense',
+};
+
+// Gender ratio constant mapping to percentage strings
+const genderRatioMap: Record<string, string> = {
+  'GENDER_F0': '0',
+  'GENDER_F12_5': '12.5',
+  'GENDER_F25': '25',
+  'GENDER_F37_5': '37.5',
+  'GENDER_F50': '50',
+  'GENDER_F62_5': '62.5',
+  'GENDER_F75': '75',
+  'GENDER_F87_5': '87.5',
+  'GENDER_F100': '100',
+  'GENDER_UNKNOWN': 'unknown',
+};
+
+// Hatch rate constant mapping to readable strings
+const hatchRateMap: Record<string, string> = {
+  'HATCH_FASTEST': 'fastest',
+  'HATCH_FASTER': 'faster',
+  'HATCH_FAST': 'fast',
+  'HATCH_MEDIUM_FAST': 'mediumfast',
+  'HATCH_MEDIUM_SLOW': 'mediumslow',
+  'HATCH_SLOW': 'slow',
+  'HATCH_SLOWER': 'slower',
+  'HATCH_SLOWEST': 'slowest',
+  'HATCH_UNKNOWN': 'unknown',
+};
 
 const extractAbilities = (
   abilityNamesData: string[],
@@ -658,12 +699,78 @@ const extractMon = (data: string[], pokemonForm: string) => {
   }
   const growthRate = reduce(growthRateLine.slice(3).split(';').at(0)?.trim() || '');
 
+  // Parse gender ratio and hatch rate from gender line
   const genderLine = data.find((line: string) => line.includes('GENDER'));
   if (!genderLine) {
     throw new Error('No gender line found in data');
   }
-  const hasGender =
-    genderLine.slice(3).split(',').at(0)?.trim() === 'GENDER_UNKNOWN' ? false : true;
+  const genderConstant = genderLine.slice(3).split(',').at(0)?.trim() || '';
+  const genderRatio = genderRatioMap[genderConstant] || 'unknown';
+
+  // Hatch rate is the second value on the same line
+  const hatchConstant = genderLine.split(',').at(1)?.split(';').at(0)?.trim() || '';
+  const hatchRate = hatchRateMap[hatchConstant] || 'unknown';
+
+  // Parse base experience
+  const baseExpLine = data.find((line: string) => line.includes('; base exp'));
+  let baseExp: number | undefined;
+  if (baseExpLine) {
+    const match = baseExpLine.match(/db\s+(\d+)/);
+    if (match) {
+      baseExp = parseInt(match[1]);
+    }
+  }
+
+  // Parse catch rate
+  const catchRateLine = data.find((line: string) => line.includes('; catch rate'));
+  let catchRate: number | undefined;
+  if (catchRateLine) {
+    const match = catchRateLine.match(/db\s+(\d+)/);
+    if (match) {
+      catchRate = parseInt(match[1]);
+    }
+  }
+
+  // Apply base exp exception if exists (lookup happens later when we know pokemon ID)
+  const getAdjustedBaseExp = (pokemonId: string, formKey: string = 'plain'): number | undefined => {
+    const key = formKey === 'plain' ? pokemonId : `${pokemonId}_${formKey}`;
+    return baseExpExceptions[key] ?? baseExp;
+  };
+
+  // Parse EV yield (format: ev_yield 1 SAt, 2 HP)
+  const evYieldLine = data.find((line: string) => line.trim().startsWith('ev_yield '));
+  const evYield: Partial<PokemonData['baseStats']> = {};
+  if (evYieldLine) {
+    const evText = evYieldLine.replace('ev_yield ', '').trim();
+    const parts = evText.split(',').map((p) => p.trim());
+    for (const part of parts) {
+      const match = part.match(/^(\d+)\s+(\w+)$/);
+      if (match) {
+        const value = parseInt(match[1]);
+        const statAbbr = match[2];
+        const statKey = evStatMap[statAbbr];
+        if (statKey && value > 0) {
+          (evYield as Record<string, number>)[statKey] = value;
+        }
+      }
+    }
+  }
+
+  // Parse egg groups (format: dn EGG_MONSTER, EGG_PLANT ; egg groups)
+  const eggGroupLine = data.find((line: string) => line.includes('egg group'));
+  const eggGroups: string[] = [];
+  if (eggGroupLine) {
+    const match = eggGroupLine.match(/dn\s+(.+?)\s*;/);
+    if (match) {
+      const groupParts = match[1].split(',').map((g) => g.trim());
+      for (const group of groupParts) {
+        const normalized = reduce(group.replace('EGG_', ''));
+        if (normalized && normalized !== 'none' && !eggGroups.includes(normalized)) {
+          eggGroups.push(normalized);
+        }
+      }
+    }
+  }
 
   // Extract TM/HM moves
   const tmLine = data.find((line: string) => line.trim().startsWith('tmhm '));
@@ -728,7 +835,16 @@ const extractMon = (data: string[], pokemonForm: string) => {
       form['abilities'] = abilities;
       form['baseStats'] = bsts;
       form['growthRate'] = growthRate;
-      form['hasGender'] = hasGender;
+      form['genderRatio'] = genderRatio;
+      form['hatchRate'] = hatchRate;
+      form['catchRate'] = catchRate;
+      form['baseExp'] = getAdjustedBaseExp('mewtwo', 'armored');
+      if (Object.keys(evYield).length > 0) {
+        form['evYield'] = evYield;
+      }
+      if (eggGroups.length > 0) {
+        form['eggGroups'] = eggGroups;
+      }
       if (heldItems.length > 0) {
         form['heldItems'] = heldItems;
       }
@@ -746,7 +862,16 @@ const extractMon = (data: string[], pokemonForm: string) => {
       form['abilities'] = abilities;
       form['baseStats'] = bsts;
       form['growthRate'] = growthRate;
-      form['hasGender'] = hasGender;
+      form['genderRatio'] = genderRatio;
+      form['hatchRate'] = hatchRate;
+      form['catchRate'] = catchRate;
+      form['baseExp'] = getAdjustedBaseExp(reducedNameForm, 'plain');
+      if (Object.keys(evYield).length > 0) {
+        form['evYield'] = evYield;
+      }
+      if (eggGroups.length > 0) {
+        form['eggGroups'] = eggGroups;
+      }
       if (heldItems.length > 0) {
         form['heldItems'] = heldItems;
       }
@@ -766,7 +891,16 @@ const extractMon = (data: string[], pokemonForm: string) => {
         form['abilities'] = abilities;
         form['baseStats'] = bsts;
         form['growthRate'] = growthRate;
-        form['hasGender'] = hasGender;
+        form['genderRatio'] = genderRatio;
+        form['hatchRate'] = hatchRate;
+        form['catchRate'] = catchRate;
+        form['baseExp'] = getAdjustedBaseExp(pokemon.id, formKey);
+        if (Object.keys(evYield).length > 0) {
+          form['evYield'] = evYield;
+        }
+        if (eggGroups.length > 0) {
+          form['eggGroups'] = eggGroups;
+        }
         if (heldItems.length > 0) {
           form['heldItems'] = heldItems;
         }
@@ -779,7 +913,7 @@ const extractMon = (data: string[], pokemonForm: string) => {
 const extractCosmetic = (pokemonForm: string) => {
   //Case #3: Adding to cosmetic form: Can only be done after all files are read.
   const mons = pokemonData[pokemonForm]?.filter((mon) => {
-    return mon?.forms && Object.values(mon.forms).some((form) => form['hasGender'] === undefined);
+    return mon?.forms && Object.values(mon.forms).some((form) => form['genderRatio'] === undefined);
   });
   if (!mons) return;
 
@@ -789,12 +923,17 @@ const extractCosmetic = (pokemonForm: string) => {
     const plainForm = Object.values(mon['forms'] || {}).find((form) => form['formNumber'] === 1);
     if (plainForm) {
       for (const form of Object.values(mon['forms'] || {})) {
-        if (form['hasGender'] === undefined && form['formNumber'] !== 1) {
+        if (form['genderRatio'] === undefined && form['formNumber'] !== 1) {
           form['types'] = plainForm['types'];
           form['abilities'] = plainForm['abilities'];
           form['baseStats'] = plainForm['baseStats'];
           form['growthRate'] = plainForm['growthRate'];
-          form['hasGender'] = plainForm['hasGender'];
+          form['genderRatio'] = plainForm['genderRatio'];
+          form['hatchRate'] = plainForm['hatchRate'];
+          form['catchRate'] = plainForm['catchRate'];
+          form['baseExp'] = plainForm['baseExp'];
+          form['evYield'] = plainForm['evYield'];
+          form['eggGroups'] = plainForm['eggGroups'];
           form['heldItems'] = plainForm['heldItems'];
         }
       }
@@ -813,6 +952,21 @@ raw = await readFile(formsASM, 'utf-8');
 const [polishedForms, faithfulForms] = splitFile(raw);
 extractForms(polishedForms, 'polished');
 extractForms(faithfulForms, 'faithful');
+
+//#2.5: Parse base experience exceptions (Gen V+ adjustments)
+const baseExpExceptionsRaw = await readFile(baseExpExceptionsASM, 'utf-8');
+const baseExpLines = baseExpExceptionsRaw.split('\n');
+for (const line of baseExpLines) {
+  const match = line.match(/base_exception\s+(\w+),\s*(\w+),\s*(\d+)/);
+  if (match) {
+    const pokemonId = reduce(match[1]);
+    const formId = reduce(match[2]);
+    const adjustedExp = parseInt(match[3]);
+    // Store as "pokemonId_formId" or just "pokemonId" for plain form
+    const key = formId === 'plainform' ? pokemonId : `${pokemonId}_${formId}`;
+    baseExpExceptions[key] = adjustedExp;
+  }
+}
 
 //#3: Type, Abilities, Base Stats, Growth Rate, Gender
 const filenames = await readdir(monDIR);
