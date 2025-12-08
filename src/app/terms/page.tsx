@@ -43,12 +43,7 @@ export default function TermsAndConditions() {
       <main className="container mx-auto px-4 py-12 max-w-4xl">
         <div className="prose prose-gray dark:prose-invert max-w-none">
           <p className="text-sm text-gray-500 dark:text-gray-400 mb-8">
-            Last updated:{' '}
-            {new Date().toLocaleDateString('en-US', {
-              month: 'long',
-              day: 'numeric',
-              year: 'numeric',
-            })}
+            Last updated: Dec 08, 2025
           </p>
 
           <section className="mb-8">
