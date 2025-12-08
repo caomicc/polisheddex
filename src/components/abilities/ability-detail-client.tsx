@@ -24,13 +24,9 @@ export function AbilityDetailClient({ ability }: AbilityDetailClientProps) {
   const pokemon: AbilityPokemon[] = versionData?.pokemon || [];
 
   return (
-    <div className="grid gap-6 md:grid-cols-2">
-      <div className="md:col-span-2">
-        <AbilityDescriptionCard description={versionData?.description} />
-      </div>
-      <div className="md:col-span-2">
-        <AbilityPokemonCard pokemon={pokemon} />
-      </div>
+    <div className="space-y-4">
+      <AbilityDescriptionCard description={versionData?.description} />
+      <AbilityPokemonCard pokemon={pokemon} />
     </div>
   );
 }
