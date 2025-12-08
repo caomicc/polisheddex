@@ -14,6 +14,8 @@ import { loadDetailedItemData, loadItemsData } from '@/utils/loaders/item-data-l
 import ItemDetailClient from '@/components/items/item-detail-client';
 import { PokemonGridSkeleton } from '@/components/pokemon/pokemon-card-skeleton';
 import { getMoveData } from '@/utils/move-data-server';
+import { ItemSprite } from '@/components/items/item-sprite';
+import { getAllLocations } from '@/utils/location-data-server';
 
 interface ItemPageProps {
   params: Promise<{ name: string }>;
@@ -73,12 +75,28 @@ export default async function ItemPage({ params }: ItemPageProps) {
 
   // Get display name for hero (use polished as default)
   const displayName = polishedData?.name || item.id;
+  const itemCategory = polishedData?.attributes?.category;
+
+  // Load locations manifest for display names
+  const locationsManifest = await getAllLocations();
+  const locationNameMap: Record<string, string> = {};
+  for (const loc of locationsManifest) {
+    locationNameMap[loc.id] = loc.name;
+  }
 
   return (
     <>
       <Hero
         headline={displayName}
         description={polishedData?.description || ''}
+        icon={
+          <ItemSprite
+            itemName={item.id}
+            category={itemCategory}
+            size={64}
+            className="w-16 h-16"
+          />
+        }
         breadcrumbs={
           <Breadcrumb>
             <BreadcrumbList>
@@ -112,6 +130,7 @@ export default async function ItemPage({ params }: ItemPageProps) {
             item={item}
             polishedMoveData={polishedMoveData}
             faithfulMoveData={faithfulMoveData}
+            locationNameMap={locationNameMap}
           />
         </Suspense>
       </div>

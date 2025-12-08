@@ -13,12 +13,23 @@ type HeroProps = React.PropsWithChildren & {
   types?: React.ReactNode;
   style?: React.CSSProperties;
   image?: string;
+  icon?: React.ReactNode; // Custom icon/sprite element
   form?: string; // Optional form prop for specific Pokemon forms
 };
 
 export const Hero: React.FC<HeroProps> = ({ ...props }) => {
-  const { className, headline, description, breadcrumbs, children, style, image, types, form } =
-    props;
+  const {
+    className,
+    headline,
+    description,
+    breadcrumbs,
+    children,
+    style,
+    image,
+    icon,
+    types,
+    form,
+  } = props;
   const heroRef = React.useRef<HTMLDivElement>(null);
   // const { primaryType, getTypeBasedStyles } = usePokemonType();
 
@@ -79,7 +90,8 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
         </div>
       ) : null}
       <div className="flex items-center gap-4 relative">
-        {image && (
+        {icon && <div className="relative">{icon}</div>}
+        {image && !icon && (
           <div className="relative">
             <PokemonSprite
               src={image ?? ''}

@@ -77,14 +77,6 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
                   Abilities
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/faq"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                >
-                  FAQ
-                </Link>
-              </li>
             </ul>
           </div>
 

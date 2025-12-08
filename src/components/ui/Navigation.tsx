@@ -112,10 +112,6 @@ const navItems: NavItem[] = [
       },
     ],
   },
-  {
-    title: 'FAQ',
-    href: '/faq',
-  },
 ];
 
 // Mobile collapsible section component

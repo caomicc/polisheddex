@@ -345,20 +345,6 @@ const HelpSkeleton = () => {
           What files do I need? What emulator should I be using?
         </p>
       </motion.div>
-      <motion.div
-        variants={variantsSecond}
-        className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center justify-end space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
-      >
-        <p className="text-xs text-neutral-500">Check the FAQ first!</p>
-        {/* <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 shrink-0" /> */}
-        <Image
-          src="/sprites/helper-avatar.png"
-          alt="avatar"
-          height="100"
-          width="100"
-          className="rounded-full h-8 w-8 bg-white"
-        />
-      </motion.div>
     </motion.div>
   );
 };
@@ -686,14 +672,6 @@ const getItems = (showFaithful: boolean) => [
     href: '/pokemon',
     className: 'col-span-1 sm:col-span-2 lg:col-span-2',
     icon: <Image src="/sprites/poke-ball.png" width={24} height={24} alt="Icon 1" />,
-  },
-  {
-    title: 'Need Help?',
-    description: <span className="text-sm">Quick answers to common queries</span>,
-    header: <HelpSkeleton />,
-    href: '/faq',
-    className: 'col-span-1 lg:col-span-1',
-    icon: <Image src="/sprites/escape-rope.png" width={24} height={24} alt="Icon 1" />,
   },
   {
     title: 'Attackdex',
