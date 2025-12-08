@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
+import { cn } from '@/lib/utils';
+import { useEffect, useState } from 'react';
 
 interface EzoicAdProps {
   placeholderId: number;
@@ -11,24 +12,35 @@ declare global {
   interface Window {
     ezstandalone?: {
       cmd: Array<() => void>;
-      showAds: (id: number) => void;
+      showAds: (...ids: number[]) => void;
     };
   }
 }
 
 export function EzoicAd({ placeholderId, className = '' }: EzoicAdProps) {
+  const [isEzoicAvailable, setIsEzoicAvailable] = useState(false);
+
   useEffect(() => {
-    // Only run in production and if ezstandalone is available
+    // Check if ezstandalone is available
     if (typeof window !== 'undefined' && window.ezstandalone) {
-      window.ezstandalone.cmd.push(() => {
+      setIsEzoicAvailable(true);
+      window.ezstandalone.cmd.push(function () {
         window.ezstandalone?.showAds(placeholderId);
       });
     }
   }, [placeholderId]);
 
   return (
-    <div className={className}>
-      <div id={`ezoic-pub-ad-placeholder-${placeholderId}`} />
+    <div className={cn('ezoic-ad-container w-full max-w-4xl mx-auto', className)}>
+      <div id={`ezoic-pub-ad-placeholder-${placeholderId}`}/>
+      {/* Show placeholder when Ezoic isn't loaded (local dev)
+        {!isEzoicAvailable && (
+          <div className="bg-neutral-200 dark:bg-neutral-800 border-2 border-dashed border-neutral-400 dark:border-neutral-600 rounded-lg p-4 text-center text-neutral-500 dark:text-neutral-400 min-h-[90px] flex items-center justify-center w-full">
+            <span className="text-sm font-mono">
+              Ad Placeholder #{placeholderId}
+            </span>
+          </div>
+        )} */}
     </div>
   );
 }
