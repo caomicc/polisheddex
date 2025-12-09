@@ -121,7 +121,9 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
     return data.filter((location: any) => {
       // Filter out empty buildings with no content
       // Note: manifest uses encounterCount (pokemon), trainerCount, itemCount, eventCount
+      // Flyable locations (cities/towns) should always be shown as they have sub-areas
       const hasAnyContent =
+        location.flyable ||
         (location.encounterCount && location.encounterCount > 0) ||
         (location.trainerCount && location.trainerCount > 0) ||
         (location.itemCount && location.itemCount > 0) ||
