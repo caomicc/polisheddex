@@ -684,13 +684,14 @@ const extractMon = (data: string[], pokemonForm: string) => {
 
   const bstStrings = bstLine.slice(3, -9).split(',');
   const bstValues = bstStrings.map((bst) => parseInt(bst.trim()));
+  // Source order is: HP, Atk, Def, Spe, SpA, SpD
   const bsts: PokemonData['baseStats'] = {
     hp: bstValues[0],
     attack: bstValues[1],
     defense: bstValues[2],
-    specialAttack: bstValues[3],
-    specialDefense: bstValues[4],
-    speed: bstValues[5],
+    speed: bstValues[3],
+    specialAttack: bstValues[4],
+    specialDefense: bstValues[5],
   };
 
   const growthRateLine = data.find((line: string) => line.includes('db GROWTH'));
