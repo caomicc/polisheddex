@@ -36,6 +36,10 @@ export const itemColumns = (version: string): ColumnDef<ItemsManifest>[] => [
   },
   {
     accessorKey: 'name',
+    // Custom accessor to get the name from the versioned data
+    accessorFn: (row) => {
+      return row.versions[version]?.name || row.id;
+    },
     header: ({ column }) => {
       return (
         <Button
@@ -72,6 +76,7 @@ export const itemColumns = (version: string): ColumnDef<ItemsManifest>[] => [
     filterFn: (row, id, value) => {
       if (!value) return true;
       const itemName = row.getValue(id) as string;
+      if (!itemName) return false;
       return accentInsensitiveIncludes(itemName, value);
     },
   },
