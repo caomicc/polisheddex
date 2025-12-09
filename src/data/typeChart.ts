@@ -107,10 +107,10 @@ export const TYPE_CHART: TypeMatchup[] = [
   { attacker: 'GROUND', defender: 'ELECTRIC', effectiveness: 2 },
   { attacker: 'GROUND', defender: 'GRASS', effectiveness: 0.5 },
   { attacker: 'GROUND', defender: 'POISON', effectiveness: 2 },
+  { attacker: 'GROUND', defender: 'FLYING', effectiveness: 0 }, // Flying types are immune to Ground
   { attacker: 'GROUND', defender: 'BUG', effectiveness: 0.5 },
   { attacker: 'GROUND', defender: 'ROCK', effectiveness: 2 },
   { attacker: 'GROUND', defender: 'STEEL', effectiveness: 2 },
-  // Note: GROUND vs FLYING checks airborne state instead of using type chart
 
   // Flying
   { attacker: 'FLYING', defender: 'ELECTRIC', effectiveness: 0.5 },
