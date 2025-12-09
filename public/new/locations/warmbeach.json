@@ -3,7 +3,15 @@
   "name": "Warm Beach",
   "constantName": "WARM_BEACH",
   "connectionCount": 1,
+  "connections": [
+    {
+      "direction": "south",
+      "to": "Shamouti Coast",
+      "toId": "shamouticoast"
+    }
+  ],
   "parent": "warmbeach",
+  "parentName": "Warm Beach",
   "type": [
     "route"
   ],

@@ -3,7 +3,20 @@
   "name": "Route 19",
   "constantName": "ROUTE_19",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Fuchsia City",
+      "toId": "fuchsiacity"
+    },
+    {
+      "direction": "west",
+      "to": "Route 20",
+      "toId": "route20"
+    }
+  ],
   "parent": "route19",
+  "parentName": "Route 19",
   "type": [
     "route"
   ],

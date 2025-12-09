@@ -3,7 +3,15 @@
   "name": "Ruins Of Alph Outside",
   "constantName": "RUINS_OF_ALPH_OUTSIDE",
   "connectionCount": 1,
+  "connections": [
+    {
+      "direction": "south",
+      "to": "Magnet Tunnel East",
+      "toId": "magnettunneleast"
+    }
+  ],
   "parent": "ruinsofalph",
+  "parentName": "Ruins Of Alph",
   "type": [
     "route"
   ],

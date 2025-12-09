@@ -3,7 +3,20 @@
   "name": "Route 10 North",
   "constantName": "ROUTE_10_NORTH",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "south",
+      "to": "Route 10 South",
+      "toId": "route10south"
+    },
+    {
+      "direction": "west",
+      "to": "Route 9",
+      "toId": "route9"
+    }
+  ],
   "parent": "route10",
+  "parentName": "Route 10",
   "type": [
     "route"
   ],

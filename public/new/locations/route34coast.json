@@ -3,7 +3,20 @@
   "name": "Route 34 Coast",
   "constantName": "ROUTE_34_COAST",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "south",
+      "to": "Stormy Beach",
+      "toId": "stormybeach"
+    },
+    {
+      "direction": "east",
+      "to": "Route 34",
+      "toId": "route34"
+    }
+  ],
   "parent": "route34coast",
+  "parentName": "Route 34 Coast",
   "type": [
     "route"
   ],

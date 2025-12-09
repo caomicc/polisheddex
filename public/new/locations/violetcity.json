@@ -3,7 +3,30 @@
   "name": "Violet City",
   "constantName": "VIOLET_CITY",
   "connectionCount": 4,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Violet Outskirts",
+      "toId": "violetoutskirts"
+    },
+    {
+      "direction": "south",
+      "to": "Route 32",
+      "toId": "route32"
+    },
+    {
+      "direction": "west",
+      "to": "Route 36",
+      "toId": "route36"
+    },
+    {
+      "direction": "east",
+      "to": "Route 31",
+      "toId": "route31"
+    }
+  ],
   "parent": "violetcity",
+  "parentName": "Violet City",
   "type": [
     "town"
   ],

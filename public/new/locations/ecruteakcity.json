@@ -3,7 +3,25 @@
   "name": "Ecruteak City",
   "constantName": "ECRUTEAK_CITY",
   "connectionCount": 3,
+  "connections": [
+    {
+      "direction": "south",
+      "to": "Route 37",
+      "toId": "route37"
+    },
+    {
+      "direction": "west",
+      "to": "Route 38",
+      "toId": "route38"
+    },
+    {
+      "direction": "east",
+      "to": "Route 42",
+      "toId": "route42"
+    }
+  ],
   "parent": "ecruteakcity",
+  "parentName": "Ecruteak City",
   "type": [
     "town"
   ],

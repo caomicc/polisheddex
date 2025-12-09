@@ -3,7 +3,20 @@
   "name": "Route 13 West",
   "constantName": "ROUTE_13_WEST",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "south",
+      "to": "Route 14",
+      "toId": "route14"
+    },
+    {
+      "direction": "east",
+      "to": "Route 13 East",
+      "toId": "route13east"
+    }
+  ],
   "parent": "route13",
+  "parentName": "Route 13",
   "type": [
     "route"
   ],

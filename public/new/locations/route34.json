@@ -3,7 +3,25 @@
   "name": "Route 34",
   "constantName": "ROUTE_34",
   "connectionCount": 3,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Goldenrod City",
+      "toId": "goldenrodcity"
+    },
+    {
+      "direction": "west",
+      "to": "Route 34 Coast",
+      "toId": "route34coast"
+    },
+    {
+      "direction": "east",
+      "to": "Azalea Town",
+      "toId": "azaleatown"
+    }
+  ],
   "parent": "route34",
+  "parentName": "Route 34",
   "type": [
     "route"
   ],

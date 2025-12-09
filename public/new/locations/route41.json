@@ -3,7 +3,25 @@
   "name": "Route 41",
   "constantName": "ROUTE_41",
   "connectionCount": 3,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 40",
+      "toId": "route40"
+    },
+    {
+      "direction": "west",
+      "to": "Cianwood City",
+      "toId": "cianwoodcity"
+    },
+    {
+      "direction": "east",
+      "to": "Goldenrod Harbor",
+      "toId": "goldenrodharbor"
+    }
+  ],
   "parent": "route41",
+  "parentName": "Route 41",
   "type": [
     "route"
   ],

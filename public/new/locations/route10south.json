@@ -3,7 +3,20 @@
   "name": "Route 10 South",
   "constantName": "ROUTE_10_SOUTH",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 10 North",
+      "toId": "route10north"
+    },
+    {
+      "direction": "south",
+      "to": "Lavender Town",
+      "toId": "lavendertown"
+    }
+  ],
   "parent": "route10",
+  "parentName": "Route 10",
   "type": [
     "route"
   ],

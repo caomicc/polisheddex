@@ -501,6 +501,8 @@ export const ITEM_SPRITE_MAP: Record<string, string> = {
 
   silver_leaf: 'leaf',
   gold_leaf: 'leaf',
+  silverleaf: 'leaf',
+  goldleaf: 'leaf',
 
   surf_mail: 'mail',
   lite_blue_mail: 'mail',
@@ -512,7 +514,9 @@ export const ITEM_SPRITE_MAP: Record<string, string> = {
 
   potion: 'potion',
   super_potion: 'potion',
+  superpotion: 'potion',
   hyper_potion: 'potion',
+  hyperpotion: 'potion',
 
   ssticket: 's_s_ticket',
 

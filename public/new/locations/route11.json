@@ -3,7 +3,20 @@
   "name": "Route 11",
   "constantName": "ROUTE_11",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "west",
+      "to": "Vermilion City",
+      "toId": "vermilioncity"
+    },
+    {
+      "direction": "east",
+      "to": "Route 12 South",
+      "toId": "route12south"
+    }
+  ],
   "parent": "route11",
+  "parentName": "Route 11",
   "type": [
     "route"
   ],

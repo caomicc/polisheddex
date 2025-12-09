@@ -3,7 +3,15 @@
   "name": "Silver Cave Outside",
   "constantName": "SILVER_CAVE_OUTSIDE",
   "connectionCount": 1,
+  "connections": [
+    {
+      "direction": "east",
+      "to": "Route 28",
+      "toId": "route28"
+    }
+  ],
   "parent": "silvercave",
+  "parentName": "Silver Cave",
   "type": [
     "town"
   ],

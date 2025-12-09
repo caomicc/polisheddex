@@ -3,7 +3,25 @@
   "name": "Cherrygrove City",
   "constantName": "CHERRYGROVE_CITY",
   "connectionCount": 3,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 30",
+      "toId": "route30"
+    },
+    {
+      "direction": "west",
+      "to": "Cherrygrove Bay",
+      "toId": "cherrygrovebay"
+    },
+    {
+      "direction": "east",
+      "to": "Route 29",
+      "toId": "route29"
+    }
+  ],
   "parent": "cherrygrovecity",
+  "parentName": "Cherrygrove City",
   "type": [
     "town"
   ],

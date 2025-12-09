@@ -3,7 +3,20 @@
   "name": "Celadon City",
   "constantName": "CELADON_CITY",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "west",
+      "to": "Route 16 Northeast",
+      "toId": "route16northeast"
+    },
+    {
+      "direction": "east",
+      "to": "Route 7",
+      "toId": "route7"
+    }
+  ],
   "parent": "celadoncity",
+  "parentName": "Celadon City",
   "type": [
     "town"
   ],

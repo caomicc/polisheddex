@@ -3,7 +3,20 @@
   "name": "Route 1",
   "constantName": "ROUTE_1",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Viridian City",
+      "toId": "viridiancity"
+    },
+    {
+      "direction": "south",
+      "to": "Pallet Town",
+      "toId": "pallettown"
+    }
+  ],
   "parent": "route1",
+  "parentName": "Route 1",
   "type": [
     "route"
   ],

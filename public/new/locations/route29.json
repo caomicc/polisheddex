@@ -3,7 +3,25 @@
   "name": "Route 29",
   "constantName": "ROUTE_29",
   "connectionCount": 3,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 46",
+      "toId": "route46"
+    },
+    {
+      "direction": "west",
+      "to": "Cherrygrove City",
+      "toId": "cherrygrovecity"
+    },
+    {
+      "direction": "east",
+      "to": "New Bark Town",
+      "toId": "newbarktown"
+    }
+  ],
   "parent": "route29",
+  "parentName": "Route 29",
   "type": [
     "route"
   ],

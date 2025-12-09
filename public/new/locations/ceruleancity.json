@@ -3,7 +3,30 @@
   "name": "Cerulean City",
   "constantName": "CERULEAN_CITY",
   "connectionCount": 4,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 24",
+      "toId": "route24"
+    },
+    {
+      "direction": "south",
+      "to": "Route 5",
+      "toId": "route5"
+    },
+    {
+      "direction": "west",
+      "to": "Route 4",
+      "toId": "route4"
+    },
+    {
+      "direction": "east",
+      "to": "Route 9",
+      "toId": "route9"
+    }
+  ],
   "parent": "ceruleancity",
+  "parentName": "Cerulean City",
   "type": [
     "town"
   ],

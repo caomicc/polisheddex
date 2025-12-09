@@ -3,7 +3,20 @@
   "name": "Route 7",
   "constantName": "ROUTE_7",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "west",
+      "to": "Celadon City",
+      "toId": "celadoncity"
+    },
+    {
+      "direction": "east",
+      "to": "Saffron City",
+      "toId": "saffroncity"
+    }
+  ],
   "parent": "route7",
+  "parentName": "Route 7",
   "type": [
     "route"
   ],

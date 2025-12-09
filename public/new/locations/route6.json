@@ -3,7 +3,20 @@
   "name": "Route 6",
   "constantName": "ROUTE_6",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Saffron City",
+      "toId": "saffroncity"
+    },
+    {
+      "direction": "south",
+      "to": "Vermilion City",
+      "toId": "vermilioncity"
+    }
+  ],
   "parent": "route6",
+  "parentName": "Route 6",
   "type": [
     "route"
   ],

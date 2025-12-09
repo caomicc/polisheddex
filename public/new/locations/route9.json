@@ -3,7 +3,20 @@
   "name": "Route 9",
   "constantName": "ROUTE_9",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "west",
+      "to": "Cerulean City",
+      "toId": "ceruleancity"
+    },
+    {
+      "direction": "east",
+      "to": "Route 10 North",
+      "toId": "route10north"
+    }
+  ],
   "parent": "route9",
+  "parentName": "Route 9",
   "type": [
     "route"
   ],

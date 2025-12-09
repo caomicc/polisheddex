@@ -17,7 +17,13 @@ export interface LocationData {
   type?: string[];
   order?: number;
   connectionCount?: number;
+  connections?: Array<{
+    direction: string;
+    to: string;
+    toId: string;
+  }>;
   parent?: string;
+  parentName?: string;
   constantName?: string;
   encounters?: LocationEncounter[];
   items?: Array<{

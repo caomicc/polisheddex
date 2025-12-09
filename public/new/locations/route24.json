@@ -3,7 +3,20 @@
   "name": "Route 24",
   "constantName": "ROUTE_24",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "south",
+      "to": "Cerulean City",
+      "toId": "ceruleancity"
+    },
+    {
+      "direction": "east",
+      "to": "Route 25",
+      "toId": "route25"
+    }
+  ],
   "parent": "route24",
+  "parentName": "Route 24",
   "type": [
     "route"
   ],

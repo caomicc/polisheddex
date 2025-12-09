@@ -3,7 +3,20 @@
   "name": "Shamouti Island",
   "constantName": "SHAMOUTI_ISLAND",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Rocky Beach",
+      "toId": "rockybeach"
+    },
+    {
+      "direction": "east",
+      "to": "Beautiful Beach",
+      "toId": "beautifulbeach"
+    }
+  ],
   "parent": "shamoutiisland",
+  "parentName": "Shamouti Island",
   "type": [
     "town"
   ],

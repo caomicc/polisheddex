@@ -3,7 +3,15 @@
   "name": "Blackthorn City",
   "constantName": "BLACKTHORN_CITY",
   "connectionCount": 1,
+  "connections": [
+    {
+      "direction": "south",
+      "to": "Route 45",
+      "toId": "route45"
+    }
+  ],
   "parent": "blackthorncity",
+  "parentName": "Blackthorn City",
   "type": [
     "town"
   ],

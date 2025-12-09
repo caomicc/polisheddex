@@ -3,7 +3,20 @@
   "name": "Route 30",
   "constantName": "ROUTE_30",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 31",
+      "toId": "route31"
+    },
+    {
+      "direction": "south",
+      "to": "Cherrygrove City",
+      "toId": "cherrygrovecity"
+    }
+  ],
   "parent": "route30",
+  "parentName": "Route 30",
   "type": [
     "route"
   ],

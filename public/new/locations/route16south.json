@@ -3,7 +3,15 @@
   "name": "Route 16 South",
   "constantName": "ROUTE_16_SOUTH",
   "connectionCount": 1,
+  "connections": [
+    {
+      "direction": "south",
+      "to": "Route 17",
+      "toId": "route17"
+    }
+  ],
   "parent": "route16",
+  "parentName": "Route 16",
   "type": [
     "route"
   ],

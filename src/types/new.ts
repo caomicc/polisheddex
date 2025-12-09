@@ -220,6 +220,7 @@ export interface LocationData {
   order?: number;
   region?: string;
   parent?: string;
+  parentName?: string;
   encounters?: {
     pokemon: PokemonData['name'];
     formNumber?: number;

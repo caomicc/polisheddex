@@ -3,7 +3,30 @@
   "name": "Route 32",
   "constantName": "ROUTE_32",
   "connectionCount": 4,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Violet City",
+      "toId": "violetcity"
+    },
+    {
+      "direction": "south",
+      "to": "Route 33",
+      "toId": "route33"
+    },
+    {
+      "direction": "west",
+      "to": "Magnet Tunnel East",
+      "toId": "magnettunneleast"
+    },
+    {
+      "direction": "east",
+      "to": "Cherrygrove Bay",
+      "toId": "cherrygrovebay"
+    }
+  ],
   "parent": "route32",
+  "parentName": "Route 32",
   "type": [
     "route"
   ],

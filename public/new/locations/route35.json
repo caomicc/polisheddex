@@ -3,7 +3,20 @@
   "name": "Route 35",
   "constantName": "ROUTE_35",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 36",
+      "toId": "route36"
+    },
+    {
+      "direction": "south",
+      "to": "Goldenrod City",
+      "toId": "goldenrodcity"
+    }
+  ],
   "parent": "route35",
+  "parentName": "Route 35",
   "type": [
     "route"
   ],

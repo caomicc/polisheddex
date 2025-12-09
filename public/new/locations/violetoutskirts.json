@@ -3,7 +3,20 @@
   "name": "Violet Outskirts",
   "constantName": "VIOLET_OUTSKIRTS",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 42",
+      "toId": "route42"
+    },
+    {
+      "direction": "south",
+      "to": "Violet City",
+      "toId": "violetcity"
+    }
+  ],
   "parent": "violetoutskirts",
+  "parentName": "Violet Outskirts",
   "type": [
     "route"
   ],

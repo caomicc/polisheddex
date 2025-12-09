@@ -3,7 +3,20 @@
   "name": "Route 27",
   "constantName": "ROUTE_27",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "west",
+      "to": "New Bark Town",
+      "toId": "newbarktown"
+    },
+    {
+      "direction": "east",
+      "to": "Route 26",
+      "toId": "route26"
+    }
+  ],
   "parent": "route27",
+  "parentName": "Route 27",
   "type": [
     "route"
   ],

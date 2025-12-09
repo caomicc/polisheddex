@@ -3,7 +3,20 @@
   "name": "Goldenrod Harbor",
   "constantName": "GOLDENROD_HARBOR",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 35 Coast South",
+      "toId": "route35coastsouth"
+    },
+    {
+      "direction": "west",
+      "to": "Route 41",
+      "toId": "route41"
+    }
+  ],
   "parent": "goldenrodharbor",
+  "parentName": "Goldenrod Harbor",
   "type": [
     "route"
   ],

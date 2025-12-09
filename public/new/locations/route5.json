@@ -3,7 +3,20 @@
   "name": "Route 5",
   "constantName": "ROUTE_5",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Cerulean City",
+      "toId": "ceruleancity"
+    },
+    {
+      "direction": "south",
+      "to": "Saffron City",
+      "toId": "saffroncity"
+    }
+  ],
   "parent": "route5",
+  "parentName": "Route 5",
   "type": [
     "route"
   ],

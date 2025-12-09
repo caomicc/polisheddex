@@ -3,7 +3,15 @@
   "name": "Rugged Road South",
   "constantName": "RUGGED_ROAD_SOUTH",
   "connectionCount": 1,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Rugged Road North",
+      "toId": "ruggedroadnorth"
+    }
+  ],
   "parent": "ruggedroad",
+  "parentName": "Rugged Road",
   "type": [
     "route"
   ],

@@ -3,7 +3,20 @@
   "name": "Route 18 East",
   "constantName": "ROUTE_18_EAST",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "west",
+      "to": "Route 18 West",
+      "toId": "route18west"
+    },
+    {
+      "direction": "east",
+      "to": "Fuchsia City",
+      "toId": "fuchsiacity"
+    }
+  ],
   "parent": "route18",
+  "parentName": "Route 18",
   "type": [
     "route"
   ],

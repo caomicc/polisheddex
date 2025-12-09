@@ -9,6 +9,7 @@ import {
   ensureArrayExists,
   countConnections,
   displayName,
+  toTitleCase,
   parseTrainerLine,
 } from '@/lib/extract-utils';
 import { mapEncounterRatesToPokemon } from '@/utils/encounterRates';
@@ -23,10 +24,15 @@ const __dirname = dirname(__filename);
 // Data storage
 const locations: LocationData[] = [];
 const encounters: Record<string, LocationData['encounters']> = {};
-const connections: Record<string, number> = {};
+const connectionCounts: Record<string, number> = {};
+const connectionDetails: Record<
+  string,
+  Array<{ direction: string; to: string; toId: string }>
+> = {}; // Store full connection data
 const locationTrainerNames: Record<string, string[]> = {}; // Store trainer names by location
 const locationTypes: Record<string, string[]> = {}; // Store map names by location
-const locationParent: Record<string, string> = {}; // Store map names by location
+const locationParent: Record<string, string> = {}; // Store parent ID by location
+const locationParentName: Record<string, string> = {}; // Store parent display name by location
 const landmarks: {
   locationRefs: Set<string>;
   orderMap: Map<string, number>;
@@ -230,19 +236,22 @@ const locationConstants: Record<string, string> = {};
 
 const extractConnections = async () => {
   const raw = await readFile(attributesASM, 'utf-8');
-  const attributesData = splitFile(raw);
+  const attributesData = splitFile(raw, false)[0] as string[]; // locations don't have faithful/polished splits
 
   let currentLocation = '';
-  let connectionCount = 0;
+  let currentLocationConnections: Array<{ direction: string; to: string; toId: string }> = [];
 
-  for (const line of attributesData[0]) {
-    const trimmedLine = (line as string).trim();
+  for (const line of attributesData) {
+    const trimmedLine = line.trim();
 
     // Find map_attributes lines
     if (trimmedLine.startsWith('map_attributes ')) {
       // Save previous location if exists
       if (currentLocation) {
-        connections[currentLocation] = connectionCount;
+        connectionCounts[currentLocation] = currentLocationConnections.length;
+        if (currentLocationConnections.length > 0) {
+          connectionDetails[currentLocation] = currentLocationConnections;
+        }
       }
 
       // Parse: map_attributes NewBarkTown, NEW_BARK_TOWN, $5, WEST | EAST
@@ -250,22 +259,44 @@ const extractConnections = async () => {
       if (parts.length >= 4) {
         currentLocation = parts[0].trim();
         const constantName = parts[1].trim();
-        const connectionsStr = parts[3].trim();
 
         // Store the constant name mapping
         locationConstants[currentLocation] = constantName;
 
-        connectionCount = countConnections(connectionsStr);
+        // Reset connections for new location
+        currentLocationConnections = [];
+      }
+    }
+    // Find connection lines: connection west, Route29, ROUTE_29, 0
+    else if (trimmedLine.startsWith('connection ') && currentLocation) {
+      // Parse: connection direction, MapName, MAP_CONSTANT, offset
+      const parts = trimmedLine.replace('connection ', '').split(',');
+      if (parts.length >= 2) {
+        const direction = parts[0].trim().toLowerCase();
+        const destinationMapName = parts[1].trim();
+        const destinationId = reduce(destinationMapName);
+
+        currentLocationConnections.push({
+          direction: direction,
+          to: displayName(destinationMapName),
+          toId: destinationId,
+        });
       }
     }
   }
 
   // Don't forget the last location
   if (currentLocation) {
-    connections[currentLocation] = connectionCount;
+    connectionCounts[currentLocation] = currentLocationConnections.length;
+    if (currentLocationConnections.length > 0) {
+      connectionDetails[currentLocation] = currentLocationConnections;
+    }
   }
 
-  console.log(`Extracted connections for ${Object.keys(connections).length} locations`);
+  console.log(`Extracted connections for ${Object.keys(connectionCounts).length} locations`);
+  console.log(
+    `Locations with connection details: ${Object.keys(connectionDetails).length}`,
+  );
 };
 
 const extractMapGroups = async () => {
@@ -281,9 +312,10 @@ const extractMapGroups = async () => {
       const parts = trimmedLine.replace('map ', '').split(',');
 
       if (parts.length >= 5) {
-        const mapName = reduce(parts[0].trim()); // MapName
+        const mapName = reduce(parts[0].trim()); // MapName (reduced for lookup)
         const environment = reduce(parts[2].trim()); // TOWN, ROUTE, INDOOR, CAVE, etc.
-        const landmark = reduce(parts[4].trim()); // The parent landmark
+        const landmarkRaw = parts[4].trim(); // The parent landmark (SCREAMING_SNAKE_CASE)
+        const landmark = reduce(landmarkRaw); // Reduced for ID
 
         // Store the type (environment) for this map
         if (!locationTypes[mapName]) {
@@ -291,8 +323,11 @@ const extractMapGroups = async () => {
         }
         locationTypes[mapName].push(environment);
 
-        // Store the parent landmark for this map
+        // Store the parent landmark for this map (reduced ID)
         locationParent[mapName] = landmark;
+        
+        // Store the parent display name (convert SCREAMING_SNAKE_CASE to Title Case)
+        locationParentName[mapName] = toTitleCase(landmarkRaw);
       }
     }
   }
@@ -523,7 +558,7 @@ const mergeLocationData = async () => {
     orderMap.set(locationId, index + 1);
   });
 
-  for (const [locationKey, connectionCount] of Object.entries(connections)) {
+  for (const [locationKey, connectionCount] of Object.entries(connectionCounts)) {
     const locationId = reduce(locationKey);
     const locationName = displayName(locationKey);
 
@@ -531,6 +566,9 @@ const mergeLocationData = async () => {
     const order = orderMap.get(locationId);
     const region =
       landmarks.regionMap.get(locationId) || landmarks.regionMap.get(locationParent[locationId]);
+
+    // Get connection details for this location
+    const locationConnectionDetails = connectionDetails[locationKey];
 
     // Find encounters for this location using the actual constant name
     const locationConstant = locationConstants[locationKey];
@@ -601,12 +639,18 @@ const mergeLocationData = async () => {
     // Find trainers for this location
     const locationTrainers = locationTrainerNames[locationId] || undefined;
 
+    // Get parent info
+    const parentId = locationParent[locationId];
+    const parentName = locationParentName[locationId];
+
     locations.push({
       id: locationId,
       name: locationName,
       constantName: locationConstant,
       connectionCount: connectionCount,
-      parent: locationParent[locationId],
+      connections: locationConnectionDetails,
+      parent: parentId,
+      parentName: parentName,
       type: locationTypes[locationId],
       order: order,
       region: region,

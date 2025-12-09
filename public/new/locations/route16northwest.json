@@ -3,7 +3,20 @@
   "name": "Route 16 Northwest",
   "constantName": "ROUTE_16_NORTHWEST",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "west",
+      "to": "Route 16 West",
+      "toId": "route16west"
+    },
+    {
+      "direction": "east",
+      "to": "Celadon City",
+      "toId": "celadoncity"
+    }
+  ],
   "parent": "route16",
+  "parentName": "Route 16",
   "type": [
     "route"
   ],

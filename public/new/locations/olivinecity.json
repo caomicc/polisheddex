@@ -3,7 +3,30 @@
   "name": "Olivine City",
   "constantName": "OLIVINE_CITY",
   "connectionCount": 4,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 39",
+      "toId": "route39"
+    },
+    {
+      "direction": "south",
+      "to": "Route 35 Coast South",
+      "toId": "route35coastsouth"
+    },
+    {
+      "direction": "west",
+      "to": "Route 40",
+      "toId": "route40"
+    },
+    {
+      "direction": "east",
+      "to": "Route 35 Coast North",
+      "toId": "route35coastnorth"
+    }
+  ],
   "parent": "olivinecity",
+  "parentName": "Olivine City",
   "type": [
     "town"
   ],

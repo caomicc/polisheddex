@@ -3,7 +3,20 @@
   "name": "Route 2 North",
   "constantName": "ROUTE_2_NORTH",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Pewter City",
+      "toId": "pewtercity"
+    },
+    {
+      "direction": "south",
+      "to": "Route 2 South",
+      "toId": "route2south"
+    }
+  ],
   "parent": "route2",
+  "parentName": "Route 2",
   "type": [
     "route"
   ],

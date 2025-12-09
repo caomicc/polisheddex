@@ -3,7 +3,25 @@
   "name": "Route 42",
   "constantName": "ROUTE_42",
   "connectionCount": 3,
+  "connections": [
+    {
+      "direction": "south",
+      "to": "Violet Outskirts",
+      "toId": "violetoutskirts"
+    },
+    {
+      "direction": "west",
+      "to": "Ecruteak City",
+      "toId": "ecruteakcity"
+    },
+    {
+      "direction": "east",
+      "to": "Mahogany Town",
+      "toId": "mahoganytown"
+    }
+  ],
   "parent": "route42",
+  "parentName": "Route 42",
   "type": [
     "route"
   ],

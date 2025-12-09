@@ -3,7 +3,25 @@
   "name": "Goldenrod City",
   "constantName": "GOLDENROD_CITY",
   "connectionCount": 3,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 35",
+      "toId": "route35"
+    },
+    {
+      "direction": "south",
+      "to": "Route 34",
+      "toId": "route34"
+    },
+    {
+      "direction": "east",
+      "to": "Magnet Tunnel West",
+      "toId": "magnettunnelwest"
+    }
+  ],
   "parent": "goldenrodcity",
+  "parentName": "Goldenrod City",
   "type": [
     "town"
   ],

@@ -3,7 +3,25 @@
   "name": "Route 21",
   "constantName": "ROUTE_21",
   "connectionCount": 3,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Pallet Town",
+      "toId": "pallettown"
+    },
+    {
+      "direction": "south",
+      "to": "Cinnabar Island",
+      "toId": "cinnabarisland"
+    },
+    {
+      "direction": "east",
+      "to": "Uraga Channel West",
+      "toId": "uragachannelwest"
+    }
+  ],
   "parent": "route21",
+  "parentName": "Route 21",
   "type": [
     "route"
   ],

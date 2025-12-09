@@ -3,7 +3,20 @@
   "name": "Route 43",
   "constantName": "ROUTE_43",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Lake Of Rage",
+      "toId": "lakeofrage"
+    },
+    {
+      "direction": "south",
+      "to": "Mahogany Town",
+      "toId": "mahoganytown"
+    }
+  ],
   "parent": "route43",
+  "parentName": "Route 43",
   "type": [
     "route"
   ],

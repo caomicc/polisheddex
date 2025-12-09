@@ -3,7 +3,20 @@
   "name": "Route 38",
   "constantName": "ROUTE_38",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "west",
+      "to": "Route 39",
+      "toId": "route39"
+    },
+    {
+      "direction": "east",
+      "to": "Ecruteak City",
+      "toId": "ecruteakcity"
+    }
+  ],
   "parent": "route38",
+  "parentName": "Route 38",
   "type": [
     "route"
   ],

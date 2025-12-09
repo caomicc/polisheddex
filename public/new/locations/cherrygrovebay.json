@@ -3,7 +3,25 @@
   "name": "Cherrygrove Bay",
   "constantName": "CHERRYGROVE_BAY",
   "connectionCount": 3,
+  "connections": [
+    {
+      "direction": "south",
+      "to": "Route 32 Coast",
+      "toId": "route32coast"
+    },
+    {
+      "direction": "west",
+      "to": "Route 32",
+      "toId": "route32"
+    },
+    {
+      "direction": "east",
+      "to": "Cherrygrove City",
+      "toId": "cherrygrovecity"
+    }
+  ],
   "parent": "cherrygrovebay",
+  "parentName": "Cherrygrove Bay",
   "type": [
     "route"
   ],

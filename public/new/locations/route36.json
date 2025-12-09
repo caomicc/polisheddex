@@ -3,7 +3,25 @@
   "name": "Route 36",
   "constantName": "ROUTE_36",
   "connectionCount": 3,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 37",
+      "toId": "route37"
+    },
+    {
+      "direction": "south",
+      "to": "Route 35",
+      "toId": "route35"
+    },
+    {
+      "direction": "east",
+      "to": "Violet City",
+      "toId": "violetcity"
+    }
+  ],
   "parent": "route36",
+  "parentName": "Route 36",
   "type": [
     "route"
   ],

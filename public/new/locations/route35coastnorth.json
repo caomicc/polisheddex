@@ -3,7 +3,20 @@
   "name": "Route 35 Coast North",
   "constantName": "ROUTE_35_COAST_NORTH",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "south",
+      "to": "Route 35 Coast South",
+      "toId": "route35coastsouth"
+    },
+    {
+      "direction": "west",
+      "to": "Olivine City",
+      "toId": "olivinecity"
+    }
+  ],
   "parent": "route35coast",
+  "parentName": "Route 35 Coast",
   "type": [
     "route"
   ],

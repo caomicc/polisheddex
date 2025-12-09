@@ -3,7 +3,20 @@
   "name": "Route 35 Coast South",
   "constantName": "ROUTE_35_COAST_SOUTH",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Olivine City Route35 Coast Dual",
+      "toId": "olivinecityroute35coastdual"
+    },
+    {
+      "direction": "south",
+      "to": "Goldenrod Harbor",
+      "toId": "goldenrodharbor"
+    }
+  ],
   "parent": "route35coast",
+  "parentName": "Route 35 Coast",
   "type": [
     "route"
   ],

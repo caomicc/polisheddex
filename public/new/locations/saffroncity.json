@@ -3,7 +3,30 @@
   "name": "Saffron City",
   "constantName": "SAFFRON_CITY",
   "connectionCount": 4,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 5",
+      "toId": "route5"
+    },
+    {
+      "direction": "south",
+      "to": "Route 6",
+      "toId": "route6"
+    },
+    {
+      "direction": "west",
+      "to": "Route 7",
+      "toId": "route7"
+    },
+    {
+      "direction": "east",
+      "to": "Route 8",
+      "toId": "route8"
+    }
+  ],
   "parent": "saffroncity",
+  "parentName": "Saffron City",
   "type": [
     "town"
   ],

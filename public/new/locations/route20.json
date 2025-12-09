@@ -3,7 +3,20 @@
   "name": "Route 20",
   "constantName": "ROUTE_20",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "west",
+      "to": "Cinnabar Island",
+      "toId": "cinnabarisland"
+    },
+    {
+      "direction": "east",
+      "to": "Route 19",
+      "toId": "route19"
+    }
+  ],
   "parent": "route20",
+  "parentName": "Route 20",
   "type": [
     "route"
   ],

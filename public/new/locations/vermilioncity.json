@@ -3,7 +3,20 @@
   "name": "Vermilion City",
   "constantName": "VERMILION_CITY",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 6",
+      "toId": "route6"
+    },
+    {
+      "direction": "east",
+      "to": "Route 11",
+      "toId": "route11"
+    }
+  ],
   "parent": "vermilioncity",
+  "parentName": "Vermilion City",
   "type": [
     "town"
   ],

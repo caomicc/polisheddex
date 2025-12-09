@@ -27,7 +27,9 @@ export function LocationDetailClient({ location, trainers }: LocationDetailClien
       <LocationInfoTable
         region={location.region}
         types={location.type}
-        connectionCount={location.connectionCount}
+        parent={location.parentName}
+        parentId={location.parent}
+        connections={location.connections}
         encounterCount={location.encounters?.length}
         itemCount={location.items?.length}
         eventCount={location.events?.length}

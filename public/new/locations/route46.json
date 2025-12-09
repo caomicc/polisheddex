@@ -3,7 +3,20 @@
   "name": "Route 46",
   "constantName": "ROUTE_46",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "south",
+      "to": "Route 29",
+      "toId": "route29"
+    },
+    {
+      "direction": "east",
+      "to": "Route 45",
+      "toId": "route45"
+    }
+  ],
   "parent": "route46",
+  "parentName": "Route 46",
   "type": [
     "route"
   ],

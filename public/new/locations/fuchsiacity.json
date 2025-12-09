@@ -3,7 +3,25 @@
   "name": "Fuchsia City",
   "constantName": "FUCHSIA_CITY",
   "connectionCount": 3,
+  "connections": [
+    {
+      "direction": "south",
+      "to": "Route 19",
+      "toId": "route19"
+    },
+    {
+      "direction": "west",
+      "to": "Route 18 East",
+      "toId": "route18east"
+    },
+    {
+      "direction": "east",
+      "to": "Route 15",
+      "toId": "route15"
+    }
+  ],
   "parent": "fuchsiacity",
+  "parentName": "Fuchsia City",
   "type": [
     "town"
   ],

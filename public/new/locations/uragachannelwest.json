@@ -3,7 +3,20 @@
   "name": "Uraga Channel West",
   "constantName": "URAGA_CHANNEL_WEST",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "west",
+      "to": "Route 21",
+      "toId": "route21"
+    },
+    {
+      "direction": "east",
+      "to": "Uraga Channel East",
+      "toId": "uragachanneleast"
+    }
+  ],
   "parent": "uragachannel",
+  "parentName": "Uraga Channel",
   "type": [
     "route"
   ],

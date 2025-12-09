@@ -3,7 +3,25 @@
   "name": "Mahogany Town",
   "constantName": "MAHOGANY_TOWN",
   "connectionCount": 3,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 43",
+      "toId": "route43"
+    },
+    {
+      "direction": "west",
+      "to": "Route 42",
+      "toId": "route42"
+    },
+    {
+      "direction": "east",
+      "to": "Route 44",
+      "toId": "route44"
+    }
+  ],
   "parent": "mahoganytown",
+  "parentName": "Mahogany Town",
   "type": [
     "town"
   ],

@@ -3,7 +3,20 @@
   "name": "Lucky Island",
   "constantName": "LUCKY_ISLAND",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 13 East",
+      "toId": "route13east"
+    },
+    {
+      "direction": "west",
+      "to": "Route 14",
+      "toId": "route14"
+    }
+  ],
   "parent": "luckyisland",
+  "parentName": "Lucky Island",
   "type": [
     "route"
   ],

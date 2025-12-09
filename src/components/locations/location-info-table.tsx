@@ -1,13 +1,22 @@
 'use client';
 
+import Link from 'next/link';
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 
+interface ConnectionInfo {
+  direction: string;
+  to: string;
+  toId: string;
+}
+
 interface LocationInfoTableProps {
   region?: string;
   types?: string[];
-  connectionCount?: number;
+  parent?: string;
+  parentId?: string;
+  connections?: ConnectionInfo[];
   encounterCount?: number;
   itemCount?: number;
   eventCount?: number;
@@ -20,10 +29,19 @@ const regionColors: Record<string, string> = {
   orange: 'bg-orange-500/20 text-orange-700 dark:text-orange-300 border-orange-500/30',
 };
 
+const directionLabels: Record<string, string> = {
+  north: '↑ North',
+  south: '↓ South',
+  east: '→ East',
+  west: '← West',
+};
+
 export function LocationInfoTable({
   region,
   types,
-  connectionCount,
+  parent,
+  parentId,
+  connections,
   encounterCount,
   itemCount,
   eventCount,
@@ -64,14 +82,44 @@ export function LocationInfoTable({
             </TableRow>
           )}
 
+          {/* Parent Location */}
+          {parent && parentId && (
+            <TableRow>
+              <TableHead className="info-table-label">
+                Part of
+              </TableHead>
+              <TableCell className="info-table-cell">
+                <Link
+                  href={`/locations/${parentId}`}
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  {parent}
+                </Link>
+              </TableCell>
+            </TableRow>
+          )}
+
           {/* Connections */}
-          {connectionCount !== undefined && connectionCount > 0 && (
+          {connections && connections.length > 0 && (
             <TableRow>
               <TableHead className="info-table-label">
                 Connections
               </TableHead>
               <TableCell className="info-table-cell">
-                {connectionCount} connected location{connectionCount !== 1 ? 's' : ''}
+                <div className="flex flex-col gap-2">
+                  {connections.map((conn, index) => (
+                    <Link
+                      key={index}
+                      href={`/locations/${conn.toId}`}
+                      className="inline-flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400"
+                    >
+                      <span className="text-xs text-neutral-500 dark:text-neutral-400 w-16">
+                        {directionLabels[conn.direction] || conn.direction}
+                      </span>
+                      <span className="font-medium">{conn.to}</span>
+                    </Link>
+                  ))}
+                </div>
               </TableCell>
             </TableRow>
           )}

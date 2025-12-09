@@ -3,7 +3,20 @@
   "name": "Pallet Town",
   "constantName": "PALLET_TOWN",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 1",
+      "toId": "route1"
+    },
+    {
+      "direction": "south",
+      "to": "Route 21",
+      "toId": "route21"
+    }
+  ],
   "parent": "pallettown",
+  "parentName": "Pallet Town",
   "type": [
     "town"
   ],

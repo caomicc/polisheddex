@@ -3,7 +3,25 @@
   "name": "Lavender Town",
   "constantName": "LAVENDER_TOWN",
   "connectionCount": 3,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 10 South",
+      "toId": "route10south"
+    },
+    {
+      "direction": "south",
+      "to": "Route 12 North",
+      "toId": "route12north"
+    },
+    {
+      "direction": "west",
+      "to": "Route 8",
+      "toId": "route8"
+    }
+  ],
   "parent": "lavendertown",
+  "parentName": "Lavender Town",
   "type": [
     "town"
   ],

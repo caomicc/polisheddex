@@ -3,7 +3,20 @@
   "name": "Magnet Tunnel East",
   "constantName": "MAGNET_TUNNEL_EAST",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Ruins Of Alph Outside",
+      "toId": "ruinsofalphoutside"
+    },
+    {
+      "direction": "east",
+      "to": "Route 32",
+      "toId": "route32"
+    }
+  ],
   "parent": "route32",
+  "parentName": "Route 32",
   "type": [
     "route"
   ],

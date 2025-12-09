@@ -3,7 +3,20 @@
   "name": "Cinnabar Island",
   "constantName": "CINNABAR_ISLAND",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 21",
+      "toId": "route21"
+    },
+    {
+      "direction": "east",
+      "to": "Route 20",
+      "toId": "route20"
+    }
+  ],
   "parent": "cinnabarisland",
+  "parentName": "Cinnabar Island",
   "type": [
     "town"
   ],

@@ -3,7 +3,20 @@
   "name": "Route 45",
   "constantName": "ROUTE_45",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Blackthorn City",
+      "toId": "blackthorncity"
+    },
+    {
+      "direction": "west",
+      "to": "Route 46",
+      "toId": "route46"
+    }
+  ],
   "parent": "route45",
+  "parentName": "Route 45",
   "type": [
     "route"
   ],

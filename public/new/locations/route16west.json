@@ -3,7 +3,20 @@
   "name": "Route 16 West",
   "constantName": "ROUTE_16_WEST",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "west",
+      "to": "Route 2 South",
+      "toId": "route2south"
+    },
+    {
+      "direction": "east",
+      "to": "Route 16 Northwest",
+      "toId": "route16northwest"
+    }
+  ],
   "parent": "route16",
+  "parentName": "Route 16",
   "type": [
     "route"
   ],

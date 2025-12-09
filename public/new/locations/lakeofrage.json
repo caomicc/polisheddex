@@ -3,7 +3,15 @@
   "name": "Lake Of Rage",
   "constantName": "LAKE_OF_RAGE",
   "connectionCount": 1,
+  "connections": [
+    {
+      "direction": "south",
+      "to": "Route 43",
+      "toId": "route43"
+    }
+  ],
   "parent": "lakeofrage",
+  "parentName": "Lake Of Rage",
   "type": [
     "town"
   ],

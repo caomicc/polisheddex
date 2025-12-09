@@ -3,7 +3,20 @@
   "name": "Route 25",
   "constantName": "ROUTE_25",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "west",
+      "to": "Route 24",
+      "toId": "route24"
+    },
+    {
+      "direction": "east",
+      "to": "Cerulean Cape",
+      "toId": "ceruleancape"
+    }
+  ],
   "parent": "route25",
+  "parentName": "Route 25",
   "type": [
     "route"
   ],

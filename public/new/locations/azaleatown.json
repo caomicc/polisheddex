@@ -3,7 +3,20 @@
   "name": "Azalea Town",
   "constantName": "AZALEA_TOWN",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "west",
+      "to": "Route 34",
+      "toId": "route34"
+    },
+    {
+      "direction": "east",
+      "to": "Route 33",
+      "toId": "route33"
+    }
+  ],
   "parent": "azaleatown",
+  "parentName": "Azalea Town",
   "type": [
     "town"
   ],

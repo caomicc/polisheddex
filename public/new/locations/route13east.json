@@ -3,7 +3,25 @@
   "name": "Route 13 East",
   "constantName": "ROUTE_13_EAST",
   "connectionCount": 3,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 12 South",
+      "toId": "route12south"
+    },
+    {
+      "direction": "south",
+      "to": "Lucky Island",
+      "toId": "luckyisland"
+    },
+    {
+      "direction": "west",
+      "to": "Route 13 West",
+      "toId": "route13west"
+    }
+  ],
   "parent": "route13",
+  "parentName": "Route 13",
   "type": [
     "route"
   ],

@@ -3,7 +3,20 @@
   "name": "Route 40",
   "constantName": "ROUTE_40",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "south",
+      "to": "Route 41",
+      "toId": "route41"
+    },
+    {
+      "direction": "east",
+      "to": "Olivine City",
+      "toId": "olivinecity"
+    }
+  ],
   "parent": "route40",
+  "parentName": "Route 40",
   "type": [
     "route"
   ],

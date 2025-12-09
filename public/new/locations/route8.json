@@ -3,7 +3,20 @@
   "name": "Route 8",
   "constantName": "ROUTE_8",
   "connectionCount": 2,
+  "connections": [
+    {
+      "direction": "west",
+      "to": "Saffron City",
+      "toId": "saffroncity"
+    },
+    {
+      "direction": "east",
+      "to": "Lavender Town",
+      "toId": "lavendertown"
+    }
+  ],
   "parent": "route8",
+  "parentName": "Route 8",
   "type": [
     "route"
   ],

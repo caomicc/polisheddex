@@ -3,7 +3,25 @@
   "name": "Viridian City",
   "constantName": "VIRIDIAN_CITY",
   "connectionCount": 3,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 2 South",
+      "toId": "route2south"
+    },
+    {
+      "direction": "south",
+      "to": "Route 1",
+      "toId": "route1"
+    },
+    {
+      "direction": "west",
+      "to": "Route 22",
+      "toId": "route22"
+    }
+  ],
   "parent": "viridiancity",
+  "parentName": "Viridian City",
   "type": [
     "town"
   ],

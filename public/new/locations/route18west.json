@@ -3,7 +3,25 @@
   "name": "Route 18 West",
   "constantName": "ROUTE_18_WEST",
   "connectionCount": 3,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 17",
+      "toId": "route17"
+    },
+    {
+      "direction": "west",
+      "to": "Uraga Channel East",
+      "toId": "uragachanneleast"
+    },
+    {
+      "direction": "east",
+      "to": "Route 18 East",
+      "toId": "route18east"
+    }
+  ],
   "parent": "route18",
+  "parentName": "Route 18",
   "type": [
     "route"
   ],

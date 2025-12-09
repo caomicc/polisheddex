@@ -3,7 +3,25 @@
   "name": "Route 2 South",
   "constantName": "ROUTE_2_SOUTH",
   "connectionCount": 3,
+  "connections": [
+    {
+      "direction": "north",
+      "to": "Route 2 North",
+      "toId": "route2north"
+    },
+    {
+      "direction": "south",
+      "to": "Viridian City",
+      "toId": "viridiancity"
+    },
+    {
+      "direction": "east",
+      "to": "Route 16 West",
+      "toId": "route16west"
+    }
+  ],
   "parent": "route2",
+  "parentName": "Route 2",
   "type": [
     "route"
   ],
