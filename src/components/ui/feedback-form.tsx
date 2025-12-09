@@ -142,7 +142,7 @@ export function FeedbackForm() {
                           id="feedback-email"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          placeholder="your-so-i-can-say-thanks@email.com"
+                          placeholder="your-email-so-i-can-say-thanks@email.com"
                           className="w-full px-3 py-2 text-sm rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                       </div>
