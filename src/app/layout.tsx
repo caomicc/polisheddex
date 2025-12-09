@@ -142,10 +142,12 @@ export default function RootLayout({
                 <Navigation />
                 <main className="flex-grow">{children}</main>
                 <FeedbackForm />
-                <EzoicAd
-                  placeholderId={103}
-                  className="w-full flex justify-center py-4"
-                />
+                {isProduction && (
+                  <EzoicAd
+                    placeholderId={103}
+                    className="w-full flex justify-center py-4"
+                  />
+                )}
                 <Footer />
               </div>
             </PokemonTypeProvider>
