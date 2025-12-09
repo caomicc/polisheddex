@@ -14,7 +14,7 @@ import { Badge } from './ui/badge';
 import { cn } from '@/lib/utils';
 
 export default function TeamBuilder() {
-  const [team, setTeam] = useLocalStorage<PokemonEntry[]>('pokedex-team', []);
+  const [storedTeam, setStoredTeam] = useLocalStorage<PokemonEntry[]>('pokedex-team', []);
   const [importing, setImporting] = useState(false);
   const [importText, setImportText] = useState('');
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -22,6 +22,30 @@ export default function TeamBuilder() {
   const [shareMessage, setShareMessage] = useState<string | null>(null);
   const [selectedSlot, setSelectedSlot] = useState<number | null>(null);
   const [showAnalysis, setShowAnalysis] = useState(false);
+
+  // Ensure team always has exactly 6 slots
+  const team = useMemo(() => {
+    const slots: PokemonEntry[] = [];
+    for (let i = 0; i < 6; i++) {
+      slots.push(storedTeam[i] || { ...emptyPokemonEntry });
+    }
+    return slots;
+  }, [storedTeam]);
+
+  // Wrapper to update stored team
+  const setTeam = (updater: PokemonEntry[] | ((prev: PokemonEntry[]) => PokemonEntry[])) => {
+    if (typeof updater === 'function') {
+      setStoredTeam((prev) => {
+        const currentTeam = [];
+        for (let i = 0; i < 6; i++) {
+          currentTeam.push(prev[i] || { ...emptyPokemonEntry });
+        }
+        return updater(currentTeam);
+      });
+    } else {
+      setStoredTeam(updater);
+    }
+  };
 
   useEffect(() => {
     // Progressive loading strategy: Load essential data first, then background data

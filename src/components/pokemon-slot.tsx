@@ -251,9 +251,11 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     {
       id: string;
       name: string;
+      form: string; // 'plain', 'alolan', 'galarian', etc.
+      displayName: string; // "Meowth" or "Meowth (Alolan)"
       versions: {
-        polished?: { plain?: { types: string[] } };
-        faithful?: { plain?: { types: string[] } };
+        polished?: { [form: string]: { types: string[] } };
+        faithful?: { [form: string]: { types: string[] } };
       };
     }[]
   >([]);
@@ -320,10 +322,12 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
 
     const query = pokemonSearchQuery.toLowerCase();
     return pokemonList.filter((pokemon) => {
-      const types = pokemon.versions?.[version]?.plain?.types || [];
+      const formData = pokemon.versions?.[version]?.[pokemon.form];
+      const types = formData?.types || [];
       return (
-        pokemon.name.toLowerCase().includes(query) ||
+        pokemon.displayName.toLowerCase().includes(query) ||
         pokemon.id.toLowerCase().includes(query) ||
+        pokemon.form.toLowerCase().includes(query) ||
         types.some((type) => type?.toLowerCase().includes(query))
       );
     });
@@ -352,8 +356,9 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
   const filteredAbilityOptions = useMemo(() => {
     if (!pokemonData) return [];
 
-    // Get abilities from the transformed data structure
-    const formData = pokemonData?.forms?.plain;
+    // Get abilities from the transformed data structure - use current form
+    const currentForm = pokemonData?.currentForm || 'plain';
+    const formData = pokemonData?.forms?.[currentForm] || pokemonData?.forms?.plain;
     const abilities: string[] = formData?.abilities || [];
 
     // Convert kebab-case ability names to title case
@@ -475,7 +480,8 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
   const filteredMoveOptions = useMemo(() => {
     if (!pokemonData || !movesData) return [];
 
-    const formData = pokemonData.forms?.plain;
+    const currentForm = pokemonData?.currentForm || 'plain';
+    const formData = pokemonData.forms?.[currentForm] || pokemonData.forms?.plain;
     if (!formData?.movesets) return [];
 
     // Get moves from the movesets structure
@@ -615,8 +621,27 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
         }
 
         if (pokemonResponse.ok) {
-          const pokemonData = await pokemonResponse.json();
-          setPokemonList(pokemonData);
+          const rawPokemonData = await pokemonResponse.json();
+          // Expand forms into separate entries
+          const expandedList: typeof pokemonList = [];
+          for (const pokemon of rawPokemonData) {
+            // Get all unique forms from both versions
+            const polishedForms = Object.keys(pokemon.versions?.polished || {});
+            const faithfulForms = Object.keys(pokemon.versions?.faithful || {});
+            const allForms = [...new Set([...polishedForms, ...faithfulForms])];
+            
+            for (const form of allForms) {
+              const formLabel = form === 'plain' ? '' : ` (${form.charAt(0).toUpperCase() + form.slice(1)})`;
+              expandedList.push({
+                id: pokemon.id,
+                name: pokemon.name,
+                form: form,
+                displayName: `${pokemon.name}${formLabel}`,
+                versions: pokemon.versions,
+              });
+            }
+          }
+          setPokemonList(expandedList);
         }
       } catch (error) {
         console.error('Failed to load moves/items/abilities/pokemon data:', error);
@@ -629,7 +654,11 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
   // Load detailed Pokemon data when a Pokemon is selected
   useEffect(() => {
     if (entry.name && entry.name.trim() !== '') {
-      // Strip form suffix and normalize name
+      // Extract form from name (e.g., "Meowth (Alolan)" -> "alolan", "Meowth" -> "plain")
+      const formMatch = entry.name.match(/\(([^)]+)\)/);
+      const formName = formMatch ? formMatch[1].toLowerCase() : 'plain';
+      
+      // Strip form suffix and normalize name for file lookup
       const fileName = entry.name
         .toLowerCase()
         .replace(/\s*\([^)]*\)/g, '')
@@ -643,19 +672,24 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
         .then((data) => {
           // Transform new data structure to expected format
           const version = showFaithful ? 'faithful' : 'polished';
+          // Try to get the specific form, fall back to plain
           const formData =
-            data.versions?.[version]?.forms?.plain || data.versions?.polished?.forms?.plain;
+            data.versions?.[version]?.forms?.[formName] || 
+            data.versions?.[version]?.forms?.plain ||
+            data.versions?.polished?.forms?.[formName] ||
+            data.versions?.polished?.forms?.plain;
 
           if (formData) {
             setPokemonData({
               forms: {
-                plain: {
+                [formName]: {
                   baseStats: formData.baseStats,
                   abilities: formData.abilities,
                   movesets: formData.movesets,
                   types: formData.types,
                 },
               },
+              currentForm: formName,
             });
           }
         })
@@ -790,7 +824,8 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
       if (pokemonData && entry.name && entry.ability) {
         // Check for forms structure (individual files) or direct structure (manifest)
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const formData: any = pokemonData?.forms?.plain || pokemonData;
+        const currentForm = pokemonData?.currentForm || 'plain';
+        const formData: any = pokemonData?.forms?.[currentForm] || pokemonData?.forms?.plain || pokemonData;
 
         // Get abilities for current context
         const abilities = showFaithful
@@ -931,8 +966,8 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
       return { hp: 0, attack: 0, defense: 0, spatk: 0, spdef: 0, speed: 0 };
     }
 
-    // const formToUse = matched.formName || 'plain';
-    const formToUse = 'plain';
+    // Use the current form stored in pokemonData
+    const formToUse = pokemonData?.currentForm || 'plain';
     const formData = pokemonData.forms?.[formToUse] || pokemonData.forms?.plain || pokemonData;
 
     // Get base stats - data is already transformed in useEffect based on faithful/polished preference
@@ -964,13 +999,14 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
 
   const autofillFromPokemon = (pokemon: (typeof pokemonList)[0]) => {
     const version = showFaithful ? 'faithful' : 'polished';
-    const types = pokemon.versions?.[version]?.plain?.types || [];
+    const formData = pokemon.versions?.[version]?.[pokemon.form];
+    const types = formData?.types || [];
 
     // Reset the ref when manually selecting a Pokemon
     previousTypesRef.current = null;
 
     onChange({
-      name: pokemon.name,
+      name: pokemon.displayName,
       types: types,
     });
 
@@ -1088,21 +1124,27 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
                     </div>
                   ) : (
                     <div className="grid gap-1">
-                      {filteredPokemonList.map((pokemon, idx) => (
-                        <Button
-                          key={`pokemon-${idx}-${pokemon.id}`}
-                          variant="ghost"
-                          className="w-full justify-start h-auto p-3"
-                          onClick={() => autofillFromPokemon(pokemon)}
-                        >
-                          <div className="flex items-center gap-3 w-full">
-                            <div className="flex flex-row items-center gap-4">
-                              <PokemonSprite pokemonName={pokemon.id} className="" size="sm" />
-                              <span className="font-medium">{pokemon.name}</span>
+                      {filteredPokemonList.map((pokemon, idx) => {
+                        // Build sprite name: for forms, use id_form format (e.g., "meowth_alolan")
+                        const spriteName = pokemon.form === 'plain' 
+                          ? pokemon.id 
+                          : `${pokemon.id}_${pokemon.form}`;
+                        return (
+                          <Button
+                            key={`pokemon-${idx}-${pokemon.id}-${pokemon.form}`}
+                            variant="ghost"
+                            className="w-full justify-start h-auto p-3"
+                            onClick={() => autofillFromPokemon(pokemon)}
+                          >
+                            <div className="flex items-center gap-3 w-full">
+                              <div className="flex flex-row items-center gap-4">
+                                <PokemonSprite pokemonName={spriteName} className="" size="sm" />
+                                <span className="font-medium">{pokemon.displayName}</span>
+                              </div>
                             </div>
-                          </div>
-                        </Button>
-                      ))}
+                          </Button>
+                        );
+                      })}
                     </div>
                   )}
                 </div>
