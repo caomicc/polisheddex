@@ -12,6 +12,7 @@ interface FeedbackRequest {
   email?: string;
   message: string;
   pageUrl: string;
+  screenSize?: string;
 }
 
 const feedbackTypeLabels: Record<FeedbackType, string> = {
@@ -42,6 +43,7 @@ export async function POST(request: NextRequest) {
       <h2>New Feedback Submission</h2>
       <p><strong>Type:</strong> ${typeLabel}</p>
       <p><strong>Page:</strong> <a href="${body.pageUrl}">${body.pageUrl}</a></p>
+      <p><strong>Screen Size:</strong> ${body.screenSize || 'Not provided'}</p>
       <p><strong>Submitted:</strong> ${timestamp}</p>
       ${body.email ? `<p><strong>Reply To:</strong> <a href="mailto:${body.email}">${body.email}</a></p>` : '<p><em>No email provided</em></p>'}
       <hr />
@@ -54,6 +56,7 @@ New Feedback Submission
 =======================
 Type: ${typeLabel}
 Page: ${body.pageUrl}
+Screen Size: ${body.screenSize || 'Not provided'}
 Submitted: ${timestamp}
 ${body.email ? `Reply To: ${body.email}` : 'No email provided'}
 

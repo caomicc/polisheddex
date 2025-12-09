@@ -16,6 +16,7 @@ export function FeedbackForm() {
     email: '',
     message: '',
     pageUrl: typeof window !== 'undefined' ? window.location.href : '',
+    screenSize: typeof window !== 'undefined' ? `${window.innerWidth}x${window.innerHeight}` : '',
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -31,6 +32,7 @@ export function FeedbackForm() {
         body: JSON.stringify({
           ...formData,
           pageUrl: window.location.href,
+          screenSize: `${window.innerWidth}x${window.innerHeight}`,
         }),
       });
 
@@ -39,7 +41,7 @@ export function FeedbackForm() {
       }
 
       setIsSubmitted(true);
-      setFormData({ type: 'data-error', email: '', message: '', pageUrl: '' });
+      setFormData({ type: 'data-error', email: '', message: '', pageUrl: '', screenSize: '' });
     } catch (error) {
       console.error('Failed to submit feedback:', error);
       alert('Failed to submit feedback. Please try again.');
@@ -167,6 +169,9 @@ export function FeedbackForm() {
                       {/* Page URL (auto-filled, shown for context) */}
                       <p className="text-xs text-neutral-500 dark:text-neutral-500">
                         Current page will be included: <span className="font-mono">{typeof window !== 'undefined' ? window.location.pathname : ''}</span>
+                      </p>
+                      <p className="text-xs text-neutral-500 dark:text-neutral-500">
+                        Screen size will be included: <span className="font-mono">{typeof window !== 'undefined' ? `${window.innerWidth}x${window.innerHeight}` : ''}</span>
                       </p>
 
                       {/* Submit Button */}

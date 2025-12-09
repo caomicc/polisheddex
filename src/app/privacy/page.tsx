@@ -74,6 +74,21 @@ export default function PrivacyPolicy() {
               We use browser local storage to save your preferences, such as your Faithful/Polished mode preference.
               This data is stored only on your device and is not transmitted to our servers.
             </p>
+
+            <h3 className="text-xl font-semibold mb-3 mt-6 text-gray-800 dark:text-gray-200">Feedback Form Submissions</h3>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+              When you submit feedback through our feedback form, we collect the following information:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300">
+              <li>Your message and feedback type</li>
+              <li>Email address (if provided voluntarily)</li>
+              <li>The page URL where you submitted the feedback</li>
+              <li>Your screen size/resolution at the time of submission</li>
+            </ul>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mt-4">
+              This information is used solely to respond to your feedback, reproduce and fix reported issues,
+              and improve the website. Screen size information helps us debug responsive design issues.
+            </p>
           </section>
 
           <section className="mb-8">

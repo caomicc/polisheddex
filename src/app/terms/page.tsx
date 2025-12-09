@@ -156,6 +156,31 @@ export default function TermsAndConditions() {
 
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+              Feedback Submissions
+            </h2>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+              When you submit feedback through our feedback form, you acknowledge that we collect:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300">
+              <li>Your feedback message and selected category</li>
+              <li>Your email address (if voluntarily provided)</li>
+              <li>The URL of the page where the feedback was submitted</li>
+              <li>Your device&apos;s screen size at the time of submission</li>
+            </ul>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mt-4">
+              This technical information helps us reproduce issues, debug responsive design problems,
+              and improve the website. For more details, please see our{' '}
+              <a
+                href="/privacy"
+                className="text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                Privacy Policy
+              </a>.
+            </p>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
               Accuracy of Information
             </h2>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
