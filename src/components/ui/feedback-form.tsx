@@ -99,6 +99,9 @@ export function FeedbackForm() {
                       missing. If you find any issues or have suggestions, please let us know by filling
                       out the form below.
                     </p>
+                    <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-6">
+                      I am a one-woman show & have spent over 200 hours developing this site so your support means a lot to me! 😊
+                    </p>
                     <form onSubmit={handleSubmit} className="space-y-4">
                       {/* Feedback Type */}
                       <div>
@@ -130,14 +133,14 @@ export function FeedbackForm() {
                           htmlFor="feedback-email"
                           className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1"
                         >
-                          Email <span className="text-neutral-500">(optional)</span>
+                          Email <span className="text-neutral-500">(encouraged)</span>
                         </label>
                         <input
                           type="email"
                           id="feedback-email"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          placeholder="your@email.com"
+                          placeholder="your-so-i-can-say-thanks@email.com"
                           className="w-full px-3 py-2 text-sm rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                       </div>
