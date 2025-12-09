@@ -133,7 +133,7 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, id, info, tm }) => {
         className="align-middle font-bold p-1 md:p-2 text-left text-xs md:text-md col-span-2"
       >
         <Link
-          href={`/moves/${info.name?.toLowerCase().replace(/\s+/g, '-')}`}
+          href={`/moves/${id}`}
           className="table-link pt-2"
         >
           {info.name}
