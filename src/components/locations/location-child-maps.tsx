@@ -119,7 +119,7 @@ export function LocationChildMaps({ children, parentName, className }: LocationC
 
         {/* Floor count */}
         <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-3 text-center">
-          {childrenWithMaps.length} floor{childrenWithMaps.length !== 1 ? 's' : ''} available
+          {childrenWithMaps.length} area{childrenWithMaps.length !== 1 ? 's' : ''} available
         </p>
       </DetailCard>
 
@@ -175,7 +175,7 @@ export function LocationChildMaps({ children, parentName, className }: LocationC
               const currentIndex = childrenWithMaps.findIndex(c => c.id === expandedChild);
               const prevChild = currentIndex > 0 ? childrenWithMaps[currentIndex - 1] : null;
               const nextChild = currentIndex < childrenWithMaps.length - 1 ? childrenWithMaps[currentIndex + 1] : null;
-              
+
               return (
                 <div className="sticky bottom-0 flex items-center justify-between p-4 bg-neutral-900/95 backdrop-blur border-t border-neutral-700">
                   <button
@@ -191,11 +191,11 @@ export function LocationChildMaps({ children, parentName, className }: LocationC
                     <ChevronLeft className="h-4 w-4" />
                     <span className="hidden sm:inline">Prev</span>
                   </button>
-                  
+
                   <span className="text-sm text-neutral-400">
                     {currentIndex + 1} / {childrenWithMaps.length}
                   </span>
-                  
+
                   <button
                     onClick={() => nextChild && setExpandedChild(nextChild.id)}
                     disabled={!nextChild}
