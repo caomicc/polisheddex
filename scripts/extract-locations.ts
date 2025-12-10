@@ -16,7 +16,6 @@ import { mapEncounterRatesToPokemon } from '@/utils/encounterRates';
 import splitFile from '@/lib/split';
 import extractTrainers from './extract-trainers';
 import { extractItemsFromMapData, buildMoveToTmMapping } from './extract-items';
-import { getMartItemCount } from './mart-items-mapping';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -53,15 +52,15 @@ const hiddenGrottoLocations: Set<string> = new Set();
 // Built from extract-items and used to add tmId to TM/HM items
 let moveToTmMapping: Record<string, string> = {};
 
-// Mart data storage (legacy - replaced with manual mapping)
-const martConstants: Map<string, number> = new Map(); // MART_AZALEA -> 3 (index)
-const martData: Map<number, string[]> = new Map(); // 3 -> ["CHARCOAL", "POKE_BALL", ...]
+// Mart data storage - maps location ID to items for sale
+const martItemsByLocation: Map<string, { name: string; type: string; method: string }[]> = new Map();
 
 // File paths
 const attributesASM = join(__dirname, '../polishedcrystal/data/maps/attributes.asm');
 const mapsASM = join(__dirname, '../polishedcrystal/data/maps/maps.asm');
 const landmarkConstantsASM = join(__dirname, '../polishedcrystal/constants/landmark_constants.asm');
 const flypointsASM = join(__dirname, '../polishedcrystal/data/maps/flypoints.asm');
+const martsASM = join(__dirname, '../polishedcrystal/data/items/marts.asm');
 const mapsDir = join(__dirname, '../polishedcrystal/maps');
 
 // Wild encounter files
@@ -161,74 +160,147 @@ const extractHiddenGrottoes = async () => {
   console.log(`Extracted ${hiddenGrottoLocations.size} hidden grotto locations`);
 };
 
-// Legacy mart extraction functions removed - now using manual mapping
+// Mapping from mart label to location ID
+const MART_LABEL_TO_LOCATION: Record<string, string> = {
+  CherrygroveMart: 'cherrygrovemart',
+  CherrygroveMartAfterDex: 'cherrygrovemart', // Merge with base mart
+  VioletMart: 'violetmart',
+  AzaleaMart: 'azaleamart',
+  Goldenrod2FMart1: 'goldenroddeptstore2f',
+  Goldenrod2FMart2: 'goldenroddeptstore2f',
+  Goldenrod2FMart2Eevee: 'goldenroddeptstore2f',
+  Goldenrod3FMart: 'goldenroddeptstore3f',
+  Goldenrod4FMart: 'goldenroddeptstore4f',
+  Goldenrod5FTMMart: 'goldenroddeptstore5f',
+  GoldenrodHarborMart: 'goldenrodharbor',
+  UndergroundMart: 'undergroundwarehouse',
+  EcruteakMart: 'ecruteakmart',
+  OlivineMart: 'olivinemart',
+  CianwoodMart: 'cianwoodpharmacy',
+  YellowForestMart: 'yellowforest',
+  MahoganyMart1: 'mahoganymart1f',
+  MahoganyMart2: 'mahoganymart1f',
+  BlackthornMart: 'blackthornmart',
+  IndigoPlateauMart: 'indigoplateaupokecenter1f',
+  ViridianMart: 'viridianmart',
+  PewterMart: 'pewtermart',
+  MtMoonMart: 'mtmoonsquare',
+  CeruleanMart: 'ceruleanmart',
+  LavenderMart: 'lavendermart',
+  VermilionMart: 'vermilionmart',
+  Celadon2FMart1: 'celadondeptstore2f',
+  Celadon2FMart2: 'celadondeptstore2f',
+  Celadon3FTMMart: 'celadondeptstore3f',
+  Celadon4FMart: 'celadondeptstore4f',
+  Celadon5FMart1: 'celadondeptstore5f',
+  Celadon5FMart2: 'celadondeptstore5f',
+  SaffronMart: 'saffronmart',
+  SilphCoMart: 'silphco1f',
+  FuchsiaMart: 'fuchsiamart',
+  ShamoutiMart1: 'shamoutiislandpokecenter1f',
+  ShamoutiMart1Souvenir: 'shamoutiislandpokecenter1f',
+  ShamoutiMart2: 'shamoutiislandpokecenter1f',
+  BattleTowerMart1: 'battletower1f',
+  BattleTowerMart2: 'battletower1f',
+  BattleTowerMart3: 'battletower1f',
+  BattleFactoryMart1: 'battlefactory1f',
+  BattleFactoryMart2: 'battlefactory1f',
+  BattleFactoryMart3: 'battlefactory1f',
+};
 
-// Extract mart items from map data
-const extractMartItemsFromMapData = (
-  mapData: string[],
-): { name: string; type: string; method: string }[] => {
-  const items: { name: string; type: string; method: string }[] = [];
+// Extract mart items from marts.asm
+const extractMartItems = async () => {
+  const raw = await readFile(martsASM, 'utf-8');
+  const lines = raw.split('\n');
 
-  for (const line of mapData) {
-    const trimmed = line.trim();
+  let currentMartLabels: string[] = []; // Support multiple labels sharing same items
+  let currentItems: { name: string; type: string; method: string }[] = [];
 
-    // Look for mart_clerk_event lines
-    if (trimmed.startsWith('mart_clerk_event ')) {
-      // Parse: mart_clerk_event  1,  3, MARTTYPE_STANDARD, MART_AZALEA
-      const parts = trimmed.replace('mart_clerk_event ', '').split(',');
-      if (parts.length >= 4) {
-        const martConstant = parts[3].trim();
-        const martIndex = martConstants.get(martConstant);
-
-        if (martIndex !== undefined && martData.has(martIndex)) {
-          const martItems = martData.get(martIndex)!;
-          for (const itemId of martItems) {
-            items.push({
-              name: itemId,
-              type: 'purchase',
-              method: 'mart',
-            });
+  const saveCurrentMart = () => {
+    if (currentMartLabels.length > 0 && currentItems.length > 0) {
+      for (const label of currentMartLabels) {
+        const locationId = MART_LABEL_TO_LOCATION[label];
+        if (locationId) {
+          const existing = martItemsByLocation.get(locationId) || [];
+          // Add items, avoiding duplicates by name
+          const existingNames = new Set(existing.map((i) => i.name));
+          for (const item of currentItems) {
+            if (!existingNames.has(item.name)) {
+              existing.push({ ...item }); // Clone item
+              existingNames.add(item.name);
+            }
           }
+          martItemsByLocation.set(locationId, existing);
         }
       }
     }
+  };
 
-    // Also look for pokemart commands (used in dept stores)
-    if (trimmed.includes('pokemart ') || trimmed.includes('pokemart MARTTYPE_')) {
-      // Parse: pokemart MARTTYPE_STANDARD, MART_GOLDENROD_2F_1
-      // or: OBJECTTYPE_COMMAND, pokemart, MARTTYPE_STANDARD, MART_GOLDENROD_2F_1, -1
-      const martMatch = trimmed.match(/MART_[A-Z0-9_]+/);
-      if (martMatch) {
-        const martConstant = martMatch[0];
-        const martIndex = martConstants.get(martConstant);
+  for (const line of lines) {
+    const trimmed = line.trim();
 
-        // Special debug for MART_GOLDENROD_3F
-        if (martConstant === 'MART_GOLDENROD_3F') {
-          console.log(
-            `   🔍 DEBUG MART_GOLDENROD_3F: found constant index ${martIndex}, has data: ${martData.has(martIndex ?? -1)}`,
-          );
-          if (martIndex !== undefined) {
-            console.log(
-              `   🔍 DEBUG MART_GOLDENROD_3F: data = ${JSON.stringify(martData.get(martIndex))}`,
-            );
-          }
-        }
+    // Skip empty lines and comments
+    if (!trimmed || trimmed.startsWith(';')) continue;
 
-        if (martIndex !== undefined && martData.has(martIndex)) {
-          const martItems = martData.get(martIndex)!;
-          for (const itemId of martItems) {
-            items.push({
-              name: itemId,
-              type: 'purchase',
-              method: 'mart',
-            });
-          }
-        }
+    // Check for mart label (e.g., "CherrygroveMart:")
+    const labelMatch = trimmed.match(/^([A-Za-z0-9_]+):$/);
+    if (labelMatch) {
+      // If we have items, save them for previous labels first
+      if (currentItems.length > 0) {
+        saveCurrentMart();
+        currentMartLabels = [];
+        currentItems = [];
+      }
+
+      // Add this label to current labels (supports multiple labels for same mart)
+      currentMartLabels.push(labelMatch[1]);
+      continue;
+    }
+
+    // Skip count lines (db 4 ; # items) and end markers (db -1)
+    if (trimmed.match(/^db\s+-?[0-9]+\s*(;|$)/) || trimmed === 'db -1') continue;
+
+    // Parse item lines: "db ITEM_NAME" or "dbw TM_NAME, PRICE" or "db ITEM_NAME, PRICE"
+    const itemMatch = trimmed.match(/^db[w]?\s+([A-Z_][A-Z0-9_]*)/);
+    if (itemMatch) {
+      const itemConstant = itemMatch[1];
+      
+      // Handle TM items specially - extract move name and set type to 'tm'
+      if (itemConstant.startsWith('TM_')) {
+        const moveName = normalizeString(itemConstant.replace('TM_', ''));
+        currentItems.push({
+          name: moveName,
+          type: 'tm',
+          method: 'mart',
+        });
+      } else if (itemConstant.startsWith('HM_')) {
+        const moveName = normalizeString(itemConstant.replace('HM_', ''));
+        currentItems.push({
+          name: moveName,
+          type: 'hm',
+          method: 'mart',
+        });
+      } else {
+        const itemName = normalizeString(itemConstant);
+        currentItems.push({
+          name: itemName,
+          type: 'purchase',
+          method: 'mart',
+        });
       }
     }
   }
 
-  return items;
+  // Save last mart
+  saveCurrentMart();
+
+  // Debug output
+  console.log('Mart items by location:');
+  for (const [locId, items] of martItemsByLocation) {
+    console.log(`  ${locId}: ${items.length} items`);
+  }
+
+  console.log(`Extracted mart items for ${martItemsByLocation.size} locations`);
 };
 
 // Extract connection counts from map attributes
@@ -612,8 +684,8 @@ const mergeLocationData = async () => {
 
       const locationItems = extractItemsFromMapData(mapData);
 
-      // Also check for mart items
-      const martItems = extractMartItemsFromMapData(mapData);
+      // Get mart items from the pre-parsed mart data (use lowercase key)
+      const martItems = martItemsByLocation.get(locationKey.toLowerCase()) || [];
       const allItems = [...locationItems, ...martItems];
 
       // Add tmId for TM/HM items using the move-to-TM mapping
@@ -784,9 +856,7 @@ await Promise.all([
   extractLandmarks(),
   extractFlypoints(),
   extractHiddenGrottoes(),
-  // Mart extraction replaced with manual mapping
-  // extractMartConstants(),
-  // extractMartData(),
+  extractMartItems(),
   extractConnections(),
   extractMapTrainers(),
   extractEncounters(grassFiles, 'grass'),
@@ -847,7 +917,7 @@ await Promise.all(
           ? new Set(location.encounters.map((e) => e.pokemon)).size
           : undefined,
       trainerCount: location.trainers?.length,
-      itemCount: (location.items?.length || 0) + getMartItemCount(location.id),
+      itemCount: location.items?.length || undefined,
       flyable: flyableLocations.has(location.id) || undefined,
       hasHiddenGrotto: hiddenGrottoLocations.has(location.id) || undefined,
     });

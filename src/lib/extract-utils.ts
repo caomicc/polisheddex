@@ -279,6 +279,12 @@ export const parseVerboseGiveItemEvent = (line: string) => {
   if (line.match(/verbosegiveitem\s+/)) {
     const parts = line.split(/verbosegiveitem\s+/)[1].split(',');
     const [itemName] = parts;
+    
+    // Skip special/debug items
+    if (itemName.includes('ITEM_FROM_MEM') || itemName.includes('FROM_MEM')) {
+      return null;
+    }
+    
     return {
       name: reduce(itemName),
       type: 'gift' as const,

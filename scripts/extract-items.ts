@@ -123,14 +123,65 @@ const extractMartData = (data: string[], version: 'polished' | 'faithful') => {
   // Parse marts.asm file structure following the same pattern as move descriptions
   // Multiple mart labels can share the same item list
 
-  // Manual name mappings for specific mart names
+  // Manual name mappings from mart label to actual location ID
   const martNameMappings: Record<string, string> = {
+    // Cherrygrove
+    cherrygrovemart: 'cherrygrovemart',
     cherrygrovemartafterdex: 'cherrygrovemart',
+    // Violet
+    violetmart: 'violetmart',
+    // Azalea
+    azaleamart: 'azaleamart',
+    // Goldenrod Dept Store
+    goldenrod2fmart1: 'goldenroddeptstore2f',
     goldenrod2fmart2: 'goldenroddeptstore2f',
     goldenrod2fmart2eevee: 'goldenroddeptstore2f',
+    goldenrod3fmart: 'goldenroddeptstore3f',
+    goldenrod4fmart: 'goldenroddeptstore4f',
+    goldenrod5ftmmart: 'goldenroddeptstore5f',
+    // Goldenrod Harbor
+    goldenrodharbormart: 'goldenrodharbor',
+    // Underground
+    undergroundmart: 'undergroundwarehouse',
+    // Other Johto
+    ecruteakmart: 'ecruteakmart',
+    olivinemart: 'olivinemart',
+    cianwoodmart: 'cianwoodpharmacy',
+    yellowforestmart: 'yellowforest',
+    mahoganymart1: 'mahoganymart1f',
+    mahoganymart2: 'mahoganymart1f',
+    blackthornmart: 'blackthornmart',
+    // Indigo Plateau
+    indigoplateaumart: 'indigoplateaupokecenter1f',
+    // Kanto
+    viridianmart: 'viridianmart',
+    pewtermart: 'pewtermart',
+    mtmoonmart: 'mtmoonsquare',
+    ceruleanmart: 'ceruleanmart',
+    lavendermart: 'lavendermart',
+    vermilionmart: 'vermilionmart',
+    // Celadon Dept Store
+    celadon2fmart1: 'celadondeptstore2f',
     celadon2fmart2: 'celadondeptstore2f',
-    goldenrod3fmart3: 'goldenroddeptstore3f',
-    celadon3fmart2: 'celadondeptstore3f',
+    celadon3ftmmart: 'celadondeptstore3f',
+    celadon4fmart: 'celadondeptstore4f',
+    celadon5fmart1: 'celadondeptstore5f',
+    celadon5fmart2: 'celadondeptstore5f',
+    // Other Kanto
+    saffronmart: 'saffronmart',
+    silphcomart: 'silphco1f',
+    fuchsiamart: 'fuchsiamart',
+    // Orange Islands
+    shamoutimart1: 'shamoutiislandpokecenter1f',
+    shamoutimart1souvenir: 'shamoutiislandpokecenter1f',
+    shamoutimart2: 'shamoutiislandpokecenter1f',
+    // Battle Frontier
+    battletowermart1: 'battletower1f',
+    battletowermart2: 'battletower1f',
+    battletowermart3: 'battletower1f',
+    battlefactorymart1: 'battlefactory1f',
+    battlefactorymart2: 'battlefactory1f',
+    battlefactorymart3: 'battlefactory1f',
   };
 
   for (let i = 0; i < data.length; i++) {
@@ -275,7 +326,19 @@ const getItemLocations = (
     }
   }
 
-  return locations;
+  // Deduplicate locations (same area + method)
+  const deduplicatedLocations: Array<{ area: string; method: string }> = [];
+  const seenKeys = new Set<string>();
+
+  for (const loc of locations) {
+    const key = `${loc.area}:${loc.method}`;
+    if (!seenKeys.has(key)) {
+      seenKeys.add(key);
+      deduplicatedLocations.push(loc);
+    }
+  }
+
+  return deduplicatedLocations;
 };
 
 /**
@@ -299,12 +362,19 @@ const getTmHmLocations = (
     for (const item of itemsFound) {
       // Determine method:
       // - If item has coordinates, it's found on the ground
-      // - If location name contains 'mart', it's a purchase
+      // - If item came from a mart (location contains 'mart' or 'deptstore' or specific mart locations), it's a purchase
       // - Otherwise, it's a gift from an NPC
       let method: string;
+      const normalizedLocation = reduce(locationName);
       if (item.coordinates) {
         method = 'item';
-      } else if (reduce(locationName).includes('mart')) {
+      } else if (
+        normalizedLocation.includes('mart') || 
+        normalizedLocation.includes('deptstore') ||
+        normalizedLocation.includes('pharmacy') ||
+        normalizedLocation === 'battletower1f' ||
+        normalizedLocation === 'battlefactory1f'
+      ) {
         method = 'purchase';
       } else {
         method = 'gift';

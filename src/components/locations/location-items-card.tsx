@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { DetailCard } from '@/components/ui/detail-card';
-import { FilterableTabs } from '@/components/ui/filterable-tabs';
 import { Badge } from '@/components/ui/badge';
 import {
   Table,
@@ -32,26 +31,12 @@ interface LocationItemsCardProps {
   className?: string;
 }
 
-const ITEM_TABS = [
-  { value: 'all', label: 'All' },
-  { value: 'hidden', label: 'Hidden' },
-  { value: 'gift', label: 'Gift' },
-  { value: 'berry', label: 'Berry' },
-  { value: 'tm', label: 'TM/HM' },
-];
-
 function formatItemType(type: string): string {
   if (type === 'item' || type === 'hiddenItem') return 'Hidden';
   if (type === 'tm') return 'TM';
   if (type === 'hm') return 'HM';
+  if (type === 'purchase') return 'For Sale';
   return type.charAt(0).toUpperCase() + type.slice(1);
-}
-
-function filterItems(data: LocationItem[], tabValue: string): LocationItem[] {
-  if (tabValue === 'all') return data;
-  if (tabValue === 'hidden') return data.filter((item) => item.type === 'item' || item.type === 'hiddenItem');
-  if (tabValue === 'tm') return data.filter((item) => item.type === 'tm' || item.type === 'hm');
-  return data.filter((item) => item.type === tabValue);
 }
 
 function ItemsTable({ items }: { items: LocationItem[] }) {
@@ -128,14 +113,7 @@ export function LocationItemsCard({ items, className }: LocationItemsCardProps) 
 
   return (
     <DetailCard icon={Package} title="Items Found Here" className={className}>
-      <FilterableTabs
-        tabs={ITEM_TABS}
-        defaultValue="all"
-        data={items}
-        filterFn={filterItems}
-        emptyMessage="No items of this type found"
-        renderContent={(filtered) => <ItemsTable items={filtered} />}
-      />
+      <ItemsTable items={items} />
     </DetailCard>
   );
 }

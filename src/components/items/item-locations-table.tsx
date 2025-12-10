@@ -11,7 +11,6 @@ interface LocationEntry {
   area: string;
   method: string;
   name?: string;
-  parentId?: string;
 }
 
 interface ItemLocationsTableProps {
@@ -93,7 +92,7 @@ export function ItemLocationsTable({ locations, locationNameMap }: ItemLocations
         </TableHeader>
         <TableBody>
           {locations.map((loc, idx) => {
-            const locationSlug = loc.parentId || loc.area.toLowerCase().replace(/\s+/g, '_');
+            const locationSlug = loc.area.toLowerCase().replace(/\s+/g, '_');
             const displayName = locationNameMap?.[locationSlug] || loc.area;
             return (
               <TableRow key={`${loc.area}-${loc.method}-${idx}`}>

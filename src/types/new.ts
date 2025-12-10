@@ -176,7 +176,6 @@ export interface ItemData {
     area: string;
     method: string;
     name?: string;
-    parentId?: string;
   }>;
 }
 
