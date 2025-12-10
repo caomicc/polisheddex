@@ -11,6 +11,8 @@ import { MoveData } from '@/types/new';
 export const moveColumns: ColumnDef<MoveData>[] = [
   {
     accessorKey: 'name',
+    accessorFn: (row) =>
+      row.versions?.polished?.name ?? row.versions?.faithful?.name ?? row.id ?? 'Unknown',
     header: ({ column }) => {
       return (
         <Button
@@ -31,10 +33,12 @@ export const moveColumns: ColumnDef<MoveData>[] = [
     },
     cell: ({ row }) => {
       const move = row.original;
+      const name =
+        move.versions?.polished?.name ?? move.versions?.faithful?.name ?? move.id ?? 'Unknown';
       return (
         <div className="flex items-center space-x-2 min-w-0">
           <Link href={`/moves/${encodeURIComponent(move.id)}`} className="table-link">
-            {move.name}
+            {name}
             <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
           </Link>
         </div>
