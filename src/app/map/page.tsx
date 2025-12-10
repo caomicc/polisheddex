@@ -26,7 +26,7 @@ export default function MapPage() {
     <>
       <Hero
         headline="Map Viewer"
-        description="Explore the map! No, you can't look inside."
+        description="Explore the map! Want to see inside? Go to a location page to view detailed maps!"
         breadcrumbs={
           <Breadcrumb>
             <BreadcrumbList>
