@@ -66,7 +66,7 @@ export function LocationInfoTable({
           <div className="info-row">
             <div className="info-row-label">Region</div>
             <div className="info-row-value">
-              <Badge variant="outline" className={cn('border text-xs font-medium', regionColor)}>
+              <Badge variant={region.toLowerCase()}>
                 {region}
               </Badge>
             </div>

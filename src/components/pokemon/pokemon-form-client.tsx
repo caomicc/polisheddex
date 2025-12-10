@@ -362,7 +362,7 @@ export default function PokemonFormClient({
                       <TableCell>
                         <Link href={`/locations/${loc.locationId}`} className="hover:text-blue-600 dark:hover:text-blue-400">
                           {loc.locationName}
-                          <span className="text-xs text-neutral-500 ml-1">({loc.region})</span>
+                          {/* <span className="text-xs text-neutral-500 ml-1">({loc.region})</span> */}
                         </Link>
                       </TableCell>
                       <TableCell>
@@ -370,7 +370,11 @@ export default function PokemonFormClient({
                           {loc.method.replace(/_/g, ' ')}
                         </Badge>
                       </TableCell>
-                      <TableCell className="capitalize">{loc.version}</TableCell>
+                      <TableCell className="capitalize">
+                        <Badge variant={loc.version} className="text-xs">
+                          {loc.version}
+                        </Badge>
+                      </TableCell>
                       <TableCell>{loc.levelRange === 'Varies' ? 'Varies' : `Lv. ${loc.levelRange}`}</TableCell>
                       <TableCell>{loc.totalRate}%</TableCell>
                     </TableRow>

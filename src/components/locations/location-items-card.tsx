@@ -84,7 +84,7 @@ function ItemsTable({ items }: { items: LocationItem[] }) {
                 </Link>
               </TableCell>
               <TableCell>
-                <Badge variant="secondary">
+                <Badge variant={formatItemType(item.type).toLowerCase()}>
                   {formatItemType(item.type)}
                 </Badge>
               </TableCell>

@@ -65,7 +65,7 @@ export const locationColumns: ColumnDef<LocationManifest>[] = [
       const region = row.getValue('region') as string;
       if (!region) return <span className="table-cell-text table-cell-muted">—</span>;
       return (
-        <Badge variant={region.toLowerCase() as 'kanto' | 'johto' | 'orange'}>
+        <Badge variant={region.toLowerCase()}>
           {region.charAt(0).toUpperCase() + region.slice(1)}
         </Badge>
       );

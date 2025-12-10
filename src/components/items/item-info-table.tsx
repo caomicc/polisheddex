@@ -54,7 +54,7 @@ export function ItemInfoTable({
         <div className="info-row">
           <div className="info-row-label">Category</div>
           <div className="info-row-value">
-            <Badge variant="secondary">{categoryLabel}</Badge>
+            <Badge variant={category}>{categoryLabel}</Badge>
           </div>
         </div>
 
@@ -98,7 +98,7 @@ export function ItemInfoTable({
                 </Link>
                 {moveData && (
                   <div className="flex flex-wrap items-center gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <Badge variant={moveData.type.toLowerCase() as any}>{moveData.type}</Badge>
+                    <Badge variant={moveData.type.toLowerCase()}>{moveData.type}</Badge>
                     <span>•</span>
                     <span>{moveData.category}</span>
                     <span>•</span>
