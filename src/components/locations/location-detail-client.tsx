@@ -38,11 +38,10 @@ export function LocationDetailClient({ location, trainers }: LocationDetailClien
         trainerCount={trainers?.length}
       />
 
-      {/* Map - show regular map or child maps depending on structure */}
-      {location.children && location.children.length > 0 ? (
+      {/* Map - show parent map if it exists, plus child maps if there are children */}
+      <LocationMap locationId={location.id} locationName={location.name} />
+      {location.children && location.children.length > 0 && (
         <LocationChildMaps children={location.children} parentName={location.name} />
-      ) : (
-        <LocationMap locationId={location.id} locationName={location.name} />
       )}
 
       {/* Wild Pokemon encounters */}

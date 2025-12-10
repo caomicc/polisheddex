@@ -33,12 +33,12 @@ function getMapImages(locationId: string): string[] {
 /** Map legend items with colors matching typical Polished Crystal maps */
 const legendItems = [
   { color: '#58a858', label: 'C (Coordinate Event)', description: 'Event triggered on coordinates' },
-  { color: '#3890f8', label: 'O (Object Event)', description: 'Event involving objects such as trainers' },
-  { color: '#686868', label: 'B (Background Event)', description: 'Background Event such as signs and hidden items' },
-  { color: '#f8d878', label: 'W (Warp Event)', description: 'Warps from location to location' },
-  { color: '#a85820', label: 'P (Pokemon Event)', description: 'An interaction with a pokemon' },
-  { color: '#f85858', label: 'I (Item Ball Event)', description: 'Visible items' },
-  { color: '#f89030', label: 'F (Fruit Tree Event)', description: 'Fruit tree' },
+  { color: 'purple', label: 'O (Object Event)', description: 'Event involving objects such as trainers' },
+  { color: 'red', label: 'B (Background Event)', description: 'Background Event such as signs and hidden items' },
+  { color: 'fuchsia', label: 'W (Warp Event)', description: 'Warps from location to location' },
+  { color: 'blue', label: 'P (Pokemon Event)', description: 'An interaction with a pokemon' },
+  { color: 'orange', label: 'I (Item Ball Event)', description: 'Visible items' },
+  { color: 'teal', label: 'F (Fruit Tree Event)', description: 'Fruit tree' },
 ];
 
 function MapLegend({ isExpanded, onToggle }: { isExpanded: boolean; onToggle: () => void }) {

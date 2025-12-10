@@ -358,11 +358,21 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
               </SelectContent>
             </Select>
           </div>
+          <div className="flex flex-col gap-2">
+            <Label className="table-header-label" htmlFor="show-sub-areas">
+              Show Sub-Areas
+            </Label>
+            <Checkbox
+                id="show-sub-areas"
+                checked={subAreas}
+                onCheckedChange={(checked) => setUrlState({ subAreas: checked ? true : null })}
+              />
+          </div>
         </div>
 
         {/* Advanced filters - collapsible */}
         {(() => {
-          const activeFilterCount = [pokemon, trainers, flyable, grottoes, items, subAreas].filter(Boolean).length;
+          const activeFilterCount = [pokemon, trainers, flyable, grottoes, items].filter(Boolean).length;
           return (
             <Collapsible>
               <CollapsibleTrigger className="flex items-center gap-2 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors group">
@@ -431,16 +441,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
                     </Label>
                   </div>
 
-                  <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="show-sub-areas"
-                      checked={subAreas}
-                      onCheckedChange={(checked) => setUrlState({ subAreas: checked ? true : null })}
-                    />
-                    <Label htmlFor="show-sub-areas" className="table-header-label">
-                      Show Sub-Areas
-                    </Label>
-                  </div>
+
                 </div>
               </CollapsibleContent>
             </Collapsible>
