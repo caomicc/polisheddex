@@ -165,14 +165,7 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, id, info, tm }) => {
             (info?.category?.toLowerCase() as 'unknown' | 'physical' | 'special' | 'status') ||
             'unknown'
           }
-          className={'w-4 h-4 p-[4px]'}
         />
-        <Badge
-          variant={info?.category?.toLowerCase() as any}
-          className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px] mx-auto"
-        >
-          {info?.category ? String(info.category) : '-'}
-        </Badge>
       </TableCell>
 
       <TableCell className="align-middle p-1 md:p-2 table-cell-text ">
