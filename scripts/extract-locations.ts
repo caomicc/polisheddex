@@ -818,8 +818,8 @@ const mergeLocationData = async () => {
       }
     }
 
-    // Get order from landmarks if available
-    const order = landmarks.orderMap.get(parentId);
+    // Get order from the sequential order map (consistent with regular locations)
+    const order = orderMap.get(parentId);
 
     const stubLocation: LocationData = {
       id: parentId,
