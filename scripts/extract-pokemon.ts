@@ -42,6 +42,10 @@ const abilityDescriptionsASM = join(
 );
 const dexOrderNewASM = join(__dirname, '../polishedcrystal/data/pokemon/dex_order_new.asm');
 const baseExpExceptionsASM = join(__dirname, '../polishedcrystal/data/pokemon/base_exp_exceptions.asm');
+const movesManifestJSON = join(__dirname, '../public/new/moves_manifest.json');
+
+// TM number lookup (move id -> tm number like "tm01", "hm01")
+const moveTMLookup: Record<string, string> = {};
 
 // Base experience exception overrides (Gen V+ adjustments)
 const baseExpExceptions: Record<string, number> = {};
@@ -942,6 +946,21 @@ const extractCosmetic = (pokemonForm: string) => {
   }
 };
 
+// Load moves manifest to get TM number mappings
+// (moves are extracted before pokemon, so this file should exist)
+try {
+  const movesManifestRaw = await readFile(movesManifestJSON, 'utf-8');
+  const movesManifest = JSON.parse(movesManifestRaw) as { id: string; tm?: { number: string } }[];
+  for (const move of movesManifest) {
+    if (move.tm?.number) {
+      moveTMLookup[move.id] = move.tm.number;
+    }
+  }
+  console.log(`Loaded ${Object.keys(moveTMLookup).length} TM/HM number mappings`);
+} catch (error) {
+  console.warn('Could not load moves manifest for TM numbers:', error);
+}
+
 //#1: Names, Dex Numbers
 let raw = await readFile(namesASM, 'utf-8');
 const [polishedNames, faithfulNames] = splitFile(raw);
@@ -1039,7 +1058,7 @@ const mergeVersions = () => {
             pokemonMovesets.faithful?.[reduce(pokemonName)] ||
             defaultMovesets;
 
-          // Get form-specific TM moves
+          // Get form-specific TM/HM/Tutor moves
           const formTMMoves =
             pokemonTMCompatibility.polished?.[romFormName] ||
             pokemonTMCompatibility.faithful?.[romFormName] ||
@@ -1047,9 +1066,12 @@ const mergeVersions = () => {
             pokemonTMCompatibility.faithful?.[reduce(pokemonName)] ||
             [];
 
-          // Merge TM moves into movesets
+          // Merge TM/HM/MT moves into movesets (all together in tm array)
           const finalMovesets = { ...formMovesets };
-          finalMovesets.tm = formTMMoves.map((move) => ({ id: move }));
+          finalMovesets.tm = formTMMoves.map((move) => ({
+            id: move,
+            ...(moveTMLookup[move] ? { number: moveTMLookup[move] } : {}),
+          }));
 
           polishedFormsWithRest[formKey].movesets = finalMovesets;
         }
@@ -1076,7 +1098,7 @@ const mergeVersions = () => {
             pokemonMovesets.polished?.[reduce(pokemonName)] ||
             defaultMovesets;
 
-          // Get form-specific TM moves
+          // Get form-specific TM/HM/Tutor moves
           const formTMMoves =
             pokemonTMCompatibility.faithful?.[romFormName] ||
             pokemonTMCompatibility.polished?.[romFormName] ||
@@ -1084,9 +1106,12 @@ const mergeVersions = () => {
             pokemonTMCompatibility.polished?.[reduce(pokemonName)] ||
             [];
 
-          // Merge TM moves into movesets
+          // Merge TM/HM/MT moves into movesets (all together in tm array)
           const finalMovesets = { ...formMovesets };
-          finalMovesets.tm = formTMMoves.map((move) => ({ id: move }));
+          finalMovesets.tm = formTMMoves.map((move) => ({
+            id: move,
+            ...(moveTMLookup[move] ? { number: moveTMLookup[move] } : {}),
+          }));
 
           faithfulFormsWithRest[formKey].movesets = finalMovesets;
         }

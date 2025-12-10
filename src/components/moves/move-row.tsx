@@ -6,6 +6,7 @@ import MoveCategoryIcon from './move-category-icon';
 import Link from 'next/link';
 import { ExternalLink } from 'lucide-react';
 import { MoveStats } from '@/types/new';
+import { reduce } from '@/lib/extract-utils';
 
 type MoveRowProps = {
   level?: number;
@@ -15,13 +16,16 @@ type MoveRowProps = {
     number: string;
     location?: string;
   };
+  showTmColumn?: boolean;
 };
 
-const MoveRow: React.FC<MoveRowProps> = ({ level, id, info, tm }) => {
+const MoveRow: React.FC<MoveRowProps> = ({ level, id, info, tm, showTmColumn = true }) => {
   // Guard against undefined info
   if (!info) {
     return null;
   }
+
+  console.log('Rendering MoveRow for:', id, info, tm);
 
   // Desktop version uses the original two-row layout
 
@@ -77,37 +81,34 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, id, info, tm }) => {
       <TableCell className="align-middle p-2 table-cell-text">
         {info?.pp ?? <span className="table-cell-text table-cell-muted">—</span>}
       </TableCell>
-      <TableCell className="align-middle p-2 table-cell-text">
-        {tm?.number ? (
-          tm.number.toLowerCase().startsWith('mt') ? (
-            <Link
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              href={`/locations/${encodeURIComponent((tm.location as any).area?.toLowerCase().replace(/\s+/g, '_'))}`}
-              className="table-link"
-            >
-              <Badge
-                variant={'berry'}
-                className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
-              >
-                {tm.number}
-              </Badge>
-              <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
-            </Link>
+      {showTmColumn && (
+        <TableCell className="align-middle p-2 table-cell-text">
+          {tm?.number ? (
+            tm.number.toUpperCase().startsWith('MT') ? (
+              // Move Tutor - just show badge, no link
+              <Link href={`/moves/${reduce(info.name)}`} className="table-link">
+                <Badge
+                  variant={'mt'}
+                >
+                  {tm.number.toUpperCase()}
+                </Badge>
+                <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
+              </Link>
+            ) : (
+              <Link href={`/moves/${info.name.toLowerCase()}`} className="table-link">
+                <Badge
+                  variant={tm.number.toUpperCase().startsWith('TM') ? 'tm' : 'hm'}
+                >
+                  {tm.number.toUpperCase()}
+                </Badge>
+                <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
+              </Link>
+            )
           ) : (
-            <Link href={`/items/${tm.number.toLowerCase()}`} className="table-link">
-              <Badge
-                variant={tm.number.startsWith('TM') ? 'tm' : 'hm'}
-                className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
-              >
-                {tm.number}
-              </Badge>
-              <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
-            </Link>
-          )
-        ) : (
-          <span className="table-cell-text table-cell-muted">—</span>
-        )}
-      </TableCell>
+            <span className="table-cell-text table-cell-muted">—</span>
+          )}
+        </TableCell>
+      )}
     </TableRow>,
     <TableRow
       key={`desc-${info.name}-${level}-desktop`}
@@ -179,21 +180,33 @@ const MoveRow: React.FC<MoveRowProps> = ({ level, id, info, tm }) => {
       <TableCell className="align-middle p-1 md:p-2 table-cell-text">
         {info?.pp ?? <span className="table-cell-text table-cell-muted">—</span>}
       </TableCell>
-      <TableCell className="align-middle p-1 md:p-2 table-cell-text ">
-        {tm?.number ? (
-          <Link href={`/items/${tm.number.toLowerCase()}`} className="table-link">
-            <Badge
-              variant={tm.number.startsWith('TM') ? 'tm' : 'hm'}
-              className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
-            >
-              {tm.number}
-            </Badge>
-            <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
-          </Link>
-        ) : (
-          <span className="table-cell-text table-cell-muted">—</span>
-        )}
-      </TableCell>
+      {showTmColumn && (
+        <TableCell className="align-middle p-1 md:p-2 table-cell-text ">
+          {tm?.number ? (
+            tm.number.toUpperCase().startsWith('MT') ? (
+              // Move Tutor - just show badge, no link
+              <Badge
+                variant={'mt'}
+                className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
+              >
+                {tm.number.toUpperCase()}
+              </Badge>
+            ) : (
+              <Link href={`/items/${tm.number.toLowerCase()}`} className="table-link">
+                <Badge
+                  variant={tm.number.toUpperCase().startsWith('TM') ? 'tm' : 'hm'}
+                  className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
+                >
+                  {tm.number.toUpperCase()}
+                </Badge>
+                <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
+              </Link>
+            )
+          ) : (
+            <span className="table-cell-text table-cell-muted">—</span>
+          )}
+        </TableCell>
+      )}
     </TableRow>,
     <TableRow
       key={`desc-${info.name}-${level}-mobile`}

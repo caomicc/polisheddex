@@ -259,7 +259,7 @@ async function enrichMovesets(movesets: any, versionName: string): Promise<any> 
               }
               return { name: move }; // Fallback if move data not found
             } else if (move && typeof move === 'object' && (move.id || move.name)) {
-              // Move with additional properties (like level-up moves)
+              // Move with additional properties (like level-up moves or TM moves)
               // Support both 'id' and 'name' fields for move lookup
               const moveId = move.id || move.name;
               const moveData = await getMoveData(moveId, versionName as 'faithful' | 'polished');
@@ -269,6 +269,7 @@ async function enrichMovesets(movesets: any, versionName: string): Promise<any> 
                   id: moveId,
                   name: moveData.name,
                   level: move.level, // Preserve level if present
+                  number: move.number, // Preserve TM/HM number if present
                   type: moveData.type,
                   power: moveData.power,
                   accuracy: moveData.accuracy,
@@ -284,6 +285,7 @@ async function enrichMovesets(movesets: any, versionName: string): Promise<any> 
                 id: moveId,
                 name: moveId,
                 level: move.level,
+                number: move.number, // Preserve TM/HM number if present
               };
             } else {
               // Invalid move data, return as-is

@@ -101,7 +101,8 @@ export interface PokemonMovesets {
   })[];
   tm?: (Partial<MoveStats> & {
     id: string;
-  })[]; // TM move names
+    number?: string; // TM/HM/MT number (e.g., "TM01", "HM01", "MT01")
+  })[];
   eggMoves?: (Partial<MoveStats> & {
     id: string;
   })[];

@@ -1,6 +1,6 @@
 'use client';
 import { AbilityData, ComprehensivePokemonData } from '@/types/new';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
+import { Table, TableBody, TableHead, TableHeader, TableRow } from '../ui/table';
 import { Badge } from '../ui/badge';
 import PokedexHeader from './pokemon-header';
 import PokemonTypeSetter from './pokemon-type-setter';
@@ -15,9 +15,7 @@ import { StatsRadarChart } from './stats-radar-chart';
 import { DetailCard } from '@/components/ui/detail-card';
 import TableWrapper from '@/components/ui/table-wrapper';
 import { Sparkles, Egg, Disc, MapPin } from 'lucide-react';
-import { BadgeLevelLegend } from '@/components/ui/badge-level-legend';
-import { BadgeLevelIndicator } from '@/components/ui/badge-level-indicator';
-import { extractBadgeOffsets } from '@/data/badge-levels';
+import { PokemonEncountersCard } from './pokemon-encounters-card';
 
 // Type for location encounter data
 interface PokemonLocationEncounter {
@@ -35,20 +33,6 @@ interface PokemonLocationEncounter {
 interface EvolutionChainData {
   polished: EvolutionChain | null;
   faithful: EvolutionChain | null;
-}
-
-// Type for enriched move data that comes from server
-interface EnrichedMove {
-  id: string;
-  name: string;
-  level?: number;
-  type: string;
-  power: number;
-  accuracy: number;
-  pp: number;
-  effectChance: number;
-  category: string;
-  description: string;
 }
 
 export default function PokemonFormClient({
@@ -77,109 +61,6 @@ export default function PokemonFormClient({
     : [];
 
   const uniqueForms = Object.keys(pokemonData.versions?.[version]?.forms || {});
-
-  // Filter location data for the current form
-  const currentFormLocations = locationData.filter(
-    (loc) => !loc.formName || loc.formName === 'plain' || loc.formName === selectedForm,
-  );
-
-  // Group and consolidate locations by area, method, and time
-  // Combine level ranges and accumulate rates
-  const groupedLocations = currentFormLocations.reduce(
-    (acc, loc) => {
-      // Create a unique key for location + method + time
-      const key = `${loc.locationId}|${loc.method}|${loc.version}`;
-      if (!acc[key]) {
-        acc[key] = {
-          locationId: loc.locationId,
-          locationName: loc.locationName,
-          region: loc.region,
-          method: loc.method,
-          version: loc.version,
-          levels: [],
-          badgeLevels: [],
-          hasVariableLevel: false,
-          totalRate: 0,
-        };
-      }
-      // Parse level and add to list - check for badge-relative levels
-      if (loc.levelRange.toLowerCase().includes('badge')) {
-        // Track badge-relative levels separately
-        if (!acc[key].badgeLevels.includes(loc.levelRange)) {
-          acc[key].badgeLevels.push(loc.levelRange);
-        }
-      } else {
-        const level = parseInt(loc.levelRange, 10);
-        if (isNaN(level) || level < 0) {
-          // Mark as having variable/special level
-          acc[key].hasVariableLevel = true;
-        } else if (!acc[key].levels.includes(level)) {
-          acc[key].levels.push(level);
-        }
-      }
-      // Accumulate the rate
-      acc[key].totalRate += loc.rate;
-      return acc;
-    },
-    {} as Record<
-      string,
-      {
-        locationId: string;
-        locationName: string;
-        region: string;
-        method: string;
-        version: string;
-        levels: number[];
-        badgeLevels: string[];
-        hasVariableLevel: boolean;
-        totalRate: number;
-      }
-    >,
-  );
-
-  // Convert to array and format level ranges
-  const consolidatedLocations = Object.values(groupedLocations).map((loc) => {
-    let levelRange: string;
-    let isBadgeLevel = false;
-    
-    if (loc.badgeLevels.length > 0) {
-      // Has badge-relative levels - extract and format
-      isBadgeLevel = true;
-      const offsets = extractBadgeOffsets(loc.badgeLevels);
-      if (offsets.length === 1) {
-        levelRange = `Badge ${offsets[0] >= 0 ? '+' : ''}${offsets[0]}`;
-      } else if (offsets.length > 1) {
-        const minOffset = Math.min(...offsets);
-        const maxOffset = Math.max(...offsets);
-        levelRange = `Badge ${minOffset >= 0 ? '+' : ''}${minOffset} to ${maxOffset >= 0 ? '+' : ''}${maxOffset}`;
-      } else {
-        levelRange = 'Badge';
-      }
-    } else if (loc.hasVariableLevel || loc.levels.length === 0) {
-      levelRange = 'Varies';
-    } else {
-      loc.levels.sort((a, b) => a - b);
-      const minLevel = loc.levels[0];
-      const maxLevel = loc.levels[loc.levels.length - 1];
-      levelRange = minLevel === maxLevel ? `${minLevel}` : `${minLevel}-${maxLevel}`;
-    }
-    return {
-      ...loc,
-      levelRange,
-      isBadgeLevel,
-    };
-  });
-
-  // Sort by location name, then method, then time
-  consolidatedLocations.sort((a, b) => {
-    if (a.locationName !== b.locationName) return a.locationName.localeCompare(b.locationName);
-    if (a.method !== b.method) return a.method.localeCompare(b.method);
-    const timeOrder = { morning: 0, day: 1, night: 2 };
-    return (
-      (timeOrder[a.version as keyof typeof timeOrder] ?? 3) -
-      (timeOrder[b.version as keyof typeof timeOrder] ?? 3)
-    );
-  });
 
   return (
     <>
@@ -263,12 +144,13 @@ export default function PokemonFormClient({
                   {currentFormData.movesets.levelUp
                     .sort((a, b) => a.level - b.level)
                     .map((move, index) => {
-                      const moveInfo = move as EnrichedMove;
+                      const moveInfo = move;
                       return (
                         <MoveRow
                           key={`levelup-${move.id}-${index}`}
                           id={move.id || ''}
                           level={move.level}
+                          showTmColumn={false}
                           info={{
                             name: moveInfo.name || move.id,
                             type: moveInfo.type || 'normal',
@@ -305,11 +187,12 @@ export default function PokemonFormClient({
                 </TableHeader>
                 <TableBody>
                   {currentFormData.movesets.eggMoves.map((move, index) => {
-                    const moveInfo = move as EnrichedMove;
+                    const moveInfo = move;
                     return (
                       <MoveRow
                         key={`eggmove-${move.id}-${index}`}
                         id={move.id}
+                        showTmColumn={false}
                         info={{
                           name: moveInfo.name || move.id,
                           type: moveInfo.type || 'normal',
@@ -329,9 +212,12 @@ export default function PokemonFormClient({
           </DetailCard>
         )}
 
-        {/* TM/HM Moves */}
+        {/* TM/HM/Tutor Moves */}
         {currentFormData?.movesets?.tm && currentFormData.movesets.tm.length > 0 && (
-          <DetailCard icon={Disc} title={`TM/HM Moves (${currentFormData.movesets.tm.length})`}>
+          <DetailCard
+            icon={Disc}
+            title={`TM/HM/Tutor Moves (${currentFormData.movesets.tm.length})`}
+          >
             <TableWrapper>
               <Table className="data-table">
                 <TableHeader className="hidden md:table-header-group">
@@ -342,11 +228,12 @@ export default function PokemonFormClient({
                     <TableHead className="w-[60px] table-header-label">Power</TableHead>
                     <TableHead className="w-[60px] table-header-label">Acc.</TableHead>
                     <TableHead className="w-[60px] table-header-label">PP</TableHead>
+                    <TableHead className="w-[60px] table-header-label"></TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {currentFormData.movesets.tm.map((move, index) => {
-                    const moveInfo = move as EnrichedMove;
+                    const moveInfo = move;
                     return (
                       <MoveRow
                         key={`tm-${move.id}-${index}`}
@@ -361,6 +248,10 @@ export default function PokemonFormClient({
                           effectChance: moveInfo.effectChance || 0,
                           description: moveInfo.description || '',
                         }}
+                        tm={{
+                          number: move.number!,
+                        }}
+                        showTmColumn={true}
                       />
                     );
                   })}
@@ -371,63 +262,7 @@ export default function PokemonFormClient({
         )}
 
         {/* Wild Encounters */}
-        {consolidatedLocations.length > 0 && (
-          <DetailCard icon={MapPin} title={`Wild Encounters (${consolidatedLocations.length})`}>
-            {/* Badge Level Legend - show if any encounters have badge-relative levels */}
-            {(() => {
-              const badgeLevelRanges = consolidatedLocations
-                .filter((loc) => loc.isBadgeLevel)
-                .map((loc) => loc.levelRange);
-              const badgeOffsets = extractBadgeOffsets(badgeLevelRanges);
-              return badgeOffsets.length > 0 ? <BadgeLevelLegend offsets={badgeOffsets} /> : null;
-            })()}
-            <TableWrapper>
-              <Table className="data-table">
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="table-header-label">Location</TableHead>
-                    <TableHead className="table-header-label">Method</TableHead>
-                    <TableHead className="table-header-label">Time</TableHead>
-                    <TableHead className="table-header-label">Levels</TableHead>
-                    <TableHead className="table-header-label">Rate</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {consolidatedLocations.map((loc, idx) => (
-                    <TableRow key={`${loc.locationId}-${loc.method}-${loc.version}-${idx}`}>
-                      <TableCell>
-                        <Link href={`/locations/${loc.locationId}`} className="hover:text-blue-600 dark:hover:text-blue-400">
-                          {loc.locationName}
-                          {/* <span className="text-xs text-neutral-500 ml-1">({loc.region})</span> */}
-                        </Link>
-                      </TableCell>
-                      <TableCell>
-                        <Badge variant="secondary" className="text-xs">
-                          {loc.method.replace(/_/g, ' ')}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="capitalize">
-                        <Badge variant={loc.version} className="text-xs">
-                          {loc.version}
-                        </Badge>
-                      </TableCell>
-                      <TableCell>
-                        {loc.isBadgeLevel ? (
-                          <BadgeLevelIndicator levelRange={loc.levelRange} />
-                        ) : loc.levelRange === 'Varies' ? (
-                          'Varies'
-                        ) : (
-                          `Lv. ${loc.levelRange}`
-                        )}
-                      </TableCell>
-                      <TableCell>{loc.totalRate}%</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableWrapper>
-          </DetailCard>
-        )}
+        <PokemonEncountersCard encounters={locationData} selectedForm={selectedForm} />
 
         {/* Base Stats Section */}
           <DetailCard icon={MapPin} title={`Base Stats`}>
@@ -437,6 +272,8 @@ export default function PokemonFormClient({
             <p className="text-sm text-neutral-500">No base stat data available.</p>
           )}
         </DetailCard>
+
+
 
       </div>
     </>

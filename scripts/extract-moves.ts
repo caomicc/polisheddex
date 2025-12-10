@@ -297,8 +297,8 @@ const extractTMHMInfo = async () => {
         const moveId = normalizeMoveId(moveName);
         const commentPart = parts[1].trim();
 
-        // Extract TM/HM number and location
-        const tmMatch = commentPart.match(/(TM|HM)(\d+)/);
+        // Extract TM/HM/MT number and location
+        const tmMatch = commentPart.match(/(TM|HM|MT)(\d+)/);
         if (tmMatch) {
           const tmNumber = `${tmMatch[1]}${tmMatch[2].padStart(2, '0')}`;
           const locationMatch = commentPart.match(/\(([^)]+)\)/);
@@ -313,7 +313,7 @@ const extractTMHMInfo = async () => {
     }
   }
 
-  console.log(`Extracted TM/HM info for ${Object.keys(tmhmInfo).length} moves`);
+  console.log(`Extracted TM/HM/MT info for ${Object.keys(tmhmInfo).length} moves`);
   return tmhmInfo;
 };
 

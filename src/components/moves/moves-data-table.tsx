@@ -214,6 +214,11 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
     });
   }, [data, type, category, version, physical, special, status, highPower, hasTm]);
 
+  // Check if any filtered moves have TM data
+  const hasTmData = React.useMemo(() => {
+    return filteredData.some((move) => move.tm?.number);
+  }, [filteredData]);
+
   // URL-based pagination state
   const [{ pageIndex, pageSize }, setPagination] = usePaginationSearchParams();
 
@@ -462,6 +467,13 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
                   const isNameColumn =
                     'accessorKey' in header.column.columnDef &&
                     header.column.columnDef.accessorKey === 'name';
+                  // Hide the "tm" column if no TM data is available
+                  const isTmColumn =
+                    'accessorKey' in header.column.columnDef &&
+                    header.column.columnDef.accessorKey === 'tm';
+                  if (isTmColumn && !hasTmData) {
+                    return null;
+                  }
                   return (
                     <TableHead
                       key={header.id}
@@ -486,6 +498,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
                     id={row.original.id}
                     info={row.original.versions[version]}
                     tm={row.original.tm}
+                    showTmColumn={hasTmData}
                   />
                 ))
             ) : (
