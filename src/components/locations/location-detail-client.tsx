@@ -1,11 +1,12 @@
 'use client';
 
 import { LocationData } from '@/utils/location-data-server';
-import { ComprehensiveTrainerData } from '@/types/new';
+import { ComprehensiveTrainerData, StaticPokemon } from '@/types/new';
 import { LocationInfoTable } from './location-info-table';
 import { LocationMap } from './location-map';
 import { LocationChildMaps } from './location-child-maps';
 import { LocationEncountersCard } from './location-encounters-card';
+import { SpecialEncountersCard } from './special-encounters-card';
 import { LocationItemsCard } from './location-items-card';
 import { LocationEventsCard } from './location-events-card';
 import { LocationTrainersCard } from './location-trainers-card';
@@ -13,14 +14,16 @@ import { LocationTrainersCard } from './location-trainers-card';
 interface LocationDetailClientProps {
   location: LocationData;
   trainers: ComprehensiveTrainerData[];
+  staticPokemon: StaticPokemon[];
 }
 
-export function LocationDetailClient({ location, trainers }: LocationDetailClientProps) {
+export function LocationDetailClient({ location, trainers, staticPokemon }: LocationDetailClientProps) {
   const hasAnyContent =
     (location.encounters && location.encounters.length > 0) ||
     (location.items && location.items.length > 0) ||
     (location.events && location.events.length > 0) ||
-    (trainers && trainers.length > 0);
+    (trainers && trainers.length > 0) ||
+    (staticPokemon && staticPokemon.length > 0);
 
   return (
     <div className="space-y-4">
@@ -46,6 +49,9 @@ export function LocationDetailClient({ location, trainers }: LocationDetailClien
 
       {/* Wild Pokemon encounters */}
       <LocationEncountersCard encounters={location.encounters || []} />
+
+      {/* Special encounters (static, gift, roaming Pokemon) */}
+      <SpecialEncountersCard staticPokemon={staticPokemon} />
 
       {/* Items found at this location */}
       <LocationItemsCard items={location.items || []} />

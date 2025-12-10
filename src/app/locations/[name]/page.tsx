@@ -16,6 +16,7 @@ import {
   getLocationData,
 } from '@/utils/location-data-server';
 import { getTrainersData } from '@/utils/loaders/trainer-data-loader';
+import { getStaticPokemonForLocation } from '@/utils/loaders/static-pokemon-loader';
 import { LocationDetailClient } from '@/components/locations/location-detail-client';
 import { PokemonGridSkeleton } from '@/components/pokemon/pokemon-card-skeleton';
 
@@ -59,6 +60,8 @@ export default async function LocationDetailPage({
       ? await getTrainersData(locationData.trainers)
       : [];
 
+  const staticPokemon = await getStaticPokemonForLocation(locationId);
+
   const displayName =
     locationData.name ||
     locationId
@@ -100,7 +103,7 @@ export default async function LocationDetailPage({
 
       <div className="max-w-xl md:max-w-4xl mx-auto">
         <Suspense fallback={<PokemonGridSkeleton count={4} />}>
-          <LocationDetailClient location={locationData} trainers={trainersData} />
+          <LocationDetailClient location={locationData} trainers={trainersData} staticPokemon={staticPokemon} />
         </Suspense>
       </div>
     </>

@@ -1,5 +1,5 @@
 'use client';
-import { AbilityData, ComprehensivePokemonData } from '@/types/new';
+import { AbilityData, ComprehensivePokemonData, StaticPokemon } from '@/types/new';
 import { Table, TableBody, TableHead, TableHeader, TableRow } from '../ui/table';
 import { Badge } from '../ui/badge';
 import PokedexHeader from './pokemon-header';
@@ -16,6 +16,7 @@ import { DetailCard } from '@/components/ui/detail-card';
 import TableWrapper from '@/components/ui/table-wrapper';
 import { Sparkles, Egg, Disc, MapPin } from 'lucide-react';
 import { PokemonEncountersCard } from './pokemon-encounters-card';
+import { HowToObtainCard } from './how-to-obtain-card';
 
 // Type for location encounter data
 interface PokemonLocationEncounter {
@@ -38,10 +39,12 @@ interface EvolutionChainData {
 export default function PokemonFormClient({
   pokemonData,
   locationData = [],
+  staticPokemon = [],
   evolutionChainData,
 }: {
   pokemonData: ComprehensivePokemonData;
   locationData?: PokemonLocationEncounter[];
+  staticPokemon?: StaticPokemon[];
   evolutionChainData?: EvolutionChainData;
 }) {
   const [selectedForm, setSelectedForm] = useQueryState('form', {
@@ -263,6 +266,9 @@ export default function PokemonFormClient({
 
         {/* Wild Encounters */}
         <PokemonEncountersCard encounters={locationData} selectedForm={selectedForm} />
+
+        {/* How to Obtain (static/gift/roaming) */}
+        <HowToObtainCard staticPokemon={staticPokemon} />
 
         {/* Base Stats Section */}
           <DetailCard icon={MapPin} title={`Base Stats`}>

@@ -11,6 +11,7 @@ import { loadJsonData } from '@/utils/fileLoader';
 import { loadBasePokemonData, loadEnrichedPokemonData } from '@/utils/loaders/pokemon-data-loader';
 import { getLocationsForPokemon } from '@/utils/location-data-server';
 import { getEvolutionChainForPokemon } from '@/utils/evolution-data-server';
+import { getStaticPokemonForSpecies } from '@/utils/loaders/static-pokemon-loader';
 import { Button } from '@/components/ui/button';
 import { reduce } from '@/lib/extract-utils';
 
@@ -25,6 +26,9 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
 
   // Load location data for this Pokemon
   const locationData = await getLocationsForPokemon(pokemonName);
+
+  // Load static Pokemon data (gift/static/roaming encounters)
+  const staticPokemon = await getStaticPokemonForSpecies(pokemonName);
 
   // Load evolution chain data for both versions
   const [polishedEvolutionChain, faithfulEvolutionChain] = await Promise.all([
@@ -43,6 +47,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
         <PokemonFormWrapper
           pokemonData={pokemonData}
           locationData={locationData}
+          staticPokemon={staticPokemon}
           evolutionChainData={{
             polished: polishedEvolutionChain,
             faithful: faithfulEvolutionChain,

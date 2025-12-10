@@ -3,6 +3,7 @@ import extractLocations from './extract-locations.ts';
 import extractItems from './extract-items.ts';
 import extractMoves from './extract-moves.ts';
 import extractEvents from './extract-events.ts';
+import extractStaticPokemon from './extract-static-pokemon.ts';
 
 console.log('🚀 Starting comprehensive data extraction...');
 console.log('━'.repeat(50));
@@ -28,10 +29,15 @@ try {
   await extractLocations();
   console.log('✅ Locations extraction completed\n');
 
-  // Run Events extraction last
+  // Run Events extraction
   console.log('5️⃣  Running Events extraction...');
   await extractEvents();
   console.log('✅ Events extraction completed\n');
+
+  // Run Static Pokemon extraction
+  console.log('6️⃣  Running Static Pokemon extraction...');
+  await extractStaticPokemon();
+  console.log('✅ Static Pokemon extraction completed\n');
 
   console.log('━'.repeat(50));
   console.log('🎉 All extractions completed successfully!');

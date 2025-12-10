@@ -1,7 +1,7 @@
 'use client';
 
 import { Suspense } from 'react';
-import { ComprehensivePokemonData } from '@/types/new';
+import { ComprehensivePokemonData, StaticPokemon } from '@/types/new';
 import PokemonFormClient from './pokemon-form-client';
 import { PokemonLocationEncounter } from '@/utils/location-data-server';
 import { EvolutionChain } from '@/utils/evolution-data-server';
@@ -14,6 +14,7 @@ interface EvolutionChainData {
 interface PokemonFormWrapperProps {
   pokemonData: ComprehensivePokemonData;
   locationData?: PokemonLocationEncounter[];
+  staticPokemon?: StaticPokemon[];
   evolutionChainData?: EvolutionChainData;
 }
 
@@ -30,6 +31,7 @@ function PokemonFormSkeleton() {
 export default function PokemonFormWrapper({
   pokemonData,
   locationData = [],
+  staticPokemon = [],
   evolutionChainData,
 }: PokemonFormWrapperProps) {
   return (
@@ -37,6 +39,7 @@ export default function PokemonFormWrapper({
       <PokemonFormClient
         pokemonData={pokemonData}
         locationData={locationData}
+        staticPokemon={staticPokemon}
         evolutionChainData={evolutionChainData}
       />
     </Suspense>

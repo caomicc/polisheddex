@@ -357,3 +357,33 @@ export type EvolutionStep = {
 export type EvolutionChains = {
   [root: string]: ChainLink[][];
 };
+
+
+// Types
+export interface Prerequisite {
+  type: 'item' | 'event' | 'caught';
+  value: string;
+  displayName: string;
+}
+
+export interface StaticPokemon {
+  id: string;
+  species: string;
+  speciesDisplay: string;
+  form?: string;
+  level: number;
+  location: string;
+  locationDisplay: string;
+  type: 'static' | 'gift' | 'roaming';
+  isLegendary?: boolean;
+  heldItem?: string;
+  heldItemDisplay?: string;
+  prerequisite?: Prerequisite;
+  validMaps?: string[];
+}
+
+export interface StaticPokemonManifest {
+  staticPokemon: StaticPokemon[];
+  roamingMaps: string[];
+  lastUpdated: string;
+}
