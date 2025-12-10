@@ -36,6 +36,12 @@ import {
 } from '@/components/ui/select';
 import { usePaginationSearchParams } from '@/hooks/use-pagination-search-params';
 import TableWrapper from '../ui/table-wrapper';
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from '@/components/ui/collapsible';
+import { ChevronDown } from 'lucide-react';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -68,6 +74,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
       flyable: parseAsBoolean.withDefault(false),
       grottoes: parseAsBoolean.withDefault(false),
       items: parseAsBoolean.withDefault(false),
+      subAreas: parseAsBoolean.withDefault(false),
     },
     {
       // Configure shallow routing to avoid full page reloads
@@ -97,7 +104,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
   );
 
   // Extract URL state values
-  const { search, region, pokemon, trainers, flyable, grottoes, items } = urlState;
+  const { search, region, pokemon, trainers, flyable, grottoes, items, subAreas } = urlState;
 
   // Sync search value with table filter
   React.useEffect(() => {
@@ -140,6 +147,8 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
       const matchesTrainers = !trainers || (location.trainerCount && location.trainerCount > 0);
       const matchesItems = !items || (location.itemCount && location.itemCount > 0);
       const matchesRegion = region === 'all' || location.region === region;
+      // Hide sub-areas unless toggle is checked
+      const matchesSubAreas = subAreas || !location.isSubArea;
 
       return (
         matchesPokemon &&
@@ -147,10 +156,11 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
         matchesGrottoes &&
         matchesTrainers &&
         matchesItems &&
-        matchesRegion
+        matchesRegion &&
+        matchesSubAreas
       );
     });
-  }, [data, pokemon, flyable, grottoes, trainers, items, region]);
+  }, [data, pokemon, flyable, grottoes, trainers, items, region, subAreas]);
 
   // URL-based pagination state
   const [{ pageIndex, pageSize }, setPagination] = usePaginationSearchParams();
@@ -350,63 +360,92 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
           </div>
         </div>
 
-        {/* Checkbox filters */}
-        <div className="flex flex-wrap gap-3 sm:gap-4">
-          <div className="flex items-center space-x-2">
-            <Checkbox
-              id="has-pokemon"
-              checked={pokemon}
-              onCheckedChange={(checked) => setUrlState({ pokemon: checked ? true : null })}
-            />
-            <Label htmlFor="has-pokemon" className="table-header-label">
-              Has Pokémon encounters
-            </Label>
-          </div>
+        {/* Advanced filters - collapsible */}
+        {(() => {
+          const activeFilterCount = [pokemon, trainers, flyable, grottoes, items, subAreas].filter(Boolean).length;
+          return (
+            <Collapsible>
+              <CollapsibleTrigger className="flex items-center gap-2 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors group">
+                <ChevronDown className="h-4 w-4 transition-transform group-data-[state=open]:rotate-180" />
+                <span>Advanced Filters</span>
+                {activeFilterCount > 0 && (
+                  <span className="inline-flex items-center justify-center px-2 py-0.5 text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full">
+                    {activeFilterCount} active
+                  </span>
+                )}
+              </CollapsibleTrigger>
+              <CollapsibleContent className="pt-3">
+                <div className="flex flex-wrap gap-3 sm:gap-4">
+                  <div className="flex items-center space-x-2">
+                    <Checkbox
+                      id="has-pokemon"
+                      checked={pokemon}
+                      onCheckedChange={(checked) => setUrlState({ pokemon: checked ? true : null })}
+                    />
+                    <Label htmlFor="has-pokemon" className="table-header-label">
+                      Has Pokémon encounters
+                    </Label>
+                  </div>
 
-          <div className="flex items-center space-x-2">
-            <Checkbox
-              id="has-trainers"
-              checked={trainers}
-              onCheckedChange={(checked) => setUrlState({ trainers: checked ? true : null })}
-            />
-            <Label htmlFor="has-trainers" className="table-header-label">
-              Has trainers
-            </Label>
-          </div>
+                  <div className="flex items-center space-x-2">
+                    <Checkbox
+                      id="has-trainers"
+                      checked={trainers}
+                      onCheckedChange={(checked) => setUrlState({ trainers: checked ? true : null })}
+                    />
+                    <Label htmlFor="has-trainers" className="table-header-label">
+                      Has trainers
+                    </Label>
+                  </div>
 
-          <div className="flex items-center space-x-2">
-            <Checkbox
-              id="flyable"
-              checked={flyable}
-              onCheckedChange={(checked) => setUrlState({ flyable: checked ? true : null })}
-            />
-            <Label htmlFor="flyable" className="table-header-label">
-              Flyable locations
-            </Label>
-          </div>
+                  <div className="flex items-center space-x-2">
+                    <Checkbox
+                      id="flyable"
+                      checked={flyable}
+                      onCheckedChange={(checked) => setUrlState({ flyable: checked ? true : null })}
+                    />
+                    <Label htmlFor="flyable" className="table-header-label">
+                      Flyable locations
+                    </Label>
+                  </div>
 
-          <div className="flex items-center space-x-2">
-            <Checkbox
-              id="hidden-grotto"
-              checked={grottoes}
-              onCheckedChange={(checked) => setUrlState({ grottoes: checked ? true : null })}
-            />
-            <Label htmlFor="hidden-grotto" className="table-header-label">
-              Has Hidden Grottoes
-            </Label>
-          </div>
+                  <div className="flex items-center space-x-2">
+                    <Checkbox
+                      id="hidden-grotto"
+                      checked={grottoes}
+                      onCheckedChange={(checked) => setUrlState({ grottoes: checked ? true : null })}
+                    />
+                    <Label htmlFor="hidden-grotto" className="table-header-label">
+                      Has Hidden Grottoes
+                    </Label>
+                  </div>
 
-          <div className="flex items-center space-x-2">
-            <Checkbox
-              id="has-items"
-              checked={items}
-              onCheckedChange={(checked) => setUrlState({ items: checked ? true : null })}
-            />
-            <Label htmlFor="has-items" className="table-header-label">
-              Has Items
-            </Label>
-          </div>
-        </div>
+                  <div className="flex items-center space-x-2">
+                    <Checkbox
+                      id="has-items"
+                      checked={items}
+                      onCheckedChange={(checked) => setUrlState({ items: checked ? true : null })}
+                    />
+                    <Label htmlFor="has-items" className="table-header-label">
+                      Has Items
+                    </Label>
+                  </div>
+
+                  <div className="flex items-center space-x-2">
+                    <Checkbox
+                      id="show-sub-areas"
+                      checked={subAreas}
+                      onCheckedChange={(checked) => setUrlState({ subAreas: checked ? true : null })}
+                    />
+                    <Label htmlFor="show-sub-areas" className="table-header-label">
+                      Show Sub-Areas
+                    </Label>
+                  </div>
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
+          );
+        })()}
 
         {/* Filter summary */}
         <div className="flex flex-col sm:items-start gap-2 text-sm text-muted-foreground">
@@ -417,7 +456,8 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
             trainers ||
             flyable ||
             grottoes ||
-            items) && (
+            items ||
+            subAreas) && (
             <Button
               size="sm"
               onClick={() => {
@@ -429,6 +469,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
                   flyable: null,
                   grottoes: null,
                   items: null,
+                  subAreas: null,
                 });
                 setSorting([]);
 
@@ -472,7 +513,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
                 })()}
               </span>
             )}
-            {(pokemon || trainers || flyable || grottoes || items || region !== 'all') && (
+            {(pokemon || trainers || flyable || grottoes || items || subAreas || region !== 'all') && (
               <span className="ml-2">
                 • Filtered:{' '}
                 {[
@@ -481,6 +522,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
                   flyable && 'Flyable',
                   grottoes && 'Has Grottoes',
                   items && 'Has Items',
+                  subAreas && 'Sub-Areas',
                   region !== 'all' && `Region: ${region.charAt(0).toUpperCase() + region.slice(1)}`,
                 ]
                   .filter(Boolean)

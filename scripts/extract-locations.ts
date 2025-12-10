@@ -264,7 +264,7 @@ const extractMartItems = async () => {
     const itemMatch = trimmed.match(/^db[w]?\s+([A-Z_][A-Z0-9_]*)/);
     if (itemMatch) {
       const itemConstant = itemMatch[1];
-      
+
       // Handle TM items specially - extract move name and set type to 'tm'
       if (itemConstant.startsWith('TM_')) {
         const moveName = normalizeString(itemConstant.replace('TM_', ''));
@@ -904,6 +904,9 @@ await Promise.all(
     await writeFile(locationPath, JSON.stringify(location, null, 2), 'utf-8');
 
     // Add to manifest (excluding trainerData, only including trainer names)
+    // A location is a sub-area if it has a parent that's different from itself
+    const isSubArea = location.parent && location.parent !== location.id ? true : undefined;
+
     locationManifest.push({
       id: location.id,
       name: location.name,
@@ -920,6 +923,7 @@ await Promise.all(
       itemCount: location.items?.length || undefined,
       flyable: flyableLocations.has(location.id) || undefined,
       hasHiddenGrotto: hiddenGrottoLocations.has(location.id) || undefined,
+      isSubArea,
     });
   }),
 );

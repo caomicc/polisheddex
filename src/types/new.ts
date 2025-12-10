@@ -261,6 +261,7 @@ export interface LocationManifest {
   itemCount?: number;
   flyable?: boolean;
   hasHiddenGrotto?: boolean;
+  isSubArea?: boolean;
 }
 
 // Move with embedded type info for trainer Pokemon
