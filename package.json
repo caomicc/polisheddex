@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "node scripts/generate-build-info.mjs && next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
