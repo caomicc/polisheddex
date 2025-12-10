@@ -4,7 +4,6 @@ import { PokemonSprite } from './pokemon-sprite';
 import { Badge } from '../ui/badge';
 import { EvolutionChainStep } from '@/utils/evolution-data-server';
 import Link from 'next/link';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
 import { PokemonType as TypeChartType, getTypeEffectiveness } from '@/data/typeChart';
 import { formatMoveName } from '@/utils/stringUtils';
 
@@ -216,337 +215,281 @@ export function PokemonInfoTable({
 
   return (
     <div className="info-table-wrapper">
-      <Table className="info-table">
-        <TableHeader>
-
-          <TableRow>
-            <TableCell className="text-center p-4 bg-neutral-50 dark:bg-neutral-900 w-full"
-              colSpan={3}
-            >
-              {/* Sprite Grid: Front and Back sprites for Normal and Shiny, static and animated */}
-              <div className="flex flex-col gap-4 max-w-2xl mx-auto">
-                {/* Front Sprites Row */}
-                <div>
-                  <span className="text-xs font-medium text-neutral-600 dark:text-neutral-300 mb-2 block">Front</span>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {/* Normal Front */}
-                    <div className="flex flex-col items-center gap-1">
-                      <PokemonSprite
-                        form={selectedForm}
-                        pokemonName={name}
-                        variant="normal"
-                        type="static"
-                        className="shadow-none w-16 h-16 md:w-20 md:h-20"
-                      />
-                      <span className="text-xs text-neutral-500 dark:text-neutral-400">Normal</span>
-                    </div>
-                    {/* Shiny Front */}
-                    <div className="flex flex-col items-center gap-1">
-                      <PokemonSprite
-                        form={selectedForm}
-                        pokemonName={name}
-                        variant="shiny"
-                        type="static"
-                        className="shadow-none w-16 h-16 md:w-20 md:h-20"
-                      />
-                      <span className="text-xs text-neutral-500 dark:text-neutral-400">Shiny</span>
-                    </div>
-                    {/* Animated Normal Front */}
-                    <div className="flex flex-col items-center gap-1">
-                      <PokemonSprite
-                        form={selectedForm}
-                        pokemonName={name}
-                        variant="normal"
-                        type="animated"
-                        className="shadow-none w-16 h-16 md:w-20 md:h-20"
-                      />
-                      <span className="text-xs text-neutral-500 dark:text-neutral-400">Animated</span>
-                    </div>
-                    {/* Animated Shiny Front */}
-                    <div className="flex flex-col items-center gap-1">
-                      <PokemonSprite
-                        form={selectedForm}
-                        pokemonName={name}
-                        variant="shiny"
-                        type="animated"
-                        className="shadow-none w-16 h-16 md:w-20 md:h-20"
-                      />
-                      <span className="text-xs text-neutral-500 dark:text-neutral-400">Shiny Animated</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Back Sprites Row */}
-                <div>
-                  <span className="text-xs font-medium text-neutral-600 dark:text-neutral-300 mb-2 block">Back</span>
-                  <div className="grid grid-cols-2 gap-4 max-w-[200px] mx-auto">
-                    {/* Normal Back */}
-                    <div className="flex flex-col items-center gap-1">
-                      <PokemonSprite
-                        form={selectedForm}
-                        pokemonName={name}
-                        variant="normal"
-                        type="static"
-                        facing="back"
-                        className="shadow-none w-16 h-16 md:w-20 md:h-20"
-                      />
-                      <span className="text-xs text-neutral-500 dark:text-neutral-400">Normal</span>
-                    </div>
-                    {/* Shiny Back */}
-                    <div className="flex flex-col items-center gap-1">
-                      <PokemonSprite
-                        form={selectedForm}
-                        pokemonName={name}
-                        variant="shiny"
-                        type="static"
-                        facing="back"
-                        className="shadow-none w-16 h-16 md:w-20 md:h-20"
-                      />
-                      <span className="text-xs text-neutral-500 dark:text-neutral-400">Shiny</span>
-                    </div>
-                  </div>
-                </div>
+      {/* Sprite Header */}
+      <div className="text-center p-4 bg-neutral-50 dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-700">
+        {/* Sprite Grid: Front and Back sprites for Normal and Shiny, static and animated */}
+        <div className="flex flex-col gap-4 max-w-2xl mx-auto">
+          {/* Front Sprites Row */}
+          <div>
+            <span className="text-xs font-medium text-neutral-600 dark:text-neutral-300 mb-2 block">Front</span>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {/* Normal Front */}
+              <div className="flex flex-col items-center gap-1">
+                <PokemonSprite
+                  form={selectedForm}
+                  pokemonName={name}
+                  variant="normal"
+                  type="static"
+                  className="shadow-none w-16 h-16 md:w-20 md:h-20"
+                />
+                <span className="text-xs text-neutral-500 dark:text-neutral-400">Normal</span>
               </div>
-            </TableCell>
-          </TableRow>
-        </TableHeader>
-        <TableBody className="info-table-body">
-          {/* Type */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Type
-            </TableHead>
-            <TableCell className="info-table-cell">
+              {/* Shiny Front */}
+              <div className="flex flex-col items-center gap-1">
+                <PokemonSprite
+                  form={selectedForm}
+                  pokemonName={name}
+                  variant="shiny"
+                  type="static"
+                  className="shadow-none w-16 h-16 md:w-20 md:h-20"
+                />
+                <span className="text-xs text-neutral-500 dark:text-neutral-400">Shiny</span>
+              </div>
+              {/* Animated Normal Front */}
+              <div className="flex flex-col items-center gap-1">
+                <PokemonSprite
+                  form={selectedForm}
+                  pokemonName={name}
+                  variant="normal"
+                  type="animated"
+                  className="shadow-none w-16 h-16 md:w-20 md:h-20"
+                />
+                <span className="text-xs text-neutral-500 dark:text-neutral-400">Animated</span>
+              </div>
+              {/* Animated Shiny Front */}
+              <div className="flex flex-col items-center gap-1">
+                <PokemonSprite
+                  form={selectedForm}
+                  pokemonName={name}
+                  variant="shiny"
+                  type="animated"
+                  className="shadow-none w-16 h-16 md:w-20 md:h-20"
+                />
+                <span className="text-xs text-neutral-500 dark:text-neutral-400">Shiny Animated</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Back Sprites Row */}
+          <div>
+            <span className="text-xs font-medium text-neutral-600 dark:text-neutral-300 mb-2 block">Back</span>
+            <div className="grid grid-cols-2 gap-4 max-w-[200px] mx-auto">
+              {/* Normal Back */}
+              <div className="flex flex-col items-center gap-1">
+                <PokemonSprite
+                  form={selectedForm}
+                  pokemonName={name}
+                  variant="normal"
+                  type="static"
+                  facing="back"
+                  className="shadow-none w-16 h-16 md:w-20 md:h-20"
+                />
+                <span className="text-xs text-neutral-500 dark:text-neutral-400">Normal</span>
+              </div>
+              {/* Shiny Back */}
+              <div className="flex flex-col items-center gap-1">
+                <PokemonSprite
+                  form={selectedForm}
+                  pokemonName={name}
+                  variant="shiny"
+                  type="static"
+                  facing="back"
+                  className="shadow-none w-16 h-16 md:w-20 md:h-20"
+                />
+                <span className="text-xs text-neutral-500 dark:text-neutral-400">Shiny</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Info Rows */}
+      <div className="divide-y divide-neutral-200 dark:divide-neutral-700">
+        {/* Type */}
+        <div className="info-row">
+          <div className="info-row-label">Type</div>
+          <div className="info-row-value">
+            <div className="flex gap-1 flex-wrap">
+              {types.map((type) => (
+                <Badge key={type} variant={type.toLowerCase() as any}>
+                  {type.charAt(0).toUpperCase() + type.slice(1)}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* National Dex */}
+        <div className="info-row">
+          <div className="info-row-label">Dex</div>
+          <div className="info-row-value">#{dexNo.toString().padStart(3, '0')}</div>
+        </div>
+
+        {/* Location / How to Obtain */}
+        <div className="info-row">
+          <div className="info-row-label">Best obtain method</div>
+          <div className="info-row-value">{obtainMethod}</div>
+        </div>
+
+        {/* Abilities */}
+        {abilities.length > 0 && (
+          <div className="info-row">
+            <div className="info-row-label">Abilities</div>
+            <div className="info-row-value">
+              <div className="flex flex-col gap-3">
+                {abilities.map((ability, index) => {
+                  const abilityName = ability.name || ability.id || '';
+                  const abilityId = ability.id || ability.name || '';
+                  const abilityDescription = ability.description || '';
+                  const abilityType = index === 0 ? 'Primary' : index === 1 ? 'Secondary' : 'Hidden';
+
+                  return (
+                    <div key={index} className="flex flex-col gap-0.5">
+                      <div className="flex items-center gap-2">
+                        <Link
+                          href={`/abilities/${abilityId}`}
+                          className="font-medium hover:text-blue-600 dark:hover:text-blue-400 capitalize"
+                        >
+                          {abilityName.replace(/([a-z])([A-Z])/g, '$1 $2')}
+                        </Link>
+                        {abilities.length > 1 && (
+                          <span className="text-xs text-neutral-500">({abilityType})</span>
+                        )}
+                      </div>
+                      {abilityDescription && (
+                        <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                          {abilityDescription}
+                        </p>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Growth Rate */}
+        <div className="info-row">
+          <div className="info-row-label">Growth Rate</div>
+          <div className="info-row-value">{growthRate ? formatGrowthRate(growthRate) : 'Unknown'}</div>
+        </div>
+
+        {/* Gender */}
+        <div className="info-row">
+          <div className="info-row-label">Gender Ratio</div>
+          <div className="info-row-value">{genderRatio !== undefined ? formatGenderRatio(genderRatio) : 'Unknown'}</div>
+        </div>
+
+        {/* Egg Groups */}
+        <div className="info-row">
+          <div className="info-row-label">Egg Groups</div>
+          <div className="info-row-value capitalize">{eggGroups.length > 0 ? eggGroups.join(', ') : 'Unknown'}</div>
+        </div>
+
+        {/* Hatch Rate */}
+        <div className="info-row">
+          <div className="info-row-label">Hatch Rate</div>
+          <div className="info-row-value">{hatchRate ? formatHatchRate(hatchRate) : 'Unknown'}</div>
+        </div>
+
+        {/* Catch Rate */}
+        <div className="info-row">
+          <div className="info-row-label">Catch Rate</div>
+          <div className="info-row-value">{catchRate !== undefined ? catchRate : 'Unknown'}</div>
+        </div>
+
+        {/* Base Experience */}
+        <div className="info-row">
+          <div className="info-row-label">Base Exp</div>
+          <div className="info-row-value">{baseExp !== undefined ? baseExp : 'Unknown'}</div>
+        </div>
+
+        {/* Wild Held Items */}
+        <div className="info-row">
+          <div className="info-row-label">Wild Held Items</div>
+          <div className="info-row-value">
+            {heldItems.length > 0 ? (
+              <div className="flex flex-wrap gap-2">
+                {heldItems.map((item, index) => (
+                  <Link
+                    key={`${item.id}-${index}`}
+                    href={`/items/${item.id}`}
+                    className="inline-flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400"
+                  >
+                    <span>{item.name || formatItemName(item.id)}</span>
+                    <span className="text-xs text-neutral-500">
+                      ({item.rarity === 'always' ? '100%' : item.rarity === 'common' ? '25%' : '5%'})
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <span className="text-neutral-500">None</span>
+            )}
+          </div>
+        </div>
+
+        {/* Weaknesses */}
+        <div className="info-row">
+          <div className="info-row-label">Weak To</div>
+          <div className="info-row-value">
+            <div className="flex gap-1 flex-wrap">
+              {weaknesses.length === 0 ? (
+                <span className="text-neutral-500">None</span>
+              ) : (
+                weaknesses.map((type) => (
+                  <Badge key={type} variant={type.toLowerCase() as any} className="text-xs">
+                    {type} ×{effectiveness[type]}
+                  </Badge>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Resistances */}
+        <div className="info-row">
+          <div className="info-row-label">Resists</div>
+          <div className="info-row-value">
+            <div className="flex gap-1 flex-wrap">
+              {resistances.length === 0 ? (
+                <span className="text-neutral-500">None</span>
+              ) : (
+                resistances.map((type) => (
+                  <Badge key={type} variant={type.toLowerCase() as any} className="text-xs">
+                    {type} ×{effectiveness[type]}
+                  </Badge>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Immunities */}
+        {immunities.length > 0 && (
+          <div className="info-row">
+            <div className="info-row-label">Immune To</div>
+            <div className="info-row-value">
               <div className="flex gap-1 flex-wrap">
-                {types.map((type) => (
-                  <Badge key={type} variant={type.toLowerCase() as any}>
-                    {type.charAt(0).toUpperCase() + type.slice(1)}
+                {immunities.map((type) => (
+                  <Badge key={type} variant={type.toLowerCase() as any} className="text-xs">
+                    {type}
                   </Badge>
                 ))}
               </div>
-            </TableCell>
-          </TableRow>
+            </div>
+          </div>
+        )}
 
-
-          {/* National Dex */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Dex
-            </TableHead>
-            <TableCell className="info-table-cell">
-              #{dexNo.toString().padStart(3, '0')}
-            </TableCell>
-          </TableRow>
-
-          {/* Location / How to Obtain */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Best obtain method
-            </TableHead>
-            <TableCell className="info-table-cell">
-              {obtainMethod}
-            </TableCell>
-          </TableRow>
-
-          {/* Abilities */}
-          {abilities.length > 0 && (
-            <TableRow>
-              <TableHead className="info-table-label">
-                Abilities
-              </TableHead>
-              <TableCell colSpan={2} className="info-table-cell">
-                <div className="flex flex-col gap-3">
-                  {abilities.map((ability, index) => {
-                    const abilityName = ability.name || ability.id || '';
-                    const abilityId = ability.id || ability.name || '';
-                    const abilityDescription = ability.description || '';
-                    const abilityType = index === 0 ? 'Primary' : index === 1 ? 'Secondary' : 'Hidden';
-
-                    return (
-                      <div key={index} className="flex flex-col gap-0.5">
-                        <div className="flex items-center gap-2">
-                          <Link
-                            href={`/abilities/${abilityId}`}
-                            className="font-medium hover:text-blue-600 dark:hover:text-blue-400 capitalize"
-                          >
-                            {abilityName.replace(/([a-z])([A-Z])/g, '$1 $2')}
-                          </Link>
-                          {abilities.length > 1 && (
-                            <span className="text-xs text-neutral-500">({abilityType})</span>
-                          )}
-                        </div>
-                        {abilityDescription && (
-                          <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                            {abilityDescription}
-                          </p>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </TableCell>
-            </TableRow>
-          )}
-
-          {/* Growth Rate */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Growth Rate
-            </TableHead>
-            <TableCell colSpan={2} className="info-table-cell">
-              {growthRate ? formatGrowthRate(growthRate) : 'Unknown'}
-            </TableCell>
-          </TableRow>
-
-          {/* Gender */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Gender Ratio
-            </TableHead>
-            <TableCell colSpan={2} className="info-table-cell">
-              {genderRatio !== undefined ? formatGenderRatio(genderRatio) : 'Unknown'}
-            </TableCell>
-          </TableRow>
-
-          {/* Egg Groups */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Egg Groups
-            </TableHead>
-            <TableCell colSpan={2} className="info-table-cell capitalize">
-              {eggGroups.length > 0 ? eggGroups.join(', ') : 'Unknown'}
-            </TableCell>
-          </TableRow>
-
-          {/* Hatch Rate */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Hatch Rate
-            </TableHead>
-            <TableCell colSpan={2} className="info-table-cell">
-              {hatchRate ? formatHatchRate(hatchRate) : 'Unknown'}
-            </TableCell>
-          </TableRow>
-
-          {/* Catch Rate */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Catch Rate
-            </TableHead>
-            <TableCell colSpan={2} className="info-table-cell">
-              {catchRate !== undefined ? catchRate : 'Unknown'}
-            </TableCell>
-          </TableRow>
-
-          {/* Base Experience */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Base Exp
-            </TableHead>
-            <TableCell colSpan={2} className="info-table-cell">
-              {baseExp !== undefined ? baseExp : 'Unknown'}
-            </TableCell>
-          </TableRow>
-
-          {/* Wild Held Items */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Wild Held Items
-            </TableHead>
-            <TableCell colSpan={2} className="info-table-cell">
-              {heldItems.length > 0 ? (
-                <div className="flex flex-wrap gap-2">
-                  {heldItems.map((item, index) => (
-                    <Link
-                      key={`${item.id}-${index}`}
-                      href={`/items/${item.id}`}
-                      className="inline-flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400"
-                    >
-                      <span>{item.name || formatItemName(item.id)}</span>
-                      <span className="text-xs text-neutral-500">
-                        ({item.rarity === 'always' ? '100%' : item.rarity === 'common' ? '25%' : '5%'})
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              ) : (
-                <span className="text-neutral-500">None</span>
-              )}
-            </TableCell>
-          </TableRow>
-
-          {/* Weaknesses */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Weak To
-            </TableHead>
-            <TableCell colSpan={2} className="info-table-cell">
-              <div className="flex gap-1 flex-wrap">
-                {weaknesses.length === 0 ? (
-                  <span className="text-neutral-500">None</span>
-                ) : (
-                  weaknesses.map((type) => (
-                    <Badge key={type} variant={type.toLowerCase() as any} className="text-xs">
-                      {type} ×{effectiveness[type]}
-                    </Badge>
-                  ))
-                )}
-              </div>
-            </TableCell>
-          </TableRow>
-
-          {/* Resistances */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Resists
-            </TableHead>
-            <TableCell colSpan={2} className="info-table-cell">
-              <div className="flex gap-1 flex-wrap">
-                {resistances.length === 0 ? (
-                  <span className="text-neutral-500">None</span>
-                ) : (
-                  resistances.map((type) => (
-                    <Badge key={type} variant={type.toLowerCase() as any} className="text-xs">
-                      {type} ×{effectiveness[type]}
-                    </Badge>
-                  ))
-                )}
-              </div>
-            </TableCell>
-          </TableRow>
-
-          {/* Immunities */}
-          {immunities.length > 0 && (
-            <TableRow>
-              <TableHead className="info-table-label">
-                Immune To
-              </TableHead>
-              <TableCell colSpan={2} className="info-table-cell">
-                <div className="flex gap-1 flex-wrap">
-                  {immunities.map((type) => (
-                    <Badge key={type} variant={type.toLowerCase() as any} className="text-xs">
-                      {type}
-                    </Badge>
-                  ))}
-                </div>
-              </TableCell>
-            </TableRow>
-          )}
-
-
-          {/* Available Forms */}
-          {availableForms.length > 1 && (
-            <TableRow>
-              <TableHead className="info-table-label">
-                Forms
-              </TableHead>
-              <TableCell colSpan={2} className="info-table-cell">
-                {availableForms.map(formatFormName).join(', ')}
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
+        {/* Available Forms */}
+        {availableForms.length > 1 && (
+          <div className="info-row">
+            <div className="info-row-label">Forms</div>
+            <div className="info-row-value">{availableForms.map(formatFormName).join(', ')}</div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

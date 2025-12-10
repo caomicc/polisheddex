@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { PokemonSprite } from './pokemon-sprite';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
 import { formatDisplayName, formatItemName } from '@/utils/stringUtils';
 
 interface EvolutionChainMember {
@@ -183,20 +182,8 @@ export function EvolutionTable({ chain, currentPokemon, currentForm = 'plain' }:
   }
 
   return (
-  <div className="info-table-wrapper">
-    <Table className="info-table">
-      <TableHeader>
-        <TableRow>
-          <TableHead className="info-table-label">
-            Pokemon
-          </TableHead>
-
-          <TableCell className="info-table-label">
-            Acquire At
-          </TableCell>
-        </TableRow>
-      </TableHeader>
-      <TableBody className="info-table-body">
+    <div className="info-table-wrapper">
+      <div className="divide-y divide-neutral-200 dark:divide-neutral-700">
         {rows.map((row, index) => {
           const pokemonKey = `${row.pokemon.name}|${row.pokemon.formName}`;
           const isCurrentPokemon =
@@ -204,13 +191,12 @@ export function EvolutionTable({ chain, currentPokemon, currentForm = 'plain' }:
             (row.pokemon.formName === currentForm || row.pokemon.formName === 'plain');
 
           return (
-            <TableRow
+            <div
               key={pokemonKey + index}
-              className={isCurrentPokemon ? 'bg-primary/10' : ''}
+              className={`info-row items-center ${isCurrentPokemon ? 'bg-primary/10' : ''}`}
             >
               {row.isBase ? (
-                <TableCell
-                  className="info-table-cell min-w-[200px]">
+                <div className="info-row-value flex-1">
                   <Link
                     href={`/pokemon/${row.pokemon.name}`}
                     className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400"
@@ -218,24 +204,21 @@ export function EvolutionTable({ chain, currentPokemon, currentForm = 'plain' }:
                     <PokemonSprite
                       pokemonName={row.pokemon.name}
                       form={row.pokemon.formName}
-                      size='sm'
+                      size="sm"
                     />
                     <span className="capitalize">{formatDisplayName(row.pokemon.name)}</span>
                   </Link>
-                </TableCell>
+                </div>
               ) : (
-                <>
-                  <TableCell
-                  className="info-table-cell">
-                   <div className='flex items-center'>
-                     <Link
+                <div className="info-row-value flex-1">
+                  <div className="flex items-center">
+                    <Link
                       href={`/pokemon/${row.fromName}`}
                       className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400"
                     >
                       <PokemonSprite
                         pokemonName={row.fromName!}
-                        // form={row.fromName === row.pokemon.name ? row.pokemon.formName : 'plain'}
-                        size='sm'
+                        size="sm"
                       />
                     </Link>
                     <span className="mx-2">→</span>
@@ -246,22 +229,20 @@ export function EvolutionTable({ chain, currentPokemon, currentForm = 'plain' }:
                       <PokemonSprite
                         pokemonName={row.pokemon.name}
                         form={row.pokemon.formName}
-                        size='sm'
+                        size="sm"
                       />
                       <span className="capitalize">{formatDisplayName(row.pokemon.name)}</span>
                     </Link>
-                   </div>
-                  </TableCell>
-                </>
+                  </div>
+                </div>
               )}
-              <TableCell className="info-table-cell text-neutral-600 dark:text-neutral-400 text-xs">
+              <div className="info-row-label flex-2  sm:w-auto text-neutral-600 dark:text-neutral-400 text-xs mt-1 sm:mt-0">
                 {row.acquireMethod}
-              </TableCell>
-            </TableRow>
+              </div>
+            </div>
           );
         })}
-      </TableBody>
-    </Table>
+      </div>
     </div>
   );
 }

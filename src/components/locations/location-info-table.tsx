@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { Table, TableBody, TableCell, TableHead, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 
@@ -61,147 +60,117 @@ export function LocationInfoTable({
 
   return (
     <div className="info-table-wrapper">
-      <Table className="info-table">
-        <TableBody className="info-table-body">
-          {/* Region */}
-          {region && (
-            <TableRow>
-              <TableHead className="info-table-label">
-                Region
-              </TableHead>
-              <TableCell className="info-table-cell">
-                <Badge variant="outline" className={cn('border text-xs font-medium', regionColor)}>
-                  {region}
-                </Badge>
-              </TableCell>
-            </TableRow>
-          )}
+      <div className="divide-y divide-neutral-200 dark:divide-neutral-700">
+        {/* Region */}
+        {region && (
+          <div className="info-row">
+            <div className="info-row-label">Region</div>
+            <div className="info-row-value">
+              <Badge variant="outline" className={cn('border text-xs font-medium', regionColor)}>
+                {region}
+              </Badge>
+            </div>
+          </div>
+        )}
 
-          {/* Location Types */}
-          {types && types.length > 0 && (
-            <TableRow>
-              <TableHead className="info-table-label">
-                Type
-              </TableHead>
-              <TableCell className="info-table-cell capitalize">
-                {types.join(', ')}
-              </TableCell>
-            </TableRow>
-          )}
+        {/* Location Types */}
+        {types && types.length > 0 && (
+          <div className="info-row">
+            <div className="info-row-label">Type</div>
+            <div className="info-row-value capitalize">{types.join(', ')}</div>
+          </div>
+        )}
 
-          {/* Parent Location */}
-          {parent && parentId && (
-            <TableRow>
-              <TableHead className="info-table-label">
-                Part of
-              </TableHead>
-              <TableCell className="info-table-cell">
-                <Link
-                  href={`/locations/${parentId}`}
-                  className="text-blue-600 dark:text-blue-400 hover:underline"
-                >
-                  {parent}
-                </Link>
-              </TableCell>
-            </TableRow>
-          )}
+        {/* Parent Location */}
+        {parent && parentId && (
+          <div className="info-row">
+            <div className="info-row-label">Part of</div>
+            <div className="info-row-value">
+              <Link
+                href={`/locations/${parentId}`}
+                className="text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                {parent}
+              </Link>
+            </div>
+          </div>
+        )}
 
-          {/* Connections */}
-          {connections && connections.length > 0 && (
-            <TableRow>
-              <TableHead className="info-table-label">
-                Connections
-              </TableHead>
-              <TableCell className="info-table-cell">
-                <div className="flex flex-col gap-2">
-                  {connections.map((conn, index) => (
-                    <Link
-                      key={index}
-                      href={`/locations/${conn.toId}`}
-                      className="inline-flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400"
-                    >
-                      <span className="text-xs text-neutral-500 dark:text-neutral-400 w-16">
-                        {directionLabels[conn.direction] || conn.direction}
-                      </span>
-                      <span className="font-medium">{conn.to}</span>
-                    </Link>
-                  ))}
-                </div>
-              </TableCell>
-            </TableRow>
-          )}
+        {/* Connections */}
+        {connections && connections.length > 0 && (
+          <div className="info-row">
+            <div className="info-row-label">Connections</div>
+            <div className="info-row-value">
+              <div className="flex flex-col gap-2">
+                {connections.map((conn, index) => (
+                  <Link
+                    key={index}
+                    href={`/locations/${conn.toId}`}
+                    className="inline-flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400"
+                  >
+                    <span className="text-xs text-neutral-500 dark:text-neutral-400 w-16">
+                      {directionLabels[conn.direction] || conn.direction}
+                    </span>
+                    <span className="font-medium">{conn.to}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
 
-          {/* Child Locations / Buildings */}
-          {children && children.length > 0 && (
-            <TableRow>
-              <TableHead className="info-table-label">
-                Contains
-              </TableHead>
-              <TableCell className="info-table-cell">
-                <div className="flex flex-col gap-2">
-                  {children.map((child) => (
-                    <Link
-                      key={child.id}
-                      href={`/locations/${child.id}`}
-                      className="hover:text-blue-600 dark:hover:text-blue-400"
-                    >
-                      <span className="font-medium">{child.name}</span>
-                    </Link>
-                  ))}
-                </div>
-              </TableCell>
-            </TableRow>
-          )}
+        {/* Child Locations / Buildings */}
+        {children && children.length > 0 && (
+          <div className="info-row">
+            <div className="info-row-label">Contains</div>
+            <div className="info-row-value">
+              <div className="flex flex-col gap-2">
+                {children.map((child) => (
+                  <Link
+                    key={child.id}
+                    href={`/locations/${child.id}`}
+                    className="hover:text-blue-600 dark:hover:text-blue-400"
+                  >
+                    <span className="font-medium">{child.name}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
 
-          {/* Wild Pokémon */}
-          {encounterCount !== undefined && encounterCount > 0 && (
-            <TableRow>
-              <TableHead className="info-table-label">
-                Wild Pokémon
-              </TableHead>
-              <TableCell className="info-table-cell">
-                {encounterCount} species
-              </TableCell>
-            </TableRow>
-          )}
+        {/* Wild Pokémon */}
+        {encounterCount !== undefined && encounterCount > 0 && (
+          <div className="info-row">
+            <div className="info-row-label">Wild Pokémon</div>
+            <div className="info-row-value">{encounterCount} species</div>
+          </div>
+        )}
 
-          {/* Items */}
-          {itemCount !== undefined && itemCount > 0 && (
-            <TableRow>
-              <TableHead className="info-table-label">
-                Items
-              </TableHead>
-              <TableCell className="info-table-cell">
-                {itemCount} item{itemCount !== 1 ? 's' : ''}
-              </TableCell>
-            </TableRow>
-          )}
+        {/* Items */}
+        {itemCount !== undefined && itemCount > 0 && (
+          <div className="info-row">
+            <div className="info-row-label">Items</div>
+            <div className="info-row-value">{itemCount} item{itemCount !== 1 ? 's' : ''}</div>
+          </div>
+        )}
 
-          {/* Events */}
-          {eventCount !== undefined && eventCount > 0 && (
-            <TableRow>
-              <TableHead className="info-table-label">
-                Events
-              </TableHead>
-              <TableCell className="info-table-cell">
-                {eventCount} event{eventCount !== 1 ? 's' : ''}
-              </TableCell>
-            </TableRow>
-          )}
+        {/* Events */}
+        {eventCount !== undefined && eventCount > 0 && (
+          <div className="info-row">
+            <div className="info-row-label">Events</div>
+            <div className="info-row-value">{eventCount} event{eventCount !== 1 ? 's' : ''}</div>
+          </div>
+        )}
 
-          {/* Trainers */}
-          {trainerCount !== undefined && trainerCount > 0 && (
-            <TableRow>
-              <TableHead className="info-table-label">
-                Trainers
-              </TableHead>
-              <TableCell className="info-table-cell">
-                {trainerCount} trainer{trainerCount !== 1 ? 's' : ''}
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
+        {/* Trainers */}
+        {trainerCount !== undefined && trainerCount > 0 && (
+          <div className="info-row">
+            <div className="info-row-label">Trainers</div>
+            <div className="info-row-value">{trainerCount} trainer{trainerCount !== 1 ? 's' : ''}</div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

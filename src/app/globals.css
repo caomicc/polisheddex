@@ -746,6 +746,19 @@ h3,
   @apply px-4 py-3 text-sm text-neutral-700 dark:text-neutral-200;
 }
 
+/* Responsive Info Row (stacked on mobile, side-by-side on desktop) */
+.info-row {
+  @apply flex flex-col sm:flex-row px-4 py-3 gap-1 sm:gap-0;
+}
+
+.info-row-label {
+  @apply text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide sm:w-[140px] sm:flex-shrink-0 sm:text-neutral-700 sm:dark:text-neutral-300 leading-snug;
+}
+
+.info-row-value {
+  @apply text-sm text-neutral-700 dark:text-neutral-200;
+}
+
 /* Data Table Styles (for list/sortable pages) */
 .data-table {
   @apply table-fixed w-full min-w-[500px];

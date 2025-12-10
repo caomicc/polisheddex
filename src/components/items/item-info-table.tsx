@@ -1,6 +1,5 @@
 'use client';
 
-import { Table, TableBody, TableCell, TableHead, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 
@@ -50,87 +49,71 @@ export function ItemInfoTable({
 
   return (
     <div className="info-table-wrapper">
-      <Table className="info-table">
-        <TableBody className="info-table-body">
-          {/* Category */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Category
-            </TableHead>
-            <TableCell className="info-table-cell">
-              <Badge variant="secondary">{categoryLabel}</Badge>
-            </TableCell>
-          </TableRow>
+      <div className="divide-y divide-neutral-200 dark:divide-neutral-700">
+        {/* Category */}
+        <div className="info-row">
+          <div className="info-row-label">Category</div>
+          <div className="info-row-value">
+            <Badge variant="secondary">{categoryLabel}</Badge>
+          </div>
+        </div>
 
-          {/* Price */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Price
-            </TableHead>
-            <TableCell className="info-table-cell">
-              {price !== undefined && price > 0 ? (
-                <span className="font-medium text-green-600 dark:text-green-400">₽{price.toLocaleString()}</span>
-              ) : (
-                <span className="text-neutral-500">Can't be sold</span>
-              )}
-            </TableCell>
-          </TableRow>
+        {/* Price */}
+        <div className="info-row">
+          <div className="info-row-label">Price</div>
+          <div className="info-row-value">
+            {price !== undefined && price > 0 ? (
+              <span className="font-medium text-green-600 dark:text-green-400">₽{price.toLocaleString()}</span>
+            ) : (
+              <span className="text-neutral-500">Can't be sold</span>
+            )}
+          </div>
+        </div>
 
-          {/* Description */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Effect
-            </TableHead>
-            <TableCell className="info-table-cell">
-              {description}
-            </TableCell>
-          </TableRow>
+        {/* Description */}
+        <div className="info-row">
+          <div className="info-row-label">Effect</div>
+          <div className="info-row-value">{description}</div>
+        </div>
 
-          {/* Usage */}
-          {usage && (
-            <TableRow>
-              <TableHead className="info-table-label">
-                How to Use
-              </TableHead>
-              <TableCell className="info-table-cell">
-                {usage}
-              </TableCell>
-            </TableRow>
-          )}
+        {/* Usage */}
+        {usage && (
+          <div className="info-row">
+            <div className="info-row-label">How to Use</div>
+            <div className="info-row-value">{usage}</div>
+          </div>
+        )}
 
-          {/* TM/HM Move */}
-          {isTmHm && moveName && (
-            <TableRow>
-              <TableHead className="info-table-label">
-                Teaches
-              </TableHead>
-              <TableCell className="info-table-cell">
-                <div className="space-y-2">
-                  <Link
-                    href={`/moves/${moveSlug}`}
-                    className="font-semibold text-blue-600 dark:text-blue-400 hover:underline capitalize"
-                  >
-                    {moveName.replace(/_/g, ' ')}
-                  </Link>
-                  {moveData && (
-                    <div className="flex flex-wrap items-center gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-                      <Badge variant={moveData.type.toLowerCase() as any}>{moveData.type}</Badge>
-                      <span>•</span>
-                      <span>{moveData.category}</span>
-                      <span>•</span>
-                      <span>Power: {moveData.power > 0 ? moveData.power : '—'}</span>
-                      <span>•</span>
-                      <span>Acc: {moveData.accuracy && moveData.accuracy !== 0 ? `${moveData.accuracy}%` : '—'}</span>
-                      <span>•</span>
-                      <span>PP: {moveData.pp}</span>
-                    </div>
-                  )}
-                </div>
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
+        {/* TM/HM Move */}
+        {isTmHm && moveName && (
+          <div className="info-row">
+            <div className="info-row-label">Teaches</div>
+            <div className="info-row-value">
+              <div className="space-y-2">
+                <Link
+                  href={`/moves/${moveSlug}`}
+                  className="font-semibold text-blue-600 dark:text-blue-400 hover:underline capitalize"
+                >
+                  {moveName.replace(/_/g, ' ')}
+                </Link>
+                {moveData && (
+                  <div className="flex flex-wrap items-center gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <Badge variant={moveData.type.toLowerCase() as any}>{moveData.type}</Badge>
+                    <span>•</span>
+                    <span>{moveData.category}</span>
+                    <span>•</span>
+                    <span>Power: {moveData.power > 0 ? moveData.power : '—'}</span>
+                    <span>•</span>
+                    <span>Acc: {moveData.accuracy && moveData.accuracy !== 0 ? `${moveData.accuracy}%` : '—'}</span>
+                    <span>•</span>
+                    <span>PP: {moveData.pp}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

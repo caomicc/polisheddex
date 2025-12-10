@@ -1,6 +1,5 @@
 'use client';
 
-import { Table, TableBody, TableCell, TableHead, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 
 interface MoveInfoTableProps {
@@ -24,99 +23,79 @@ export function MoveInfoTable({
 }: MoveInfoTableProps) {
   return (
     <div className="info-table-wrapper">
-      <Table className="info-table">
-        <TableBody className="info-table-body">
-          {/* Type */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Type
-            </TableHead>
-            <TableCell className="info-table-cell">
-              {type ? (
-                <Badge variant={type.toLowerCase() as any}>{type}</Badge>
-              ) : (
-                <span className="text-neutral-500">—</span>
-              )}
-            </TableCell>
-          </TableRow>
+      <div className="divide-y divide-neutral-200 dark:divide-neutral-700">
+        {/* Type */}
+        <div className="info-row">
+          <div className="info-row-label">Type</div>
+          <div className="info-row-value">
+            {type ? (
+              <Badge variant={type.toLowerCase() as any}>{type}</Badge>
+            ) : (
+              <span className="text-neutral-500">—</span>
+            )}
+          </div>
+        </div>
 
-          {/* Category */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Category
-            </TableHead>
-            <TableCell className="info-table-cell capitalize">
-              {category || '—'}
-            </TableCell>
-          </TableRow>
+        {/* Category */}
+        <div className="info-row">
+          <div className="info-row-label">Category</div>
+          <div className="info-row-value capitalize">{category || '—'}</div>
+        </div>
 
-          {/* Power */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Power
-            </TableHead>
-            <TableCell className="info-table-cell">
-              {power && power > 0 ? (
-                <span className="font-medium">{power}</span>
-              ) : (
-                <span className="text-neutral-500">—</span>
-              )}
-            </TableCell>
-          </TableRow>
+        {/* Power */}
+        <div className="info-row">
+          <div className="info-row-label">Power</div>
+          <div className="info-row-value">
+            {power && power > 0 ? (
+              <span className="font-medium">{power}</span>
+            ) : (
+              <span className="text-neutral-500">—</span>
+            )}
+          </div>
+        </div>
 
-          {/* Accuracy */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              Accuracy
-            </TableHead>
-            <TableCell className="info-table-cell">
-              {accuracy && Number(accuracy) > 0 ? (
-                <span className="font-medium">{accuracy}%</span>
-              ) : (
-                <span className="text-neutral-500">—</span>
-              )}
-            </TableCell>
-          </TableRow>
+        {/* Accuracy */}
+        <div className="info-row">
+          <div className="info-row-label">Accuracy</div>
+          <div className="info-row-value">
+            {accuracy && Number(accuracy) > 0 ? (
+              <span className="font-medium">{accuracy}%</span>
+            ) : (
+              <span className="text-neutral-500">—</span>
+            )}
+          </div>
+        </div>
 
-          {/* PP */}
-          <TableRow>
-            <TableHead className="info-table-label">
-              PP
-            </TableHead>
-            <TableCell className="info-table-cell">
-              {pp ? (
-                <span className="font-medium">{pp}</span>
-              ) : (
-                <span className="text-neutral-500">—</span>
-              )}
-            </TableCell>
-          </TableRow>
+        {/* PP */}
+        <div className="info-row">
+          <div className="info-row-label">PP</div>
+          <div className="info-row-value">
+            {pp ? (
+              <span className="font-medium">{pp}</span>
+            ) : (
+              <span className="text-neutral-500">—</span>
+            )}
+          </div>
+        </div>
 
-          {/* Effect Chance */}
-          {effectChance !== undefined && effectChance > 0 && (
-            <TableRow>
-              <TableHead className="info-table-label">
-                Effect Chance
-              </TableHead>
-              <TableCell className="info-table-cell">
-                <span className="font-medium">{effectChance}%</span>
-              </TableCell>
-            </TableRow>
-          )}
+        {/* Effect Chance */}
+        {effectChance !== undefined && effectChance > 0 && (
+          <div className="info-row">
+            <div className="info-row-label">Effect Chance</div>
+            <div className="info-row-value">
+              <span className="font-medium">{effectChance}%</span>
+            </div>
+          </div>
+        )}
 
-          {/* Description */}
-          {description && (
-            <TableRow>
-              <TableHead className="info-table-label">
-                Effect
-              </TableHead>
-              <TableCell className="info-table-cell">
-                {description}
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
+        {/* Description */}
+        {description && (
+          <div className="info-row">
+            <div className="info-row-label">Effect</div>
+            <div className="info-row-value">{description}</div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
