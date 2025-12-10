@@ -408,9 +408,15 @@ const extractMapGroups = async () => {
 };
 
 // Extract Pokemon encounters from wild data files
-const extractEncounters = async (filePaths: string[], encounterType: string) => {
-  const defPrefix = `def_${encounterType}_wildmons`;
-  const endMarker = `end_${encounterType}_wildmons`;
+// macroType allows different prefix (e.g., 'water') while storing as a different encounterType (e.g., 'surfing')
+const extractEncounters = async (
+  filePaths: string[],
+  encounterType: string,
+  macroType?: string,
+) => {
+  const macroName = macroType || encounterType;
+  const defPrefix = `def_${macroName}_wildmons`;
+  const endMarker = `end_${macroName}_wildmons`;
 
   for (const filePath of filePaths) {
     const raw = await readFile(filePath, 'utf-8');
@@ -860,7 +866,7 @@ await Promise.all([
   extractConnections(),
   extractMapTrainers(),
   extractEncounters(grassFiles, 'grass'),
-  extractEncounters(waterFiles, 'surfing'),
+  extractEncounters(waterFiles, 'surfing', 'water'), // macro is def_water_wildmons, but we display as 'surfing'
   extractEncounters(fishFiles, 'fishing'),
   extractEncounters(treeFiles, 'headbutt'),
   extractMapGroups(),
