@@ -193,7 +193,7 @@ export function EvolutionTable({ chain, currentPokemon, currentForm = 'plain' }:
           return (
             <div
               key={pokemonKey + index}
-              className={`info-row items-center ${isCurrentPokemon ? 'bg-primary/10' : ''}`}
+              className={`info-row items-start ${isCurrentPokemon ? 'bg-primary/10' : ''}`}
             >
               {row.isBase ? (
                 <div className="info-row-value flex-1">
