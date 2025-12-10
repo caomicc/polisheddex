@@ -15,6 +15,9 @@ import { StatsRadarChart } from './stats-radar-chart';
 import { DetailCard } from '@/components/ui/detail-card';
 import TableWrapper from '@/components/ui/table-wrapper';
 import { Sparkles, Egg, Disc, MapPin } from 'lucide-react';
+import { BadgeLevelLegend } from '@/components/ui/badge-level-legend';
+import { BadgeLevelIndicator } from '@/components/ui/badge-level-indicator';
+import { extractBadgeOffsets } from '@/data/badge-levels';
 
 // Type for location encounter data
 interface PokemonLocationEncounter {
@@ -94,17 +97,25 @@ export default function PokemonFormClient({
           method: loc.method,
           version: loc.version,
           levels: [],
+          badgeLevels: [],
           hasVariableLevel: false,
           totalRate: 0,
         };
       }
-      // Parse level and add to list - check for non-numeric levels
-      const level = parseInt(loc.levelRange, 10);
-      if (isNaN(level) || level < 0 || loc.levelRange.toLowerCase().includes('badge')) {
-        // Mark as having variable/special level
-        acc[key].hasVariableLevel = true;
-      } else if (!acc[key].levels.includes(level)) {
-        acc[key].levels.push(level);
+      // Parse level and add to list - check for badge-relative levels
+      if (loc.levelRange.toLowerCase().includes('badge')) {
+        // Track badge-relative levels separately
+        if (!acc[key].badgeLevels.includes(loc.levelRange)) {
+          acc[key].badgeLevels.push(loc.levelRange);
+        }
+      } else {
+        const level = parseInt(loc.levelRange, 10);
+        if (isNaN(level) || level < 0) {
+          // Mark as having variable/special level
+          acc[key].hasVariableLevel = true;
+        } else if (!acc[key].levels.includes(level)) {
+          acc[key].levels.push(level);
+        }
       }
       // Accumulate the rate
       acc[key].totalRate += loc.rate;
@@ -119,6 +130,7 @@ export default function PokemonFormClient({
         method: string;
         version: string;
         levels: number[];
+        badgeLevels: string[];
         hasVariableLevel: boolean;
         totalRate: number;
       }
@@ -128,7 +140,22 @@ export default function PokemonFormClient({
   // Convert to array and format level ranges
   const consolidatedLocations = Object.values(groupedLocations).map((loc) => {
     let levelRange: string;
-    if (loc.hasVariableLevel || loc.levels.length === 0) {
+    let isBadgeLevel = false;
+    
+    if (loc.badgeLevels.length > 0) {
+      // Has badge-relative levels - extract and format
+      isBadgeLevel = true;
+      const offsets = extractBadgeOffsets(loc.badgeLevels);
+      if (offsets.length === 1) {
+        levelRange = `Badge ${offsets[0] >= 0 ? '+' : ''}${offsets[0]}`;
+      } else if (offsets.length > 1) {
+        const minOffset = Math.min(...offsets);
+        const maxOffset = Math.max(...offsets);
+        levelRange = `Badge ${minOffset >= 0 ? '+' : ''}${minOffset} to ${maxOffset >= 0 ? '+' : ''}${maxOffset}`;
+      } else {
+        levelRange = 'Badge';
+      }
+    } else if (loc.hasVariableLevel || loc.levels.length === 0) {
       levelRange = 'Varies';
     } else {
       loc.levels.sort((a, b) => a - b);
@@ -139,6 +166,7 @@ export default function PokemonFormClient({
     return {
       ...loc,
       levelRange,
+      isBadgeLevel,
     };
   });
 
@@ -345,6 +373,14 @@ export default function PokemonFormClient({
         {/* Wild Encounters */}
         {consolidatedLocations.length > 0 && (
           <DetailCard icon={MapPin} title={`Wild Encounters (${consolidatedLocations.length})`}>
+            {/* Badge Level Legend - show if any encounters have badge-relative levels */}
+            {(() => {
+              const badgeLevelRanges = consolidatedLocations
+                .filter((loc) => loc.isBadgeLevel)
+                .map((loc) => loc.levelRange);
+              const badgeOffsets = extractBadgeOffsets(badgeLevelRanges);
+              return badgeOffsets.length > 0 ? <BadgeLevelLegend offsets={badgeOffsets} /> : null;
+            })()}
             <TableWrapper>
               <Table className="data-table">
                 <TableHeader>
@@ -375,7 +411,15 @@ export default function PokemonFormClient({
                           {loc.version}
                         </Badge>
                       </TableCell>
-                      <TableCell>{loc.levelRange === 'Varies' ? 'Varies' : `Lv. ${loc.levelRange}`}</TableCell>
+                      <TableCell>
+                        {loc.isBadgeLevel ? (
+                          <BadgeLevelIndicator levelRange={loc.levelRange} />
+                        ) : loc.levelRange === 'Varies' ? (
+                          'Varies'
+                        ) : (
+                          `Lv. ${loc.levelRange}`
+                        )}
+                      </TableCell>
                       <TableCell>{loc.totalRate}%</TableCell>
                     </TableRow>
                   ))}

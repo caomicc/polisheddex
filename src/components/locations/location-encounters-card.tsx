@@ -2,8 +2,9 @@
 
 import Link from 'next/link';
 import { DetailCard } from '@/components/ui/detail-card';
-import { FilterableTabs } from '@/components/ui/filterable-tabs';
 import { Badge } from '@/components/ui/badge';
+import { BadgeLevelLegend } from '@/components/ui/badge-level-legend';
+import { BadgeLevelIndicator } from '@/components/ui/badge-level-indicator';
 import {
   Table,
   TableBody,
@@ -15,6 +16,7 @@ import {
 import TableWrapper from '@/components/ui/table-wrapper';
 import { PokemonSprite } from '@/components/pokemon/pokemon-sprite';
 import { Footprints, ExternalLink } from 'lucide-react';
+import { extractBadgeOffsets } from '@/data/badge-levels';
 
 interface LocationEncounter {
   pokemon: string;
@@ -39,13 +41,6 @@ interface LocationEncountersCardProps {
   encounters: LocationEncounter[];
   className?: string;
 }
-
-const TIME_TABS = [
-  { value: 'all', label: 'All' },
-  { value: 'morning', label: 'Morning' },
-  { value: 'day', label: 'Day' },
-  { value: 'night', label: 'Night' },
-];
 
 function consolidateEncounters(encounters: LocationEncounter[]): ConsolidatedEncounter[] {
   // Check if any encounters use badge-relative levels
@@ -119,10 +114,10 @@ function EncounterTable({
           <TableRow>
             <TableHead className="w-[60px]"></TableHead>
             <TableHead className="table-header-label">Pokémon</TableHead>
+            {showTimeColumn && <TableHead className="table-header-label">Time</TableHead>}
             <TableHead className="table-header-label">Method</TableHead>
             <TableHead className="table-header-label w-[80px]">Level</TableHead>
             <TableHead className="table-header-label w-[60px]">Rate</TableHead>
-            {showTimeColumn && <TableHead className="table-header-label w-[100px]">Time</TableHead>}
           </TableRow>
         </TableHeader>
       <TableBody>
@@ -148,18 +143,32 @@ function EncounterTable({
                 <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
               </Link>
             </TableCell>
+            {showTimeColumn && (
+                <TableCell className="space-x-1">
+                  {Array.from(enc.times).length === 3 ? (
+                    <Badge variant="all">all</Badge>
+                  ) : (
+                    Array.from(enc.times).map((time) => (
+                      <Badge key={time} variant={time}>
+                        {time}
+                      </Badge>
+                    ))
+                  )}
+                </TableCell>
+            )}
             <TableCell>
               <Badge variant="secondary" className="uppercase">
                 {enc.method.replace(/_/g, ' ')}
               </Badge>
             </TableCell>
             <TableCell className="table-cell-text">
-              {enc.levelRange.startsWith('Badge') ? enc.levelRange : `Lv. ${enc.levelRange}`}
+              {enc.levelRange.startsWith('Badge') ? (
+                <BadgeLevelIndicator levelRange={enc.levelRange} />
+              ) : (
+                `Lv. ${enc.levelRange}`
+              )}
             </TableCell>
             <TableCell className="table-cell-text">{enc.totalRate}%</TableCell>
-            {showTimeColumn && (
-              <TableCell className="table-cell-text capitalize">{Array.from(enc.times).join(', ')}</TableCell>
-            )}
           </TableRow>
         ))}
       </TableBody>
@@ -173,25 +182,19 @@ export function LocationEncountersCard({ encounters, className }: LocationEncoun
     return null;
   }
 
-  const filterEncounters = (data: LocationEncounter[], tabValue: string): LocationEncounter[] => {
-    if (tabValue === 'all') return data;
-    return data.filter((e) => e.version === tabValue);
-  };
+  const consolidated = consolidateEncounters(encounters);
+
+  // Extract badge offsets from all badge-relative encounters
+  const badgeLevelRanges = consolidated
+    .map((enc) => enc.levelRange)
+    .filter((range) => range.startsWith('Badge '));
+  const badgeOffsets = extractBadgeOffsets(badgeLevelRanges);
+  const hasBadgeLevels = badgeOffsets.length > 0;
 
   return (
     <DetailCard icon={Footprints} title="Wild Pokémon" className={className}>
-      <FilterableTabs
-        tabs={TIME_TABS}
-        defaultValue="all"
-        data={encounters}
-        filterFn={filterEncounters}
-        emptyMessage="No Pokémon encounters during this time"
-        renderContent={(filtered) => {
-          const consolidated = consolidateEncounters(filtered);
-          const isAllTab = filtered.length === encounters.length;
-          return <EncounterTable encounters={consolidated} showTimeColumn={isAllTab} />;
-        }}
-      />
+      {hasBadgeLevels && <BadgeLevelLegend offsets={badgeOffsets} />}
+      <EncounterTable encounters={consolidated} showTimeColumn={true} />
     </DetailCard>
   );
 }
