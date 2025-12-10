@@ -28,6 +28,17 @@ async function loadMoveData(moveName: string) {
   }
 }
 
+async function checkLocationExists(locationId: string | undefined): Promise<boolean> {
+  if (!locationId) return false;
+  const locationFilePath = path.join(process.cwd(), 'public/new/locations', `${locationId}.json`);
+  try {
+    await fs.access(locationFilePath);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export default async function MoveDetail({ params }: { params: Promise<{ name: string }> }) {
   const nameParam = (await params).name;
   const moveName = decodeURIComponent(nameParam);
@@ -37,6 +48,9 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
   if (!moveData) {
     return notFound();
   }
+
+  // Check if TM/HM location exists
+  const tmLocationExists = await checkLocationExists(moveData.tm?.location);
 
   // Use polished as default for server-rendered content
   const displayName = moveData.versions['polished']?.name || moveName;
@@ -84,7 +98,7 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
 
       <div className="max-w-xl md:max-w-4xl mx-auto">
         <Suspense fallback={<PokemonGridSkeleton count={4} />}>
-          <MoveDetailClient moveData={moveData} />
+          <MoveDetailClient moveData={moveData} tmLocationExists={tmLocationExists} />
         </Suspense>
       </div>
     </>

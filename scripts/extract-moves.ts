@@ -285,7 +285,7 @@ const extractTMHMInfo = async () => {
   // Use polished version for TM/HM info since it should be the same for both versions
   const tmhmData = tmhmFiles[0] as string[];
 
-  const tmhmInfo: Record<string, { number: string; location?: string }> = {};
+  const tmhmInfo: Record<string, { number: string; location?: string; locationName?: string }> = {};
 
   for (const line of tmhmData) {
     const trimmedLine = line.trim();
@@ -306,6 +306,7 @@ const extractTMHMInfo = async () => {
           tmhmInfo[moveId] = {
             number: reduce(tmNumber),
             location: locationMatch ? reduce(locationMatch[1]) : undefined,
+            locationName: locationMatch ? locationMatch[1].trim() : undefined,
           };
         }
       }
@@ -485,7 +486,7 @@ const extractMovesData = async () => {
     const versions: Record<
       string,
       MoveStats & {
-        tm?: { number: string; location?: string };
+        tm?: { number: string; location?: string; locationName?: string };
         learners?: MoveLearner[];
       }
     > = {};

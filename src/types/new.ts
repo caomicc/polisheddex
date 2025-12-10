@@ -78,6 +78,7 @@ export interface MoveData {
   tm?: {
     number: string;
     location?: string;
+    locationName?: string;
   };
 }
 

@@ -8,9 +8,10 @@ import { MoveLearnersCard } from './move-learners-card';
 
 interface MoveDetailClientProps {
   moveData: MoveData;
+  tmLocationExists?: boolean;
 }
 
-export default function MoveDetailClient({ moveData }: MoveDetailClientProps) {
+export default function MoveDetailClient({ moveData, tmLocationExists = true }: MoveDetailClientProps) {
   const { showFaithful } = useFaithfulPreferenceSafe();
 
   const version = showFaithful ? 'faithful' : 'polished';
@@ -33,6 +34,8 @@ export default function MoveDetailClient({ moveData }: MoveDetailClientProps) {
       <MoveTmLocationCard
         tmNumber={moveData.tm?.number}
         location={moveData.tm?.location}
+        locationName={moveData.tm?.locationName}
+        locationExists={tmLocationExists}
       />
 
       {/* Pokemon Learners Card */}
