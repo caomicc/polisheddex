@@ -22,7 +22,6 @@ export default async function LocationsPage() {
     <>
       <Hero
         headline={'Locations'}
-        description={'Explore the diverse locations in Pokémon Polished Crystal'}
         breadcrumbs={
           <Breadcrumb>
             <BreadcrumbList>
