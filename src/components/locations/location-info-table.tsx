@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
+import { ExternalLink } from 'lucide-react';
 
 interface ConnectionInfo {
   direction: string;
@@ -88,9 +89,10 @@ export function LocationInfoTable({
             <div className="info-row-value">
               <Link
                 href={`/locations/${parentId}`}
-                className="text-blue-600 dark:text-blue-400 hover:underline"
+                className="table-link"
               >
                 {parent}
+                <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
               </Link>
             </div>
           </div>
@@ -106,7 +108,7 @@ export function LocationInfoTable({
                   <Link
                     key={index}
                     href={`/locations/${conn.toId}`}
-                    className="inline-flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400"
+                    className="inline-flex items-center gap-2 table-link"
                   >
                     <span className="text-xs text-neutral-500 dark:text-neutral-400 w-16">
                       {directionLabels[conn.direction] || conn.direction}
@@ -129,9 +131,10 @@ export function LocationInfoTable({
                   <Link
                     key={child.id}
                     href={`/locations/${child.id}`}
-                    className="hover:text-blue-600 dark:hover:text-blue-400"
+                    className="table-link"
                   >
-                    <span className="font-medium">{child.name}</span>
+                    {child.name}
+                    <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
                   </Link>
                 ))}
               </div>

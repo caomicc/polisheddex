@@ -199,7 +199,7 @@ export function EvolutionTable({ chain, currentPokemon, currentForm = 'plain' }:
                 <div className="info-row-value flex-1">
                   <Link
                     href={`/pokemon/${row.pokemon.name}`}
-                    className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400"
+                    className="flex items-center gap-2 table-link"
                   >
                     <PokemonSprite
                       pokemonName={row.pokemon.name}
@@ -214,7 +214,7 @@ export function EvolutionTable({ chain, currentPokemon, currentForm = 'plain' }:
                   <div className="flex items-center">
                     <Link
                       href={`/pokemon/${row.fromName}`}
-                      className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400"
+                      className="flex items-center gap-2 table-link"
                     >
                       <PokemonSprite
                         pokemonName={row.fromName!}
@@ -224,7 +224,7 @@ export function EvolutionTable({ chain, currentPokemon, currentForm = 'plain' }:
                     <span className="mx-2">→</span>
                     <Link
                       href={`/pokemon/${row.pokemon.name}`}
-                      className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400"
+                      className="flex items-center gap-2 table-link"
                     >
                       <PokemonSprite
                         pokemonName={row.pokemon.name}

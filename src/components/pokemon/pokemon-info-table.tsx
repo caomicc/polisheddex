@@ -348,7 +348,7 @@ export function PokemonInfoTable({
                       <div className="flex items-center gap-2">
                         <Link
                           href={`/abilities/${abilityId}`}
-                          className="font-medium hover:text-blue-600 dark:hover:text-blue-400 capitalize"
+                          className="table-link capitalize"
                         >
                           {abilityName.replace(/([a-z])([A-Z])/g, '$1 $2')}
                         </Link>
@@ -415,7 +415,7 @@ export function PokemonInfoTable({
                   <Link
                     key={`${item.id}-${index}`}
                     href={`/items/${item.id}`}
-                    className="inline-flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400"
+                    className="inline-flex items-center gap-1 table-link"
                   >
                     <span>{item.name || formatItemName(item.id)}</span>
                     <span className="text-xs text-neutral-500">

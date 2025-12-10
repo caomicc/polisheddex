@@ -120,7 +120,7 @@ function TeamDisplay({ team, matchLabel }: TeamDisplayProps) {
               <div className="flex-1 min-w-0">
                 <Link
                   href={`/pokemon/${poke.pokemonName}${poke.formName && poke.formName !== 'plain' ? `?form=${poke.formName}` : ''}`}
-                  className="font-medium capitalize hover:text-blue-600 dark:hover:text-blue-400"
+                  className="capitalize table-link"
                 >
                   {/* {poke.pokemonName.replace(/_/g, ' ')}
                   {poke.formName && poke.formName !== 'plain' && (
