@@ -29,6 +29,7 @@ export function LocationDetailClient({ location, trainers }: LocationDetailClien
         types={location.type}
         parent={location.parentName}
         parentId={location.parent}
+        children={location.children}
         connections={location.connections}
         encounterCount={location.encounters?.length}
         itemCount={location.items?.length}

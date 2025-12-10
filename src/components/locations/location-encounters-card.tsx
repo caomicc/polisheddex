@@ -48,6 +48,9 @@ const TIME_TABS = [
 ];
 
 function consolidateEncounters(encounters: LocationEncounter[]): ConsolidatedEncounter[] {
+  // Check if any encounters use badge-relative levels
+  const hasBadgeLevels = encounters.some((enc) => enc.levelRange.startsWith('Badge '));
+
   const grouped = encounters.reduce(
     (acc, enc) => {
       const key = `${enc.pokemon}-${enc.method}-${enc.formName || 'plain'}`;
@@ -59,9 +62,12 @@ function consolidateEncounters(encounters: LocationEncounter[]): ConsolidatedEnc
           levels: [],
           totalRate: 0,
           times: new Set<string>(),
+          isBadgeLevel: enc.levelRange.startsWith('Badge '),
         };
       }
-      const level = parseInt(enc.levelRange, 10);
+      // Parse level - handle both normal "12" and badge-relative "Badge +2" formats
+      const levelStr = enc.levelRange.replace('Badge ', '');
+      const level = parseInt(levelStr, 10);
       if (!isNaN(level) && !acc[key].levels.includes(level)) {
         acc[key].levels.push(level);
       }
@@ -69,19 +75,32 @@ function consolidateEncounters(encounters: LocationEncounter[]): ConsolidatedEnc
       acc[key].times.add(enc.version);
       return acc;
     },
-    {} as Record<string, Omit<ConsolidatedEncounter, 'levelRange'>>
+    {} as Record<string, Omit<ConsolidatedEncounter, 'levelRange'> & { isBadgeLevel: boolean }>
   );
 
   return Object.values(grouped)
     .map((enc) => {
       enc.levels.sort((a, b) => a - b);
-      const levelRange =
-        enc.levels.length === 0
-          ? 'Varies'
-          : enc.levels.length === 1
+      let levelRange: string;
+      if (enc.levels.length === 0) {
+        levelRange = 'Varies';
+      } else if (enc.isBadgeLevel) {
+        // Format badge-relative levels: "Badge +1" or "Badge -2 to +3"
+        const formatBadgeLevel = (lvl: number): string =>
+          lvl >= 0 ? `+${lvl}` : `${lvl}`;
+        levelRange =
+          enc.levels.length === 1
+            ? `Badge ${formatBadgeLevel(enc.levels[0])}`
+            : `Badge ${formatBadgeLevel(enc.levels[0])} to ${formatBadgeLevel(enc.levels[enc.levels.length - 1])}`;
+      } else {
+        levelRange =
+          enc.levels.length === 1
             ? `${enc.levels[0]}`
             : `${enc.levels[0]}-${enc.levels[enc.levels.length - 1]}`;
-      return { ...enc, levelRange };
+      }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { isBadgeLevel, ...rest } = enc;
+      return { ...rest, levelRange };
     })
     .sort((a, b) => b.totalRate - a.totalRate);
 }
@@ -134,7 +153,9 @@ function EncounterTable({
                 {enc.method.replace(/_/g, ' ')}
               </Badge>
             </TableCell>
-            <TableCell className="table-cell-text">Lv. {enc.levelRange}</TableCell>
+            <TableCell className="table-cell-text">
+              {enc.levelRange.startsWith('Badge') ? enc.levelRange : `Lv. ${enc.levelRange}`}
+            </TableCell>
             <TableCell className="table-cell-text">{enc.totalRate}%</TableCell>
             {showTimeColumn && (
               <TableCell className="table-cell-text capitalize">{Array.from(enc.times).join(', ')}</TableCell>

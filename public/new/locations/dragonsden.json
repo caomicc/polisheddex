@@ -1,0 +1,83 @@
+{
+  "id": "dragonsden",
+  "name": "Dragons Den",
+  "region": "Johto",
+  "order": 60,
+  "children": [
+    {
+      "id": "dragonshrine",
+      "name": "Dragon Shrine"
+    },
+    {
+      "id": "dragonsden1f",
+      "name": "Dragons Den 1F"
+    },
+    {
+      "id": "dragonsdenb1f",
+      "name": "Dragons Den B1F"
+    }
+  ],
+  "items": [
+    {
+      "name": "revive",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 33,
+        "y": 29
+      }
+    },
+    {
+      "name": "maxpotion",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 21,
+        "y": 17
+      }
+    },
+    {
+      "name": "maxelixir",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 31,
+        "y": 15
+      }
+    },
+    {
+      "name": "dragonfang",
+      "type": "item",
+      "coordinates": {
+        "x": 35,
+        "y": 16
+      }
+    },
+    {
+      "name": "calcium",
+      "type": "item",
+      "coordinates": {
+        "x": 30,
+        "y": 4
+      }
+    },
+    {
+      "name": "maxelixir",
+      "type": "item",
+      "coordinates": {
+        "x": 5,
+        "y": 20
+      }
+    },
+    {
+      "name": "dragonpulse",
+      "type": "tm",
+      "tmId": "tm59"
+    },
+    {
+      "name": "abilitypatch",
+      "type": "gift"
+    }
+  ],
+  "trainers": [
+    "dragontamerdarin",
+    "dragontameradam"
+  ]
+}

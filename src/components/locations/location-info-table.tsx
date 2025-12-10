@@ -11,11 +11,17 @@ interface ConnectionInfo {
   toId: string;
 }
 
+interface ChildLocation {
+  id: string;
+  name: string;
+}
+
 interface LocationInfoTableProps {
   region?: string;
   types?: string[];
   parent?: string;
   parentId?: string;
+  children?: ChildLocation[];
   connections?: ConnectionInfo[];
   encounterCount?: number;
   itemCount?: number;
@@ -41,6 +47,7 @@ export function LocationInfoTable({
   types,
   parent,
   parentId,
+  children,
   connections,
   encounterCount,
   itemCount,
@@ -117,6 +124,28 @@ export function LocationInfoTable({
                         {directionLabels[conn.direction] || conn.direction}
                       </span>
                       <span className="font-medium">{conn.to}</span>
+                    </Link>
+                  ))}
+                </div>
+              </TableCell>
+            </TableRow>
+          )}
+
+          {/* Child Locations / Buildings */}
+          {children && children.length > 0 && (
+            <TableRow>
+              <TableHead className="info-table-label">
+                Contains
+              </TableHead>
+              <TableCell className="info-table-cell">
+                <div className="flex flex-col gap-2">
+                  {children.map((child) => (
+                    <Link
+                      key={child.id}
+                      href={`/locations/${child.id}`}
+                      className="hover:text-blue-600 dark:hover:text-blue-400"
+                    >
+                      <span className="font-medium">{child.name}</span>
                     </Link>
                   ))}
                 </div>

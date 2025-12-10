@@ -24,6 +24,7 @@ export interface LocationData {
   }>;
   parent?: string;
   parentName?: string;
+  children?: Array<{ id: string; name: string }>;
   constantName?: string;
   encounters?: LocationEncounter[];
   items?: Array<{

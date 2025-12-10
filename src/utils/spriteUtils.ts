@@ -494,6 +494,7 @@ export const ITEM_SPRITE_MAP: Record<string, string> = {
   choice_scarf: 'scarf',
   thick_club: 'bone',
   rare_bone: 'bone',
+  rarebone: 'bone',
 
   mental_herb: 'herb',
   power_herb: 'herb',
@@ -531,6 +532,7 @@ export const ITEM_SPRITE_MAP: Record<string, string> = {
   calcium: 'vitamin',
   ppmax: 'pp_max',
   ppup: 'pp_up',
+  iron: 'vitamin',
 
   full_restore: 'max_potion',
   poké_doll: 'poke_doll',

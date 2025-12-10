@@ -325,7 +325,7 @@ const extractMapGroups = async () => {
 
         // Store the parent landmark for this map (reduced ID)
         locationParent[mapName] = landmark;
-        
+
         // Store the parent display name (convert SCREAMING_SNAKE_CASE to Title Case)
         locationParentName[mapName] = toTitleCase(landmarkRaw);
       }
@@ -380,11 +380,19 @@ const extractEncounters = async (filePaths: string[], encounterType: string) => 
             // Parse: wildmon 12, NIDORAN_M
             const parts = parseLineWithPrefix(encounterLine, 'wildmon ').split(',');
             if (parts.length >= 2) {
-              const level = parts[0]
-                .replace('LEVEL_FROM_BADGES', '')
-                .replace('- ', '-')
-                .replace('+ ', '+')
-                .trim();
+              const rawLevel = parts[0].trim();
+              let level: string;
+              if (rawLevel.includes('LEVEL_FROM_BADGES')) {
+                // Format badge-relative levels as "Badge +X" or "Badge -X"
+                const offset = rawLevel
+                  .replace('LEVEL_FROM_BADGES', '')
+                  .replace('- ', '-')
+                  .replace('+ ', '+')
+                  .trim();
+                level = `Badge ${offset}`;
+              } else {
+                level = rawLevel;
+              }
               const pokemon = normalizeString(parts[1]);
               const formMatch = reduce(parts[2] ? parts[2]?.replace('_FORM', '') : 'plain');
 
@@ -660,7 +668,114 @@ const mergeLocationData = async () => {
     });
   }
 
+  // Build a set of existing location IDs for quick lookup
+  const existingLocationIds = new Set(locations.map((loc) => loc.id));
+
+  // Build children arrays - find all locations that have each location as their parent
+  const childrenMap: Record<string, Array<{ id: string; name: string }>> = {};
+  const orphanedParents: Record<string, { name: string; region?: string; children: Array<{ id: string; name: string }> }> = {};
+
+  for (const loc of locations) {
+    if (loc.parent && loc.parent !== loc.id) {
+      // Don't include self-references as children
+      if (!childrenMap[loc.parent]) {
+        childrenMap[loc.parent] = [];
+      }
+      childrenMap[loc.parent].push({ id: loc.id, name: loc.name });
+
+      // Track parents that don't exist as locations (orphaned parents)
+      if (!existingLocationIds.has(loc.parent)) {
+        if (!orphanedParents[loc.parent]) {
+          orphanedParents[loc.parent] = {
+            name: loc.parentName || displayName(loc.parent),
+            region: loc.region,
+            children: [],
+          };
+        }
+        orphanedParents[loc.parent].children.push({ id: loc.id, name: loc.name });
+      }
+    }
+  }
+
+  // Create stub locations for orphaned parents (landmarks without their own map file)
+  // Build a map of location data by ID for quick lookup when aggregating
+  const locationById = new Map(locations.map((loc) => [loc.id, loc]));
+
+  for (const [parentId, parentInfo] of Object.entries(orphanedParents)) {
+    // Aggregate data from all child locations
+    const childLocations = parentInfo.children
+      .map((child) => locationById.get(child.id))
+      .filter((loc): loc is LocationData => loc !== undefined);
+
+    // Aggregate encounters from all children (dedupe by pokemon+method+version)
+    const allEncounters: LocationData['encounters'] = [];
+    const encounterSet = new Set<string>();
+    for (const child of childLocations) {
+      if (child.encounters) {
+        for (const enc of child.encounters) {
+          const key = `${enc.pokemon}-${enc.method}-${enc.version}-${enc.levelRange}`;
+          if (!encounterSet.has(key)) {
+            encounterSet.add(key);
+            allEncounters.push(enc);
+          }
+        }
+      }
+    }
+
+    // Aggregate items from all children
+    const allItems: LocationData['items'] = [];
+    for (const child of childLocations) {
+      if (child.items) {
+        for (const item of child.items) {
+          allItems.push(item);
+        }
+      }
+    }
+
+    // Aggregate trainers from all children (dedupe)
+    const allTrainers: string[] = [];
+    const trainerSet = new Set<string>();
+    for (const child of childLocations) {
+      if (child.trainers) {
+        for (const trainer of child.trainers) {
+          if (!trainerSet.has(trainer)) {
+            trainerSet.add(trainer);
+            allTrainers.push(trainer);
+          }
+        }
+      }
+    }
+
+    // Get order from landmarks if available
+    const order = landmarks.orderMap.get(parentId);
+
+    const stubLocation: LocationData = {
+      id: parentId,
+      name: parentInfo.name,
+      region: parentInfo.region,
+      order: order,
+      children: parentInfo.children.sort((a, b) => a.name.localeCompare(b.name)),
+      encounters: allEncounters.length > 0 ? allEncounters : undefined,
+      items: allItems.length > 0 ? allItems : undefined,
+      trainers: allTrainers.length > 0 ? allTrainers : undefined,
+    };
+    locations.push(stubLocation);
+    existingLocationIds.add(parentId);
+  }
+
+  console.log(`Created ${Object.keys(orphanedParents).length} stub locations for orphaned parents`);
+
+  // Add children to each location
+  for (const loc of locations) {
+    const children = childrenMap[loc.id];
+    if (children && children.length > 0 && !loc.children) {
+      // Sort children alphabetically (only if not already set by stub creation)
+      loc.children = children.sort((a, b) => a.name.localeCompare(b.name));
+    }
+  }
+
   console.log(`Created ${locations.length} complete location objects`);
+  console.log(`Locations with children: ${Object.keys(childrenMap).length}`);
   locations.sort((a, b) => a.name.localeCompare(b.name));
 };
 

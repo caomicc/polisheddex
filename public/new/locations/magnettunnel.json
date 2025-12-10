@@ -1,0 +1,182 @@
+{
+  "id": "magnettunnel",
+  "name": "Magnet Tunnel",
+  "region": "Johto",
+  "order": 25,
+  "children": [
+    {
+      "id": "magnettunnelinside",
+      "name": "Magnet Tunnel Inside"
+    }
+  ],
+  "encounters": [
+    {
+      "pokemon": "voltorb",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "Badge -2",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "geodude",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "Badge -2",
+      "rate": 30,
+      "formName": "alolan"
+    },
+    {
+      "pokemon": "zubat",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "Badge -0",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "magnemite",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "Badge -3",
+      "rate": 13,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "magnemite",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "Badge -1",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "elekid",
+      "method": "grass",
+      "version": "morning",
+      "levelRange": "Badge -1",
+      "rate": 2,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "voltorb",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "Badge -2",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "geodude",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "Badge -2",
+      "rate": 30,
+      "formName": "alolan"
+    },
+    {
+      "pokemon": "zubat",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "Badge -0",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "magnemite",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "Badge -3",
+      "rate": 13,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "magnemite",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "Badge -1",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "elekid",
+      "method": "grass",
+      "version": "day",
+      "levelRange": "Badge -1",
+      "rate": 2,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "zubat",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "Badge -0",
+      "rate": 30,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "geodude",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "Badge -2",
+      "rate": 30,
+      "formName": "alolan"
+    },
+    {
+      "pokemon": "voltorb",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "Badge -2",
+      "rate": 20,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "magnemite",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "Badge -3",
+      "rate": 13,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "magnemite",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "Badge -1",
+      "rate": 5,
+      "formName": "plain"
+    },
+    {
+      "pokemon": "elekid",
+      "method": "grass",
+      "version": "night",
+      "levelRange": "Badge -1",
+      "rate": 2,
+      "formName": "plain"
+    }
+  ],
+  "items": [
+    {
+      "name": "metalpowder",
+      "type": "hiddenItem",
+      "coordinates": {
+        "x": 38,
+        "y": 30
+      }
+    },
+    {
+      "name": "gyroball",
+      "type": "tm",
+      "coordinates": {
+        "x": 19,
+        "y": 21
+      },
+      "tmId": "tm74"
+    }
+  ],
+  "trainers": [
+    "engineergraden",
+    "engineergustav",
+    "engineernicolas"
+  ]
+}
