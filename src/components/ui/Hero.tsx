@@ -76,7 +76,7 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
     <div
       ref={heroRef}
       className={cn(
-        'relative flex flex-col text-left justify-end py-4 rounded-3xl mb-0 gap-1 max-w-4xl md:mx-auto gap-3 md:mt-18',
+        'relative flex flex-col text-left justify-end py-4 rounded-3xl mb-0 gap-1 max-w-4xl md:mx-auto gap-3',
         className,
       )}
       style={combinedStyle}

@@ -5,25 +5,15 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'motion/react';
 
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
-import { Label } from './label';
 import { SimpleThemeToggle } from './theme-toggle';
-import { Switch } from './switch';
 import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import { Badge } from './badge';
 import { Button } from './button';
-import { IconMenu2, IconX, IconChevronDown } from '@tabler/icons-react';
+import { IconMenu2, IconX, IconChevronDown, IconSearch } from '@tabler/icons-react';
 import { ExternalLink } from 'lucide-react';
+import { GlobalSearch } from '@/components/global-search';
+import { Popover, PopoverContent, PopoverTrigger } from './popover';
 
 // Unified navigation structure
 type NavChild = {
@@ -52,10 +42,10 @@ const isNavGroup = (item: NavItem): item is NavItemGroup => {
 
 const navItems: NavItem[] = [
   {
-    title: 'Pokédex',
+    title: 'Data',
     children: [
       {
-        title: 'Pokemon',
+        title: 'Pokedex',
         href: '/pokemon',
         description: 'Browse all Pokemon in the Pokedex.',
       },
@@ -85,7 +75,7 @@ const navItems: NavItem[] = [
         description: 'Browse all locations.',
       },
       {
-        title: 'Map Viewer',
+        title: 'World Map Viewer',
         href: '/map',
         description: 'View map for Polished Crystal.',
       },
@@ -105,7 +95,7 @@ const navItems: NavItem[] = [
         description: 'Build your Pokemon team.',
       },
       {
-        title: 'Polished Editor',
+        title: 'Polished Editor by Rev3lation',
         href: 'https://polishededitor.vercel.app',
         description: 'Game Editor by Rev3lation.',
         external: true,
@@ -183,6 +173,20 @@ export default function Navigation() {
   const pathname = usePathname();
   const { showFaithful, toggleFaithful, isLoading } = useFaithfulPreferenceSafe();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [isSearchOpen, setIsSearchOpen] = React.useState(false);
+
+  // Keyboard shortcut for search (Cmd+K / Ctrl+K)
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setIsSearchOpen(true);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   // Animation state for scroll-based resizing
   const ref = React.useRef<HTMLDivElement>(null);
@@ -211,30 +215,16 @@ export default function Navigation() {
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <motion.div ref={ref} className={cn('sticky inset-x-0 top-0 lg:top-10 z-40 w-full')}>
+    <motion.div ref={ref} className={cn('sticky inset-x-0 top-0 z-40 w-full')}>
       {/* Desktop Navigation */}
-      <motion.div
-        animate={{
-          backdropFilter: visible ? 'blur(10px)' : 'blur(2px)',
-          boxShadow: visible
-            ? '0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset'
-            : 'none',
-          width: visible ? '80%' : '100%',
-          y: visible ? 10 : 0,
-        }}
-        transition={{
-          type: 'spring',
-          stiffness: 200,
-          damping: 50,
-        }}
+      <div
         className={cn(
-          'relative z-[60] mx-auto w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 hidden lg:flex dark:bg-transparent',
-          visible && 'bg-white/80 dark:bg-neutral-950/80',
+          'relative z-[60] mx-auto w-full flex-row items-center justify-between self-start bg-white px-4 py-2 hidden lg:flex dark:bg-background border-b',
         )}
       >
-        <div className="w-full max-w-full mx-auto flex items-center justify-between gap-2 md:gap-4">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
+        <div className="w-full max-w-full mx-auto flex items-center justify-between gap-4">
+          {/* Left: Logo + Version Control */}
+          <div className="flex items-center gap-3">
             <Link href="/" className="flex items-center gap-2" aria-label="Home">
               <div className="aspect-square w-8 relative">
                 <Image
@@ -254,96 +244,139 @@ export default function Navigation() {
                 PolishedDex
               </span>
             </Link>
+
+            {/* Version Control Pill */}
+            <Popover>
+              <PopoverTrigger asChild>
+                <button className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/50 px-2.5 py-1 text-xs font-medium transition-colors hover:bg-muted">
+                  <span className={cn(
+                    'size-2 rounded-full',
+                    showFaithful ? 'bg-amber-500' : 'bg-emerald-500'
+                  )} />
+                  {showFaithful ? 'Faithful' : 'Polished'}
+                  <IconChevronDown className="size-3 text-muted-foreground" />
+                </button>
+              </PopoverTrigger>
+              <PopoverContent align="start" className="w-48 p-2">
+                <div className="flex flex-col gap-1">
+                  <button
+                    onClick={() => !showFaithful || toggleFaithful()}
+                    className={cn(
+                      'flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-accent',
+                      !showFaithful && 'bg-accent'
+                    )}
+                  >
+                    <span className="size-2 rounded-full bg-emerald-500" />
+                    Polished
+                    {!showFaithful && <span className="ml-auto text-xs text-muted-foreground">✓</span>}
+                  </button>
+                  <button
+                    onClick={() => showFaithful || toggleFaithful()}
+                    className={cn(
+                      'flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-accent',
+                      showFaithful && 'bg-accent'
+                    )}
+                  >
+                    <span className="size-2 rounded-full bg-amber-500" />
+                    Faithful
+                    {showFaithful && <span className="ml-auto text-xs text-muted-foreground">✓</span>}
+                  </button>
+                </div>
+              </PopoverContent>
+            </Popover>
           </div>
 
-          {/* Desktop Nav Menu */}
-          <NavigationMenu className="!hidden md:!flex" viewport={false}>
-            <NavigationMenuList>
+          {/* Right: Search, Nav, Theme Toggle */}
+          <div className="flex items-center gap-1">
+            {/* Search Button */}
+            <button
+              data-slot="dialog-trigger"
+              aria-label="Search (Cmd+K)"
+              onClick={() => setIsSearchOpen(true)}
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm transition-all hover:bg-secondary/80 px-3 py-2 bg-muted/50 text-muted-foreground relative h-8 justify-start font-medium shadow-none w-48 border border-border"
+              type="button"
+            >
+              <IconSearch className="size-4" />
+              <span className="hidden lg:inline-flex">Search...</span>
+              <span className="inline-flex lg:hidden">Search...</span>
+              <div className=" hidden gap-0.5 sm:flex ml-auto">
+                <kbd className="bg-background text-muted-foreground pointer-events-none inline-flex h-5 min-w-5 items-center justify-center rounded-sm px-1 font-sans text-[10px] font-medium select-none border">⌘</kbd>
+                <kbd className="bg-background text-muted-foreground pointer-events-none inline-flex h-5 min-w-5 items-center justify-center rounded-sm px-1 font-sans text-[10px] font-medium select-none border">K</kbd>
+              </div>
+            </button>
+
+            {/* Desktop Nav Menu - Click-based dropdowns */}
+            <nav className="!hidden md:!flex items-center gap-1">
               {navItems.map((item, idx) => (
-                <NavigationMenuItem key={`desktop-nav-${idx}`}>
+                <React.Fragment key={`desktop-nav-${idx}`}>
                   {isNavGroup(item) ? (
-                    <>
-                      <NavigationMenuTrigger
-                        className={cn(
-                          hasPokemonTheme && 'pokemon-themed-link',
-                          isGroupActive(item) && 'active-link',
-                        )}
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <button
+                          className={cn(
+                            'h-9 px-4 py-2 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all outline-none focus-visible:ring-ring/50 focus-visible:ring-[3px] hover:bg-accent hover:text-accent-foreground',
+                            hasPokemonTheme && 'pokemon-themed-link',
+                            isGroupActive(item) && 'bg-primary text-primary-foreground hover:bg-primary/90',
+                          )}
+                        >
+                          {item.title}
+                          <IconChevronDown className="size-3 transition-transform duration-200 [[data-state=open]>&]:rotate-180" />
+                        </button>
+                      </PopoverTrigger>
+                      <PopoverContent
+                        align={'end'}
+                        className="w-[300px] p-2"
                       >
-                        {item.title}
-                      </NavigationMenuTrigger>
-                      <NavigationMenuContent>
-                        <ul className="grid w-[300px] gap-2 p-2">
+                        <ul className="grid gap-1">
                           {item.children.map((child, childIdx) => (
                             <li key={`desktop-child-${childIdx}`}>
-                              <NavigationMenuLink asChild>
-                                <Link
-                                  href={child.href}
-                                  target={child.external ? '_blank' : undefined}
-                                  rel={child.external ? 'noopener noreferrer' : undefined}
-                                  className={cn(
-                                    'block select-none space-y-1 rounded-lg p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
-                                    isActive(child.href) && 'active-link',
-                                  )}
-                                >
-                                  <div className="text-sm font-medium leading-none flex items-center gap-1">
-                                    {child.title}
-                                    {child.external && <ExternalLink className="size-3 mt-px" />}
-                                  </div>
-                                  {child.description && (
-                                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                      {child.description}
-                                    </p>
-                                  )}
-                                </Link>
-                              </NavigationMenuLink>
+                              <Link
+                                href={child.href}
+                                target={child.external ? '_blank' : undefined}
+                                rel={child.external ? 'noopener noreferrer' : undefined}
+                                className={cn(
+                                  'block select-none space-y-1 rounded-lg p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+                                  isActive(child.href) && 'bg-primary text-primary-foreground',
+                                )}
+                              >
+                                <div className="text-sm font-medium leading-none flex items-center gap-1">
+                                  {child.title}
+                                  {child.external && <ExternalLink className="size-3 mt-px" />}
+                                </div>
+                                {/* {child.description && (
+                                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                                    {child.description}
+                                  </p>
+                                )} */}
+                              </Link>
                             </li>
                           ))}
                         </ul>
-                      </NavigationMenuContent>
-                    </>
+                      </PopoverContent>
+                    </Popover>
                   ) : (
-                    <NavigationMenuLink
-                      asChild
+                    <Link
+                      href={item.href}
+                      target={item.external ? '_blank' : undefined}
+                      rel={item.external ? 'noopener noreferrer' : undefined}
                       className={cn(
-                        navigationMenuTriggerStyle(),
+                        'h-9 px-4 py-2 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all outline-none focus-visible:ring-ring/50 focus-visible:ring-[3px] hover:bg-accent hover:text-accent-foreground',
                         hasPokemonTheme && 'pokemon-themed-link',
-                        isActive(item.href) && 'active-link',
+                        isActive(item.href) && 'bg-primary text-primary-foreground hover:bg-primary/90',
                       )}
                     >
-                      <Link
-                        href={item.href}
-                        target={item.external ? '_blank' : undefined}
-                        rel={item.external ? 'noopener noreferrer' : undefined}
-                      >
-                        {item.title}
-                        {item.external && <ExternalLink className="size-3 ml-1" />}
-                      </Link>
-                    </NavigationMenuLink>
+                      {item.title}
+                      {item.external && <ExternalLink className="size-3 ml-1" />}
+                    </Link>
                   )}
-                </NavigationMenuItem>
+                </React.Fragment>
               ))}
-            </NavigationMenuList>
-          </NavigationMenu>
+            </nav>
 
-          {/* Desktop Controls */}
-          <div className={cn('flex items-center gap-2')}>
-            <Label htmlFor="type-toggle" className="text-sm whitespace-nowrap">
-              <Badge>{showFaithful ? 'Faithful' : 'Polished'}</Badge>
-            </Label>
-            {isLoading ? (
-              <div className="w-11 h-6 bg-gray-200 rounded-full animate-pulse" />
-            ) : (
-              <Switch
-                id="type-toggle"
-                checked={showFaithful}
-                onCheckedChange={toggleFaithful}
-                aria-label="Toggle between faithful and polished versions"
-              />
-            )}
             <SimpleThemeToggle />
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Mobile Navigation Header */}
       <motion.div
@@ -369,6 +402,7 @@ export default function Navigation() {
         )}
       >
         <div className="flex w-full flex-row items-center justify-between">
+          {/* Left: Logo + Version Control */}
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2" aria-label="Home">
               <div className="aspect-square w-8 relative">
@@ -389,21 +423,58 @@ export default function Navigation() {
                 PolishedDex
               </span>
             </Link>
+
+            {/* Version Control Pill - Mobile */}
+            <Popover>
+              <PopoverTrigger asChild>
+                <button className="inline-flex items-center gap-1 rounded-full border border-border bg-muted/50 px-2 py-0.5 text-[10px] font-medium transition-colors hover:bg-muted">
+                  <span className={cn(
+                    'size-1.5 rounded-full',
+                    showFaithful ? 'bg-amber-500' : 'bg-emerald-500'
+                  )} />
+                  {showFaithful ? 'Faithful' : 'Polished'}
+                  <IconChevronDown className="size-2.5 text-muted-foreground" />
+                </button>
+              </PopoverTrigger>
+              <PopoverContent align="start" className="w-40 p-2">
+                <div className="flex flex-col gap-1">
+                  <button
+                    onClick={() => !showFaithful || toggleFaithful()}
+                    className={cn(
+                      'flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-accent',
+                      !showFaithful && 'bg-accent'
+                    )}
+                  >
+                    <span className="size-2 rounded-full bg-emerald-500" />
+                    Polished
+                    {!showFaithful && <span className="ml-auto text-xs text-muted-foreground">✓</span>}
+                  </button>
+                  <button
+                    onClick={() => showFaithful || toggleFaithful()}
+                    className={cn(
+                      'flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-accent',
+                      showFaithful && 'bg-accent'
+                    )}
+                  >
+                    <span className="size-2 rounded-full bg-amber-500" />
+                    Faithful
+                    {showFaithful && <span className="ml-auto text-xs text-muted-foreground">✓</span>}
+                  </button>
+                </div>
+              </PopoverContent>
+            </Popover>
           </div>
-          <div className="flex items-center gap-2">
-            <Label htmlFor="mobile-type-toggle-header" className="text-sm whitespace-nowrap">
-              <Badge>{showFaithful ? 'Faithful' : 'Polished'}</Badge>
-            </Label>
-            {isLoading ? (
-              <div className="w-11 h-6 bg-gray-200 rounded-full animate-pulse" />
-            ) : (
-              <Switch
-                id="mobile-type-toggle-header"
-                checked={showFaithful}
-                onCheckedChange={toggleFaithful}
-                aria-label="Toggle between faithful and polished versions"
-              />
-            )}
+
+          {/* Right: Search, Theme, Menu */}
+          <div className="flex items-center gap-1">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsSearchOpen(true)}
+              aria-label="Search"
+            >
+              <IconSearch className="h-5 w-5" />
+            </Button>
             <SimpleThemeToggle />
             <Button
               variant="ghost"
@@ -475,28 +546,12 @@ export default function Navigation() {
                 </Link>
               ),
             )}
-
-            {/* Mobile toggle (redundant with header but kept for visibility in menu) */}
-            <div className="flex w-full flex-col gap-4 pt-4 mt-2 border-t border-neutral-200 dark:border-neutral-800">
-              <div className="flex items-center gap-2">
-                <Label htmlFor="mobile-type-toggle" className="text-sm">
-                  <Badge>{showFaithful ? 'Faithful' : 'Polished'}</Badge>
-                </Label>
-                {isLoading ? (
-                  <div className="w-11 h-6 bg-gray-200 rounded-full animate-pulse" />
-                ) : (
-                  <Switch
-                    id="mobile-type-toggle"
-                    checked={showFaithful}
-                    onCheckedChange={toggleFaithful}
-                    aria-label="Toggle between faithful and polished versions"
-                  />
-                )}
-              </div>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Global Search Dialog */}
+      <GlobalSearch open={isSearchOpen} onOpenChange={setIsSearchOpen} />
     </motion.div>
   );
 }

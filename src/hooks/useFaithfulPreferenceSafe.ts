@@ -1,43 +1,13 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import { getCookiePreference, setCookiePreference } from '@/lib/faithful-cookie';
 
 export interface FaithfulPreferenceSafeHook {
   showFaithful: boolean;
   toggleFaithful: () => void;
   setFaithful: (faithful: boolean) => void;
   isLoading: boolean;
-}
-
-// Cookie utilities
-const COOKIE_NAME = 'faithful-preference';
-const COOKIE_MAX_AGE = 60 * 60 * 24 * 365; // 1 year
-
-function getCookiePreference(): boolean {
-  if (typeof document === 'undefined') return false;
-
-  try {
-    const cookieValue = document.cookie
-      .split('; ')
-      .find((row) => row.startsWith(`${COOKIE_NAME}=`))
-      ?.split('=')[1];
-    return cookieValue === 'true';
-  } catch {
-    return false;
-  }
-}
-
-function setCookiePreference(faithful: boolean): void {
-  if (typeof document === 'undefined') return;
-
-  try {
-    const value = faithful ? 'true' : 'false';
-    document.cookie = `${COOKIE_NAME}=${value}; max-age=${COOKIE_MAX_AGE}; path=/; samesite=strict${
-      process.env.NODE_ENV === 'production' ? '; secure' : ''
-    }`;
-  } catch (error) {
-    console.warn('Failed to set faithful preference cookie:', error);
-  }
 }
 
 /**

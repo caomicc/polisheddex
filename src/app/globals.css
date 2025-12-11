@@ -21,100 +21,6 @@ html {
 @source inline("bg-{physical,special,status,morn,day,nite,eve,any,common,uncommon,rare}");
 @source inline("shadow-{bug,dark,dragon,electric,fairy,fighting,fire,flying,ghost,grass,ground,ice,normal,poison,psychic,rock,steel,water}");
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-rubik);
-  --font-mono: var(--font-geist-mono);
-  --default-font-family: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  /* Pokémon Type Colors */
-  /* Pokémon Type Colors (Dark) */
-  --color-bug: var(--color-lime-400);
-  --color-dark: var(--color-indigo-900);
-  --color-dragon: var(--color-indigo-300);
-  --color-electric: var(--color-amber-400);
-  --color-fairy: var(--color-pink-300);
-  --color-fighting: var(--color-orange-400);
-  --color-fire: var(--color-red-400);
-  --color-flying: var(--color-sky-300);
-  --color-ghost: var(--color-violet-300);
-  --color-grass: var(--color-emerald-400);
-  --color-ground: var(--color-orange-300);
-  --color-ice: var(--color-cyan-300);
-  --color-normal: #dfcbaa;
-  --color-poison: var(--color-purple-400);
-  --color-psychic: var(--color-fuchsia-400);
-  --color-rock: var(--color-gray-400);
-  --color-steel: var(--color-slate-400);
-  --color-water: var(--color-blue-400);
-  --color-normal-50: #fcfaf7;
-  --color-normal-100: #f9f5ee;
-  --color-normal-200: #f2eadd;
-  --color-normal-300: #ece0cc;
-  --color-normal-400: #e5d5bb;
-  --color-normal-500: #dfcbaa;
-  --color-normal-600: #b2a288;
-  --color-normal-700: #867a66;
-  --color-normal-800: #595144;
-  --color-normal-900: #2d2922;
-  --color-nite: var(--color-blue-900); /* dark background */
-  --color-day: var(--color-blue-200); /* light background */
-  --color-morn: var(--color-orange-200); /* morning background */
-  --color-any: var(--color-purple-200); /* evening background */
-
-  --color-common: var(--color-purple-300); /* light purple */
-  --color-uncommon: var(--color-blue-300); /* light blue */
-  --color-rare: var(--color-green-300); /* light blue */
-
-  --color-error: oklch(0.577 0.245 27.325); /* red */
-
-  --color-physical: #e45e3e;
-  --color-special: #5973a7;
-  --color-status: #a9a795;
-
-  /* Pokemon Theme CSS Custom Properties - with smooth transitions */
-  --pokemon-theme-bg: transparent;
-  --pokemon-theme-text: inherit;
-  --pokemon-theme-link: inherit;
-  --pokemon-theme-hover: rgba(0, 0, 0, 0.1);
-  --pokemon-theme-breadcrumb-active: inherit;
-  --pokemon-theme-breadcrumb-inactive: inherit;
-  --pokemon-theme-grid: #efefef;
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -156,6 +62,7 @@ html {
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 }
+
 
 /*
 ---break--- */
@@ -252,6 +159,107 @@ html {
   --selection-foreground: oklch(20.5% 0 0);
   --pokemon-theme-grid: #191919;
 }
+
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-rubik);
+  --font-mono: var(--font-geist-mono);
+  --default-font-family: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  /* Pokémon Type Colors */
+  /* Pokémon Type Colors (Dark) */
+  --color-bug: var(--color-lime-400);
+  --color-dark: var(--color-indigo-900);
+  --color-dragon: var(--color-indigo-300);
+  --color-electric: var(--color-amber-400);
+  --color-fairy: var(--color-pink-300);
+  --color-fighting: var(--color-orange-400);
+  --color-fire: var(--color-red-400);
+  --color-flying: var(--color-sky-300);
+  --color-ghost: var(--color-violet-300);
+  --color-grass: var(--color-emerald-400);
+  --color-ground: var(--color-orange-300);
+  --color-ice: var(--color-cyan-300);
+  --color-normal: #dfcbaa;
+  --color-poison: var(--color-purple-400);
+  --color-psychic: var(--color-fuchsia-400);
+  --color-rock: var(--color-gray-400);
+  --color-steel: var(--color-slate-400);
+  --color-water: var(--color-blue-400);
+  --color-normal-50: #fcfaf7;
+  --color-normal-100: #f9f5ee;
+  --color-normal-200: #f2eadd;
+  --color-normal-300: #ece0cc;
+  --color-normal-400: #e5d5bb;
+  --color-normal-500: #dfcbaa;
+  --color-normal-600: #b2a288;
+  --color-normal-700: #867a66;
+  --color-normal-800: #595144;
+  --color-normal-900: #2d2922;
+  --color-nite: var(--color-blue-900); /* dark background */
+  --color-day: var(--color-blue-200); /* light background */
+  --color-morn: var(--color-orange-200); /* morning background */
+  --color-any: var(--color-purple-200); /* evening background */
+
+  --color-common: var(--color-purple-300); /* light purple */
+  --color-uncommon: var(--color-blue-300); /* light blue */
+  --color-rare: var(--color-green-300); /* light blue */
+
+  --color-error: oklch(0.577 0.245 27.325); /* red */
+
+  --color-physical: #e45e3e;
+  --color-special: #5973a7;
+  --color-status: #a9a795;
+
+  /* Pokemon Theme CSS Custom Properties - with smooth transitions */
+  --pokemon-theme-bg: transparent;
+  --pokemon-theme-text: inherit;
+  --pokemon-theme-link: inherit;
+  --pokemon-theme-hover: rgba(0, 0, 0, 0.1);
+  --pokemon-theme-breadcrumb-active: inherit;
+  --pokemon-theme-breadcrumb-inactive: inherit;
+  --pokemon-theme-grid: #efefef;
+}
+
+* {
+  border-color: var(--border);
+  outline-color: var(--ring)
+}
+
 
 /* Pokémon Type Backgrounds with 50% Opacity */
 

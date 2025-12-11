@@ -2,20 +2,9 @@ import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { promises as fs } from 'fs';
 import path from 'path';
-import Link from 'next/link';
 
 import MoveDetailClient from '@/components/moves/move-detail-client';
 import { PokemonGridSkeleton } from '@/components/pokemon/pokemon-card-skeleton';
-import { Hero } from '@/components/ui/Hero';
-import { Badge } from '@/components/ui/badge';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
 
 async function loadMoveData(moveName: string) {
   const moveFilePath = path.join(process.cwd(), 'public/new/moves', `${moveName}.json`);
@@ -52,56 +41,12 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
   // Check if TM/HM location exists
   const tmLocationExists = await checkLocationExists(moveData.tm?.location);
 
-  // Use polished as default for server-rendered content
-  const displayName = moveData.versions['polished']?.name || moveName;
-  const description = moveData.versions['polished']?.description || 'Move details and Pokémon that can learn it';
-  const moveType = moveData.versions['polished']?.type || 'Unknown';
-
   return (
-    <>
-      <Hero
-        headline={displayName}
-        description={description}
-        types={
-          <div className="flex flex-wrap gap-2" aria-label="Move Type" role="group">
-            <Badge variant={moveType.toLowerCase() as any}>
-              {moveType}
-            </Badge>
-          </div>
-        }
-        breadcrumbs={
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/" className="hover:underline">
-                    Home
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/moves" className="hover:underline">
-                    Moves
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>{displayName}</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-        }
-      />
-
-      <div className="max-w-xl md:max-w-4xl mx-auto">
-        <Suspense fallback={<PokemonGridSkeleton count={4} />}>
-          <MoveDetailClient moveData={moveData} tmLocationExists={tmLocationExists} />
-        </Suspense>
-      </div>
-    </>
+    <div className="max-w-xl md:max-w-4xl mx-auto">
+      <Suspense fallback={<PokemonGridSkeleton count={4} />}>
+        <MoveDetailClient moveData={moveData} tmLocationExists={tmLocationExists} />
+      </Suspense>
+    </div>
   );
 }
 
