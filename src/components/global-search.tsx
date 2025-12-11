@@ -22,22 +22,13 @@ import {
 } from '@/lib/search-data';
 import { useRecentSearches, type RecentSearch } from '@/hooks/useRecentSearches';
 import { useDebounce } from '@/hooks/useDebounce';
-import { IconClock, IconHistory, IconSearch, IconX } from '@tabler/icons-react';
-import { ArrowBigLeft, ArrowRight } from 'lucide-react';
+import { IconX } from '@tabler/icons-react';
+import { ArrowRight } from 'lucide-react';
 
 interface GlobalSearchProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
-
-// Icons for each entity type
-const entityIcons: Record<SearchEntityType, string> = {
-  ability: '✨',
-  item: '🎒',
-  location: '📍',
-  move: '⚔️',
-  pokemon: '🔴',
-};
 
 export function GlobalSearch({ open, onOpenChange }: GlobalSearchProps) {
   const router = useRouter();

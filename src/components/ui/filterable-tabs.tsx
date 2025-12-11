@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useState } from 'react';
+import { ReactNode } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn } from '@/lib/utils';
 
@@ -28,13 +28,10 @@ export function FilterableTabs<T>({
   emptyMessage = 'No data available',
   className,
 }: FilterableTabsProps<T>) {
-  const [activeTab, setActiveTab] = useState(defaultValue);
-
   return (
     <Tabs
       defaultValue={defaultValue}
       className={cn('w-full', className)}
-      onValueChange={setActiveTab}
     >
       <TabsList className="mb-4">
         {tabs.map((tab) => (

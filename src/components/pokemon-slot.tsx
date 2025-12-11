@@ -692,7 +692,7 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     if (previousFaithfulRef.current !== null && previousFaithfulRef.current !== showFaithful) {
       if (pokemonData && entry.name && entry.ability) {
         // Check for forms structure (individual files) or direct structure (manifest)
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const currentForm = pokemonData?.currentForm || 'plain';
         const formData: any = pokemonData?.forms?.[currentForm] || pokemonData?.forms?.plain || pokemonData;
 

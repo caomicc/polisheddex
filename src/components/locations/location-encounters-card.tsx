@@ -43,9 +43,6 @@ interface LocationEncountersCardProps {
 }
 
 function consolidateEncounters(encounters: LocationEncounter[]): ConsolidatedEncounter[] {
-  // Check if any encounters use badge-relative levels
-  const hasBadgeLevels = encounters.some((enc) => enc.levelRange.startsWith('Badge '));
-
   const grouped = encounters.reduce(
     (acc, enc) => {
       const key = `${enc.pokemon}-${enc.method}-${enc.formName || 'plain'}`;

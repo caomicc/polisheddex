@@ -311,7 +311,7 @@ export function PokemonInfoTable({
           <div className="info-row-value">
             <div className="flex gap-1 flex-wrap">
               {types.map((type) => (
-                <Badge key={type} variant={type.toLowerCase() as any}>
+                <Badge key={type} variant={type.toLowerCase()}>
                   {type.charAt(0).toUpperCase() + type.slice(1)}
                 </Badge>
               ))}
@@ -439,7 +439,7 @@ export function PokemonInfoTable({
                 <span className="text-neutral-500">None</span>
               ) : (
                 weaknesses.map((type) => (
-                  <Badge key={type} variant={type.toLowerCase() as any} className="text-xs">
+                  <Badge key={type} variant={type.toLowerCase()} className="text-xs">
                     {type} ×{effectiveness[type]}
                   </Badge>
                 ))
@@ -473,7 +473,7 @@ export function PokemonInfoTable({
             <div className="info-row-value">
               <div className="flex gap-1 flex-wrap">
                 {immunities.map((type) => (
-                  <Badge key={type} variant={type.toLowerCase() as any} className="text-xs">
+                  <Badge key={type} variant={type.toLowerCase()} className="text-xs">
                     {type}
                   </Badge>
                 ))}

@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import TableWrapper from '@/components/ui/table-wrapper';
 import { MapPin, ShoppingCart, Gift, Search, Coins, Trophy, ExternalLink } from 'lucide-react';
@@ -38,16 +37,6 @@ function getMethodIcon(method?: string) {
     return <Trophy className="h-4 w-4" />;
   }
   return <MapPin className="h-4 w-4" />;
-}
-
-function getMethodVariant(method?: string): 'default' | 'secondary' | 'outline' | 'destructive' {
-  if (!method) return 'secondary';
-
-  const methodLower = method.toLowerCase();
-  if (methodLower.includes('buy') || methodLower.includes('shop') || methodLower.includes('mart')) {
-    return 'default';
-  }
-  return 'secondary';
 }
 
 function getMethodColor(method?: string): string {

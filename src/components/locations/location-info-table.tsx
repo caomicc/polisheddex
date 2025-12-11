@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
-import { cn } from '@/lib/utils';
 import { ExternalLink } from 'lucide-react';
 
 interface ConnectionInfo {
@@ -29,12 +28,6 @@ interface LocationInfoTableProps {
   trainerCount?: number;
 }
 
-const regionColors: Record<string, string> = {
-  johto: 'bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border-indigo-500/30',
-  kanto: 'bg-rose-500/20 text-rose-700 dark:text-rose-300 border-rose-500/30',
-  orange: 'bg-orange-500/20 text-orange-700 dark:text-orange-300 border-orange-500/30',
-};
-
 const directionLabels: Record<string, string> = {
   north: '↑ North',
   south: '↓ South',
@@ -54,11 +47,6 @@ export function LocationInfoTable({
   eventCount,
   trainerCount,
 }: LocationInfoTableProps) {
-  const regionKey = region?.toLowerCase() || '';
-  const regionColor =
-    regionColors[regionKey] ||
-    'bg-neutral-500/20 text-neutral-700 dark:text-neutral-300 border-neutral-500/30';
-
   return (
     <div className="info-table-wrapper">
       <div className="divide-y divide-neutral-200 dark:divide-neutral-700">

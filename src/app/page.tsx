@@ -298,56 +298,6 @@ const AttackdexSkeleton = () => {
     </motion.div>
   );
 };
-const HelpSkeleton = () => {
-  const variants = {
-    initial: {
-      x: 0,
-    },
-    animate: {
-      x: 10,
-      rotate: 5,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
-  const variantsSecond = {
-    initial: {
-      x: 0,
-    },
-    animate: {
-      x: -10,
-      rotate: -5,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
-
-  return (
-    <motion.div
-      initial="initial"
-      whileHover="animate"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
-    >
-      <motion.div
-        variants={variants}
-        className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2  items-start space-x-2 bg-white dark:bg-black"
-      >
-        <Image
-          src="/sprites/help-avatar.png"
-          alt="avatar"
-          height="100"
-          width="100"
-          className="rounded-full h-12 w-12"
-        />
-        <p className="text-xs text-neutral-500">
-          What files do I need? What emulator should I be using?
-        </p>
-      </motion.div>
-    </motion.div>
-  );
-};
 
 const LocationsSkeleton = () => {
   const variants = {

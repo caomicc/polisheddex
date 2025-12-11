@@ -23,8 +23,8 @@ const PokemonTypeSetter: React.FC<PokemonTypeSetterProps> = ({ primaryType, seco
           ? [secondaryType]
           : [];
 
-      const primary = typeArray[0]?.toLowerCase() as any;
-      const secondary = (secondaryTypeArray[0] || typeArray[1])?.toLowerCase() as any | undefined;
+      const primary = typeArray[0]?.toLowerCase();
+      const secondary = (secondaryTypeArray[0] || typeArray[1])?.toLowerCase() || undefined;
 
       // Validate that the types are valid Pokemon types
       const validTypes = [

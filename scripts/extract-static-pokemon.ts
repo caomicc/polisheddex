@@ -151,7 +151,7 @@ function parseLoadWildmon(content: string, filename: string): StaticPokemon[] {
 
       // Check if level is actually a form (when 3 params exist but parsed wrong)
       let form: string | undefined;
-      let actualLevel = level;
+      const actualLevel = level;
 
       if (formRaw && formRaw.endsWith('_FORM')) {
         form = reduce(formRaw.replace('_FORM', ''));
@@ -262,7 +262,6 @@ function parseGivePoke(content: string, filename: string): StaticPokemon[] {
  */
 function createRoamingPokemon(roamingMaps: string[]): StaticPokemon[] {
   const validMaps = roamingMaps.map((m) => reduce(m));
-  const validMapsDisplay = roamingMaps.map((m) => displayName(m.replace(/_/g, '')));
 
   return ROAMING_POKEMON.map((pokemon) => ({
     id: `roaming_${reduce(pokemon.species)}`,

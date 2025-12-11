@@ -171,7 +171,7 @@ function MobileNavSection({
 
 export default function Navigation() {
   const pathname = usePathname();
-  const { showFaithful, toggleFaithful, isLoading } = useFaithfulPreferenceSafe();
+  const { showFaithful, toggleFaithful } = useFaithfulPreferenceSafe();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [isSearchOpen, setIsSearchOpen] = React.useState(false);
 

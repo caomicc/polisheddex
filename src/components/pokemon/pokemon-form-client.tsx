@@ -1,13 +1,11 @@
 'use client';
 import { AbilityData, ComprehensivePokemonData, StaticPokemon } from '@/types/new';
 import { Table, TableBody, TableHead, TableHeader, TableRow } from '../ui/table';
-import { Badge } from '../ui/badge';
 import PokedexHeader from './pokemon-header';
 import PokemonTypeSetter from './pokemon-type-setter';
 import { useQueryState } from 'nuqs';
 import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import { MoveRow } from '../moves';
-import Link from 'next/link';
 import { EvolutionTable } from './evolution-table';
 import { EvolutionChain } from '@/utils/evolution-data-server';
 import { PokemonInfoTable } from './pokemon-info-table';

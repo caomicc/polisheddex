@@ -154,7 +154,7 @@ export const createPokemonListColumns = (version: string): ColumnDef<PokemonMani
       return (
         <div className="flex gap-1">
           {typesArray.map((type, index) => (
-            <Badge key={index} variant={type.toLowerCase() as any}>
+            <Badge key={index} variant={type.toLowerCase()}>
               {type}
             </Badge>
           ))}

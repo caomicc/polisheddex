@@ -3,7 +3,7 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 import { useBuildInfo } from '@/hooks/useBuildInfo';
 import Link from 'next/link';
-import { Bug, Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 
 type FooterProps = {
   className?: string;

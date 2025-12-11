@@ -87,9 +87,9 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
           {pokemon.name}
         </h2>
         <div className="flex md:justify-start gap-1 md:gap-2 flex-row md:flex-row">
-          <Badge variant={primaryType.toLowerCase() as any}>{primaryType}</Badge>
+          <Badge variant={primaryType.toLowerCase()}>{primaryType}</Badge>
           {secondaryType && (
-            <Badge variant={secondaryType.toLowerCase() as any}>{secondaryType}</Badge>
+            <Badge variant={secondaryType.toLowerCase()}>{secondaryType}</Badge>
           )}
         </div>
       </div>

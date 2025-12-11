@@ -859,7 +859,7 @@ const extractMon = (data: string[], pokemonForm: string) => {
 
   //Case #1: Adding to plain form
   const reducedNameForm = reduce(name_form);
-  let mon = pokemonData[pokemonForm]?.find((mon) => mon['id'] === reducedNameForm);
+  const mon = pokemonData[pokemonForm]?.find((mon) => mon['id'] === reducedNameForm);
   if (mon) {
     const form = Object.values(mon?.['forms'] || {}).find((form) => form['formNumber'] === 1);
     if (form) {

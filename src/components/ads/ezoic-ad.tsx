@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 interface EzoicAdProps {
   placeholderId: number;
@@ -18,12 +18,9 @@ declare global {
 }
 
 export function EzoicAd({ placeholderId, className = '' }: EzoicAdProps) {
-  const [isEzoicAvailable, setIsEzoicAvailable] = useState(false);
-
   useEffect(() => {
     // Check if ezstandalone is available
     if (typeof window !== 'undefined' && window.ezstandalone) {
-      setIsEzoicAvailable(true);
       window.ezstandalone.cmd.push(function () {
         window.ezstandalone?.showAds(placeholderId);
       });

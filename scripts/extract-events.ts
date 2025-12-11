@@ -6,7 +6,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // File paths
-const mapsDir = join(__dirname, '../polishedcrystal/maps');
 const outputDir = join(__dirname, '..', 'public', 'new');
 
 // Types

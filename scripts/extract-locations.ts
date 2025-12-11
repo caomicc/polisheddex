@@ -7,7 +7,6 @@ import {
   normalizeString,
   parseLineWithPrefix,
   ensureArrayExists,
-  countConnections,
   displayName,
   toTitleCase,
   parseTrainerLine,

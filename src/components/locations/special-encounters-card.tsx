@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/table';
 import TableWrapper from '@/components/ui/table-wrapper';
 import { PokemonSprite } from '@/components/pokemon/pokemon-sprite';
-import { Sparkles, ExternalLink, Gift, Navigation } from 'lucide-react';
+import { Sparkles, ExternalLink } from 'lucide-react';
 import { StaticPokemon } from '@/types/new';
 
 interface SpecialEncountersCardProps {

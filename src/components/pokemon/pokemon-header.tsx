@@ -69,7 +69,7 @@ const PokedexHeader = ({
             if (!types) return <Badge variant="secondary">Unknown</Badge>;
             const typeArray = Array.isArray(types) ? types : [types];
             return typeArray.map((type: string) => (
-              <Badge key={type} variant={type.toLowerCase() as any}>
+              <Badge key={type} variant={type.toLowerCase()}>
                 {type}
               </Badge>
             ));

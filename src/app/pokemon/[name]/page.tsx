@@ -1,8 +1,6 @@
 import path from 'path';
-import { Suspense } from 'react';
 
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import PokemonFormWrapper from '@/components/pokemon/pokemon-form-wrapper';
 import PokemonNavigation from '@/components/pokemon/pokemon-navigation';
 import PokemonKeyboardNavigation from '@/components/pokemon/pokemon-keyboard-navigation';
@@ -12,7 +10,6 @@ import { loadBasePokemonData, loadEnrichedPokemonData } from '@/utils/loaders/po
 import { getLocationsForPokemon } from '@/utils/location-data-server';
 import { getEvolutionChainForPokemon } from '@/utils/evolution-data-server';
 import { getStaticPokemonForSpecies } from '@/utils/loaders/static-pokemon-loader';
-import { Button } from '@/components/ui/button';
 import { reduce } from '@/lib/extract-utils';
 
 export default async function PokemonDetail({ params }: { params: Promise<{ name: string }> }) {

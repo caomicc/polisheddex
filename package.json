@@ -7,7 +7,8 @@
     "dev": "next dev --turbopack",
     "build": "node scripts/generate-build-info.mjs && next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "extract": "tsx scripts/extract-all.ts",
@@ -67,6 +68,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@eslint/js": "^9.39.1",
     "@next/bundle-analyzer": "16.0.7",
     "@playwright/test": "^1.55.0",
     "@tailwindcss/postcss": "^4",

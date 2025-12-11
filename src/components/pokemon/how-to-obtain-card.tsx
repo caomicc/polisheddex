@@ -12,7 +12,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import TableWrapper from '@/components/ui/table-wrapper';
-import { ExternalLink, Gift, Sparkles, Navigation } from 'lucide-react';
+import { ExternalLink, Gift } from 'lucide-react';
 import { StaticPokemon } from '@/types/new';
 
 interface HowToObtainCardProps {
