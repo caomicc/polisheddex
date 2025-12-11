@@ -17,6 +17,7 @@ import { useEffect, useState } from 'react';
 import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import TableWrapper from './ui/table-wrapper';
 import { BentoGridNoLink } from './ui/bento-box';
+import { normalizePokemonNameToFileId, extractFormKeyFromName } from '@/utils/stringUtils';
 
 // All Pokemon types
 const TYPES = [
@@ -149,11 +150,6 @@ export default function CalculationsPanel({
   const [loading, setLoading] = useState(false);
   const { showFaithful } = useFaithfulPreferenceSafe();
 
-  // Load type chart when faithful preference changes
-  // useEffect(() => {
-  //   loadTypeChart();
-  // }, [showFaithful]);
-
   // Load detailed stats for all Pokemon in the team
   useEffect(() => {
     const loadTeamStats = async () => {
@@ -164,18 +160,10 @@ export default function CalculationsPanel({
 
           try {
             // Extract form from name (e.g., "Slowking (Galarian)" -> form: "galarian")
-            const formMatch = pokemon.name.match(/\(([^)]+)\)/);
-            const formKey = formMatch ? formMatch[1].toLowerCase().replace(/\s+/g, '') : 'plain';
+            const formKey = extractFormKeyFromName(pokemon.name);
 
-            // Strip form suffix (e.g., "Slowking (Galarian)" -> "slowking")
-            const fileName = pokemon.name
-              .toLowerCase()
-              .replace(/\s*\([^)]*\)/g, '')
-              .trim()
-              .replace(/['']/g, '')
-              .replace(/[^a-z0-9-]/g, '-')
-              .replace(/-+/g, '-')
-              .replace(/^-|-$/g, '');
+            // Normalize name for file lookup (e.g., "Mr. Mime (Galarian)" -> "mrmime")
+            const fileName = normalizePokemonNameToFileId(pokemon.name);
             const response = await fetch(`/new/pokemon/${fileName}.json`);
             if (!response.ok) throw new Error('Pokemon not found');
 
@@ -250,29 +238,6 @@ export default function CalculationsPanel({
       </Alert>
     );
   }
-
-  // Create enriched team data with faithful/polished context
-  // const enrichedTeam = team.map((pokemon) => {
-  //   if (!pokemon.name) return pokemon;
-
-  //   const pokemonStatData = pokemonStats.find((p) => p.name === pokemon.name);
-  //   if (pokemonStatData && pokemonStatData.abilities.length > 0) {
-  //     // Always use the first ability from the loaded stats data which respects faithful/polished context
-  //     // This ensures calculations are always correct regardless of what's stored in the team data
-  //     return {
-  //       ...pokemon,
-  //       ability: pokemonStatData.abilities[0]?.name || pokemon.ability,
-  //       types: pokemon.types,
-  //     };
-  //   }
-  //   return pokemon;
-  // });
-
-  // const defensive = computeDefensiveSummary(enrichedTeam);
-  // const offensive = computeOffensiveCoverage(enrichedTeam);
-  // const abilitySynergies = analyzeAbilitySynergies(enrichedTeam);
-
-  // const maxWeak = Math.max(...TYPES.map((t) => defensive[t]?.weak ?? 0));
 
   // Calculate team statistics
   const teamStats =

@@ -12,13 +12,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Search, Plus, X } from 'lucide-react';
-// import {
-//   POKEMON_LIST,
-//   emptyPokemonEntry,
-//   normalizeTypeName,
-//   type PokemonBasic,
-// } from '@/lib/pokemon-data';
-// import { Ability, BaseData, PokemonType } from '@/types/types';
+import { normalizePokemonNameToFileId, extractFormKeyFromName } from '@/utils/stringUtils';
 import { Badge } from './ui/badge';
 import { useFaithfulPreferenceSafe } from '@/hooks/useFaithfulPreferenceSafe';
 import { PokemonSprite } from './pokemon/pokemon-sprite';
@@ -26,7 +20,6 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Slider } from './ui/slider';
 import StatHexagon, { type StatData } from './pokemon/stat-hexagon';
-// import { getItemSpriteName } from '@/utils/itemUtils';
 
 export type MoveEntry = {
   name: string;
@@ -309,11 +302,6 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
     },
     [movesData, showFaithful],
   );
-
-  // const matched: PokemonBasic | undefined = useMemo(
-  //   () => POKEMON_LIST.find((p) => p.name.toLowerCase() === (entry.name || '').toLowerCase()),
-  //   [entry.name],
-  // );
 
   // Filter Pokemon based on search query
   const filteredPokemonList = useMemo(() => {
@@ -655,14 +643,10 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
   useEffect(() => {
     if (entry.name && entry.name.trim() !== '') {
       // Extract form from name (e.g., "Meowth (Alolan)" -> "alolan", "Meowth" -> "plain")
-      const formMatch = entry.name.match(/\(([^)]+)\)/);
-      const formName = formMatch ? formMatch[1].toLowerCase() : 'plain';
+      const formName = extractFormKeyFromName(entry.name);
       
-      // Strip form suffix and normalize name for file lookup
-      const fileName = entry.name
-        .toLowerCase()
-        .replace(/\s*\([^)]*\)/g, '')
-        .replace(/[ -]/g, '-');
+      // Normalize name for file lookup (e.g., "Mr. Mime (Galarian)" -> "mrmime")
+      const fileName = normalizePokemonNameToFileId(entry.name);
 
       fetch(`/new/pokemon/${fileName}.json`)
         .then((res) => {
@@ -701,121 +685,6 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
       setPokemonData(null);
     }
   }, [entry.name, showFaithful]);
-
-  // Update types when detailed data loads or faithful preference changes
-  // useEffect(() => {
-  //   if (pokemonData && matched?.name) {
-  //     // Determine which form to use - if matched has a formName, use that form, otherwise use plain
-  //     const formToUse = matched.formName || 'plain';
-  //     const formData = pokemonData.forms?.[formToUse] || pokemonData.forms?.plain || pokemonData;
-
-  //     console.log('Using form:', formToUse, 'for Pokemon:', matched.name);
-  //     console.log('Form data available:', Object.keys(pokemonData.forms || {}));
-
-  //     // For plain forms, prefer base data if form data is empty
-  //     let correctTypes = showFaithful
-  //       ? formData.faithfulTypes || formData.types || []
-  //       : formData.updatedTypes || formData.types || [];
-
-  //     // If form data has empty types but base data has types, use base data (only for plain form)
-  //     const isEmpty =
-  //       !correctTypes ||
-  //       (Array.isArray(correctTypes) && correctTypes.length === 0) ||
-  //       (typeof correctTypes === 'string' && !correctTypes.trim());
-
-  //     if (isEmpty && formToUse === 'plain' && pokemonData.forms?.plain) {
-  //       console.log('Plain form data is empty, trying base data...');
-  //       const detailedStats = pokemonData.detailedStats || {};
-  //       const baseTypes = showFaithful
-  //         ? (detailedStats as Record<string, unknown>)['faithfulTypes'] ||
-  //           (detailedStats as Record<string, unknown>)['types']
-  //         : (detailedStats as Record<string, unknown>)['updatedTypes'] ||
-  //           (detailedStats as Record<string, unknown>)['types'];
-
-  //       if (baseTypes) {
-  //         correctTypes = baseTypes as string | string[];
-  //       }
-  //       console.log('Fallback correctTypes from base:', correctTypes);
-  //     }
-
-  //     // console.log('Type update effect - Pokemon:', matched.name);
-  //     // console.log('Form data:', formData);
-  //     // console.log(
-  //     //   'Base data types:',
-  //     //   pokemonData.types,
-  //     //   pokemonData.updatedTypes,
-  //     //   pokemonData.faithfulTypes,
-  //     // );
-  //     // console.log('Detailed stats types:', pokemonData.detailedStats);
-  //     // console.log('Correct types found:', correctTypes);
-  //     // console.log('Show faithful:', showFaithful);
-
-  //     // Always ensure types is [type1, type2] with nulls if missing, and normalize them
-  //     const newTypes = Array.isArray(correctTypes)
-  //       ? [
-  //           correctTypes[0] ? normalizeTypeName(correctTypes[0]) : null,
-  //           correctTypes[1] ? normalizeTypeName(correctTypes[1]) : null,
-  //         ]
-  //       : typeof correctTypes === 'string'
-  //         ? [normalizeTypeName(correctTypes), null]
-  //         : [null, null];
-
-  //     // console.log('New types processed:', newTypes);
-
-  //     // Normalize current types for comparison
-  //     const normalizedCurrentTypes = [
-  //       entry.types[0] ? normalizeTypeName(entry.types[0]) : null,
-  //       entry.types[1] ? normalizeTypeName(entry.types[1]) : null,
-  //     ];
-
-  //     // Create a string representation for comparison
-  //     const newTypesString = JSON.stringify(newTypes);
-  //     const currentTypesString = JSON.stringify(normalizedCurrentTypes);
-
-  //     console.log('Types comparison - current:', currentTypesString, 'new:', newTypesString);
-  //     console.log('Previous ref:', previousTypesRef.current);
-
-  //     // Only update if we found valid types AND they're different from current
-  //     if (newTypesString !== currentTypesString && previousTypesRef.current !== newTypesString) {
-  //       // Only update if we actually have valid types, don't clear existing ones
-  //       const validTypes = newTypes.filter(
-  //         (t): t is PokemonType['name'] =>
-  //           typeof t === 'string' &&
-  //           [
-  //             'normal',
-  //             'fire',
-  //             'water',
-  //             'electric',
-  //             'grass',
-  //             'ice',
-  //             'fighting',
-  //             'poison',
-  //             'ground',
-  //             'flying',
-  //             'psychic',
-  //             'bug',
-  //             'rock',
-  //             'ghost',
-  //             'dragon',
-  //             'dark',
-  //             'steel',
-  //             'fairy',
-  //           ].includes(t),
-  //       );
-
-  //       // Only update if we have valid types or if current types are empty
-  //       if (validTypes.length > 0 || entry.types.length === 0) {
-  //         previousTypesRef.current = newTypesString;
-  //         console.log('Setting valid types:', validTypes);
-  //         onChange({ types: validTypes });
-  //       } else {
-  //         console.log('Skipping type update - would clear valid types with empty types');
-  //       }
-  //     } else {
-  //       console.log('Skipping type update - no change or already set');
-  //     }
-  //   }
-  // }, [pokemonData, showFaithful, matched?.name, matched?.formName, entry.types, onChange]);
 
   // Update ability when faithful preference changes
   useEffect(() => {
@@ -909,11 +778,8 @@ export default function PokemonSlot({ index, entry, onChange }: PokemonSlotProps
         const prevEvolutionName = evolutionChain[i];
 
         try {
-          // Strip form suffix (e.g., "Slowking (Galarian)" -> "slowking")
-          const fileName = prevEvolutionName
-            .toLowerCase()
-            .replace(/\s*\([^)]*\)/g, '')
-            .replace(/[ -]/g, '-');
+          // Normalize name for file lookup (e.g., "Mr. Mime (Galarian)" -> "mrmime")
+          const fileName = normalizePokemonNameToFileId(prevEvolutionName);
           const response = await fetch(`/new/pokemon/${fileName}.json`);
           if (response.ok) {
             const prevPokemonData = await response.json();

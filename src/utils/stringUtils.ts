@@ -777,3 +777,52 @@ export function formatItemName(item: string): string {
     .join(' ')
     .trim();
 }
+
+/**
+ * Normalizes a Pokemon display name to its file ID format.
+ * Strips form suffixes (e.g., "(Galarian)") and removes all special characters.
+ *
+ * Examples:
+ *   - "Mr. Mime" -> "mrmime"
+ *   - "Mr. Mime (Galarian)" -> "mrmime"
+ *   - "Ho-Oh" -> "hooh"
+ *   - "Farfetch'd" -> "farfetchd"
+ *   - "Nidoran♀" -> "nidoranf"
+ *   - "Nidoran♂" -> "nidoranm"
+ *   - "Flabébé" -> "flabebe"
+ *   - "Mime Jr." -> "mimejr"
+ */
+export function normalizePokemonNameToFileId(name: string): string {
+  const charMap: Record<string, string> = {
+    '♂': 'm',
+    '♀': 'f',
+    'é': 'e',
+  };
+
+  return name
+    .toLowerCase()
+    .replace(/\s*\([^)]*\)/g, '') // Remove form suffixes
+    .split('')
+    .reduce((acc, char) => {
+      if (charMap[char]) return acc + charMap[char];
+      if (/[a-z0-9]/.test(char)) return acc + char;
+      return acc; // Skip all other characters
+    }, '');
+}
+
+/**
+ * Extracts the form key from a Pokemon display name.
+ *
+ * Examples:
+ *   - "Meowth (Alolan)" -> "alolan"
+ *   - "Mr. Mime (Galarian)" -> "galarian"
+ *   - "Tauros (Paldean Fire)" -> "paldeanfire"
+ *   - "Slowking" -> "plain"
+ */
+export function extractFormKeyFromName(name: string): string {
+  const formMatch = name.match(/\(([^)]+)\)/);
+  if (!formMatch) return 'plain';
+
+  // Normalize form name: lowercase and remove spaces
+  return formMatch[1].toLowerCase().replace(/\s+/g, '');
+}
