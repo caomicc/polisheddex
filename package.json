@@ -20,7 +20,8 @@
     "process-sprites": "python3 process_sprites.py --all",
     "process-pokemon": "python3 process_sprites.py --pokemon",
     "process-trainers": "python3 process_sprites.py --trainers",
-    "update-rom": "cd polishedcrystal && git pull origin master && cd .."
+    "update-rom": "cd polishedcrystal && git pull origin master && cd ..",
+    "update-rom:hns": "cd pokemonHnS && git pull origin main && cd .."
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",
