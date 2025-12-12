@@ -91,7 +91,7 @@ export default function Home() {
           >
             <Button variant="default" size="lg" asChild>
               <Link
-                href="https://github.com/Rangi42/polishedcrystal/releases/tag/v3.2.2"
+                href="https://github.com/Rangi42/polishedcrystal/releases/tag/v3.2.3"
                 target="_blank"
                 className="flex items-center gap-2 w-60"
               >
