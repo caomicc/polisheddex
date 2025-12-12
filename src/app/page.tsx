@@ -27,7 +27,7 @@ export default function Home() {
           <div className="absolute mx-auto h-px w-40 bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
         </div> */}
         <div className="py-10 md:py-20">
-          <h1 className="relative z-10 mx-auto max-w-3xl text-center text-3xl font-bold text-slate-700 md:text-4xl lg:text-6xl dark:text-slate-300">
+          <h1 className="relative z-10 mx-auto max-w-4xl text-center text-balance text-3xl font-bold text-slate-700 md:text-4xl lg:text-6xl dark:text-slate-300">
             {'Your Polished Crystal Journey Starts Here'.split(' ').map((word, index) => (
               <motion.span
                 key={index}
@@ -115,7 +115,7 @@ export default function Home() {
             }}
             className="relative z-10 mt-20 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900"
           >
-            <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <BentoGrid className="max-w-5xl mx-auto md:auto-rows-[20rem] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {getItems(false).map((item, i) => (
                 <BentoGridItem
                   key={i}
