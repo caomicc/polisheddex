@@ -63,18 +63,18 @@ export function FeedbackForm() {
         <Accordion.Root type="single" collapsible>
           <Accordion.Item
             value="feedback"
-            className="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 overflow-hidden shadow-md"
+            className="rounded-xl border border-red-200 dark:border-red-800 bg-red-100 dark:bg-red-900 overflow-hidden shadow-md"
           >
             <Accordion.Header>
-              <Accordion.Trigger className="group flex w-full items-center justify-between px-4 py-3 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50 transition-colors">
+              <Accordion.Trigger className="group flex w-full items-center justify-between px-4 py-3 text-sm font-bold text-red-700 dark:text-red-300 hover:bg-red-200/50 dark:hover:bg-red-800/50 transition-colors">
                 <span className="flex items-center gap-2">
-                  <AlertCircle className="size-4 text-amber-500" />
+                  <AlertCircle className="size-4 text-red-900" />
                   Found an error or have feedback?
                 </span>
                 <ChevronDown className="size-4 text-neutral-500 transition-transform duration-200 group-data-[state=open]:rotate-180" />
               </Accordion.Trigger>
             </Accordion.Header>
-            <Accordion.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+            <Accordion.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down bg-neutral-50 dark:bg-neutral-900">
               <div className="px-4 py-4 border-t border-neutral-200 dark:border-neutral-800">
                 {isSubmitted ? (
                   <div className="flex flex-col items-center justify-center py-6 text-center">
